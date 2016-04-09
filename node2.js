@@ -464,42 +464,48 @@ app.post('/showstudents', function (req, res) {
         // res.json(studentids);
         if(req.body.gpa == 'all'){
             //send student details
-            var queryString = "select login.photoid, "+
-                "student.firstname, "+
-                "student.lastname, student.country, student.gender, "+
-                "student.studentid from login inner join student on "+
-                "cast(login.username as int) = cast(student.studentid as int)"+
-                " where student.id in(" + studentids + ");"
-            var rows = [];
-            // res.json(queryString);
-            var query = baseClient.query(queryString);
-            query.on('row', function(row) {
-                rows.push(row);
-            });
-            query.on('end', function(result) {
-                console.log('selectstudent: ' + result.rowCount + ' rows');
-                // console.log(rows);
-                res.json(rows);
-            });
+            showStudents(studentids, res);
 
         }else{
-            var queryString = "select avg(gpa), studentid from education group by " +
-                "studentid having studentid in (" + req.body.studentids + ") and avg(gpa) "+req.body.gpa+";"
-                
+            var queryString = "select student.id from education group by " +
+                "studentid having student.id in (" + studentids + ") and avg(gpa) "+req.body.gpa+";"
+            var studentidsNew ='';
             var rows = [];
             // res.json(queryString);
             var query = baseClient.query(queryString);
             query.on('row', function(row) {
-                rows.push(row);
+                // rows.push(row);
+                studentidsNew += "'" + row.id + "',";
             });
             query.on('end', function(result) {
                 console.log('getgpa: ' + result.rowCount + ' rows');
                 // console.log(rows);
-                res.json(rows);
+                studentidsNew = studentidsNew.substring(0, studentidsNew.length-1);
+                showStudents(studentidsNew, res);
             });
         }
     });
 });
+
+function showStudents(studentids, res){
+    var queryString = "select login.photoid, "+
+        "student.firstname, "+
+        "student.lastname, student.country, student.gender, "+
+        "student.studentid from login inner join student on "+
+        "cast(login.username as int) = cast(student.studentid as int)"+
+        " where student.id in(" + studentids + ");"
+    var rows = [];
+    // res.json(queryString);
+    var query = baseClient.query(queryString);
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('selectstudent: ' + result.rowCount + ' rows');
+        // console.log(rows);
+        res.json(rows);
+    });
+}
 
 //average gpa
 app.post('/getgpa', function (req, res) {
