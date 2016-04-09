@@ -790,7 +790,8 @@ app.post('/dashboardstudentcountry', function (req, res) {
 app.post('/viewstudentachievedbyjobid', function (req, res) {
     console.log('viewstudentachievedbyjobid:' + req.body.id);
     
-    var queryString = "select login.photoid, student.firstname, "+
+    var queryString = "select student_job_achieved.id, login.photoid, "+
+    "student.firstname, "+
     "student.lastname, student.country, student.gender, "+
     "student.studentid from login inner join student on "+
     "cast(login.username as int) = cast(student.studentid as int) "+
@@ -814,7 +815,8 @@ app.post('/viewstudentachievedbyjobid', function (req, res) {
 app.post('/viewstudentinterestbyjobid', function (req, res) {
     console.log('viewstudentinterestbyjobid:' + req.body.id);
     
-    var queryString = "select login.photoid, student.firstname, "+
+    var queryString = "select student_job_interest.id, login.photoid, "+
+    "student.firstname, "+
     "student.lastname, student.country, student.gender, "+
     "student.studentid from login inner join student on "+
     "cast(login.username as int) = cast(student.studentid as int) "+
