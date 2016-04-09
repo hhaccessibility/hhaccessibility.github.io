@@ -1,0 +1,1 @@
+HOST = "http://macinternship2.herokuapp.com";
