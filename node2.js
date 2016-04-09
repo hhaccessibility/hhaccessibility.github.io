@@ -459,7 +459,7 @@ app.post('/showstudents', function (req, res) {
     });
     query.on('end', function(result) {
         console.log('showstudents: ' + result.rowCount + ' rows');
-        // console.log(rows);
+        console.log('studentids: ' + studentids);
         studentids = studentids.substring(0, studentids.length-1);
         // res.json(studentids);
         if(req.body.gpa == 'all'){
