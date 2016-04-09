@@ -442,7 +442,7 @@ app.post('/showstudents', function (req, res) {
     //salary
     var salary = req.body.salary == "all"?"(salary is NOT NULL OR salary is NULL)":"(cast(salary as int) " + req.body.salary + ")";
 
-    var queryString = "SELECT distinct on (username) * " + 
+    var queryString = "SELECT distinct on (username) *, student.id as studentrowid " + 
     "FROM login inner join student on login.username = student.studentid left join " + 
     " student_job_achieved on student.studentid = student_job_achieved.studentid " +
     "left join job on cast(student_job_achieved.jobid as int) = job.id where " + display + " and " +
