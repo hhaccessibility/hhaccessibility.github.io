@@ -472,14 +472,14 @@ app.post('/showstudents', function (req, res) {
             var studentidsNew ='';
             var rows = [];
             // res.json(queryString);
-            var query = baseClient.query(queryString);
-            query.on('row', function(row) {
+            var query2 = baseClient.query(queryString);
+            query2.on('row', function(row) {
                 // rows.push(row);
                 studentidsNew += "'" + row.id + "',";
             });
-            query.on('end', function(result) {
+            query2.on('end', function(result) {
                 console.log('getgpa: ' + result.rowCount + ' rows');
-                // console.log(rows);
+                console.log(studentidsNew);
                 studentidsNew = studentidsNew.substring(0, studentidsNew.length-1);
                 showStudents(studentidsNew, res);
             });
