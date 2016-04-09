@@ -471,7 +471,7 @@ app.post('/showstudents', function (req, res) {
                 "studentid having student.id in (" + studentids + ") and avg(gpa) "+req.body.gpa+";"
             var studentidsNew ='';
             var rows = [];
-            // res.json(queryString);
+            res.json(queryString);
             var query2 = baseClient.query(queryString);
             query2.on('row', function(row) {
                 // rows.push(row);
