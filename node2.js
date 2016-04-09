@@ -461,7 +461,7 @@ app.post('/showstudents', function (req, res) {
         console.log('showstudents: ' + result.rowCount + ' rows');
         // console.log(rows);
         studentids = studentids.substring(0, studentids.length-1);
-        res.json(studentids);
+        // res.json(studentids);
         if(req.body.gpa == 'all'){
             //send student details
             var queryString = "select login.photoid, "+
