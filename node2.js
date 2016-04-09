@@ -462,6 +462,42 @@ app.post('/showstudents', function (req, res) {
         // console.log(rows);
         studentids = studentids.substring(0, studentids.length-1);
         res.json(studentids);
+        if(req.body.gpa == 'all'){
+            //send student details
+            var queryString = "select login.photoid, "+
+                "student.firstname, "+
+                "student.lastname, student.country, student.gender, "+
+                "student.studentid from login inner join student on "+
+                "cast(login.username as int) = cast(student.studentid as int)"+
+                " where student.id in(" + studentids + ");"
+            var rows = [];
+            // res.json(queryString);
+            var query = baseClient.query(queryString);
+            query.on('row', function(row) {
+                rows.push(row);
+            });
+            query.on('end', function(result) {
+                console.log('selectstudent: ' + result.rowCount + ' rows');
+                // console.log(rows);
+                res.json(rows);
+            });
+
+        }else{
+            var queryString = "select avg(gpa), studentid from education group by " +
+                "studentid having studentid in (" + req.body.studentids + ") and avg(gpa) "+req.body.gpa+";"
+                
+            var rows = [];
+            // res.json(queryString);
+            var query = baseClient.query(queryString);
+            query.on('row', function(row) {
+                rows.push(row);
+            });
+            query.on('end', function(result) {
+                console.log('getgpa: ' + result.rowCount + ' rows');
+                // console.log(rows);
+                res.json(rows);
+            });
+        }
     });
 });
 
