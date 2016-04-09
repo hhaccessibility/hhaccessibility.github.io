@@ -846,6 +846,7 @@ app.post('/viewstudentachievedbystudentid', function (req, res) {
     "inner join student_job_achieved on cast(student.studentid as int) "+
     "= cast(student_job_achieved.studentid as int) inner join job on "+
     "cast(student_job_achieved.jobid as int) = job.id "+
+    "inner join company on company.id = cast(job.companyid as int) "+
     "where ";
     queryString += " cast(student.studentid as int) = " + req.body.username;
     
@@ -869,6 +870,7 @@ app.post('/viewstudentinterestbystudentid', function (req, res) {
     "inner join student_job_interest on cast(student.studentid as int) "+
     "= cast(student_job_interest.studentid as int) inner join job on "+
     "cast(student_job_interest.jobid as int) = job.id "+
+    "inner join company on company.id = cast(job.companyid as int) "+
     "where ";
     queryString += " cast(student.studentid as int) = " + req.body.username;
     
