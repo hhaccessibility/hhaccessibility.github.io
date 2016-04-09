@@ -428,7 +428,7 @@ app.post('/showstudents', function (req, res) {
     display += " AND ";
     display += req.body.country == "all"?"(country like '%')":"(country = '" + req.body.country + "')";
     display += " AND ";
-    display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = " + req.body.semesterregistered + ")";
+    display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
     display += " AND ";
     display += req.body.internshipstatus == "all"?"(internshipstatus like '%')":"(internshipstatus = '" + req.body.internshipstatus + "')";
 
