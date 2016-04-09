@@ -467,7 +467,9 @@ app.post('/showstudents', function (req, res) {
             showStudents(studentids, res);
 
         }else{
-            var queryString = "select student.id from education group by " +
+            var queryString = "select student.id from education "+
+                "inner join student on cast(student.studentid as int) = "+
+                "cast(education.studentid as int) group by " +
                 "studentid having student.id in (" + studentids + ") and avg(gpa) "+req.body.gpa+";"
             var studentidsNew ='';
             var rows = [];
