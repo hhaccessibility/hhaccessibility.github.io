@@ -486,6 +486,10 @@ app.post('/showstudents', function (req, res) {
             query2.on('end', function(result) {
                 console.log('getgpa: ' + result.rowCount + ' rows');
                 console.log(studentidsNew);
+                if(studentidsNew.length == 0){
+                    res.json(rows);
+                    return 1;
+                }
                 studentidsNew = studentidsNew.substring(0, studentidsNew.length-1);
                 showStudents(studentidsNew, res);
             });
