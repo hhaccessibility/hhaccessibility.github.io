@@ -840,10 +840,8 @@ app.post('/viewstudentinterestbyjobid', function (req, res) {
 app.post('/viewstudentachievedbystudentid', function (req, res) {
     console.log('viewstudentachievedbystudentid:' + req.body.username);
     
-    var queryString = "select student_job_achieved.id, login.photoid, "+
-    "student.firstname, "+
-    "student.lastname, student.country, student.gender, "+
-    "student.studentid from login inner join student on "+
+    var queryString = "select student_job_achieved.id, * "+
+    "from login inner join student on "+
     "cast(login.username as int) = cast(student.studentid as int) "+
     "inner join student_job_achieved on cast(student.studentid as int) "+
     "= cast(student_job_achieved.studentid as int) inner join job on "+
@@ -865,10 +863,8 @@ app.post('/viewstudentachievedbystudentid', function (req, res) {
 app.post('/viewstudentinterestbystudentid', function (req, res) {
     console.log('viewstudentinterestbystudentid:' + req.body.username);
     
-    var queryString = "select student_job_interest.id, login.photoid, "+
-    "student.firstname, "+
-    "student.lastname, student.country, student.gender, "+
-    "student.studentid from login inner join student on "+
+    var queryString = "select student_job_interest.interestid, * "+
+    "from login inner join student on "+
     "cast(login.username as int) = cast(student.studentid as int) "+
     "inner join student_job_interest on cast(student.studentid as int) "+
     "= cast(student_job_interest.studentid as int) inner join job on "+
