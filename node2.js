@@ -863,7 +863,7 @@ app.post('/viewstudentachievedbystudentid', function (req, res) {
 app.post('/viewstudentinterestbystudentid', function (req, res) {
     console.log('viewstudentinterestbystudentid:' + req.body.username);
     
-    var queryString = "select student_job_interest.interestid, * "+
+    var queryString = "select student_job_interest.id, * "+
     "from login inner join student on "+
     "cast(login.username as int) = cast(student.studentid as int) "+
     "inner join student_job_interest on cast(student.studentid as int) "+
