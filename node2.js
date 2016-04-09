@@ -422,13 +422,13 @@ app.post('/showstudents', function (req, res) {
     var rows = [];
     var studentids = '';
     //student info
-    var display = req.body.gender == "all"?"(gender like '%')":"(gender like '%" + req.body.gender + "%')";
+    var display = req.body.gender == "all"?"(gender like '%')":"(gender like '" + req.body.gender + "')";
     display += " AND ";
     display += req.body.residentstatus == "all"?"(residentstatus like '%')":"(residentstatus = '" + req.body.residentstatus + "')";
     display += " AND ";
     display += req.body.country == "all"?"(country like '%')":"(country = '" + req.body.country + "')";
     display += " AND ";
-    display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
+    display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = " + req.body.semesterregistered + ")";
     display += " AND ";
     display += req.body.internshipstatus == "all"?"(internshipstatus like '%')":"(internshipstatus = '" + req.body.internshipstatus + "')";
 
