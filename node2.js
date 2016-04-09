@@ -411,13 +411,13 @@ app.post('/showstudents', function (req, res) {
     console.log('showstudents: parameters');
     
     //search
-    var searchQuery = "(firstname is NOT NULL OR firstname is NULL) OR " +
+    var searchQuery = "((firstname is NOT NULL OR firstname is NULL) OR " +
         "(middlename is NOT NULL OR middlename is NULL) OR " + 
-        "(lastname is NOT NULL OR lastname is NULL)";
+        "(lastname is NOT NULL OR lastname is NULL))";
     if(req.body.search.length > 0){
-        searchQuery = "(firstname like '%" + req.body.search + "%') OR " +
+        searchQuery = "((firstname like '%" + req.body.search + "%') OR " +
             "(middlename like '%" + req.body.search + "%') OR " + 
-            "(lastname like '%" + req.body.search + "%')";
+            "(lastname like '%" + req.body.search + "%'))";
     }
     var rows = [];
     var studentids = '';
