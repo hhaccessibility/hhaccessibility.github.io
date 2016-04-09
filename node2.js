@@ -454,12 +454,16 @@ app.post('/showstudents', function (req, res) {
     // res.json(queryString);
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
-        rows.push(row);
+        // rows.push(row);
         studentids += "'" + row.id + "',";
     });
     query.on('end', function(result) {
         console.log('showstudents: ' + result.rowCount + ' rows');
         console.log('studentids: ' + studentids);
+        if(studentids.length == 0){
+            res.json(rows);
+            return 1;
+        }
         studentids = studentids.substring(0, studentids.length-1);
         // res.json(studentids);
         if(req.body.gpa == 'all'){
