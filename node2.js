@@ -849,7 +849,7 @@ app.post('/viewstudentachievedbystudentid', function (req, res) {
     "= cast(student_job_achieved.studentid as int) inner join job on "+
     "cast(student_job_achieved.jobid as int) = job.id "+
     "where ";
-    queryString += " student.studentid = " + req.body.username;
+    queryString += " cast(student.studentid as int) = " + req.body.username;
     
     var rows = [];
     var query = baseClient.query(queryString);
@@ -874,7 +874,7 @@ app.post('/viewstudentinterestbystudentid', function (req, res) {
     "= cast(student_job_interest.studentid as int) inner join job on "+
     "cast(student_job_interest.jobid as int) = job.id "+
     "where ";
-    queryString += " student.studentid = " + req.body.username;
+    queryString += " cast(student.studentid as int) = " + req.body.username;
     
     var rows = [];
     var query = baseClient.query(queryString);
