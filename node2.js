@@ -420,6 +420,7 @@ app.post('/showstudents', function (req, res) {
             "(lastname like '%" + req.body.search + "%')";
     }
     var rows = [];
+    var studentids = '';
     //student info
     var display = req.body.gender == "all"?"(gender like '%')":"(gender like '%" + req.body.gender + "%')";
     display += " AND ";
@@ -442,7 +443,7 @@ app.post('/showstudents', function (req, res) {
     //salary
     var salary = req.body.salary == "all"?"(salary is NOT NULL OR salary is NULL)":"(cast(salary as int) " + req.body.salary + ")";
 
-    var queryString = "SELECT distinct on (username) *, student.id as studentrowid " + 
+    var queryString = "SELECT distinct on (student.id) student.id " + 
     "FROM login inner join student on login.username = student.studentid left join " + 
     " student_job_achieved on student.studentid = student_job_achieved.studentid " +
     "left join job on cast(student_job_achieved.jobid as int) = job.id where " + display + " and " +
@@ -454,11 +455,13 @@ app.post('/showstudents', function (req, res) {
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         rows.push(row);
+        studentids += "'" + row.id + "',";
     });
     query.on('end', function(result) {
         console.log('showstudents: ' + result.rowCount + ' rows');
         // console.log(rows);
-        res.json(rows);
+        studentids = studentids.substring(0, studentids.length-1);
+        res.json(studentids);
     });
 });
 
