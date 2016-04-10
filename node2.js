@@ -431,7 +431,7 @@ app.post('/showstudents', function (req, res) {
     display += " AND ";
     display += req.body.country == "all"?"(country like '%')":"(country = '" + req.body.country + "')";
     display += " AND ";
-    display += req.body.companyid == "all"?"(job.companyid != -1)":"(job.companyid = '" + req.body.companyid + "')";
+    display += req.body.companyid == "all"?"(job.companyid != -1)":"(job.companyid = " + req.body.companyid + ")";
     display += " AND ";
     display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
     display += " AND ";
