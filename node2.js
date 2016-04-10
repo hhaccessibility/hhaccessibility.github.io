@@ -706,8 +706,9 @@ app.post('/viewallsemester', function (req, res) {
 app.post('/addsemester', function (req, res) {
     console.log('addsemester:' + req.body.semester + ', ' + req.body.year);
     
-    var queryString = "INSERT INTO semesterregistered (semester, year) values " +
-    "('" + req.body.semester + "','" + req.body.year + "');";
+    var queryString = "SELECT * FROM semesterregistered where "+
+    "semester='" + req.body.semester+"' and "+
+    "year='" + req.body.year + "'";
     
     // res.json(queryString);
     
@@ -717,8 +718,28 @@ app.post('/addsemester', function (req, res) {
         rows.push(row);
     });
     query.on('end', function(result) {
-        res.json('added');
+        console.log('addsemestercheck: ' + result.rowCount + ' rows');
+        // res.json(rows);
+        if(result.rowCount < 1){
+            var queryString2 = "INSERT INTO semesterregistered (semester, year) values " +
+                "('" + req.body.semester + "','" + req.body.year + "');";
+                
+            // res.json(queryString);
+            
+            var rows2 = [];
+            var query2 = baseClient.query(queryString2);
+            query2.on('row', function(row) {
+                rows2.push(row);
+            });
+            query2.on('end', function(result) {
+                res.json('added');
+            });
+        }else{
+            res.json('not added');
+        }
     });
+
+    
 });
 
 app.post('/deletedatafromtable', function (req, res) {
