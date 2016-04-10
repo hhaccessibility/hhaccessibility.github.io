@@ -411,6 +411,7 @@ function parseTwitterDate(tdate) {
 //SELECT STUDENTS
 app.post('/showstudents', function (req, res) {
     console.log('showstudents: parameters');
+    console.log('1');
     
     //search
     var searchQuery = "((firstname is NOT NULL OR firstname is NULL) OR " +
@@ -422,6 +423,8 @@ app.post('/showstudents', function (req, res) {
             "(student.studentid like '%" + req.body.search + "%') OR " + 
             "(lastname like '%" + req.body.search + "%'))";
     }
+    console.log('2');
+
     var rows = [];
     var studentids = '';
     //student info
@@ -461,7 +464,8 @@ app.post('/showstudents', function (req, res) {
     salary + " and " +
     searchQuery;
 
-    // res.json(queryString);
+    console.log('3');
+    console.log(queryString);
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         // rows.push(row);
