@@ -417,11 +417,13 @@ app.post('/showstudents', function (req, res) {
     var searchQuery = "((firstname is NOT NULL OR firstname is NULL) OR " +
         "(middlename is NOT NULL OR middlename is NULL) OR " + 
         "(lastname is NOT NULL OR lastname is NULL))";
-    if(req.body.search.length > 0){
-        searchQuery = "((firstname like '%" + req.body.search + "%') OR " +
-            "(middlename like '%" + req.body.search + "%') OR " + 
-            "(student.studentid like '%" + req.body.search + "%') OR " + 
-            "(lastname like '%" + req.body.search + "%'))";
+    if(req.body.search != undefined){
+        if(req.body.search.length > 0){
+            searchQuery = "((firstname like '%" + req.body.search + "%') OR " +
+                "(middlename like '%" + req.body.search + "%') OR " + 
+                "(student.studentid like '%" + req.body.search + "%') OR " + 
+                "(lastname like '%" + req.body.search + "%'))";
+        }
     }
     console.log('2');
 
