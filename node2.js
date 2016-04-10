@@ -991,7 +991,6 @@ app.post('/addskill', function (req, res) {
 
 app.post('/viewskill', function (req, res) {
     console.log('viewskill:' + req.body.username);
-    insertFeed(req.body.username, 'updated skills set');
 
     var rows = [];
     var queryString = "select * from skill where " +
