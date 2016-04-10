@@ -993,7 +993,14 @@ app.post('/viewskill', function (req, res) {
     var rows = [];
     var queryString = "select * from skill where " +
     "studentid = '" + req.body.username + "';"; 
-    console.log(queryString)
+    // console.log(queryString)
+    var rows = [];
     var query = baseClient.query(queryString);
-    res.json('updateskill');
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('viewskill: ' + result.rowCount + ' rows');
+        res.json(rows);
+    });
 });
