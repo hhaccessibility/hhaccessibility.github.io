@@ -502,8 +502,8 @@ function showStudents(studentids, res){
         "student.firstname, student.internshipstatus,"+
         "student.lastname, student.residentstatus, student.country, student.gender, "+
         "student.studentid from login inner join student on "+
-        "cast(login.username as int) = cast(student.studentid as int)"+
-        " where student.id in(" + studentids + ");"
+        "login.username = student.studentid "+
+        "where student.id in(" + studentids + ");"
     var rows = [];
     // res.json(queryString);
     var query = baseClient.query(queryString);
