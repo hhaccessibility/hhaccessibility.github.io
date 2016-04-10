@@ -541,8 +541,11 @@ app.post('/viewstudent', function (req, res) {
     console.log('viewstudent:' + req.body.username);
     
    var rows = [];
-    var queryString = "SELECT * FROM student inner join semesterregistered on " +
-    "cast(student.semesterregistered as int) = semesterregistered.id where studentid = '" + req.body.username + "';";
+    var queryString = "SELECT login.photoid, student.*, "+
+    "semesterregistered.* FROM login inner join student on "+
+    "login.username = student.studentid inner join semesterregistered "+
+    "on cast(student.semesterregistered as int) = semesterregistered.id "+
+    "where studentid = '" + req.body.username + "';";
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         rows.push(row);
