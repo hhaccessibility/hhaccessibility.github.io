@@ -431,12 +431,13 @@ app.post('/showstudents', function (req, res) {
     display += " AND ";
     display += req.body.country == "all"?"(country like '%')":"(country = '" + req.body.country + "')";
     display += " AND ";
+    display += req.body.companyid == "all"?"(job.companyid != -1)":"(job.companyid = '" + req.body.companyid + "')";
+    display += " AND ";
     display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
     display += " AND ";
     display += req.body.currentgpa == "all"?"(currentgpa != -1)":"(currentgpa " + req.body.currentgpa + ")";
     display += " AND ";
     display += req.body.internshipstatus == "all"?"(internshipstatus like '%')":"(internshipstatus = '" + req.body.internshipstatus + "')";
-
 
     //job
     var hired = "(student_job_achieved.jobid is NOT NULL OR student_job_achieved.jobid is NULL)";
@@ -447,12 +448,15 @@ app.post('/showstudents', function (req, res) {
     }
 
     //salary
-    var salary = req.body.salary == "all"?"(salary is NOT NULL OR salary is NULL)":"(cast(salary as int) " + req.body.salary + ")";
+    var salary = req.body.salary == "all"?"(salary is NOT NULL OR "+
+    "salary is NULL)":"(cast(salary as int) " + req.body.salary + ")";
 
     var queryString = "SELECT distinct on (student.id) student.id " + 
-    "FROM login inner join student on login.username = student.studentid left join " + 
+    "FROM login inner join student on login.username = student.studentid "+
+    "left join " + 
     " student_job_achieved on student.studentid = student_job_achieved.studentid " +
-    "left join job on cast(student_job_achieved.jobid as int) = job.id where " + display + " and " +
+    "left join job on cast(student_job_achieved.jobid as int) = job.id where " + 
+    display + " and " +
     hired + " and " +
     salary + " and " +
     searchQuery;
