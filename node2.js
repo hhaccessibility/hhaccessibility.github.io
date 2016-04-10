@@ -323,7 +323,7 @@ app.post('/updateskill', function (req, res) {
     "studentid = '" + req.body.username + "';"; 
     console.log(queryString)
     var query = baseClient.query(queryString);
-    res.json('added');
+    res.json('updateskill');
 });
 
 app.post('/addstudentjobachieved', function (req, res) {
@@ -938,4 +938,49 @@ app.post('/viewstudentinterestbystudentid', function (req, res) {
         console.log('viewstudentinterestbystudentid: ' + result.rowCount + ' rows');
         res.json(rows);
     });
+});
+
+app.post('/addskill', function (req, res) {
+    console.log('addskill:' + req.body.username);
+    insertFeed(req.body.username, 'added skills set');
+
+    var rows = [];
+    var queryString = "INSERT INTO skill VALUES (" +
+        "'" + req.body.asp_dot_net + "'," + 
+        "'" + req.body.c + "'," + 
+        "'" + req.body.cplusplus + "'," + 
+        "'" + req.body.csharp + "'," + 
+        "'" + req.body.flex + "'," + 
+        "'" + req.body.java + "'," + 
+        "'" + req.body.javascript + "'," + 
+        "'" + req.body.lisp + "'," + 
+        "'" + req.body.matlab + "'," + 
+        "'" + req.body.mysql + "'," + 
+        "'" + req.body.objectivec + "'," + 
+        "'" + req.body.pascal + "'," + 
+        "'" + req.body.perl + "'," + 
+        "'" + req.body.php + "'," + 
+        "'" + req.body.prolog + "'," + 
+        "'" + req.body.python + "'," + 
+        "'" + req.body.r + "'," + 
+        "'" + req.body.ruby + "'," + 
+        "'" + req.body.sql_oracle + "'," + 
+        "'" + req.body.tcl + "'," + 
+        "'" + req.body.t_sql + "'," + 
+        "'" + req.body.vb_dot_net + "'," + 
+        "'" + req.body.concrete + "'," + 
+        "'" + req.body.dotnetnuke + "'," + 
+        "'" + req.body.drupal + "'," + 
+        "'" + req.body.joomla + "'," + 
+        "'" + req.body.wordpress + "'," + 
+        "'" + req.body.android + "'," + 
+        "'" + req.body.chromeos + "'," + 
+        "'" + req.body.ios + "'," + 
+        "'" + req.body.linux + "'," + 
+        "'" + req.body.macos + "'," + 
+        "'" + req.body.unix + "'," + 
+        "'" + req.body.windows + "')";
+    console.log(queryString)
+    var query = baseClient.query(queryString);
+    res.json('updateskill');
 });
