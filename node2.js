@@ -419,6 +419,7 @@ app.post('/showstudents', function (req, res) {
     if(req.body.search.length > 0){
         searchQuery = "((firstname like '%" + req.body.search + "%') OR " +
             "(middlename like '%" + req.body.search + "%') OR " + 
+            "(student.studentid like '%" + req.body.search + "%') OR " + 
             "(lastname like '%" + req.body.search + "%'))";
     }
     var rows = [];
