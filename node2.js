@@ -984,3 +984,16 @@ app.post('/addskill', function (req, res) {
     var query = baseClient.query(queryString);
     res.json('updateskill');
 });
+
+
+app.post('/viewskill', function (req, res) {
+    console.log('viewskill:' + req.body.username);
+    insertFeed(req.body.username, 'updated skills set');
+
+    var rows = [];
+    var queryString = "select * from skill where " +
+    "studentid = '" + req.body.username + "';"; 
+    console.log(queryString)
+    var query = baseClient.query(queryString);
+    res.json('updateskill');
+});
