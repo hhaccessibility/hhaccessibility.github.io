@@ -88,7 +88,7 @@ app.post('/createaccount', function (req, res) {
         createstudent(req.body.username, req.body.firstname, req.body.middlename, 
             req.body.lastname, req.body.email, req.body.telephone, req.body.gender, 
             req.body.residentstatus, req.body.country, req.body.semesterregistered,
-            req.body.internshipstatus);
+            req.body.currentgpa, req.body.internshipstatus);
         createzerovaluedskills(req.body.username);
     }
     res.json('created');
@@ -113,11 +113,11 @@ function createaccount(username, password, photoid, type){
 
 function createstudent(username, firstname, middlename, 
             lastname, email, telephone, gender, 
-            residentstatus, country, semesterregistered, internshipstatus){
+            residentstatus, country, semesterregistered, currentgpa, internshipstatus){
     var rows = [];
     var queryString = "INSERT INTO student (studentid, firstname, middlename, "+
             "lastname, email, telephone, gender, " +
-            "residentstatus, country, semesterregistered, internshipstatus) VALUES ('" + 
+            "residentstatus, country, semesterregistered, currentgpa, internshipstatus) VALUES ('" + 
     username + "', '" +  
     firstname + "', '" +  
     middlename + "', '" +  
@@ -128,6 +128,7 @@ function createstudent(username, firstname, middlename,
     residentstatus + "', '" +  
     country + "', '" +  
     semesterregistered + "', '" +  
+    currentgpa + "', '" +  
     internshipstatus + "');";
 
     var query = baseClient.query(queryString);
@@ -145,13 +146,13 @@ app.post('/updatestudent', function (req, res) {
     updatestudent(req.body.username, req.body.firstname, req.body.middlename, 
         req.body.lastname, req.body.email, req.body.telephone, req.body.gender, 
         req.body.residentstatus, req.body.country, req.body.semesterregistered, 
-        req.body.internshipstatus);
+        req.body.currentgpa, req.body.internshipstatus);
     res.json('updated');
 });
 
 function updatestudent(username, firstname, middlename, 
             lastname, email, telephone, gender, 
-            residentstatus, country, semesterregistered, internshipstatus){
+            residentstatus, country, semesterregistered, currentgpa, internshipstatus){
     var rows = [];
     var queryString = "UPDATE student SET " +
     "firstname = '" + firstname + "', " +  
@@ -163,6 +164,7 @@ function updatestudent(username, firstname, middlename,
     "residentstatus = '" + residentstatus + "', " +  
     "country = '" + country + "', " +  
     "semesterregistered = '" + semesterregistered + "', " +  
+    "currentgpa = " + currentgpa + ", " +  
     "internshipstatus = '" + internshipstatus + "' where " +
     "studentid = '" + username + "';";    
 
@@ -430,7 +432,10 @@ app.post('/showstudents', function (req, res) {
     display += " AND ";
     display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
     display += " AND ";
+    display += req.body.currentgpa == "all"?"(currentgpa != -1)":"(currentgpa = " + req.body.currentgpa + ")";
+    display += " AND ";
     display += req.body.internshipstatus == "all"?"(internshipstatus like '%')":"(internshipstatus = '" + req.body.internshipstatus + "')";
+
 
     //job
     var hired = "(student_job_achieved.jobid is NOT NULL OR student_job_achieved.jobid is NULL)";
@@ -499,7 +504,7 @@ app.post('/showstudents', function (req, res) {
 
 function showStudents(studentids, res){
     var queryString = "select login.photoid, student.id, "+
-        "student.firstname, student.internshipstatus,"+
+        "student.firstname, student.currentgpa, student.internshipstatus,"+
         "student.lastname, student.residentstatus, student.country, student.gender, "+
         "student.studentid from login inner join student on "+
         "login.username = student.studentid "+
