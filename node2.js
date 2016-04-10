@@ -977,6 +977,7 @@ app.post('/addskill', function (req, res) {
 
     var rows = [];
     var queryString = "INSERT INTO skill VALUES (" +
+        "'" + req.body.username + "'," + 
         "'" + req.body.asp_dot_net + "'," + 
         "'" + req.body.c + "'," + 
         "'" + req.body.cplusplus + "'," + 
@@ -1013,7 +1014,7 @@ app.post('/addskill', function (req, res) {
         "'" + req.body.windows + "')";
     console.log(queryString)
     var query = baseClient.query(queryString);
-    res.json('updateskill');
+    res.json('addskill');
 });
 
 
