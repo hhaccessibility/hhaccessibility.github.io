@@ -880,7 +880,7 @@ app.post('/viewstudentachievedbyjobid', function (req, res) {
     "student.firstname, "+
     "student.lastname, student.country, student.gender, "+
     "student.studentid from login inner join student on "+
-    "cast(login.username as int) = cast(student.studentid as int) "+
+    "login.username = student.studentid "+
     "inner join student_job_achieved on cast(student.studentid as int) "+
     "= cast(student_job_achieved.studentid as int) inner join job on "+
     "cast(student_job_achieved.jobid as int) = job.id "+
@@ -905,7 +905,7 @@ app.post('/viewstudentinterestbyjobid', function (req, res) {
     "student.firstname, "+
     "student.lastname, student.country, student.gender, "+
     "student.studentid from login inner join student on "+
-    "cast(login.username as int) = cast(student.studentid as int) "+
+    "login.username = student.studentid "+
     "inner join student_job_interest on cast(student.studentid as int) "+
     "= cast(student_job_interest.studentid as int) inner join job on "+
     "cast(student_job_interest.jobid as int) = job.id "+
@@ -928,7 +928,7 @@ app.post('/viewstudentachievedbystudentid', function (req, res) {
     
     var queryString = "select student_job_achieved.id as superid, * "+
     "from login inner join student on "+
-    "cast(login.username as int) = cast(student.studentid as int) "+
+    "login.username = student.studentid "+
     "inner join student_job_achieved on cast(student.studentid as int) "+
     "= cast(student_job_achieved.studentid as int) inner join job on "+
     "cast(student_job_achieved.jobid as int) = job.id "+
@@ -952,7 +952,7 @@ app.post('/viewstudentinterestbystudentid', function (req, res) {
     
     var queryString = "select student_job_interest.id as superid, * "+
     "from login inner join student on "+
-    "cast(login.username as int) = cast(student.studentid as int) "+
+    "login.username = student.studentid "+
     "inner join student_job_interest on cast(student.studentid as int) "+
     "= cast(student_job_interest.studentid as int) inner join job on "+
     "cast(student_job_interest.jobid as int) = job.id "+
