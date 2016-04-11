@@ -614,7 +614,7 @@ app.post('/viewstudentworkexperience', function (req, res) {
     console.log('viewstudentworkexperience:' + req.body.username);
     
    var rows = [];
-    var queryString = "SELECT * FROM workexperience inner join company " +
+    var queryString = "SELECT workexperience.id as superid, * FROM workexperience inner join company " +
     "on cast(workexperience.companyid as int) = company.id where studentid = '" + req.body.username + "';";
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
