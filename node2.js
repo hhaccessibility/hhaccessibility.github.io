@@ -523,6 +523,8 @@ function showStudents(studentids, res){
         "login.username = student.studentid "+
         "where student.id in(" + studentids + ");"
     var rows = [];
+    console.log('this is what we need');
+    console.log(queryString);
     // res.json(queryString);
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
