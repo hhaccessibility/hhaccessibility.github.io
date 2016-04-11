@@ -340,7 +340,7 @@ app.post('/updateskill', function (req, res) {
     "linux = " + req.body.linux + "," + 
     "macos = " + req.body.macos + "," + 
     "unix = " + req.body.unix + "," + 
-    "windows = " + req.body.windows + "' where " +
+    "windows = " + req.body.windows + " where " +
     "studentid = '" + req.body.username + "';"; 
     console.log(queryString)
     var query = baseClient.query(queryString);
