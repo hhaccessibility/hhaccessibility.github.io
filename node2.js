@@ -261,7 +261,7 @@ app.post('/viewinternship', function (req, res) {
     console.log('viewinternship:' + req.body.username);
 
     var rows = [];
-    var queryString = "INSERT * from internship";
+    var queryString = "select * from internship";
 
      var query = baseClient.query(queryString);
     query.on('row', function(row) {
