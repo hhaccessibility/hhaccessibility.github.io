@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="dist/css/superskins.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
     <!-- Morris chart -->
@@ -138,10 +138,10 @@
                       <b>Position</b> <a class="pull-right" id="position"></a>
                     </li>
                     <li class="list-group-item">
-                      <b>Description</b> <br/><a class="pull-right" id="description"></a><br/><br/>
+                      <b>Description</b> <br/><a class="pull-right" id="description"></a><br/><br/><br/>
                     </li>
                     <li class="list-group-item">
-                      <b>Responsibilities</b><br/> <a class="pull-right" id="responsibilities"></a><br/><br/>
+                      <b>Responsibilities</b><br/> <a class="pull-right" id="responsibilities"></a><br/><br/><br/>
                     </li>
 
                     <li class="list-group-item">
@@ -188,6 +188,35 @@
                     </table>
 
                   	</div><!-- /.tab-pane -->
+                </div><!-- /.tab-content -->
+              </div><!-- /.nav-tabs-custom -->
+            </div><!-- /.col -->
+
+            <div class="col-md-9">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#activity" data-toggle="tab">Interested Students</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+
+                    <table class="highchart" data-graph-container-before="1" data-graph-type="column" width="100%">
+                    <thead>
+                      <tr>
+                          <th width="15%"></th>
+                          <th width="15%">Name</th>
+                          <th width="15%">Country</th>
+                          <th width="15%">Gender</th>
+                          <th width="15%">Student ID</th>
+                          <th width="5%"></th>
+                          <th width="5%"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableentry2">
+                    </tbody>
+                    </table>
+
+                    </div><!-- /.tab-pane -->
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
@@ -269,7 +298,7 @@
           id: id,
         },
         function(data, status){
-          	console.log(data)
+          	// console.log(data)
 
           	$('#position').text(toTitleCase(data[0].position));
           	$('#description').text(data[0].description);
@@ -291,22 +320,20 @@
     getcompanydetails(id);
     
 
-                          // <th width="15%">Name</th>
-                          // <th width="15%">Country</th>
-                          // <th width="15%">Gender</th>
-                          // <th width="15%">Student ID</th>
-                          // <th width="10%"></th>
-
-    function getstudentachievedbyjobid(id){
-      $.post(HOST + "/viewstudentachievedbyjobid",
+    function getstudentbyjobid(id, url, table, idOfTable){
+      $.post(HOST + "/" + url,
         {
           id: id
         },
         function(data, status){
-          $("#tableentry").empty();
+          console.log(data);
+          $("#" + idOfTable).empty();
           for(var i=0; i<data.length; i++){
             var valueToAppend = '<tr><td>'+
-                '<center></center></td><td>'+
+            '<center><img src="'+
+                data[i].photoid +
+                '" class="user-image" alt="User Image" style="height: 50px;">'+
+                '</center></td><td>'+
                 '<a href="viewstudent.html?id='+
                 data[i].studentid+
                 '">'+
@@ -316,21 +343,33 @@
                 '</td><td>'+
                 toTitleCase(data[i].gender)+
                 '</td><td>'+
-                 data[i].studentid+
-                '</td><td>'+
+                 data[i].studentid;
+                if(table == 'student_job_interest'){
+                  valueToAppend+= '</td><td>'+
+                  '<img src="dist/img/up.jpg" height="20px" width="20px"'+
+                  'rowname="'+data[i].firstname+'" '+
+                  'studentid="'+data[i].studentid+'"'+
+                  'table1="student_job_achieved" '+
+                  'student_job_interestid="'+data[i].id+'" '+
+                  'jobid="'+getUrlVars()["id"]+'" '+
+                  'table2="'+table+'" '+
+                  ' onclick="upimagetap(this)" />';
+                }
+                valueToAppend += '</td><td>'+
                 '<img src="dist/img/delete.png" height="20px" width="20px"'+
                 'rowid="'+data[i].id+'" '+
                 'rowname="'+data[i].firstname+'" '+
-                'table="student_job_achieved"'+
-                ' onclick="deleteimagetap(this)" />'+
-                '</td></tr>'
-             $("#tableentry").append(valueToAppend);
+                'table="'+table+'"'+
+                ' onclick="deleteimagetap(this)" />';
+                valueToAppend +='</td></tr>'
+             $("#" + idOfTable).append(valueToAppend);
 
              }          
       });
     }
 
-    getstudentachievedbyjobid(id);
+    getstudentbyjobid(id, 'viewstudentachievedbyjobid', 'student_job_achieved','tableentry');
+    getstudentbyjobid(id, 'viewstudentinterestbyjobid', 'student_job_interest','tableentry2');
     
 
 

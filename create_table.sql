@@ -18,6 +18,7 @@ gender TEXT,
 residentstatus TEXT,
 country TEXT,
 semesterregistered TEXT,
+currentgpa real,
 internshipstatus TEXT);
 
 create table internship (
@@ -120,13 +121,11 @@ sql_oracle int default 0,
 tcl int default 0,
 t_sql int default 0,
 vb_dot_net int default 0,
-
 concrete int default 0,
 dotnetnuke int default 0,
 drupal int default 0,
 joomla int default 0,
 wordpress int default 0,
-
 android int default 0,
 chromeos int default 0,
 ios int default 0,

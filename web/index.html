@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="dist/css/superskins.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
     <!-- Morris chart -->
@@ -193,6 +193,15 @@
             </section><!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
             <section class="col-lg-5 connectedSortable">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+              
+             
+
+
+
+            </section><!-- right col -->
+
+            <section class="col-lg-12 connectedSortable">
 
               <!-- Map box -->
               <div class="box box-solid bg-light-blue-gradient">
@@ -212,13 +221,15 @@
 
               </div>
               <!-- /.box -->
-             
-              
-
-
-
-            </section><!-- right col -->
+                <br/>
+              </section>
+            <section class="col-lg-12 connectedSortable">
+              <div id="chartContainer3" style="height: 500px; width: 100%;"></div>
+            </section>
+                         
           </div><!-- /.row (main row) -->
+
+
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
@@ -230,13 +241,15 @@
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-
+    <script src="http://www.google.com/jsapi"></script>
     <!-- jQuery 2.1.4 -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="dist/js/canvasjs.min.js"></script>
     
+    <script src="dist/js/chartkick.js"></script>
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);
@@ -339,30 +352,188 @@
           
           var points = [];
           for(var i=0; i<data.length; i++){
-            data[i].y=parseInt(data[i].count);
-            data[i].label=data[i].country ;
-            points.push(data[i]);
+            var innerpoints = [];
+            innerpoints[0]=data[i].country ;
+            innerpoints[1]=parseInt(data[i].count);
+            points.push(innerpoints);
           }
-        var chart = new CanvasJS.Chart("chartContainer2",
+          console.log(points)
+          new Chartkick.GeoChart("chartContainer2", 
+            points
+          );
+
+        // var chart = new CanvasJS.Chart("chartContainer2",
+        // {
+        //   animationEnabled: true,
+        //   title:{
+        //     text: ""
+        //   },
+        //   data: [
+        //   {
+        //     type: "column", //change type to bar, line, area, pie, etc
+        //     dataPoints: points
+        //   }
+        //   ]
+        //   });
+
+        // chart.render();
+      });
+
+    }
+
+    getstudentcountry();
+
+    function dashboardskilltotal(){
+      var points = [];
+      function addToSkillDisplay(id, value){
+        var newid = id.replace(/_/g , " ");
+        newid = newid.toUpperCase();
+        var data = {
+          label: newid,
+          y: parseInt(value)
+        };
+        points.push(data);
+      }
+      $.post(HOST + "/dashboardskilltotal",
         {
-          animationEnabled: true,
-          title:{
-            text: ""
-          },
-          data: [
-          {
-            type: "column", //change type to bar, line, area, pie, etc
-            dataPoints: points
-          }
-          ]
-          });
+        },
+        function(data, status){
+          
+          
+          addToSkillDisplay('asp_dot_net', data[0].asp_dot_net); 
+          addToSkillDisplay('c', data[0].c); 
+          addToSkillDisplay('cplusplus', data[0].cplusplus); 
+          addToSkillDisplay('csharp', data[0].csharp); 
+          addToSkillDisplay('flex', data[0].flex); 
+          addToSkillDisplay('java', data[0].java); 
+          addToSkillDisplay('javascript', data[0].javascript); 
+          addToSkillDisplay('lisp', data[0].lisp); 
+          addToSkillDisplay('matlab', data[0].matlab); 
+          addToSkillDisplay('mysql', data[0].mysql); 
+          addToSkillDisplay('objectivec', data[0].objectivec); 
+          addToSkillDisplay('pascal', data[0].pascal); 
+          addToSkillDisplay('perl', data[0].perl); 
+          addToSkillDisplay('php', data[0].php); 
+          addToSkillDisplay('prolog', data[0].prolog); 
+          addToSkillDisplay('python', data[0].python); 
+          addToSkillDisplay('r', data[0].r); 
+          addToSkillDisplay('ruby', data[0].ruby); 
+          addToSkillDisplay('sql_oracle', data[0].sql_oracle); 
+          addToSkillDisplay('tcl', data[0].tcl); 
+          addToSkillDisplay('t_sql', data[0].t_sql); 
+          addToSkillDisplay('vb_dot_net', data[0].vb_dot_net); 
+          addToSkillDisplay('concrete', data[0].concrete); 
+          addToSkillDisplay('dotnetnuke', data[0].dotnetnuke); 
+          addToSkillDisplay('drupal', data[0].drupal); 
+          addToSkillDisplay('joomla', data[0].joomla); 
+          addToSkillDisplay('wordpress', data[0].wordpress); 
+          addToSkillDisplay('android', data[0].android); 
+          addToSkillDisplay('chromeos', data[0].chromeos); 
+          addToSkillDisplay('ios', data[0].ios); 
+          addToSkillDisplay('linux', data[0].linux); 
+          addToSkillDisplay('macos', data[0].macos); 
+          addToSkillDisplay('unix', data[0].unix); 
+          addToSkillDisplay('windows', data[0].windows);
+
+          points = points.sort(compare);
+          var chart = new CanvasJS.Chart("chartContainer3", {
+
+      title:{
+        text:"Skill Set"        
+
+      },
+                        animationEnabled: true,
+      axisX:{
+        interval: 1,
+        gridThickness: 0,
+        labelFontSize: 10,
+        labelFontStyle: "normal",
+        labelFontWeight: "normal",
+        labelFontFamily: "Lucida Sans Unicode"
+
+      },
+      axisY2:{
+        interlacedColor: "rgba(1,77,101,.2)",
+        gridColor: "rgba(1,77,101,.1)"
+
+      },
+
+      data: [
+      {     
+        type: "bar",
+                name: "companies",
+        axisYType: "secondary",
+        color: "#014D65",       
+        dataPoints: points
+      }
+      
+      ]
+    });
 
         chart.render();
       });
 
     }
 
-    getstudentcountry();
+    dashboardskilltotal();
+
+
+function getdashboardlikedpositions(){
+
+      $.post(HOST + "/dashboardlikedpositions",
+        {
+        },
+        function(data, status){
+          
+          var points = [];
+          for(var i=0; i<data.length; i++){
+            data[i].y=parseInt(data[i].count);
+            data[i].legendText=toTitleCase(data[i].position) ;
+            data[i].indexLabel=toTitleCase(data[i].position) ;
+            points.push(data[i]);
+          }
+          points = points.sort(compare);
+          points[points.length-1].exploded = true;
+          var chart = new CanvasJS.Chart("chartContainer4",
+          {
+            title:{
+              text: "Students Interested in Positions"
+            },
+                        animationEnabled: true,
+            legend:{
+              verticalAlign: "bottom",
+              horizontalAlign: "center"
+            },
+            data: [
+            {        
+              indexLabelFontSize: 20,
+              indexLabelFontFamily: "Monospace",       
+              indexLabelFontColor: "darkgrey", 
+              indexLabelLineColor: "darkgrey",        
+              indexLabelPlacement: "outside",
+              type: "pie",       
+              showInLegend: true,
+              toolTipContent: "{y} - <strong>#percent%</strong>",
+              dataPoints: points
+            }
+            ]
+          });
+        chart.render();
+      });
+
+    }
+
+    getdashboardlikedpositions();
+
+    // setInterval(function(){
+
+    //   findcount('company');
+    //   findcount('job');
+    //   findcount('student');
+    //   findcount('semesterregistered');
+    //   getjobstodisplay();
+    //   getstudentcountry();
+    // }, 10000);
 
     $.get("aside.html", function(data) {
       $("#mainsidebarapp").html(data);
