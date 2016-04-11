@@ -261,7 +261,8 @@ app.post('/viewinternship', function (req, res) {
     console.log('viewinternship:' + req.body.username);
 
     var rows = [];
-    var queryString = "select * from internship inner join company on "+
+    var queryString = "select internship.id as superid,* from internship "+
+    "inner join company on "+
     "cast(internship.companyid as int) = company.id where studentid = '"+
     req.body.username +"'";
 
