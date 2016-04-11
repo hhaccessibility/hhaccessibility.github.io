@@ -257,6 +257,22 @@ app.post('/addinternship', function (req, res) {
     res.json('added');
 });
 
+app.post('/viewinternship', function (req, res) {
+    console.log('viewinternship:' + req.body.username);
+
+    var rows = [];
+    var queryString = "INSERT * from internship";
+
+     var query = baseClient.query(queryString);
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('viewstudent: ' + result.rowCount + ' rows');
+        res.json(rows);
+    });
+});
+
 app.post('/addjob', function (req, res) {
     console.log('addjob:' + req.body.username);
     insertFeed(req.body.username, 'posted a new job');
