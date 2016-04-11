@@ -884,6 +884,43 @@ app.post('/dashboardstudentcountry', function (req, res) {
     });
 });
 
+app.post('/dashboardlikedpositions', function (req, res) {
+    console.log('dashboardlikedpositions:');
+    
+    var queryString = "select count(*), position from job inner join student_job_interest on job.id = cast(student_job_interest.jobid as int) group by position";
+
+    // res.json(queryString);
+    
+    var rows = [];
+    var query = baseClient.query(queryString);
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('dashboardlikedpositions: ' + result.rowCount + ' rows');
+        res.json(rows);
+    });
+});
+
+app.post('/dashboardskilltotal', function (req, res) {
+    console.log('dashboardskilltotal:');
+    
+    var queryString = "select sum(asp_dot_net) as asp_dot_net, sum(c) as c, sum(cplusplus) as cplusplus, sum(csharp) as csharp, sum(flex) as flex, sum(java) as java, sum(javascript) as javascript, sum(lisp) as lisp, sum(matlab) as matlab, sum(mysql) as mysql, sum(objectivec) as objectivec, sum(pascal) as pascal, sum(perl) as perl, sum(php) as php, sum(prolog) as prolog, sum(python) as python, sum(r) as r, sum(ruby) as ruby, sum(sql_oracle) as sql_oracle, sum(tcl) as tcl, sum(t_sql) as t_sql, sum(vb_dot_net) as vb_dot_net, sum(concrete) as concrete, sum(dotnetnuke) as dotnetnuke, sum(drupal) as drupal, sum(joomla) as joomla, sum(wordpress) as wordpress, sum(android) as android, sum(chromeos) as chromeos, sum(ios) as ios, sum(linux) as linux, sum(macos) as macos, sum(unix) as unix, sum(windows) as windows from skill";
+    // res.json(queryString);
+    
+    var rows = [];
+    var query = baseClient.query(queryString);
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('dashboardskilltotal: ' + result.rowCount + ' rows');
+        res.json(rows);
+    });
+});
+
+
+
 app.post('/viewstudentachievedbyjobid', function (req, res) {
     console.log('viewstudentachievedbyjobid:' + req.body.id);
     
