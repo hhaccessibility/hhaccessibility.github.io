@@ -919,6 +919,21 @@ app.post('/dashboardskilltotal', function (req, res) {
     });
 });
 
+app.post('/dashboardeducationcompany', function (req, res) {
+    console.log('dashboardeducationcompany:');
+    
+    var queryString = "select count(*), education.university, company.companyname from education inner join student_job_achieved on education.studentid = student_job_achieved.studentid inner join job on cast(student_job_achieved.jobid as int) = job.id inner join company on cast(job.companyid as int) = company.id group by education.university, company.companyname";
+
+    var rows = [];
+    var query = baseClient.query(queryString);
+    query.on('row', function(row) {
+        rows.push(row);
+    });
+    query.on('end', function(result) {
+        console.log('dashboardeducationcompany: ' + result.rowCount + ' rows');
+        res.json(rows);
+    });
+});
 
 
 app.post('/viewstudentachievedbyjobid', function (req, res) {
