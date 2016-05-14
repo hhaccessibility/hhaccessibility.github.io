@@ -925,8 +925,9 @@ app.post('/dashboardlikedpositions', function (req, res) {
 
 app.post('/dashboardskilltotal', function (req, res) {
     console.log('dashboardskilltotal:');
-        
-    var queryString = "select sum(a001), sum(a002), sum(a003), sum(a004), sum(a005), sum(a006), sum(a007), sum(a008), sum(a009), sum(a010), sum(a011), sum(a012), sum(a013), sum(a014), sum(a015), sum(a016), sum(a017), sum(a018), sum(a019), sum(a020), sum(a021), sum(a022), sum(a023), sum(a024), sum(a025), sum(a026), sum(a027), sum(a028), sum(a029), sum(a030), sum(a031), sum(a032) frokm skill";
+    
+    
+    var queryString = "select sum(a001), sum(a002), sum(a003), sum(a004), sum(a005), sum(a006), sum(a007), sum(a008), sum(a009), sum(a010), sum(a011), sum(a012), sum(a013), sum(a014), sum(a015), sum(a016), sum(a017), sum(a018), sum(a019), sum(a020), sum(a021), sum(a022), sum(a023), sum(a024), sum(a025), sum(a026), sum(a027), sum(a028), sum(a029), sum(a030), sum(a031), sum(a032) from skill";
 
     var rows = [];
     var query = baseClient.query(queryString);
