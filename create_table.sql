@@ -120,16 +120,6 @@ a018 int default 0,
 a019 int default 0,
 a020 int default 0,
 a021 int default 0,
-a022 int default 0,
-a023 int default 0,
-a024 int default 0,
-a025 int default 0,
-a026 int default 0,
-a027 int default 0,
-a028 int default 0,
-a029 int default 0,
-a030 int default 0,
-a031 int default 0,
-a032 int default 0
+a022 int default 0
 );
 

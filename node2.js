@@ -328,17 +328,7 @@ app.post('/updateskill', function (req, res) {
 "a019 = " + req.body.a019 + "," +
 "a020 = " + req.body.a020 + "," +
 "a021 = " + req.body.a021 + "," +
-"a022 = " + req.body.a022 + "," +
-"a023 = " + req.body.a023 + "," +
-"a024 = " + req.body.a024 + "," +
-"a025 = " + req.body.a025 + "," +
-"a026 = " + req.body.a026 + "," +
-"a027 = " + req.body.a027 + "," +
-"a028 = " + req.body.a028 + "," +
-"a029 = " + req.body.a029 + "," +
-"a030 = " + req.body.a030 + "," +
-"a031 = " + req.body.a031 + "," +
-"a032 = " + req.body.a032 + " where " +
+"a022 = " + req.body.a022 + " where " +
     "studentid = '" + req.body.username + "';"; 
     console.log(queryString)
     var query = baseClient.query(queryString);
