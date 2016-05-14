@@ -186,7 +186,7 @@
                   <!-- <li class="active">Area</li> -->
                 </ul>
                 <div class="tab-content no-padding">
-                  <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+                  <div id="chartContainer3" style="height: 600px; width: 100%;"></div>
                 </div>
               </div><!-- /.nav-tabs-custom -->
             
@@ -367,7 +367,7 @@
         },
         function(data, status){
           console.log(data);
-          
+
           addToSkillDisplay('a001', data[0].a001)
 addToSkillDisplay('a002', data[0].a002)
 addToSkillDisplay('a003', data[0].a003)
@@ -405,7 +405,7 @@ addToSkillDisplay('a032', data[0].a032)
           var chart = new CanvasJS.Chart("chartContainer3", {
 
       title:{
-        text:"Skill Set"        
+        text:"Accessible Buildings"        
 
       },
                         animationEnabled: true,

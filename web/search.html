@@ -307,22 +307,13 @@
       );
     }
        
-    getcompanies('all', 'all', 'all', 'yes');
+    // getcompanies('all', 'all', 'all', 'yes');
 
-    function getallstudents(search, gender, residentstatus, country, semesterregistered, internshipstatus, salary, gpa, currentgpa, companyid, init){
+    function getallstudents(search){
     	$('#loadingimage').show();
       $.post(HOST + "/showstudents",
         {
           search: search,
-          gender: gender,
-          residentstatus: residentstatus,
-          country: country,
-          semesterregistered: semesterregistered,
-          currentgpa: currentgpa,
-          internshipstatus: internshipstatus,
-          salary: salary,
-          gpa: gpa,
-          companyid: companyid
         },
 		function(data, status){
           	console.log(data);
@@ -366,35 +357,13 @@
 		          	valuesInternshipstatus.push(data[i].internshipstatus);
 	            }
             }     
-            if(init == 'yes'){
-	            var valuesGenderNew = valuesGender.filter( onlyUnique );
-	            var valuesResidentstatusNew = valuesResidentstatus.filter( onlyUnique );
-	            var valuesCountryNew = valuesCountry.filter( onlyUnique );
-	            var valuesInternshipstatusNew = valuesInternshipstatus.filter( onlyUnique );
-	            
-	            addToSelectField('gender', valuesGenderNew);
-	            addToSelectField('residentstatus', valuesResidentstatusNew);
-	            addToSelectField('country', valuesCountryNew);
-	            addToSelectField('internshipstatus', valuesInternshipstatusNew);
-	            
-
-	            
-          }     
+                 
       });
     }
 
-    getallstudents('', 'all', 'all', 'all', 'all', 'all', 'all', 'all', 'all', 'all', 'yes');
+    getallstudents('');
 
-    $.post(HOST + "/viewallsemester",
-    {
-    },
-	function(data, status){
-		var dayNew = document.getElementById('semesterregisteredfield');
-            for(var i=0; i<data.length;i++)
-            dayNew.options[dayNew.options.length] = 
-              new Option(toTitleCase(data[i].semester+ ' ' + data[i].year), data[i].id);
-
-	});
+    
 
 	$(document).ready(function() {
 	  $('table.highchart').highchartTable();

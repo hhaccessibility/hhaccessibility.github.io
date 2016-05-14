@@ -432,48 +432,18 @@ app.post('/showstudents', function (req, res) {
                 "(lastname like '%" + req.body.search + "%'))";
         }
     }
-    console.log('2');
 
     var rows = [];
     var studentids = '';
     //student info
-    var display = req.body.gender == "all"?"(gender like '%')":"(gender like '" + req.body.gender + "')";
-    display += " AND ";
-    display += req.body.residentstatus == "all"?"(residentstatus like '%')":"(residentstatus = '" + req.body.residentstatus + "')";
-    display += " AND ";
-    display += req.body.country == "all"?"(country like '%')":"(country = '" + req.body.country + "')";
-    display += " AND ";
-    display += req.body.companyid == "all"?"(job.companyid is NOT NULL OR job.companyid is NULL)":"(job.companyid = '" + req.body.companyid + "')";
-    display += " AND ";
-    display += req.body.semesterregistered == "all"?"(semesterregistered like '%')":"(semesterregistered = '" + req.body.semesterregistered + "')";
-    display += " AND ";
-    display += req.body.currentgpa == "all"?"(currentgpa != -1)":"(currentgpa " + req.body.currentgpa + ")";
-    display += " AND ";
-    display += req.body.internshipstatus == "all"?"(internshipstatus like '%')":"(internshipstatus = '" + req.body.internshipstatus + "')";
-
-    //job
-    var hired = "(student_job_achieved.jobid is NOT NULL OR student_job_achieved.jobid is NULL)";
-    if(req.body.hired == "true"){
-        hired = "(student_job_achieved.jobid is NOT NULL)";
-    }else if(req.body.hired == "false"){
-        hired = "(student_job_achieved.jobid is NULL)";
-    }
-
-    //salary
-    var salary = req.body.salary == "all"?"(salary is NOT NULL OR "+
-    "salary is NULL)":"(cast(salary as int) " + req.body.salary + ")";
-
+    
     var queryString = "SELECT distinct on (student.id) student.id " + 
     "FROM login inner join student on login.username = student.studentid "+
     "left join " + 
     " student_job_achieved on student.studentid = student_job_achieved.studentid " +
     "left join job on cast(student_job_achieved.jobid as int) = job.id where " + 
-    display + " and " +
-    hired + " and " +
-    salary + " and " +
     searchQuery;
 
-    console.log('3');
     console.log(queryString);
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
