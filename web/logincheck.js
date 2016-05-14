@@ -1,4 +1,4 @@
-HOST = "http://macinternship2.herokuapp.com";
+HOST = "http://hhaccessibility.herokuapp.com";
 if(localStorage.username == undefined){
 	window.location.replace("login.html");
 }
