@@ -254,31 +254,19 @@
 
           for(var i=0; i<data.length; i++){
             var valueToAppend = '<tr><td>'+
-            '<center><img src="'+
+            '<center><img src="images/'+
                 data[i].photoid +
-                '" class="user-image" alt="User Image" style="height: 50px;">'+
+                '.jpg" class="user-image" alt="User Image" style="height: 50px;">'+
                 '</center></td><td>'+
                 // '<a href="viewstudent.html?id='+
-                data[i].studentid+
-                '">'+
+                data[i].firstname+
+                // '">'+
                 toTitleCase(data[i].firstname)+
-                '</td><td>'+
-                data[i].studentid;
-                valueToAppend += '</td><td>'+
-                '<img src="dist/img/delete.png" height="20px" width="20px"'+
-                'rowid="'+data[i].id+'" '+
-                'rowname="'+data[i].firstname+'" '+
-                'table="student"'+
-                ' onclick="deleteimagetap(this)" />';
-                valueToAppend +='</td></tr>'
+                '</td>';
+                valueToAppend +='</tr>'
              	$("#tableentry").append(valueToAppend);
 
-	            if(init == 'yes'){
-	             	valuesGender.push(data[i].gender);
-		          	valuesResidentstatus.push(data[i].residentstatus);
-		          	valuesCountry.push(data[i].country);
-		          	valuesInternshipstatus.push(data[i].internshipstatus);
-	            }
+	            
             }     
                  
       });
@@ -305,60 +293,8 @@
 
 		var e1 = $('#searchstudent').val();
 
-		var e2 = document.getElementById("genderfield");
-		var se2 = e2.options[e2.selectedIndex].value;
-
-		var e3 = document.getElementById("residentstatusfield");
-		var se3 = e3.options[e3.selectedIndex].value;
-
-		var e4 = document.getElementById("countryfield");
-		var se4 = e4.options[e4.selectedIndex].value;
-
-		var e5 = document.getElementById("semesterregisteredfield");
-		var se5 = e5.options[e5.selectedIndex].value;
-
-		var e6 = document.getElementById("internshipstatusfield");
-		var se6 = e6.options[e6.selectedIndex].value;
-
-		var e7 = document.getElementById("salary1field");
-		var se7 = e7.options[e7.selectedIndex].value;
-
-		var e8 = document.getElementById("salary2field");
-		var se8 = e8.options[e8.selectedIndex].value;
-
-		var e9 = document.getElementById("gpa1field");
-		var se9 = e9.options[e9.selectedIndex].value;
-
-		var e10 = document.getElementById("gpa2field");
-		var se10 = e10.options[e10.selectedIndex].value;
-
-    var e11 = document.getElementById("currentgpa1field");
-    var se11 = e11.options[e11.selectedIndex].value;
-
-    var e12 = document.getElementById("currentgpa2field");
-    var se12 = e12.options[e12.selectedIndex].value;
-
-    var e13 = document.getElementById("companyid");
-    var se13 = e13.options[e13.selectedIndex].value;
-
-		if(se8 == 'all'){
-			se7 ='all'
-		}else{
-			se7 = se7+se8;
-		}
-		if(se10 == 'all'){
-			se9 ='all'
-		}else{
-			se9 = se9+se10;
-		}
-    if(se12 == 'all'){
-      se11 ='all'
-    }else{
-      se11 = se11+se12;
-    }
-
-		console.log(e1, se2, se3, se4, se5, se6, se7, se9, se11, se13, 'no')
-		getallstudents(e1, se2, se3, se4, se5, se6, se7, se9, se11, se13, 'no')
+		
+		getallstudents(e1)
     }
 
     </script>
