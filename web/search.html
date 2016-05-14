@@ -121,7 +121,7 @@
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Student</li>
+            <li class="active">Search</li>
           </ol>
         </section>
 
@@ -259,7 +259,7 @@
           search: search,
         },
 		function(data, status){
-          	console.log(data);
+          	// console.log(data);
     	 	$("#tableentry").empty();
         	$('#loadingimage').hide();
 
@@ -276,7 +276,7 @@
                 '.jpg" class="user-image" alt="User Image" style="height: 50px;">'+
                 '</center></td><td>'+
                 '<a href="viewplace.html?id='+
-                data[i].id+
+                data[i].username+
                 '">'+
                 toTitleCase(data[i].firstname)+
                 '</td>';
@@ -350,7 +350,7 @@
         var markers = [];
 
     function setupMapsAgain(locations){
-        console.log(locations)
+        // console.log(locations)
         markers = [];
         for (i = 0; i < locations.length; i++) {  
           marker = new google.maps.Marker({

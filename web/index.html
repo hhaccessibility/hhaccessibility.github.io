@@ -222,7 +222,6 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    <script src="main.js"></script>
     
     <!-- Bootstrap 3.3.5 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -254,6 +253,7 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+
     <script type="text/javascript">
     function findcount(object) {
         
@@ -354,10 +354,8 @@
     function dashboardskilltotal(){
       var points = [];
       function addToSkillDisplay(id, value){
-        var newid = id.replace(/_/g , " ");
-        newid = newid.toUpperCase();
         var data = {
-          label: newid,
+          label: getAppropriateName(id),
           y: parseInt(value)
         };
         points.push(data);
@@ -369,37 +367,27 @@
           console.log(data);
 
           addToSkillDisplay('a001', data[0].a001)
-addToSkillDisplay('a002', data[0].a002)
-addToSkillDisplay('a003', data[0].a003)
-addToSkillDisplay('a004', data[0].a004)
-addToSkillDisplay('a005', data[0].a005)
-addToSkillDisplay('a006', data[0].a006)
-addToSkillDisplay('a007', data[0].a007)
-addToSkillDisplay('a008', data[0].a008)
-addToSkillDisplay('a009', data[0].a009)
-addToSkillDisplay('a010', data[0].a010)
-addToSkillDisplay('a011', data[0].a011)
-addToSkillDisplay('a012', data[0].a012)
-addToSkillDisplay('a013', data[0].a013)
-addToSkillDisplay('a014', data[0].a014)
-addToSkillDisplay('a015', data[0].a015)
-addToSkillDisplay('a016', data[0].a016)
-addToSkillDisplay('a017', data[0].a017)
-addToSkillDisplay('a018', data[0].a018)
-addToSkillDisplay('a019', data[0].a019)
-addToSkillDisplay('a020', data[0].a020)
-addToSkillDisplay('a021', data[0].a021)
-addToSkillDisplay('a022', data[0].a022)
-addToSkillDisplay('a023', data[0].a023)
-addToSkillDisplay('a024', data[0].a024)
-addToSkillDisplay('a025', data[0].a025)
-addToSkillDisplay('a026', data[0].a026)
-addToSkillDisplay('a027', data[0].a027)
-addToSkillDisplay('a028', data[0].a028)
-addToSkillDisplay('a029', data[0].a029)
-addToSkillDisplay('a030', data[0].a030)
-addToSkillDisplay('a031', data[0].a031)
-addToSkillDisplay('a032', data[0].a032)
+          addToSkillDisplay('a002', data[0].a002)
+          addToSkillDisplay('a003', data[0].a003)
+          addToSkillDisplay('a004', data[0].a004)
+          addToSkillDisplay('a005', data[0].a005)
+          addToSkillDisplay('a006', data[0].a006)
+          addToSkillDisplay('a007', data[0].a007)
+          addToSkillDisplay('a008', data[0].a008)
+          addToSkillDisplay('a009', data[0].a009)
+          addToSkillDisplay('a010', data[0].a010)
+          addToSkillDisplay('a011', data[0].a011)
+          addToSkillDisplay('a012', data[0].a012)
+          addToSkillDisplay('a013', data[0].a013)
+          addToSkillDisplay('a014', data[0].a014)
+          addToSkillDisplay('a015', data[0].a015)
+          addToSkillDisplay('a016', data[0].a016)
+          addToSkillDisplay('a017', data[0].a017)
+          addToSkillDisplay('a018', data[0].a018)
+          addToSkillDisplay('a019', data[0].a019)
+          addToSkillDisplay('a020', data[0].a020)
+          addToSkillDisplay('a021', data[0].a021)
+          addToSkillDisplay('a022', data[0].a022)
 
           points = points.sort(compare);
           var chart = new CanvasJS.Chart("chartContainer3", {
@@ -505,7 +493,12 @@ function getdashboardlikedpositions(){
       $("#mainsidebarapp").html(data);
     });
 
+
+
+
+
     </script>
+    <script src="main.js"></script>
 
   </body>
   
