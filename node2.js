@@ -443,7 +443,6 @@ app.post('/showstudents', function (req, res) {
     searchQuery;
 
     console.log(queryString);
-    return 0;
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         // rows.push(row);
@@ -458,35 +457,7 @@ app.post('/showstudents', function (req, res) {
             // return 1;
         }else{
             studentids = studentids.substring(0, studentids.length-1);
-            // res.json(studentids);
-            if(req.body.gpa == 'all'){
-                //send student details
-                showStudents(studentids, res);
-
-            }else{
-                var queryString = "select student.id from education "+
-                    "inner join student on cast(student.studentid as int) = "+
-                    "cast(education.studentid as int) group by " +
-                    "student.id having student.id in (" + studentids + ") and avg(gpa) "+req.body.gpa+";"
-                var studentidsNew ='';
-                var rows = [];
-                // res.json(queryString);
-                var query2 = baseClient.query(queryString);
-                query2.on('row', function(row) {
-                    // rows.push(row);
-                    studentidsNew += "'" + row.id + "',";
-                });
-                query2.on('end', function(result) {
-                    console.log('getgpa: ' + result.rowCount + ' rows');
-                    console.log(studentidsNew);
-                    if(studentidsNew.length == 0){
-                        res.json(rows);
-                        return 1;
-                    }
-                    studentidsNew = studentidsNew.substring(0, studentidsNew.length-1);
-                    showStudents(studentidsNew, res);
-                });
-            }
+            showStudents(studentids, res);
         }
     });
 });
