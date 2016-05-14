@@ -464,7 +464,7 @@ app.post('/showstudents', function (req, res) {
 
 function showStudents(studentids, res){
     var queryString = "select login.photoid, student.id, "+
-        "student.firstname, student.middlename, student.lastname, student.email, "
+        "student.firstname, student.middlename, student.lastname, student.email, "+
         "student.telephone from login inner join student on "+
         "login.username = student.studentid "+
         "where student.id in(" + studentids + ");"
