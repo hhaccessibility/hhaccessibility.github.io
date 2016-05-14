@@ -149,21 +149,14 @@ app.post('/updatestudent', function (req, res) {
 });
 
 function updatestudent(username, firstname, middlename, 
-            lastname, email, telephone, gender, 
-            residentstatus, country, semesterregistered, currentgpa, internshipstatus){
+            lastname, email, telephone){
     var rows = [];
     var queryString = "UPDATE student SET " +
     "firstname = '" + firstname + "', " +  
     "middlename = '" + middlename + "', " +  
     "lastname = '" + lastname + "', " +  
     "email = '" + email + "', " +  
-    "telephone = '" + telephone + "', " +  
-    "gender = '" + gender + "', " +  
-    "residentstatus = '" + residentstatus + "', " +  
-    "country = '" + country + "', " +  
-    "semesterregistered = '" + semesterregistered + "', " +  
-    "currentgpa = " + currentgpa + ", " +  
-    "internshipstatus = '" + internshipstatus + "' where " +
+    "telephone = '" + telephone + "', " + "' where " +
     "studentid = '" + username + "';";    
 
     var query = baseClient.query(queryString);

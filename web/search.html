@@ -121,7 +121,7 @@
 
         <!-- Main content -->
         <section class="content">
-          <div class="col-md-12">
+          <div class="col-md-3">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li><a data-toggle="tab">
@@ -134,11 +134,8 @@
                     <table class="highchart" data-graph-container-before="1" data-graph-type="column" width="100%">
                     <thead>
                       <tr>
-                          <th width="15%"></th>
-                          <th width="15%">Name</th>
-                          <th width="15%">Country</th>
-                          <th width="15%">Gender</th>
-                          <th width="15%">Student ID</th>
+                          <th width="20%"></th>
+                          <th width="80%">Name</th>
                           <th width="10%"></th>
                       </tr>
                     </thead>
@@ -261,14 +258,10 @@
                 data[i].photoid +
                 '" class="user-image" alt="User Image" style="height: 50px;">'+
                 '</center></td><td>'+
-                '<a href="viewstudent.html?id='+
+                // '<a href="viewstudent.html?id='+
                 data[i].studentid+
                 '">'+
-                toTitleCase(data[i].firstname + ' ' + data[i].lastname)+
-                '</a></td><td>'+
-                toTitleCase(data[i].country)+
-                '</td><td>'+
-                toTitleCase(data[i].gender)+
+                toTitleCase(data[i].firstname)+
                 '</td><td>'+
                 data[i].studentid;
                 valueToAppend += '</td><td>'+
