@@ -456,7 +456,7 @@ app.post('/showstudents', function (req, res) {
 });
 
 function showStudents(studentids, res){
-    var queryString = "select login.photoid, student.id, "+
+    var queryString = "select login.photoid, student.id, login.username, "+
         "student.firstname, student.middlename, student.lastname, student.email, "+
         "student.telephone from login inner join student on "+
         "login.username = student.studentid "+
