@@ -144,9 +144,7 @@ app.post('/updatestudent', function (req, res) {
     console.log('updatestudent:' + req.body.username);
     insertFeed(req.body.username, 'updated student information');
     updatestudent(req.body.username, req.body.firstname, req.body.middlename, 
-        req.body.lastname, req.body.email, req.body.telephone, req.body.gender, 
-        req.body.residentstatus, req.body.country, req.body.semesterregistered, 
-        req.body.currentgpa, req.body.internshipstatus);
+        req.body.lastname, req.body.email, req.body.telephone);
     res.json('updated');
 });
 
