@@ -156,7 +156,7 @@ function updatestudent(username, firstname, middlename,
     "middlename = '" + middlename + "', " +  
     "lastname = '" + lastname + "', " +  
     "email = '" + email + "', " +  
-    "telephone = '" + telephone + "', " + "' where " +
+    "telephone = '" + telephone + "' where " +
     "studentid = '" + username + "';";    
 
     var query = baseClient.query(queryString);
