@@ -507,10 +507,11 @@ app.post('/viewstudent', function (req, res) {
     console.log('viewstudent:' + req.body.username);
     
    var rows = [];
-    var queryString = "SELECT login.photoid, student.*, "+
-    "semesterregistered.* FROM login inner join student on "+
+    var queryString = "SELECT login.photoid, student.*"+
+    " FROM login inner join student on "+
     "login.username = student.studentid "+
     "where studentid = '" + req.body.username + "';";
+    console.log(queryString)
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         rows.push(row);
