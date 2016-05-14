@@ -338,7 +338,7 @@ app.post('/updateskill', function (req, res) {
 "a029 = " + req.body.a029 + "," +
 "a030 = " + req.body.a030 + "," +
 "a031 = " + req.body.a031 + "," +
-"a032 = " + req.body.a032 + "," + " where " +
+"a032 = " + req.body.a032 + " where " +
     "studentid = '" + req.body.username + "';"; 
     console.log(queryString)
     var query = baseClient.query(queryString);
