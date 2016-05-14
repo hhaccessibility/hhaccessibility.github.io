@@ -830,7 +830,7 @@ app.post('/getcount', function(req, res) {
     console.log('getcount:' + req.body.table);
     var rows = [];
     var table = req.body.table;
-    if(table == 'company' || table == 'job' || table == 'student' || table == 'semesterregistered' ||
+    if(table == 'job' || table == 'student' || table == 'semesterregistered' ||
         table == 'student_job_achieved' || table == 'student_job_interest'){
         var queryString = "select count(*) from " + req.body.table;
         var query = baseClient.query(queryString);
@@ -842,7 +842,19 @@ app.post('/getcount', function(req, res) {
             console.log('getcount: ' + result.rowCount + ' rows');
             res.json(rows);
         });
-    }else{
+    }else if(table == 'company'){
+        var queryString = "select count(distinct(lastname)) from student";
+        var query = baseClient.query(queryString);
+        
+        query.on('row', function(row) {
+            rows.push(row);
+        });
+        query.on('end', function(result) {
+            console.log('getcount: ' + result.rowCount + ' rows');
+            res.json(rows);
+        });
+    } else
+    {
         res.json('invalid table name');
     }
 
