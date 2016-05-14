@@ -443,6 +443,7 @@ app.post('/showstudents', function (req, res) {
     searchQuery;
 
     console.log(queryString);
+    return 0;
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
         // rows.push(row);
