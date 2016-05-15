@@ -278,8 +278,9 @@
                 '<a href="viewplace.html?id='+
                 data[i].username+
                 '">'+
-                toTitleCase(data[i].firstname)+
-                '</td>';
+                toTitleCase(data[i].firstname);
+                
+                valueToAppend += '</td><td>' + data[i].sumSkill + '/22' + '</td>';
                 valueToAppend +='</tr>'
              	$("#tableentry").append(valueToAppend);
 
