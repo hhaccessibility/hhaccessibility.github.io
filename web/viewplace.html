@@ -275,15 +275,19 @@
     getstudentdetails(id);
     
     function addToSkillDisplay(id, value){
-      if(value > 0){
-        var perc = value*33.33;
-        // var newid = id.replace(/_/g , " ");
-        // newid = newid.toUpperCase();
+      console.log('id:'+id)
+      console.log('value:'+value)
+      var checked = '<img src="images/checked.png" height=30px width=30px/> ';
+      if(value == 0){
+        checked = '<img src="images/notchecked.png" height=30px width=30px/> ';
+      }
       console.log(getAppropriateName(id));
       console.log(id);
-        var valueToAppend = '<img src="images/checked.png" height=30px width=30px/> ' + getAppropriateName(id);
+        var valueToAppend = checked + 
+        getAppropriateName(id) +
+        '<br/><br/>';
         $("#skills").append(valueToAppend);
-      }
+      // }
     }
 
 

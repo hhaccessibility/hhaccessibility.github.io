@@ -460,7 +460,7 @@ function showStudents(studentids, res){
         "student.firstname, student.middlename, student.lastname, student.email, "+
         "student.telephone from login inner join student on "+
         "login.username = student.studentid inner join skill on "+
-        "student.studentid = skill.studentid "
+        "student.studentid = skill.studentid " +
         "where student.id in(" + studentids + ");"
     var rows = [];
     console.log('this is what we need');
