@@ -459,7 +459,8 @@ function showStudents(studentids, res){
     var queryString = "select login.photoid, student.id, login.username, "+
         "student.firstname, student.middlename, student.lastname, student.email, "+
         "student.telephone from login inner join student on "+
-        "login.username = student.studentid "+
+        "login.username = student.studentid inner join skill on"+
+        "student.studentid = skill.studentid "
         "where student.id in(" + studentids + ");"
     var rows = [];
     console.log('this is what we need');
@@ -467,6 +468,28 @@ function showStudents(studentids, res){
     // res.json(queryString);
     var query = baseClient.query(queryString);
     query.on('row', function(row) {
+        row.sumSkill += row.a001
+        row.sumSkill += row.a002
+        row.sumSkill += row.a003
+        row.sumSkill += row.a004
+        row.sumSkill += row.a005
+        row.sumSkill += row.a006
+        row.sumSkill += row.a007
+        row.sumSkill += row.a008
+        row.sumSkill += row.a009
+        row.sumSkill += row.a010
+        row.sumSkill += row.a011
+        row.sumSkill += row.a012
+        row.sumSkill += row.a013
+        row.sumSkill += row.a014
+        row.sumSkill += row.a015
+        row.sumSkill += row.a016
+        row.sumSkill += row.a017
+        row.sumSkill += row.a018
+        row.sumSkill += row.a019
+        row.sumSkill += row.a020
+        row.sumSkill += row.a021
+        row.sumSkill += row.a022
         rows.push(row);
     });
     query.on('end', function(result) {
