@@ -1,5 +1,5 @@
 # MAC Admin
 
-Student: http://macstudent.github.io/login.html
+Accessibility User/Govt: http://hhaccessibility.github.io/web/login.html
 
-Admin: http://macinternship.github.io/web/login.html
+Accessibility Business Admin: http://hhaccessibilitybusiness.github.io/login.html
