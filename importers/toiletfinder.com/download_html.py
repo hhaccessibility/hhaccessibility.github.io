@@ -33,3 +33,4 @@ def download_html(number_of_pages_to_download, category_name, print_progress = F
 if __name__ == '__main__':
 	download_html(22, 'cleanest-toilets', True, True)
 	download_html(538, 'dirtiest-toilets', True, True)
+	download_html(1845, 'most-visited-venues', True, True)
