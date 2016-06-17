@@ -1,5 +1,6 @@
 from html_scraper import scrape_all_html
 import csv
+from download_html import download_all
 
 def generate_csv():
 	print 'Collecting toilet information from html files.  This may take a few minutes.'
@@ -22,5 +23,5 @@ def generate_csv():
 		print 'done writing file: ' + filename
 
 if __name__ == '__main__':
+	download_all()
         generate_csv()
-
