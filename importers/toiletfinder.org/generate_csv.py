@@ -1,4 +1,5 @@
 from html_scraper import scrape_all_html
+from download_html import download_all
 import csv
 
 def generate_csv():
@@ -24,5 +25,6 @@ def generate_csv():
 		print 'done writing file: ' + filename
 
 if __name__ == '__main__':
+	download_all()
         generate_csv()
 
