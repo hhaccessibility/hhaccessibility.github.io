@@ -2,6 +2,11 @@ The toiletfinder.org importer is basically just some code that generally tries t
 
 No API was found so most of the code just downloads HTML and scrapes data out of the HTML.
 
+** making a csv **
+
+To make a CSV, run the command:
+python generate_csv.py
+
 ** dependencies **
 
 python
