@@ -40,5 +40,8 @@ def download_html(number_of_locations_to_download, print_progress = False, skip_
 			elif result == None:
 				print 'Cache found'
 
-if __name__ == '__main__':
+def download_all():
 	download_html(4510, True, True)
+
+if __name__ == '__main__':
+	download_all()
