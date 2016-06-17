@@ -5,15 +5,20 @@ download_html.py downloads HTML that can then be scraped by scrape_html.py.
 import urllib2
 import os.path
 
-def download_html_for_page(page_number, category_name, skip_if_downloaded = True):
+output_dir = 'raw_html'
+
+def download_html_for_page(page_number, category_name, skip_if_downloaded):
 	"""
 	download_html_for_page downloads HTML for the specified page number.
 	page_number should be a number/integer with values from 1, 2...
 	category_name should be something like 'cleanest-toilets', ''
 	"""
-	output_file_name = 'raw_html/' + category_name + '_page_' + str(page_number) + '.html'
+	output_file_name = output_dir + '/' + category_name + '_page_' + str(page_number) + '.html'
 	if skip_if_downloaded and os.path.isfile(output_file_name):
 		return
+
+	if not os.path.isdir(output_dir):
+		os.mkdir(output_dir)
 
 	url = 'http://toiletfinder.com/' + category_name + '?page=' + str(page_number)
 	response = urllib2.urlopen(url)
@@ -30,7 +35,10 @@ def download_html(number_of_pages_to_download, category_name, print_progress = F
 				)
 		download_html_for_page(page_number, category_name, skip_if_downloaded)
 
-if __name__ == '__main__':
+def download_all():
 	download_html(22, 'cleanest-toilets', True, True)
 	download_html(538, 'dirtiest-toilets', True, True)
 	download_html(1845, 'most-visited-venues', True, True)
+
+if __name__ == '__main__':
+	download_all()

@@ -1,6 +1,10 @@
+"""
+html_scraper has functions for extracting useful information from files that were downloaded
+"""
 from model.toilet import Toilet
 from lxml import html
 from lxml.cssselect import CSSSelector
+from download_html import output_dir
 import os.path
 
 def get_text_from_css(root, css_selector):
@@ -60,18 +64,17 @@ def scrape_toilets(html_filename):
 
 def scrape_all_html(print_progress):
 	"""
-	Processes all HTML files in the raw_html directory and returns a list of Toilet objects to represent the scraped information
+	Processes all HTML files in the output directory and returns a list of Toilet objects to represent the scraped information
 	"""
 	result = set([])
-	raw_html_dir = 'raw_html'
 	count = 0
 	# loop through all files with the .html file extension.
-	for filename in os.listdir(raw_html_dir):
+	for filename in os.listdir(output_dir):
 		if filename.endswith(".html"):	
 			if print_progress and (count % 100 == 0):
 				print 'Processing file ' + str(count) + ': ' + filename
 			count = count + 1
-			result |= set(scrape_toilets(raw_html_dir + '/' + filename))
+			result |= set(scrape_toilets(output_dir + '/' + filename))
 
 	return result
 
