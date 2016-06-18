@@ -40,5 +40,11 @@ class Toilet(object):
 	def __dir__(self):
 		return [
 			'provided_by', 'name', 'longitude', 'latitude', 'p', 'tt', 'sm', 
-			'locality', 'state', 'address1', 'address2', 'facility_type', 'for_male', 'for_female', 'accessible_for_male', 'accessible_for_female', 'has_accessible_parking', 'has_showers', 'for_baby_changing', 'has_syringe_disposal'
+			'locality', 'state', 'address1', 'address2', 'facility_type', 'for_male', 'for_female', 'accessible_for_male', 'accessible_for_female', 'has_accessible_parking', 'has_showers', 'for_baby_changing', 'has_syringe_disposal', 
+			'has_sanitary_disposal', 'has_unisex', 'has_accessible_unisex', 'has_parking', 'is_park', 'is_park_or_reserve',
+			'is_sporting_facility', 'is_train_station', 'is_dump_point', 'is_car_park', 'is_shopping_centre',
+			'is_camping_ground', 'is_access_limited', 
+			'is_rh_transfer', 'is_lh_transfer', 'has_ambulant', 'for_mlak_key', 'is_key_required',
+			'is_payment_required', 'has_adult_change', 'is_caravan_park',
+			'is_food_outlet', 'is_bus_station', 'is_airport'
 		]
