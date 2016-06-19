@@ -102,6 +102,6 @@ def generate_csv():
 
 if __name__ == '__main__':
 	print 'Downloading...'
-	#download_all(True, True)
+	download_all(True, True)
 	print 'Generating CSV...'
         generate_csv()
