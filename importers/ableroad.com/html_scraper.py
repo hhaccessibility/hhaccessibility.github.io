@@ -4,10 +4,10 @@ html_scraper has functions for extracting useful information from files that wer
 from model.toilet import Toilet
 from lxml import html
 from lxml.cssselect import CSSSelector
-from download_html import output_dir
 import os.path
 import string
 import re
+from config import output_dir
 
 def get_text_from_css(root, css_selector):
 	child_element = root.cssselect(css_selector)
@@ -168,7 +168,7 @@ def get_details_url(toilet_element):
 	title_element = toilet_element.cssselect('a.titlelink')[0]
 	return sanitize_chars(title_element.get('href'))
 
-def scrape_toilets(html_filename):
+def scrape_index_page_toilets(html_filename):
 	"""
 	Returns a list of Toilet instances pulled out of the specified HTML file
 	"""
@@ -215,6 +215,41 @@ def scrape_toilets(html_filename):
 				yelp_rating['num_ratings'], yelp_review_start,
 				ableroad_rating['average_rating'], ableroad_rating['num_ratings'], ableroad_review_text,
 				thumbnail_url, details_url))
+
+	return result
+
+def scrape_toilet_details(html_filename):
+
+	# load the file contents.
+	with open(html_filename, 'r') as html_file:
+		# read the file contents.
+		content = html_file.read()
+		# parse the HTML.
+		tree = html.fromstring(content)
+		# select the toilet elements.
+		print 'can not scrape toilet details yet... work in progress'
+		return set([])
+		return set([toilet])
+
+def scrape_toilets(html_filename):
+	if 'details_' in html_filename:
+		return scrape_toilet_details(html_filename)
+	else:
+		return scrape_index_page_toilets(html_filename)
+
+def scrape_all_index_html(print_progress):
+	"""
+	Processes all index HTML files in the output directory and returns a list of Toilet objects to represent the scraped information
+	"""
+	result = set([])
+	count = 0
+	# loop through all files with the .html file extension.
+	for filename in os.listdir(output_dir):
+		if filename.endswith(".html") and not filename.startswith('detail'):
+			if print_progress and (count % 10 == 0):
+				print 'Processing file ' + str(count) + ': ' + filename
+			count = count + 1
+			result |= set(scrape_toilets(output_dir + '/' + filename))
 
 	return result
 
