@@ -45,7 +45,8 @@ create table role (
 create table `user` (
 	id int primary key auto_increment,
 	username varchar(100) not null,
-	password_hash varchar(32)
+	password_hash varchar(32),
+	constraint uc_username unique(username)
 );
 
 -- Represents what roles each user has
