@@ -5,32 +5,38 @@ create table building_group (
 	name varchar(255)
 );
 
+
+-- Represents each person who uses our application
+create table `user` (
+	id int primary key auto_increment,
+	username varchar(100) not null,
+	password_hash varchar(32),
+	constraint uc_username unique(username)
+);
+
 -- A specific building.
 -- For example, CAW Student Centre
 create table building (
 	id int primary key auto_increment,
+	owner_user_id int references `user`(id),
 	building_group_id int references building_group(id),
 	name varchar(255),
-	longitude float not null, -- in degrees for centre of the building
-	latitude float not null -- in degrees
+	longitude double(11, 8) not null, -- in degrees for centre of the building
+	latitude double(11, 8) not null -- in degrees
 );
 
--- A specific bathroom facility in a building
--- Each building might have multiple bathroom facilities.
--- Facilities such as outhouses may keep building_id null and set both latitude and longitude.
--- longitude or latitude being NULL implies building_id must not be null.
-create table bathroom_facility (
+-- A category for a question such as 'Parking', 'Mobility'...
+create table question_category (
 	id int primary key auto_increment,
-	building_id int references building(id),
-	longitude float, -- degrees.  NULL implies to use longitude for corresponding building
-	latitude float
+	name varchar(100) not null
 );
 
 -- A question asked about every bathroom facility
 -- For example, 'Is baby change provided?'
 create table question (
 	id int primary key auto_increment,
-	question_text varchar(255) not null
+	question_html varchar(255) not null,
+	question_category_id int references question_category(id)
 );
 
 -- Represents Roles available for users
@@ -39,14 +45,6 @@ create table role (
 	id int primary key auto_increment,
 	name varchar(100) not null,
 	description varchar(255)
-);
-
--- Represents each person who uses our application
-create table `user` (
-	id int primary key auto_increment,
-	username varchar(100) not null,
-	password_hash varchar(32),
-	constraint uc_username unique(username)
 );
 
 -- Represents what roles each user has
@@ -62,8 +60,8 @@ create table user_role (
 create table user_answer (
 	id int primary key auto_increment,
 	question_id int not null references question(id),
-	bathroom_facility_id int not null references bathroom_facility(id),
+	building_id int not null references building(id),
 	answered_by_user_id int not null references `user`(id),
-	answer_value varchar(255),
+	answer_value varchar(255) not null,
 	when_submitted datetime
 );

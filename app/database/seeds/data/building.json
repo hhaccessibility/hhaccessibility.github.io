@@ -1,0 +1,5 @@
+[
+{"id": 10, "name": "Centre for Engineering Innovation", "latitude": 42.3045218, "longitude": -83.0642137, "building_group_id": 1, "owner_user_id": null},
+{"id": 11, "name": "Odette School of Business", "latitude": 42.3053421, "longitude": -83.0666586, "building_group_id": 1, "owner_user_id": null},
+{"id": 50, "name": "McDonalds", "latitude": 42.298248, "longitude": -83.066444, "building_group_id": 50, "owner_user_id": null}
+]
