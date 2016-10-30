@@ -37,7 +37,7 @@ class CreateInitialDatabaseSchema extends Migration
         });
         Schema::create('question', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('question_text');
+            $table->string('question_html');
 		    $table->integer('question_category_id')->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
         });
@@ -47,10 +47,13 @@ class CreateInitialDatabaseSchema extends Migration
         });
         Schema::create('building', function (Blueprint $table) {
             $table->increments('id');
- 		    $table->integer('building_group_id')->nullable();
+			$table->integer('owner_user_id')->unsigned()->nullable();
+			$table->foreign('owner_user_id')->references('id')->on('user');
+ 		    $table->integer('building_group_id')->unsigned()->nullable();
+			$table->foreign('building_group_id')->references('id')->on('building_group');
 			$table->string('name', 255)->nullable();
-			$table->float('longitude');
-			$table->float('latitude');
+			$table->double('longitude', 11, 8);
+			$table->double('latitude', 11, 8);
         });
         Schema::create('user_answer', function (Blueprint $table) {
             $table->increments('id');
