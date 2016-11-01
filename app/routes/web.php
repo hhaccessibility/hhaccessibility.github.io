@@ -12,5 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
+});
+
+Route::get('about', function()
+{
+    return View::make('pages.about');
+});
+
+Route::get('profile', function()
+{
+    return View::make('pages.profile');
+});
+
+Route::get('building_report/{building_id}', function()
+{
+    return View::make('pages.building_report');
+});
+
+Route::get('login', function()
+{
+    return View::make('pages.login');
+});
+
+Route::get('signup', function()
+{
+    return View::make('pages.signup');
 });
