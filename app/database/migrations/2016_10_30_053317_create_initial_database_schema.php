@@ -26,19 +26,19 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::create('user_role', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('user');
+      $table->foreign('user_id')->references('id')->on('user');
             $table->integer('role_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('role');
-			$table->unique(array('role_id', 'user_id'));
-        });
-        Schema::create('question_category', function (Blueprint $table) {
+      $table->foreign('role_id')->references('id')->on('role');
+      $table->unique(array('role_id', 'user_id'));
+    });
+     Schema::create('question_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
         });
         Schema::create('question', function (Blueprint $table) {
             $table->increments('id');
             $table->string('question_html');
-		    $table->integer('question_category_id')->nullable();
+		    $table->integer('question_category_id')->unsigned()->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
         });
         Schema::create('building_group', function (Blueprint $table) {
