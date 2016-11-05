@@ -42,7 +42,7 @@ Route::get('signup', function()
     return View::make('pages.signup');
 });
 
-Route::get('buildings', function (Request $request) {
+Route::get('api/buildings', function (Request $request) {
 	return Building::all();
 });
 
