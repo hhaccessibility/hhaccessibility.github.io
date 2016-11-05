@@ -1,27 +1,53 @@
-# Laravel PHP Framework
+# Accessibility Web App
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Before developing code on the project, you should install the following dependencies:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+- MySQL
+- PHP5.6+
+- composer (https://getcomposer.org/download/)
+- npm
+- gulp
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+WAMP, LAMP, MAMP, or XXAMP is recommended to cover the PHP and MySQL dependencies.  It also usually comes with PHPMyAdmin which is helpful for working with the database.
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Database:
+- Create a database called hhaccessibility in MySQL and run the MySQL server on port 3306.
+- Have a root user with an empty password.
+- The root user should have permissions to create, alter any tables and manipulate data in the hhaccessibility database.
 
-## Contributing
+## Commands:
+- php artisan migrate
+	This should create tables.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+- php artisan db:seed
+	This should insert data into the tables.
 
-## Security Vulnerabilities
+- gulp
+	This should convert SASS to CSS and minify JavaScript.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- ./vendor/bin/phpunit in Linux/Unix/Mac or "vendor/bin/phpunit.bat" in Windows
+	This should run all automated tests and they should all pass.
 
-## License
+- php artisan serve
+	This should run the application on port 8000.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## File Structure:
+### Views, HTML, and CSS
+Views are in the resources/views.  Individual pages are in resources/views/pages.
+
+CSS is generated off of SASS files(*.scss).  The main source file for css/app.css is at resources/assets/sass/app.scss.
+
+### Models
+Database table classes for use with the Eloquent ORM are in the app folder.  That's hhaccessibility.github.io/app/app to avoid confusion.
+
+### Controllers and Routes
+Routes are defined in the routes directory.  routes/web.php defines all the custom routes for now.
+
+### Tests
+Automated test scripts are in the tests folder.
+
+### Database design, migrations and data seeding
+Database migrations create the database tables.  The migration scripts are in database/migrations.
+
+Data is "seeded" from scripts in database/seeds/DatabaseSeeder.php which loads data from database/seeds/data.
