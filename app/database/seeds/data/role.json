@@ -1,5 +1,5 @@
 [
-{"id": 1, "name": "Guest", "description": "For users who have not signed in to search for accessible buildings"}
+{"id": 1, "name": "Guest", "description": "For users who have not signed in to search for accessible buildings"},
 {"id": 2, "name": "General Search and Review", "description": "For users who typically have a disability"},
 {"id": 3, "name": "Building Owner", "description": "For users who own at least one building and maintain their accessibility information"},
 {"id": 4, "name": "Internal", "description": "For internal users working with JMCC, developing, testing the app or reviewing internal answer reports"}
