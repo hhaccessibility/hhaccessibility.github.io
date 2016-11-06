@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Database\Seeds\UserTableSeeder;
 
 function object_to_array($obj) {
 	return (array)$obj;
@@ -36,5 +37,7 @@ class DatabaseSeeder extends Seeder
 		foreach (array_reverse($tables_to_seed_using_json) as $table_name) {
 			DB::table($table_name)->insert(DatabaseSeeder::readTableData($table_name . '.json'));
 		}
+		
+		$this->call('UserTableSeeder');
     }
 }

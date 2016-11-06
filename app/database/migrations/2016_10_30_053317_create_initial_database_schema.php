@@ -16,7 +16,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('username', 100)->unique();
-			$table->string('password_hash', 32);
+			$table->char('password_hash', 60);
 			$table->double('search_radius_km', 11, 6)->nullable();
 			$table->double('longitude', 11, 8)->nullable();
 			$table->double('latitude', 11, 8)->nullable();
@@ -105,7 +105,7 @@ class CreateInitialDatabaseSchema extends Migration
     public function down()
     {
         Schema::dropIfExists('country');
-		Schema::dropIfExists('building_building_tag');
+        Schema::dropIfExists('building_building_tag');
         Schema::dropIfExists('building_tag');
         Schema::dropIfExists('review_comment');
         Schema::dropIfExists('user_answer');
