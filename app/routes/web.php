@@ -37,6 +37,8 @@ Route::get('login', function()
     return View::make('pages.login');
 });
 
+Route::post('login', 'MyLoginController@authenticate');
+
 Route::get('signup', function()
 {
     return View::make('pages.signup');
@@ -45,4 +47,3 @@ Route::get('signup', function()
 Route::get('api/buildings', function (Request $request) {
 	return Building::all();
 });
-
