@@ -1,6 +1,26 @@
 @extends('layouts.default')
 @section('content')
 <h1>Sign In</h1>
+{{ Form::open(array('url' => 'login')) }}
+
+<!-- if there are login errors, show them here -->
+<p>
+    {{ $errors->first('username') }}
+    {{ $errors->first('password') }}
+</p>
+
+<p>
+    {{ Form::label('username', 'Username') }}
+    {{ Form::text('username', Input::old('username'), array('placeholder' => 'test')) }}
+</p>
+
+<p>
+    {{ Form::label('password', 'Password') }}
+    {{ Form::password('password') }}
+</p>
+
+<p>{{ Form::submit('Submit!') }}</p>
+{{ Form::close() }}
 <div class="form-group">
 	<label class="control-label">Username</label>
 	<input type="text">
