@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers;
 
-use User;
+use App\User;
 use Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class MyLoginController extends Controller {
 
@@ -14,7 +16,10 @@ class MyLoginController extends Controller {
      */
     public function authenticate(Request $request)
     {
-        if ($request->input('username') === 'test' && $request->input('password') === 'password' )
+		$username = $request->input('username');
+		$matching_user = User::where('username', '=', $username)->first();
+        if ($matching_user && 
+		Hash::check($request->input('password'), $matching_user->password_hash))
         {
             return redirect()->intended('profile');
         }
