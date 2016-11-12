@@ -10,6 +10,8 @@ ul.nav {
 	list-style-type: none;
     margin: 0;
     padding: 0;
+	box-shadow: inset 0px 11px 8px -10px #CCC,
+        inset 0px -11px 8px -10px #CCC;
 	
 	li {
 		float: left;
@@ -27,8 +29,16 @@ html, body {
 	text-align: center;
 }
 
+.login-form {
+	margin: auto;
+	width: 300px;
+}
+
 #main {
 	min-height: 200px;
+	> h1 {
+		margin-top: 0;
+	}
 }
 
 footer {
