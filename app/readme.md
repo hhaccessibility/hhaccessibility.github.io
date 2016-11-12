@@ -44,6 +44,8 @@ Database table classes for use with the Eloquent ORM are in the app folder.  Tha
 ### Controllers and Routes
 Routes are defined in the routes directory.  routes/web.php defines all the custom routes for now.
 
+Controller classes are defined in app\Http\Controllers.
+
 ### Tests
 Automated test scripts are in the tests folder.
 
