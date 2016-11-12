@@ -21,6 +21,7 @@ class MyLoginController extends Controller {
         if ($matching_user && 
 		Hash::check($request->input('password'), $matching_user->password_hash))
         {
+            $request->session()->put('username', $username);
             return redirect()->intended('profile');
         }
 		else
