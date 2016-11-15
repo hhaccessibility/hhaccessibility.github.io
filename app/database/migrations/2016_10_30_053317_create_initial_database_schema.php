@@ -16,6 +16,9 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('username', 100)->unique();
+			$table->string('email', 255)->unique()->nullable();
+			$table->string('first_name', 255)->nullable();
+			$table->string('last_name', 255)->nullable();
 			$table->char('password_hash', 60);
 			$table->string('remember_token', 60)->nullable();
 			$table->double('search_radius_km', 11, 6)->nullable();
