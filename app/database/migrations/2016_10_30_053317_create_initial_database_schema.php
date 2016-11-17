@@ -59,6 +59,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('building_group_id')->unsigned()->nullable();
 			$table->foreign('building_group_id')->references('id')->on('building_group');
 			$table->string('name', 255)->nullable();
+			$table->string('address', 255)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
         });
@@ -86,6 +87,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->unique('name');
+			$table->string('description', 255);
 		});
         Schema::create('building_building_tag', function (Blueprint $table) {
 			$table->increments('id');
