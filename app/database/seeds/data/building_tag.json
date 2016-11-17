@@ -2,7 +2,7 @@
 {"id": 1, "name": "Restaurant", "description": "fast-food, cafe, dinner..."},
 {"id": 2, "name": "Accomodation", "description": "hotel, B&B..."},
 {"id": 3, "name": "Shopping", "description": "retail store, mall..."},
-{"id": 4, "name": "Healthcare", "description": "retail store, mall..."},
+{"id": 4, "name": "Healthcare", "description": "hospital, clinic, pharmacy, laboratories, health centre, medical support centre, specialist clinic, dental clinic.... any medical building"},
 {"id": 5, "name": "Financial", "description": "bank, ATM, accounting & tax service..."},
 {"id": 6, "name": "Education", "description": "school, university, college, library, special education centre..."},
 {"id": 7, "name": "Sports & Recreation", "description": "gym, fitness centre, recreational centre, swimming pool, sport club..."},
