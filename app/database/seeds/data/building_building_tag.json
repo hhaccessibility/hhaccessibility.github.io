@@ -1,3 +1,5 @@
 [
-{"id": 1, "building_id": 50, "building_tag_id": 1}
+{"id": 1, "building_id": 50, "building_tag_id": 1},
+{"id": 2, "building_id": 10, "building_tag_id": 6},
+{"id": 3, "building_id": 11, "building_tag_id": 6}
 ]

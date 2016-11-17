@@ -7,3 +7,4 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 <link href="/css/app.css" rel="stylesheet" type="text/css">
+<link href="/css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
