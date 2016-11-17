@@ -49,8 +49,9 @@
 	<a href="/signup">Sign up</a>
 </div>
 
-<div class="btn btn-block btn-social btn-large btn-facebook btn-foursquare">hi</div>
-<div class="btn btn-block btn-social btn-large btn-google btn-foursquare">hi</div>
-<div class="btn btn-block btn-social btn-large btn-twitter btn-foursquare">hi</div>
+<div><a href="/fbauth"><i class="fa-lg fa fa-facebook-square"></i></a></div>
+<div class="fa-lg fa fa-twitter"></div>
+<div class="fa-lg fa fa-google-plus"></div>
+<div class="fa-lg fa fa-linkedin"></div>
 
 @stop

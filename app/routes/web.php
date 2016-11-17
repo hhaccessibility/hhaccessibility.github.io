@@ -36,6 +36,8 @@ Route::get('login', function()
 
 Route::post('login', 'MyLoginController@authenticate');
 
+Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
+
 Route::get('signup', function()
 {
     return View::make('pages.signup');
