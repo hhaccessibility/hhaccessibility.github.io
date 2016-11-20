@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-		$tables_to_seed_using_json = ['role', 'building', 'building_group',
-			'building_tag', 'building_building_tag', 'question',
+		$tables_to_seed_using_json = ['role', 'building_building_tag', 'building',
+			'building_group', 'building_tag', 'question',
 			'question_category', 'country'];
 		foreach ($tables_to_seed_using_json as $table_name) {
 			DB::table($table_name)->delete();
