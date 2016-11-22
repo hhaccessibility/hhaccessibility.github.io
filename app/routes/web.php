@@ -13,9 +13,7 @@ use App\Building;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('about', function()
 {
@@ -24,10 +22,12 @@ Route::get('about', function()
 
 Route::get('profile', 'ProfileController@index');
 
-Route::get('building_report/{building_id}', function()
+Route::get('building-report/{building_id}', function()
 {
     return View::make('pages.building_report');
 });
+
+Route::get('search-by-tag/{building_tag_id}', 'BuildingSearchController@by_tag');
 
 Route::get('login', function()
 {
@@ -35,6 +35,8 @@ Route::get('login', function()
 });
 
 Route::post('login', 'MyLoginController@authenticate');
+
+Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
 
 Route::get('signup', function()
 {

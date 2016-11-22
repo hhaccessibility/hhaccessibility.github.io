@@ -5,6 +5,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$base_colour1: #153157;
+
 // horizontal menu at top of every page
 ul.nav {
 	list-style-type: none;
@@ -19,7 +21,7 @@ ul.nav {
 }
 
 html, body {
-	background-color: #eee;
+	background-color: #e7f3f5;
 	font-weight: 100;
 	height: 100vh;
 	margin: 0;
@@ -56,3 +58,24 @@ footer {
 	min-height: 100vh;
 	box-shadow: 0 0 15px #888;
 }
+
+.building-tags .building-tag {
+	background-color: rgba($base_colour1, 0.3);
+	height: 30px;
+	text-align: center;
+	padding-top: 5px;
+	transition: background-color 0.3s;
+
+	> a {
+		font-weight: bold;
+		font-size: 1.2em;
+		color: #fff;
+		cursor: pointer;
+	}
+	
+	&:hover {
+		background-color: rgba($base_colour1, 0.5);
+	}
+}
+
+

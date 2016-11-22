@@ -12,17 +12,12 @@
 		<input>
 	</div>
 	<div class="col-xs-12">
-		<label>Username</label>
+		<label>Email</label>
 	</div>
 	<div class="col-xs-12">
 		<input>
 	</div>
-	<div class="col-xs-12">
-		<label>Date of Birth</label>
-	</div>
-	<div class="col-xs-12">
-		<input type="date">
-	</div>
+
 </div>
 
 
