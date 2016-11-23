@@ -18,7 +18,7 @@
 				@foreach ( $building_tags as $key => $value )
 				
 					<div class="building-tag col-md-3 col-sm-4 col-xs-6">
-					<a href="/search-by-tag/{{ $value->id }}">
+					<a href="/search-by-tag/{{ $value->id }}" title="{{ $value->description }}">
 					{{ $value->name }}
 					</a>
 					</div>
