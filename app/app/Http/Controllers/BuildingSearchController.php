@@ -1,7 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Building;
-use App\BuildingBuildingTag;
 use App\BuildingTag;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
