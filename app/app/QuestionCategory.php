@@ -6,8 +6,14 @@ use Eloquent;
 class QuestionCategory extends Eloquent
 {
     protected $fillable = [
-        'name',
+        'id', 'name',
     ];
 	
-	protected $table = 'question_category';	
+	protected $table = 'question_category';
+	
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }	
+	
 }
