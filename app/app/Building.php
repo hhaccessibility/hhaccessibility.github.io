@@ -17,6 +17,6 @@ class Building extends Eloquent
      */
     public function tags()
     {
-        return $this->belongsToMany('building_tag', 'building_building_tag');
+        return $this->belongsToMany('App\BuildingTag');
     }	
 }
