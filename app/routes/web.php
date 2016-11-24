@@ -22,10 +22,7 @@ Route::get('about', function()
 
 Route::get('profile', 'ProfileController@index');
 
-Route::get('building-report/{building_id}', function()
-{
-    return View::make('pages.building_report');
-});
+Route::get('building-report/{building_id}', 'BuildingReportController@show');
 
 Route::get('search-by-tag/{building_tag_id}', 'BuildingSearchController@by_tag');
 
