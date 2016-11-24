@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="title m-b-md">
-				Accessibility Application
+				<h1>Access Locator</h1>
 			</div>
 
 			<div>

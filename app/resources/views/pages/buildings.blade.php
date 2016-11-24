@@ -4,6 +4,9 @@
 	<div class="title m-b-md">
 		<h2>Building Search Results for {{ $building_tag->name }}</h2>
 	</div>
+	@if (count($buildings) === 0)
+		No building found matching the specified tag
+	@endif
 	
 	@foreach ( $buildings as $key => $value )
 

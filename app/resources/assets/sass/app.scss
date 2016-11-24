@@ -59,23 +59,30 @@ footer {
 	box-shadow: 0 0 15px #888;
 }
 
-.building-tags .building-tag {
-	background-color: rgba($base_colour1, 0.3);
-	height: 30px;
-	text-align: center;
-	padding-top: 5px;
-	transition: background-color 0.3s;
-
-	> a {
-		font-weight: bold;
-		font-size: 1.2em;
-		color: #fff;
-		cursor: pointer;
-	}
+.building-tags {
+	margin-right: 5px;
+	margin-left: 5px;
 	
-	&:hover {
-		background-color: rgba($base_colour1, 0.5);
+	.building-tag {
+		background-color: rgba($base_colour1, 0.3);
+		height: 30px;
+		text-align: center;
+		padding-top: 5px;
+		transition: background-color 0.3s;
+
+		> a {
+			font-weight: bold;
+			font-size: 1.2em;
+			color: #fff;
+			cursor: pointer;
+		}
+		
+		&:hover {
+			background-color: rgba($base_colour1, 0.5);
+		}
 	}
 }
 
-
+#copyright {
+	margin-left: 10px;
+}

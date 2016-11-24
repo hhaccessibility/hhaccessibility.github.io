@@ -10,4 +10,9 @@ class BuildingTag extends Eloquent
     ];
 	
 	protected $table = 'building_tag';
+	
+    public function buildings()
+    {
+        return $this->belongsToMany('App\Building');
+    }
 }
