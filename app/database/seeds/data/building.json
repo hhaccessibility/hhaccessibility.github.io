@@ -1,5 +1,2958 @@
 [
-{"id": 10, "name": "Centre for Engineering Innovation", "latitude": 42.3045218, "longitude": -83.0642137, "building_group_id": 1, "owner_user_id": null},
-{"id": 11, "name": "Odette School of Business", "latitude": 42.3053421, "longitude": -83.0666586, "building_group_id": 1, "owner_user_id": null},
-{"id": 50, "name": "McDonalds", "latitude": 42.298248, "longitude": -83.066444, "building_group_id": 50, "owner_user_id": null}
+{"id": 10, "name": "Centre for Engineering Innovation", "address": null, "latitude": 42.3045218, "longitude": -83.0642137, "building_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 11, "name": "Odette School of Business", "address": null, "latitude": 42.3053421, "longitude": -83.0666586, "building_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 50, "name": "McDonalds", "address": null, "latitude": 42.298248, "longitude": -83.066444, "building_group_id": 50, "owner_user_id": null, "data_source_id": 1},
+{
+	"id" : 60,
+	"name" : "Corpus Christi Catholic Middle School",
+	"address" : "910 Raymo Rd",
+	"longitude" : -82.97520943,
+	"latitude" : 42.32477123,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 61,
+	"name" : "Windsor Essex Catholic District School Board",
+	"address" : "1325 CALIFORNIA AVE",
+	"longitude" : -83.06073989,
+	"latitude" : 42.29633969,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 62,
+	"name" : "L.a. Desmarais Catholic Elementary School",
+	"address" : "10715 Eastcourt Dr",
+	"longitude" : -82.90954257,
+	"latitude" : 42.30968147,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 63,
+	"name" : "St. Rose Catholic Elementary School",
+	"address" : "871 St. Rose St",
+	"longitude" : -82.95428312,
+	"latitude" : 42.33008288,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 64,
+	"name" : "St. Gabriel Catholic Elementary School",
+	"address" : "1400 Roselawn Dr",
+	"longitude" : -83.02085572,
+	"latitude" : 42.25679843,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 65,
+	"name" : "Our Lady of Mount Carmel Catholic Elementary School",
+	"address" : "1400 Cousineau Rd",
+	"longitude" : -83.01192786,
+	"latitude" : 42.24314412,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 66,
+	"name" : "Notre Dame Catholic Elementary School",
+	"address" : "2751 Partington Ave",
+	"longitude" : -83.03509261,
+	"latitude" : 42.2688737,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 67,
+	"name" : "Christ the King Catholic Elementary School",
+	"address" : "1200 Grand Marais Rd W",
+	"longitude" : -83.02529639,
+	"latitude" : 42.26945035,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 68,
+	"name" : "Catholic Central High School",
+	"address" : "441 Tecumseh Rd E",
+	"longitude" : -83.01852053,
+	"latitude" : 42.29721569,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 69,
+	"name" : "F.j. Brennan Catholic High School",
+	"address" : "910 Raymo Rd",
+	"longitude" : -82.97550012,
+	"latitude" : 42.32496865,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 70,
+	"name" : "Immaculate Conception Catholic Elementary School",
+	"address" : "465 Victoria Ave",
+	"longitude" : -83.04029727,
+	"latitude" : 42.3147027,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 71,
+	"name" : "Assumption College Catholic High School",
+	"address" : "1100 Huron Church Rd",
+	"longitude" : -83.06171675,
+	"latitude" : 42.29524786,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 72,
+	"name" : "St. John Catholic Elementary School",
+	"address" : "1920 Grove Ave",
+	"longitude" : -83.05363528,
+	"latitude" : 42.29944556,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 73,
+	"name" : "St. James Catholic Elementary School",
+	"address" : "1601 St. James St",
+	"longitude" : -83.06113922,
+	"latitude" : 42.28383405,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 74,
+	"name" : "St. Jules Catholic Elementary School",
+	"address" : "1982 Norman Rd",
+	"longitude" : -82.96671032,
+	"latitude" : 42.30977771,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 75,
+	"name" : "St. Bernard Catholic Elementary School",
+	"address" : "1847 Meldrum Rd",
+	"longitude" : -82.98532108,
+	"latitude" : 42.30654418,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 76,
+	"name" : "St. Anne Catholic Elementary School",
+	"address" : "1140 Monmouth Rd",
+	"longitude" : -83.00464927,
+	"latitude" : 42.31654971,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 77,
+	"name" : "St. Angela Catholic Elementary School",
+	"address" : "816 Ellis St E",
+	"longitude" : -83.01778126,
+	"latitude" : 42.30608009,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 78,
+	"name" : "St. Michaels Alternate Catholic High School",
+	"address" : "4130 Franklin St",
+	"longitude" : -82.98375139,
+	"latitude" : 42.32095616,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 79,
+	"name" : "H.j. Lassaline Catholic Elementary School",
+	"address" : "3145 Wildwood Dr",
+	"longitude" : -82.92023494,
+	"latitude" : 42.30210328,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 80,
+	"name" : "St. John Vianney Catholic Elementary School",
+	"address" : "8405 Cedarview St",
+	"longitude" : -82.939947,
+	"latitude" : 42.33707076,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 81,
+	"name" : "Holy Names Catholic High School",
+	"address" : "1400 Northwood St",
+	"longitude" : -83.0336667,
+	"latitude" : 42.27757783,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 82,
+	"name" : "Our Lady of Perpetual Help Catholic Elementary School",
+	"address" : "775 Capitol St",
+	"longitude" : -83.00341845,
+	"latitude" : 42.2833996,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 83,
+	"name" : "St. Josephs Catholic High School",
+	"address" : "2425 Clover Ave",
+	"longitude" : -82.91270748,
+	"latitude" : 42.316183,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 84,
+	"name" : "W.j. Langlois Catholic Elementary School",
+	"address" : "3110 Rivard Ave",
+	"longitude" : -82.95245109,
+	"latitude" : 42.29405178,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 85,
+	"name" : "St. Christopher Catholic Elementary School",
+	"address" : "1213 E.C. Row",
+	"longitude" : -82.99317836,
+	"latitude" : 42.28019769,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 86,
+	"name" : "St. Michaels Adult Learining Rhodes Campus",
+	"address" : "477 Detroit St",
+	"longitude" : -83.07218973,
+	"latitude" : 42.30287495,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 87,
+	"name" : "West Gate Public School",
+	"address" : "1275 Campbell Ave",
+	"longitude" : -83.05131727,
+	"latitude" : 42.29732764,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 88,
+	"name" : "Giles Campus French Immersion Public School",
+	"address" : "874 Giles Blvd",
+	"longitude" : -83.01980222,
+	"latitude" : 42.31122705,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 89,
+	"name" : "Greater Essex County District School Board",
+	"address" : "451 PARK AVE W",
+	"longitude" : -83.04305329,
+	"latitude" : 42.3147801,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 90,
+	"name" : "Talbot Trail Public School",
+	"address" : "4000 Ducharme St",
+	"longitude" : -82.97328976,
+	"latitude" : 42.2518613,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 91,
+	"name" : "Maryvale Adolescent and Family Services",
+	"address" : "3640 Wells St",
+	"longitude" : -83.07296152,
+	"latitude" : 42.29126283,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 92,
+	"name" : "Glengard-osmond Bldg",
+	"address" : "1453 Prince Rd ELMS Bldg",
+	"longitude" : -83.06378087,
+	"latitude" : 42.28614743,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 93,
+	"name" : "New Beginnings I and Ii",
+	"address" : "1015 Highland Ave",
+	"longitude" : -83.0272466,
+	"latitude" : 42.31105685,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 94,
+	"name" : "Directions(iap) P.a.s.s. and Turning Point",
+	"address" : "284 Cameron Ave",
+	"longitude" : -83.05442136,
+	"latitude" : 42.31368239,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 95,
+	"name" : "Adult and Continuing Education",
+	"address" : "284 Cameron Ave",
+	"longitude" : -83.0546397,
+	"latitude" : 42.3140606,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 96,
+	"name" : "Roseland Public School",
+	"address" : "620 Cabana Rd E",
+	"longitude" : -82.99277764,
+	"latitude" : 42.25944556,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 97,
+	"name" : "John A. Mcwilliam Public School",
+	"address" : "1901 E.C. Row",
+	"longitude" : -82.98617442,
+	"latitude" : 42.28136227,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 98,
+	"name" : "Queen Victoria Public School",
+	"address" : "1376 Victoria Ave",
+	"longitude" : -83.0309818,
+	"latitude" : 42.30211421,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 99,
+	"name" : "Dougall Ave. Public School",
+	"address" : "811 Dougall Ave",
+	"longitude" : -83.03869241,
+	"latitude" : 42.31061626,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 100,
+	"name" : "Riverside Secondary School",
+	"address" : "8465 Jerome St",
+	"longitude" : -82.93539616,
+	"latitude" : 42.33014273,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 101,
+	"name" : "Roseville Public School",
+	"address" : "6265 Roseville Garden Dr",
+	"longitude" : -82.94688418,
+	"latitude" : 42.30673504,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 102,
+	"name" : "Northwood Public School",
+	"address" : "1100 Northwood St",
+	"longitude" : -83.03004814,
+	"latitude" : 42.27811337,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 103,
+	"name" : "Southwood Public School",
+	"address" : "1355 Cabana Rd W",
+	"longitude" : -83.01828681,
+	"latitude" : 42.25401247,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 104,
+	"name" : "Glenwood Public School",
+	"address" : "1601 Norfolk St",
+	"longitude" : -83.02831991,
+	"latitude" : 42.26257548,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 105,
+	"name" : "Central Public School",
+	"address" : "700 Norfolk St",
+	"longitude" : -83.01758757,
+	"latitude" : 42.267179,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 106,
+	"name" : "Massey Secondary & Elementary School",
+	"address" : "1800 Liberty St",
+	"longitude" : -83.02821299,
+	"latitude" : 42.2595537,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 107,
+	"name" : "Bellewood Public School",
+	"address" : "2500 LaBelle St",
+	"longitude" : -83.04036268,
+	"latitude" : 42.26718792,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 108,
+	"name" : "John Campbell Public School",
+	"address" : "1225 Tecumseh Rd E",
+	"longitude" : -83.00611835,
+	"latitude" : 42.29944006,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 109,
+	"name" : "Kennedy Collegiate Institute",
+	"address" : "245 Tecumseh Rd E",
+	"longitude" : -83.02076742,
+	"latitude" : 42.2955858,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 110,
+	"name" : "Westview Freedom Academy",
+	"address" : "1375 California Ave",
+	"longitude" : -83.05658119,
+	"latitude" : 42.29279899,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 111,
+	"name" : "Marlborough Public School",
+	"address" : "3557 Melbourne Rd",
+	"longitude" : -83.06461552,
+	"latitude" : 42.28973897,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 112,
+	"name" : "General Brock Public School",
+	"address" : "3312 Sandwich St",
+	"longitude" : -83.07783933,
+	"latitude" : 42.29967839,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 113,
+	"name" : "Walkerville Collegiate Institute",
+	"address" : "2100 Richmond St",
+	"longitude" : -83.00698787,
+	"latitude" : 42.31724802,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 114,
+	"name" : "W.f. Herman Secondary School and Elem.tech. Centre",
+	"address" : "1930 Rossini Blvd",
+	"longitude" : -82.97519604,
+	"latitude" : 42.30827605,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 115,
+	"name" : "Prince Edward Public School",
+	"address" : "949 Giles Blvd E",
+	"longitude" : -83.01747319,
+	"latitude" : 42.31007729,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 116,
+	"name" : "Percy P. Mccallum Public School",
+	"address" : "4195 Milloy St",
+	"longitude" : -82.97644032,
+	"latitude" : 42.31039518,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 117,
+	"name" : "King Edward Public School",
+	"address" : "853 Chilver Rd",
+	"longitude" : -83.01272051,
+	"latitude" : 42.31939773,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 118,
+	"name" : "Hugh Beaton Public School",
+	"address" : "2229 Chilver Rd",
+	"longitude" : -82.99968106,
+	"latitude" : 42.29900405,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 119,
+	"name" : "Gordon Mcgregor Public School",
+	"address" : "1646 Alexis Rd",
+	"longitude" : -82.99003372,
+	"latitude" : 42.30992755,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 120,
+	"name" : "F.w. Begley Public School",
+	"address" : "1093 Assumption St",
+	"longitude" : -83.02247382,
+	"latitude" : 42.32100828,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 121,
+	"name" : "David Maxwell Public School",
+	"address" : "1648 Francois Rd",
+	"longitude" : -82.97574924,
+	"latitude" : 42.3148147,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 122,
+	"name" : "Forest Glade Primary Learning Centre",
+	"address" : "9367 Esplanade Dr",
+	"longitude" : -82.92513202,
+	"latitude" : 42.31004205,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 123,
+	"name" : "Parkview Public School",
+	"address" : "3070 Stillmeadow Rd",
+	"longitude" : -82.90960817,
+	"latitude" : 42.30771947,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 124,
+	"name" : "Hetherington Public School",
+	"address" : "8800 Menard St",
+	"longitude" : -82.93466573,
+	"latitude" : 42.33612207,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 125,
+	"name" : "Forest Glade Public School",
+	"address" : "9485 Esplanade Dr",
+	"longitude" : -82.92312389,
+	"latitude" : 42.31088399,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 126,
+	"name" : "Eastwood Public School",
+	"address" : "3555 Forest Glade Dr",
+	"longitude" : -82.92217383,
+	"latitude" : 42.30059521,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 127,
+	"name" : "Dr. David Suzuki Public School",
+	"address" : "6320 Raymond Ave",
+	"longitude" : -82.95926098,
+	"latitude" : 42.32639368,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 128,
+	"name" : "Princess Elizabeth Public School",
+	"address" : "5399 Raymond Ave",
+	"longitude" : -82.96866897,
+	"latitude" : 42.32381884,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 129,
+	"name" : "W.g. Davis Public School",
+	"address" : "2855 Rivard Ave",
+	"longitude" : -82.95373806,
+	"latitude" : 42.29853589,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 130,
+	"name" : "Coronation Public School",
+	"address" : "5400 Coronation Ave",
+	"longitude" : -82.96209849,
+	"latitude" : 42.31361929,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 131,
+	"name" : "Incubator: Hybrid Laboratory at the Intersection of Art Science & Ecology",
+	"address" : "College Ave and Huron Church Rd.",
+	"longitude" : -83.06517805,
+	"latitude" : 42.29756894,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 132,
+	"name" : "St. Clair Centre for the Arts",
+	"address" : "201 Riverside Dr. W.",
+	"longitude" : -83.04224241,
+	"latitude" : 42.31894804,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 3
+}, {
+	"id" : 133,
+	"name" : "St. Clair College",
+	"address" : "2000 Talbot Rd W",
+	"longitude" : -83.01820545,
+	"latitude" : 42.24643615,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 3
+}, {
+	"id" : 134,
+	"name" : "University of Windsor",
+	"address" : "401 Sunset Ave",
+	"longitude" : -83.0663117,
+	"latitude" : 42.30683444,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 1
+}, {
+	"id" : 135,
+	"name" : "Ecole elementaire Windsor Sud",
+	"address" : "2520 Cabana Rd. W.",
+	"longitude" : -83.03282256,
+	"latitude" : 42.25367719,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 136,
+	"name" : "Ecole secondaire Michel-gratton",
+	"address" : "1775 Totten Ave",
+	"longitude" : -83.0454371,
+	"latitude" : 42.28870185,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 137,
+	"name" : "Ecole Lenvolee",
+	"address" : "1799 Ottawa St",
+	"longitude" : -83.00697136,
+	"latitude" : 42.31123904,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 138,
+	"name" : "Conseil Scolaire Catholique Providence",
+	"address" : "7515 FOREST GLADE AVE",
+	"longitude" : -82.92565496,
+	"latitude" : 42.29746717,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 139,
+	"name" : "Ecole Monseigneur Jean Noel",
+	"address" : "3225 California Ave",
+	"longitude" : -83.03483033,
+	"latitude" : 42.2597369,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 140,
+	"name" : "Ecole Georges P. Vanier",
+	"address" : "6200 Edgar St",
+	"longitude" : -82.95914898,
+	"latitude" : 42.3244671,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 141,
+	"name" : "Ecole Sainte-therese",
+	"address" : "5305 Tecumseh Rd E",
+	"longitude" : -82.96010024,
+	"latitude" : 42.3081646,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 142,
+	"name" : "Ecole Secondaire E.j. Lajeunesse",
+	"address" : "600 North Service Rd",
+	"longitude" : -83.02008611,
+	"latitude" : 42.27698041,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 143,
+	"name" : "Ecole Saint-edmond",
+	"address" : "1880 Totten St",
+	"longitude" : -83.04739491,
+	"latitude" : 42.28978581,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 144,
+	"name" : "Forest Glade Community Centre",
+	"address" : "3215 Forest Glade Dr",
+	"longitude" : -82.91572,
+	"latitude" : 42.303163,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 145,
+	"name" : "Ojibway Nature Centre",
+	"address" : "5200 Matchette Rd",
+	"longitude" : -83.075724,
+	"latitude" : 42.264283,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 146,
+	"name" : "Oakwood Community Centre",
+	"address" : "2520 Cabana Rd W",
+	"longitude" : -83.033242,
+	"latitude" : 42.253244,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 147,
+	"name" : "Constable John Atkinson Memorial Community Centre",
+	"address" : "4270 Alice St",
+	"longitude" : -82.978547,
+	"latitude" : 42.313454,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 148,
+	"name" : "Glengarry Court Community Centre",
+	"address" : "495 Glengarry Ave",
+	"longitude" : -83.031128,
+	"latitude" : 42.317299,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 149,
+	"name" : "Willistead Heritage Complex",
+	"address" : "1899 Niagara St",
+	"longitude" : -83.011134,
+	"latitude" : 42.318569,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 150,
+	"name" : "Mackenzie Hall Cultural Centre",
+	"address" : "3277 Sandwich St",
+	"longitude" : -83.076502,
+	"latitude" : 42.300132,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 151,
+	"name" : "Adie Knox Herman Recreation Complex",
+	"address" : "1551 Wyandotte St W",
+	"longitude" : -83.053372,
+	"latitude" : 42.307922,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 152,
+	"name" : "Gino A. Marcus Community Complex",
+	"address" : "1168 Drouillard Rd",
+	"longitude" : -82.998281,
+	"latitude" : 42.319291,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 153,
+	"name" : "Windsor Water World",
+	"address" : "400 Wyandotte St E",
+	"longitude" : -83.03119,
+	"latitude" : 42.316671,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 154,
+	"name" : "Malden Park Visitors Centre",
+	"address" : "4200 Malden Rd",
+	"longitude" : -83.06098,
+	"latitude" : 42.276843,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 155,
+	"name" : "Optimist Community Centre",
+	"address" : "1075 Ypres Ave",
+	"longitude" : -83.003674,
+	"latitude" : 42.292369,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 156,
+	"name" : "Centres for Seniors",
+	"address" : "635 McEwan Ave",
+	"longitude" : -83.05479,
+	"latitude" : 42.306862,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 157,
+	"name" : "Bridgeview Library",
+	"address" : "1295 Campbell Ave",
+	"longitude" : -83.05012,
+	"latitude" : 42.296991,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 158,
+	"name" : "Windsor Community Museum",
+	"address" : "254 Pitt Street W",
+	"longitude" : -83.042433,
+	"latitude" : 42.318514,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 159,
+	"name" : "South Walkerville Library",
+	"address" : "1425 Tecumseh Road East",
+	"longitude" : -83.004268,
+	"latitude" : 42.30018,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 160,
+	"name" : "Remington Park Neighbourhood Library",
+	"address" : "2710 Lillian St",
+	"longitude" : -83.006215,
+	"latitude" : 42.284915,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 161,
+	"name" : "Seminole Community Library",
+	"address" : "4285 Seminole St",
+	"longitude" : -82.9793,
+	"latitude" : 42.316972,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 162,
+	"name" : "Nikola Budimir Memorial Resource Library",
+	"address" : "1310 Grand Marais W",
+	"longitude" : -83.026716,
+	"latitude" : 42.268296,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 163,
+	"name" : "Riverside Resource Library",
+	"address" : "6305 Wyandotte St E",
+	"longitude" : -82.960902,
+	"latitude" : 42.329794,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 164,
+	"name" : "Forest Glade - Optimist Library",
+	"address" : "3211 Forest Glade Dr",
+	"longitude" : -82.915847,
+	"latitude" : 42.303067,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 165,
+	"name" : "Sandwich Library",
+	"address" : "3312 Sandwich St",
+	"longitude" : -83.077893,
+	"latitude" : 42.299659,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 166,
+	"name" : "Central Resource Library",
+	"address" : "850 Ouellette Ave",
+	"longitude" : -83.03431,
+	"latitude" : 42.31127,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 167,
+	"name" : "Fontainbleau Library",
+	"address" : "3030 Rivard Ave",
+	"longitude" : -82.953236,
+	"latitude" : 42.29525,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 2
+}, {
+	"id" : 168,
+	"name" : "Magnolia",
+	"address" : "1703 Magnolia Ave.",
+	"longitude" : -82.9135523,
+	"latitude" : 42.32042907,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 169,
+	"name" : "Tall Grass Prairie Heritage",
+	"address" : "Adjacent to the Ojibway Prairie Provincial Nature Reserve on the north side of Titcombe bike path.",
+	"longitude" : -83.07060026,
+	"latitude" : 42.26420501,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 170,
+	"name" : "Ojibway Tom Joy Woods",
+	"address" : "5200 Matchette Rd.",
+	"longitude" : -83.07840463,
+	"latitude" : 42.26606704,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 171,
+	"name" : "Ganatchio Trail",
+	"address" : "Riverside Dr. E.",
+	"longitude" : -82.90146505,
+	"latitude" : 42.33367745,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 172,
+	"name" : "Riverside Baseball Park",
+	"address" : "6755 Wyandotte St. E.",
+	"longitude" : -82.95501089,
+	"latitude" : 42.32940188,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 173,
+	"name" : "Grand Marais Rd Drain Trail",
+	"address" : "Grand Marais from Howard to Walker Rd.",
+	"longitude" : -82.99354755,
+	"latitude" : 42.28493161,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 174,
+	"name" : "Grand Marais Rd Drain Trail",
+	"address" : "Grand Marais from Howard to Walker Rd.",
+	"longitude" : -83.00036362,
+	"latitude" : 42.28254642,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 175,
+	"name" : "Grand Marais Rd Drain Trail",
+	"address" : "Grand Marais from Howard to Walker Rd.",
+	"longitude" : -83.00414953,
+	"latitude" : 42.28086898,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 176,
+	"name" : "Ypres Park",
+	"address" : "Ypres St. between Francois and Arthur Rd.",
+	"longitude" : -82.96850572,
+	"latitude" : 42.30439906,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 177,
+	"name" : "Wolfe Lake Park",
+	"address" : "Southwood Lakes Blvd.",
+	"longitude" : -82.98785888,
+	"latitude" : 42.2363908,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 178,
+	"name" : "Walker Homesite Bikepath",
+	"address" : "Seymour Blvd.",
+	"longitude" : -82.97944719,
+	"latitude" : 42.26908033,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 179,
+	"name" : "Remington Dog  Park",
+	"address" : "701 Edinborough St.",
+	"longitude" : -83.00452728,
+	"latitude" : 42.28517815,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 180,
+	"name" : "Peche Island Landing",
+	"address" : "8730 Riverside Dr E.",
+	"longitude" : -82.93800822,
+	"latitude" : 42.3426144,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 181,
+	"name" : "Langlois Crt Linear Park",
+	"address" : "Remington Park to to Southdale Park",
+	"longitude" : -83.00066524,
+	"latitude" : 42.28678666,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 182,
+	"name" : "Langlois Crt Linear Park",
+	"address" : "Remington Park to to Southdale Park",
+	"longitude" : -82.99579536,
+	"latitude" : 42.28889531,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 183,
+	"name" : "Jackson Park",
+	"address" : "125 Tecumseh Rd. E",
+	"longitude" : -83.0213029,
+	"latitude" : 42.29353464,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 184,
+	"name" : "Ganatchio Trail",
+	"address" : "Riverside Dr. E.",
+	"longitude" : -82.92094836,
+	"latitude" : 42.33849784,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 185,
+	"name" : "Ganatchio Trail",
+	"address" : "Riverside Dr. E.",
+	"longitude" : -82.93050092,
+	"latitude" : 42.33871646,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 186,
+	"name" : "Ganatchio Trail",
+	"address" : "Riverside Dr. E.",
+	"longitude" : -82.91226946,
+	"latitude" : 42.33576546,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 187,
+	"name" : "Esdras Park",
+	"address" : "Esdras Ave. North of South National St.",
+	"longitude" : -82.96141322,
+	"latitude" : 42.3204201,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 188,
+	"name" : "Devonshire Court",
+	"address" : "Devonshire Crt. and Devonshire Rd.",
+	"longitude" : -83.00559092,
+	"latitude" : 42.31297188,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 189,
+	"name" : "Devonshire Court",
+	"address" : "Devonshire Crt. and Devonshire Rd.",
+	"longitude" : -83.00565441,
+	"latitude" : 42.31356378,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 190,
+	"name" : "Devonshire Court",
+	"address" : "Devonshire Crt. and Devonshire Rd.",
+	"longitude" : -83.00617047,
+	"latitude" : 42.31337986,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 191,
+	"name" : "Compton Court Park",
+	"address" : "End of Compton Crt.",
+	"longitude" : -83.00324594,
+	"latitude" : 42.26912122,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 192,
+	"name" : "Chatham St Park Parkette",
+	"address" : "Chatham St. E. (west of Goyeau St.)",
+	"longitude" : -83.03852954,
+	"latitude" : 42.31870159,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 193,
+	"name" : "Cadillac St Park",
+	"address" : "290 Drouillard Rd.",
+	"longitude" : -83.0016791,
+	"latitude" : 42.32472074,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 194,
+	"name" : "Broadway Dog  Park",
+	"address" : "Broadway St. West of Ojibway Parkway",
+	"longitude" : -83.08593364,
+	"latitude" : 42.27186164,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 195,
+	"name" : "Assumption Park",
+	"address" : "North and South sides of Riverside Drive near the Ambassador Bridge",
+	"longitude" : -83.07069646,
+	"latitude" : 42.30865718,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 196,
+	"name" : "Alton C. Parker Park",
+	"address" : "400 Broadhead St.",
+	"longitude" : -83.02766291,
+	"latitude" : 42.31272211,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 197,
+	"name" : "A.k.o. Park",
+	"address" : "4270 Alice Rd.",
+	"longitude" : -82.97810209,
+	"latitude" : 42.31379131,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 198,
+	"name" : "Virginia Park",
+	"address" : "Between Dandurand and South Cameron Blvd (Undeveloped)",
+	"longitude" : -83.02817029,
+	"latitude" : 42.28375709,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 199,
+	"name" : "Martinique Park",
+	"address" : "Martinique Dr.",
+	"longitude" : -82.92409279,
+	"latitude" : 42.33393511,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 200,
+	"name" : "Morningstar Park",
+	"address" : "Morningstar Ave.",
+	"longitude" : -82.91174218,
+	"latitude" : 42.32487208,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 201,
+	"name" : "Wfcu",
+	"address" : "8787 McHugh St.",
+	"longitude" : -82.92747887,
+	"latitude" : 42.31947826,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 202,
+	"name" : "Southwood Lakes Trail",
+	"address" : "Southwood Lakes and North Talbot",
+	"longitude" : -82.99228868,
+	"latitude" : 42.24526839,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 203,
+	"name" : "Reaume Overflow Parking",
+	"address" : "Pleasant Place and Pillette",
+	"longitude" : -82.98049363,
+	"latitude" : 42.32742287,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 204,
+	"name" : "Little River Corridor 2",
+	"address" : "Ganatchio South Extension",
+	"longitude" : -82.92176047,
+	"latitude" : 42.3364421,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 205,
+	"name" : "Gino A Marcus Parkette",
+	"address" : "1200 Drouillard Rd.",
+	"longitude" : -82.99784759,
+	"latitude" : 42.3184501,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 206,
+	"name" : "Hawthorne Park",
+	"address" : "Hawthorne Dr. and Sycamore Dr. (north end of Little River Golf Course)",
+	"longitude" : -82.93095125,
+	"latitude" : 42.30877634,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 207,
+	"name" : "Aylmer Rest Station",
+	"address" : "Aylmer and Riverside Dr.",
+	"longitude" : -83.03098426,
+	"latitude" : 42.32198614,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 208,
+	"name" : "St. Rose Park",
+	"address" : "Wyandotte and St. Rose Ave.",
+	"longitude" : -82.95580531,
+	"latitude" : 42.33049609,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 209,
+	"name" : "Piazza Udine",
+	"address" : "Riverside Dr. and Ouellette Ave",
+	"longitude" : -83.04021227,
+	"latitude" : 42.31994392,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 210,
+	"name" : "Parkwood Woodlot",
+	"address" : "Central and Temple Dr.",
+	"longitude" : -82.97225385,
+	"latitude" : 42.28687298,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 211,
+	"name" : "Lens Ave. Park",
+	"address" : "Louis Ave. to Elsmere Ave.",
+	"longitude" : -83.01178938,
+	"latitude" : 42.29534005,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 212,
+	"name" : "Charles Clark Square Esplanade",
+	"address" : "University Ave and City Hall Square",
+	"longitude" : -83.03616091,
+	"latitude" : 42.31864899,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 213,
+	"name" : "Kinsmen Community Park (norman Park)",
+	"address" : "1730 Olive rd. (Alice and Olive)",
+	"longitude" : -82.97084929,
+	"latitude" : 42.3144688,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 214,
+	"name" : "Wilson Park",
+	"address" : "Wyandotte St. W. between McEwan and McKay ave.",
+	"longitude" : -83.05315876,
+	"latitude" : 42.3068157,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 215,
+	"name" : "Willistead Park",
+	"address" : "1899 Niagara St.",
+	"longitude" : -83.00985709,
+	"latitude" : 42.31765811,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 216,
+	"name" : "Wildwood Park",
+	"address" : "3950 Wildwood Dr.",
+	"longitude" : -82.9019297,
+	"latitude" : 42.30490216,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 217,
+	"name" : "Wigle Park",
+	"address" : "397 Erie St. E.",
+	"longitude" : -83.02804085,
+	"latitude" : 42.30991002,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 218,
+	"name" : "Whelpton Park",
+	"address" : "Corner of Drouillard Rd. and Whelpton St.",
+	"longitude" : -83.00047386,
+	"latitude" : 42.32149497,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 219,
+	"name" : "Westcott Park",
+	"address" : "Reginald St. between Central Ave. and Wescott Rd.",
+	"longitude" : -82.98373072,
+	"latitude" : 42.31195953,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 220,
+	"name" : "Wellington Park",
+	"address" : "Wellington Ave. just south of Universtiy Ave. W.",
+	"longitude" : -83.05236488,
+	"latitude" : 42.31278134,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 221,
+	"name" : "Jubilee Park (walkerville)",
+	"address" : "Kildare and Wyandotte",
+	"longitude" : -83.01335594,
+	"latitude" : 42.3224328,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 222,
+	"name" : "Walker Homesites Park",
+	"address" : "1900 Seymour Blvd.",
+	"longitude" : -82.98409161,
+	"latitude" : 42.27810083,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 223,
+	"name" : "Vision Corridor",
+	"address" : "Riverside Dr. W. between Bruce Ave. and Church St.",
+	"longitude" : -83.04543713,
+	"latitude" : 42.31802802,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 224,
+	"name" : "Veterans Memorial Park",
+	"address" : "4305 Longfellow Dr.",
+	"longitude" : -83.00938121,
+	"latitude" : 42.24443471,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 225,
+	"name" : "University Ave. Park",
+	"address" : "University Ave. E. between Langlois Ave. and Pierre Ave.",
+	"longitude" : -83.02308659,
+	"latitude" : 42.32184807,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 226,
+	"name" : "Unity Park",
+	"address" : "Ontario St. and Central Ave.",
+	"longitude" : -82.9897933,
+	"latitude" : 42.3205736,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 227,
+	"name" : "Udine Park",
+	"address" : "Parkdale Pl. and Byng Rd.",
+	"longitude" : -82.98930172,
+	"latitude" : 42.28724122,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 228,
+	"name" : "Twin Oaks Park",
+	"address" : "Twin Oaks Dr.",
+	"longitude" : -82.91719482,
+	"latitude" : 42.29137968,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 229,
+	"name" : "Tranby Park",
+	"address" : "Tranby Ave. and Parkview Ave.",
+	"longitude" : -82.94641034,
+	"latitude" : 42.31949529,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 230,
+	"name" : "Thurston Park",
+	"address" : "Rivard Ave. between Rivard Ave. and Armstrong",
+	"longitude" : -82.95491996,
+	"latitude" : 42.30122151,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 231,
+	"name" : "Thompson Park",
+	"address" : "End of Edgar St.",
+	"longitude" : -82.9674564,
+	"latitude" : 42.32195171,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 232,
+	"name" : "Teedie Hawthorne Park",
+	"address" : "End of Hawthorne Dr. and Hawthorne Cres",
+	"longitude" : -82.92718004,
+	"latitude" : 42.31098412,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 233,
+	"name" : "Tall Grass Prairie Heritage",
+	"address" : "Adjacent to the Ojibway Prairie Provincial Nature Reserve on the north side of Titcombe bike path.",
+	"longitude" : -83.06638073,
+	"latitude" : 42.26392373,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 234,
+	"name" : "Superior Park",
+	"address" : "1700 Totten St.",
+	"longitude" : -83.04651657,
+	"latitude" : 42.2907668,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 235,
+	"name" : "Straith Park",
+	"address" : "Riverside Dr. W. and Campbell Ave.",
+	"longitude" : -83.06087206,
+	"latitude" : 42.31372145,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 236,
+	"name" : "Stop 26",
+	"address" : "10630 Riverside Dr. E.",
+	"longitude" : -82.91607296,
+	"latitude" : 42.33726861,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 237,
+	"name" : "Stoneybrook Park",
+	"address" : "Southwood Lakes Blvd. and North Talbot Rd.",
+	"longitude" : -82.98181804,
+	"latitude" : 42.24243596,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 238,
+	"name" : "Stodgell Park",
+	"address" : "Seneca St. and Kildare Rd.",
+	"longitude" : -83.00311992,
+	"latitude" : 42.30482966,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 239,
+	"name" : "Stillmeadow Park",
+	"address" : "Eastcourt Dr. and Stillmeadow Rd.",
+	"longitude" : -82.91097545,
+	"latitude" : 42.30941771,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 240,
+	"name" : "St. Rose Beach Park",
+	"address" : "Riverside Dr. E. just west of St. Rose Ave.",
+	"longitude" : -82.95589589,
+	"latitude" : 42.33310639,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 241,
+	"name" : "St. Paul Pumping Station Park",
+	"address" : "7730 Riverside Dr. E.",
+	"longitude" : -82.9500106,
+	"latitude" : 42.33846429,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 242,
+	"name" : "St. Paul Grove Park",
+	"address" : "St. Paul Ave. between Mount Olive Grove and St. Rose Ave.",
+	"longitude" : -82.94273368,
+	"latitude" : 42.32957467,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 243,
+	"name" : "Springhollow Park",
+	"address" : "Springhollow Dr. and Luxury Ave.",
+	"longitude" : -82.90684598,
+	"latitude" : 42.3150865,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 244,
+	"name" : "Spring Garden Ansi",
+	"address" : "South of E.C. Row Expressway and west of Huron Church Rd.",
+	"longitude" : -83.04936853,
+	"latitude" : 42.25666577,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 245,
+	"name" : "Southdale Park",
+	"address" : "Southdale Dr. and Bramley Cres.",
+	"longitude" : -82.99442439,
+	"latitude" : 42.28983477,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 246,
+	"name" : "South Tilston Park",
+	"address" : "Tilston Dr. between Rankin and Askin Ave.",
+	"longitude" : -83.05368051,
+	"latitude" : 42.29433012,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 247,
+	"name" : "South Rendezvous Park",
+	"address" : "End of Rendezvous Crt.",
+	"longitude" : -82.89628013,
+	"latitude" : 42.33214981,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 248,
+	"name" : "South Merrit Park",
+	"address" : "Merrit Dr. between Rankin and Askin Ave.",
+	"longitude" : -83.05652453,
+	"latitude" : 42.29872714,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 249,
+	"name" : "South Cameron Woodlot",
+	"address" : "Kenora St. and Mark Ave.",
+	"longitude" : -83.04231456,
+	"latitude" : 42.28063797,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 250,
+	"name" : "Shinglecreek Park",
+	"address" : "Shinglecreek Crt.",
+	"longitude" : -82.98318362,
+	"latitude" : 42.26806295,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 251,
+	"name" : "Shawnee Park",
+	"address" : "Colbourne Dr.",
+	"longitude" : -82.95366522,
+	"latitude" : 42.29079453,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 252,
+	"name" : "Shanfield Shores",
+	"address" : "Riverside Dr. E.  east of Flora Ave.",
+	"longitude" : -82.92716201,
+	"latitude" : 42.33934175,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 253,
+	"name" : "Seven Sisters Parkland",
+	"address" : "Between Fazio Dr. and Huron Church Rd. ( access from Via Vita St.)",
+	"longitude" : -83.04298847,
+	"latitude" : 42.25932047,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 254,
+	"name" : "Seneca Park",
+	"address" : "Wildwood Dr.",
+	"longitude" : -82.91088021,
+	"latitude" : 42.29954926,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 255,
+	"name" : "Senator Croll Park",
+	"address" : "Goyeau St. and University Ave.",
+	"longitude" : -83.03633751,
+	"latitude" : 42.31772296,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 256,
+	"name" : "Sandpoint Beach / Park",
+	"address" : "10300 Riverside Dr. E.",
+	"longitude" : -82.9195312,
+	"latitude" : 42.33870697,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 257,
+	"name" : "Roseville Park",
+	"address" : "Roseville Garden Dr.",
+	"longitude" : -82.94501921,
+	"latitude" : 42.30705524,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 258,
+	"name" : "Roseland Park",
+	"address" : "Morand St. and Locke St.",
+	"longitude" : -82.98531782,
+	"latitude" : 42.25677757,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 259,
+	"name" : "Robert Park",
+	"address" : "2747 Robert Rd. (Robert Rd. and Plymouth Dr.)",
+	"longitude" : -82.9653459,
+	"latitude" : 42.29675631,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 260,
+	"name" : "Riverside Kiwanis Park",
+	"address" : "Part of Little River Corridor Parkland",
+	"longitude" : -82.92600836,
+	"latitude" : 42.3278755,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 261,
+	"name" : "Riverdale Park",
+	"address" : "Riverdale and Little River Rd.",
+	"longitude" : -82.92954927,
+	"latitude" : 42.32784063,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 262,
+	"name" : "Remington Booster Park",
+	"address" : "701 Edinborough St.",
+	"longitude" : -83.00473875,
+	"latitude" : 42.28581083,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 263,
+	"name" : "Reaume Park - Coventry Gardens",
+	"address" : "4714 Riverside Dr. E.",
+	"longitude" : -82.98078148,
+	"latitude" : 42.32900679,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 264,
+	"name" : "Realtor Park",
+	"address" : "1390 Homedale Blvd.",
+	"longitude" : -82.95332492,
+	"latitude" : 42.32235759,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 265,
+	"name" : "Radisson Bikeway Parkland",
+	"address" : "North of West Grand Blvd. between Bruce Ave. and Woodland Ave.",
+	"longitude" : -83.0178468,
+	"latitude" : 42.27189993,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 266,
+	"name" : "Pykes Park",
+	"address" : "Lassaline Ave. between Ford Blvd. and Ferndale Ave.",
+	"longitude" : -82.96302577,
+	"latitude" : 42.3154345,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 267,
+	"name" : "Polonia Park",
+	"address" : "End of Milloy St. east of Norman Rd.",
+	"longitude" : -82.96787514,
+	"latitude" : 42.3129918,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 268,
+	"name" : "Peche Island",
+	"address" : "Island - accessible only by boat",
+	"longitude" : -82.92658725,
+	"latitude" : 42.34605783,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 269,
+	"name" : "Patrick Maguire Park",
+	"address" : "Holburn St. and Maguire St.",
+	"longitude" : -82.9867747,
+	"latitude" : 42.26110255,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 270,
+	"name" : "Paterson Park",
+	"address" : "Sandwich St. and Detroit St.",
+	"longitude" : -83.07368161,
+	"latitude" : 42.3051446,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 271,
+	"name" : "Partington Park",
+	"address" : "Partington Ave. south of E.C. Row Expressway",
+	"longitude" : -83.03635392,
+	"latitude" : 42.2703458,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 272,
+	"name" : "Parent Park",
+	"address" : "Parent Ave. and Vimy Ave.",
+	"longitude" : -83.00791514,
+	"latitude" : 42.29477523,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 273,
+	"name" : "Palmetto Park",
+	"address" : "11518 Palmetto St.",
+	"longitude" : -82.89863079,
+	"latitude" : 42.30997948,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 274,
+	"name" : "Optimist Memorial Park",
+	"address" : "1075 Ypres Blvd.",
+	"longitude" : -83.00209398,
+	"latitude" : 42.29195712,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 275,
+	"name" : "Ojibway Prairie Provincial Nature Reserve",
+	"address" : "Matchette Rd.",
+	"longitude" : -83.06995412,
+	"latitude" : 42.25908645,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 276,
+	"name" : "Oakwood Parkland",
+	"address" : "2555 Pulford St.",
+	"longitude" : -83.03355601,
+	"latitude" : 42.2562159,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 277,
+	"name" : "Elm Street Park",
+	"address" : "Elm Ave. between Giles Blvd. W. and Montrose St.",
+	"longitude" : -83.04271968,
+	"latitude" : 42.30038254,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 278,
+	"name" : "North Tilston Park",
+	"address" : "Tilston Dr. between Rankin and Askin Ave.",
+	"longitude" : -83.0556785,
+	"latitude" : 42.29651708,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 279,
+	"name" : "North Talbot Park",
+	"address" : "Old West Ave and Highnoon Dr.",
+	"longitude" : -82.97789456,
+	"latitude" : 42.24307255,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 280,
+	"name" : "North Merritt Park",
+	"address" : "Merrit Dr. between Rankin and Askin Ave.",
+	"longitude" : -83.05792674,
+	"latitude" : 42.3000011,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 281,
+	"name" : "Mitchell Park",
+	"address" : "1201 Church St.",
+	"longitude" : -83.03489574,
+	"latitude" : 42.30302153,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 282,
+	"name" : "Mill Park",
+	"address" : "Russell St. and Mill St.",
+	"longitude" : -83.07727817,
+	"latitude" : 42.30323186,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 283,
+	"name" : "Mic Mac Park",
+	"address" : "Prince Rd.",
+	"longitude" : -83.07314751,
+	"latitude" : 42.28517935,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 284,
+	"name" : "Meadowbrook Park",
+	"address" : "Meadowbrook St.",
+	"longitude" : -82.93220171,
+	"latitude" : 42.30521686,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 285,
+	"name" : "Mckee Park",
+	"address" : "Sandwich St.",
+	"longitude" : -83.07491945,
+	"latitude" : 42.30654281,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 286,
+	"name" : "Mchugh Park",
+	"address" : "9655 McHugh St.",
+	"longitude" : -82.92184839,
+	"latitude" : 42.31778105,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 287,
+	"name" : "Mcdonald Park",
+	"address" : "3971 Ypres Ave.",
+	"longitude" : -82.97466764,
+	"latitude" : 42.30166472,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 50
+}, {
+	"id" : 288,
+	"name" : "Mayfair Park",
+	"address" : "Chandler Rd. between Somme and Julien Ave.",
+	"longitude" : -82.98151796,
+	"latitude" : 42.29688341,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 289,
+	"name" : "Maurice Belanger Park",
+	"address" : "3980 Malden Rd.",
+	"longitude" : -83.06006608,
+	"latitude" : 42.28071194,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 290,
+	"name" : "Matthew Rodzik Park",
+	"address" : "Rodfam Dr.  South of Cousineau Rd.",
+	"longitude" : -83.00319612,
+	"latitude" : 42.2403096,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 291,
+	"name" : "Matchette Park",
+	"address" : "3675 Matchette Rd. Matchette Rd and Tecumseh Rd. W.",
+	"longitude" : -83.0656088,
+	"latitude" : 42.28835461,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 292,
+	"name" : "Mark Park",
+	"address" : "West Grande Blvd. between Glenwood Ave. and Mark Ave.",
+	"longitude" : -83.02850348,
+	"latitude" : 42.26488324,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 293,
+	"name" : "Marguriet Park",
+	"address" : "Daytona Ave. and Marguriet St.",
+	"longitude" : -83.03219188,
+	"latitude" : 42.24956448,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 294,
+	"name" : "Maple Leaf Park",
+	"address" : "Maple Leaf Cre. and Devonwood Ave.",
+	"longitude" : -82.97629295,
+	"latitude" : 42.25973801,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 295,
+	"name" : "Malden Park",
+	"address" : "4200 Malden Rd.",
+	"longitude" : -83.06515645,
+	"latitude" : 42.27722962,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 296,
+	"name" : "Mackenzie Hall",
+	"address" : "3277 Sandwich St.",
+	"longitude" : -83.07604455,
+	"latitude" : 42.3004169,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 297,
+	"name" : "Little River Corridor 1",
+	"address" : "McHugh St.",
+	"longitude" : -82.92377912,
+	"latitude" : 42.32654364,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 298,
+	"name" : "Little River Blvd",
+	"address" : "Little River Blvd. between Clover and Chateau Ave.",
+	"longitude" : -82.91449187,
+	"latitude" : 42.32461825,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 299,
+	"name" : "Little River Acres Park",
+	"address" : "Little River Rd. and Little River Acres Dr.",
+	"longitude" : -82.93088525,
+	"latitude" : 42.32639709,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 300,
+	"name" : "Leafield Park",
+	"address" : "Conservation Dr. and Labour Cres.",
+	"longitude" : -82.99193899,
+	"latitude" : 42.27836472,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 301,
+	"name" : "Lanspeary Park",
+	"address" : "1250 Langlois Ave.",
+	"longitude" : -83.01522229,
+	"latitude" : 42.31006999,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 302,
+	"name" : "Langlois Crt Linear Park",
+	"address" : "Remington Park to to Southdale Park",
+	"longitude" : -82.99745193,
+	"latitude" : 42.28809578,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 303,
+	"name" : "Lakeview  Park Marina",
+	"address" : "9200 Riverside Dr. E.",
+	"longitude" : -82.92986226,
+	"latitude" : 42.33984467,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 304,
+	"name" : "Lakeshore Woods",
+	"address" : "Banwell Rd. and Little River Blvd.",
+	"longitude" : -82.90487451,
+	"latitude" : 42.32367735,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 305,
+	"name" : "Lake Trail Park",
+	"address" : "Lake Trail Dr.",
+	"longitude" : -82.98779619,
+	"latitude" : 42.24078098,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 306,
+	"name" : "Lake Laguna Park",
+	"address" : "Lake Laguna Crt.",
+	"longitude" : -82.98263499,
+	"latitude" : 42.23913801,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 307,
+	"name" : "Lake Grande Park",
+	"address" : "Southwood Lakes Blvd and Lake Laguna Crt.",
+	"longitude" : -82.98285542,
+	"latitude" : 42.24009572,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 308,
+	"name" : "Lake Como Park",
+	"address" : "4500 Southwood Lakes Blvd.",
+	"longitude" : -82.99225182,
+	"latitude" : 42.24271327,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 309,
+	"name" : "Labadie Park",
+	"address" : "Labadie Rd between Franklin and Metcalfe St.",
+	"longitude" : -82.98711198,
+	"latitude" : 42.31810318,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 310,
+	"name" : "Kominar Park",
+	"address" : "Alpenrose Ave. and Southwood Lakes Blvd.",
+	"longitude" : -82.99185546,
+	"latitude" : 42.23787896,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 311,
+	"name" : "Kiwanis Park",
+	"address" : "7689 Riverside Dr. E.",
+	"longitude" : -82.94908647,
+	"latitude" : 42.33715247,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 312,
+	"name" : "Kinsmen Park",
+	"address" : "Chatham St. E. and Riverside Dr. E.",
+	"longitude" : -83.02909665,
+	"latitude" : 42.32147224,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 313,
+	"name" : "Kennedy Sq. Park",
+	"address" : "Howard Ave. and Allendale St.",
+	"longitude" : -83.02259409,
+	"latitude" : 42.30725111,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 314,
+	"name" : "Kenilworth Park",
+	"address" : "Howard Ave. south of Kenilworth Dr. to Whiteside Dr.",
+	"longitude" : -83.0022721,
+	"latitude" : 42.26684685,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 315,
+	"name" : "Jennifer Park",
+	"address" : "Jennifer Dr. (part of Grand Marais Parkland)",
+	"longitude" : -82.99577233,
+	"latitude" : 42.28353132,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 316,
+	"name" : "Jackson Park",
+	"address" : "125 Tecumseh Rd. E.",
+	"longitude" : -83.0240386,
+	"latitude" : 42.29205856,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 317,
+	"name" : "Howard Park",
+	"address" : "Grand Marais Rd. E. and Howard Ave.",
+	"longitude" : -83.00708998,
+	"latitude" : 42.27943486,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 318,
+	"name" : "Homesite Park",
+	"address" : "Villaire Ave. and Raymond Ave.",
+	"longitude" : -82.96647306,
+	"latitude" : 42.32472336,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 319,
+	"name" : "Holburn Park",
+	"address" : "Providence Cres. and Holburn St.",
+	"longitude" : -82.98731663,
+	"latitude" : 42.24983993,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 320,
+	"name" : "Herb Gray Nature Reserve",
+	"address" : "Lake Trail Dr. south of North Talbot Rd.(off of Southwood Lakes Blvd.)",
+	"longitude" : -82.9858027,
+	"latitude" : 42.23989599,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 321,
+	"name" : "Hall Farms Linear Park",
+	"address" : "Conservation Dr. and Hallmark to Walker Homesite Park",
+	"longitude" : -82.98727689,
+	"latitude" : 42.27868784,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 322,
+	"name" : "Grove Park",
+	"address" : "Grove Ave. and Askin Ave.",
+	"longitude" : -83.05761929,
+	"latitude" : 42.29739769,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 323,
+	"name" : "Great Western Park",
+	"address" : "480 Riverside Dr. E. (Riverside Dr. E. between Glengarry Ave. and Marentette Ave.)",
+	"longitude" : -83.03023219,
+	"latitude" : 42.32226033,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 324,
+	"name" : "Goose Bay Park",
+	"address" : "Riverside Dr. E. between Jos Janisse Ave. and Pillette Ave.",
+	"longitude" : -82.9846893,
+	"latitude" : 42.32773985,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 325,
+	"name" : "Goldenwood Park",
+	"address" : "Goldenwood Dr. and Silverdale Dr.",
+	"longitude" : -82.98513784,
+	"latitude" : 42.24594945,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 326,
+	"name" : "Girardot Park",
+	"address" : "Girardot St. and Rankin Ave.",
+	"longitude" : -83.05460592,
+	"latitude" : 42.2978834,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 327,
+	"name" : "Gignac Park",
+	"address" : "Shepherd St. E. between Marentette Ave. and Lillian Ave.",
+	"longitude" : -83.01771566,
+	"latitude" : 42.30285248,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 328,
+	"name" : "George Park",
+	"address" : "4085 Wyandotte St. E. (corner of George and Wyandotte)",
+	"longitude" : -82.98637777,
+	"latitude" : 42.32369859,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 329,
+	"name" : "Garry Dugal Park",
+	"address" : "Drouillard Rd. and Deming St. (1247 Drouillard Rd.)",
+	"longitude" : -82.99834031,
+	"latitude" : 42.31601385,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 330,
+	"name" : "Garwood Park",
+	"address" : "Irvine Ave. and Marentette Ave.",
+	"longitude" : -83.01327603,
+	"latitude" : 42.29755073,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 331,
+	"name" : "Ganatchio Trail Park",
+	"address" : "Florence and Riverside Dr. E.",
+	"longitude" : -82.91733889,
+	"latitude" : 42.33780949,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 332,
+	"name" : "Fred Thomas Park",
+	"address" : "400 Wyandotte St. E.",
+	"longitude" : -83.03111006,
+	"latitude" : 42.31666446,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 333,
+	"name" : "Francois Park",
+	"address" : "Francois Crt. south of Ontario St.",
+	"longitude" : -82.98070091,
+	"latitude" : 42.32247489,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 334,
+	"name" : "Rivard - Fountainebleu Park",
+	"address" : "3030 Rivard Ave.",
+	"longitude" : -82.95182944,
+	"latitude" : 42.29613723,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 335,
+	"name" : "Forest Glade Optimist  Park",
+	"address" : "3215 Forest Glade Dr.",
+	"longitude" : -82.91653084,
+	"latitude" : 42.30340359,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 336,
+	"name" : "Ford Test Track",
+	"address" : "3001 Seminole Dr.",
+	"longitude" : -82.98695772,
+	"latitude" : 42.31081797,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 337,
+	"name" : "Flora Park",
+	"address" : "Flora Ave. and Riverside Dr. E.",
+	"longitude" : -82.92821489,
+	"latitude" : 42.33816703,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 338,
+	"name" : "Field Of Dreams",
+	"address" : "Curry Ave. and South Cameron Blvd.",
+	"longitude" : -83.04453651,
+	"latitude" : 42.29616512,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 339,
+	"name" : "Festival Plaza",
+	"address" : "Riverside Dr. E. Between McDougall and Glengary Ave.",
+	"longitude" : -83.03433955,
+	"latitude" : 42.32141639,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 340,
+	"name" : "Factoria Park",
+	"address" : "Factoria Rd. at the end of Milloy St.",
+	"longitude" : -82.99448341,
+	"latitude" : 42.30503461,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 341,
+	"name" : "Esdras Park",
+	"address" : "Esdras Ave. North of South National St.",
+	"longitude" : -82.96063773,
+	"latitude" : 42.32046251,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 342,
+	"name" : "Ernest Atkinson Park",
+	"address" : "2005 Riverside Dr. W.",
+	"longitude" : -83.06265345,
+	"latitude" : 42.31199956,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 343,
+	"name" : "East Riverview Park",
+	"address" : "8776 Riverside Dr. E.",
+	"longitude" : -82.93718585,
+	"latitude" : 42.34248147,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 344,
+	"name" : "East Riverside Blue Heron Park",
+	"address" : "Little River Rd.",
+	"longitude" : -82.89827218,
+	"latitude" : 42.32174435,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 345,
+	"name" : "East End Park",
+	"address" : "Adelaide Ave.",
+	"longitude" : -82.91429265,
+	"latitude" : 42.33354198,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 346,
+	"name" : "Dynasty Park",
+	"address" : "End of Dynasty St.",
+	"longitude" : -82.99344618,
+	"latitude" : 42.24943461,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 347,
+	"name" : "Dieppe Gardens",
+	"address" : "78 Riverside Dr. W.",
+	"longitude" : -83.04224989,
+	"latitude" : 42.31968368,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 348,
+	"name" : "Devonshire Heights",
+	"address" : "Calderwood Ave. west of Innerkip Cres.",
+	"longitude" : -82.98616154,
+	"latitude" : 42.26933442,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 349,
+	"name" : "Derwent Park",
+	"address" : "7911 Forest Glade Dr.",
+	"longitude" : -82.92445056,
+	"latitude" : 42.29638324,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 350,
+	"name" : "Dawson Park",
+	"address" : "Dawson Rd. south of Ontario St.",
+	"longitude" : -82.97624211,
+	"latitude" : 42.32295611,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 351,
+	"name" : "Curry Playlot",
+	"address" : "Mckay and Grove Ave.",
+	"longitude" : -83.0487924,
+	"latitude" : 42.30119504,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 352,
+	"name" : "Curry Park",
+	"address" : "Richardie Blvd. between Everts and Mckay Ave.",
+	"longitude" : -83.02235942,
+	"latitude" : 42.25950332,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 353,
+	"name" : "Crowley Park",
+	"address" : "Prince Rd. to Brock St.",
+	"longitude" : -83.07333463,
+	"latitude" : 42.29345325,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 354,
+	"name" : "Cora Greenwood Park",
+	"address" : "Cora Greenwood Dr. east of 1187 Cora Greenwood",
+	"longitude" : -82.89764921,
+	"latitude" : 42.32700965,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 355,
+	"name" : "Colletta Park",
+	"address" : "Coletta Crt. and Princess Ave.",
+	"longitude" : -82.95706206,
+	"latitude" : 42.29418735,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 356,
+	"name" : "College Community Centre Parkland",
+	"address" : "College Ave. between South St. and Brock St.",
+	"longitude" : -83.07162479,
+	"latitude" : 42.29468576,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 357,
+	"name" : "Clifford And Joan Hatch Wildflower Garden",
+	"address" : "Riverside Drive West between Langlois and Moy",
+	"longitude" : -83.02171363,
+	"latitude" : 42.3245625,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 358,
+	"name" : "Clay Park",
+	"address" : "Shepherd St. E. between Hall Ave. and Moy Ave.",
+	"longitude" : -83.00969941,
+	"latitude" : 42.30700883,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 359,
+	"name" : "Clairview Bikeway",
+	"address" : "Runs from Eastlawn Ave. to Genevieve Ave.",
+	"longitude" : -82.94795294,
+	"latitude" : 42.33660922,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : 3
+}, {
+	"id" : 360,
+	"name" : "Civic Terrace",
+	"address" : "340 Riverside Dr. E.",
+	"longitude" : -83.03771335,
+	"latitude" : 42.32061845,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 361,
+	"name" : "Civic Green / Esplanade",
+	"address" : "250 Windsor Ave.",
+	"longitude" : -83.0366556,
+	"latitude" : 42.31952671,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 362,
+	"name" : "City Hall Square",
+	"address" : "City Hall Square",
+	"longitude" : -83.03531317,
+	"latitude" : 42.31745503,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 363,
+	"name" : "Chopin Park",
+	"address" : "Franklin St. and Rossini Blvd",
+	"longitude" : -82.9826377,
+	"latitude" : 42.32161913,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 364,
+	"name" : "Central Park",
+	"address" : "3301 Woodland Ave.",
+	"longitude" : -83.01520358,
+	"latitude" : 42.26311188,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 365,
+	"name" : "Centennial Park",
+	"address" : "Riverside Drive West between Rankin and Caron Ave.",
+	"longitude" : -83.0550119,
+	"latitude" : 42.31651552,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 366,
+	"name" : "Caron Ave Park",
+	"address" : "Caron Ave. and Elliott St. W.",
+	"longitude" : -83.04298027,
+	"latitude" : 42.30963436,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 367,
+	"name" : "Captain John J. Wilson Park",
+	"address" : "3950 Ducharme St.",
+	"longitude" : -82.97331565,
+	"latitude" : 42.25390809,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 368,
+	"name" : "Calderwood Park",
+	"address" : "Calderwood Ave. between Irongate Cir. and Stephanie Crt.",
+	"longitude" : -82.9793216,
+	"latitude" : 42.26978268,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 369,
+	"name" : "C.m.h. Woods Pumping Station",
+	"address" : "620 Riverside Dr. W. (bewteen Caron Ave. and Janette Ave)",
+	"longitude" : -83.04743804,
+	"latitude" : 42.31838826,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 370,
+	"name" : "Bush Park",
+	"address" : "Esplanade Dr.West of Sherway Dr.",
+	"longitude" : -82.92397187,
+	"latitude" : 42.31011003,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 371,
+	"name" : "Brumpton Park",
+	"address" : "Cedarview St. (backs onto the Ganatchio Trail)",
+	"longitude" : -82.93491273,
+	"latitude" : 42.3396305,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 372,
+	"name" : "Bruce Ave Park",
+	"address" : "Church St. between Wyandotte st. W. and Elliot St. W.",
+	"longitude" : -83.0407462,
+	"latitude" : 42.311435,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 373,
+	"name" : "Brookview Park",
+	"address" : "Brookview Cres. and Alderbrook Dr.",
+	"longitude" : -82.99821734,
+	"latitude" : 42.28290017,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 374,
+	"name" : "Brock Park",
+	"address" : "Russell St. between Brock and Mill St.",
+	"longitude" : -83.07875029,
+	"latitude" : 42.30115287,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 375,
+	"name" : "Broadway Park",
+	"address" : "Broadway St. West of Ojibway Parkway",
+	"longitude" : -83.08539517,
+	"latitude" : 42.27117791,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 376,
+	"name" : "Bridgeview Park",
+	"address" : "1899 Grove Ave.",
+	"longitude" : -83.0527772,
+	"latitude" : 42.29846103,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 377,
+	"name" : "Bridges Bay Park",
+	"address" : "Riverside Dr. E and Fairview Blvd",
+	"longitude" : -82.95161356,
+	"latitude" : 42.33642224,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 378,
+	"name" : "Bradley Park",
+	"address" : "Cross St. just south of Chippawa St.",
+	"longitude" : -83.07642577,
+	"latitude" : 42.29555284,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 379,
+	"name" : "Black Oak Prairie Heritage",
+	"address" : "Between Broadway Street and Cherry Blossom Avenue just west of Ojibway Park",
+	"longitude" : -83.08869992,
+	"latitude" : 42.26748963,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 380,
+	"name" : "Bert Weeks Park",
+	"address" : "340 Riverside Dr. E. Parent and Riverside Dr.",
+	"longitude" : -83.02660768,
+	"latitude" : 42.32318776,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 381,
+	"name" : "Bellewood Park",
+	"address" : "2600 Labelle St.",
+	"longitude" : -83.04209911,
+	"latitude" : 42.26730811,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 382,
+	"name" : "Balsamo Park",
+	"address" : "2240 and 2244 Dandurand Ave.",
+	"longitude" : -83.02982887,
+	"latitude" : 42.28251494,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 383,
+	"name" : "Avondale Playlot",
+	"address" : "Bruce Ave. and Grand Marais Ave.",
+	"longitude" : -83.01724752,
+	"latitude" : 42.27431079,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 384,
+	"name" : "Avon Ct Park",
+	"address" : "Kennedy Dr. and Avon Dr.",
+	"longitude" : -83.01916329,
+	"latitude" : 42.25157493,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 385,
+	"name" : "Windsor Regional Hospital - Western Campus",
+	"address" : "1427 PRINCE RD",
+	"longitude" : -83.06450715,
+	"latitude" : 42.2842887,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 386,
+	"name" : "Windsor Regional Hospital - Metropolitan Campus",
+	"address" : "1995 LENS AVE",
+	"longitude" : -82.99721348,
+	"latitude" : 42.30036155,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}, {
+	"id" : 387,
+	"name" : "Hotel Dieu Grace Hospital",
+	"address" : "1004 OUELLETTE AVE",
+	"longitude" : -83.03195435,
+	"latitude" : 42.30841987,
+	"owner_user_id" : null,
+	"data_source_id" : 2,
+	"building_group_id" : null
+}
 ]
