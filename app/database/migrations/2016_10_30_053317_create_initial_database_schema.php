@@ -13,6 +13,11 @@ class CreateInitialDatabaseSchema extends Migration
      */
     public function up()
     {
+        Schema::create('data_source', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('name', 100);
+			$table->string('description', 255)->nullable();
+        });
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('username', 100)->unique();
@@ -58,6 +63,8 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('owner_user_id')->references('id')->on('user');
 			$table->integer('building_group_id')->unsigned()->nullable();
 			$table->foreign('building_group_id')->references('id')->on('building_group');
+			$table->integer('data_source_id')->unsigned();
+			$table->foreign('data_source_id')->references('id')->on('data_source');
 			$table->string('name', 255)->nullable();
 			$table->string('address', 255)->nullable();
 			$table->double('longitude', 11, 8);
@@ -122,5 +129,6 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('user_role');
         Schema::dropIfExists('user');
         Schema::dropIfExists('role');
+        Schema::dropIfExists('data_source');
     }
 }
