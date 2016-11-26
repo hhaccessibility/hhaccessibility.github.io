@@ -2,6 +2,7 @@
 @section('content')
 
 <h1>{{ $building->name }}</h1>
+<address>{{ $building->address }}</address>
 <div class="questions">
 	@foreach ( $question_categories as $category )
 
