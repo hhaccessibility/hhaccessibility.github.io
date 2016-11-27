@@ -1,9 +1,8 @@
 @extends('layouts.default')
 @section('content')
 
-	<div class="title m-b-md">
-		<h2>Location Search Results for {{ $location_tag->name }}</h2>
-	</div>
+<div class="locations-by-tag">
+	<h1>Location Search Results for {{ $location_tag->name }}</h1>
 	@if (count($locations) === 0)
 		No location found matching the specified tag
 	@endif
@@ -18,5 +17,6 @@
 		
 	@endforeach
 
+</div>
 	
 @stop

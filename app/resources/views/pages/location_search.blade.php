@@ -1,6 +1,8 @@
 @extends('layouts.default')
 @section('content')
 
-Location Search
+<div class="location-search">
+	<h1>Location Search</h1>
+</div>
 	
 @stop

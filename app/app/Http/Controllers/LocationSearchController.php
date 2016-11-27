@@ -11,7 +11,7 @@ class LocationSearchController extends Controller {
 		$location_tag = LocationTag::find($location_tag_id);
 		$locations = $location_tag->locations()->orderBy('name')->get();
 		
-		return view('pages.locations', ['locations' => $locations, 'location_tag' => $location_tag]);
+		return view('pages.locations_by_tag', ['locations' => $locations, 'location_tag' => $location_tag]);
     }
 	
 	public function index()

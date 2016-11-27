@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<h1>Our Vision</h1>
-
+<div class="our-vision">
+	<h1>Our Vision</h1>
+</div>
 @stop
