@@ -3,20 +3,20 @@
 namespace App;
 use Eloquent;
 
-class Building extends Eloquent
+class Location extends Eloquent
 {
     protected $fillable = [
         'name', 'longitude', 'latitude', 'owner_user_id', 'data_source_id',
     ];
 	public $timestamps = false;
 
-	protected $table = 'building';
+	protected $table = 'location';
 
     /**
-     * The tags that belong to this building.
+     * The tags that belong to this location.
      */
     public function tags()
     {
-        return $this->belongsToMany('App\BuildingTag');
+        return $this->belongsToMany('App\LocationTag');
     }	
 }

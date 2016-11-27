@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
 
-Building Search
+Location Search
 	
 @stop

@@ -1,19 +1,19 @@
 <?php namespace App\Http\Controllers;
 
-use App\Building;
+use App\Location;
 use App\QuestionCategory;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
-class BuildingReportController extends Controller {
+class LocationReportController extends Controller {
 
-    public function show($building_id)
+    public function show($location_id)
     {
-		$building = Building::find($building_id);
+		$location = Location::find($location_id);
 		$question_categories = QuestionCategory::with('questions')->get();
 		
-		return view('pages.building_report', [
-			'building' => $building,
+		return view('pages.location_report', [
+			'location' => $location,
 			'question_categories' => $question_categories]
 		);
     }

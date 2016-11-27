@@ -3,18 +3,14 @@
 namespace App;
 use Eloquent;
 
-class DataSource extends Eloquent
+class LocationTag extends Eloquent
 {
     protected $fillable = [
         'name', 'description',
     ];
-	public $timestamps = false;
-
-	protected $table = 'data_source';
-
-    /**
-     * The locations that belong to this data source
-     */
+	
+	protected $table = 'location_tag';
+	
     public function locations()
     {
         return $this->belongsToMany('App\Location');

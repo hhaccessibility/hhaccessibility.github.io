@@ -11,7 +11,7 @@
 
 				<div>
 					<p>Find locations with accessibility ratings by real users
-					and rate buildings yourself!</p>
+					and rate locations yourself!</p>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 						<table>
 							<tr>
 								<td>
-									<input type="text" class="form-control">
+									<input type="text" placeholder="" class="form-control">
 								</td>
 								<td class="search-button">
 									<button class="btn btn-default" type="submit">
@@ -47,11 +47,11 @@
 						</table>
 					</form>
 				</div>
-				<div class="building-tags">
+				<div class="location-tags">
 					<div class="row">
-					@foreach ( $building_tags as $key => $value )
+					@foreach ( $location_tags as $key => $value )
 					
-						<div class="building-tag col-md-3 col-sm-4 col-xs-6">
+						<div class="location-tag col-md-3 col-sm-4 col-xs-6">
 							<a href="/search-by-tag/{{ $value->id }}" title="{{ $value->description }}">
 							{{ $value->name }}
 							</a>

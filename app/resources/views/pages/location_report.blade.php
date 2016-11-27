@@ -1,8 +1,8 @@
 @extends('layouts.default')
 @section('content')
 
-<h1>{{ $building->name }}</h1>
-<address>{{ $building->address }}</address>
+<h1>{{ $location->name }}</h1>
+<address>{{ $location->address }}</address>
 <div class="questions">
 	@foreach ( $question_categories as $category )
 

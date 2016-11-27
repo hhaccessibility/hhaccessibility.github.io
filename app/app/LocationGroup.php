@@ -3,12 +3,12 @@
 namespace App;
 use Eloquent;
 
-class BuildingGroup extends Eloquent
+class LocationGroup extends Eloquent
 {
     protected $fillable = [
         'name',
     ];
 	public $timestamps = false;
 	
-	protected $table = 'building_group';	
+	protected $table = 'location_group';	
 }

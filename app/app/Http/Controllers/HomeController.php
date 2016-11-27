@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\BuildingTag;
+use App\LocationTag;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class HomeController extends Controller {
      */
     public function index(Request $request)
     {
-        return view('pages.home', ['building_tags' => BuildingTag::orderBy('name')->get()]);
+        return view('pages.home', ['location_tags' => LocationTag::orderBy('name')->get()]);
     }
 
 }

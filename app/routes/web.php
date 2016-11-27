@@ -1,6 +1,6 @@
 <?php
 
-use App\Building;
+use App\Location;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +15,15 @@ use App\Building;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('our_vision', function()
+Route::get('our-vision', function()
 {
     return View::make('pages.our_vision');
 });
 
 Route::get('profile', 'ProfileController@index');
-Route::get('building-search', 'BuildingSearchController@index');
-Route::get('building-report/{building_id}', 'BuildingReportController@show');
-Route::get('search-by-tag/{building_tag_id}', 'BuildingSearchController@by_tag');
+Route::get('location-search', 'LocationSearchController@index');
+Route::get('location-report/{location_id}', 'LocationReportController@show');
+Route::get('search-by-tag/{location_tag_id}', 'LocationSearchController@by_tag');
 
 Route::get('login', function()
 {
@@ -39,6 +39,6 @@ Route::get('signup', function()
     return View::make('pages.signup');
 });
 
-Route::get('api/buildings', function (Request $request) {
-	return Building::all();
+Route::get('api/locations', function (Request $request) {
+	return Location::all();
 });
