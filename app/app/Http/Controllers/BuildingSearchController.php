@@ -13,5 +13,10 @@ class BuildingSearchController extends Controller {
 		
 		return view('pages.buildings', ['buildings' => $buildings, 'building_tag' => $building_tag]);
     }
+	
+	public function index()
+	{
+		return view('pages.building_search');
+	}
 
 }
