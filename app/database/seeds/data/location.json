@@ -1,7 +1,7 @@
 [
-{"id": 10, "name": "Centre for Engineering Innovation", "address": null, "latitude": 42.3045218, "longitude": -83.0642137, "building_group_id": 1, "owner_user_id": null, "data_source_id": 1},
-{"id": 11, "name": "Odette School of Business", "address": null, "latitude": 42.3053421, "longitude": -83.0666586, "building_group_id": 1, "owner_user_id": null, "data_source_id": 1},
-{"id": 50, "name": "McDonalds", "address": null, "latitude": 42.298248, "longitude": -83.066444, "building_group_id": 50, "owner_user_id": null, "data_source_id": 1},
+{"id": 10, "name": "Centre for Engineering Innovation", "address": null, "latitude": 42.3045218, "longitude": -83.0642137, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 11, "name": "Odette School of Business", "address": null, "latitude": 42.3053421, "longitude": -83.0666586, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 50, "name": "McDonalds", "address": null, "latitude": 42.298248, "longitude": -83.066444, "location_group_id": 50, "owner_user_id": null, "data_source_id": 1},
 {
 	"id" : 60,
 	"name" : "Corpus Christi Catholic Middle School",
@@ -10,7 +10,7 @@
 	"latitude" : 42.32477123,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 61,
 	"name" : "Windsor Essex Catholic District School Board",
@@ -19,7 +19,7 @@
 	"latitude" : 42.29633969,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 62,
 	"name" : "L.a. Desmarais Catholic Elementary School",
@@ -28,7 +28,7 @@
 	"latitude" : 42.30968147,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 63,
 	"name" : "St. Rose Catholic Elementary School",
@@ -37,7 +37,7 @@
 	"latitude" : 42.33008288,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 64,
 	"name" : "St. Gabriel Catholic Elementary School",
@@ -46,7 +46,7 @@
 	"latitude" : 42.25679843,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 65,
 	"name" : "Our Lady of Mount Carmel Catholic Elementary School",
@@ -55,7 +55,7 @@
 	"latitude" : 42.24314412,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 66,
 	"name" : "Notre Dame Catholic Elementary School",
@@ -64,7 +64,7 @@
 	"latitude" : 42.2688737,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 67,
 	"name" : "Christ the King Catholic Elementary School",
@@ -73,7 +73,7 @@
 	"latitude" : 42.26945035,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 68,
 	"name" : "Catholic Central High School",
@@ -82,7 +82,7 @@
 	"latitude" : 42.29721569,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 69,
 	"name" : "F.j. Brennan Catholic High School",
@@ -91,7 +91,7 @@
 	"latitude" : 42.32496865,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 70,
 	"name" : "Immaculate Conception Catholic Elementary School",
@@ -100,7 +100,7 @@
 	"latitude" : 42.3147027,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 71,
 	"name" : "Assumption College Catholic High School",
@@ -109,7 +109,7 @@
 	"latitude" : 42.29524786,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 72,
 	"name" : "St. John Catholic Elementary School",
@@ -118,7 +118,7 @@
 	"latitude" : 42.29944556,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 73,
 	"name" : "St. James Catholic Elementary School",
@@ -127,7 +127,7 @@
 	"latitude" : 42.28383405,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 74,
 	"name" : "St. Jules Catholic Elementary School",
@@ -136,7 +136,7 @@
 	"latitude" : 42.30977771,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 75,
 	"name" : "St. Bernard Catholic Elementary School",
@@ -145,7 +145,7 @@
 	"latitude" : 42.30654418,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 76,
 	"name" : "St. Anne Catholic Elementary School",
@@ -154,7 +154,7 @@
 	"latitude" : 42.31654971,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 77,
 	"name" : "St. Angela Catholic Elementary School",
@@ -163,7 +163,7 @@
 	"latitude" : 42.30608009,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 78,
 	"name" : "St. Michaels Alternate Catholic High School",
@@ -172,7 +172,7 @@
 	"latitude" : 42.32095616,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 79,
 	"name" : "H.j. Lassaline Catholic Elementary School",
@@ -181,7 +181,7 @@
 	"latitude" : 42.30210328,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 80,
 	"name" : "St. John Vianney Catholic Elementary School",
@@ -190,7 +190,7 @@
 	"latitude" : 42.33707076,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 81,
 	"name" : "Holy Names Catholic High School",
@@ -199,7 +199,7 @@
 	"latitude" : 42.27757783,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 82,
 	"name" : "Our Lady of Perpetual Help Catholic Elementary School",
@@ -208,7 +208,7 @@
 	"latitude" : 42.2833996,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 83,
 	"name" : "St. Josephs Catholic High School",
@@ -217,7 +217,7 @@
 	"latitude" : 42.316183,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 84,
 	"name" : "W.j. Langlois Catholic Elementary School",
@@ -226,7 +226,7 @@
 	"latitude" : 42.29405178,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 85,
 	"name" : "St. Christopher Catholic Elementary School",
@@ -235,7 +235,7 @@
 	"latitude" : 42.28019769,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 86,
 	"name" : "St. Michaels Adult Learining Rhodes Campus",
@@ -244,7 +244,7 @@
 	"latitude" : 42.30287495,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 87,
 	"name" : "West Gate Public School",
@@ -253,7 +253,7 @@
 	"latitude" : 42.29732764,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 88,
 	"name" : "Giles Campus French Immersion Public School",
@@ -262,7 +262,7 @@
 	"latitude" : 42.31122705,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 89,
 	"name" : "Greater Essex County District School Board",
@@ -271,7 +271,7 @@
 	"latitude" : 42.3147801,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 90,
 	"name" : "Talbot Trail Public School",
@@ -280,7 +280,7 @@
 	"latitude" : 42.2518613,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 91,
 	"name" : "Maryvale Adolescent and Family Services",
@@ -289,7 +289,7 @@
 	"latitude" : 42.29126283,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 92,
 	"name" : "Glengard-osmond Bldg",
@@ -298,7 +298,7 @@
 	"latitude" : 42.28614743,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 93,
 	"name" : "New Beginnings I and Ii",
@@ -307,7 +307,7 @@
 	"latitude" : 42.31105685,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 94,
 	"name" : "Directions(iap) P.a.s.s. and Turning Point",
@@ -316,7 +316,7 @@
 	"latitude" : 42.31368239,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 95,
 	"name" : "Adult and Continuing Education",
@@ -325,7 +325,7 @@
 	"latitude" : 42.3140606,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 96,
 	"name" : "Roseland Public School",
@@ -334,7 +334,7 @@
 	"latitude" : 42.25944556,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 97,
 	"name" : "John A. Mcwilliam Public School",
@@ -343,7 +343,7 @@
 	"latitude" : 42.28136227,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 98,
 	"name" : "Queen Victoria Public School",
@@ -352,7 +352,7 @@
 	"latitude" : 42.30211421,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 99,
 	"name" : "Dougall Ave. Public School",
@@ -361,7 +361,7 @@
 	"latitude" : 42.31061626,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 100,
 	"name" : "Riverside Secondary School",
@@ -370,7 +370,7 @@
 	"latitude" : 42.33014273,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 101,
 	"name" : "Roseville Public School",
@@ -379,7 +379,7 @@
 	"latitude" : 42.30673504,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 102,
 	"name" : "Northwood Public School",
@@ -388,7 +388,7 @@
 	"latitude" : 42.27811337,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 103,
 	"name" : "Southwood Public School",
@@ -397,7 +397,7 @@
 	"latitude" : 42.25401247,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 104,
 	"name" : "Glenwood Public School",
@@ -406,7 +406,7 @@
 	"latitude" : 42.26257548,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 105,
 	"name" : "Central Public School",
@@ -415,7 +415,7 @@
 	"latitude" : 42.267179,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 106,
 	"name" : "Massey Secondary & Elementary School",
@@ -424,7 +424,7 @@
 	"latitude" : 42.2595537,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 107,
 	"name" : "Bellewood Public School",
@@ -433,7 +433,7 @@
 	"latitude" : 42.26718792,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 108,
 	"name" : "John Campbell Public School",
@@ -442,7 +442,7 @@
 	"latitude" : 42.29944006,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 109,
 	"name" : "Kennedy Collegiate Institute",
@@ -451,7 +451,7 @@
 	"latitude" : 42.2955858,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 110,
 	"name" : "Westview Freedom Academy",
@@ -460,7 +460,7 @@
 	"latitude" : 42.29279899,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 111,
 	"name" : "Marlborough Public School",
@@ -469,7 +469,7 @@
 	"latitude" : 42.28973897,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 112,
 	"name" : "General Brock Public School",
@@ -478,7 +478,7 @@
 	"latitude" : 42.29967839,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 113,
 	"name" : "Walkerville Collegiate Institute",
@@ -487,7 +487,7 @@
 	"latitude" : 42.31724802,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 114,
 	"name" : "W.f. Herman Secondary School and Elem.tech. Centre",
@@ -496,7 +496,7 @@
 	"latitude" : 42.30827605,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 115,
 	"name" : "Prince Edward Public School",
@@ -505,7 +505,7 @@
 	"latitude" : 42.31007729,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 116,
 	"name" : "Percy P. Mccallum Public School",
@@ -514,7 +514,7 @@
 	"latitude" : 42.31039518,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 117,
 	"name" : "King Edward Public School",
@@ -523,7 +523,7 @@
 	"latitude" : 42.31939773,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 118,
 	"name" : "Hugh Beaton Public School",
@@ -532,7 +532,7 @@
 	"latitude" : 42.29900405,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 119,
 	"name" : "Gordon Mcgregor Public School",
@@ -541,7 +541,7 @@
 	"latitude" : 42.30992755,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 120,
 	"name" : "F.w. Begley Public School",
@@ -550,7 +550,7 @@
 	"latitude" : 42.32100828,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 121,
 	"name" : "David Maxwell Public School",
@@ -559,7 +559,7 @@
 	"latitude" : 42.3148147,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 122,
 	"name" : "Forest Glade Primary Learning Centre",
@@ -568,7 +568,7 @@
 	"latitude" : 42.31004205,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 123,
 	"name" : "Parkview Public School",
@@ -577,7 +577,7 @@
 	"latitude" : 42.30771947,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 124,
 	"name" : "Hetherington Public School",
@@ -586,7 +586,7 @@
 	"latitude" : 42.33612207,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 125,
 	"name" : "Forest Glade Public School",
@@ -595,7 +595,7 @@
 	"latitude" : 42.31088399,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 126,
 	"name" : "Eastwood Public School",
@@ -604,7 +604,7 @@
 	"latitude" : 42.30059521,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 127,
 	"name" : "Dr. David Suzuki Public School",
@@ -613,7 +613,7 @@
 	"latitude" : 42.32639368,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 128,
 	"name" : "Princess Elizabeth Public School",
@@ -622,7 +622,7 @@
 	"latitude" : 42.32381884,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 129,
 	"name" : "W.g. Davis Public School",
@@ -631,7 +631,7 @@
 	"latitude" : 42.29853589,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 130,
 	"name" : "Coronation Public School",
@@ -640,7 +640,7 @@
 	"latitude" : 42.31361929,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 131,
 	"name" : "Incubator: Hybrid Laboratory at the Intersection of Art Science & Ecology",
@@ -649,7 +649,7 @@
 	"latitude" : 42.29756894,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 132,
 	"name" : "St. Clair Centre for the Arts",
@@ -658,7 +658,7 @@
 	"latitude" : 42.31894804,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 3
+	"location_group_id" : 3
 }, {
 	"id" : 133,
 	"name" : "St. Clair College",
@@ -667,7 +667,7 @@
 	"latitude" : 42.24643615,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 3
+	"location_group_id" : 3
 }, {
 	"id" : 134,
 	"name" : "University of Windsor",
@@ -676,7 +676,7 @@
 	"latitude" : 42.30683444,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 1
+	"location_group_id" : 1
 }, {
 	"id" : 135,
 	"name" : "Ecole elementaire Windsor Sud",
@@ -685,7 +685,7 @@
 	"latitude" : 42.25367719,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 136,
 	"name" : "Ecole secondaire Michel-gratton",
@@ -694,7 +694,7 @@
 	"latitude" : 42.28870185,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 137,
 	"name" : "Ecole Lenvolee",
@@ -703,7 +703,7 @@
 	"latitude" : 42.31123904,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 138,
 	"name" : "Conseil Scolaire Catholique Providence",
@@ -712,7 +712,7 @@
 	"latitude" : 42.29746717,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 139,
 	"name" : "Ecole Monseigneur Jean Noel",
@@ -721,7 +721,7 @@
 	"latitude" : 42.2597369,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 140,
 	"name" : "Ecole Georges P. Vanier",
@@ -730,7 +730,7 @@
 	"latitude" : 42.3244671,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 141,
 	"name" : "Ecole Sainte-therese",
@@ -739,7 +739,7 @@
 	"latitude" : 42.3081646,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 142,
 	"name" : "Ecole Secondaire E.j. Lajeunesse",
@@ -748,7 +748,7 @@
 	"latitude" : 42.27698041,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 143,
 	"name" : "Ecole Saint-edmond",
@@ -757,7 +757,7 @@
 	"latitude" : 42.28978581,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 144,
 	"name" : "Forest Glade Community Centre",
@@ -766,7 +766,7 @@
 	"latitude" : 42.303163,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 145,
 	"name" : "Ojibway Nature Centre",
@@ -775,7 +775,7 @@
 	"latitude" : 42.264283,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 146,
 	"name" : "Oakwood Community Centre",
@@ -784,7 +784,7 @@
 	"latitude" : 42.253244,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 147,
 	"name" : "Constable John Atkinson Memorial Community Centre",
@@ -793,7 +793,7 @@
 	"latitude" : 42.313454,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 148,
 	"name" : "Glengarry Court Community Centre",
@@ -802,7 +802,7 @@
 	"latitude" : 42.317299,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 149,
 	"name" : "Willistead Heritage Complex",
@@ -811,7 +811,7 @@
 	"latitude" : 42.318569,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 150,
 	"name" : "Mackenzie Hall Cultural Centre",
@@ -820,7 +820,7 @@
 	"latitude" : 42.300132,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 151,
 	"name" : "Adie Knox Herman Recreation Complex",
@@ -829,7 +829,7 @@
 	"latitude" : 42.307922,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 152,
 	"name" : "Gino A. Marcus Community Complex",
@@ -838,7 +838,7 @@
 	"latitude" : 42.319291,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 153,
 	"name" : "Windsor Water World",
@@ -847,7 +847,7 @@
 	"latitude" : 42.316671,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 154,
 	"name" : "Malden Park Visitors Centre",
@@ -856,7 +856,7 @@
 	"latitude" : 42.276843,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 155,
 	"name" : "Optimist Community Centre",
@@ -865,7 +865,7 @@
 	"latitude" : 42.292369,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 156,
 	"name" : "Centres for Seniors",
@@ -874,7 +874,7 @@
 	"latitude" : 42.306862,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 157,
 	"name" : "Bridgeview Library",
@@ -883,7 +883,7 @@
 	"latitude" : 42.296991,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 158,
 	"name" : "Windsor Community Museum",
@@ -892,7 +892,7 @@
 	"latitude" : 42.318514,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 159,
 	"name" : "South Walkerville Library",
@@ -901,7 +901,7 @@
 	"latitude" : 42.30018,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 160,
 	"name" : "Remington Park Neighbourhood Library",
@@ -910,7 +910,7 @@
 	"latitude" : 42.284915,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 161,
 	"name" : "Seminole Community Library",
@@ -919,7 +919,7 @@
 	"latitude" : 42.316972,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 162,
 	"name" : "Nikola Budimir Memorial Resource Library",
@@ -928,7 +928,7 @@
 	"latitude" : 42.268296,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 163,
 	"name" : "Riverside Resource Library",
@@ -937,7 +937,7 @@
 	"latitude" : 42.329794,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 164,
 	"name" : "Forest Glade - Optimist Library",
@@ -946,7 +946,7 @@
 	"latitude" : 42.303067,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 165,
 	"name" : "Sandwich Library",
@@ -955,7 +955,7 @@
 	"latitude" : 42.299659,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 166,
 	"name" : "Central Resource Library",
@@ -964,7 +964,7 @@
 	"latitude" : 42.31127,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 167,
 	"name" : "Fontainbleau Library",
@@ -973,7 +973,7 @@
 	"latitude" : 42.29525,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 2
+	"location_group_id" : 2
 }, {
 	"id" : 168,
 	"name" : "Magnolia",
@@ -982,7 +982,7 @@
 	"latitude" : 42.32042907,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 169,
 	"name" : "Tall Grass Prairie Heritage",
@@ -991,7 +991,7 @@
 	"latitude" : 42.26420501,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 170,
 	"name" : "Ojibway Tom Joy Woods",
@@ -1000,7 +1000,7 @@
 	"latitude" : 42.26606704,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 171,
 	"name" : "Ganatchio Trail",
@@ -1009,7 +1009,7 @@
 	"latitude" : 42.33367745,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 172,
 	"name" : "Riverside Baseball Park",
@@ -1018,7 +1018,7 @@
 	"latitude" : 42.32940188,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 173,
 	"name" : "Grand Marais Rd Drain Trail",
@@ -1027,7 +1027,7 @@
 	"latitude" : 42.28493161,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 174,
 	"name" : "Grand Marais Rd Drain Trail",
@@ -1036,7 +1036,7 @@
 	"latitude" : 42.28254642,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 175,
 	"name" : "Grand Marais Rd Drain Trail",
@@ -1045,7 +1045,7 @@
 	"latitude" : 42.28086898,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 176,
 	"name" : "Ypres Park",
@@ -1054,7 +1054,7 @@
 	"latitude" : 42.30439906,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 177,
 	"name" : "Wolfe Lake Park",
@@ -1063,7 +1063,7 @@
 	"latitude" : 42.2363908,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 178,
 	"name" : "Walker Homesite Bikepath",
@@ -1072,7 +1072,7 @@
 	"latitude" : 42.26908033,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 179,
 	"name" : "Remington Dog  Park",
@@ -1081,7 +1081,7 @@
 	"latitude" : 42.28517815,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 180,
 	"name" : "Peche Island Landing",
@@ -1090,7 +1090,7 @@
 	"latitude" : 42.3426144,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 181,
 	"name" : "Langlois Crt Linear Park",
@@ -1099,7 +1099,7 @@
 	"latitude" : 42.28678666,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 182,
 	"name" : "Langlois Crt Linear Park",
@@ -1108,7 +1108,7 @@
 	"latitude" : 42.28889531,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 183,
 	"name" : "Jackson Park",
@@ -1117,7 +1117,7 @@
 	"latitude" : 42.29353464,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 184,
 	"name" : "Ganatchio Trail",
@@ -1126,7 +1126,7 @@
 	"latitude" : 42.33849784,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 185,
 	"name" : "Ganatchio Trail",
@@ -1135,7 +1135,7 @@
 	"latitude" : 42.33871646,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 186,
 	"name" : "Ganatchio Trail",
@@ -1144,7 +1144,7 @@
 	"latitude" : 42.33576546,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 187,
 	"name" : "Esdras Park",
@@ -1153,7 +1153,7 @@
 	"latitude" : 42.3204201,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 188,
 	"name" : "Devonshire Court",
@@ -1162,7 +1162,7 @@
 	"latitude" : 42.31297188,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 189,
 	"name" : "Devonshire Court",
@@ -1171,7 +1171,7 @@
 	"latitude" : 42.31356378,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 190,
 	"name" : "Devonshire Court",
@@ -1180,7 +1180,7 @@
 	"latitude" : 42.31337986,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 191,
 	"name" : "Compton Court Park",
@@ -1189,7 +1189,7 @@
 	"latitude" : 42.26912122,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 192,
 	"name" : "Chatham St Park Parkette",
@@ -1198,7 +1198,7 @@
 	"latitude" : 42.31870159,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 193,
 	"name" : "Cadillac St Park",
@@ -1207,7 +1207,7 @@
 	"latitude" : 42.32472074,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 194,
 	"name" : "Broadway Dog  Park",
@@ -1216,7 +1216,7 @@
 	"latitude" : 42.27186164,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 195,
 	"name" : "Assumption Park",
@@ -1225,7 +1225,7 @@
 	"latitude" : 42.30865718,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 196,
 	"name" : "Alton C. Parker Park",
@@ -1234,7 +1234,7 @@
 	"latitude" : 42.31272211,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 197,
 	"name" : "A.k.o. Park",
@@ -1243,7 +1243,7 @@
 	"latitude" : 42.31379131,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 198,
 	"name" : "Virginia Park",
@@ -1252,7 +1252,7 @@
 	"latitude" : 42.28375709,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 199,
 	"name" : "Martinique Park",
@@ -1261,7 +1261,7 @@
 	"latitude" : 42.33393511,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 200,
 	"name" : "Morningstar Park",
@@ -1270,7 +1270,7 @@
 	"latitude" : 42.32487208,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 201,
 	"name" : "Wfcu",
@@ -1279,7 +1279,7 @@
 	"latitude" : 42.31947826,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 202,
 	"name" : "Southwood Lakes Trail",
@@ -1288,7 +1288,7 @@
 	"latitude" : 42.24526839,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 203,
 	"name" : "Reaume Overflow Parking",
@@ -1297,7 +1297,7 @@
 	"latitude" : 42.32742287,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 204,
 	"name" : "Little River Corridor 2",
@@ -1306,7 +1306,7 @@
 	"latitude" : 42.3364421,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 205,
 	"name" : "Gino A Marcus Parkette",
@@ -1315,7 +1315,7 @@
 	"latitude" : 42.3184501,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 206,
 	"name" : "Hawthorne Park",
@@ -1324,7 +1324,7 @@
 	"latitude" : 42.30877634,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 207,
 	"name" : "Aylmer Rest Station",
@@ -1333,7 +1333,7 @@
 	"latitude" : 42.32198614,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 208,
 	"name" : "St. Rose Park",
@@ -1342,7 +1342,7 @@
 	"latitude" : 42.33049609,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 209,
 	"name" : "Piazza Udine",
@@ -1351,7 +1351,7 @@
 	"latitude" : 42.31994392,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 210,
 	"name" : "Parkwood Woodlot",
@@ -1360,7 +1360,7 @@
 	"latitude" : 42.28687298,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 211,
 	"name" : "Lens Ave. Park",
@@ -1369,7 +1369,7 @@
 	"latitude" : 42.29534005,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 212,
 	"name" : "Charles Clark Square Esplanade",
@@ -1378,7 +1378,7 @@
 	"latitude" : 42.31864899,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 213,
 	"name" : "Kinsmen Community Park (norman Park)",
@@ -1387,7 +1387,7 @@
 	"latitude" : 42.3144688,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 214,
 	"name" : "Wilson Park",
@@ -1396,7 +1396,7 @@
 	"latitude" : 42.3068157,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 215,
 	"name" : "Willistead Park",
@@ -1405,7 +1405,7 @@
 	"latitude" : 42.31765811,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 216,
 	"name" : "Wildwood Park",
@@ -1414,7 +1414,7 @@
 	"latitude" : 42.30490216,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 217,
 	"name" : "Wigle Park",
@@ -1423,7 +1423,7 @@
 	"latitude" : 42.30991002,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 218,
 	"name" : "Whelpton Park",
@@ -1432,7 +1432,7 @@
 	"latitude" : 42.32149497,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 219,
 	"name" : "Westcott Park",
@@ -1441,7 +1441,7 @@
 	"latitude" : 42.31195953,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 220,
 	"name" : "Wellington Park",
@@ -1450,7 +1450,7 @@
 	"latitude" : 42.31278134,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 221,
 	"name" : "Jubilee Park (walkerville)",
@@ -1459,7 +1459,7 @@
 	"latitude" : 42.3224328,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 222,
 	"name" : "Walker Homesites Park",
@@ -1468,7 +1468,7 @@
 	"latitude" : 42.27810083,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 223,
 	"name" : "Vision Corridor",
@@ -1477,7 +1477,7 @@
 	"latitude" : 42.31802802,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 224,
 	"name" : "Veterans Memorial Park",
@@ -1486,7 +1486,7 @@
 	"latitude" : 42.24443471,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 225,
 	"name" : "University Ave. Park",
@@ -1495,7 +1495,7 @@
 	"latitude" : 42.32184807,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 226,
 	"name" : "Unity Park",
@@ -1504,7 +1504,7 @@
 	"latitude" : 42.3205736,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 227,
 	"name" : "Udine Park",
@@ -1513,7 +1513,7 @@
 	"latitude" : 42.28724122,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 228,
 	"name" : "Twin Oaks Park",
@@ -1522,7 +1522,7 @@
 	"latitude" : 42.29137968,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 229,
 	"name" : "Tranby Park",
@@ -1531,7 +1531,7 @@
 	"latitude" : 42.31949529,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 230,
 	"name" : "Thurston Park",
@@ -1540,7 +1540,7 @@
 	"latitude" : 42.30122151,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 231,
 	"name" : "Thompson Park",
@@ -1549,7 +1549,7 @@
 	"latitude" : 42.32195171,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 232,
 	"name" : "Teedie Hawthorne Park",
@@ -1558,7 +1558,7 @@
 	"latitude" : 42.31098412,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 233,
 	"name" : "Tall Grass Prairie Heritage",
@@ -1567,7 +1567,7 @@
 	"latitude" : 42.26392373,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 234,
 	"name" : "Superior Park",
@@ -1576,7 +1576,7 @@
 	"latitude" : 42.2907668,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 235,
 	"name" : "Straith Park",
@@ -1585,7 +1585,7 @@
 	"latitude" : 42.31372145,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 236,
 	"name" : "Stop 26",
@@ -1594,7 +1594,7 @@
 	"latitude" : 42.33726861,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 237,
 	"name" : "Stoneybrook Park",
@@ -1603,7 +1603,7 @@
 	"latitude" : 42.24243596,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 238,
 	"name" : "Stodgell Park",
@@ -1612,7 +1612,7 @@
 	"latitude" : 42.30482966,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 239,
 	"name" : "Stillmeadow Park",
@@ -1621,7 +1621,7 @@
 	"latitude" : 42.30941771,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 240,
 	"name" : "St. Rose Beach Park",
@@ -1630,7 +1630,7 @@
 	"latitude" : 42.33310639,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 241,
 	"name" : "St. Paul Pumping Station Park",
@@ -1639,7 +1639,7 @@
 	"latitude" : 42.33846429,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 242,
 	"name" : "St. Paul Grove Park",
@@ -1648,7 +1648,7 @@
 	"latitude" : 42.32957467,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 243,
 	"name" : "Springhollow Park",
@@ -1657,7 +1657,7 @@
 	"latitude" : 42.3150865,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 244,
 	"name" : "Spring Garden Ansi",
@@ -1666,7 +1666,7 @@
 	"latitude" : 42.25666577,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 245,
 	"name" : "Southdale Park",
@@ -1675,7 +1675,7 @@
 	"latitude" : 42.28983477,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 246,
 	"name" : "South Tilston Park",
@@ -1684,7 +1684,7 @@
 	"latitude" : 42.29433012,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 247,
 	"name" : "South Rendezvous Park",
@@ -1693,7 +1693,7 @@
 	"latitude" : 42.33214981,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 248,
 	"name" : "South Merrit Park",
@@ -1702,7 +1702,7 @@
 	"latitude" : 42.29872714,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 249,
 	"name" : "South Cameron Woodlot",
@@ -1711,7 +1711,7 @@
 	"latitude" : 42.28063797,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 250,
 	"name" : "Shinglecreek Park",
@@ -1720,7 +1720,7 @@
 	"latitude" : 42.26806295,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 251,
 	"name" : "Shawnee Park",
@@ -1729,7 +1729,7 @@
 	"latitude" : 42.29079453,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 252,
 	"name" : "Shanfield Shores",
@@ -1738,7 +1738,7 @@
 	"latitude" : 42.33934175,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 253,
 	"name" : "Seven Sisters Parkland",
@@ -1747,7 +1747,7 @@
 	"latitude" : 42.25932047,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 254,
 	"name" : "Seneca Park",
@@ -1756,7 +1756,7 @@
 	"latitude" : 42.29954926,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 255,
 	"name" : "Senator Croll Park",
@@ -1765,7 +1765,7 @@
 	"latitude" : 42.31772296,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 256,
 	"name" : "Sandpoint Beach / Park",
@@ -1774,7 +1774,7 @@
 	"latitude" : 42.33870697,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 257,
 	"name" : "Roseville Park",
@@ -1783,7 +1783,7 @@
 	"latitude" : 42.30705524,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 258,
 	"name" : "Roseland Park",
@@ -1792,7 +1792,7 @@
 	"latitude" : 42.25677757,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 259,
 	"name" : "Robert Park",
@@ -1801,7 +1801,7 @@
 	"latitude" : 42.29675631,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 260,
 	"name" : "Riverside Kiwanis Park",
@@ -1810,7 +1810,7 @@
 	"latitude" : 42.3278755,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 261,
 	"name" : "Riverdale Park",
@@ -1819,7 +1819,7 @@
 	"latitude" : 42.32784063,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 262,
 	"name" : "Remington Booster Park",
@@ -1828,7 +1828,7 @@
 	"latitude" : 42.28581083,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 263,
 	"name" : "Reaume Park - Coventry Gardens",
@@ -1837,7 +1837,7 @@
 	"latitude" : 42.32900679,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 264,
 	"name" : "Realtor Park",
@@ -1846,7 +1846,7 @@
 	"latitude" : 42.32235759,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 265,
 	"name" : "Radisson Bikeway Parkland",
@@ -1855,7 +1855,7 @@
 	"latitude" : 42.27189993,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 266,
 	"name" : "Pykes Park",
@@ -1864,7 +1864,7 @@
 	"latitude" : 42.3154345,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 267,
 	"name" : "Polonia Park",
@@ -1873,7 +1873,7 @@
 	"latitude" : 42.3129918,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 268,
 	"name" : "Peche Island",
@@ -1882,7 +1882,7 @@
 	"latitude" : 42.34605783,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 269,
 	"name" : "Patrick Maguire Park",
@@ -1891,7 +1891,7 @@
 	"latitude" : 42.26110255,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 270,
 	"name" : "Paterson Park",
@@ -1900,7 +1900,7 @@
 	"latitude" : 42.3051446,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 271,
 	"name" : "Partington Park",
@@ -1909,7 +1909,7 @@
 	"latitude" : 42.2703458,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 272,
 	"name" : "Parent Park",
@@ -1918,7 +1918,7 @@
 	"latitude" : 42.29477523,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 273,
 	"name" : "Palmetto Park",
@@ -1927,7 +1927,7 @@
 	"latitude" : 42.30997948,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 274,
 	"name" : "Optimist Memorial Park",
@@ -1936,7 +1936,7 @@
 	"latitude" : 42.29195712,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 275,
 	"name" : "Ojibway Prairie Provincial Nature Reserve",
@@ -1945,7 +1945,7 @@
 	"latitude" : 42.25908645,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 276,
 	"name" : "Oakwood Parkland",
@@ -1954,7 +1954,7 @@
 	"latitude" : 42.2562159,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 277,
 	"name" : "Elm Street Park",
@@ -1963,7 +1963,7 @@
 	"latitude" : 42.30038254,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 278,
 	"name" : "North Tilston Park",
@@ -1972,7 +1972,7 @@
 	"latitude" : 42.29651708,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 279,
 	"name" : "North Talbot Park",
@@ -1981,7 +1981,7 @@
 	"latitude" : 42.24307255,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 280,
 	"name" : "North Merritt Park",
@@ -1990,7 +1990,7 @@
 	"latitude" : 42.3000011,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 281,
 	"name" : "Mitchell Park",
@@ -1999,7 +1999,7 @@
 	"latitude" : 42.30302153,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 282,
 	"name" : "Mill Park",
@@ -2008,7 +2008,7 @@
 	"latitude" : 42.30323186,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 283,
 	"name" : "Mic Mac Park",
@@ -2017,7 +2017,7 @@
 	"latitude" : 42.28517935,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 284,
 	"name" : "Meadowbrook Park",
@@ -2026,7 +2026,7 @@
 	"latitude" : 42.30521686,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 285,
 	"name" : "Mckee Park",
@@ -2035,7 +2035,7 @@
 	"latitude" : 42.30654281,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 286,
 	"name" : "Mchugh Park",
@@ -2044,7 +2044,7 @@
 	"latitude" : 42.31778105,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 287,
 	"name" : "Mcdonald Park",
@@ -2053,7 +2053,7 @@
 	"latitude" : 42.30166472,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 50
+	"location_group_id" : 50
 }, {
 	"id" : 288,
 	"name" : "Mayfair Park",
@@ -2062,7 +2062,7 @@
 	"latitude" : 42.29688341,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 289,
 	"name" : "Maurice Belanger Park",
@@ -2071,7 +2071,7 @@
 	"latitude" : 42.28071194,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 290,
 	"name" : "Matthew Rodzik Park",
@@ -2080,7 +2080,7 @@
 	"latitude" : 42.2403096,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 291,
 	"name" : "Matchette Park",
@@ -2089,7 +2089,7 @@
 	"latitude" : 42.28835461,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 292,
 	"name" : "Mark Park",
@@ -2098,7 +2098,7 @@
 	"latitude" : 42.26488324,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 293,
 	"name" : "Marguriet Park",
@@ -2107,7 +2107,7 @@
 	"latitude" : 42.24956448,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 294,
 	"name" : "Maple Leaf Park",
@@ -2116,7 +2116,7 @@
 	"latitude" : 42.25973801,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 295,
 	"name" : "Malden Park",
@@ -2125,7 +2125,7 @@
 	"latitude" : 42.27722962,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 296,
 	"name" : "Mackenzie Hall",
@@ -2134,7 +2134,7 @@
 	"latitude" : 42.3004169,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 297,
 	"name" : "Little River Corridor 1",
@@ -2143,7 +2143,7 @@
 	"latitude" : 42.32654364,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 298,
 	"name" : "Little River Blvd",
@@ -2152,7 +2152,7 @@
 	"latitude" : 42.32461825,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 299,
 	"name" : "Little River Acres Park",
@@ -2161,7 +2161,7 @@
 	"latitude" : 42.32639709,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 300,
 	"name" : "Leafield Park",
@@ -2170,7 +2170,7 @@
 	"latitude" : 42.27836472,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 301,
 	"name" : "Lanspeary Park",
@@ -2179,7 +2179,7 @@
 	"latitude" : 42.31006999,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 302,
 	"name" : "Langlois Crt Linear Park",
@@ -2188,7 +2188,7 @@
 	"latitude" : 42.28809578,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 303,
 	"name" : "Lakeview  Park Marina",
@@ -2197,7 +2197,7 @@
 	"latitude" : 42.33984467,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 304,
 	"name" : "Lakeshore Woods",
@@ -2206,7 +2206,7 @@
 	"latitude" : 42.32367735,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 305,
 	"name" : "Lake Trail Park",
@@ -2215,7 +2215,7 @@
 	"latitude" : 42.24078098,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 306,
 	"name" : "Lake Laguna Park",
@@ -2224,7 +2224,7 @@
 	"latitude" : 42.23913801,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 307,
 	"name" : "Lake Grande Park",
@@ -2233,7 +2233,7 @@
 	"latitude" : 42.24009572,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 308,
 	"name" : "Lake Como Park",
@@ -2242,7 +2242,7 @@
 	"latitude" : 42.24271327,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 309,
 	"name" : "Labadie Park",
@@ -2251,7 +2251,7 @@
 	"latitude" : 42.31810318,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 310,
 	"name" : "Kominar Park",
@@ -2260,7 +2260,7 @@
 	"latitude" : 42.23787896,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 311,
 	"name" : "Kiwanis Park",
@@ -2269,7 +2269,7 @@
 	"latitude" : 42.33715247,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 312,
 	"name" : "Kinsmen Park",
@@ -2278,7 +2278,7 @@
 	"latitude" : 42.32147224,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 313,
 	"name" : "Kennedy Sq. Park",
@@ -2287,7 +2287,7 @@
 	"latitude" : 42.30725111,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 314,
 	"name" : "Kenilworth Park",
@@ -2296,7 +2296,7 @@
 	"latitude" : 42.26684685,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 315,
 	"name" : "Jennifer Park",
@@ -2305,7 +2305,7 @@
 	"latitude" : 42.28353132,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 316,
 	"name" : "Jackson Park",
@@ -2314,7 +2314,7 @@
 	"latitude" : 42.29205856,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 317,
 	"name" : "Howard Park",
@@ -2323,7 +2323,7 @@
 	"latitude" : 42.27943486,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 318,
 	"name" : "Homesite Park",
@@ -2332,7 +2332,7 @@
 	"latitude" : 42.32472336,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 319,
 	"name" : "Holburn Park",
@@ -2341,7 +2341,7 @@
 	"latitude" : 42.24983993,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 320,
 	"name" : "Herb Gray Nature Reserve",
@@ -2350,7 +2350,7 @@
 	"latitude" : 42.23989599,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 321,
 	"name" : "Hall Farms Linear Park",
@@ -2359,7 +2359,7 @@
 	"latitude" : 42.27868784,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 322,
 	"name" : "Grove Park",
@@ -2368,7 +2368,7 @@
 	"latitude" : 42.29739769,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 323,
 	"name" : "Great Western Park",
@@ -2377,7 +2377,7 @@
 	"latitude" : 42.32226033,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 324,
 	"name" : "Goose Bay Park",
@@ -2386,7 +2386,7 @@
 	"latitude" : 42.32773985,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 325,
 	"name" : "Goldenwood Park",
@@ -2395,7 +2395,7 @@
 	"latitude" : 42.24594945,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 326,
 	"name" : "Girardot Park",
@@ -2404,7 +2404,7 @@
 	"latitude" : 42.2978834,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 327,
 	"name" : "Gignac Park",
@@ -2413,7 +2413,7 @@
 	"latitude" : 42.30285248,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 328,
 	"name" : "George Park",
@@ -2422,7 +2422,7 @@
 	"latitude" : 42.32369859,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 329,
 	"name" : "Garry Dugal Park",
@@ -2431,7 +2431,7 @@
 	"latitude" : 42.31601385,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 330,
 	"name" : "Garwood Park",
@@ -2440,7 +2440,7 @@
 	"latitude" : 42.29755073,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 331,
 	"name" : "Ganatchio Trail Park",
@@ -2449,7 +2449,7 @@
 	"latitude" : 42.33780949,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 332,
 	"name" : "Fred Thomas Park",
@@ -2458,7 +2458,7 @@
 	"latitude" : 42.31666446,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 333,
 	"name" : "Francois Park",
@@ -2467,7 +2467,7 @@
 	"latitude" : 42.32247489,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 334,
 	"name" : "Rivard - Fountainebleu Park",
@@ -2476,7 +2476,7 @@
 	"latitude" : 42.29613723,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 335,
 	"name" : "Forest Glade Optimist  Park",
@@ -2485,7 +2485,7 @@
 	"latitude" : 42.30340359,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 336,
 	"name" : "Ford Test Track",
@@ -2494,7 +2494,7 @@
 	"latitude" : 42.31081797,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 337,
 	"name" : "Flora Park",
@@ -2503,7 +2503,7 @@
 	"latitude" : 42.33816703,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 338,
 	"name" : "Field Of Dreams",
@@ -2512,7 +2512,7 @@
 	"latitude" : 42.29616512,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 339,
 	"name" : "Festival Plaza",
@@ -2521,7 +2521,7 @@
 	"latitude" : 42.32141639,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 340,
 	"name" : "Factoria Park",
@@ -2530,7 +2530,7 @@
 	"latitude" : 42.30503461,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 341,
 	"name" : "Esdras Park",
@@ -2539,7 +2539,7 @@
 	"latitude" : 42.32046251,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 342,
 	"name" : "Ernest Atkinson Park",
@@ -2548,7 +2548,7 @@
 	"latitude" : 42.31199956,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 343,
 	"name" : "East Riverview Park",
@@ -2557,7 +2557,7 @@
 	"latitude" : 42.34248147,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 344,
 	"name" : "East Riverside Blue Heron Park",
@@ -2566,7 +2566,7 @@
 	"latitude" : 42.32174435,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 345,
 	"name" : "East End Park",
@@ -2575,7 +2575,7 @@
 	"latitude" : 42.33354198,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 346,
 	"name" : "Dynasty Park",
@@ -2584,7 +2584,7 @@
 	"latitude" : 42.24943461,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 347,
 	"name" : "Dieppe Gardens",
@@ -2593,7 +2593,7 @@
 	"latitude" : 42.31968368,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 348,
 	"name" : "Devonshire Heights",
@@ -2602,7 +2602,7 @@
 	"latitude" : 42.26933442,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 349,
 	"name" : "Derwent Park",
@@ -2611,7 +2611,7 @@
 	"latitude" : 42.29638324,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 350,
 	"name" : "Dawson Park",
@@ -2620,7 +2620,7 @@
 	"latitude" : 42.32295611,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 351,
 	"name" : "Curry Playlot",
@@ -2629,7 +2629,7 @@
 	"latitude" : 42.30119504,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 352,
 	"name" : "Curry Park",
@@ -2638,7 +2638,7 @@
 	"latitude" : 42.25950332,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 353,
 	"name" : "Crowley Park",
@@ -2647,7 +2647,7 @@
 	"latitude" : 42.29345325,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 354,
 	"name" : "Cora Greenwood Park",
@@ -2656,7 +2656,7 @@
 	"latitude" : 42.32700965,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 355,
 	"name" : "Colletta Park",
@@ -2665,7 +2665,7 @@
 	"latitude" : 42.29418735,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 356,
 	"name" : "College Community Centre Parkland",
@@ -2674,7 +2674,7 @@
 	"latitude" : 42.29468576,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 357,
 	"name" : "Clifford And Joan Hatch Wildflower Garden",
@@ -2683,7 +2683,7 @@
 	"latitude" : 42.3245625,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 358,
 	"name" : "Clay Park",
@@ -2692,7 +2692,7 @@
 	"latitude" : 42.30700883,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 359,
 	"name" : "Clairview Bikeway",
@@ -2701,7 +2701,7 @@
 	"latitude" : 42.33660922,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : 3
+	"location_group_id" : 3
 }, {
 	"id" : 360,
 	"name" : "Civic Terrace",
@@ -2710,7 +2710,7 @@
 	"latitude" : 42.32061845,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 361,
 	"name" : "Civic Green / Esplanade",
@@ -2719,7 +2719,7 @@
 	"latitude" : 42.31952671,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 362,
 	"name" : "City Hall Square",
@@ -2728,7 +2728,7 @@
 	"latitude" : 42.31745503,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 363,
 	"name" : "Chopin Park",
@@ -2737,7 +2737,7 @@
 	"latitude" : 42.32161913,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 364,
 	"name" : "Central Park",
@@ -2746,7 +2746,7 @@
 	"latitude" : 42.26311188,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 365,
 	"name" : "Centennial Park",
@@ -2755,7 +2755,7 @@
 	"latitude" : 42.31651552,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 366,
 	"name" : "Caron Ave Park",
@@ -2764,7 +2764,7 @@
 	"latitude" : 42.30963436,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 367,
 	"name" : "Captain John J. Wilson Park",
@@ -2773,7 +2773,7 @@
 	"latitude" : 42.25390809,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 368,
 	"name" : "Calderwood Park",
@@ -2782,7 +2782,7 @@
 	"latitude" : 42.26978268,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 369,
 	"name" : "C.m.h. Woods Pumping Station",
@@ -2791,7 +2791,7 @@
 	"latitude" : 42.31838826,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 370,
 	"name" : "Bush Park",
@@ -2800,7 +2800,7 @@
 	"latitude" : 42.31011003,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 371,
 	"name" : "Brumpton Park",
@@ -2809,7 +2809,7 @@
 	"latitude" : 42.3396305,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 372,
 	"name" : "Bruce Ave Park",
@@ -2818,7 +2818,7 @@
 	"latitude" : 42.311435,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 373,
 	"name" : "Brookview Park",
@@ -2827,7 +2827,7 @@
 	"latitude" : 42.28290017,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 374,
 	"name" : "Brock Park",
@@ -2836,7 +2836,7 @@
 	"latitude" : 42.30115287,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 375,
 	"name" : "Broadway Park",
@@ -2845,7 +2845,7 @@
 	"latitude" : 42.27117791,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 376,
 	"name" : "Bridgeview Park",
@@ -2854,7 +2854,7 @@
 	"latitude" : 42.29846103,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 377,
 	"name" : "Bridges Bay Park",
@@ -2863,7 +2863,7 @@
 	"latitude" : 42.33642224,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 378,
 	"name" : "Bradley Park",
@@ -2872,7 +2872,7 @@
 	"latitude" : 42.29555284,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 379,
 	"name" : "Black Oak Prairie Heritage",
@@ -2881,7 +2881,7 @@
 	"latitude" : 42.26748963,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 380,
 	"name" : "Bert Weeks Park",
@@ -2890,7 +2890,7 @@
 	"latitude" : 42.32318776,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 381,
 	"name" : "Bellewood Park",
@@ -2899,7 +2899,7 @@
 	"latitude" : 42.26730811,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 382,
 	"name" : "Balsamo Park",
@@ -2908,7 +2908,7 @@
 	"latitude" : 42.28251494,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 383,
 	"name" : "Avondale Playlot",
@@ -2917,7 +2917,7 @@
 	"latitude" : 42.27431079,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 384,
 	"name" : "Avon Ct Park",
@@ -2926,7 +2926,7 @@
 	"latitude" : 42.25157493,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 385,
 	"name" : "Windsor Regional Hospital - Western Campus",
@@ -2935,7 +2935,7 @@
 	"latitude" : 42.2842887,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 386,
 	"name" : "Windsor Regional Hospital - Metropolitan Campus",
@@ -2944,7 +2944,7 @@
 	"latitude" : 42.30036155,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }, {
 	"id" : 387,
 	"name" : "Hotel Dieu Grace Hospital",
@@ -2953,6 +2953,6 @@
 	"latitude" : 42.30841987,
 	"owner_user_id" : null,
 	"data_source_id" : 2,
-	"building_group_id" : null
+	"location_group_id" : null
 }
 ]

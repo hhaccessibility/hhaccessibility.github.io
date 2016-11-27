@@ -53,16 +53,16 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('question_category_id')->unsigned()->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
         });
-        Schema::create('building_group', function (Blueprint $table) {
+        Schema::create('location_group', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
         });
-        Schema::create('building', function (Blueprint $table) {
+        Schema::create('location', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('owner_user_id')->unsigned()->nullable();
 			$table->foreign('owner_user_id')->references('id')->on('user');
-			$table->integer('building_group_id')->unsigned()->nullable();
-			$table->foreign('building_group_id')->references('id')->on('building_group');
+			$table->integer('location_group_id')->unsigned()->nullable();
+			$table->foreign('location_group_id')->references('id')->on('location_group');
 			$table->integer('data_source_id')->unsigned();
 			$table->foreign('data_source_id')->references('id')->on('data_source');
 			$table->string('name', 255)->nullable();
@@ -76,8 +76,8 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('answered_by_user_id')->references('id')->on('user');
 			$table->integer('question_id')->unsigned();
 			$table->foreign('question_id')->references('id')->on('question');
-			$table->integer('building_id')->unsigned();
-			$table->foreign('building_id')->references('id')->on('building');
+			$table->integer('location_id')->unsigned();
+			$table->foreign('location_id')->references('id')->on('location');
 			$table->string('answer_value', 255);
 			$table->datetime('when_submitted');
         });
@@ -85,23 +85,23 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->increments('id');
 			$table->integer('answered_by_user_id')->unsigned();
 			$table->foreign('answered_by_user_id')->references('id')->on('user');
-			$table->integer('building_id')->unsigned();
-			$table->foreign('building_id')->references('id')->on('building');
+			$table->integer('location_id')->unsigned();
+			$table->foreign('location_id')->references('id')->on('location');
 			$table->mediumText('content');
 			$table->datetime('when_submitted');
 		});
-        Schema::create('building_tag', function (Blueprint $table) {
+        Schema::create('location_tag', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->unique('name');
 			$table->string('description', 255);
 		});
-        Schema::create('building_building_tag', function (Blueprint $table) {
+        Schema::create('location_location_tag', function (Blueprint $table) {
 			$table->increments('id');
-			$table->integer('building_id')->unsigned();
-			$table->foreign('building_id')->references('id')->on('building');
-			$table->integer('building_tag_id')->unsigned();
-			$table->foreign('building_tag_id')->references('id')->on('building_tag');
+			$table->integer('location_id')->unsigned();
+			$table->foreign('location_id')->references('id')->on('location');
+			$table->integer('location_tag_id')->unsigned();
+			$table->foreign('location_tag_id')->references('id')->on('location_tag');
 		});		
         Schema::create('country', function (Blueprint $table) {
 			$table->increments('id');
@@ -118,12 +118,12 @@ class CreateInitialDatabaseSchema extends Migration
     public function down()
     {
         Schema::dropIfExists('country');
-        Schema::dropIfExists('building_building_tag');
-        Schema::dropIfExists('building_tag');
+        Schema::dropIfExists('location_location_tag');
+        Schema::dropIfExists('location_tag');
         Schema::dropIfExists('review_comment');
         Schema::dropIfExists('user_answer');
-        Schema::dropIfExists('building');
-        Schema::dropIfExists('building_group');
+        Schema::dropIfExists('location');
+        Schema::dropIfExists('location_group');
         Schema::dropIfExists('question');
         Schema::dropIfExists('question_category');
         Schema::dropIfExists('user_role');
