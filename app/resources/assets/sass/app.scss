@@ -7,13 +7,27 @@
 
 $base_colour1: #153157;
 
+%fashionable-link {
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+#logo {
+	font-size: 26px;
+	text-decoration: none;
+}
+
+header, footer {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 // horizontal menu at top of every page
 ul.nav {
 	list-style-type: none;
     margin: 0;
     padding: 0;
-	box-shadow: inset 0px 11px 8px -10px #CCC,
-        inset 0px -11px 8px -10px #CCC;
 	
 	li {
 		float: left;
@@ -51,8 +65,6 @@ footer {
 }
 
 .container {
-	border-left: 10px solid #fff;
-	border-right: 10px solid #fff;
 	background-color: #fff;
 	position: relative;
 	padding-bottom: 30px;
@@ -60,26 +72,145 @@ footer {
 	box-shadow: 0 0 15px #888;
 }
 
-.building-tags {
-	margin-right: 5px;
-	margin-left: 5px;
+.home-page {
+	min-height: 90vh;
+	background-image: url('../images/home_background_1170px.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #818d87;
+	color: #fff;
 	
-	.building-tag {
-		background-color: rgba($base_colour1, 0.3);
-		height: 30px;
-		text-align: center;
-		padding-top: 5px;
-		transition: background-color 0.3s;
-
-		> a {
-			font-weight: bold;
-			font-size: 1.2em;
-			color: #fff;
-			cursor: pointer;
+	.intro {
+		width: 410px;
+		padding-left: 85px;
+		padding-top: 20vh;
+		padding-right: 50px;
+		padding-bottom: 50px;
+		margin-right: auto;
+		margin-bottom: 50px;
+		background-color: rgba($base_colour1, 0.75);
+		
+		h1 {
+			margin-bottom: 20px;
 		}
 		
-		&:hover {
-			background-color: rgba($base_colour1, 0.5);
+		p {
+			font-size: 1.2em;
+		}
+	}
+
+	.home-inputs {
+		width: 550px;
+		padding-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
+
+		.search {
+			width: 100%;
+			margin-top: 30px;
+
+			form, table {
+				width: 100%;
+				padding: 0;
+			}
+			
+			input {
+				width: 100%;
+			}
+			
+			.search-button {
+				width: 40px;
+			}
+		}
+	}
+	
+	.login-signup {
+		
+		a {
+			@extend %fashionable-link;
+		
+			border: 1px solid rgba($base_colour1, 0.1);
+			display: block;
+			padding: 16px 30px;
+			color: #fff;
+			font-size: 1.4em;
+			background-color: rgba($base_colour1, 0.1);
+			box-shadow: 0 0 4px #fff inset;
+			border-radius: 2px;
+			transition: border-color 0.2s, background-color 0.2s;
+
+			table {
+				width: 100%;
+				
+				.user-icon {
+					width: 33px;
+				}
+			}
+			
+			i {
+				font-size: 2.3em;
+			}
+			
+			&:hover {
+				border-color: #fff;
+				background-color: rgba($base_colour1, 0.5);
+			}
+		}
+	}
+
+	.building-tags {
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-top: 40px;
+		
+		.building-tag {
+			padding-left: 0;
+			padding-right: 0;
+
+			> a {
+				@extend %fashionable-link;
+				padding-top: 5px;
+				height: 65px;
+				text-align: center;
+				display: block;
+				width: 100%;
+				font-weight: bold;
+				font-size: 1.2em;
+				color: #fff;
+				cursor: pointer;
+				background-color: rgba($base_colour1, 0.5);
+				transition: background-color 0.2s;
+				
+				&:hover {
+					background-color: rgba($base_colour1, 0.7);
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (max-width: 550px) {
+	body {
+		.home {
+			.home-inputs {
+				width: auto;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 751px) and (max-width: 970px) {
+	body {
+		.home-page {
+			background-image: url('../images/home_background_970px.jpg');
+		}
+	}
+}
+
+@media screen and (max-width: 750px) {
+	body {
+		.home-page {
+			background-image: url('../images/home_background_750px.jpg');
 		}
 	}
 }
