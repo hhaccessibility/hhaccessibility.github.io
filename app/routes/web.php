@@ -15,15 +15,14 @@ use App\Building;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('about', function()
+Route::get('our_vision', function()
 {
-    return View::make('pages.about');
+    return View::make('pages.our_vision');
 });
 
 Route::get('profile', 'ProfileController@index');
-
+Route::get('building-search', 'BuildingSearchController@index');
 Route::get('building-report/{building_id}', 'BuildingReportController@show');
-
 Route::get('search-by-tag/{building_tag_id}', 'BuildingSearchController@by_tag');
 
 Route::get('login', function()

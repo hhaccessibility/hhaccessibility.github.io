@@ -1,4 +1,5 @@
 @extends('layouts.default')
 @section('content')
-About page
+<h1>Our Vision</h1>
+
 @stop
