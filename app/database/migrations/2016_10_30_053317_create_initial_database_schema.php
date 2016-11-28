@@ -29,6 +29,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->double('search_radius_km', 11, 6)->nullable();
 			$table->double('longitude', 11, 8)->nullable();
 			$table->double('latitude', 11, 8)->nullable();
+			$table->string('location_search_text', 255)->nullable();
         });
         Schema::create('role', function (Blueprint $table) {
 			$table->increments('id');

@@ -32,11 +32,11 @@
 					</a>
 				</div>
 				<div class="input-group search">
-					<form class="navbar-form" role="search">
+					<form class="navbar-form" role="search" action="/search-by-keywords">
 						<table>
 							<tr>
 								<td>
-									<input type="text" placeholder="" class="form-control">
+									<input name="keywords" type="text" placeholder="Search by keyword(s)" class="form-control">
 								</td>
 								<td class="search-button">
 									<button class="btn btn-default" type="submit">
