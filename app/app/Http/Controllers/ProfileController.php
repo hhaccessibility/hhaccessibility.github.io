@@ -14,9 +14,11 @@ class ProfileController extends Controller {
     public function index(Request $request)
     {
         $username = $request->session()->get('username');
+		$user = User::where('username',$username) -> first();
+		
         if ($username)
         {
-            return view('pages.profile', ['user' => $username]);
+            return view('pages.profile', ['user' => $user]);
         }
         else
         {

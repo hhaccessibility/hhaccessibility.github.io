@@ -3,9 +3,9 @@
 <div class="profile">
 	<h1>Profile</h1>
 
-	<p>Welcome, {{ $user }}.</p>
+	<p>Welcome, {{ $user->first_name }}.</p>
 	<div>
-	Name:
+	Name: {{ $user->first_name.' '.$user->last_name }}
 	</div>
 	<div>
 	Age:
