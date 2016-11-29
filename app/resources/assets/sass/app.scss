@@ -23,6 +23,26 @@ $base_colour1: #153157;
 	}
 }
 
+@mixin social-media-large-button($colour) {
+	background-color: $colour;
+	border-color: $colour;
+	transition: background-color 0.2s, border-color 0.2s;
+	
+	> div {
+		color: $colour;
+		transition: color 0.2s;
+	}
+			
+	&:hover, &:focus {
+		background-color: darken($colour, 20%);
+		border-color: darken($colour, 20%);
+
+		> div {
+			color: darken($colour, 20%);
+		}
+	} 
+}
+
 #logo {
 	font-size: 26px;
 	text-decoration: none;
@@ -109,6 +129,36 @@ footer {
 
 .locations-by-keywords {
 	@extend %page-base;
+}
+
+.terms-of-use {
+	@extend %page-base;
+}
+
+.privacy-policy {
+	@extend %page-base;
+}
+
+.sign-up {
+	@extend %page-base;
+	
+	> .header {
+		margin-bottom: 30px;
+
+		> h1 {
+			margin-top: 0;
+			padding-top: 15px;
+		}
+	}
+	
+	.agreements {
+		margin-top: 70px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 25px;
+		color: #666;
+		width: 350px;
+	}
 }
 
 .home-page {
@@ -250,6 +300,97 @@ footer {
 	body {
 		.home-page {
 			background-image: url('../images/home_background_750px.jpg');
+		}
+	}
+}
+
+.signup-form {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.social-media-logins {
+	padding-top: 40px;
+	padding-bottom: 70px;
+	padding-left: 80px;
+	border-left: 1px solid #bbb;
+	
+	> a {
+		display: block;
+		height: 40px;
+		width: 345px;
+		padding-top: 1px;
+		margin-top: 25px;
+		border-radius: 3px;
+		
+		> i {
+			text-align: center;
+			font-size: 25px;
+			width: 53px;
+			padding-top: 11px;
+			color: #fff;
+			display: inline-block;
+		}
+		
+		> div {
+			padding-top: 8px;
+			font-size: 16px;
+			background-color: #fff;
+			text-decoration: none;
+			text-align: center;
+			margin-right: 1px;
+			height: 38px;
+			width: 290px;
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+		
+		&.facebook {
+			@include social-media-large-button(#3b5998);
+		}
+		
+		&.google-plus {
+			@include social-media-large-button(#ea4335);
+		}
+	}
+}
+
+.clean {
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	border-bottom-color: #bbb;
+	box-style: border-box;
+	transition: border-color 0.2s, color 0.2s;
+	
+	&:focus {
+		border-top-width: 0;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-bottom-color: #000;
+		outline: none;
+	}
+	
+	&[type="submit"] {
+		height: 38px;
+		font-size: 18px;
+		margin-top: 30px;
+		border: 1px solid #337ab7;
+		color: #337ab7;
+		width: auto;
+		padding-left: 40px;
+		padding-right: 40px;
+		border-radius: 19px;
+		background-color: #fff;
+		
+		&:hover, &:focus {
+			border-color: #000;
+			color: #000;
 		}
 	}
 }
