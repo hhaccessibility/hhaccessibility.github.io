@@ -33,17 +33,19 @@
 				</form>
 			</div>
 		</div>
-		<div class="col-md-6 social-media-logins">
-			Or sign in using your social media account
-			
-			<a class="facebook" href="">
-				<i class="fa-lg fa fa-facebook"></i>
-				<div class="pull-right">Sign in with facebook</div>
-			</a>
-			<a class="google-plus" href="">
-				<i class="fa-lg fa fa-google-plus"></i>
-				<div class="pull-right">Sign in with Google</div>
-			</a>
+		<div class="col-md-6">
+			<div class="social-media-logins">
+				Or sign in using your social media account
+				
+				<a class="facebook" href="">
+					<i class="fa-lg fa fa-facebook"></i>
+					<div class="pull-right">Sign in with facebook</div>
+				</a>
+				<a class="google-plus" href="">
+					<i class="fa-lg fa fa-google-plus"></i>
+					<div class="pull-right">Sign in with Google</div>
+				</a>
+			</div>
 		</div>
 	</div>
 	<div class="text-center agreements">
