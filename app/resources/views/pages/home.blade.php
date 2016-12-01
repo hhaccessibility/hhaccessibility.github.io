@@ -32,7 +32,7 @@
 					</a>
 				</div>
 				<div class="input-group search">
-					<form class="navbar-form" role="search" action="/search-by-keywords">
+					<form role="search" action="/search-by-keywords">
 						<table>
 							<tr>
 								<td>
