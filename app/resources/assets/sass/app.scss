@@ -30,6 +30,8 @@ $base_colour1: #153157;
 	
 	> div {
 		color: $colour;
+		border-right-style: solid;
+		border-right-width: 1px;
 		transition: color 0.2s;
 	}
 			
@@ -296,10 +298,28 @@ footer {
 	}
 }
 
-@media screen and (max-width: 750px) {
+@media only screen and (max-width: 750px) {
 	body {
 		.home-page {
 			background-image: url('../images/home_background_750px.jpg');
+		}
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	body {
+		.social-media-logins {
+			width: 350px;
+			padding-left: 0;
+			padding-bottom: 0;
+			border-left-width: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.sign-up {
+			.agreements {
+				margin-bottom: 50px;
+			}
 		}
 	}
 }
@@ -339,7 +359,6 @@ footer {
 			background-color: #fff;
 			text-decoration: none;
 			text-align: center;
-			margin-right: 1px;
 			height: 38px;
 			width: 290px;
 			border-top-right-radius: 2px;
@@ -360,6 +379,7 @@ footer {
 	border-top-width: 0;
 	border-left-width: 0;
 	border-right-width: 0;
+	border-bottom-width: 1px;
 	margin-top: 20px;
 	display: block;
 	width: 100%;
