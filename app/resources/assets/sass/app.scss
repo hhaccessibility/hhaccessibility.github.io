@@ -324,6 +324,24 @@ footer {
 	}
 }
 
+@media only screen and (max-width: 1199px) {
+	body {
+		.home-page {
+			.intro {
+				padding-top: 30px;
+				width: 550px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.location-tags {
+				margin-bottom: 80px;
+			}
+		}
+		
+	}
+}
+
 .signup-form {
 	width: 400px;
 	margin-left: auto;
