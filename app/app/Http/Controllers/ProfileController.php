@@ -13,10 +13,10 @@ class ProfileController extends Controller {
      */
     public function index(Request $request)
     {
-        $username = $request->session()->get('username');
-		$user = User::where('username',$username) -> first();
+        $email = $request->session()->get('email');
+		$user = User::where('email',$email) -> first();
 		
-        if ($username)
+        if ($email)
         {
             return view('pages.profile', ['user' => $user]);
         }

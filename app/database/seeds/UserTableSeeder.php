@@ -10,9 +10,8 @@ class UserTableSeeder extends Seeder
 	{
 		DB::table('user')->delete();
 		$newUser = User::create(array(
-			'username' => 'test',
 			'password_hash' => User::generateSaltedHash('password'),
-			'email' => 'josh.greig@gmail.com',
+			'email' => 'josh.greig2@gmail.com',
 			'first_name' => 'John',
 			'last_name' => 'Smith'
 		));

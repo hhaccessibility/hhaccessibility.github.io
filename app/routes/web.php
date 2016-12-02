@@ -40,13 +40,12 @@ Route::get('login', function()
 });
 
 Route::post('login', 'MyLoginController@authenticate');
+Route::get('logout', 'MyLoginController@logout');
 
 Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
 
-Route::get('signup', function()
-{
-    return View::make('pages.signup');
-});
+Route::get('signup', 'SignUpController@showForm');
+Route::post('signup', 'SignUpController@createUser');
 
 Route::get('api/locations', function (Request $request) {
 	return Location::all();

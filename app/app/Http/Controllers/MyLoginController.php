@@ -16,12 +16,12 @@ class MyLoginController extends Controller {
      */
     public function authenticate(Request $request)
     {
-		$username = $request->input('username');
-		$matching_user = User::where('username', '=', $username)->first();
+		$email = $request->input('email');
+		$matching_user = User::where('email', '=', $email)->first();
         if ($matching_user && 
 		Hash::check($request->input('password'), $matching_user->password_hash))
         {
-            $request->session()->put('username', $username);
+            $request->session()->put('email', $email);
             return redirect()->intended('profile');
         }
 		else
@@ -30,4 +30,9 @@ class MyLoginController extends Controller {
 		}
     }
 
+	public function logout(Request $request)
+	{
+		$request->session()->forget('username');
+		return redirect()->intended('/');
+	}
 }

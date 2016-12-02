@@ -7,12 +7,8 @@
 	<div>
 	Name: {{ $user->first_name.' '.$user->last_name }}
 	</div>
-	<div>
-	Age:
-	</div>
-	<div>
-	Points:
-	</div>
+	
+	<a href="/logout">Log out</a>
 </div>
 
 @stop

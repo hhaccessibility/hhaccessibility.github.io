@@ -10,6 +10,7 @@
 		<div class="col-md-6">
 			<div class="signup-form">
 				<form method="post" action="/signup">
+					{!! csrf_field() !!}
 					<div class="row">
 						<div class="col-xs-12">
 							<input class="clean" name="email" placeholder="Email">
