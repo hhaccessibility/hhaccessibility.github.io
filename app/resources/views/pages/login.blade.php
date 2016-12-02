@@ -25,10 +25,10 @@
 
 			<div class="row">
 				<div class="col-xs-4">
-					{{ Form::label('username', 'Username') }}
+					{{ Form::label('email', 'Email') }}
 				</div>
 				<div class="col-xs-8">
-					{{ Form::text('username', Input::old('username'), array('placeholder' => 'test')) }}
+					{{ Form::text('email', Input::old('email'), array('placeholder' => 'test')) }}
 				</div>
 			</div>
 

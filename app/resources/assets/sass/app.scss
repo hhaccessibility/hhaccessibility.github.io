@@ -45,6 +45,22 @@ $base_colour1: #153157;
 	} 
 }
 
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
 #logo {
 	font-size: 26px;
 	text-decoration: none;
@@ -405,6 +421,18 @@ footer {
 	border-bottom-color: #bbb;
 	box-style: border-box;
 	transition: border-color 0.2s, color 0.2s;
+	@include placeholder {
+		color: #bbb;
+	}
+	
+	&:hover {
+		border-bottom-color: #238;
+		color: #238;
+		
+		@include placeholder {
+			color: tint(#223388, 50%);
+		}
+	}
 	
 	&:focus {
 		border-top-width: 0;
@@ -412,6 +440,10 @@ footer {
 		border-right-width: 0;
 		border-bottom-color: #000;
 		outline: none;
+
+		@include placeholder {
+			color: #888;
+		}
 	}
 	
 	&[type="submit"] {
