@@ -1,62 +1,56 @@
 @extends('layouts.default')
 @section('content')
-<h1>Log In</h1>
 
-<p>
-	New to AccessLocator? 	<a href="/signup">Sign up</a>
-</p>
-
-<div class="row">
-	<div class="col-lg-6 col-xs-12">
-		<div class="login-form">
-			{{ Form::open(array('url' => 'login')) }}
-
-			<!-- if there are login errors, show them here -->
-			@if (!$errors->isEmpty())
-			<ul>
-				@if ($errors->first('username'))
-				<li>{{ $errors->first('username') }}</li>
-				@endif
-				@if ($errors->first('password'))
-				<li>{{ $errors->first('password') }}</li>
-				@endif
-			</ul>
-			@endif
-
-			<div class="row">
-				<div class="col-xs-4">
-					{{ Form::label('email', 'Email') }}
-				</div>
-				<div class="col-xs-8">
-					{{ Form::text('email', Input::old('email'), array('placeholder' => 'test')) }}
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-4">
-					{{ Form::label('password', 'Password') }}
-				</div>
-				<div class="col-xs-8">
-					{{ Form::password('password') }}
-				</div>
-			</div>
-
-			<p>{{ Form::submit('Log In') }}</p>
-			{{ Form::close() }}
-
-			<div class="form-group">
-				<input type="checkbox">
-				<label class="control-label">Remember Me</label>
+<div class="log-in">
+	<div class="text-center header">
+		<h1>Log In</h1>
+		<p>New to Access Locator? <a href="/signup">Sign Up </a></p>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="login-form">
+				<form method="post" action="/login">
+					<div class="row">
+						<div class="col-xs-12">
+							<input class="clean" name="email" placeholder="Email">
+						</div>						
+						<div class="col-xs-12">
+							<input class="clean" name="password" type="password" placeholder="Password">
+						</div>
+						
+                        <div class="wrapper" style="height:30px;width:100%">
+                            <div class="checkbox" style="margin-left:17px;height:100%;width:55%;float:left">
+                                <label>
+                                    
+                                    <input type="checkbox"> Remember Me
+                                                   
+                                </label>
+                            </div>
+                        
+                              <div style="float:left;height:100%;margin-top:10px"> Forgot Password? </div>  
+                        </div>
+                                                
+					</div>
+					<div>
+						<input class="clean" type="submit" value="Log in">
+					</div>
+				</form>
+			</div> 
+		</div>
+		<div class="col-md-6">
+			<div class="social-media-logins">
+				Or sign in using your social media account
 				
-				<a class="pull-right" href="">Forgot Password?</a>
+				<a class="facebook" href="">
+					<i class="fa-lg fa fa-facebook"></i>
+					<div class="pull-right">Sign in with facebook</div>
+				</a>
+				<a class="google-plus" href="">
+					<i class="fa-lg fa fa-google-plus"></i>
+					<div class="pull-right">Sign in with Google</div>
+				</a>
 			</div>
 		</div>
-	</div>
-	<div class="col-lg-6 col-xs-12">
-		<div><a href="/fbauth"><i class="fa-lg fa fa-facebook-square"></i></a></div>
-		<div class="fa-lg fa fa-twitter"></div>
-		<div class="fa-lg fa fa-google-plus"></div>
-		<div class="fa-lg fa fa-linkedin"></div>
 	</div>
 </div>
 
