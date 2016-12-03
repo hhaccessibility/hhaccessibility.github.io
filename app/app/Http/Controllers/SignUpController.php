@@ -1,6 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use App\UserRole;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
@@ -13,13 +17,32 @@ class SignUpController extends Controller {
 	
     public function createUser(Request $request)
     {
-		$newUser = new User;
-		$newUser->email = $request->input('email');
-		$newUser->first_name = $request->input('first_name');
-		$newUser->last_name = $request->input('last_name');
-		$newUser->password_hash = User::generateSaltedHash($request->input('password'));
-		$newUser->save();
-		
+		$validation_rules = array(
+			'first_name'             => 'required',
+			'last_name'             => 'required',
+			'email'            => 'required|email|unique:user',  
+			'password'         => 'required',
+			'password_confirm' => 'required|same:password'
+		);
+		$validator = Validator::make(Input::all(), $validation_rules);
+		if ($validator->fails())
+		{
+			return Redirect::to('signup')->withErrors($validator)->withInput();			
+		}
+		else
+		{
+			$newUser = new User;
+			$newUser->email = $request->input('email');
+			$newUser->first_name = $request->input('first_name');
+			$newUser->last_name = $request->input('last_name');
+			$newUser->password_hash = User::generateSaltedHash($request->input('password'));
+			$newUser->save();
+			
+			$newUserRole = new UserRole;
+			$newUserRole->role_id = 2;
+			$newUserRole->user_id = $newUser->id;
+			$newUserRole->save();
+		}
 		return view('pages.signup');
     }
 }

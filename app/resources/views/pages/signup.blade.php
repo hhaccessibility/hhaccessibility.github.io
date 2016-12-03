@@ -11,21 +11,22 @@
 			<div class="signup-form">
 				<form method="post" action="/signup">
 					{!! csrf_field() !!}
+					@include('pages.validation_messages', array('errors'=>$errors))
 					<div class="row">
 						<div class="col-xs-12">
-							<input class="clean" name="email" placeholder="Email">
+							<input class="clean" name="email" placeholder="Email" value="{{ old('email') }}">
 						</div>
 						<div class="col-xs-6">
-							<input class="clean" name="last_name" placeholder="Last Name">
+							<input class="clean" name="last_name" placeholder="Last Name" value="{{ old('last_name') }}">
 						</div>
 						<div class="col-xs-6">
-							<input class="clean" name="first_name" placeholder="First Name">
+							<input class="clean" name="first_name" placeholder="First Name" value="{{ old('first_name') }}">
 						</div>
 						<div class="col-xs-12">
-							<input class="clean" type="password" placeholder="Password">
+							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
 						</div>
 						<div class="col-xs-12">
-							<input class="clean" type="password" placeholder="Type your password again">
+							<input class="clean" name="password_confirm" type="password" placeholder="Type your password again" value="{{ old('password_confirm') }}">
 						</div>
 					</div>
 					<div>

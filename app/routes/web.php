@@ -27,6 +27,9 @@ Route::get('privacy-policy', function()
 {
     return View::make('pages.privacy_policy');
 });
+Route::get('password-recovery', function() {
+    return View::make('pages.password_recovery');
+});
 
 Route::get('profile', 'ProfileController@index');
 Route::get('location-search', 'LocationSearchController@index');
@@ -39,8 +42,8 @@ Route::get('login', function()
     return View::make('pages.login');
 });
 
-Route::post('login', 'MyLoginController@authenticate');
-Route::get('logout', 'MyLoginController@logout');
+Route::post('login', 'LoginController@authenticate');
+Route::get('logout', 'LoginController@logout');
 
 Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 class User extends Eloquent
 {
     protected $fillable = [
-        'username', 'password_hash', 'search_radius_km', 
+        'email', 'password_hash', 'search_radius_km', 
 		'longitude', 'latitude', 'remember_token',
     ];
 	public $timestamps = false;
