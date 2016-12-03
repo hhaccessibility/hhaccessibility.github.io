@@ -27,6 +27,9 @@ Route::get('privacy-policy', function()
 {
     return View::make('pages.privacy_policy');
 });
+Route::get('password-recovery', function() {
+    return View::make('pages.password_recovery');
+});
 
 Route::get('profile', 'ProfileController@index');
 Route::get('location-search', 'LocationSearchController@index');

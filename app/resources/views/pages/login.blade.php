@@ -4,7 +4,7 @@
 <div class="log-in">
 	<div class="text-center header">
 		<h1>Log In</h1>
-		<p>New to Access Locator? <a href="/signup">Sign Up </a></p>
+		<p>New to Access Locator? <a href="/signup">Sign Up</a></p>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
@@ -19,16 +19,13 @@
 							<input class="clean" name="password" type="password" placeholder="Password">
 						</div>
 						
-                        <div class="wrapper" style="height:30px;width:100%">
-                            <div class="checkbox" style="margin-left:17px;height:100%;width:55%;float:left">
-                                <label>
-                                    
-                                    <input type="checkbox"> Remember Me
-                                                   
-                                </label>
-                            </div>
-                        
-                              <div style="float:left;height:100%;margin-top:10px"> Forgot Password? </div>  
+                        <div class="col-xs-12">
+							<div class="remember-password">
+								<label>
+									<input type="checkbox"> Remember Me
+								</label>
+								<a class="pull-right" href="/password-recovery"> Forgot Password? </a>
+							</div>
                         </div>
                                                 
 					</div>
