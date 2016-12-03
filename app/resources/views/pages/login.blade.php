@@ -11,12 +11,13 @@
 			<div class="login-form">
 				<form method="post" action="/login">
                     {!! csrf_field() !!}
+					@include('pages.validation_messages', array('errors'=>$errors))					
 					<div class="row">
 						<div class="col-xs-12">
-							<input class="clean" name="email" placeholder="Email">
+							<input class="clean" name="email" placeholder="Email" value="{{ old('email') }}">
 						</div>						
 						<div class="col-xs-12">
-							<input class="clean" name="password" type="password" placeholder="Password">
+							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
 						</div>
 						
                         <div class="col-xs-12">
