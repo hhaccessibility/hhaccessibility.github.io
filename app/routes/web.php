@@ -39,8 +39,8 @@ Route::get('login', function()
     return View::make('pages.login');
 });
 
-Route::post('login', 'MyLoginController@authenticate');
-Route::get('logout', 'MyLoginController@logout');
+Route::post('login', 'LoginController@authenticate');
+Route::get('logout', 'LoginController@logout');
 
 Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
 

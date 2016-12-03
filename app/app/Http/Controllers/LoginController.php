@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 
-class MyLoginController extends Controller {
+class LoginController extends Controller {
 
     /**
      * Handle an authentication attempt.
