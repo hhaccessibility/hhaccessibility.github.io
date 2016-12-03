@@ -138,7 +138,10 @@ footer {
 
 .locations-by-tag {
 	@extend %page-base;
-	
+}
+
+.log-in {
+	@extend %page-base;
 }
 
 .location-report {
