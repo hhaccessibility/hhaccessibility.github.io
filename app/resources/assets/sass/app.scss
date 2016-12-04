@@ -61,6 +61,10 @@ $base_colour1: #153157;
   @return mix(white, $color, $percentage);
 }
 
+html, body {
+	font-family: Didact Gothic, arial;
+}
+
 #logo {
 	font-size: 26px;
 	text-decoration: none;
