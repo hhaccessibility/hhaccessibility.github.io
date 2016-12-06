@@ -14,7 +14,9 @@
 					@include('pages.validation_messages', array('errors'=>$errors))					
 					<div class="row">
 						<div class="col-xs-12">
-							<input class="clean" name="email" placeholder="Email" value="{{ old('email') }}">
+							<input type="email"
+								class="clean" name="email"
+								placeholder="Email" value="{{ old('email') }}">
 						</div>						
 						<div class="col-xs-12">
 							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">

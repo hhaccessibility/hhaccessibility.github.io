@@ -63,6 +63,10 @@ $base_colour1: #153157;
 
 html, body {
 	font-family: Didact Gothic, arial;
+	background-color: #e7f3f5;
+	font-weight: 100;
+	height: 100vh;
+	margin: 0;
 }
 
 #logo {
@@ -84,13 +88,6 @@ ul.nav {
 	li {
 		float: left;
 	}
-}
-
-html, body {
-	background-color: #e7f3f5;
-	font-weight: 100;
-	height: 100vh;
-	margin: 0;
 }
 
 .content {
@@ -146,6 +143,34 @@ footer {
 
 .password-recovery {
 	@extend %page-base;
+}
+
+.contact {
+	@extend %page-base;
+	
+	h1 {
+		padding-top: 20px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	.contact-form {
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.sent-message {
+		font-size: 1.5em;
+		
+		strong {
+			line-height: 70px;
+			
+			.sent {
+				font-size: 1.3em;
+			}
+		}
+	}
 }
 
 .log-in {
@@ -449,24 +474,28 @@ footer {
 	border-bottom-color: #bbb;
 	box-style: border-box;
 	transition: border-color 0.2s, color 0.2s;
+	
 	@include placeholder {
 		color: #bbb;
 	}
+
+	@at-root #{selector-unify(&, textarea)} {
+		border-top-width: 1px;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
 	
 	&:hover {
-		border-bottom-color: #238;
+		border-color: #238;
 		color: #238;
 		
 		@include placeholder {
 			color: tint(#223388, 50%);
 		}
 	}
-	
+		
 	&:focus {
-		border-top-width: 0;
-		border-left-width: 0;
-		border-right-width: 0;
-		border-bottom-color: #000;
+		border-color: #000;
 		outline: none;
 
 		@include placeholder {

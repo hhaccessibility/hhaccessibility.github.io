@@ -36,6 +36,8 @@ Route::get('location-search', 'LocationSearchController@index');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
 Route::get('search-by-tag/{location_tag_id}', 'LocationSearchController@by_tag');
 Route::get('search-by-keywords', 'LocationSearchController@byKeywords');
+Route::get('contact', 'ContactController@index');
+Route::post('contact', 'ContactController@sendMessage');
 
 Route::get('login', function()
 {
