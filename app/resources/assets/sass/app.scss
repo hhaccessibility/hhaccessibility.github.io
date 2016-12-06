@@ -13,6 +13,16 @@ $base_colour1: #153157;
 	}
 }
 
+%dark-link {
+	@extend %fashionable-link;
+
+	color: #fff;
+	font-size: 1.4em;
+	box-shadow: 0 0 4px #fff inset;
+	border-radius: 2px;
+	transition: border-color 0.2s, background-color 0.2s;
+}
+
 %page-base {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -196,6 +206,19 @@ footer {
 
 .location-report {
 	@extend %page-base;
+	
+	.location-tag {
+		@extend %dark-link;
+	
+		margin-left: 1px;
+		border: 1px solid rgba($base_colour1, 0.3);
+		padding: 6px 13px;
+		background-color: rgba($base_colour1, 0.55);
+		
+		&:hover {
+			background-color: rgba($base_colour1, 0.75);
+		}
+	}
 }
 
 .locations-by-keywords {
@@ -287,17 +310,12 @@ footer {
 	.login-signup {
 		
 		a {
-			@extend %fashionable-link;
+			@extend %dark-link;
 		
 			border: 1px solid rgba($base_colour1, 0.1);
 			display: block;
 			padding: 16px 30px;
-			color: #fff;
-			font-size: 1.4em;
 			background-color: rgba($base_colour1, 0.25);
-			box-shadow: 0 0 4px #fff inset;
-			border-radius: 2px;
-			transition: border-color 0.2s, background-color 0.2s;
 
 			table {
 				width: 100%;
