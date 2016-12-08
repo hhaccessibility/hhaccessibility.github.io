@@ -12,7 +12,7 @@ class SignUpController extends Controller {
 
     public function showForm(Request $request)
     {
-		return view('pages.signup');
+		return view('pages.signup.form');
     }
 	
     public function createUser(Request $request)
@@ -31,8 +31,9 @@ class SignUpController extends Controller {
 		}
 		else
 		{
+			$email = $request->input('email');
 			$newUser = new User;
-			$newUser->email = $request->input('email');
+			$newUser->email = $email;
 			$newUser->first_name = $request->input('first_name');
 			$newUser->last_name = $request->input('last_name');
 			$newUser->password_hash = User::generateSaltedHash($request->input('password'));
@@ -42,7 +43,8 @@ class SignUpController extends Controller {
 			$newUserRole->role_id = 2;
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
+			return view('pages.signup.success', ['email' => $email]);
 		}
-		return view('pages.signup');
+		return view('pages.signup.form');
     }
 }

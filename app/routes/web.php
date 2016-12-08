@@ -39,11 +39,7 @@ Route::get('search-by-keywords', 'LocationSearchController@byKeywords');
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@sendMessage');
 
-Route::get('login', function()
-{
-    return View::make('pages.login');
-});
-
+Route::get('login', 'LoginController@showForm');
 Route::post('login', 'LoginController@authenticate');
 Route::get('logout', 'LoginController@logout');
 

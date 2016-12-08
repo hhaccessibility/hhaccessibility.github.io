@@ -16,7 +16,7 @@
 						<div class="col-xs-12">
 							<input type="email"
 								class="clean" name="email"
-								placeholder="Email" value="{{ old('email') }}">
+								placeholder="Email" value="{{ old('email', $email) }}">
 						</div>						
 						<div class="col-xs-12">
 							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
