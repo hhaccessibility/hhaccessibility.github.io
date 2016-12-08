@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller {
+	
+	public function showForm(Request $request)
+	{
+		$email = '';
+		if ( !empty(Input::get('email')) ) {
+			$email = trim(Input::get('email'));
+		}
+		return view('pages.login', ['email' => $email]);
+	}
 
     /**
      * Handle an authentication attempt.
