@@ -31,8 +31,13 @@
 						</table>
 					</a>
 				</div>
-				<div class="input-group search">
+				<div class="search">
 					<form role="search" action="/search-by-keywords">
+						<input
+							class="form-control"
+							name="address"
+							placeholder="Windsor, Ontario, Canada"
+							title="Address">
 						<table>
 							<tr>
 								<td>
