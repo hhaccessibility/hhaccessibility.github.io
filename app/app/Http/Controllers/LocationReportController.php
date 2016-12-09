@@ -14,7 +14,9 @@ class LocationReportController extends Controller {
 		
 		return view('pages.location_report', [
 			'location' => $location,
-			'question_categories' => $question_categories]
+			'question_categories' => $question_categories,
+			'google_map_api_key' => config('app.google_map_api_key')
+			]
 		);
     }
 

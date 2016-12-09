@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('includes.head')
+    @yield('head-content')
 </head>
 <body>
 <div class="container">
@@ -21,5 +22,6 @@
     </footer>
 
 </div>
+    @yield('footer-content')
 </body>
 </html>

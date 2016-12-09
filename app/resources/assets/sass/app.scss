@@ -207,6 +207,10 @@ footer {
 .location-report {
 	@extend %page-base;
 	
+	#map {
+		height: 200px;
+	}
+	
 	.location-tag {
 		@extend %dark-link;
 	
@@ -308,6 +312,10 @@ footer {
 			
 			input {
 				width: 100%;
+				
+				&[name='address'] {
+					margin-bottom: 15px;
+				}
 			}
 			
 			.search-button {

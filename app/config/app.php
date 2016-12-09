@@ -104,6 +104,11 @@ return [
     */
 
     'key' => env('APP_KEY'),
+	
+	/*
+	| Used for Google Maps JavaScript api
+	*/
+	'google_map_api_key' => env('GOOGLE_MAP_API_KEY', ''),
 
     'cipher' => 'AES-256-CBC',
 
