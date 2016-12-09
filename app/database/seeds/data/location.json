@@ -1,11 +1,11 @@
 [
-{"id": 10, "name": "Centre for Engineering Innovation", "address": null, "latitude": 42.3045218, "longitude": -83.0642137, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
-{"id": 11, "name": "Odette School of Business", "address": null, "latitude": 42.3053421, "longitude": -83.0666586, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 10, "name": "Centre for Engineering Innovation", "address": "Windsor, ON N9B 1K3", "latitude": 42.3045218, "longitude": -83.0642137, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
+{"id": 11, "name": "Odette School of Business", "address": "401 Sunset Ave", "latitude": 42.3053421, "longitude": -83.0666586, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
 {"id": 12, "name": "Travelodge Hotel Downtown Windsor", "address": "33 Riverside Dr E, Windsor, ON N9A 2S4", "latitude": 42.3194703, "longitude": -83.0415569, "location_group_id": 6, "owner_user_id": null, "data_source_id": 1},
 {"id": 20, "name": "TD Branch 3904", "address": "2110 Wyandotte St W", "latitude": 42.306162, "longitude": -83.0625533, "location_group_id": 7, "owner_user_id": null, "data_source_id": 1},
 {"id": 30, "name": "Devonshire Mall", "address": "3100 Howard Ave, Windsor, ON N8X 3Y8", "latitude": 42.2746699, "longitude": -83.0057449, "location_group_id": null, "owner_user_id": null, "data_source_id": 1},
 {"id": 40, "name": "Windsor Bus Station", "address": "300 Chatham St W, Windsor", "latitude": 42.317722, "longitude": -83.0453235, "location_group_id": 10, "owner_user_id": null, "data_source_id": 1},
-{"id": 50, "name": "McDonalds", "address": null, "latitude": 42.298248, "longitude": -83.066444, "location_group_id": 50, "owner_user_id": null, "data_source_id": 1},
+{"id": 50, "name": "McDonalds", "address": "883 Huron Church Line Rd", "latitude": 42.298248, "longitude": -83.066444, "location_group_id": 50, "owner_user_id": null, "data_source_id": 1},
 {
 	"id" : 60,
 	"name" : "Corpus Christi Catholic Middle School",
@@ -711,7 +711,7 @@
 }, {
 	"id" : 138,
 	"name" : "Conseil Scolaire Catholique Providence",
-	"address" : "7515 FOREST GLADE AVE",
+	"address" : "7515 Forest Glade Ave",
 	"longitude" : -82.92565496,
 	"latitude" : 42.29746717,
 	"owner_user_id" : null,
