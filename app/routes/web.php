@@ -34,11 +34,11 @@ Route::get('password-recovery', function() {
 Route::get('profile', 'ProfileController@index');
 Route::get('location-search', 'LocationSearchController@index');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
+Route::get('location-report/{location_id}/{rating_system}', 'LocationReportController@show');
 Route::get('search-by-tag/{location_tag_id}', 'LocationSearchController@by_tag');
 Route::get('search-by-keywords', 'LocationSearchController@byKeywords');
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@sendMessage');
-
 Route::get('login', 'LoginController@showForm');
 Route::post('login', 'LoginController@authenticate');
 Route::get('logout', 'LoginController@logout');
