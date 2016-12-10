@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use App\BaseUser;
 use Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -36,9 +37,7 @@ class LoginController extends Controller {
 		if (!$validator->fails())
 		{
 			$email = $request->input('email');
-			$matching_user = User::where('email', '=', $email)->first();
-			if ($matching_user && 
-			Hash::check($request->input('password'), $matching_user->password_hash))
+			if (BaseUser::authenticate($email, $request->input('password')))
 			{
 				$request->session()->put('email', $email);
 				return redirect()->intended('profile');
@@ -54,7 +53,7 @@ class LoginController extends Controller {
 
 	public function logout(Request $request)
 	{
-		$request->session()->forget('username');
+		BaseUser::logout();
 		return redirect()->intended('/');
 	}
 }

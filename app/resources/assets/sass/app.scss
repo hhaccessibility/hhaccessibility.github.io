@@ -215,16 +215,56 @@ footer {
 		height: 200px;
 	}
 	
-	.location-tag {
-		@extend %dark-link;
-	
-		margin-left: 1px;
-		border: 1px solid rgba($base_colour1, 0.3);
-		padding: 6px 13px;
-		background-color: rgba($base_colour1, 0.55);
+	.title {
+		position: relative;
+		height: 50px;
+		margin-bottom: 3px;
+		box-shadow: 0 -6px 2px -2px rgba($base_colour1, 0.1) inset;
 		
-		&:hover {
-			background-color: rgba($base_colour1, 0.75);
+		h1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0 0 0 0;
+			padding: 0;
+		}
+		
+		.universal-personal {
+			position: absolute;
+			right: 0;
+			bottom: 8px;
+			
+			a {
+				@extend %dark-link;
+				
+				padding: 5px 10px;
+				background-color: rgba($base_colour1, 0.5);
+				
+				&:hover {
+					background-color: rgba($base_colour1, 0.7);
+				}
+
+				&.selected {
+					background-color: rgba($base_colour1, 0.95);
+				}
+			}
+		}		
+	}
+	
+	.location-tags {
+		padding-top: 2px;
+	
+		.location-tag {
+			@extend %dark-link;
+		
+			margin-left: 1px;
+			border: 1px solid rgba($base_colour1, 0.3);
+			padding: 6px 13px;
+			background-color: rgba($base_colour1, 0.55);
+			
+			&:hover {
+				background-color: rgba($base_colour1, 0.75);
+			}
 		}
 	}
 }
@@ -424,6 +464,7 @@ footer {
 			margin-left: auto;
 			margin-right: auto;
 		}
+		
 		.sign-up {
 			.agreements {
 				margin-bottom: 50px;
@@ -444,6 +485,23 @@ footer {
 			
 			.location-tags {
 				margin-bottom: 80px;
+			}
+		}
+
+		.location-report {
+			.title {
+				position: static;
+				height: auto;
+				padding-bottom: 4px;
+				
+				h1 {
+					position: static;
+				}
+				
+				.universal-personal {
+					position: static;
+					padding-top: 8px;
+				}
 			}
 		}
 		
