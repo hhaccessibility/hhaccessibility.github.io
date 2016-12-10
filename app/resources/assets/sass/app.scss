@@ -72,11 +72,15 @@ $base_colour1: #153157;
 }
 
 html, body {
-	font-family: Didact Gothic, arial;
+	font-family: arial;
 	background-color: #e7f3f5;
 	font-weight: 100;
 	height: 100vh;
 	margin: 0;
+}
+
+h1, h2, h3 {
+	font-family: Didact Gothic, arial;
 }
 
 #logo {
