@@ -49,7 +49,41 @@ class BaseUser
 		return $user;
 	}
 	
-	public static function logout() {
+	public static function setAddress(string $address)
+	{
+		$address = trim($address);
+		if (BaseUser::isLoggedIn())
+		{
+			$user = BaseUser::getDbUser();
+			$user->location_search_text = $address;
+			$user->save();
+		}
+		else
+		{
+			Session::put('location_search_text', $address);
+		}
+	}
+	
+	public static function getDefaultAddress()
+	{
+		return 'Windsor, Ontario, Canada';
+	}
+	
+	public static function getAddress()
+	{
+		if (BaseUser::isLoggedIn())
+		{
+			$user = BaseUser::getDbUser();
+			return $user->location_search_text;
+		}
+		else
+		{
+			return Session::get('location_search_text');
+		}
+	}
+	
+	public static function logout()
+	{
 		Session::forget(['email']);
 	}
 }
