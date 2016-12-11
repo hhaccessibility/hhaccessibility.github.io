@@ -109,6 +109,11 @@ return [
 	| Used for Google Maps JavaScript api
 	*/
 	'google_map_api_key' => env('GOOGLE_MAP_API_KEY', ''),
+	
+	/*
+	| Used for turning off maps while developing so there is no need for 
+	*/
+	'turn_off_maps' => env('TURN_OFF_MAPS', '0') === '1' || empty(env('GOOGLE_MAP_API_KEY', '')),
 
     'cipher' => 'AES-256-CBC',
 

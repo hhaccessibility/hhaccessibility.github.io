@@ -1,14 +1,13 @@
 [
-{"id": 1, "name": "University of Windsor"},
-{"id": 2, "name": "Windsor Public Library"},
-{"id": 3, "name": "St. Clair College"},
-{"id": 4, "name": "Windsor City Hall"},
-{"id": 5, "name": "Transit Windsor"},
-{"id": 6, "name": "Travalodge"},
-{"id": 7, "name": "TD Bank"},
-{"id": 10, "name": "Transit Windsor"},
-{"id": 50, "name": "McDonalds"},
-{"id": 51, "name": "Wendy's"},
-{"id": 52, "name": "Harvey's"},
-{"id": 53, "name": "Applebees"}
+{"id": 1, "name": "University of Windsor", "external_web_url": "http://www.uwindsor.ca"},
+{"id": 2, "name": "Windsor Public Library", "external_web_url": "http://www.windsorpubliclibrary.com/"},
+{"id": 3, "name": "St. Clair College", "external_web_url": "http://www.stclaircollege.ca/"},
+{"id": 4, "name": "Windsor City Hall", "external_web_url": "http://www.citywindsor.ca/"},
+{"id": 5, "name": "Transit Windsor", "external_web_url": "http://www.citywindsor.ca/residents/transitwindsor/Pages/Transit-Windsor.aspx"},
+{"id": 6, "name": "Travalodge", "external_web_url": "http://www.travelodge.ca/"},
+{"id": 7, "name": "TD Bank", "external_web_url": "https://www.tdcanadatrust.com"},
+{"id": 50, "name": "McDonalds", "external_web_url": "https://www.mcdonalds.ca"},
+{"id": 51, "name": "Wendy's", "external_web_url": "https://www.wendys.com/"},
+{"id": 52, "name": "Harvey's", "external_web_url": "https://www.harveys.ca/"},
+{"id": 53, "name": "Applebees", "external_web_url": "http://applebees.com"}
 ]

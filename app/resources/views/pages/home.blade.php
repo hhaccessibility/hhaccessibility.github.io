@@ -17,6 +17,7 @@
 		</div>
 		<div class="col-lg-7">
 			<div class="home-inputs">
+				@if (!$is_authenticated)
 				<div class="login-signup">
 					<a href="/login">
 						<table>
@@ -31,6 +32,7 @@
 						</table>
 					</a>
 				</div>
+				@endif
 				<div class="search">
 					<form role="search" action="/search-by-keywords">
 						<input
