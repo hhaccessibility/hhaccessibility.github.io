@@ -1,5 +1,5 @@
 <div class="navbar-inner">
-	<a id="logo" href="/">Access Locator</a>
+	<a id="logo" href="/">AccessLocator</a>
 	<ul class="nav pull-right">
 		<li><a href="/">Home</a></li>
 		<li><a href="/our-vision">Our Vision</a></li>

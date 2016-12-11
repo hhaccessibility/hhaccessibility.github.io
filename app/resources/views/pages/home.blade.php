@@ -6,7 +6,7 @@
 		<div class="col-lg-5">
 			<div class="intro">
 				<div class="title m-b-md">
-					<h1>Access Locator</h1>
+					<h1>AccessLocator</h1>
 				</div>
 
 				<div>
