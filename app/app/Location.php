@@ -20,6 +20,11 @@ class Location extends Eloquent
         return $this->belongsToMany('App\LocationTag');
     }
 	
+    public function comments()
+    {
+        return $this->hasMany('App\ReviewComment');
+    }
+	
 	public function locationGroup()
 	{
         return $this->belongsTo('App\LocationGroup');

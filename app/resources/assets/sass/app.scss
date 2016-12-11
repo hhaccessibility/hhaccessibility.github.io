@@ -215,8 +215,63 @@ footer {
 .location-report {
 	@extend %page-base;
 	
-	#map {
-		height: 200px;
+	.map-and-box {
+		position: relative;
+		min-height: 500px;
+		
+		#map {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+
+		.questions-box {
+			position: absolute;
+			top: 130px;
+			left: 50%;
+			margin-left: 50px;
+			padding: 5px;
+			max-width: 220px;
+			background-color: #235;
+			box-shadow: 0 0 5px #ddd inset;
+			border-radius: 4px;
+			
+			.title-bar {
+				padding-bottom: 3px;
+				border-bottom: 1px solid mix(#fff, #235, 20%);
+			
+				h3 {
+					color: #fff;
+					margin: 0 0 0 0;
+					font-size: 16px;
+				}
+				
+				span {
+					color: #fff;
+					font-size: 10px;
+				}
+			}
+			
+			.question-category {
+				h4 {
+					margin: 0;
+				}
+			
+				a {
+					color: #fff;
+					padding: 5px 5px;
+					display: block;
+					text-decoration: none;
+					 
+					&:hover {
+						box-shadow: inset 25px 0px 25px -25px #358, inset -25px 0px 25px -25px #358;
+						background-color: #000;
+					}
+				}
+			}
+		}
 	}
 	
 	.title {

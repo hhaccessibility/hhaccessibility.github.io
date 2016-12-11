@@ -26,15 +26,9 @@
 @section('content')
 
 <div class="location-report">
-	<div class="title">
-		<h1>{{ $location->name }}</h1>
-		<div class="universal-personal">
-			<a class="{{ $rating_system === 'universal' ? 'selected' : '' }}"
-				href="/location-report/{{ $location->id }}/universal">Universal</a>
-			<a class="{{ $rating_system === 'personal' ? 'selected' : '' }}"
-			href="/location-report/{{ $location->id }}/personal">Personal</a>
-		</div>
-	</div>
+	@include('pages.location_report.top', array(
+		'rating_system' => $rating_system,
+		'location' => $location))
 	<div class="row">
 		<div class="col-xs-5">
 			<address>{{ $location->address }}</address>
@@ -48,32 +42,21 @@
 			@endforeach
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-9 col-md-7 col-xs-12">
-			<div id="map">
-			</div>
+	<div class="map-and-box">
+		<div id="map">
 		</div>
-		<div class="col-lg-3 col-md-5 col-xs-12">
+		<div class="questions-box">
 			@if ($rating_system === 'personal' && !$personal_rating_is_available)
-				<div class="text-center">
-					<p>The personal accessibility ratings are available only after you
-						have <a href="/login">signed in</a> and have specified your accessibility needs.</p>
-				</div>
+				@include('pages.location_report.personal_not_available')
 			@else
+				<div class="title-bar">
+					<h3>{{ $location->name }}</h3>
+					<span>( {{ $num_ratings }} ratings )</span>
+				</div>
 				<div class="questions">
 					@foreach ( $question_categories as $category )
-
 						<div class="question-category">
 							<h4><a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">{{ $category->name }}</a></h4>
-							@if ($category->id === $question_category_id)
-								<ol>
-								@foreach ( $category->questions as $question )
-									<li>
-									{!! $question->question_html !!}
-									</li>
-								@endforeach
-								</ol>
-							@endif
 						</div>
 					@endforeach
 				</div>
