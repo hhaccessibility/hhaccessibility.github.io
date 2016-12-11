@@ -48,31 +48,38 @@
 			@endforeach
 		</div>
 	</div>
-	<div id="map">
-	</div>
-	@if ($rating_system === 'personal' && !$personal_rating_is_available)
-		<div class="text-center">
-			<p>The personal accessibility ratings are available only after you
-				have <a href="/login">signed in</a> and have specified your accessibility needs.</p>
+	<div class="row">
+		<div class="col-lg-9 col-md-7 col-xs-12">
+			<div id="map">
+			</div>
 		</div>
-	@else
-		<div class="questions">
-			@foreach ( $question_categories as $category )
-
-				<div class="question-category">
-					<h4>{{ $category->name }}</h4>
-					<ol>
-					@foreach ( $category->questions as $question )
-						<li>
-						{!! $question->question_html !!}
-						</li>
-					@endforeach
-					</ol>
+		<div class="col-lg-3 col-md-5 col-xs-12">
+			@if ($rating_system === 'personal' && !$personal_rating_is_available)
+				<div class="text-center">
+					<p>The personal accessibility ratings are available only after you
+						have <a href="/login">signed in</a> and have specified your accessibility needs.</p>
 				</div>
-				
-			@endforeach
+			@else
+				<div class="questions">
+					@foreach ( $question_categories as $category )
+
+						<div class="question-category">
+							<h4><a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">{{ $category->name }}</a></h4>
+							@if ($category->id === $question_category_id)
+								<ol>
+								@foreach ( $category->questions as $question )
+									<li>
+									{!! $question->question_html !!}
+									</li>
+								@endforeach
+								</ol>
+							@endif
+						</div>
+					@endforeach
+				</div>
+			@endif
 		</div>
-	@endif
+	</div>
 </div>
 
 @stop
