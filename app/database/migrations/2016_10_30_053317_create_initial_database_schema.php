@@ -56,6 +56,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::create('location_group', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
+			$table->string('external_web_url', 255)->nullable();
         });
         Schema::create('location', function (Blueprint $table) {
 			$table->increments('id');
@@ -66,6 +67,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('data_source_id')->unsigned();
 			$table->foreign('data_source_id')->references('id')->on('data_source');
 			$table->string('name', 255)->nullable();
+			$table->string('external_web_url', 255)->nullable();
 			$table->string('address', 255)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
