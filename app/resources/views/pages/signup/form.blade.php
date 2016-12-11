@@ -4,7 +4,7 @@
 <div class="sign-up">
 	<div class="text-center header">
 		<h1>Sign Up</h1>
-		<p>Already have an Access Locator account? <a href="/login">Log in</a></p>
+		<p>Already have an AccessLocator account? <a href="/login">Log in</a></p>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
