@@ -255,13 +255,12 @@ footer {
 		}		
 	}
 	
-	.location-tags {
-		padding-top: 2px;
-	
+	.location-tags {	
 		.location-tag {
 			@extend %dark-link;
 		
-			margin-left: 1px;
+			display: inline-block;
+			margin-bottom: 1px;
 			border: 1px solid rgba($base_colour1, 0.3);
 			padding: 6px 13px;
 			background-color: rgba($base_colour1, 0.55);

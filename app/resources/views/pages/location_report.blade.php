@@ -36,11 +36,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-xs-5">
 			<address>{{ $location->address }}</address>
 			<a href="{{ $location->getExternalWebURL() }}">{{ $location->getExternalWebURL() }}</a>
 		</div>
-		<div class="col-xs-6 text-right location-tags">
+		<div class="col-xs-7 text-right location-tags">
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
 				<a class="location-tag" href="/search-by-tag/{{ $location_tag->id }}">
 					{{ $location_tag->name }}
