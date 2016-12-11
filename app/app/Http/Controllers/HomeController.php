@@ -14,9 +14,17 @@ class HomeController extends Controller {
      */
     public function index(Request $request)
     {
+		$address_value = BaseUser::getAddress();
+		if (trim($address_value) === trim(BaseUser::getDefaultAddress()))
+		{
+			$address_value = '';
+		}
         return view('pages.home', [
 			'location_tags' => LocationTag::orderBy('name')->get(),
-			'is_authenticated' => BaseUser::isLoggedIn()]);
+			'is_authenticated' => BaseUser::isLoggedIn(),
+			'address_default' => BaseUser::getDefaultAddress(),
+			'address_value' => $address_value
+			]);
     }
 
 }

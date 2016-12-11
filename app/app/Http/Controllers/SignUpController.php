@@ -2,6 +2,7 @@
 
 use App\User;
 use App\UserRole;
+use App\BaseUser;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -37,6 +38,7 @@ class SignUpController extends Controller {
 			$newUser->first_name = $request->input('first_name');
 			$newUser->last_name = $request->input('last_name');
 			$newUser->password_hash = User::generateSaltedHash($request->input('password'));
+			$newUser->location_search_text = BaseUser::getAddress();
 			$newUser->save();
 			
 			$newUserRole = new UserRole;

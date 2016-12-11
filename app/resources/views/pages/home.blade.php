@@ -38,7 +38,8 @@
 						<input
 							class="form-control"
 							name="address"
-							placeholder="Windsor, Ontario, Canada"
+							value="{{ $address_value }}"
+							placeholder="{{ $address_default }}"
 							title="Address">
 						<table>
 							<tr>

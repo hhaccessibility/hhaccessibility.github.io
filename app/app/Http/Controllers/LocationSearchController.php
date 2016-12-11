@@ -2,6 +2,7 @@
 
 use App\LocationTag;
 use App\Location;
+use App\BaseUser;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -11,6 +12,7 @@ class LocationSearchController extends Controller {
 	public function byKeywords(Request $request)
 	{
 		$keywords = Input::get('keywords');
+		BaseUser::setAddress(Input::get('address'));
 		$keywordsArray = explode(' ', $keywords);
 		$locationsQuery = Location::query();
 		foreach ($keywordsArray as $keyword)
