@@ -21,7 +21,8 @@ class LocationReportController extends Controller {
 			'question_categories' => $question_categories,
 			'google_map_api_key' => config('app.google_map_api_key'),
 			'rating_system' => $rating_system,
-			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile()
+			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile(),
+			'turn_off_maps' => config('app.turn_off_maps')
 			]
 		);
     }

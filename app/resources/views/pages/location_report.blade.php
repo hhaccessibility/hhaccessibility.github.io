@@ -1,23 +1,27 @@
 @extends('layouts.default')
 @section('head-content')
-<script>
-      function initMap() {
-        var uluru = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
+	@if (!$turn_off_maps)
+	<script>
+		  function initMap() {
+			var uluru = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  zoom: 13,
+			  center: uluru
+			});
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map
+			});
+		  }
     </script>
+	@endif
 @stop
 @section('footer-content')
+	@if (!$turn_off_maps)
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
     </script>
+	@endif
 @stop
 @section('content')
 
