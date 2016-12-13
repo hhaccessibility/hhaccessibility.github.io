@@ -1,4 +1,7 @@
 @extends('layouts.default')
+@section('head-content')
+	<script language="JavaScript" src="/js/pie_graph.js"></script>
+@stop
 @section('content')
 
 <div class="location-report">
@@ -14,7 +17,12 @@
 		<div class="questions">
 			@foreach ( $question_categories as $category )
 				<div class="question-category">
-					<h4><a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">{{ $category->name }}</a></h4>
+					<div class="title-bar">
+						<a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">
+							@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, $rating_system)))
+							<span class="question-category-name">{{ $category->name }}</span>
+						</a>
+					</div>
 					@if ($category->id === $question_category_id)
 						<ol>
 						@foreach ( $category->questions as $question )

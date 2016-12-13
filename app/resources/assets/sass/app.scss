@@ -271,14 +271,15 @@ footer {
 			
 				h3 {
 					color: #fff;
-					margin: 13px 0 0 0;
+					max-width: 250px;
 					font-size: 16px;
-					display: inline-block;
+					vertical-align: middle;
+					display: table-cell;
 				}
 
 				.location-rating {
 					position: relative;
-					display: inline-block;
+					display: table-cell;
 					vertical-align: top;
 					
 					* {
@@ -345,6 +346,22 @@ footer {
 						float: right;
 					}
 				}
+			}
+		}
+	}
+	
+	.question-category {
+		.title-bar {
+			.pie-graph {
+				display: table-cell;
+				padding-right: 10px;
+			}
+		
+			.question-category-name {
+				display: table-cell;
+				vertical-align: middle;
+				font-size: 18px;
+				font-weight: bold;
 			}
 		}
 	}
