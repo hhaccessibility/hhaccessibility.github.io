@@ -38,6 +38,14 @@ class Location extends Eloquent
 			return $this->locationGroup()->name;
 	}
 	
+	public function getAccessibilityRating($ratingSystem)
+	{
+		if (!isset($this->rating))
+			$this->rating = rand(0, 100);
+
+		return $this->rating;
+	}
+	
 	public function getExternalWebURL()
 	{
 		if (strlen($this->external_web_url) > 3)
