@@ -22,6 +22,7 @@
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
     </script>
 	@endif
+	<script language="JavaScript" src="/js/pie_graph.js"></script>
 @stop
 @section('content')
 
@@ -51,12 +52,28 @@
 			@else
 				<div class="title-bar">
 					<h3>{{ $location->name }}</h3>
-					<span>( {{ $num_ratings }} ratings )</span>
+					<div class="location-rating">
+						@include('pages.components.pie_graph',
+							array(
+								'percent' => $location->getAccessibilityRating($rating_system),
+								'size' => 'big'))
+						<span class="percentage">{{$location->getAccessibilityRating($rating_system)}}%</span>
+						<div class="foreground">
+							<div class="accessible-label">Accessible</div>
+							<div class="num-ratings">( {{ $num_ratings }} ratings )</div>
+						</div>
+					</div>
 				</div>
 				<div class="questions">
 					@foreach ( $question_categories as $category )
 						<div class="question-category">
-							<h4><a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">{{ $category->name }}</a></h4>
+							<a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">
+							@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($rating_system)))
+							
+								<span class="category-name">{{ $category->name }}</span>
+								
+								<span class="percentage">{{ $category->getAccessibilityRating($rating_system).'%' }}</span>
+							</a>
 						</div>
 					@endforeach
 				</div>
