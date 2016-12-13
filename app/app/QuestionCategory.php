@@ -11,7 +11,7 @@ class QuestionCategory extends Eloquent
 	
 	protected $table = 'question_category';
 	
-	public function getAccessibilityRating($ratingSystem)
+	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
 		if (!isset($this->rating))
 			$this->rating = rand(0, 100);

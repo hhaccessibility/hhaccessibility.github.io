@@ -350,6 +350,22 @@ footer {
 		}
 	}
 	
+	.question-category {
+		.title-bar {
+			.pie-graph {
+				display: table-cell;
+				padding-right: 10px;
+			}
+		
+			.question-category-name {
+				display: table-cell;
+				vertical-align: middle;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
+	}
+	
 	.title {
 		position: relative;
 		height: 50px;
