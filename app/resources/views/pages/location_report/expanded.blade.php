@@ -28,6 +28,7 @@
 						@foreach ( $category->questions as $question )
 							<li>
 							{!! $question->question_html !!}
+							({{ $question->getAccessibilityRating($location->id, $rating_system).'%' }})
 							</li>
 						@endforeach
 						</ol>
@@ -37,7 +38,7 @@
 		</div>
 	@endif
 	<h2>Comments</h2>
-	<p>There are a total of {{ count($comments) }} comments for this location.</p>
+	<p>There are a total of {{ count($comments) }} comment(s) for this location.</p>
 	<div class="comments">
 	@foreach ( $comments as $comment )
 		<div>

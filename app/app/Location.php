@@ -40,10 +40,19 @@ class Location extends Eloquent
 	
 	public function getAccessibilityRating($ratingSystem)
 	{
-		if (!isset($this->rating))
-			$this->rating = rand(0, 100);
-
-		return $this->rating;
+		$totalCount = 0;
+		$sum = 0;
+		$questionCategories = QuestionCategory::get();
+		foreach ($questionCategories as $category)
+		{
+			$sum += $category->getAccessibilityRating($this->id, $ratingSystem);
+			$totalCount ++;
+		}
+		
+		if ($totalCount === 0)
+			return 0;
+		else
+			return $sum / $totalCount;
 	}
 	
 	public function getExternalWebURL()
