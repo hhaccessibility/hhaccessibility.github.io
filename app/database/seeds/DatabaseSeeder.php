@@ -10,7 +10,7 @@ function object_to_array($obj) {
 class DatabaseSeeder extends Seeder
 {
 		
-	public static function readTableData($json_filename) {
+	private static function readTableData($json_filename) {
 		$content = file_get_contents('database/seeds/data/'.$json_filename);
 		$content = json_decode($content);
 		if( !is_array($content) )
@@ -18,6 +18,20 @@ class DatabaseSeeder extends Seeder
 
 		$content = array_map('object_to_array', $content);
 		return $content;
+	}
+	
+	private static function deleteDataFromTables($tableNames)
+	{
+		foreach ($tableNames as $tableName) {
+			DB::table($tableName)->delete();
+		}
+	}
+	
+	private static function insertDataToTables($tableNames)
+	{
+		foreach (array_reverse($tableNames) as $table_name) {
+			DB::table($table_name)->insert(DatabaseSeeder::readTableData($table_name . '.json'));
+		}
 	}
 		
     /**
@@ -30,14 +44,14 @@ class DatabaseSeeder extends Seeder
 		$tables_to_seed_using_json = ['role', 'location_location_tag', 'location',
 			'location_group', 'location_tag', 'question',
 			'question_category', 'country', 'data_source'];
-		foreach ($tables_to_seed_using_json as $table_name) {
-			DB::table($table_name)->delete();
-		}
+		$user_data_tables = ['user_answer', 'review_comment'];
 		
-		foreach (array_reverse($tables_to_seed_using_json) as $table_name) {
-			DB::table($table_name)->insert(DatabaseSeeder::readTableData($table_name . '.json'));
-		}
-		
+		DatabaseSeeder::deleteDataFromTables($user_data_tables);
+		DatabaseSeeder::deleteDataFromTables($tables_to_seed_using_json);
+		DatabaseSeeder::insertDataToTables($tables_to_seed_using_json);
+
 		$this->call('UserTableSeeder');
+
+		DatabaseSeeder::insertDataToTables($user_data_tables);
     }
 }
