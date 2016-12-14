@@ -28,6 +28,7 @@
 						@foreach ( $category->questions as $question )
 							<li>
 							{!! $question->question_html !!}
+							({{ $question->getAccessibilityRating($location->id, $rating_system).'%' }})
 							</li>
 						@endforeach
 						</ol>

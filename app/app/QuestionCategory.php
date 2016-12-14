@@ -13,10 +13,19 @@ class QuestionCategory extends Eloquent
 	
 	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
-		if (!isset($this->rating))
-			$this->rating = rand(0, 100);
+		$questions = $this->questions()->get();
+		$sum = 0;
+		$totalCount = 0;
+		foreach ($questions as $question)
+		{
+			$individualRating = $question->getAccessibilityRating($location_id, $ratingSystem);
+			$sum = $sum + $individualRating;
+			$totalCount ++;
+		}
+		if ($totalCount === 0)
+			return 0;
 		
-		return $this->rating;
+		return round($sum / $totalCount);
 	}
 	
     public function questions()
