@@ -20,7 +20,7 @@
 {"id": 41, "question_html": "Wheelchair accessible doorway/entrance<ul><li>Adequate width</li><li>Door opener</li></ul>", "question_category_id": 4},
 {"id": 42, "question_html": "Door opener", "question_category_id": 4},
 {"id": 43, "question_html": "Grab bars mounted beside toilet", "question_category_id": 4},
-{"id": 44, "question_html": "Accessible sink<ul><li>clearance under the sink</li><li>clearance under the sink</li></ul>", "question_category_id": 4},
+{"id": 44, "question_html": "Accessible sink<ul><li>clearance under the sink</li><li>low counter height</li></ul>", "question_category_id": 4},
 {"id": 45, "question_html": "Taps with lever handles or motion sensors", "question_category_id": 4},
 {"id": 46, "question_html": "Sensor or one hand activated soap dispenser", "question_category_id": 4},
 {"id": 47, "question_html": "Large weight capacity change table in private area", "question_category_id": 4},
