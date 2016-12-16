@@ -29,7 +29,7 @@ class LocationReportController extends Controller {
 		{
 			$question_category_id = intval($question_category_id);
 			$view_data['question_category_id'] = $question_category_id;
-			$view_data['comments'] = $location->comments()->get();
+			$view_data['comments'] = $location->comments()->orderBy('when_submitted', 'DESC')->get();
 			return view('pages.location_report.expanded', $view_data);
 		}
 		
