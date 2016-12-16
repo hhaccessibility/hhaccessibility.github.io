@@ -59,7 +59,7 @@
 					<div class="row">
 					@foreach ( $location_tags as $key => $value )
 					
-						<div class="location-tag col-md-3 col-sm-4 col-xs-6">
+						<div class="location-tag col-sm-4 col-xs-6">
 							<a href="/search-by-tag/{{ $value->id }}" title="{{ $value->description }}">
 							{{ $value->name }}
 							</a>

@@ -551,6 +551,7 @@ footer {
 		padding-right: 15px;
 		padding-left: 15px;
 		margin-top: 40px;
+		box-shadow: 0 0 3px #fff inset;
 		
 		.location-tag {
 			padding-left: 0;
@@ -558,16 +559,19 @@ footer {
 
 			> a {
 				@extend %fashionable-link;
-				padding-top: 5px;
+				padding: 5px 4px 0 4px;
 				height: 65px;
+				display: flex;
+				align-items: center;
 				text-align: center;
-				display: block;
+				justify-content: center;
 				width: 100%;
 				font-weight: bold;
-				font-size: 1.2em;
+				font-size: 1.3em;
 				color: #fff;
 				cursor: pointer;
 				background-color: rgba($base_colour1, 0.5);
+				box-shadow: 0 0 3px #fff inset;
 				transition: background-color 0.2s;
 				
 				&:hover {
