@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller {
 
     /**
-     * Either shows profile view or redirects browser to login.
+     * Either shows profile view or redirects browser to sign in.
 	 *
      * @return Response
      */
@@ -21,7 +21,7 @@ class HomeController extends Controller {
 		}
         return view('pages.home', [
 			'location_tags' => LocationTag::orderBy('name')->get(),
-			'is_authenticated' => BaseUser::isLoggedIn(),
+			'is_authenticated' => BaseUser::isSignedIn(),
 			'address_default' => BaseUser::getDefaultAddress(),
 			'address_value' => $address_value
 			]);

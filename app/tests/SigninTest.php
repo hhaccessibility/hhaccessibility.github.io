@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class LoginApiTest extends TestCase
+class SigninApiTest extends TestCase
 {
     /**
      * Tests a successful authentication
@@ -14,6 +14,6 @@ class LoginApiTest extends TestCase
     public function testPost()
     {
 		$data = ['username' => 'test', 'password' => 'password'];
-		$content = $this->post('/login', $data)->seeStatusCode(302);
+		$content = $this->post('/signin', $data)->seeStatusCode(302);
     }
 }

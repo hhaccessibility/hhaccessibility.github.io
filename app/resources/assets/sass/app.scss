@@ -130,7 +130,7 @@ ul.nav {
 	text-align: center;
 }
 
-.login-form {
+.signin-form {
 	margin: auto;
 	width: 300px;
 }
@@ -518,7 +518,7 @@ footer {
 		}
 	}
 	
-	.login-signup {
+	.signin-signup {
 		
 		a {
 			@extend %dark-link;
@@ -652,7 +652,7 @@ footer {
 
 @media only screen and (max-width: 991px) {
 	body {
-		.social-media-logins {
+		.social-media-signins {
 			width: 350px;
 			padding-left: 0;
 			padding-bottom: 0;
@@ -710,7 +710,7 @@ footer {
 	margin-right: auto;
 }
 
-.social-media-logins {
+.social-media-signins {
 	padding-top: 40px;
 	padding-bottom: 70px;
 	padding-left: 80px;

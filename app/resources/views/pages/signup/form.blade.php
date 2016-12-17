@@ -4,7 +4,7 @@
 <div class="sign-up">
 	<div class="text-center header">
 		<h1>Sign Up</h1>
-		<p>Already have an AccessLocator account? <a href="/login">Log in</a></p>
+		<p>Already have an AccessLocator account? <a href="/signin">Sign in</a></p>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="social-media-logins">
+			<div class="social-media-signins">
 				Or sign in using your social media account
 				
 				<a class="facebook" href="">

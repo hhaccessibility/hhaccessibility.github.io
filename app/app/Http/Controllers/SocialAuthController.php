@@ -38,7 +38,7 @@ class SocialAuthController extends Controller {
 		$oauth = new Hybrid_Auth(app_path(). '/config/fb_auth.php');
 		$provider = $oauth->authenticate('Facebook');
 		$profile = $provider->getUserProfile();
-		return var_dump($profile).'<a href="logout">Log Out</a>';
+		return var_dump($profile).'<a href="signout">Sign Out</a>';
     }
 
 	public function getLoggedOut()
