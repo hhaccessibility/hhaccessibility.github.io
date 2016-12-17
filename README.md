@@ -1,8 +1,7 @@
-# MAC Admin
+# AccessLocator
 
-Accessibility User/Govt: http://hhaccessibility.github.io/web/login.html
+The web application source files are in app/.
 
-Accessibility Business Admin: http://hhaccessibilitybusiness.github.io/login.html
+Some experiments for gathering information from other websites have been added to importers/.
 
-Dependencies:
-- [Composer]: https://laravel.com/docs/4.2#install-laravel
+A few unpublished prototypes are available in web/.
