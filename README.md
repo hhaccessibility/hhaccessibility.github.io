@@ -1,4 +1,7 @@
 # AccessLocator
 
-Dependencies:
-- [Composer]: https://laravel.com/docs/4.2#install-laravel
+The web application source files are in app/.
+
+Some experiments for gathering information from other websites have been added to importers/.
+
+A few unpublished prototypes are available in web/.
