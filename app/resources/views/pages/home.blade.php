@@ -26,7 +26,7 @@
 									<i class="fa fa-user"></i>
 								</td>
 								<td class="text-center">
-									Login / Signup
+									Sign in / Sign up
 								</td>
 							</tr>
 						</table>
