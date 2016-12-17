@@ -18,8 +18,8 @@
 		<div class="col-lg-7">
 			<div class="home-inputs">
 				@if (!$is_authenticated)
-				<div class="login-signup">
-					<a href="/login">
+				<div class="signin-signup">
+					<a href="/signin">
 						<table>
 							<tr>
 								<td class="user-icon">

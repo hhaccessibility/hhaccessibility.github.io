@@ -1,15 +1,15 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="log-in">
+<div class="sign-in">
 	<div class="text-center header">
-		<h1>Log In</h1>
+		<h1>Sign In</h1>
 		<p>New to AccessLocator? <a href="/signup">Sign Up</a></p>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<div class="login-form">
-				<form method="post" action="/login">
+			<div class="signin-form">
+				<form method="post" action="/signin">
                     {!! csrf_field() !!}
 					@include('pages.validation_messages', array('errors'=>$errors))					
 					<div class="row">
@@ -39,7 +39,7 @@
 			</div> 
 		</div>
 		<div class="col-md-6">
-			<div class="social-media-logins">
+			<div class="social-media-signins">
 				Or sign in using your social media account
 				
 				<a class="facebook" href="">

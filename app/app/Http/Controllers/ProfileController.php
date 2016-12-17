@@ -7,21 +7,21 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller {
 
     /**
-     * Either shows profile view or redirects browser to login.
+     * Either shows profile view or redirects browser to sign in.
 	 *
      * @return Response
      */
     public function index(Request $request)
     {
 		
-        if (BaseUser::isLoggedIn())
+        if (BaseUser::isSignedIn())
         {
 			$user = BaseUser::getDbUser();
             return view('pages.profile', ['user' => $user]);
         }
         else
         {
-            return redirect()->intended('login');
+            return redirect()->intended('signin');
         }
     }
 

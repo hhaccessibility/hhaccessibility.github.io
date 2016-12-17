@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
-class LoginController extends Controller {
+class SignInController extends Controller {
 	
 	public function showForm(Request $request)
 	{
@@ -18,7 +18,7 @@ class LoginController extends Controller {
 		if ( !empty(Input::get('email')) ) {
 			$email = trim(Input::get('email'));
 		}
-		return view('pages.login', ['email' => $email]);
+		return view('pages.signin', ['email' => $email]);
 	}
 
     /**
@@ -48,12 +48,12 @@ class LoginController extends Controller {
 			}
 		}
 		
-		return Redirect::to('login')->withErrors($validator)->withInput();	
+		return Redirect::to('signin')->withErrors($validator)->withInput();	
     }
 
-	public function logout(Request $request)
+	public function signout(Request $request)
 	{
-		BaseUser::logout();
+		BaseUser::signout();
 		return redirect()->intended('/');
 	}
 }

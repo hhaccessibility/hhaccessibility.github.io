@@ -24,21 +24,21 @@ class BaseUser
 	/**
 	* Checks if the visitor associated with the current request is authenticated.
 	*/
-	public static function isLoggedIn()
+	public static function isSignedIn()
 	{
 		return Session::has('email');
 	}
 	
 	public static function isCompleteAccessibilityProfile()
 	{
-		return BaseUser::isLoggedIn();
+		return BaseUser::isSignedIn();
 	}
 	
 	/**
 	* Returns an instance of App/User associated with the current session
 	*/
 	public static function getDbUser() {
-		if (!BaseUser::isLoggedIn())
+		if (!BaseUser::isSignedIn())
 		{
 			throw new Exception('Unable to get database user because you are not logged in');
 		}
@@ -52,7 +52,7 @@ class BaseUser
 	public static function setAddress(string $address)
 	{
 		$address = trim($address);
-		if (BaseUser::isLoggedIn())
+		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
 			$user->location_search_text = $address;
@@ -71,7 +71,7 @@ class BaseUser
 	
 	public static function getAddress()
 	{
-		if (BaseUser::isLoggedIn())
+		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
 			return $user->location_search_text;
@@ -82,7 +82,7 @@ class BaseUser
 		}
 	}
 	
-	public static function logout()
+	public static function signout()
 	{
 		Session::forget(['email']);
 	}

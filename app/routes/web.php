@@ -40,9 +40,9 @@ Route::get('search-by-tag/{location_tag_id}', 'LocationSearchController@by_tag')
 Route::get('search-by-keywords', 'LocationSearchController@byKeywords');
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@sendMessage');
-Route::get('login', 'LoginController@showForm');
-Route::post('login', 'LoginController@authenticate');
-Route::get('logout', 'LoginController@logout');
+Route::get('signin', 'SignInController@showForm');
+Route::post('signin', 'SignInController@authenticate');
+Route::get('signout', 'SignInController@signout');
 
 Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'SocialAuthController@getFacebookLogin'));
 
