@@ -89,6 +89,8 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('answered_by_user_id')->references('id')->on('user');
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('location');
+			$table->integer('question_category_id')->unsigned()->nullable();
+			$table->foreign('question_category_id')->references('id')->on('question_category');
 			$table->mediumText('content');
 			$table->datetime('when_submitted');
 		});
