@@ -169,9 +169,40 @@ footer {
 	box-shadow: 0 0 15px #888;
 }
 
+.box {
+	padding: 10px 15px;
+	background-color: #eef;
+	border: 1px solid #aaa;
+	box-shadow: 0 0 4px #ccc inset;
+	border-radius: 3px;
+	
+	.form-group {
+		margin-bottom: 7px;
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .profile {
 	@extend %page-base;
 	
+	h1 {
+		padding-bottom: 20px;
+		border-bottom: 3px solid mix($base_colour1, #ffffff, 50%);
+	}
+	
+	.upload-photo {
+		background-color: mix($base_colour1, #ffffff, 80%);
+		display: inline-block;
+		text-align: center;
+		line-height: 200px;
+		font-size: 20px;
+		color: mix($base_colour1, #ffffff, 20%);
+		width: 100%;
+		min-height: 200px;
+	}
 }
 
 .our-vision {
