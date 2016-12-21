@@ -7,8 +7,6 @@
 	<div>
 	Name: {{ $user->first_name.' '.$user->last_name }}
 	</div>
-	
-	<a href="/signout">Sign out</a>
 </div>
 
 @stop
