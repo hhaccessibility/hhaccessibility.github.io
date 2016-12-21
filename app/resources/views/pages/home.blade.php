@@ -10,8 +10,7 @@
 				</div>
 
 				<div>
-					<p>Find locations with accessibility ratings by real users
-					and rate locations yourself!</p>
+					<p>Find accessibility information on locations rated by real users and make your own ratings!</p>
 				</div>
 			</div>
 		</div>
