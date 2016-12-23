@@ -2,6 +2,7 @@
 /public/storage
 /storage/*.key
 /public/css/app.css
+/public/js/app.js
 /public/css/app.css.map
 /vendor
 /.idea
