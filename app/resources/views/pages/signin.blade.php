@@ -46,7 +46,7 @@
 					<i class="fa-lg fa fa-facebook"></i>
 					<div class="pull-right">Sign in with facebook</div>
 				</a>
-				<a class="google-plus" href="">
+				<a class="google-plus" href="/socialauth/auth/Google">
 					<i class="fa-lg fa fa-google-plus"></i>
 					<div class="pull-right">Sign in with Google</div>
 				</a>
