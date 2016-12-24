@@ -68,10 +68,10 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-4 col-xs-5">
-						<label for="city">City</label>
+						<label for="home_city">City</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<input class="form-control" id="city" name="city" value="">
+						<input class="form-control" id="home_city" name="home_city" value="{{ $user->home_city }}">
 					</div>
 				</div>
 			</div>
@@ -85,7 +85,8 @@
 						<label for="location">Location</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<input class="form-control" id="location" name="location_search_text" value="{{ $user->location_search_text }}">
+						<input class="form-control" id="location" name="location_search_text"
+							value="{{ $user->location_search_text }}">
 					</div>
 				</div>
 			</div>
