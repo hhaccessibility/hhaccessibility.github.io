@@ -2,6 +2,7 @@
 
 namespace App;
 use Session;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class BaseUser
@@ -74,6 +75,10 @@ class BaseUser
 		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
+			if( !$user )
+			{
+				throw new Exception('Signed in but unable to find user in database');
+			}
 			return $user->location_search_text;
 		}
 		else

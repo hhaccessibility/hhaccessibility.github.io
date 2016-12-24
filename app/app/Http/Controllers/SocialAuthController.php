@@ -24,23 +24,23 @@ class SocialAuthController extends Controller {
 		$this->createNewUserWithGoogle($profile);
 		return view('pages.signup.success', ['email' => $profile->email]);
 	}
-    private function createNewUserWithGoogle($profile) {
-    		$email = $profile->email;
+
+	private function createNewUserWithGoogle($profile) {
+		$email = $profile->email;
+		$isExist = User::where("email", "=", $email)->count();
+		if($isExist === 0) {
 			$newUser = new User;
 			$newUser->email = $email;
 			$newUser->first_name = $profile->firstName;
 			$newUser->last_name = $profile->lastName;
-			$newUser->password_hash = User::generateSaltedHash('123');
 			$newUser->location_search_text = BaseUser::getAddress();
-    		$isExist = User::where("email","=",$email)->count();
-    		if($isExist == 0) {
-    			$newUser->save();
+			$newUser->save();
 
-    			$newUserRole = new UserRole;
-    			$newUserRole->role_id = 2;
-    			$newUserRole->user_id = $newUser->id;
-    			$newUserRole->save();
-    		}
+			$newUserRole = new UserRole;
+			$newUserRole->role_id = 2;
+			$newUserRole->user_id = $newUser->id;
+			$newUserRole->save();
+		}
     }
     // first time login need user's permission to access their account informaiton
     public function getSocialLoginCallBack() {
@@ -96,7 +96,7 @@ class SocialAuthController extends Controller {
 
 	public function getLoggedOut()
 	{
-		$fauth=new Hybrid_auth(app_path().'/config/fb_auth.php');
+		$fauth = new Hybrid_auth(app_path().'/config/fb_auth.php');
 		$fauth->logoutAllProviders();
 		return View::make('login');
 	}
