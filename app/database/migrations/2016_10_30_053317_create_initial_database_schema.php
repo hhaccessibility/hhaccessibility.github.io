@@ -18,12 +18,20 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('name', 100);
 			$table->string('description', 255)->nullable();
         });
+        Schema::create('country', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('name', 255);
+			$table->unique('name');
+		});		
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('email', 255)->unique()->nullable();
 			$table->string('first_name', 255)->nullable();
 			$table->string('last_name', 255)->nullable();
-			$table->char('password_hash', 60);
+			$table->string('home_city', 255)->nullable();
+			$table->integer('home_country_id')->unsigned()->nullable();
+			$table->foreign('home_country_id')->references('id')->on('country');
+			$table->char('password_hash', 60)->nullable();
 			$table->string('remember_token', 60)->nullable();
 			$table->double('search_radius_km', 11, 6)->nullable();
 			$table->double('longitude', 11, 8)->nullable();
@@ -106,11 +114,6 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('location_id')->references('id')->on('location');
 			$table->integer('location_tag_id')->unsigned();
 			$table->foreign('location_tag_id')->references('id')->on('location_tag');
-		});		
-        Schema::create('country', function (Blueprint $table) {
-			$table->increments('id');
-			$table->string('name', 255);
-			$table->unique('name');
 		});
     }
 
@@ -121,7 +124,6 @@ class CreateInitialDatabaseSchema extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('country');
         Schema::dropIfExists('location_location_tag');
         Schema::dropIfExists('location_tag');
         Schema::dropIfExists('review_comment');
@@ -133,6 +135,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('user_role');
         Schema::dropIfExists('user');
         Schema::dropIfExists('role');
+        Schema::dropIfExists('country');
         Schema::dropIfExists('data_source');
     }
 }

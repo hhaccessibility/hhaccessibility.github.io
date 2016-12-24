@@ -15,7 +15,8 @@ class UserTableSeeder extends Seeder
 			'password_hash' => User::generateSaltedHash('password'),
 			'email' => 'josh.greig2@gmail.com',
 			'first_name' => 'John',
-			'last_name' => 'Smith'
+			'last_name' => 'Smith',
+			'home_city' => 'Windsor'
 		));
 		DB::table('user_role')->insert(
             [
