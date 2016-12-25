@@ -3,6 +3,8 @@
 use App\User;
 use App\UserRole;
 use App\BaseUser;
+use Exception;
+use Redirect;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Hybrid_Auth;
@@ -13,16 +15,23 @@ class SocialAuthController extends Controller {
 	public function getSocialLogin($providerName) {
 		$providerName = trim($providerName);
 		if(!in_array($providerName, array('Facebook', 'Google'))) {
-			echo "doest not support ".$providerName;
-			return;
+			return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
 		}
-		$auth = new Hybrid_Auth(config_path('hybridauth.php'));
-		$provider = $auth->authenticate($providerName);
-		$profile = $provider->getUserProfile();
-		$provider->logout();
+		try {
+
+			$auth = new Hybrid_Auth(config_path('hybridauth.php'));
+			$provider = $auth->authenticate($providerName);
+			$profile = $provider->getUserProfile();
+			$provider->logout();
+			$this->createNewUserWithGoogle($profile);
+			return view('pages.signup.success', ['email' => $profile->email]);
+
+		} catch (Exception $e) {
+			// 	echo "Ooophs, we got an error: " . $e->getMessage();
+		   //  	echo " Error code: " . $e->getCode();
+    		return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
+		}
 		
-		$this->createNewUserWithGoogle($profile);
-		return view('pages.signup.success', ['email' => $profile->email]);
 	}
 
 	private function createNewUserWithGoogle($profile) {
@@ -49,27 +58,9 @@ class SocialAuthController extends Controller {
     		Hybrid_Endpoint::process();
     	}
     	catch (Exception $e) {
-    		switch( $e->getCode() ){
-    			case 0 : echo "Unspecified error."; break;
-    			case 1 : echo "Hybriauth configuration error."; break;
-    			case 2 : echo "Provider not properly configured."; break;
-    			case 3 : echo "Unknown or disabled provider."; break;
-    			case 4 : echo "Missing provider application credentials."; break;
-    			case 5 : echo "Authentification failed. "
-    			. "The user has canceled the authentication or the provider refused the connection.";
-    			break;
-    			case 6 : echo "User profile request failed. Most likely the user is not connected "
-    			. "to the provider and he should authenticate again.";
-    			$twitter->logout();
-    			break;
-    			case 7 : echo "User not connected to the provider.";
-    			$twitter->logout();
-    			break;
-    			case 8 : echo "Provider does not support this feature."; break;
-    		}
-
-    	  	// well, basically your should not display this to the end user, just give him a hint and move on..
-    		echo "<br /><br /><b>Original error message:</b> " . $e->getMessage();
+    		echo "Ooophs, we got an error: " . $e->getMessage();
+    		echo " Error code: " . $e->getCode();
+    		return Redirect::to('signin');
     	}
 
     }

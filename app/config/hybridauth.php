@@ -25,38 +25,38 @@ array(
 			"enabled" => false
 			),
 		"Google" => array(
-		"enabled" => true,
-		"keys" => array("id" => env('GOOGLE_APP_ID', 'your_google_api_id'), "secret" => env('GOOGLE_APP_SECRET', 'your_google_api_secret')),
-		),
+			"enabled" => true,
+			"keys" => array("id" => env('GOOGLE_APP_ID', 'your_google_api_id'), "secret" => env('GOOGLE_APP_SECRET', 'your_google_api_secret')),
+			),
 		"Facebook" => array(
-		"enabled" => true,
-		"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_google_api_id'), "secret" => env('FACEBOOK_APP_SECRET', 'your_google_api_id')),
-		"trustForwarded" => false
-		),
+			"enabled" => true,
+			"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_google_api_id'), "secret" => env('FACEBOOK_APP_SECRET', 'your_google_api_id')),
+			"trustForwarded" => false
+			),
 		"Twitter" => array(
-		"enabled" => false,
-		"keys" => array("key" => "", "secret" => ""),
-		"includeEmail" => false
-		),
+			"enabled" => false,
+			"keys" => array("key" => "", "secret" => ""),
+			"includeEmail" => false
+			),
 				// windows live
 		"Live" => array(
-		"enabled" => false,
-		"keys" => array("id" => "", "secret" => "")
-		),
+			"enabled" => false,
+			"keys" => array("id" => "", "secret" => "")
+			),
 		"LinkedIn" => array(
-		"enabled" => false,
-		"keys" => array("key" => "", "secret" => "")
-		),
+			"enabled" => false,
+			"keys" => array("key" => "", "secret" => "")
+			),
 		"Foursquare" => array(
-		"enabled" => false,
-		"keys" => array("id" => "", "secret" => "")
-		),
+			"enabled" => false,
+			"keys" => array("id" => "", "secret" => "")
+			),
 		),
 			// If you want to enable logging, set 'debug_mode' to true.
 			// You can also set it to
 			// - "error" To log only error messages. Useful in production
 			// - "info" To log info and error messages (ignore debug messages)
-		"debug_mode" => false,
+	"debug_mode" => false,
 			// Path to file writable by the web server. Required if 'debug_mode' is not false
-		"debug_file" => "",
-		);
+	"debug_file" => "",
+	);
