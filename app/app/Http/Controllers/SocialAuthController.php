@@ -42,7 +42,6 @@ class SocialAuthController extends Controller {
 			$newUser->email = $email;
 			$newUser->first_name = $profile->firstName;
 			$newUser->last_name = $profile->lastName;
-			$newUser->password_hash = User::generateSaltedHash('Hhaccess.2017');
 			$newUser->location_search_text = BaseUser::getAddress();
 			$newUser->save();
 
