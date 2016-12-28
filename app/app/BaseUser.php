@@ -41,7 +41,7 @@ class BaseUser
 	public static function getDbUser() {
 		if (!BaseUser::isSignedIn())
 		{
-			throw new Exception('Unable to get database user because you are not logged in');
+			throw new Exception('Unable to get database user because you are not signed in');
 		}
 		
 		$email = Session::get('email');
