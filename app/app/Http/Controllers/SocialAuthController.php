@@ -23,7 +23,6 @@ class SocialAuthController extends Controller {
 			$auth = new Hybrid_Auth(config_path('hybridauth.php'));
 			$provider = $auth->authenticate($providerName);
 			$profile = $provider->getUserProfile();
-			var_dump($profile);
 			$provider->logout();
 			$this->createNewUserWithGoogle($profile);
 			return view('pages.signup.success', ['email' => $profile->email]);
