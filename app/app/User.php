@@ -9,7 +9,7 @@ class User extends Eloquent
     protected $fillable = [
         'email', 'password_hash', 'search_radius_km', 
 		'longitude', 'latitude', 'remember_token',
-		'home_city',
+		'home_city','home_zipcode','home_region'
     ];
 	public $timestamps = false;
 	

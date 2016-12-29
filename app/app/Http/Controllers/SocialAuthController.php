@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Hybrid_Auth;
 use Hybrid_Endpoint;
+use App\Country;
 
 class SocialAuthController extends Controller {
 
@@ -22,6 +23,7 @@ class SocialAuthController extends Controller {
 			$auth = new Hybrid_Auth(config_path('hybridauth.php'));
 			$provider = $auth->authenticate($providerName);
 			$profile = $provider->getUserProfile();
+			var_dump($profile);
 			$provider->logout();
 			$this->createNewUserWithGoogle($profile);
 			return view('pages.signup.success', ['email' => $profile->email]);
@@ -42,6 +44,13 @@ class SocialAuthController extends Controller {
 			$newUser->email = $email;
 			$newUser->first_name = $profile->firstName;
 			$newUser->last_name = $profile->lastName;
+			$newUser->home_zipcode = $profile->zip;
+			$newUser->home_region = $profile->region;
+			$country = $profile->country;
+			if(!empty($country)) {
+				$country_id = Country::where("name","like",$profile->region)->first()->id;
+				$newUser->home_region = $country_id;
+			}
 			$newUser->location_search_text = BaseUser::getAddress();
 			$newUser->save();
 

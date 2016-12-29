@@ -29,6 +29,8 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('first_name', 255)->nullable();
 			$table->string('last_name', 255)->nullable();
 			$table->string('home_city', 255)->nullable();
+			$table->string('home_zipcode', 50)->nullable();
+			$table->string('home_region', 255)->nullable();
 			$table->integer('home_country_id')->unsigned()->nullable();
 			$table->foreign('home_country_id')->references('id')->on('country');
 			$table->char('password_hash', 60)->nullable();
