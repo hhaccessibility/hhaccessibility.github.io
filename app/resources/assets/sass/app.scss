@@ -237,6 +237,10 @@ footer {
 		max-width: 500px;
 		margin-left: auto;
 		margin-right: auto;
+		
+		textarea {
+			resize: vertical;
+		}
 	}
 	
 	.sent-message {
