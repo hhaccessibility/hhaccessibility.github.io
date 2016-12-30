@@ -394,6 +394,14 @@ footer {
 	}
 	
 	.question-category {
+		> a {
+			border-top: 1px solid mix($base_colour1, #ffffff, 50%);
+			
+			&:hover {
+				border-top: 1px solid mix($base_colour1, #ffffff, 10%);
+			}
+		}
+	
 		.title-bar {
 			.pie-graph {
 				display: table-cell;
