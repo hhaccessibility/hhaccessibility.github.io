@@ -27,12 +27,15 @@ class ContactController extends Controller {
 		{
 			return Redirect::to('contact')->withErrors($validator)->withInput();			
 		}
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= 'From: <webmaster@app.accesslocator.com>' . "\r\n";
 		$email = $request->input('email');
 		$message = $request->input('comment');
-		$to_email = 'josh.greig@gmail.com';
-		$subject = 'app.accesslocator.com contact message';
-		$body = "Hello,\r\nYou have a message from: ".$email.":\r\n\r\n".$message;
-		mail($to_email, $subject, $body);
+		$to_email = "accesslocator@gmail.com";
+		$subject = "you have a message";
+		$body = "Hello,You have a message from: ".$email." \r\n ".$message;
+		$body = str_replace("\n.", "\n..", $body);
+		mail($to_email,$subject, $body,$headers);
 		return view('pages.contact.message-sent');
 	}
 }
