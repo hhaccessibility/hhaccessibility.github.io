@@ -9,20 +9,11 @@
 @section('content')
 
 <div class="profile row">
-	<div class="col-sm-12 col-xs-12">
-       
-        <!--upload picture-->
-        <div class="col-sm-3 col-xs-12" id="uploadDiv">
-            
-            <a class="upload-photo" href="">
-            Upload Your Photo
-            </a>
-        
-        </div>
-    
-        <!--/upload picture-->
-        
-        <!--profile form-->
+	<div class="col-sm-3 col-xs-12">
+ 		<a class="upload-photo" href="">
+ 		Upload Your Photo
+ 		</a>
+ 	</div>
     <div class="col-sm-9 col-xs-12">
             <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 
@@ -64,7 +55,7 @@
 						<label for="password">Password</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<a class="btn btn-default">Change password</a>
+						<a class="btn btn-default" href="/change-password">Change password</a>
 					</div>
 				</div>
 			</div>
@@ -109,18 +100,19 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-4 col-xs-5">
-						<label for="location">Location</label>
+						<label for="location_search_text">Location</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<input class="form-control" id="location" name="location_search_text"
-							value="{{ $user->location_search_text }}">
+						<input class="form-control" id="location_search_text" name="location_search_text"
+							value="{{ $user->location_search_text }}"
+							placeholder="{{ $address_default }}">
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-4 col-xs-5">
-						<label for="distance">Distance</label>
+						<label for="distance">Distance (km)</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
 						<input class="form-control" id="distance" name="search_radius_km" value="{{ $user->search_radius_km }}">
@@ -192,7 +184,7 @@
         <div class="row">
             <div class="col-sm-9 col-xs-8"> </div>
             <div class="col-sm-3 col-xs-4">
-                <button class="btn  btn-lg btn-block btn-primary saveButton"><i class="fa fa-check"></i> Save Profile</button>
+                <button class="btn  btn-lg btn-block btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
             </div>
        </div>
      </div>
