@@ -120,7 +120,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-4 col-xs-5">
-						<label for="distance">Distance</label>
+						<label for="distance">Distance (km)</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
 						<input class="form-control" id="distance" name="search_radius_km" value="{{ $user->search_radius_km }}">
