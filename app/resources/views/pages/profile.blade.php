@@ -1,5 +1,16 @@
 @extends('layouts.default')
-@include('includes.collapsible')
+@section('head-content')
+<!--My Link-->
+<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
+  <script src="/css/jquery/external/jquery/jquery.js"></script>
+  <script src="/css/jquery/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+<!--/-->
+@stop
 @section('content')
 
 <div class="profile row">
@@ -124,8 +135,7 @@
 		</div>
 		
 		<h2>Accessibility Interests</h2>
-		<div class="box">
-         
+		<div class="box accesibility-interests">
             <p>
                 <div class="checkbox">
                         <label><input type="checkbox" value="">Screen Reader</label>
@@ -160,23 +170,23 @@
 		</div>
 		
 		<h2>Reward Program</h2>
-		<div class="box">
+		<div class="box rewards">
 			
             <div class="row">
-                <p>&nbsp;&nbsp;My Rewards: </p>
+                <p>My Rewards: </p>
                 
                 <div class="col-sm-8 col-xs-7">
                     <div class="row">
-                         &nbsp;<i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
+                         <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
 
                     </div>
                     <!--row -->
                     <div class="row">
-                        &nbsp;&nbsp;
+                        
                     </div>
                     
                     <div class="row">
-                        &nbsp;&nbsp;<a class="btn btn-default">My Reviewed Blogs</a>
+                        <a class="btn btn-default">My Reviewed Blogs</a>
                     </div>
 				</div>
                 
@@ -193,8 +203,6 @@
        </div>
      </div>
         <!--/profile form-->
-		
-
 
 	</div>
 </div>
