@@ -3,7 +3,7 @@
 Before developing code on the project, you should install the following dependencies:
 
 - MySQL
-- PHP5.6+
+- PHP 7+
 - composer (https://getcomposer.org/download/)
 - npm
 - gulp
