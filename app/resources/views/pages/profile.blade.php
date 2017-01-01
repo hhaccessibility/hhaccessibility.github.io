@@ -1,15 +1,10 @@
 @extends('layouts.default')
 @section('head-content')
-<!--My Link-->
-<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
+  <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
+  <script src="/js/profile.js">
   </script>
-<!--/-->
 @stop
 @section('content')
 
@@ -149,18 +144,19 @@
                 <div>
                     <p>
                         <div class="checkbox">
-                          <label><input type="checkbox" value="">Select All</label>
+                          <label><input class="select-all" type="checkbox" value="">Select All</label>
                         </div>
                     </p>
                    <hr>
-                
-                    @foreach ($category->questions()->get() as $question)
-                    <p>
-                        <div class="checkbox">
-                          <label><input type="checkbox" value="">{!! $question->question_html !!}</label>
-                        </div>
-                    </p>
-                    @endforeach
+					<div class="questions">
+						@foreach ($category->questions()->get() as $question)
+						<p>
+							<div class="checkbox">
+							  <label><input type="checkbox" value="">{!! $question->question_html !!}</label>
+							</div>
+						</p>
+						@endforeach
+					</div>
                 </div>
                 
             @endforeach
@@ -196,9 +192,7 @@
         <div class="row">
             <div class="col-sm-9 col-xs-8"> </div>
             <div class="col-sm-3 col-xs-4">
-                
                 <button class="btn  btn-lg btn-block btn-primary saveButton"><i class="fa fa-check"></i> Save Profile</button>
-                <br/>
             </div>
        </div>
      </div>
