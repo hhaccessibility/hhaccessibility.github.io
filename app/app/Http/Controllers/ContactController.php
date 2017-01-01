@@ -29,8 +29,8 @@ class ContactController extends Controller {
 		}
 		$email = $request->input('email');
 		$message = $request->input('comment');
-		$to_email = 'josh.greig@gmail.com';
-		$subject = 'app.accesslocator.com contact message';
+		$to_email = 'accesslocator@gmail.com';
+		$subject = 'app accesslocator com contact message';
 		$body = "Hello,\r\nYou have a message from: ".$email.":\r\n\r\n".$message;
 		mail($to_email, $subject, $body);
 		return view('pages.contact.message-sent');
