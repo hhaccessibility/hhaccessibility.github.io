@@ -237,6 +237,11 @@ footer {
 	@extend %page-base;
 }
 
+.change-password {
+	@extend %page-base;
+	
+}
+
 .contact {
 	@extend %page-base;
 	
@@ -269,7 +274,7 @@ footer {
 	}
 }
 
-.log-in {
+.sign-in {
 	@extend %page-base;
 	
 	> div {

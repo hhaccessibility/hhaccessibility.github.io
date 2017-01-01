@@ -1,26 +1,23 @@
 <?php namespace App\Http\Controllers;
 
 use App\BaseUser;
-use App\QuestionCategory;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller {
+class ChangePasswordController extends Controller {
 
     /**
-     * Either shows profile view or redirects browser to sign in.
+     * Either shows password change form or redirects to sign in if not signed in.
 	 *
      * @return Response
      */
     public function index(Request $request)
     {
-		
         if (BaseUser::isSignedIn())
         {
 			$user = BaseUser::getDbUser();
-			$question_categories = QuestionCategory::with('questions')->get();
             
-            return view('pages.profile.profile', ['user' => $user, 'question_categories' => $question_categories]);
+            return view('pages.profile.change_password', ['user' => $user]);
         }
         else
         {

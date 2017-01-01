@@ -64,7 +64,7 @@
 						<label for="password">Password</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<a class="btn btn-default">Change password</a>
+						<a class="btn btn-default" href="/change-password">Change password</a>
 					</div>
 				</div>
 			</div>
