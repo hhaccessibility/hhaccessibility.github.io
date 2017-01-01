@@ -1,13 +1,35 @@
 @extends('layouts.default')
+@section('head-content')
+<!--My Link-->
+<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
+  <script src="/css/jquery/external/jquery/jquery.js"></script>
+  <script src="/css/jquery/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+<!--/-->
+@stop
 @section('content')
+
 <div class="profile row">
-	<div class="col-sm-4 col-xs-12">
-		<a class="upload-photo" href="">
-		Upload Your Photo
-		</a>
-	</div>
-	<div class="col-sm-8 col-xs-12">
-		<h1>{{ $user->first_name.' '.$user->last_name }}</h1>
+	<div class="col-sm-12 col-xs-12">
+       
+        <!--upload picture-->
+        <div class="col-sm-3 col-xs-12" id="uploadDiv">
+            
+            <a class="upload-photo" href="">
+            Upload Your Photo
+            </a>
+        
+        </div>
+    
+        <!--/upload picture-->
+        
+        <!--profile form-->
+    <div class="col-sm-9 col-xs-12">
+            <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 
 		<h2>Personal</h2>
 		<div class="box">
@@ -38,6 +60,16 @@
 					</div>
 					<div class="col-sm-8 col-xs-7">
 						<input class="form-control" id="email" name="email" value="{{ $user->email }}">
+					</div>
+				</div>
+			</div>
+            <div class="form-group">
+				<div class="row">
+					<div class="col-sm-4 col-xs-5">
+						<label for="password">Password</label>
+					</div>
+					<div class="col-sm-8 col-xs-7">
+						<a class="btn btn-default">Change password</a>
 					</div>
 				</div>
 			</div>
@@ -103,14 +135,75 @@
 		</div>
 		
 		<h2>Accessibility Interests</h2>
-		<div class="box">
+		<div class="box accesibility-interests">
+            <p>
+                <div class="checkbox">
+                        <label><input type="checkbox" value="">Screen Reader</label>
+                </div>
+            </p>
+            <div id="accordion">
+        
+            @foreach ($question_categories as $category)
+        
+                <h3>{{ $category->name }}</h3>
+                <div>
+                    <p>
+                        <div class="checkbox">
+                          <label><input type="checkbox" value="">Select All</label>
+                        </div>
+                    </p>
+                   <hr>
+                
+                    @foreach ($category->questions()->get() as $question)
+                    <p>
+                        <div class="checkbox">
+                          <label><input type="checkbox" value="">{!! $question->question_html !!}</label>
+                        </div>
+                    </p>
+                    @endforeach
+                </div>
+                
+            @endforeach
+
+            </div>
+            
 		</div>
 		
 		<h2>Reward Program</h2>
-		<div class="box">
-			<div class="row">
+		<div class="box rewards">
+			
+            <div class="row">
+                <p>My Rewards: </p>
+                
+                <div class="col-sm-8 col-xs-7">
+                    <div class="row">
+                         <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
+
+                    </div>
+                    <!--row -->
+                    <div class="row">
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <a class="btn btn-default">My Reviewed Blogs</a>
+                    </div>
+				</div>
+                
 			</div>
 		</div>
+
+        <div class="row">
+            <div class="col-sm-9 col-xs-8"> </div>
+            <div class="col-sm-3 col-xs-4">
+                
+                <button class="btn  btn-lg btn-block btn-primary saveButton"><i class="fa fa-check"></i> Save Profile</button>
+                <br/>
+            </div>
+       </div>
+     </div>
+        <!--/profile form-->
+
 	</div>
 </div>
 

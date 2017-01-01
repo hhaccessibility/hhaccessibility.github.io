@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\BaseUser;
+use App\QuestionCategory;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class ProfileController extends Controller {
         if (BaseUser::isSignedIn())
         {
 			$user = BaseUser::getDbUser();
-            return view('pages.profile', ['user' => $user]);
+			$question_categories = QuestionCategory::with('questions')->get();
+            
+            return view('pages.profile', ['user' => $user, 'question_categories' => $question_categories]);
         }
         else
         {
