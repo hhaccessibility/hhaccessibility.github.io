@@ -9,12 +9,12 @@
 @section('content')
 
 <div class="profile row">
-	<div class="col-sm-3 col-xs-12">
+	<div class="col-md-3 col-sm-4 col-xs-12">
  		<a class="upload-photo" href="">
  		Upload Your Photo
  		</a>
  	</div>
-    <div class="col-sm-9 col-xs-12">
+    <div class="col-md-9 col-sm-8 col-xs-12">
             <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 
 		<h2>Personal</h2>
