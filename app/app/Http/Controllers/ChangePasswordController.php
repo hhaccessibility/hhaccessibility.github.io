@@ -1,8 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\BaseUser;
+use App\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class ChangePasswordController extends Controller {
 
@@ -15,14 +19,47 @@ class ChangePasswordController extends Controller {
     {
         if (BaseUser::isSignedIn())
         {
-			$user = BaseUser::getDbUser();
-            
-            return view('pages.profile.change_password', ['user' => $user]);
+            return view('pages.profile.change_password');
         }
         else
         {
             return redirect()->intended('signin');
         }
     }
+	
+	public function post(Request $request)
+	{
+        if (BaseUser::isSignedIn())
+        {
+			$user = BaseUser::getDbUser();
+			$validation_rules = array(
+				'current_password'             => 'required',
+				'new_password'         => 'required',
+				'password_confirm' => 'required|same:new_password'
+			);
+			$validator = Validator::make(Input::all(), $validation_rules);
+			if (!$validator->fails() && !empty($user->password_hash))
+			{
+				if ( !BaseUser::authenticate($user->email, $request->input('current_password')) )
+				{
+					$validator->errors()->add('current_password', 'Current password not matched');
+				}
+			}
+			if ($validator->fails())
+			{
+				return Redirect::to('change-password')->withErrors($validator)->withInput();			
+			}
+			else
+			{
+				$user->password_hash = User::generateSaltedHash($request->input('new_password'));
+				$user->save();
+				return view('pages.profile.change_password_success');
+			}
+        }
+        else
+        {
+            return redirect()->intended('signin');
+        }
+	}
 
 }
