@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Hybrid_Auth;
 use Hybrid_Endpoint;
+use App\Country;
 
 class SocialAuthController extends Controller {
 
@@ -28,8 +29,8 @@ class SocialAuthController extends Controller {
 
 		} catch (Exception $e) {
 			// 	echo "Ooophs, we got an error: " . $e->getMessage();
-		   //  	echo " Error code: " . $e->getCode();
-    		return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
+			//	echo " Error code: " . $e->getCode();
+			return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
 		}
 		
 	}
@@ -42,6 +43,13 @@ class SocialAuthController extends Controller {
 			$newUser->email = $email;
 			$newUser->first_name = $profile->firstName;
 			$newUser->last_name = $profile->lastName;
+			$newUser->home_zipcode = $profile->zip;
+			$newUser->home_region = $profile->region;
+			$country = $profile->country;
+			if(!empty($country)) {
+				$country_id = Country::where("name","like",$profile->country)->first()->id;
+				$newUser->home_country_id = $country_id;
+			}
 			$newUser->location_search_text = BaseUser::getAddress();
 			$newUser->save();
 
@@ -50,22 +58,22 @@ class SocialAuthController extends Controller {
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
 		}
-    }
-    // first time login need user's permission to access their account informaiton
-    public function getSocialLoginCallBack() {
+	}
+	// first time login need user's permission to access their account informaiton
+	public function getSocialLoginCallBack() {
 
-    	try {
-    		Hybrid_Endpoint::process();
-    	}
-    	catch (Exception $e) {
-    		echo "Ooophs, we got an error: " . $e->getMessage();
-    		echo " Error code: " . $e->getCode();
-    		return Redirect::to('signin');
-    	}
+		try {
+			Hybrid_Endpoint::process();
+		}
+		catch (Exception $e) {
+			echo "Ooophs, we got an error: " . $e->getMessage();
+			echo " Error code: " . $e->getCode();
+			return Redirect::to('signin');
+		}
 
-    }
-    public function getFacebookLogin($auth=NULL)
-    {
+	}
+	public function getFacebookLogin($auth=NULL)
+	{
 		if ($auth === 'auth')
 		{
 			try
@@ -83,7 +91,7 @@ class SocialAuthController extends Controller {
 		$provider = $oauth->authenticate('Facebook');
 		$profile = $provider->getUserProfile();
 		var_dump($profile).'<a href="signout">Sign Out</a>';
-    }
+	}
 
 	public function getLoggedOut()
 	{
