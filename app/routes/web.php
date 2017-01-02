@@ -32,6 +32,10 @@ Route::get('password-recovery', function() {
 });
 
 Route::get('profile', 'ProfileController@index');
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@post');
+Route::get('profile-photo-upload', 'ProfilePhotoUploadController@index');
+Route::post('profile-photo-upload', 'ProfilePhotoUploadController@post');
 Route::get('location-search', 'LocationSearchController@index');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
 Route::get('location-report/{location_id}/{rating_system}', 'LocationReportController@show');
