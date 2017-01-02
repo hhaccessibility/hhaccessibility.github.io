@@ -181,11 +181,8 @@
 			</div>
 		</div>
 
-        <div class="row">
-            <div class="col-sm-9 col-xs-8"> </div>
-            <div class="col-sm-3 col-xs-4">
-                <button class="btn  btn-lg btn-block btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
-            </div>
+        <div class="text-right">
+            <button class="btn  btn-lg btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
        </div>
      </div>
         <!--/profile form-->
