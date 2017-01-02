@@ -174,7 +174,7 @@
                     </div>
                     
                     <div class="row">
-                        <a class="btn btn-default">My Reviewed Blogs</a>
+                        <a class="btn btn-default">My Reviews</a>
                     </div>
 				</div>
                 
