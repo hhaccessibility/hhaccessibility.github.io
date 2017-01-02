@@ -10,7 +10,7 @@
 
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
- 		<a class="upload-photo" href="">
+ 		<a class="upload-photo" href="/profile-photo-upload">
  		Upload Your Photo
  		</a>
  	</div>
