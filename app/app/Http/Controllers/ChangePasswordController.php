@@ -33,19 +33,21 @@ class ChangePasswordController extends Controller {
         {
 			$user = BaseUser::getDbUser();
 			$validation_rules = array(
-				'current_password'             => 'required',
+				'current_password'     => 'required',
 				'new_password'         => 'required',
-				'password_confirm' => 'required|same:new_password'
+				'password_confirm'     => 'required|same:new_password'
 			);
 			$validator = Validator::make(Input::all(), $validation_rules);
-			if (!$validator->fails() && !empty($user->password_hash))
+			$failing = $validator->fails();
+			if (!$failing && !empty($user->password_hash))
 			{
 				if ( !BaseUser::authenticate($user->email, $request->input('current_password')) )
 				{
 					$validator->errors()->add('current_password', 'Current password not matched');
+					$failing = true;
 				}
 			}
-			if ($validator->fails())
+			if ($failing)
 			{
 				return Redirect::to('change-password')->withErrors($validator)->withInput();			
 			}
