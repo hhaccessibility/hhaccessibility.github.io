@@ -20,6 +20,51 @@ class ProfilePhotoUploadController extends Controller {
             return redirect()->intended('signin');
         }
     }
+	
+	private static function getUploadDirectory()
+	{
+		return realpath(public_path() . '/../resources/assets/user_profile_images').'\\';
+	}
+	
+	private static function getProfilePhotoPath()
+	{
+		$user = BaseUser::getDbUser();
+		return ProfilePhotoUploadController::getUploadDirectory() . 'user_' . $user->id . '.jpg';
+	}
+	
+	/**
+	Returns a string with the original file extension but named with the specified user id.
+	
+	For example, getFileNameFromOriginalName(3, 'Bobby.png') returns 'user_3.png'.
+	*/
+	private static function getFileNameFromOriginalName(int $user_id, string $originalFilename)
+	{
+		$dotIndex = strrpos($originalFilename, '.');
+		if ( $dotIndex === FALSE )
+			throw new Exception("No extension found");
+
+		$extension = strtolower(substr($originalFilename, $dotIndex + 1));
+		if ( strlen($extension) > 4 )
+			throw new Exception("Extension is too long");
+		
+		return 'user_' . $user_id . '.' . $extension;
+	}
+
+	/**
+	Sends the current user's photo to the client
+	*/
+	public function photo()
+	{
+        if (BaseUser::isSignedIn())
+        {
+			$file_path = ProfilePhotoUploadController::getProfilePhotoPath();
+			return response()->file($file_path);
+        }
+        else
+        {
+            return redirect()->intended('signin');
+        }
+	}
 
 	private static function getPhotoDimensionsFromUploadDimensions($width, $height)
 	{
@@ -56,12 +101,22 @@ class ProfilePhotoUploadController extends Controller {
 			{
 				return Redirect::to('profile-photo-upload')->withErrors($validator)->withInput();	
 			}
+			$photo = Input::file('profile_photo');
+			$destinationPath = ProfilePhotoUploadController::getUploadDirectory();
+
+			$user = BaseUser::getDbUser();
+			$filename = ProfilePhotoUploadController::getFileNameFromOriginalName($user->id, $request->file('profile_photo')->getClientOriginalName());
+ 			$full_path = $destinationPath . 'user_' . $user->id . '.jpg';
+
+			$temp_filename = $_FILES['profile_photo']['tmp_name'];
+			$content = file_get_contents($temp_filename);
+			$new_image = imagecreatefromstring($content);
 			
-			// FIXME: get dimensions from actual uploaded image.
-			$width = 1;
-			$height = 1;
+			$width = imagesx($new_image);
+			$height = imagesy($new_image);
 			$newDimensions = ProfilePhotoUploadController::getPhotoDimensionsFromUploadDimensions($width, $height);
-			// FIXME: Write the file to 'resources/assets/user_profile_images'.
+			$scaled_result = imagescale ( $new_image , $newDimensions['width'], $newDimensions['height']);
+			imagejpeg($scaled_result, $full_path);
 			
             return view('pages.profile.photo_upload_success');
 		}
