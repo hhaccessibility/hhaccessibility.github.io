@@ -779,6 +779,14 @@ footer {
 	}
 }
 
+@media screen and (min-width: 1200px) {
+	body {
+		.home-page {
+			background-image: url('../images/home_background_clear_1170px.jpg');
+		}
+	}
+}
+
 @media screen and (min-width: 751px) and (max-width: 970px) {
 	body {
 		.home-page {
