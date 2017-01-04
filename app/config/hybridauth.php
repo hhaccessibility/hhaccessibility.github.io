@@ -26,7 +26,9 @@ array(
 			),
 		"Google" => array(
 			"enabled" => true,
-			"keys" => array("id" => env('GOOGLE_APP_ID', 'your_google_api_id'), "secret" => env('GOOGLE_APP_SECRET', 'your_google_api_secret')),
+			"keys" => array("id" => env('GOOGLE_APP_ID', 'your_google_api_id'), 
+							"secret" => env('GOOGLE_APP_SECRET', 'your_google_api_secret')),
+			"scope" =>"profile email"
 			),
 		"Facebook" => array(
 			"enabled" => true,
