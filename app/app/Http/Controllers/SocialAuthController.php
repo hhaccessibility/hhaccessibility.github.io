@@ -25,11 +25,10 @@ class SocialAuthController extends Controller {
 			$profile = $provider->getUserProfile();
 			$provider->logout();
 			$this->createNewUserWithGoogle($profile);
-			return view('pages.signup.success', ['email' => $profile->email]);
+			BaseUser::signIn($profile->email);
+			return redirect()->intended('profile');
 
 		} catch (Exception $e) {
-			// 	echo "Ooophs, we got an error: " . $e->getMessage();
-			//	echo " Error code: " . $e->getCode();
 			return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
 		}
 		

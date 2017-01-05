@@ -38,7 +38,7 @@ class SignInController extends Controller {
 			$email = $request->input('email');
 			if (BaseUser::authenticate($email, $request->input('password')))
 			{
-				$request->session()->put('email', $email);
+				BaseUser::signIn($email);
 				return redirect()->intended('profile');
 			}
 			else

@@ -86,6 +86,10 @@ class BaseUser
 			return Session::get('location_search_text');
 		}
 	}
+	public static function signIn($email) 
+	{
+		Session::put('email',$email);
+	}
 	
 	public static function signout()
 	{
