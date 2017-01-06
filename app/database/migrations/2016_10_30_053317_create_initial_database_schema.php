@@ -79,6 +79,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('name', 255)->nullable();
 			$table->string('external_web_url', 255)->nullable();
 			$table->string('address', 255)->nullable();
+			$table->string('phone_number', 50)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
         });
