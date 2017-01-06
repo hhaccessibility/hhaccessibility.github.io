@@ -212,6 +212,13 @@ footer {
 		margin-bottom: 15px;
 	}
 	
+	.category {
+		> .checkbox {
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ddd;
+		}
+	}
+	
 	.upload-photo {
 		background-color: mix($base_colour1, #ffffff, 80%);
 		display: inline-block;

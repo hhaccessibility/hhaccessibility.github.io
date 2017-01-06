@@ -16,7 +16,7 @@
  	</div>
     <div class="col-md-9 col-sm-8 col-xs-12">
             <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
-
+			
 		<h2>Personal</h2>
 		<div class="box">
 			<div class="form-group">
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<h2>Accessibility Interests</h2>
 		<div class="box accesibility-interests">
             <p>
@@ -133,20 +133,15 @@
             @foreach ($question_categories as $category)
         
                 <h3>{{ $category->name }}</h3>
-                <div>
-                    <p>
-                        <div class="checkbox">
-                          <label><input class="select-all" type="checkbox" value="">Select All</label>
-                        </div>
-                    </p>
-                   <hr>
+                <div class="category">
+					<div class="checkbox">
+					  <label><input class="select-all" type="checkbox" value="">Select All</label>
+					</div>
 					<div class="questions">
 						@foreach ($category->questions()->get() as $question)
-						<p>
 							<div class="checkbox">
 							  <label><input type="checkbox" value="">{!! $question->question_html !!}</label>
 							</div>
-						</p>
 						@endforeach
 					</div>
                 </div>
