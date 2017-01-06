@@ -1,4 +1,5 @@
 [
+{"id": 9, "name": "Leddy Library", "external_web_url": "http://leddy.uwindsor.ca", "address": "401 Sunset Ave, Windsor, ON N9B 3P4", "latitude": 42.307775, "longitude": -83.0679165, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
 {"id": 10, "name": "Centre for Engineering Innovation", "external_web_url": "http://www.uwindsor.ca/tags/centre-engineering-innovation", "address": "Windsor, ON N9B 1K3", "latitude": 42.3045218, "longitude": -83.0642137, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
 {"id": 11, "name": "Odette School of Business", "external_web_url": "http://odette.uwindsor.ca/", "address": "401 Sunset Ave", "latitude": 42.3053421, "longitude": -83.0666586, "location_group_id": 1, "owner_user_id": null, "data_source_id": 1},
 {"id": 12, "name": "Travelodge Hotel Downtown Windsor", "external_web_url": "http://www.travelodge.ca/property/travelodge-hotel-windsor-downtown", "address": "33 Riverside Dr E, Windsor, ON N9A 2S4", "latitude": 42.3194703, "longitude": -83.0415569, "location_group_id": 6, "owner_user_id": null, "data_source_id": 1},
