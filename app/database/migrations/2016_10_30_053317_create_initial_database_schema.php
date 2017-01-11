@@ -25,6 +25,7 @@ class CreateInitialDatabaseSchema extends Migration
 		});		
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
+			$table->boolean('uses_screen_reader')->default(false);
 			$table->string('email', 255)->unique()->nullable();
 			$table->string('first_name', 255)->nullable();
 			$table->string('last_name', 255)->nullable();
@@ -63,6 +64,13 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('question_category_id')->unsigned()->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
         });
+        Schema::create('user_question', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('question_id')->unsigned();
+			$table->foreign('question_id')->references('id')->on('question');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('user');
+        });
         Schema::create('location_group', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
@@ -79,6 +87,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('name', 255)->nullable();
 			$table->string('external_web_url', 255)->nullable();
 			$table->string('address', 255)->nullable();
+			$table->string('phone_number', 50)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
         });
@@ -132,6 +141,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('user_answer');
         Schema::dropIfExists('location');
         Schema::dropIfExists('location_group');
+        Schema::dropIfExists('user_question');
         Schema::dropIfExists('question');
         Schema::dropIfExists('question_category');
         Schema::dropIfExists('user_role');

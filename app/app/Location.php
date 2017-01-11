@@ -6,7 +6,7 @@ use Eloquent;
 class Location extends Eloquent
 {
     protected $fillable = [
-        'name', 'longitude', 'latitude', 'owner_user_id', 'data_source_id',
+        'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id', 'data_source_id',
     ];
 	public $timestamps = false;
 

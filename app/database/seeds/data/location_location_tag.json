@@ -4,6 +4,7 @@
 {"id": 3, "location_id": 11, "location_tag_id": 6},
 {"id": 4, "location_id": 12, "location_tag_id": 2},
 {"id": 5, "location_id": 20, "location_tag_id": 5},
+{"id": 6, "location_id": 9, "location_tag_id": 6},
 {"id": 10, "location_id": 30, "location_tag_id": 1},
 {"id": 11, "location_id": 30, "location_tag_id": 3},
 {"id": 12, "location_id": 30, "location_tag_id": 7},
