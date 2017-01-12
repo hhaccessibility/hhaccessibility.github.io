@@ -16,7 +16,9 @@ class UserTableSeeder extends Seeder
 			'email' => 'josh.greig2@gmail.com',
 			'first_name' => 'John',
 			'last_name' => 'Smith',
-			'home_city' => 'Windsor'
+			'home_city' => 'Windsor',
+			'home_region' => 'Ontario',
+			'home_country_id' => 39
 		));
 		DB::table('user_role')->insert(
             [
