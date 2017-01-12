@@ -69,7 +69,16 @@
 						<label for="country">Country</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<input class="form-control" id="country" name="country" value="">
+						<select class="form-control" id="country" name="country">
+							<option value="">-- Select Country --</option>
+							@foreach ($countries as $country)
+								@if ($user->home_country_id === $country->id)
+								<option value="{{ $country->id }}" selected>{{ $country->name }}</option>
+								@else
+								<option value="{{ $country->id }}">{{ $country->name }}</option>
+								@endif
+							@endforeach
+						</select>
 					</div>
 				</div>
 			</div>
@@ -79,7 +88,7 @@
 						<label for="province">State/Province</label>
 					</div>
 					<div class="col-sm-8 col-xs-7">
-						<input class="form-control" id="province" name="province" value="">
+						<input class="form-control" id="province" name="province" value="{{ $user->home_region }}">
 					</div>
 				</div>
 			</div>
@@ -125,7 +134,13 @@
 		<div class="box accesibility-interests">
             <p>
                 <div class="checkbox">
-                        <label><input type="checkbox" value="">Screen Reader</label>
+                        <label>
+						@if ( $user->uses_screen_reader )
+						<input type="checkbox" name="uses_screen_reader" checked>
+						@else
+						<input type="checkbox" name="uses_screen_reader">
+						@endif
+						Screen Reader</label>
                 </div>
             </p>
             <div id="accordion">
@@ -154,30 +169,17 @@
 		
 		<h2>Reward Program</h2>
 		<div class="box rewards">
-			
-            <div class="row">
-                <p>My Rewards: </p>
-                
-                <div class="col-sm-8 col-xs-7">
-                    <div class="row">
-                         <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
-
-                    </div>
-                    <!--row -->
-                    <div class="row">
-                        
-                    </div>
-                    
-                    <div class="row">
-                        <a class="btn btn-default">My Reviews</a>
-                    </div>
-				</div>
-                
+			<p>My Rewards:</p>
+			<div>
+				 <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
+			</div>
+			<div>
+				<a class="btn btn-default">My Reviews</a>
 			</div>
 		</div>
 
         <div class="text-right">
-            <button class="btn  btn-lg btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
+            <button class="btn btn-lg btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
        </div>
      </div>
         <!--/profile form-->
