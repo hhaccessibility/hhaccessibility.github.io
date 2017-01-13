@@ -155,7 +155,13 @@
 					<div class="questions">
 						@foreach ($category->questions()->get() as $question)
 							<div class="checkbox">
-							  <label><input type="checkbox" value="">{!! $question->question_html !!}</label>
+							  <label>
+								@if ($user->isQuestionRequired($required_questions, $question->id))
+								<input type="checkbox" checked>
+								@else
+								<input type="checkbox">
+								@endif
+								{!! $question->question_html !!}</label>
 							</div>
 						@endforeach
 					</div>

@@ -21,12 +21,14 @@ class ProfileController extends Controller {
 			$user = BaseUser::getDbUser();
 			$question_categories = QuestionCategory::with('questions')->get();
 			$countries = Country::orderBy('name')->get();
+			$required_questions = $user->requiredQuestions()->get();
    
             return view('pages.profile.profile', [
 				'user' => $user,
 				'question_categories' => $question_categories,
 				'address_default' => BaseUser::getDefaultAddress(),
-				'countries' => $countries
+				'countries' => $countries,
+				'required_questions' => $required_questions
 				]);
         }
         else
