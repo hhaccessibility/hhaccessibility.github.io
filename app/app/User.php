@@ -20,6 +20,21 @@ class User extends Eloquent
 	   return $this->belongsToMany(Role::class, 'user_role');
 	}
 	
+	public static function isQuestionRequired($required_questions, $id)
+	{
+		foreach ($required_questions as $question)
+		{
+			if ( $question->id === $id )
+				return true;
+		}
+		return false;
+	}
+	
+	public function requiredQuestions()
+	{
+	   return $this->belongsToMany(Question::class, 'user_question');		
+	}
+	
 	public static function generateSaltedHash($password) {
 		return Hash::make($password);
 	}
