@@ -70,6 +70,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('question_id')->references('id')->on('question');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('user');
+			$table->unique(array('question_id', 'user_id'));
         });
         Schema::create('location_group', function (Blueprint $table) {
 			$table->increments('id');
