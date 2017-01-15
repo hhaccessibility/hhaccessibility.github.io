@@ -35,22 +35,26 @@ class ProfileController extends Controller {
             return redirect()->intended('signin');
 
 		$validation_rules = array(
-			'first_name'           => 'digits_between:0,255',
-			'last_name'            => 'digits_between:0,255',
-			'email'                => 'required|email|digits_between:0,255',
+			'first_name'           => 'max:255',
+			'last_name'            => 'max:255',
+			'email'                => 'required|email|max:255',
 			'country_id'           => 'integer|exists:country,id',
-			'home_city'            => 'digits_between:0,255',
-			'home_region'          => 'digits_between:0,255',
-			'location_search_text' => 'digits_between:0,255',
-			'search_radius_km'     => 'numeric|min:0.01|max:20040',
+			'home_city'            => 'max:255',
+			'home_region'          => 'max:255',
+			'location_search_text' => 'max:255',
+			'search_radius_km'     => 'numeric|min:0.01|max:20040'
 		);
 		$validator = Validator::make(Input::all(), $validation_rules);
 		
-		if (!$validator->fails())
+		if ($validator->fails())
 			return ProfileController::getProfileView($validator);
 		
 		$user = BaseUser::getDbUser();
-		$user->home_country_id = $request->country_id;
+		if ($request->home_country_id === '')
+			$user->home_country_id = null;
+		else
+			$user->home_country_id = intval($request->country_id);
+		
 		$user->home_region = $request->home_region;
 		$user->home_city = $request->home_city;
 		$user->first_name = $request->first_name;
