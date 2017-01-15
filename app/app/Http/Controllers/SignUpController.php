@@ -19,9 +19,9 @@ class SignUpController extends Controller {
     public function createUser(Request $request)
     {
 		$validation_rules = array(
-			'first_name'            => 'required|digits_between:0,255',
-			'last_name'             => 'required|digits_between:0,255',
-			'email'                 => 'required|email|unique:user|digits_between:0,255',  
+			'first_name'            => 'required|max:255',
+			'last_name'             => 'required|max:255',
+			'email'                 => 'required|email|unique:user|max:255',  
 			'password'              => 'required',
 			'password_confirm'      => 'required|same:password',
 			'g-recaptcha-response'  => 'required|captcha'
