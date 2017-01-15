@@ -19,12 +19,12 @@ class SignUpController extends Controller {
     public function createUser(Request $request)
     {
 		$validation_rules = array(
-			'first_name'             => 'required',
-			'last_name'             => 'required',
-			'email'            => 'required|email|unique:user',  
-			'password'         => 'required',
-			'password_confirm' => 'required|same:password',
-			'g-recaptcha-response' => 'required|captcha'
+			'first_name'            => 'required|digits_between:0,255',
+			'last_name'             => 'required|digits_between:0,255',
+			'email'                 => 'required|email|unique:user|digits_between:0,255',  
+			'password'              => 'required',
+			'password_confirm'      => 'required|same:password',
+			'g-recaptcha-response'  => 'required|captcha'
 		);
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())

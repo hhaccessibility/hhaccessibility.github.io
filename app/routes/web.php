@@ -32,6 +32,7 @@ Route::get('password-recovery', function() {
 });
 
 Route::get('profile', 'ProfileController@index');
+Route::post('profile', 'ProfileController@save');
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@post');
 Route::get('profile-photo-upload', 'ProfilePhotoUploadController@index');

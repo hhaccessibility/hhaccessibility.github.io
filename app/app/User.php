@@ -20,6 +20,17 @@ class User extends Eloquent
 	   return $this->belongsToMany(Role::class, 'user_role');
 	}
 	
+	/**
+	isQuestionRequired checks if the specified id is in the array of questions.
+	This is used in profile.blade.php and ProfileController.
+	
+	An alternative was to have a method that queries the database for each
+	individual question but this seemed much less efficient than getting a
+	complete list of questions and using PHP code to look for ids in that array.
+	
+	@param required_questions should be an array of Question instances.
+	@param id should be a question's id
+	*/
 	public static function isQuestionRequired($required_questions, $id)
 	{
 		foreach ($required_questions as $question)
@@ -30,6 +41,12 @@ class User extends Eloquent
 		return false;
 	}
 	
+	/**
+	requiredQuestions returns an Eloquent query object that can be used to get 
+	the questions or accessibility needs indicated by the user.
+	
+	Each question corresponds with an accessibility need.  For example, "an elevator"
+	*/
 	public function requiredQuestions()
 	{
 	   return $this->belongsToMany(Question::class, 'user_question');		
