@@ -5,8 +5,101 @@ use App\QuestionCategory;
 use App\Country;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller {
+	public static function getProfileView($validator = null)
+	{
+		$user = BaseUser::getDbUser();
+		$question_categories = QuestionCategory::with('questions')->get();
+		$countries = Country::orderBy('name')->get();
+		$required_questions = $user->requiredQuestions()->get();
+		$view_data = [
+			'user' => $user,
+			'question_categories' => $question_categories,
+			'address_default' => BaseUser::getDefaultAddress(),
+			'countries' => $countries,
+			'required_questions' => $required_questions
+			];
+
+		if ($validator === null)
+			return view('pages.profile.profile', $view_data);
+		else
+			return view('pages.profile.profile', $view_data)->withErrors($validator);
+	}
+
+	public function save(Request $request)
+	{
+        if (!BaseUser::isSignedIn())
+            return redirect()->intended('signin');
+
+		$validation_rules = array(
+			'first_name'           => 'digits_between:0,255',
+			'last_name'            => 'digits_between:0,255',
+			'email'                => 'required|email|digits_between:0,255',
+			'country_id'           => 'integer|exists:country,id',
+			'home_city'            => 'digits_between:0,255',
+			'home_region'          => 'digits_between:0,255',
+			'location_search_text' => 'digits_between:0,255',
+			'search_radius_km'     => 'numeric|min:0.01|max:20040',
+		);
+		$validator = Validator::make(Input::all(), $validation_rules);
+		
+		if (!$validator->fails())
+			return ProfileController::getProfileView($validator);
+		
+		$user = BaseUser::getDbUser();
+		$user->home_country_id = $request->country_id;
+		$user->home_region = $request->home_region;
+		$user->home_city = $request->home_city;
+		$user->first_name = $request->first_name;
+		$user->last_name = $request->last_name;
+		$user->location_search_text = $request->location_search_text;
+		if ($request->search_radius_km === '')
+			$user->search_radius_km = null;
+		else
+			$user->search_radius_km = floatval(trim($request->search_radius_km));
+		$user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
+
+		$current_user_questions = $user->requiredQuestions()->get();
+		
+		// questions/accessibility needs that aren't required yet by $user.
+		$questions_to_add = [];
+		
+		// Existing questions/accessibility needs that are required so no update needed on.
+		$questions_matched = []; 
+		
+		// Save the user_question data.
+		foreach (Input::all() as $name => $value)
+		{
+			if (strpos($name, 'question_') === 0)
+			{
+				$question_id = substr($name, strlen('question_'));
+				if (is_numeric($question_id))
+				{
+					$question_id = intval($question_id);
+					if ($user->isQuestionRequired($current_user_questions, $question_id))
+						$questions_matched []= $question_id;
+					else
+						$questions_to_add []= $question_id;
+				}
+			}
+		}
+		foreach ($questions_to_add as $new_question_id)
+		{
+			$user->requiredQuestions()->attach($new_question_id);
+		}
+		foreach ($current_user_questions as $existing_question)
+		{
+			if (!in_array($existing_question->id, $questions_matched))
+				$user->requiredQuestions()->detach($existing_question->id);
+		}
+		
+		$user->save();
+		
+		return ProfileController::getProfileView();
+	}
 
     /**
      * Either shows profile view or redirects browser to sign in.
@@ -15,21 +108,9 @@ class ProfileController extends Controller {
      */
     public function index(Request $request)
     {
-		
         if (BaseUser::isSignedIn())
         {
-			$user = BaseUser::getDbUser();
-			$question_categories = QuestionCategory::with('questions')->get();
-			$countries = Country::orderBy('name')->get();
-			$required_questions = $user->requiredQuestions()->get();
-   
-            return view('pages.profile.profile', [
-				'user' => $user,
-				'question_categories' => $question_categories,
-				'address_default' => BaseUser::getDefaultAddress(),
-				'countries' => $countries,
-				'required_questions' => $required_questions
-				]);
+			return ProfileController::getProfileView();
         }
         else
         {
