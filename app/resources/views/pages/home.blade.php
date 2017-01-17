@@ -10,6 +10,7 @@
 				</div>
 
 				<div>
+					<p class="slogan">"Your Personalized Access to the World"</p>
 					<p>Find accessibility information on locations rated by real users and make your own ratings!</p>
 				</div>
 			</div>
