@@ -26,8 +26,10 @@ class SocialAuthController extends Controller {
 			$provider->logout();
 			if($providerName === "Google")
 				$this->createNewUserWithGoogle($profile);
-			if($providerName === "Facebook")
+			else if($providerName === "Facebook")
 				$this->createNewUserWithFacebook($profile);
+			else 
+				throw new Exception('Unrecognized provider name '.$providerName);
 			BaseUser::signIn($profile->email);
 			return redirect()->intended('profile');
 
