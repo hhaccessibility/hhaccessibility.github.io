@@ -602,9 +602,9 @@ footer {
 	
 	.intro {
 		width: 410px;
-		padding-left: 85px;
+		padding-left: 78px;
 		padding-top: 20vh;
-		padding-right: 50px;
+		padding-right: 45px;
 		padding-bottom: 50px;
 		margin-right: auto;
 		margin-bottom: 50px;
@@ -615,7 +615,12 @@ footer {
 		}
 		
 		p {
-			font-size: 1.2em;
+			font-size: 1.15em;
+			
+			&.slogan {
+				font-style: italic;
+				white-space: nowrap;
+			}
 		}
 	}
 
@@ -726,6 +731,18 @@ footer {
 			}
 		}
 	}	
+}
+
+@media screen and (max-width: 360px) {
+	html > body {
+		.home-page {
+			.intro {
+				p {
+					font-size: 0.95em;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 450px) {
