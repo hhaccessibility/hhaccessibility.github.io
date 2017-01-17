@@ -42,7 +42,7 @@
 			<div class="social-media-signins">
 				Or sign in using your social media account
 				
-				<a class="facebook" href="">
+				<a class="facebook" href="/socialauth/auth/Facebook">
 					<i class="fa-lg fa fa-facebook"></i>
 					<div class="pull-right">Sign in with facebook</div>
 				</a>

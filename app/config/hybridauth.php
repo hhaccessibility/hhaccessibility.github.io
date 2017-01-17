@@ -31,7 +31,9 @@ array(
 			),
 		"Facebook" => array(
 			"enabled" => true,
-			"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_google_api_id'), "secret" => env('FACEBOOK_APP_SECRET', 'your_google_api_id')),
+				"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_facebook_api_id'), 
+				"secret" => env('FACEBOOK_APP_SECRET', 'your_facebook_api_id')),
+				"scope" =>["email","public_profile"],
 			"trustForwarded" => false
 			),
 		"Twitter" => array(
