@@ -23,7 +23,7 @@ class ProfilePhotoUploadController extends Controller {
 	
 	private static function getUploadDirectory()
 	{
-		return realpath(public_path() . '/../resources/assets/user_profile_images').'\\';
+		return realpath(public_path() . '/../storage/app/private/user_profile_images').'\\';
 	}
 	
 	private static function getProfilePhotoPath()
