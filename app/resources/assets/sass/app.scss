@@ -227,6 +227,10 @@ footer {
 		margin-top: 79px;
 		color: mix($base_colour1, #ffffff, 20%);
 		width: 100%;
+		background-image: url('/profile-photo');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
 		min-height: 200px;
 	}
 }

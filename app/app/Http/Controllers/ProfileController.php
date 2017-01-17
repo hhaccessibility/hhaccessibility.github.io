@@ -35,8 +35,8 @@ class ProfileController extends Controller {
             return redirect()->intended('signin');
 
 		$validation_rules = array(
-			'first_name'           => 'max:255',
-			'last_name'            => 'max:255',
+			'first_name'           => 'required|max:255',
+			'last_name'            => 'required|max:255',
 			'email'                => 'required|email|max:255',
 			'country_id'           => 'integer|exists:country,id',
 			'home_city'            => 'max:255',
