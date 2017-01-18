@@ -86,6 +86,66 @@ class BaseUser
 			return Session::get('location_search_text');
 		}
 	}
+	
+	/**
+	@param long1 is longitude in degrees
+	@param lat1 is latitude in degrees
+	@param long2 is longitude in degrees
+	@param lat2 is latitude in degrees
+	*/
+	public static function getDirectDistance(float $long1, float $lat1,
+		float $long2, float $lat2)
+	{
+		$earthRadius = 6371;
+		$long1 = deg2rad($long1);
+		$lat1 = deg2rad($lat1);
+		$long2 = deg2rad($long2);
+		$lat2 = deg2rad($lat2);
+		$deltaLong = $long2 - $long1;
+		$deltaLat = $lat2 - $lat1;
+		$a = sin($deltaLat / 2) * sin($deltaLat / 2) +
+			cos($lat1) * cos($long2) *
+			sin($deltaLong / 2) * sin($deltaLong / 2);
+		$c = 2 * atan2( sqrt( $a ), sqrt( 1 - $a ) );
+		return $earthRadius * $c;
+	}
+	
+	public function getLatitude()
+	{
+		if ( BaseUser::isSignedIn() )
+		{
+			$user = $this->getDbUser();
+			if (is_numeric($user->latitude))
+				return $user->latitude;
+		}
+		
+		// Latitude of Windsor city hall
+		return 42.3174246;
+	}
+	
+	public function getLongitude()
+	{
+		if ( BaseUser::isSignedIn() )
+		{
+			$user = $this->getDbUser();
+			if (is_numeric($user->longitude))
+				return $user->longitude;
+		}
+		
+		// Longitude of Windsor city hall
+		return -83.0374028;
+	}
+	
+	/**
+	Returns distance in kilometers
+	*/
+	public function getDistanceTo($longitude, $latitude)
+	{
+		return BaseUser::getDirectDistance(
+			$longitude, $latitude,
+			$this->getLongitude(), $this->getLatitude());
+	}
+	
 	public static function signIn($email) 
 	{
 		Session::put('email',$email);

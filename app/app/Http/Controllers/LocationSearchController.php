@@ -17,12 +17,12 @@ class LocationSearchController extends Controller {
 		$locationsQuery = Location::query();
 		foreach ($keywordsArray as $keyword)
 		{
-			$locationsQuery->orWhere('name', 'LIKE', '%'.$keyword.'%');			
-			$locationsQuery->orWhere('address', 'LIKE', '%'.$keyword.'%');			
+			$locationsQuery->orWhere('name', 'LIKE', '%' . $keyword . '%');
+			$locationsQuery->orWhere('address', 'LIKE', '%' . $keyword . '%');
 		}
 	
 		$locations = $locationsQuery->distinct()->orderBy('name')->get();
-		return view('pages.locations_by_keywords',
+		return view('pages.location_search.by_keywords',
 			['locations' => $locations, 'keywords' => $keywords]);
 	}
 
@@ -31,12 +31,13 @@ class LocationSearchController extends Controller {
 		$location_tag = LocationTag::find($location_tag_id);
 		$locations = $location_tag->locations()->orderBy('name')->get();
 		
-		return view('pages.locations_by_tag', ['locations' => $locations, 'location_tag' => $location_tag]);
+		return view('pages.location_search.by_tag',
+			['locations' => $locations, 'location_tag' => $location_tag]);
     }
 	
 	public function index()
 	{
-		return view('pages.location_search');
+		return view('pages.location_search.location_search');
 	}
 
 }

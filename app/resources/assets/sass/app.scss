@@ -95,6 +95,31 @@ h1, h2, h3 {
 	font-family: Didact Gothic, arial;
 }
 
+.spreadsheet {
+	.data {
+		max-height: calc(100vh - 150px);
+		overflow-y: auto;
+		overflow-x: hidden;
+		
+		> div {
+			border-bottom: 1px solid #eee;
+			transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+			
+			&:nth-child(odd) {
+				background-color: #f8f8f8;
+			}
+			
+			&:hover {
+				border-color: #aaa;
+
+				a {
+					color: #004;
+				}
+			}
+		}
+	}
+}
+
 .pie-graph {
 	display: inline-block;
 
