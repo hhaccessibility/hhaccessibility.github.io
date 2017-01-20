@@ -33,6 +33,7 @@
     <div class="col-md-9 col-sm-8 col-xs-12">
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 
+		<p>Some elements of this page are under development</p>
 		<form method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
@@ -200,7 +201,7 @@
 				
 			</div>
 			
-			<h2>Reward Program</h2>
+			<h2>Reward Program (Under Development)</h2>
 			<div class="box rewards">
 				<p>My Rewards:</p>
 				<div>
