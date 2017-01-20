@@ -79,7 +79,7 @@
 					@include('pages.location_report.personal_not_available')
 				@else
 					<div class="title-bar">
-						<h3>{{ $location->name }}</h3>
+						<h3>(Under Development)</h3>
 						<div class="location-rating">
 							@include('pages.components.pie_graph',
 								array(

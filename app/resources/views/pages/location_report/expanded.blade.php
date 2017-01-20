@@ -6,6 +6,8 @@
 
 <div class="location-report">
 
+	Under Development
+
 	@include('pages.location_report.top', array(
 		'rating_system' => $rating_system,
 		'location' => $location,
