@@ -48,7 +48,7 @@
 							<label for="email">Email</label>
 						</div>
 						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="email" name="email" type="email" required value="{{ $user->email }}">
+							<input class="form-control" id="email" name="email" type="email" required readonly value="{{ $user->email }}">
 						</div>
 					</div>
 				</div>
