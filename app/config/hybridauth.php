@@ -11,7 +11,7 @@
 
 return
 array(
-	"base_url" => env("APP_URL","http://localhost:8000")."/socialauth/auth",
+	"base_url" => config('app.url')."/socialauth/auth",
 	"providers" => array(
 				// openid providers
 		"OpenID" => array(
