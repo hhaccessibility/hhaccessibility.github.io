@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
-function myIsEmpty($val)
-{
-	return $val === '' || $val === 0 || $val === null || !is_numeric($val);
-}
-
 class ProfileController extends Controller {
 	public static function getProfileView($validator = null)
 	{
@@ -55,17 +50,19 @@ class ProfileController extends Controller {
 			return ProfileController::getProfileView($validator);
 		
 		$user = BaseUser::getDbUser();
-		if (myIsEmpty($request->home_country_id))
+		if ( $request->home_country_id === '' )
+		{
 			$user->home_country_id = null;
+		}
 		else
-			$user->home_country_id = intval($request->country_id);
+			$user->home_country_id = intval($request->home_country_id);
 		
 		$user->home_region = $request->home_region;
 		$user->home_city = $request->home_city;
 		$user->first_name = $request->first_name;
 		$user->last_name = $request->last_name;
 		$user->location_search_text = $request->location_search_text;
-		if (myIsEmpty($request->search_radius_km))
+		if ( $request->search_radius_km === '' )
 			$user->search_radius_km = null;
 		else
 			$user->search_radius_km = floatval(trim($request->search_radius_km));

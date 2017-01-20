@@ -69,10 +69,10 @@
 				<div class="form-group">
 					<div class="row">
 						<div class="col-sm-4 col-xs-5">
-							<label for="country_id">Country</label>
+							<label for="home_country_id">Country</label>
 						</div>
 						<div class="col-sm-8 col-xs-7">
-							<select class="form-control" id="country_id" name="country_id">
+							<select class="form-control" id="home_country_id" name="home_country_id">
 								<option value="">-- Select Country --</option>
 								@foreach ($countries as $country)
 									@if ($user->home_country_id === $country->id)
