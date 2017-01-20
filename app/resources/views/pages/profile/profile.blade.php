@@ -39,6 +39,7 @@
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
+		<p>Some elements of this page are under development</p>
 		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
@@ -209,7 +210,7 @@
 				
 			</div>
 			
-			<h2>Reward Program</h2>
+			<h2>Reward Program (Under Development)</h2>
 			<div class="box rewards">
 				<p>My Rewards:</p>
 				<div>
