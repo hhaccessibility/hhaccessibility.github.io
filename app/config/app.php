@@ -1,5 +1,32 @@
 <?php
 
+function getSiteURL()
+{
+	if (isset($_SERVER['HTTPS']) &&
+		($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+	  $protocol = 'https://';
+	}
+	else {
+	  $protocol = 'http://';
+	}
+	if (isset($_SERVER['HTTP_HOST']))
+	{
+		$host = $_SERVER['HTTP_HOST'];
+	}
+	else
+	{
+		$host = env('APP_URL', 'http://localhost:8000');
+		if (strpos($host, '://') === FALSE )
+		{
+			$host = substr($host, strpos('://', $host) + 3);
+		}
+	}
+	
+	return $protocol . $host;
+}
+
 return [
 
     /*
@@ -51,7 +78,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => getSiteURL(),
 
     /*
     |--------------------------------------------------------------------------
