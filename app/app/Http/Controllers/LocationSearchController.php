@@ -9,35 +9,50 @@ use Illuminate\Support\Facades\Input;
 
 class LocationSearchController extends Controller {
 
-	public function byKeywords(Request $request)
+	/**
+	search handles both search by location tag and by keywords.
+	*/
+	public function search(Request $request)
 	{
-		$keywords = Input::get('keywords');
-		BaseUser::setAddress(Input::get('address'));
-		$keywordsArray = explode(' ', $keywords);
+		if ( Input::has('address') )
+			BaseUser::setAddress(Input::get('address'));
+
 		$locationsQuery = Location::query();
-		foreach ($keywordsArray as $keyword)
+		$location_tag = '';
+		$keywords = '';
+		$location_tag_name = '';
+		$location_tag_id = '';
+		if ( Input::has('keywords') )
 		{
-			$locationsQuery->orWhere('name', 'LIKE', '%' . $keyword . '%');
-			$locationsQuery->orWhere('address', 'LIKE', '%' . $keyword . '%');
+			$keywords = Input::get('keywords');
+			$keywordsArray = explode(' ', $keywords);
+			foreach ($keywordsArray as $keyword)
+			{
+				$locationsQuery->orWhere('name', 'LIKE', '%' . $keyword . '%');
+				$locationsQuery->orWhere('address', 'LIKE', '%' . $keyword . '%');
+			}
+			$locations = $locationsQuery->distinct()->orderBy('name')->get();
 		}
-	
-		$locations = $locationsQuery->distinct()->orderBy('name')->get();
-		return view('pages.location_search.by_keywords',
-			['locations' => $locations, 'keywords' => $keywords]);
-	}
-
-    public function by_tag($location_tag_id)
-    {
-		$location_tag = LocationTag::find($location_tag_id);
-		$locations = $location_tag->locations()->orderBy('name')->get();
+		else
+		{
+			$location_tag_id = Input::get('location_tag_id');
+			$location_tag = LocationTag::find($location_tag_id);
+			$location_tag_name = $location_tag->name;
+			$locations = $location_tag->locations()->orderBy('name')->get();
+		}
+		$url = '/location-search?keywords='.$keywords.'&amp;location_tag_id='.$location_tag_id;
 		
-		return view('pages.location_search.by_tag',
-			['locations' => $locations, 'location_tag' => $location_tag]);
-    }
-	
-	public function index()
-	{
-		return view('pages.location_search.location_search');
-	}
+		$view = 'table';
+		
+		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
+			$view = Input::get('view');
 
+		return view('pages.location_search.search',
+			[
+				'locations' => $locations, 'keywords' => $keywords,
+				'location_tag_name' => $location_tag_name,
+				'url' => $url,
+				'view' => $view
+			]);
+	}
 }

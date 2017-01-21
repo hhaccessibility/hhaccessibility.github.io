@@ -25,7 +25,7 @@
 							Under dev.
 						</div>
 						<div class="col-xs-3">
-							{{ $base_user->getDistanceTo($value->longitude, $value->latitude) }}
+							{{ number_format((float)$base_user->getDistanceTo($value->longitude, $value->latitude), 2, '.', '') }}
 						</div>
 					</div>
 				</a>

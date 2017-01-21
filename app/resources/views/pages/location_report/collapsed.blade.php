@@ -64,7 +64,7 @@
 		</div>
 		<div class="col-xs-7 text-right location-tags">
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
-				<a class="location-tag" href="/search-by-tag/{{ $location_tag->id }}">
+				<a class="location-tag" href="/location-search?location_tag_id={{ $location_tag->id }}">
 					{{ $location_tag->name }}
 				</a>
 			@endforeach
