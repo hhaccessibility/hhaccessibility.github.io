@@ -123,7 +123,17 @@ class ProfilePhotoUploadController extends Controller {
 			$scaled_result = imagescale ( $new_image , $newDimensions['width'], $newDimensions['height']);
 			imagejpeg($scaled_result, $full_path);
 			
-            return redirect()->intended('profile');
+			/**
+			Redirect to profile and ask the browser to clear its cache.
+			The cache clearing was to fix a problem where the new profile
+			photo wouldn't refresh itself properly.
+			
+			I couldn't find a cache clearing option in Laravel's redirect so I used PHP's header function instead.
+			This was adapted from:
+			http://stackoverflow.com/questions/1571973/best-way-redirect-reload-pages-in-php
+			*/
+			header('Location: /profile', true, 302);
+			exit(0);
 		}
         else
         {

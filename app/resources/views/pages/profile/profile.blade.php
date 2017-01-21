@@ -10,9 +10,17 @@
 
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
- 		<a class="upload-photo" href="/profile-photo-upload">
- 		Upload Your Photo
- 		</a>
+		@if ($has_profile_photo)
+			<a href="/profile-photo-upload">
+				<div class="uploaded-photo">
+				</div>
+				Edit
+			</a>
+		@else
+			<a class="upload-photo" href="/profile-photo-upload">
+			Upload Your Photo
+			</a>
+		@endif
  	</div>
     <div class="col-md-9 col-sm-8 col-xs-12">
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>

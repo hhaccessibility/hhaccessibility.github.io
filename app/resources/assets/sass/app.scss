@@ -243,20 +243,25 @@ footer {
 		}
 	}
 	
-	.upload-photo {
+	.upload-photo, .uploaded-photo {
 		background-color: mix($base_colour1, #ffffff, 80%);
-		display: inline-block;
-		text-align: center;
-		line-height: 200px;
+		display: block;
 		font-size: 20px;
 		margin-top: 79px;
+		min-height: 200px;
+	}
+	
+	.upload-photo {
+		text-align: center;
+		line-height: 200px;
 		color: mix($base_colour1, #ffffff, 20%);
-		width: 100%;
+	}
+	
+	.uploaded-photo {
 		background-image: url('/profile-photo');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
-		min-height: 200px;
 	}
 }
 
