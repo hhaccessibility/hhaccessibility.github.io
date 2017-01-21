@@ -96,8 +96,12 @@ h1, h2, h3 {
 }
 
 .spreadsheet {
+	h3 {
+		margin-top: 5px;
+	}
+
 	.data {
-		max-height: calc(100vh - 150px);
+		max-height: calc(100vh - 135px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		
