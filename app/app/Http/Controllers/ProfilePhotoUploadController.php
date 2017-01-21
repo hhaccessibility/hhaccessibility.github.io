@@ -32,6 +32,11 @@ class ProfilePhotoUploadController extends Controller {
 		return ProfilePhotoUploadController::getUploadDirectory() . 'user_' . $user->id . '.jpg';
 	}
 	
+	public static function hasProfilePhoto()
+	{
+		return file_exists(ProfilePhotoUploadController::getProfilePhotoPath());
+	}
+	
 	/**
 	Returns a string with the original file extension but named with the specified user id.
 	
@@ -118,7 +123,7 @@ class ProfilePhotoUploadController extends Controller {
 			$scaled_result = imagescale ( $new_image , $newDimensions['width'], $newDimensions['height']);
 			imagejpeg($scaled_result, $full_path);
 			
-            return view('pages.profile.photo_upload_success');
+            return redirect()->intended('profile');
 		}
         else
         {
