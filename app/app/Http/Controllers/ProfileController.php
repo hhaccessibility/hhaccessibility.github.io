@@ -3,6 +3,7 @@
 use App\BaseUser;
 use App\QuestionCategory;
 use App\Country;
+use App\Http\Controllers\ProfilePhotoUploadController;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +21,8 @@ class ProfileController extends Controller {
 			'question_categories' => $question_categories,
 			'address_default' => BaseUser::getDefaultAddress(),
 			'countries' => $countries,
-			'required_questions' => $required_questions
+			'required_questions' => $required_questions,
+			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto()
 			];
 
 		if ($validator === null)
