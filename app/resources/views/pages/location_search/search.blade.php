@@ -1,4 +1,22 @@
 @extends('layouts.default')
+@section('head-content')
+  @if ( $view === 'map' && !$turn_off_maps  )
+  <script>
+    var locations = {!! json_encode($locations) !!};
+	var user_longitude = {{ $base_user->getLongitude() }};
+	var user_latitude = {{ $base_user->getLatitude() }};
+  </script>
+  <script src="/js/location_search_map.js">
+  </script>
+  @endif
+@stop
+@section('footer-content')
+	@if ( $view === 'map' && !$turn_off_maps )
+	<script async defer
+		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
+    </script>
+	@endif
+@stop
 @section('content')
 
 <div class="location-search">

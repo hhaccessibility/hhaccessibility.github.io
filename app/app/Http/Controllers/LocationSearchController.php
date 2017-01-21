@@ -52,7 +52,9 @@ class LocationSearchController extends Controller {
 				'locations' => $locations, 'keywords' => $keywords,
 				'location_tag_name' => $location_tag_name,
 				'url' => $url,
-				'view' => $view
+				'view' => $view,
+				'google_map_api_key' => config('app.google_map_api_key'),
+				'turn_off_maps' => config('app.turn_off_maps')
 			]);
 	}
 }
