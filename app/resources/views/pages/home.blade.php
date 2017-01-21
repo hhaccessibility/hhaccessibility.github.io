@@ -34,7 +34,7 @@
 				</div>
 				@endif
 				<div class="search">
-					<form role="search" action="/search-by-keywords">
+					<form role="search" action="/location-search">
 						<input
 							class="form-control"
 							name="address"
@@ -60,7 +60,7 @@
 					@foreach ( $location_tags as $key => $value )
 					
 						<div class="location-tag col-sm-4 col-xs-6">
-							<a href="/search-by-tag/{{ $value->id }}" title="{{ $value->description }}">
+							<a href="/location-search?location_tag_id={{ $value->id }}" title="{{ $value->description }}">
 							{{ $value->name }}
 							</a>
 						</div>

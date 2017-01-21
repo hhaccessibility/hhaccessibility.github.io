@@ -273,10 +273,9 @@ footer {
 .location-search {
 	@extend %page-base;
 	
-}
-
-.locations-by-tag {
-	@extend %page-base;
+	h1 {
+		margin-top: 0;
+	}
 }
 
 .password-recovery {
@@ -576,10 +575,6 @@ footer {
 			}
 		}
 	}
-}
-
-.locations-by-keywords {
-	@extend %page-base;
 }
 
 .terms-of-use {
