@@ -120,6 +120,17 @@ class ProfilePhotoUploadController extends Controller {
 			$width = imagesx($new_image);
 			$height = imagesy($new_image);
 			$newDimensions = ProfilePhotoUploadController::getPhotoDimensionsFromUploadDimensions($width, $height);
+			
+			// png images can be transparent and the transparent areas are defaulted to black.
+			// We want the background to default to white.
+			// This solution was found at:
+			// http://stackoverflow.com/questions/2569970/gd-converting-a-png-image-to-jpeg-and-making-the-alpha-by-default-white-and-not
+			$output = imagecreatetruecolor($width, $height);
+			$white = imagecolorallocate($output,  255, 255, 255);
+			imagefilledrectangle($output, 0, 0, $width, $height, $white);
+			imagecopy($output, $new_image, 0, 0, 0, 0, $width, $height);
+			$new_image = $output;
+			
 			$scaled_result = imagescale ( $new_image , $newDimensions['width'], $newDimensions['height']);
 			imagejpeg($scaled_result, $full_path);
 			
