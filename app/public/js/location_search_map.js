@@ -6,12 +6,14 @@ function initMap() {
 	  draggable: false
 	});
 	locations.forEach(function(location) {
-		new google.maps.Marker({
+		var locationMarker = new google.maps.Marker({
 		  position: {lat: location.latitude, lng: location.longitude},
 		  map: map,
-		  title: location.name,
-		  url: '/location-report/' + location.id
+		  title: location.name
 		});
+		google.maps.event.addListener(locationMarker, 'click', function() {
+			window.location.href = '/location-report/' + location.id;
+		});		
 	});
 	var centreMarker = new google.maps.Marker({
 	  position: userPoint,
