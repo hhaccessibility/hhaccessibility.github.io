@@ -23,6 +23,21 @@ $base_colour1: #153157;
 	transition: border-color 0.2s, background-color 0.2s;
 }
 
+%selectable-link {
+	@extend %dark-link;
+	
+	padding: 5px 10px;
+	background-color: rgba($base_colour1, 0.5);
+	
+	&:hover {
+		background-color: rgba($base_colour1, 0.7);
+	}
+
+	&.selected {
+		background-color: rgba($base_colour1, 0.95);
+	}
+}
+
 %page-base {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -277,8 +292,20 @@ footer {
 .location-search {
 	@extend %page-base;
 	
-	h1 {
-		margin-top: 0;
+	.title-map-table-bar {
+		h1 {
+			margin-top: 0;
+			display: inline-block;
+		}
+
+		> div {
+			display: inline-block;
+			padding-top: 10px;
+			
+			> a {
+				@extend %selectable-link;
+			}
+		}
 	}
 }
 
@@ -548,18 +575,7 @@ footer {
 			bottom: 8px;
 			
 			a {
-				@extend %dark-link;
-				
-				padding: 5px 10px;
-				background-color: rgba($base_colour1, 0.5);
-				
-				&:hover {
-					background-color: rgba($base_colour1, 0.7);
-				}
-
-				&.selected {
-					background-color: rgba($base_colour1, 0.95);
-				}
+				@extend %selectable-link;
 			}
 		}		
 	}

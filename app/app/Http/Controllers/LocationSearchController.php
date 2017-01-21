@@ -19,7 +19,9 @@ class LocationSearchController extends Controller {
 
 		$locationsQuery = Location::query();
 		$location_tag = '';
-		$keywords = [];
+		$keywords = '';
+		$location_tag_name = '';
+		$location_tag_id = '';
 		if ( Input::has('keywords') )
 		{
 			$keywords = Input::get('keywords');
@@ -33,11 +35,24 @@ class LocationSearchController extends Controller {
 		}
 		else
 		{
-			$location_tag = LocationTag::find(Input::get('location_tag_id'));
+			$location_tag_id = Input::get('location_tag_id');
+			$location_tag = LocationTag::find($location_tag_id);
+			$location_tag_name = $location_tag->name;
 			$locations = $location_tag->locations()->orderBy('name')->get();
 		}
+		$url = '/location-search?keywords='.$keywords.'&amp;location_tag_id='.$location_tag_id;
+		
+		$view = 'table';
+		
+		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
+			$view = Input::get('view');
 
 		return view('pages.location_search.search',
-			['locations' => $locations, 'keywords' => $keywords, 'location_tag' => $location_tag]);
+			[
+				'locations' => $locations, 'keywords' => $keywords,
+				'location_tag_name' => $location_tag_name,
+				'url' => $url,
+				'view' => $view
+			]);
 	}
 }
