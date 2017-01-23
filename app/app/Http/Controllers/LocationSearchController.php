@@ -7,6 +7,75 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
+function compareByDistance($location1, $location2)
+{
+	if ( $location1->distance < $location2->distance )
+		return -1;
+	else if ( $location1->distance === $location2->distance ) 
+		return 0;
+	else
+		return 1;
+}
+
+function compareByRating($location1, $location2)
+{
+	if ( $location1->rating < $location2->rating )
+		return -1;
+	else if ( $location1->rating === $location2->rating )
+		return 0;
+	else
+		return 1;
+}
+
+function updateDistances(array $locations)
+{
+	$user = new BaseUser();
+	$longitude = $user->getLongitude();
+	$latitude = $user->getLatitude();
+	foreach ($locations as $location)
+	{
+		$location->distance = BaseUser::getDirectDistance(
+			$longitude, $latitude, $location->longitude, $location->latitude);
+	}
+}
+
+function updateRatings(array $locations)
+{
+	foreach ($locations as $location)
+	{
+		$location->rating = $location->getAccessibilityRating('universal');
+	}
+}
+
+function getSortedLocations($locations, $view, $order_by_field_name)
+{		
+	if ( $view === 'table' ) {
+
+		if ( $order_by_field_name === 'name' )
+		{
+			$locations = $locations->orderBy('name');
+		}
+		$locations = $locations->get();
+		// get() doesn't return an array so let's make one.
+		$loc_array = [];
+		foreach ($locations as $loc)
+		{
+			$loc_array []= $loc; 
+		}
+		$locations = $loc_array;
+		
+		updateDistances($locations);
+		updateRatings($locations);
+		if ( $order_by_field_name === 'distance' )
+			usort($locations, 'App\Http\Controllers\compareByDistance');
+		else if ( $order_by_field_name === 'rating' )
+			usort($locations, 'App\Http\Controllers\compareByRating');
+		
+		return $locations;
+	}
+	return $locations->get();
+}
+
 class LocationSearchController extends Controller {
 
 	/**
@@ -22,6 +91,20 @@ class LocationSearchController extends Controller {
 		$keywords = '';
 		$location_tag_name = '';
 		$location_tag_id = '';
+		$order_by_field_name = 'name';
+		if ( Input::has('order_by') )
+		{
+			$field_name = Input::get('order_by');
+			if ( in_array($field_name, ['name', 'rating', 'distance']) )
+			{
+				$order_by_field_name = $field_name;
+			}
+		}
+		$view = 'table';
+		
+		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
+			$view = Input::get('view');
+		
 		if ( Input::has('keywords') )
 		{
 			$keywords = Input::get('keywords');
@@ -31,21 +114,24 @@ class LocationSearchController extends Controller {
 				$locationsQuery->orWhere('name', 'LIKE', '%' . $keyword . '%');
 				$locationsQuery->orWhere('address', 'LIKE', '%' . $keyword . '%');
 			}
-			$locations = $locationsQuery->distinct()->orderBy('name')->get();
+			$locations = $locationsQuery->distinct();
 		}
-		else
+		else if ( Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id')) )
 		{
 			$location_tag_id = Input::get('location_tag_id');
 			$location_tag = LocationTag::find($location_tag_id);
 			$location_tag_name = $location_tag->name;
-			$locations = $location_tag->locations()->orderBy('name')->get();
+			$locations = $location_tag->locations();
 		}
-		$url = '/location-search?keywords='.$keywords.'&amp;location_tag_id='.$location_tag_id;
+		else
+		{
+			throw new Exception('Either keywords or location_tag_id must be specified');
+		}
+		$locations = getSortedLocations($locations, $view, $order_by_field_name);
 		
-		$view = 'table';
+		$url = '/location-search?keywords='.rawurlencode($keywords) .
+		'&amp;location_tag_id=' . $location_tag_id . '&amp;order_by=' . $order_by_field_name;
 		
-		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
-			$view = Input::get('view');
 
 		return view('pages.location_search.search',
 			[
