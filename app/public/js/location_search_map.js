@@ -17,7 +17,8 @@ function initMap() {
 	});
 	var centreMarker = new google.maps.Marker({
 	  position: userPoint,
-	  map: map
+	  map: map,
+	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 	});
 	google.maps.event.addDomListener(window, 'resize', function() {
 		map.setCenter(userPoint);
