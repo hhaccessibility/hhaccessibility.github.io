@@ -64,8 +64,8 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 		}
 		$locations = $loc_array;
 		
-		updateDistances($locations);
 		updateRatings($locations);
+		updateDistances($locations);
 		if ( $order_by_field_name === 'distance' )
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )

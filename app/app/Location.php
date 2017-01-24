@@ -6,7 +6,8 @@ use Eloquent;
 class Location extends Eloquent
 {
     protected $fillable = [
-        'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id', 'data_source_id',
+        'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
+		'data_source_id', 'universal_rating',
     ];
 	public $timestamps = false;
 
@@ -40,6 +41,10 @@ class Location extends Eloquent
 	
 	public function getAccessibilityRating($ratingSystem)
 	{
+		if ( $this->universal_rating !== null && $ratingSystem === 'universal' )
+		{
+			return $this->universal_rating;
+		}
 		$totalCount = 0;
 		$sum = 0;
 		$questionCategories = QuestionCategory::get();
@@ -48,11 +53,19 @@ class Location extends Eloquent
 			$sum += $category->getAccessibilityRating($this->id, $ratingSystem);
 			$totalCount ++;
 		}
-		
+
 		if ($totalCount === 0)
-			return 0;
+			$result = 0;
 		else
-			return $sum / $totalCount;
+			$result = $sum / $totalCount;
+		
+		if ( $ratingSystem === 'universal' )
+		{
+			$this->universal_rating = $result;
+			$this->save();
+		}
+		
+		return $result;
 	}
 	
 	public function getExternalWebURL()

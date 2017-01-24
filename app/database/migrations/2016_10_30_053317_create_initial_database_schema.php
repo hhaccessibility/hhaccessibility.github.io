@@ -89,9 +89,21 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('external_web_url', 255)->nullable();
 			$table->string('address', 255)->nullable();
 			$table->string('phone_number', 50)->nullable();
+			
+			// universal_rating is a cached value.
+			// It maintained to avoid doing expensive/slow queries repeatedly.
+			$table->double('universal_rating', 11, 8)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
         });
+        Schema::create('user_location', function (Blueprint $table) {
+			$table->increments('id');
+
+			// personalized_rating is a cached value.
+			// It maintained to avoid doing expensive/slow queries repeatedly.
+			$table->double('personalized_rating', 11, 8);
+			$table->datetime('when_submitted');			
+		});
         Schema::create('user_answer', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('answered_by_user_id')->unsigned();
@@ -140,6 +152,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('location_tag');
         Schema::dropIfExists('review_comment');
         Schema::dropIfExists('user_answer');
+        Schema::dropIfExists('user_location');
         Schema::dropIfExists('location');
         Schema::dropIfExists('location_group');
         Schema::dropIfExists('user_question');
