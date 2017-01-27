@@ -20,6 +20,11 @@ class Location extends Eloquent
     {
         return $this->belongsToMany('App\LocationTag');
     }
+
+    public function personalizedRatings()
+    {
+        return $this->hasMany('App\UserLocation');
+    }
 	
     public function comments()
     {
