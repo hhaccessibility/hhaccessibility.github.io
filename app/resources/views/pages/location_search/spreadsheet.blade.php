@@ -4,13 +4,13 @@
 	@else
 		<div class="row">
 			<div class="col-xs-7">
-				<h3>Name</h3>
+				<h3><a href="{{ $url_factory->createURLForOrderByField('name') }}">Name</a></h3>
 			</div>
 			<div class="col-xs-2">
-				<h3>Rating</h3>
+				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}">Rating</a></h3>
 			</div>
 			<div class="col-xs-3">
-				<h3>Distance (km)</h3>
+				<h3><a href="{{ $url_factory->createURLForOrderByField('distance') }}">Distance (km)</a></h3>
 			</div>
 		</div>
 		<div class="data">

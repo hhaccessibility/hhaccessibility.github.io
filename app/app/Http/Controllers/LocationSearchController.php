@@ -76,6 +76,54 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 	return $locations->get();
 }
 
+/**
+Used in location search views to get URL's for various tweaks to the state.
+*/
+class URLFactory
+{
+	public function __construct($params) {
+		$this->params = $params;
+	}
+	
+	private static function getURLFromParameters($params)
+	{
+		$url = '/location-search?';
+		$needs_ampersand = false;
+		foreach ($params as $param_name => $param_value) {
+			if ( $needs_ampersand ) {
+				$url .= '&amp;';
+			}
+			$url .= $param_name . '=' . rawurlencode($param_value);
+			$needs_ampersand = true;
+		}
+		return $url;
+	}
+	
+	private function cloneParams()
+	{
+		return array_flip(array_flip($this->params));
+	}
+	
+	public function createURL()
+	{
+		return $this->params;
+	}
+	
+	public function createURLForOrderByField($field_name)
+	{
+		$params = $this->cloneParams();
+		$params['order_by'] = $field_name;
+		return URLFactory::getURLFromParameters($params);
+	}
+	
+	public function createURLForView($view)
+	{
+		$params = $this->cloneParams();
+		$params['view'] = $view;
+		return URLFactory::getURLFromParameters($params);
+	}
+}
+
 class LocationSearchController extends Controller {
 
 	/**
@@ -128,16 +176,19 @@ class LocationSearchController extends Controller {
 			throw new Exception('Either keywords or location_tag_id must be specified');
 		}
 		$locations = getSortedLocations($locations, $view, $order_by_field_name);
-		
-		$url = '/location-search?keywords='.rawurlencode($keywords) .
-		'&amp;location_tag_id=' . $location_tag_id . '&amp;order_by=' . $order_by_field_name;
-		
+
+		$url_factory = new URLFactory([
+			'keywords' => $keywords,
+			'order_by' => $order_by_field_name,
+			'location_tag_id' => $location_tag_id,
+			'view' => $view
+		]);
 
 		return view('pages.location_search.search',
 			[
 				'locations' => $locations, 'keywords' => $keywords,
 				'location_tag_name' => $location_tag_name,
-				'url' => $url,
+				'url_factory' => $url_factory,
 				'view' => $view,
 				'google_map_api_key' => config('app.google_map_api_key'),
 				'turn_off_maps' => config('app.turn_off_maps')

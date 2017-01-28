@@ -99,10 +99,18 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::create('user_location', function (Blueprint $table) {
 			$table->increments('id');
 
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('user');
+			$table->integer('location_id')->unsigned();
+			$table->foreign('location_id')->references('id')->on('location');
+			
 			// personalized_rating is a cached value.
 			// It maintained to avoid doing expensive/slow queries repeatedly.
 			$table->double('personalized_rating', 11, 8);
-			$table->datetime('when_submitted');			
+			$table->datetime('when_submitted');
+			
+			// There is no point to have more than one association between the same user and location.
+			$table->unique(array('location_id', 'user_id'));
 		});
         Schema::create('user_answer', function (Blueprint $table) {
 			$table->increments('id');

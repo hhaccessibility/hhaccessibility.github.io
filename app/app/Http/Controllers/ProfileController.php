@@ -94,6 +94,7 @@ class ProfileController extends Controller {
 				}
 			}
 		}
+		$questions_updated = !empty($questions_to_add);
 		foreach ($questions_to_add as $new_question_id)
 		{
 			$user->requiredQuestions()->attach($new_question_id);
@@ -101,7 +102,18 @@ class ProfileController extends Controller {
 		foreach ($current_user_questions as $existing_question)
 		{
 			if (!in_array($existing_question->id, $questions_matched))
+			{
 				$user->requiredQuestions()->detach($existing_question->id);
+				$questions_updated = true;
+			}
+		}
+		if ( $questions_updated )
+		{
+			/*
+			If the accessibility needs changed, 
+			the personalized ratings need to be recalculated.
+			*/
+			$user->personalizedRatings()->detach();
 		}
 		
 		$user->save();
