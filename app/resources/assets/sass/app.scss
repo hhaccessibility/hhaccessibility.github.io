@@ -113,6 +113,10 @@ h1, h2, h3 {
 .spreadsheet {
 	h3 {
 		margin-top: 5px;
+
+		> a {
+			color: #000;
+		}
 	}
 
 	.data {

@@ -28,17 +28,17 @@
 		@endif
 		<div class="pull-right text-right">
 			@if ( $view === 'table' )
-				<a class="selected" href="{{ $url }}&amp;view=table">Table</a>
-				<a href="{{ $url }}&amp;view=map">Map</a>
+				<a class="selected" href="{{ $url_factory->createURLForView('table') }}">Table</a>
+				<a href="{{ $url_factory->createURLForView('map') }}">Map</a>
 			@else
-				<a href="{{ $url }}&amp;view=table">Table</a>
-				<a class="selected" href="{{ $url }}&amp;view=map">Map</a>
+				<a href="{{ $url_factory->createURLForView('table') }}">Table</a>
+				<a class="selected" href="{{ $url_factory->createURLForView('map') }}">Map</a>
 			@endif
 		</div>
 	</div>
 	
 	@if ( $view === 'table' )
-		@include('pages.location_search.spreadsheet', array('locations' => $locations))
+		@include('pages.location_search.spreadsheet', array('locations' => $locations, 'url_factory' => $url_factory))
 	@else
 		@include('pages.location_search.map', array('locations' => $locations))
 	@endif
