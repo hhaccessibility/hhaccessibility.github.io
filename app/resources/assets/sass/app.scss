@@ -321,6 +321,16 @@ footer {
 
 .password-recovery {
 	@extend %page-base;
+	
+	.form-box {
+		margin: auto;
+		text-align: center;
+		max-width: 500px;
+		
+		input[type="email"] {
+			margin-bottom: 20px;
+		}
+	}
 }
 
 .change-password {
