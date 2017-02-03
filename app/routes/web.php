@@ -53,6 +53,7 @@ Route::get('socialauth/auth', 'SocialAuthController@getSocialLoginCallBack');
 
 Route::get('signup', 'SignUpController@showForm');
 Route::post('signup', 'SignUpController@createUser');
+Route::get('signup/confirmEmail/{user_email}/{email_verification_token}', 'SignUpController@confirmEmail');
 
 Route::get('api/locations', function (Request $request) {
 	return Location::all();
