@@ -1,4 +1,5 @@
 [
 {"id": 1, "name": "Google Maps", "description": "For any information taken from Google Maps"},
-{"id": 2, "name": "Hacking Health event", "description": "For any information taken from the original Hacking Health demo data.  This may be indirectly from www.citywindsor.ca/opendata/Pages/Open-Data-Catalogue.aspx"}
+{"id": 2, "name": "Hacking Health event", "description": "For any information taken from the original Hacking Health demo data.  This may be indirectly from www.citywindsor.ca/opendata/Pages/Open-Data-Catalogue.aspx"},
+{"id": 3, "name": "OpenStreetmap", "description": "For any information taken from OpenStreetmap apis or databases"}
 ]
