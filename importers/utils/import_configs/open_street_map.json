@@ -5,11 +5,11 @@
 		{"location_field": "name"},
 		{"location_field": "longitude"},
 		{"location_field": "latitude"},
-		{"location_field": "phone_numer"}
+		{"location_field": "phone_number"},
+		{"location_tag_name": "Restaurant"}
 	],
 	"future_columns": [
 		{"location_field": "address"},
-		{"location_tag_name": "Restaurant"},
 		{"location_tag_name": "Accomodation"},
 		{"location_tag_name": "Shopping"},
 		{"location_tag_name": "Healthcare"},

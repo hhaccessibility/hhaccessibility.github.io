@@ -26,7 +26,7 @@
 		@else
 		<h1>Location Search Results for {{ $keywords }}</h1>
 		@endif
-		<div class="pull-right text-right">
+		<div class="text-right">
 			@if ( $view === 'table' )
 				<a class="selected" href="{{ $url_factory->createURLForView('table') }}">Table</a>
 				<a href="{{ $url_factory->createURLForView('map') }}">Map</a>

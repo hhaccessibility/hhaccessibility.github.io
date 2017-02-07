@@ -61,31 +61,68 @@ def get_id_of_matching_location(import_config, locations, values):
 
 	
 def matches_true(value):
-	if isinstance(value, basestring):
+	"""
+	Returns True if value matches one of a few values that could be used to
+	indicate true.  More values are interpretted as true to put fewer
+	constraints on the required CSV format.
+	"""
+	if isinstance(value, str):
 		value = value.strip().lower()
 	
 	return value in ['true', '1', 'yes', 'y']
 
+
+def set_every_key(locations, new_location):
+	if len(locations) == 0:
+		return
+
+	nullable_fields = ['owner_user_id', 'universal_rating',
+	'location_group_id', 'external_web_url']
+	for key in locations[0].keys():
+		if key not in new_location:
+			if key in nullable_fields:
+				new_location[key] = None
+			else:
+				new_location[key] = ''
 	
+	return new_location
+
+
+def sanitize(location_field, value):
+	"""
+	Converts to appropriate data type
+	"""
+	if isinstance(value, str):
+		if location_field in ['longitude', 'latitude']:
+			value = float(value.strip())
+	
+	return value
+	
+
 def merge_location(import_config, locations, location_tags, location_location_tags, values):
 	matching_location_id = get_id_of_matching_location(import_config, locations, values)
 	if matching_location_id is not None:
 		print('matching location found for ' + get_location_field(import_config, 'name', values) + ' id ' + str(matching_location_id))
 		return
 
-	new_location = {'id': get_max_id(locations) + 1}
+	new_location = {
+		'id': get_max_id(locations) + 1,
+		'data_source_id': import_config['data_source_id']
+	}
+	new_location = set_every_key(locations, new_location)
+
 	tag_ids = []
 	i = 0
 	for column in import_config['columns']:
 		if 'location_field' in column:
-			new_location[column['location_field']] = values[i]
+			new_location[column['location_field']] = sanitize(column['location_field'], values[i])
 		elif 'location_tag_name' in column:
 			if matches_true(values[i]):
 				location_tag_id = get_id_for_location_tag(location_tags, column['location_tag_name'])
 				tag_ids.append(location_tag_id)
 
 		i += 1
-	
+
 	locations.append(new_location)
 	location_location_tag_id = 1 + get_max_id(location_location_tags)
 	for tag_id in tag_ids:
