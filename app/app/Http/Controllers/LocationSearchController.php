@@ -191,7 +191,8 @@ class LocationSearchController extends Controller {
 				'url_factory' => $url_factory,
 				'view' => $view,
 				'google_map_api_key' => config('app.google_map_api_key'),
-				'turn_off_maps' => config('app.turn_off_maps')
+				'turn_off_maps' => config('app.turn_off_maps'),
+				'order_by' => $order_by_field_name
 			]);
 	}
 }
