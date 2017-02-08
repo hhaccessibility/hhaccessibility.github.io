@@ -50,22 +50,23 @@ function updateRatings(array $locations)
 function getSortedLocations($locations, $view, $order_by_field_name)
 {		
 	if ( $view === 'table' ) {
-
 		if ( $order_by_field_name === 'name' )
 		{
 			$locations = $locations->orderBy('name');
 		}
-		$locations = $locations->get();
-		// get() doesn't return an array so let's make one.
-		$loc_array = [];
-		foreach ($locations as $loc)
-		{
-			$loc_array []= $loc; 
-		}
-		$locations = $loc_array;
+	}
+	$locations = $locations->get();
+	// get() doesn't return an array so let's make one.
+	$loc_array = [];
+	foreach ($locations as $loc)
+	{
+		$loc_array []= $loc; 
+	}
+	$locations = $loc_array;
 		
+	updateDistances($locations);
+	if ( $view === 'table' ) {
 		updateRatings($locations);
-		updateDistances($locations);
 		if ( $order_by_field_name === 'distance' )
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )
@@ -177,6 +178,16 @@ class LocationSearchController extends Controller {
 		}
 		$locations = getSortedLocations($locations, $view, $order_by_field_name);
 
+		// Remove locations that are too far away.
+		$filtered_locations = [];
+		$search_radius = BaseUser::getSearchRadius();
+		foreach ($locations as $location) {
+			if ( $location->distance <= $search_radius ) {
+				$filtered_locations []= $location;
+			}
+		}
+		$locations = $filtered_locations;
+		
 		$url_factory = new URLFactory([
 			'keywords' => $keywords,
 			'order_by' => $order_by_field_name,
