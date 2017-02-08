@@ -72,9 +72,8 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 		else if ( $order_by_field_name === 'rating' )
 			usort($locations, 'App\Http\Controllers\compareByRating');
 		
-		return $locations;
 	}
-	return $locations->get();
+	return $locations;
 }
 
 /**
