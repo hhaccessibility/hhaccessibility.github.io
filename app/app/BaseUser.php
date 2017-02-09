@@ -172,6 +172,35 @@ class BaseUser
 	{
 		Session::forget(['email']);
 	}
+
+	/**
+	* send verification email to user's email
+	*
+	*/
+	public static function sendVerificationEmail($user)
+	{
+		$body = "Final step...\r\n".
+				"Confirm your email address to complete your Accesslocator account. It's easy — just copy and past link below into your brower. \r\n".
+				config('app.url')."/signup/confirmEmail/".$user->email."/".$user->email_verification_token;
+		mail($user->email, "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name, $body);
+	}
+	/**
+	* to verify user's email verification code
+	*
+	*/
+	public static function confirmEmail(string $email,string $confirmCode)
+	{
+		$matching_user = User::where('email', '=', $email)->first();
+
+		if ($matching_user->email_verification_token == $confirmCode)
+		{
+			$now = new \DateTime();
+			$matching_user->email_verification_time = $now->format('m-d-Y H:i:s');
+			return true;
+		}
+
+		return false;
+	}
 }
 
 ?>
