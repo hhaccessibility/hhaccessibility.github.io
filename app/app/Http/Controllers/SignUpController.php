@@ -48,7 +48,7 @@ class SignUpController extends Controller {
 			$newUserRole->role_id = 2;
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
-			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'A verification code has been sent to your email '.$email.'. Check your email to confirm']);
+			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'A verification code has been sent to your email '.$email.'. Check your email to confirm.']);
 		}
 		return view('pages.signup.form');
     }
