@@ -40,7 +40,7 @@ class SignUpController extends Controller {
 			$newUser->last_name = $request->input('last_name');
 			$newUser->password_hash = User::generateSaltedHash($request->input('password'));
 			$newUser->location_search_text = BaseUser::getAddress();
-			$newUser->email_verification_token = str_random(60); //generate email verificaltion token
+			$newUser->email_verification_token = str_random(60); //generate email verification token
 			BaseUser::sendVerificationEmail($newUser);
 			$newUser->save();
 			
@@ -48,7 +48,7 @@ class SignUpController extends Controller {
 			$newUserRole->role_id = 2;
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
-			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'a verificaltion code has been sent to your email '.$email.'. check your email to confrim']);
+			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'a verification code has been sent to your email '.$email.'. check your email to confrim']);
 		}
 		return view('pages.signup.form');
     }
