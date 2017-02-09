@@ -3,6 +3,7 @@
 namespace App;
 use Session;
 use Exception;
+use DateTime;
 use Illuminate\Support\Facades\Hash;
 
 class BaseUser
@@ -194,7 +195,8 @@ class BaseUser
 
 		if ($matching_user->email_verification_token == $confirmCode)
 		{
-			$matching_user->email_verification_time = new \DateTime();
+			$matching_user->email_verification_time = new DateTime();
+			$matching_user->save();
 			return true;
 		}
 
