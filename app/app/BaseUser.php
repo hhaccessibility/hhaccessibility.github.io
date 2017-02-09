@@ -171,7 +171,7 @@ class BaseUser
 	* to verify user's email verification code
 	*
 	*/
-	public static function confirmEmail(String $email,String $confirmCode)
+	public static function confirmEmail(string $email,string $confirmCode)
 	{
 		$matching_user = User::where('email', '=', $email)->first();
 
