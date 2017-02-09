@@ -110,6 +110,22 @@ h1, h2, h3 {
 	font-family: Didact Gothic, arial;
 }
 
+@mixin solid-column-background($col1, $col2) {
+	.data > div {
+		&:nth-child(odd) .row { 
+			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
+				background-color: #f3f3f3;
+			}
+		}
+
+		&:nth-child(even) .row {
+			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
+				background-color: #fff;
+			}
+		}
+	}
+}
+
 .spreadsheet {
 	h3 {
 		margin-top: 5px;
@@ -118,22 +134,34 @@ h1, h2, h3 {
 			color: #000;
 		}
 	}
+	
+	&.sort-by-name {
+		@include solid-column-background(2, 3);
+	}
 
+	&.sort-by-rating {
+		@include solid-column-background(1, 3);
+	}
+
+	&.sort-by-distance {
+		@include solid-column-background(1, 2);
+	}
+	
 	.data {
 		max-height: calc(100vh - 135px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		
 		> div {
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 			transition: color 0.3s, border-color 0.3s, background-color 0.3s;
 			
 			&:nth-child(odd) {
-				background-color: #f8f8f8;
+				background-color: rgba(0, 0, 0, 0.05);
 			}
 			
 			&:hover {
-				border-color: #aaa;
+				border-color: rgba(0, 0, 0, 0.3);
 
 				a {
 					color: #004;
@@ -295,16 +323,18 @@ footer {
 
 .location-search {
 	@extend %page-base;
-	
+
 	.title-map-table-bar {
 		h1 {
 			margin-top: 0;
 			display: inline-block;
+			white-space: nowrap;
 		}
 
 		> div {
 			display: inline-block;
 			padding-top: 10px;
+			float: right;
 			
 			> a {
 				@extend %selectable-link;
@@ -316,6 +346,12 @@ footer {
 		height: 200px;
 		height: calc(100vh - 100px);
 		background-color: #888;
+	}
+	
+	.spreadsheet {
+		.data {
+			background-image: url('../images/vertical_arrows.png');
+		}
 	}
 }
 
@@ -838,6 +874,12 @@ footer {
 
 			font-size: 3.3vw;
 		}
+
+		div.location-search {
+			h1 {
+				font-size: 1.3em;
+			}
+		}
 	}
 }
 
@@ -868,6 +910,21 @@ footer {
 				width: 100%;
 			}
 		}
+
+		.location-search {
+			h1 {
+				font-size: 1.5em;
+			}
+			
+			h3 {
+				font-size: 1.0em;
+				font-weight: bold;
+			}
+			
+			.data {
+				max-height: calc(100vh - 175px);
+			}
+		}
 	}
 }
 
@@ -884,6 +941,16 @@ footer {
 		.home-page {
 			background-image: url('../images/home_background_970px.jpg');
 		}
+
+		.location-search {
+			h1 {
+				font-size: 2.2em;
+			}
+			
+			h3 {
+				font-size: 1.6em;
+			}
+		}
 	}
 }
 
@@ -891,6 +958,16 @@ footer {
 	body {
 		.home-page {
 			background-image: url('../images/home_background_750px.jpg');
+		}
+
+		.location-search {
+			h1 {
+				font-size: 2.0em;
+			}
+			
+			h3 {
+				font-size: 1.5em;
+			}
 		}
 	}
 }
@@ -932,6 +1009,25 @@ footer {
 
 @media only screen and (max-width: 991px) {
 	body {
+		.location-search {
+			h1 {
+				margin-bottom: 0;
+			}
+
+			div.title-map-table-bar {
+				> div {
+					float: none;
+					clear: both;
+					display: block;
+					text-align: center;
+				}
+			}
+			
+			.data {
+				max-height: calc(100vh - 162px);
+			}
+		}
+	
 		.social-media-signins {
 			width: 350px;
 			padding-left: 0;

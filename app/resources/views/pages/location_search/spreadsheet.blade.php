@@ -1,4 +1,4 @@
-	<div class="spreadsheet">
+	<div class="spreadsheet sort-by-{{ $order_by }}">
 	@if (count($locations) === 0)
 		No location found matching the specified keywords
 	@else

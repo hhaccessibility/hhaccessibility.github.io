@@ -50,6 +50,23 @@ class BaseUser
 		return $user;
 	}
 	
+	public static function getSearchRadius()
+	{
+		if (BaseUser::isSignedIn())
+		{
+			$user = BaseUser::getDbUser();
+			return $user->search_radius_km;
+		}
+		else if ( Session::has('search_radius_km') )
+		{
+			return Session::get('search_radius_km');
+		}
+		else
+		{
+			return 15; // default
+		}
+	}
+	
 	public static function setAddress(string $address)
 	{
 		$address = trim($address);
