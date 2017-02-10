@@ -67,7 +67,22 @@ class Location extends Eloquent
 		if ( $ratingSystem === 'universal' )
 		{
 			$this->universal_rating = $result;
-			$this->save();
+			if ( isset($this->distance) ) {
+				$distance = $this->distance;
+				unset($this->distance); 
+				/* avoid error with Eloquent trying to set 'distance' field in location table
+				when it doesn't actually exist.
+				
+				The distance can be set for convenience in the location search feature.
+				Maybe that feature should only use plain data objects someday.
+				*/
+				$this->save();
+				$this->distance = $distance;
+			}
+			else
+			{
+				$this->save();
+			}
 		}
 		
 		return $result;
