@@ -106,13 +106,15 @@ class BaseUser
 	}
 	
 	/**
+	Calculates distance that a direct flight would 
+	
 	@param long1 is longitude in degrees
 	@param lat1 is latitude in degrees
 	@param long2 is longitude in degrees
 	@param lat2 is latitude in degrees
 	*/
-	public static function getDirectDistance(float $long1, float $lat1,
-		float $long2, float $lat2)
+	public static function getDirectDistance($long1, $lat1,
+		$long2, $lat2)
 	{
 		$earthRadius = 6371;
 		$long1 = deg2rad($long1);
