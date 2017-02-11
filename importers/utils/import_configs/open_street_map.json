@@ -6,20 +6,20 @@
 		{"location_field": "longitude"},
 		{"location_field": "latitude"},
 		{"location_field": "phone_number"},
-		{"location_tag_name": "Restaurant"}
+		{"location_tag_name": "Restaurant"},
+		{"location_tag_name": "Arts & Entertainment"},
+		{"location_tag_name": "Sports & Recreation"},
+		{"location_tag_name": "Education"},
+		{"location_tag_name": "Association & Organization"},
+		{"location_tag_name": "Public service"},
+		{"location_tag_name": "Transportation"},
+		{"location_tag_name": "Accomodation"},
+		{"location_tag_name": "Shopping"},
+		{"location_tag_name": "Parks"},
+		{"location_tag_name": "Financial"}
 	],
 	"future_columns": [
 		{"location_field": "address"},
-		{"location_tag_name": "Accomodation"},
-		{"location_tag_name": "Shopping"},
-		{"location_tag_name": "Healthcare"},
-		{"location_tag_name": "Financial"},
-		{"location_tag_name": "Education"},
-		{"location_tag_name": "Sports & Recreation"},
-		{"location_tag_name": "Parks"},
-		{"location_tag_name": "Public service"},
-		{"location_tag_name": "Transportation"},
-		{"location_tag_name": "Association & Organization"},
-		{"location_tag_name": "Arts & Entertainment"}	
+		{"location_tag_name": "Healthcare"}
 	]
 }
