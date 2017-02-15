@@ -1,0 +1,258 @@
+[{
+		"id" : 1,
+		"country_id" : 39,
+		"name" : "Alberta"
+	}, {
+		"id" : 2,
+		"country_id" : 39,
+		"name" : "British Columbia"
+	}, {
+		"id" : 3,
+		"country_id" : 39,
+		"name" : "Manitoba"
+	}, {
+		"id" : 4,
+		"country_id" : 39,
+		"name" : "New Brunswick"
+	}, {
+		"id" : 5,
+		"country_id" : 39,
+		"name" : "Newfoundland and Labrador"
+	}, {
+		"id" : 6,
+		"country_id" : 39,
+		"name" : "Nova Scotia"
+	}, {
+		"id" : 7,
+		"country_id" : 39,
+		"name" : "Northwest Territories"
+	}, {
+		"id" : 8,
+		"country_id" : 39,
+		"name" : "Nunavut"
+	}, {
+		"id" : 9,
+		"country_id" : 39,
+		"name" : "Ontario"
+	}, {
+		"id" : 10,
+		"country_id" : 39,
+		"name" : "Prince Edward Island"
+	}, {
+		"id" : 11,
+		"country_id" : 39,
+		"name" : "Quebec"
+	}, {
+		"id" : 12,
+		"country_id" : 39,
+		"name" : "Saskatchewan"
+	}, {
+		"id" : 13,
+		"country_id" : 39,
+		"name" : "Yukon"
+	}, {
+		"id" : 14, 
+		"country_id" : 232,
+		"name" : "District of Columbia"
+	}, {
+		"id" : 15,
+		"country_id" : 232,
+		"name" : "Alabama"
+	}, {
+		"id" : 16,
+		"country_id" : 232,
+		"name" : "Alaska"
+	}, {
+		"id" : 17,
+		"country_id" : 232,
+		"name" : "Arizona"
+	}, {
+		"id" : 18,
+		"country_id" : 232,
+		"name" : "Arkansas"
+	}, {
+		"id" : 19,
+		"country_id" : 232,
+		"name" : "California"
+	}, {
+		"id" : 20,
+		"country_id" : 232,
+		"name" : "Colorado"
+	}, {
+		"id" : 21,
+		"country_id" : 232,
+		"name" : "Conecticut"
+	}, {
+		"id" : 22,
+		"country_id" : 232,
+		"name" : "Delaware"
+	}, {
+		"id" : 23,
+		"country_id" : 232,
+		"name" : "Florida"
+	}, {
+		"id" : 24,
+		"country_id" : 232,
+		"name" : "Georgia"
+	}, {
+		"id" : 25,
+		"country_id" : 232,
+		"name" : "Hawaii"
+	}, {
+		"id" : 26,
+		"country_id" : 232,
+		"name" : "Idaho"
+	}, {
+		"id" : 27,
+		"country_id" : 232,
+		"name" : "Illinois"
+	}, {
+		"id" : 28,
+		"country_id" : 232,
+		"name" : "Indiana"
+	}, {
+		"id" : 29,
+		"country_id" : 232,
+		"name" : "Iowa"
+	}, {
+		"id" : 30,
+		"country_id" : 232,
+		"name" : "Kansas"
+	}, {
+		"id" : 31,
+		"country_id" : 232,
+		"name" : "Kentucky"
+	}, {
+		"id" : 32,
+		"country_id" : 232,
+		"name" : "Louisiana"
+	}, {
+		"id" : 33,
+		"country_id" : 232,
+		"name" : "Maine"
+	}, {
+		"id" : 34,
+		"country_id" : 232,
+		"name" : "Maryland"
+	}, {
+		"id" : 35,
+		"country_id" : 232,
+		"name" : "Massachusetts"
+	}, {
+		"id" : 36,
+		"country_id" : 232,
+		"name" : "Michigan"
+	}, {
+		"id" : 37,
+		"country_id" : 232,
+		"name" : "Minnesota"
+	}, {
+		"id" : 38,
+		"country_id" : 232,
+		"name" : "Mississippi"
+	}, {
+		"id" : 39,
+		"country_id" : 232,
+		"name" : "Missouri"
+	}, {
+		"id" : 40,
+		"country_id" : 232,
+		"name" : "Montana"
+	}, {
+		"id" : 41,
+		"country_id" : 232,
+		"name" : "Nebraska"
+	}, {
+		"id" : 42,
+		"country_id" : 232,
+		"name" : "Nevada"
+	}, {
+		"id" : 43,
+		"country_id" : 232,
+		"name" : "New Hampshire"
+	}, {
+		"id" : 44,
+		"country_id" : 232,
+		"name" : "New Jersey"
+	}, {
+		"id" : 45,
+		"country_id" : 232,
+		"name" : "New Mexico"
+	}, {
+		"id" : 46,
+		"country_id" : 232,
+		"name" : "New York"
+	}, {
+		"id" : 47,
+		"country_id" : 232,
+		"name" : "North Carolina"
+	}, {
+		"id" : 48,
+		"country_id" : 232,
+		"name" : "North Dakota"
+	}, {
+		"id" : 49,
+		"country_id" : 232,
+		"name" : "Ohio"
+	}, {
+		"id" : 50,
+		"country_id" : 232,
+		"name" : "Oklahoma"
+	}, {
+		"id" : 51,
+		"country_id" : 232,
+		"name" : "Oregon"
+	}, {
+		"id" : 52,
+		"country_id" : 232,
+		"name" : "Pennsylvania"
+	}, {
+		"id" : 53,
+		"country_id" : 232,
+		"name" : "Rhode Island"
+	}, {
+		"id" : 54,
+		"country_id" : 232,
+		"name" : "South Carolina"
+	}, {
+		"id" : 55,
+		"country_id" : 232,
+		"name" : "South Dakota"
+	}, {
+		"id" : 56,
+		"country_id" : 232,
+		"name" : "Tennessee"
+	}, {
+		"id" : 57,
+		"country_id" : 232,
+		"name" : "Texas"
+	}, {
+		"id" : 58,
+		"country_id" : 232,
+		"name" : "Utah"
+	}, {
+		"id" : 59,
+		"country_id" : 232,
+		"name" : "Vermont"
+	}, {
+		"id" : 60,
+		"country_id" : 232,
+		"name" : "Virginia"
+	}, {
+		"id" : 61,
+		"country_id" : 232,
+		"name" : "Washington"
+	}, {
+		"id" : 62,
+		"country_id" : 232,
+		"name" : "West Virginia"
+	}, {
+		"id" : 63,
+		"country_id" : 232,
+		"name" : "Wisconsin"
+	}, {
+		"id" : 64,
+		"country_id" : 232,
+		"name" : "Wyoming"
+		}
+]
