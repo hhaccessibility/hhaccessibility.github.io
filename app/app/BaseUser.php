@@ -53,10 +53,18 @@ class BaseUser
 	
 	public static function getSearchRadius()
 	{
+		$default_search_radius = 15;
 		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
-			return $user->search_radius_km;
+			if ( $user->search_radius_km === null )
+			{
+				return $default_search_radius;
+			}
+			else
+			{
+				return $user->search_radius_km;
+			}
 		}
 		else if ( Session::has('search_radius_km') )
 		{
@@ -64,7 +72,7 @@ class BaseUser
 		}
 		else
 		{
-			return 15; // default
+			return $default_search_radius;
 		}
 	}
 	
