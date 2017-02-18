@@ -321,6 +321,90 @@ footer {
 	
 }
 
+.location-rating {
+	@extend %page-base;
+
+	margin-bottom: 100px;
+	
+	h1 {
+		margin-top: 5px;
+		margin-left: 5px;
+	}
+	
+	h2 {
+		margin-top: 5px;
+		margin-left: 5px;
+		margin-bottom: 0;
+	}
+	
+	.menu {
+		width: 230px;
+		position: fixed;
+
+		.question-categories {
+			margin-top: 5px;
+			padding-left: 5px;
+			padding-right: 10px;
+
+			a {
+				display: block;
+				text-align: center;
+				font-size: 1.5em;
+				padding: 8px;
+				border-bottom: 1px solid #ddd;
+				transition: color 0.2s, background-color 0.2s;
+				
+				&:hover {
+					color: #002;
+					background-color: #c6d8fd;
+				}
+			}
+		}
+	}
+	
+	.rate {
+		margin-left: 250px;
+		margin-bottom: 50px;
+
+		.questions {
+			padding-right: 10px;
+			padding-left: 15px;
+		
+			> .row {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				border-bottom: 1px solid #ddd;
+				
+				.answers {
+					> div {
+						padding: 0 3px;
+						> div {
+							text-align: center;
+							padding-top: 5px;
+							padding-bottom: 5px;
+							background-color: #c6d8fd;
+							border: 1px solid #bbb;
+							font-weight: bold;
+							border-radius: 2px;
+							cursor: pointer;
+							transition: background-color 0.2s, border-color 0.2s;
+							
+							&:hover, &.selected {
+								border-color: #000;
+								background-color: #eee;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		textarea {
+			height: 150px;
+		}
+	}
+}
+
 .location-search {
 	@extend %page-base;
 

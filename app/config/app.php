@@ -1,30 +1,33 @@
 <?php
 
-function getSiteURL()
+if ( !function_exists('getSiteURL') )
 {
-	if (isset($_SERVER['HTTPS']) &&
-		($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-		isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-		$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-	  $protocol = 'https://';
-	}
-	else {
-	  $protocol = 'http://';
-	}
-	if (isset($_SERVER['HTTP_HOST']))
+	function getSiteURL()
 	{
-		$host = $_SERVER['HTTP_HOST'];
-	}
-	else
-	{
-		$host = env('APP_URL', 'http://localhost:8000');
-		if (strpos($host, '://') === FALSE )
-		{
-			$host = substr($host, strpos('://', $host) + 3);
+		if (isset($_SERVER['HTTPS']) &&
+			($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+		  $protocol = 'https://';
 		}
+		else {
+		  $protocol = 'http://';
+		}
+		if (isset($_SERVER['HTTP_HOST']))
+		{
+			$host = $_SERVER['HTTP_HOST'];
+		}
+		else
+		{
+			$host = env('APP_URL', 'http://localhost:8000');
+			if (strpos($host, '://') === FALSE )
+			{
+				$host = substr($host, strpos('://', $host) + 3);
+			}
+		}
+		
+		return $protocol . $host;
 	}
-	
-	return $protocol . $host;
 }
 
 return [
