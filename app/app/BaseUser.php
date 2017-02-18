@@ -114,7 +114,8 @@ class BaseUser
 	}
 	
 	/**
-	Calculates distance that a direct flight would 
+	Calculates distance that a direct flight would take across the spherical surface of Earth.
+	
 	
 	@param long1 is longitude in degrees
 	@param lat1 is latitude in degrees
@@ -124,7 +125,7 @@ class BaseUser
 	public static function getDirectDistance($long1, $lat1,
 		$long2, $lat2)
 	{
-		$earthRadius = 6371;
+		$earthRadius = 6371; // km
 		$long1 = deg2rad($long1);
 		$lat1 = deg2rad($lat1);
 		$long2 = deg2rad($long2);
@@ -132,7 +133,7 @@ class BaseUser
 		$deltaLong = $long2 - $long1;
 		$deltaLat = $lat2 - $lat1;
 		$a = sin($deltaLat / 2) * sin($deltaLat / 2) +
-			cos($lat1) * cos($long2) *
+			cos($lat1) * cos($lat2) *
 			sin($deltaLong / 2) * sin($deltaLong / 2);
 		$c = 2 * atan2( sqrt( $a ), sqrt( 1 - $a ) );
 		return $earthRadius * $c;
