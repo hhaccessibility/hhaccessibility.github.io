@@ -3,8 +3,8 @@
   <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
-  <script src="/js/profile.js">
-  </script>
+  <script src="/js/profile.js"></script>
+<link href="/css/app.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
 
@@ -17,10 +17,18 @@
 				Edit
 			</a>
 		@else
-			<a class="upload-photo" href="/profile-photo-upload">
-			Upload Your Photo
-			</a>
-		@endif
+        
+        <div>
+            <a class="user-icon" href="/profile-photo-upload">
+                <i class="fa fa-user"></i>
+				<div>Upload Your Photo</div> 
+            </a>
+        </div>
+        
+        @endif
+			
+        
+        	
  	</div>
     <div class="col-md-9 col-sm-8 col-xs-12">
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>

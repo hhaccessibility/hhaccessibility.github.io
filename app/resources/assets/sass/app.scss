@@ -293,7 +293,27 @@ footer {
 			border-bottom: 1px solid #ddd;
 		}
 	}
-	
+
+    .user-icon {
+	   margin-top: 79px;
+	   display: block;
+	   color: mix($base_colour1, #ffffff, 20%);
+	   height: 200px;
+	   overflow: hidden;
+	   text-align: center;
+	   transition: color 0.2s;
+
+		i {
+		   font-size: 180px;
+		   margin-left: auto;
+		   margin-right: auto;
+	   }
+	   
+	   &:hover {
+			color: mix($base_colour1, #ffffff, 30%);
+	   }
+    }
+    
 	.upload-photo, .uploaded-photo {
 		background-color: mix($base_colour1, #ffffff, 80%);
 		display: block;
@@ -1084,7 +1104,7 @@ footer {
 		}
 		
 		.profile {
-			.upload-photo {
+			.upload-photo, .user-icon {
 				margin-top: 0;
 			}
 		}		
