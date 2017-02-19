@@ -2,9 +2,11 @@
 @section('head-content')
   @if ( $view === 'map' && !$turn_off_maps  )
   <script>
-    var locations = {!! json_encode($locations) !!};
+    var locations      = {!! json_encode($locations) !!};
 	var user_longitude = {{ $base_user->getLongitude() }};
-	var user_latitude = {{ $base_user->getLatitude() }};
+	var user_latitude  = {{ $base_user->getLatitude() }};
+	var search_radius  = parseFloat({{ $search_radius }});
+
   </script>
   <script src="/js/location_search_map.js">
   </script>

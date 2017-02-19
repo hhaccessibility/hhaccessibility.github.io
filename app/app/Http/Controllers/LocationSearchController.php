@@ -196,13 +196,15 @@ class LocationSearchController extends Controller {
 
 		return view('pages.location_search.search',
 			[
-				'locations' => $locations, 'keywords' => $keywords,
-				'location_tag_name' => $location_tag_name,
-				'url_factory' => $url_factory,
-				'view' => $view,
+				'locations'          => $locations, 
+				'keywords'           => $keywords,
+				'location_tag_name'  => $location_tag_name,
+				'url_factory'        => $url_factory,
+				'view'               => $view,
 				'google_map_api_key' => config('app.google_map_api_key'),
-				'turn_off_maps' => config('app.turn_off_maps'),
-				'order_by' => $order_by_field_name
+				'turn_off_maps'      => config('app.turn_off_maps'),
+				'order_by'           => $order_by_field_name,
+				'search_radius'      => $search_radius
 			]);
 	}
 }
