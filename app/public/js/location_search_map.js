@@ -60,9 +60,7 @@ function initMap() {
 		map.setCenter(userPoint);
 	});
 
-	/*google.maps.event.addListener(map, 'bounds_changed', function() {
-         alert(map.getBounds());
-      });*/
+	
 
 }
 
