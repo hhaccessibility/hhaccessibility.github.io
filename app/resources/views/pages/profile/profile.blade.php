@@ -3,11 +3,19 @@
   <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
-  <script src="/js/profile.js"></script>
+  <script src ="/js/profile_photo_upload.js"> </script>
+    <script src ="/css/jquery/"></script>
+   <!--<script src="/js/profile.js"></script>--> 
+   
 <link href="/css/app.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
-
+<script type="text/javascript">
+   function funct(m)
+    {
+        document.getElementById("db").innerHTML=m;
+    }
+</script>
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
@@ -18,13 +26,27 @@
 			</a>
 		@else
         
-        <div>
-            <a class="user-icon" href="/profile-photo-upload">
-                <i class="fa fa-user"></i>
-				<div>Upload Your Photo</div> 
-            </a>
+        <div onclick="document.getElementById('ab').click()">
+            <div class="user-icon"> 
+                <div>  <i id="ar" class="fa fa-user"></i></div>
+                <p id="db"> Choose File </p>
+			   <h1></h1>
+            </div>
         </div>
-        
+        <div class="profile-photo-upload-form">
+		<form method="post" action="profile.blade" enctype="multipart/form-data">
+			{!! csrf_field() !!}
+			@include('pages.validation_messages', array('errors'=>$errors))					
+			<div class="row">
+				<div class="col-xs-12" hidden="true">
+					<input class="clean" type="file" id="ab" name="profile_photo" hidden="true" onchange="funct(this.value)">
+				</div>
+				<div class="col-xs-12" style="padding-left: 40px;">
+					<input type="submit" class="clean" value="Upload Photo">
+				</div>
+			</div>
+		</form>
+	</div>
         @endif
 			
         
