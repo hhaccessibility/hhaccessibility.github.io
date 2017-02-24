@@ -153,9 +153,20 @@ class LocationSearchController extends Controller {
 		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
 			$view = Input::get('view');
 		
-		if ( Input::has('keywords') )
+		if ( Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id')) )
+		{
+			$location_tag_id = Input::get('location_tag_id');
+			$location_tag = LocationTag::find($location_tag_id);
+			$location_tag_name = $location_tag->name;
+			$locations = $location_tag->locations();
+		}
+		else if ( Input::has('keywords') || isset($_GET['keywords']) )
 		{
 			$keywords = Input::get('keywords');
+			if ( !Input::has('keywords') )
+			{
+				$keywords = ' ';
+			}
 			$keywordsArray = explode(' ', $keywords);
 			foreach ($keywordsArray as $keyword)
 			{
@@ -164,16 +175,9 @@ class LocationSearchController extends Controller {
 			}
 			$locations = $locationsQuery->distinct();
 		}
-		else if ( Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id')) )
-		{
-			$location_tag_id = Input::get('location_tag_id');
-			$location_tag = LocationTag::find($location_tag_id);
-			$location_tag_name = $location_tag->name;
-			$locations = $location_tag->locations();
-		}
 		else
 		{
-			throw new Exception('Either keywords or location_tag_id must be specified');
+			\App::abort(422, 'Either keywords or location_tag_id must be specified');
 		}
 		$locations = getSortedLocations($locations, $view, $order_by_field_name);
 
