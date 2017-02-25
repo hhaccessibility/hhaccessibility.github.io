@@ -37,6 +37,17 @@ function initSelectAllBindings() {
 	});
 }
 
+function upload(m)
+{
+    $("#photo-upload").submit();
+}
+
+function selectImageFile()
+{
+    $(".hidden-uploader").click();
+}
+
+
 $( function() {
 	$( "#accordion" ).accordion();
 	initSelectAllBindings();

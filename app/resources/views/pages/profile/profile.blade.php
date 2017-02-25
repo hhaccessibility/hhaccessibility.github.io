@@ -3,32 +3,35 @@
   <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
+  <script src ="/css/jquery/"></script>
   <script src="/js/profile.js"></script>
-<link href="/css/app.css" rel="stylesheet" type="text/css">
+
+  <link href="/css/app.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
-
+<script type="text/javascript">
+</script>
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
-			<a href="/profile-photo-upload">
+			<div class="photo-display" onclick="selectImageFile()">
 				<div class="uploaded-photo">
 				</div>
-				Edit
-			</a>
+                <p>Change Photo</p>
+			</div>
 		@else
         
-        <div>
-            <a class="user-icon" href="/profile-photo-upload">
-                <i class="fa fa-user"></i>
-				<div>Upload Your Photo</div> 
-            </a>
+        <div class="photo-display" onclick="selectImageFile()">
+            <div class="user-icon"> 
+                <div><i class="fa fa-user"></i></div>
+                <p>Choose File</p>
+            </div>
         </div>
-        
-        @endif
-			
-        
-        	
+        @endif        	
+		<form id="photo-upload" method="post" action="/profile-photo-upload" enctype="multipart/form-data">
+			{!! csrf_field() !!}
+            <input class="hidden-uploader" type="file" name="profile_photo" onchange="upload()">
+		</form>
  	</div>
     <div class="col-md-9 col-sm-8 col-xs-12">
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
