@@ -294,46 +294,45 @@ footer {
 		}
 	}
 
-    .user-icon {
-	   margin-top: 79px;
-	   display: block;
-	   color: mix($base_colour1, #ffffff, 20%);
-	   height: 200px;
-	   overflow: hidden;
-	   text-align: center;
-	   transition: color 0.2s;
+    .photo-display {
+        cursor: pointer;
+        text-align: center;
+        
+        .user-icon {
+           margin-top: 79px;
+           display: block;
+           color: mix($base_colour1, #ffffff, 20%);
+           height: 200px;
+           overflow: hidden;
+           transition: color 0.2s;
 
-		i {
-		   font-size: 180px;
-		   margin-left: auto;
-		   margin-right: auto;
-	   }
-	   
-	   &:hover {
-			color: mix($base_colour1, #ffffff, 30%);
-	   }
+            i {
+               font-size: 180px;
+               margin-left: auto;
+               margin-right: auto;
+           }
+
+           &:hover {
+                color: mix($base_colour1, #ffffff, 30%);
+           }
+        }        
     }
     
-	.upload-photo, .uploaded-photo {
+	.uploaded-photo {
 		background-color: mix($base_colour1, #ffffff, 80%);
 		display: block;
 		font-size: 20px;
 		margin-top: 79px;
 		min-height: 200px;
-	}
-	
-	.upload-photo {
-		text-align: center;
-		line-height: 200px;
-		color: mix($base_colour1, #ffffff, 20%);
-	}
-	
-	.uploaded-photo {
 		background-image: url('/profile-photo');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
 	}
+    
+    .hidden-uploader {
+        display: none;
+    }
 }
 
 .our-vision {
@@ -1104,7 +1103,7 @@ footer {
 		}
 		
 		.profile {
-			.upload-photo, .user-icon {
+			.user-icon {
 				margin-top: 0;
 			}
 		}		
