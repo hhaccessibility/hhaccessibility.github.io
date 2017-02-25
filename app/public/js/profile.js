@@ -37,11 +37,14 @@ function initSelectAllBindings() {
 	});
 }
 
-function upload(m)
+// uploads the profile photo by submitting the image upload form
+// Called after selecting a photo and hitting "Open"
+function upload()
 {
     $("#photo-upload").submit();
 }
 
+// Opens a dialog for the user to select an image
 function selectImageFile()
 {
     $(".hidden-uploader").click();
