@@ -3,14 +3,10 @@
   <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
-  <script src ="/css/jquery/"></script>
   <script src="/js/profile.js"></script>
-
   <link href="/css/app.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
-<script type="text/javascript">
-</script>
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
