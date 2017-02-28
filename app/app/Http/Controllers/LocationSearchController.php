@@ -170,8 +170,7 @@ class LocationSearchController extends Controller {
 			$keywordsArray = explode(' ', $keywords);
 			foreach ($keywordsArray as $keyword)
 			{
-				$locationsQuery->orWhere('name', 'LIKE', '%' . $keyword . '%');
-				$locationsQuery->orWhere('address', 'LIKE', '%' . $keyword . '%');
+				$locationsQuery->where('name', 'LIKE', '%' . $keyword . '%');
 			}
 			$locations = $locationsQuery->distinct();
 		}
