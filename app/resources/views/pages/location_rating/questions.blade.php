@@ -4,7 +4,7 @@
 	<input type="hidden" name="location_id" value="{{ $location->id }}">
 	<div class="questions">
 		@foreach ( $question_category->questions()->get() as $question )
-			<div class="row">
+			<div class="row" data-question-id="{{ $question->id }}">
 				<div class="col-xs-6">
 					{!! $question->question_html !!}
 				</div>
@@ -20,7 +20,7 @@
 							No
 							</div>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-6" title="Location does not require this">
 							<div>
 							Not Applicable
 							</div>
@@ -30,6 +30,7 @@
 			</div>
 		@endforeach
 	</div>
-	<textarea class="clean" placeholder="Comment on {{ $question_category->name }} at {{ $location->name }}"></textarea>
+	<textarea class="clean" placeholder="Comment on {{ $question_category->name }} at {{ $location->name }}"
+	>{{ $answer_repository->getComment() }}</textarea>
 	<input class="clean pull-right" type="submit" value="Next">
 </form>

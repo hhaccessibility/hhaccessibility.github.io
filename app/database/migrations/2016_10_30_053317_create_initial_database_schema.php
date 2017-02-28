@@ -122,6 +122,14 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('question_id')->references('id')->on('question');
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('location');
+			
+			/*
+			 0 = No, the location does not meet the feature/requirement in question.
+			 1 = Yes, the location has the feature/requirement in question
+			 2 = Not required.  The location may or may not have the feature/requirement 
+			in question but it doesn't matter because the location doesn't need to have
+			it to meet the underlying accessibility needs.
+			*/
 			$table->string('answer_value', 255);
 			$table->datetime('when_submitted');
         });

@@ -43,6 +43,9 @@ Route::get('location-report/{location_id}/{rating_system}', 'LocationReportContr
 Route::get('location-report/{location_id}/{rating_system}/{question_category_id}', 'LocationReportController@show');
 Route::get('location-rating/{location_id}', 'LocationRatingController@show');
 Route::get('location-rating/{location_id}/{question_category_id}', 'LocationRatingController@show');
+Route::put('location-rating/answer', 'LocationRatingController@setAnswer');
+Route::delete('location-rating/answer', 'LocationRatingController@removeAnswer');
+Route::put('location-rating/comment', 'LocationRatingController@setComment');
 
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@sendMessage');
