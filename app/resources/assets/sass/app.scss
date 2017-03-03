@@ -340,6 +340,18 @@ footer {
 	
 }
 
+.reviewed-locations {
+	@extend %page-base;
+
+	h1 {
+		text-align: center;
+	}
+	
+	> p {
+		text-align: center;
+	}
+}
+
 body.fixed-menu {
 	.location-rating {
 		display: block;

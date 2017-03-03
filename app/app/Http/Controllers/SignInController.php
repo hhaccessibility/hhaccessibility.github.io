@@ -2,6 +2,7 @@
 
 use App\User;
 use App\BaseUser;
+use App\AnswerRepository;
 use Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -53,6 +54,7 @@ class SignInController extends Controller {
 	public function signout(Request $request)
 	{
 		BaseUser::signout();
+		AnswerRepository::destroyUncommittedChanges();
 		return redirect()->intended('/');
 	}
 }
