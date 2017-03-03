@@ -11,7 +11,7 @@ function compareByDistance($location1, $location2)
 {
 	if ( $location1->distance < $location2->distance )
 		return -1;
-	else if ( $location1->distance === $location2->distance ) 
+	else if ( $location1->distance === $location2->distance )
 		return 0;
 	else
 		return 1;
@@ -48,7 +48,7 @@ function updateRatings(array $locations)
 }
 
 function getSortedLocations($locations, $view, $order_by_field_name)
-{		
+{
 	if ( $view === 'table' ) {
 		if ( $order_by_field_name === 'name' )
 		{
@@ -60,10 +60,10 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 	$loc_array = [];
 	foreach ($locations as $loc)
 	{
-		$loc_array []= $loc; 
+		$loc_array []= $loc;
 	}
 	$locations = $loc_array;
-		
+
 	updateDistances($locations);
 	if ( $view === 'table' ) {
 		updateRatings($locations);
@@ -71,7 +71,7 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )
 			usort($locations, 'App\Http\Controllers\compareByRating');
-		
+
 	}
 	return $locations;
 }
@@ -84,7 +84,7 @@ class URLFactory
 	public function __construct($params) {
 		$this->params = $params;
 	}
-	
+
 	private static function getURLFromParameters($params)
 	{
 		$url = '/location-search?';
@@ -98,24 +98,24 @@ class URLFactory
 		}
 		return $url;
 	}
-	
+
 	private function cloneParams()
 	{
 		return array_flip(array_flip($this->params));
 	}
-	
+
 	public function createURL()
 	{
 		return $this->params;
 	}
-	
+
 	public function createURLForOrderByField($field_name)
 	{
 		$params = $this->cloneParams();
 		$params['order_by'] = $field_name;
 		return URLFactory::getURLFromParameters($params);
 	}
-	
+
 	public function createURLForView($view)
 	{
 		$params = $this->cloneParams();
@@ -149,10 +149,10 @@ class LocationSearchController extends Controller {
 			}
 		}
 		$view = 'table';
-		
+
 		if ( Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' ) )
 			$view = Input::get('view');
-		
+
 		if ( Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id')) )
 		{
 			$location_tag_id = Input::get('location_tag_id');
@@ -189,7 +189,7 @@ class LocationSearchController extends Controller {
 			}
 		}
 		$locations = $filtered_locations;
-		
+
 		$url_factory = new URLFactory([
 			'keywords' => $keywords,
 			'order_by' => $order_by_field_name,
@@ -199,7 +199,7 @@ class LocationSearchController extends Controller {
 
 		return view('pages.location_search.search',
 			[
-				'locations'          => $locations, 
+				'locations'          => $locations,
 				'keywords'           => $keywords,
 				'location_tag_name'  => $location_tag_name,
 				'url_factory'        => $url_factory,
