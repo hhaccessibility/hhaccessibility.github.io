@@ -10,17 +10,23 @@
 				</div>
 				<div class="col-xs-6">
 					<div class="row answers">
-						<div class="col-xs-3">
+						<div class="col-xs-3 @if ( $answer_repository->getAnswerForQuestion($question->id) === 1 )
+							selected
+						@endif">
 							<div>
 							Yes
 							</div>
 						</div>
-						<div class="col-xs-3">
+						<div class="col-xs-3 @if ( $answer_repository->getAnswerForQuestion($question->id) === 0 )
+							selected
+						@endif">
 							<div>
 							No
 							</div>
 						</div>
-						<div class="col-xs-6" title="Location does not require this">
+						<div class="col-xs-6 @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
+							selected
+						@endif" title="Location does not require this">
 							<div>
 							Not Applicable
 							</div>

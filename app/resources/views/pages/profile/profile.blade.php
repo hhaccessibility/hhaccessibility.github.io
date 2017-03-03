@@ -204,7 +204,7 @@
 					 <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
 				</div>
 				<div>
-					<a class="btn btn-default">My Reviews</a>
+					<a class="btn btn-default" href="/reviewed-locations">My Reviews({{ $num_reviews }})</a>
 				</div>
 			</div>
 

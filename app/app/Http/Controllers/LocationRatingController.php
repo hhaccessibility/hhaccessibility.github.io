@@ -10,6 +10,22 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
 class LocationRatingController extends Controller {
+	public function commitReview(Request $request)
+	{
+		$validation_rules = [
+			'location_id' => 'required|integer'
+		];
+		$validator = Validator::make(Input::all(), $validation_rules);
+		if ($validator->fails())
+		{
+			return response(422)->json(['success' => false]);
+		}
+		
+		$location_id = Input::get('location_id');
+		AnswerRepository::commitAnswersForLocation($location_id);
+		
+		return redirect()->intended('/reviewed-locations');
+	}
 
 	public function setAnswer(Request $request)
 	{
@@ -104,4 +120,12 @@ class LocationRatingController extends Controller {
 	   ]);
    }
 
+   public function reviewedLocations()
+   {
+	   $location_ids = AnswerRepository::getReviewedLocations();
+	   $locations = Location::whereIn('id', $location_ids)->get();
+	   return view('pages.location_rating.reviewed_locations', [
+			'locations' => $locations
+		   ]);
+   }
 }

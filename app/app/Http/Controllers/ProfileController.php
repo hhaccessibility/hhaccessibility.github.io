@@ -3,6 +3,7 @@
 use App\BaseUser;
 use App\QuestionCategory;
 use App\Country;
+use App\AnswerRepository;
 use App\Http\Controllers\ProfilePhotoUploadController;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class ProfileController extends Controller {
 			'address_default' => BaseUser::getDefaultAddress(),
 			'countries' => $countries,
 			'required_questions' => $required_questions,
-			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto()
+			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto(),
+			'num_reviews' => count(AnswerRepository::getReviewedLocations())
 			];
 
 		if ($validator === null)
@@ -76,7 +78,7 @@ class ProfileController extends Controller {
 		$questions_to_add = [];
 		
 		// Existing questions/accessibility needs that are required so no update needed on.
-		$questions_matched = []; 
+		$questions_matched = [];
 		
 		// Save the user_question data.
 		foreach (Input::all() as $name => $value)
