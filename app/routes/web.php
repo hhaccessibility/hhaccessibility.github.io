@@ -14,6 +14,7 @@ use App\Location;
 */
 
 Route::get('/', 'HomeController@index');
+Route::post('save-user-location', 'HomeController@saveUserLocation');
 
 Route::get('our-vision', function()
 {

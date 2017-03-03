@@ -38,13 +38,13 @@
 			@endif
 		</div>
 	</div>
-	
+
 	@if ( $view === 'table' )
 		@include('pages.location_search.spreadsheet', array('locations' => $locations, 'url_factory' => $url_factory))
 	@else
 		@include('pages.location_search.map', array('locations' => $locations))
 	@endif
-	
+
 </div>
-	
+
 @stop
