@@ -976,14 +976,34 @@ body.fixed-menu {
 				background-color: rgba($base_colour1, 0.5);
 				border-left: 1px solid #fff;
 				border-bottom: 1px solid #fff;
-				transition: background-color 0.2s;
+				transition: background-color 0.2s, font-size 0.3s;
 								
 				&:hover {
-					background-color: rgba($base_colour1, 0.7);
+					background-color: #000;
+					font-size: 1.6em;
 				}
 			}
 		}
 	}	
+}
+
+@media screen and (max-width: 250px) {
+	html > body {
+		.home-page {
+			.home-inputs {
+				> .location-tags {
+					> div > .location-tag {
+						width: 100%;
+						
+						> a {
+							border-left-width: 0;
+							border-right-width: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 360px) {
