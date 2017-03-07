@@ -73,7 +73,7 @@
 	<div class="map-and-box">
 		<div id="map">
 		</div>
-		<div class="outer-quesitons-box">
+		<div class="outer-questions-box">
 			<div class="questions-box">
 				@if ($rating_system === 'personal' && !$personal_rating_is_available)
 					@include('pages.location_report.personal_not_available')
