@@ -22,7 +22,7 @@ class BaseUser
 		}
 		return Hash::check($password, $matching_user->password_hash);
 	}
-	
+
 	/**
 	* Checks if the visitor associated with the current request is authenticated.
 	*/
@@ -30,12 +30,12 @@ class BaseUser
 	{
 		return Session::has('email');
 	}
-	
+
 	public static function isCompleteAccessibilityProfile()
 	{
 		return BaseUser::isSignedIn();
 	}
-	
+
 	/**
 	* Returns an instance of App/User associated with the current session
 	*/
@@ -44,13 +44,13 @@ class BaseUser
 		{
 			throw new Exception('Unable to get database user because you are not signed in');
 		}
-		
+
 		$email = Session::get('email');
 		$user = User::where('email', $email) -> first();
-		
+
 		return $user;
 	}
-	
+
 	public static function getSearchRadius()
 	{
 		$default_search_radius = 15;
@@ -75,7 +75,7 @@ class BaseUser
 			return $default_search_radius;
 		}
 	}
-	
+
 	public static function setAddress(string $address)
 	{
 		$address = trim($address);
@@ -90,12 +90,42 @@ class BaseUser
 			Session::put('location_search_text', $address);
 		}
 	}
-	
+
+	public static function setLongitude(float $longitude)
+	{
+		$longitude = trim($longitude);
+		if (BaseUser::isSignedIn())
+		{
+			$user = BaseUser::getDbUser();
+			$user->longitude = $longitude;
+			$user->save();
+		}
+		else
+		{
+			Session::put('longitude', $longitude);
+		}
+	}
+
+	public static function setLatitude(float $latitude)
+	{
+		$latitude = trim($latitude);
+		if (BaseUser::isSignedIn())
+		{
+			$user = BaseUser::getDbUser();
+			$user->latitude = $latitude;
+			$user->save();
+		}
+		else
+		{
+			Session::put('latitude', $latitude);
+		}
+	}
+
 	public static function getDefaultAddress()
 	{
 		return 'Windsor, Ontario, Canada';
 	}
-	
+
 	public static function getAddress()
 	{
 		if (BaseUser::isSignedIn())
@@ -107,16 +137,20 @@ class BaseUser
 			}
 			return $user->location_search_text;
 		}
-		else
+		else if ( Session::has('location_search_text') )
 		{
 			return Session::get('location_search_text');
 		}
+		else
+		{
+			return '';
+		}
 	}
-	
+
 	/**
 	Calculates distance that a direct flight would take across the spherical surface of Earth.
-	
-	
+
+
 	@param long1 is longitude in degrees
 	@param lat1 is latitude in degrees
 	@param long2 is longitude in degrees
@@ -138,7 +172,7 @@ class BaseUser
 		$c = 2 * atan2( sqrt( $a ), sqrt( 1 - $a ) );
 		return $earthRadius * $c;
 	}
-	
+
 	public function getLatitude()
 	{
 		if ( BaseUser::isSignedIn() )
@@ -147,11 +181,14 @@ class BaseUser
 			if (is_numeric($user->latitude))
 				return $user->latitude;
 		}
-		
+		else if ( Session::has('latitude') ) {
+			return Session::get('latitude');
+		}
+
 		// Latitude of Windsor city hall
 		return 42.3174246;
 	}
-	
+
 	public function getLongitude()
 	{
 		if ( BaseUser::isSignedIn() )
@@ -160,11 +197,15 @@ class BaseUser
 			if (is_numeric($user->longitude))
 				return $user->longitude;
 		}
-		
+		else if ( Session::has('longitude') )
+		{
+			return Session::get('longitude');
+		}
+
 		// Longitude of Windsor city hall
 		return -83.0374028;
 	}
-	
+
 	/**
 	Returns distance in kilometers
 	*/
@@ -174,12 +215,26 @@ class BaseUser
 			$longitude, $latitude,
 			$this->getLongitude(), $this->getLatitude());
 	}
-	
-	public static function signIn($email) 
+
+	public static function signIn($email)
 	{
 		Session::put('email',$email);
+		//copying non-default session data to user table.
+		if ( Session::has('location_search_text') && Session::get('location_search_text') !== ''
+		&& Session::has('longitude') && Session::has('latitude') )
+		{
+			//copy the address, longitude  and  latitude to the user table
+			BaseUser::setAddress(Session::get('location_search_text'));
+			BaseUser::setLatitude(Session::get('latitude'));
+			BaseUser::setLongitude(Session::get('longitude'));
+			
+			// Remove the data from the session.
+			Session::forget('longitude');
+			Session::forget('latitude');
+			Session::forget('location_search_text');
+		}
 	}
-	
+
 	public static function signout()
 	{
 		Session::forget(['email']);

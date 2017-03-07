@@ -1,6 +1,12 @@
 @extends('layouts.default')
+@section('footer-content')
+	<script type="text/javascript" async defer
+		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
+	</script>
+	<script src="/js/jquery-3.1.1.js"  type="text/javascript"></script>
+	<script src="/js/home.js" type="text/javascript"></script>
+@stop
 @section('content')
-
 <div class="home-page">
 	<div class="row">
 		<div class="col-lg-5">
@@ -33,11 +39,17 @@
 					</a>
 				</div>
 				@endif
+				<div>
+					<div id="map"></div>
+				</div>
 				<div class="search">
+
 					<form role="search" action="/location-search">
+							{{ csrf_field() }}
 						<input
 							class="form-control"
 							name="address"
+							id="address"
 							value="{{ $address_value }}"
 							placeholder="{{ $address_default }}"
 							title="Address">
@@ -58,13 +70,13 @@
 				<div class="location-tags">
 					<div class="row">
 					@foreach ( $location_tags as $key => $value )
-					
+
 						<div class="location-tag col-sm-4 col-xs-6">
 							<a href="/location-search?location_tag_id={{ $value->id }}" title="{{ $value->description }}">
 							{{ $value->name }}
 							</a>
 						</div>
-						
+
 					@endforeach
 					</div>
 				</div>

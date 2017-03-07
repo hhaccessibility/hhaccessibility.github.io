@@ -28,10 +28,10 @@ function initMap() {
 
 		google.maps.event.addListener(locationMarker, 'click', function() {
 			window.location.href = '/location-report/' + location.id;
-		});	
+		});
 
 		bounds.extend(myLatLng);
-	
+
 	});
 
 	map.fitBounds(bounds);
@@ -41,7 +41,7 @@ function initMap() {
 	  map: map,
 	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 	});
-    
+
     //convert kilometers to meters
 	var circleRadius =search_radius*1000;
 
@@ -60,8 +60,6 @@ function initMap() {
 		map.setCenter(userPoint);
 	});
 
-	
+
 
 }
-
-
