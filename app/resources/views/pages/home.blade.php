@@ -1,10 +1,10 @@
 @extends('layouts.default')
 @section('footer-content')
+	<script src="/js/jquery-3.1.1.js"  type="text/javascript"></script>
+	<script src="/js/home.js" type="text/javascript"></script>
 	<script type="text/javascript" async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
 	</script>
-	<script src="/js/jquery-3.1.1.js"  type="text/javascript"></script>
-	<script src="/js/home.js" type="text/javascript"></script>
 @stop
 @section('content')
 <div class="home-page">
