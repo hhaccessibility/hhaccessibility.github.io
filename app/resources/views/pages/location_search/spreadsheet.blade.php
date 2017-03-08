@@ -3,11 +3,11 @@
 		No location found matching the specified keywords
 	@else
 		<div class="row">
-			<div class="col-xs-7">
+			<div class="col-xs-6">
 				<h3><a href="{{ $url_factory->createURLForOrderByField('name') }}">Name</a></h3>
 			</div>
-			<div class="col-xs-2">
-				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}">Rating</a></h3>
+			<div class="col-xs-3">
+				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}">Accessibility Rating (%)</a></h3>
 			</div>
 			<div class="col-xs-3">
 				<h3><a href="{{ $url_factory->createURLForOrderByField('distance') }}">Distance (km)</a></h3>
@@ -18,10 +18,10 @@
 			<div class="location">
 				<a href="/location-report/{{ $value->id }}">
 					<div class="row">
-						<div class="col-xs-7">
+						<div class="col-xs-6">
 							{{ $value->name }}
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-3">
 							{{ $value->rating }}
 						</div>
 						<div class="col-xs-3">
