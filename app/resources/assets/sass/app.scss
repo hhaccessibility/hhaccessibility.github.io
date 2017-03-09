@@ -148,7 +148,7 @@ h1, h2, h3 {
 	}
 	
 	.data {
-		max-height: calc(100vh - 135px);
+		max-height: calc(100vh - 152px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		
@@ -284,6 +284,8 @@ footer {
 
 .profile {
 	@extend %page-base;
+	
+	padding-bottom: 30px;
 	
 	h1 {
 		padding-bottom: 20px;
@@ -810,7 +812,7 @@ body.fixed-menu {
 		}		
 	}
 	
-	.location-tags {	
+	.location-tags {
 		.location-tag {
 			@extend %dark-link;
 		
@@ -971,6 +973,7 @@ body.fixed-menu {
 		padding-right: 15px;
 		padding-left: 15px;
 		margin-top: 40px;
+		margin-bottom: 40px;
 		
 		.location-tag {
 			padding-left: 0;
