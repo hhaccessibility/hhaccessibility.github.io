@@ -155,18 +155,16 @@
 			</div>
 
 			<h2>My Accessibility Requirements </h2>
-			<div class="box accesibility-interests">
-				<p>
-					<div class="checkbox">
-							<label>
-							@if ( $user->uses_screen_reader )
-							<input type="checkbox" name="uses_screen_reader" checked>
-							@else
-							<input type="checkbox" name="uses_screen_reader">
-							@endif
-							Screen Reader</label>
-					</div>
-				</p>
+			<div class="box accessibility-interests">
+				<div class="checkbox">
+					<label>
+					@if ( $user->uses_screen_reader )
+					<input type="checkbox" name="uses_screen_reader" checked>
+					@else
+					<input type="checkbox" name="uses_screen_reader">
+					@endif
+					Screen Reader</label>
+				</div>
 				<div id="accordion">
 			
 				@foreach ($question_categories as $category)
@@ -185,7 +183,10 @@
 									@else
 									<input name="question_{{ $question->id }}" type="checkbox">
 									@endif
-									{!! $question->question_html !!}</label>
+									</label>
+									<div>
+									{!! $question->question_html !!}
+									</div>
 								</div>
 							@endforeach
 						</div>
@@ -211,7 +212,6 @@
 			<div class="text-right">
 				<button type="submit" class="btn btn-lg btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
 		   </div>
-		 </div>
 	 </form>
 	 
 	</div>

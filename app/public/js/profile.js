@@ -26,7 +26,7 @@ function updateSelectAll() {
 }
 
 function initSelectAllBindings() {
-	var interests_box = $('.accesibility-interests');
+	var interests_box = $('.accessibility-interests');
 	var select_all_elements = interests_box.find('input.select-all');
 	var checkboxes = interests_box.find('.questions input');
 	var question_categories = interests_box.find('.category > .checkbox');

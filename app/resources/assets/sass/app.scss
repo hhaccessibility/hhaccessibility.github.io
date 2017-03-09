@@ -292,6 +292,16 @@ footer {
 			padding-bottom: 10px;
 			border-bottom: 1px solid #ddd;
 		}
+		
+		.questions > .checkbox {
+			> label {
+				vertical-align: top;
+			}
+		
+			> div {
+				display: inline-block;
+			}
+		}
 	}
 
     .photo-display {
