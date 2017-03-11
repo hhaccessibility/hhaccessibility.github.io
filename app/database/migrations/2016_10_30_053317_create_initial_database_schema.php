@@ -22,7 +22,14 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->unique('name');
-		});		
+	});		
+	Schema::create('region', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('country_id')->unsigned();
+			$table->foreign('country_id')->references('id')->on('country');
+			$table->string('name', 255);
+			$table->unique('name');
+	});
         Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->boolean('uses_screen_reader')->default(false);
@@ -55,10 +62,10 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('role_id')->unsigned();
 			$table->foreign('role_id')->references('id')->on('role');
 			$table->unique(array('role_id', 'user_id'));
-		});
-		Schema::create('question_category', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 255);
+	});
+	Schema::create('question_category', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('name', 255);
         });
         Schema::create('question', function (Blueprint $table) {
 			$table->increments('id');
@@ -166,6 +173,7 @@ class CreateInitialDatabaseSchema extends Migration
      */
     public function down()
     {
+    	
         Schema::dropIfExists('location_location_tag');
         Schema::dropIfExists('location_tag');
         Schema::dropIfExists('review_comment');
@@ -179,6 +187,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('user_role');
         Schema::dropIfExists('user');
         Schema::dropIfExists('role');
+        Schema::dropIfExists('region');
         Schema::dropIfExists('country');
         Schema::dropIfExists('data_source');
     }
