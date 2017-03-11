@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
     {
 		$tables_to_seed_using_json = ['role', 'location_location_tag', 'location',
 			'location_group', 'location_tag', 'question',
-			'question_category', 'country', 'data_source'];
+			'question_category','region', 'country', 'data_source'];
 		$user_data_tables = ['user_answer', 'review_comment'];
 		
 		DatabaseSeeder::deleteDataFromTables($user_data_tables);
