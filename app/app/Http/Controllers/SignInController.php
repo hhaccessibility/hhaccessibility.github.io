@@ -18,7 +18,7 @@ class SignInController extends Controller {
 		if ( !empty(Input::get('email')) ) {
 			$email = trim(Input::get('email'));
 		}
-		return view('pages.signin', ['email' => $email]);
+		return view('pages.signin', ['email' => $email, 'confirmmessage' => '']);
 	}
 
     /**
@@ -40,7 +40,7 @@ class SignInController extends Controller {
 			if (BaseUser::authenticate($email, $request->input('password')))
 			{
 				if(!BaseUser::checkEmail($email))
-					return view('pages.signin',['email' => $email,'confirmmessage'=>'A verification code has ever been sent to your email '.$email.'. Check your email to confirm.']);
+					return view('pages.signin',['email' => $email,'confirmmessage'=>'A verification code has been sent to '.$email.'. Check your email to confirm.']);
 				BaseUser::signIn($email);
 				return redirect()->intended('profile');
 			}

@@ -9,9 +9,12 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="signin-form">
+				@if ( $confirmmessage )
+				<strong>{{ $confirmmessage }}</strong>
+				@else
 				<form method="post" action="/signin">
                     {!! csrf_field() !!}
-					@include('pages.validation_messages', array('errors'=>$errors))					
+					@include('pages.validation_messages', array('errors'=>$errors))
 					<div class="row">
 						<div class="col-xs-12">
 							<input type="email"
@@ -36,6 +39,7 @@
 						<input class="clean" type="submit" value="Sign in">
 					</div>
 				</form>
+				@endif
 			</div> 
 		</div>
 		<div class="col-md-6">
