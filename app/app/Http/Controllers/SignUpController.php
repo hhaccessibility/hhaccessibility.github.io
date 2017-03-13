@@ -48,15 +48,23 @@ class SignUpController extends Controller {
 			$newUserRole->role_id = 2;
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
-			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'A verification code has been sent to your email '.$email.'. Check your email to confirm.']);
+			return view('pages.signup.success',[
+				'email' => $email,
+				'confirmmessage' => 'A verification code has been sent to ' . $email . '. Check your email to confirm.',
+				'can_sign_in' => false
+				]);
 		}
 		return view('pages.signup.form');
     }
-	public function confirmEmail($user_email,$email_verification_token) {
+	public function confirmEmail($user_email, $email_verification_token) {
 		$email = $user_email;
 		$confirmCode = $email_verification_token;
 		if (BaseUser::confirmEmail($email,$confirmCode)) {
-			return view('pages.signup.success',['email' => $email,'confirmmessage'=>'Your email has been confirmed.']);
+			return view('pages.signup.success', [
+				'email' => $email,
+				'confirmmessage' => 'Your email has been confirmed.',
+				'can_sign_in' => true
+				]);
 		}
 
 		return Redirect::to('signup')->withErrors('Ooophs, there is a problem with your confirm code! you can try it again.');
