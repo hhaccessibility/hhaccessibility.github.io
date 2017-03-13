@@ -268,6 +268,12 @@ class BaseUser
 
 		return false;
 	}
+
+	// check if user's email verificated while loging in
+	public static function checkEmail(string $email) {
+		$matching_user = User::where('email', '=', $email)->first();
+		return !is_null($matching_user->email_verification_time);
+	}
 }
 
 ?>
