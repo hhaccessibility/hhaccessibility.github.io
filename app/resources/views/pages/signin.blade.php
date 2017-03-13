@@ -13,14 +13,14 @@
 				<strong>{{ $confirmmessage }}</strong>
 				@else
 				<form method="post" action="/signin">
-                    {!! csrf_field() !!}
+					{!! csrf_field() !!}
 					@include('pages.validation_messages', array('errors'=>$errors))
 					<div class="row">
 						<div class="col-xs-12">
 							<input type="email"
 								class="clean" name="email"
 								placeholder="Email" value="{{ old('email', $email) }}">
-						</div>						
+						</div>
 						<div class="col-xs-12">
 							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
 						</div>
