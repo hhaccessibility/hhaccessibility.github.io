@@ -39,8 +39,6 @@ class SignInController extends Controller {
 			$email = $request->input('email');
 			if (BaseUser::authenticate($email, $request->input('password')))
 			{
-				if(!BaseUser::checkEmail($email))
-					return view('pages.signin',['email' => $email,'confirmmessage'=>'A verification code has been sent to '.$email.'. Check your email to confirm.']);
 				BaseUser::signIn($email);
 				return redirect()->intended('profile');
 			}
