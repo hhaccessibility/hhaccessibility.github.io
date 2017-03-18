@@ -48,6 +48,11 @@ $base_colour1: #153157;
 	}
 }
 
+%sorted-column-title {
+	text-decoration: none;
+	color: #000;
+}
+
 @mixin social-media-large-button($colour) {
 	background-color: $colour;
 	border-color: $colour;
@@ -126,12 +131,33 @@ h1, h2, h3 {
 	}
 }
 
+.spreadsheet.sort-by-name .column-titles .name a {
+	@extend %sorted-column-title;
+}
+
+.spreadsheet.sort-by-rating .column-titles .accessibility-rating a {
+	@extend %sorted-column-title;
+}
+
+.spreadsheet.sort-by-distance .column-titles .distance a {
+	@extend %sorted-column-title;
+}
+
 .spreadsheet {
 	h3 {
 		margin-top: 5px;
 
 		> a {
 			color: #000;
+		}
+	}
+	
+	.column-titles a {
+		text-decoration: underline;
+		transition: color 0.3s;
+		
+		&:hover {
+			color: #029;
 		}
 	}
 	
