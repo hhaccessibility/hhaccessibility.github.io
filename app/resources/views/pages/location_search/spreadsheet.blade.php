@@ -2,14 +2,14 @@
 	@if (count($locations) === 0)
 		No location found matching the specified keywords
 	@else
-		<div class="row">
-			<div class="col-xs-6">
+		<div class="row column-titles">
+			<div class="col-xs-6 name">
 				<h3><a href="{{ $url_factory->createURLForOrderByField('name') }}">Name</a></h3>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-3 accessibility-rating">
 				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}">Accessibility Rating (%)</a></h3>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-3 distance">
 				<h3><a href="{{ $url_factory->createURLForOrderByField('distance') }}">Distance (km)</a></h3>
 			</div>
 		</div>
