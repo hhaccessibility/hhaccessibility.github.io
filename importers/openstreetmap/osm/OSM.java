@@ -177,6 +177,10 @@ public class OSM {
 		if ( amenity.equals("parking") )
 			return false;
 		
+		String name = getValueForKey(tags, "name");
+		if( name.equals("Windsor") )
+			return false;
+		
 		return true;
 	}
 
