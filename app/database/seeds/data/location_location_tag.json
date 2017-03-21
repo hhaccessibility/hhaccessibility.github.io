@@ -690,16 +690,6 @@
         "location_tag_id": 8
     },
     {
-        "id": 187,
-        "location_id": 174,
-        "location_tag_id": 8
-    },
-    {
-        "id": 188,
-        "location_id": 175,
-        "location_tag_id": 8
-    },
-    {
         "id": 189,
         "location_id": 176,
         "location_tag_id": 8
@@ -740,21 +730,6 @@
         "location_tag_id": 8
     },
     {
-        "id": 197,
-        "location_id": 184,
-        "location_tag_id": 8
-    },
-    {
-        "id": 198,
-        "location_id": 185,
-        "location_tag_id": 8
-    },
-    {
-        "id": 199,
-        "location_id": 186,
-        "location_tag_id": 8
-    },
-    {
         "id": 200,
         "location_id": 187,
         "location_tag_id": 8
@@ -762,16 +737,6 @@
     {
         "id": 201,
         "location_id": 188,
-        "location_tag_id": 8
-    },
-    {
-        "id": 202,
-        "location_id": 189,
-        "location_tag_id": 8
-    },
-    {
-        "id": 203,
-        "location_id": 190,
         "location_tag_id": 8
     },
     {
@@ -982,11 +947,6 @@
     {
         "id": 245,
         "location_id": 232,
-        "location_tag_id": 8
-    },
-    {
-        "id": 246,
-        "location_id": 233,
         "location_tag_id": 8
     },
     {
@@ -1400,11 +1360,6 @@
         "location_tag_id": 8
     },
     {
-        "id": 329,
-        "location_id": 316,
-        "location_tag_id": 8
-    },
-    {
         "id": 330,
         "location_id": 317,
         "location_tag_id": 8
@@ -1522,11 +1477,6 @@
     {
         "id": 353,
         "location_id": 340,
-        "location_tag_id": 8
-    },
-    {
-        "id": 354,
-        "location_id": 341,
         "location_tag_id": 8
     },
     {
@@ -2205,16 +2155,6 @@
         "location_tag_id": 11
     },
     {
-        "id": 490,
-        "location_id": 485,
-        "location_tag_id": 6
-    },
-    {
-        "id": 491,
-        "location_id": 487,
-        "location_tag_id": 6
-    },
-    {
         "id": 492,
         "location_id": 488,
         "location_tag_id": 11
@@ -2223,11 +2163,6 @@
         "id": 493,
         "location_id": 489,
         "location_tag_id": 7
-    },
-    {
-        "id": 494,
-        "location_id": 490,
-        "location_tag_id": 6
     },
     {
         "id": 495,
@@ -2550,11 +2485,6 @@
         "location_tag_id": 1
     },
     {
-        "id": 559,
-        "location_id": 626,
-        "location_tag_id": 6
-    },
-    {
         "id": 560,
         "location_id": 629,
         "location_tag_id": 6
@@ -2755,19 +2685,9 @@
         "location_tag_id": 6
     },
     {
-        "id": 600,
-        "location_id": 690,
-        "location_tag_id": 6
-    },
-    {
         "id": 601,
         "location_id": 691,
         "location_tag_id": 11
-    },
-    {
-        "id": 602,
-        "location_id": 692,
-        "location_tag_id": 4
     },
     {
         "id": 603,
@@ -2788,10 +2708,5 @@
         "id": 606,
         "location_id": 697,
         "location_tag_id": 8
-    },
-    {
-        "id": 607,
-        "location_id": 698,
-        "location_tag_id": 11
     }
 ]

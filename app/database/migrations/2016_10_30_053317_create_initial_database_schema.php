@@ -13,24 +13,24 @@ class CreateInitialDatabaseSchema extends Migration
      */
     public function up()
     {
-        Schema::create('data_source', function (Blueprint $table) {
+		Schema::create('data_source', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 100);
 			$table->string('description', 255)->nullable();
-        });
-        Schema::create('country', function (Blueprint $table) {
+		});
+		Schema::create('country', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->unique('name');
-	});		
-	Schema::create('region', function (Blueprint $table) {
+		});
+		Schema::create('region', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('country_id')->unsigned();
 			$table->foreign('country_id')->references('id')->on('country');
 			$table->string('name', 255);
 			$table->unique('name');
-	});
-        Schema::create('user', function (Blueprint $table) {
+		});
+		Schema::create('user', function (Blueprint $table) {
 			$table->increments('id');
 			$table->boolean('uses_screen_reader')->default(false);
 			$table->string('email', 255)->unique()->nullable();
@@ -49,44 +49,44 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('location_search_text', 255)->nullable();
 			$table->string('email_verification_token', 255)->nullable();
 			$table->datetime('email_verification_time')->nullable();
-        });
-        Schema::create('role', function (Blueprint $table) {
+		});
+		Schema::create('role', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 100)->unique();
 			$table->string('description', 255);
-        });
-        Schema::create('user_role', function (Blueprint $table) {
+		});
+		Schema::create('user_role', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('user');
 			$table->integer('role_id')->unsigned();
 			$table->foreign('role_id')->references('id')->on('role');
 			$table->unique(array('role_id', 'user_id'));
-	});
-	Schema::create('question_category', function (Blueprint $table) {
+		});
+		Schema::create('question_category', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
-        });
-        Schema::create('question', function (Blueprint $table) {
+		});
+		Schema::create('question', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('question_html');
 			$table->integer('question_category_id')->unsigned()->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
-        });
-        Schema::create('user_question', function (Blueprint $table) {
+		});
+		Schema::create('user_question', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('question_id')->unsigned();
 			$table->foreign('question_id')->references('id')->on('question');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('user');
 			$table->unique(array('question_id', 'user_id'));
-        });
-        Schema::create('location_group', function (Blueprint $table) {
+		});
+		Schema::create('location_group', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->string('external_web_url', 255)->nullable();
-        });
-        Schema::create('location', function (Blueprint $table) {
+		});
+		Schema::create('location', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('owner_user_id')->unsigned()->nullable();
 			$table->foreign('owner_user_id')->references('id')->on('user');
@@ -104,8 +104,16 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->double('universal_rating', 11, 8)->nullable();
 			$table->double('longitude', 11, 8);
 			$table->double('latitude', 11, 8);
-        });
-        Schema::create('user_location', function (Blueprint $table) {
+		});
+		Schema::create('location_duplicate', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('location_id')->unsigned();
+			$table->foreign('location_id')->references('id')->on('location');
+			$table->integer('data_source_id')->unsigned();
+			$table->foreign('data_source_id')->references('id')->on('data_source');
+			$table->string('name', 255);
+		});
+		Schema::create('user_location', function (Blueprint $table) {
 			$table->increments('id');
 
 			$table->integer('user_id')->unsigned();
@@ -121,7 +129,7 @@ class CreateInitialDatabaseSchema extends Migration
 			// There is no point to have more than one association between the same user and location.
 			$table->unique(array('location_id', 'user_id'));
 		});
-        Schema::create('user_answer', function (Blueprint $table) {
+		Schema::create('user_answer', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('answered_by_user_id')->unsigned();
 			$table->foreign('answered_by_user_id')->references('id')->on('user');
@@ -139,8 +147,8 @@ class CreateInitialDatabaseSchema extends Migration
 			*/
 			$table->string('answer_value', 255);
 			$table->datetime('when_submitted');
-        });
-        Schema::create('review_comment', function (Blueprint $table) {
+		});
+		Schema::create('review_comment', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('answered_by_user_id')->unsigned();
 			$table->foreign('answered_by_user_id')->references('id')->on('user');
@@ -151,13 +159,13 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->mediumText('content');
 			$table->datetime('when_submitted');
 		});
-        Schema::create('location_tag', function (Blueprint $table) {
+		Schema::create('location_tag', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->unique('name');
 			$table->string('description', 255);
 		});
-        Schema::create('location_location_tag', function (Blueprint $table) {
+		Schema::create('location_location_tag', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('location');
@@ -179,6 +187,7 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('review_comment');
         Schema::dropIfExists('user_answer');
         Schema::dropIfExists('user_location');
+        Schema::dropIfExists('location_duplicate');
         Schema::dropIfExists('location');
         Schema::dropIfExists('location_group');
         Schema::dropIfExists('user_question');
