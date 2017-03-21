@@ -1,0 +1,3 @@
+/importers/**/*.pyc
+/importers/**/*.class
+/importers/**/raw_html/
