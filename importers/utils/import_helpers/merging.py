@@ -40,7 +40,7 @@ def get_id_of_matching_location(import_config, locations, values):
 	
 	# Relying on coordinate difference keeps math simple but also means 
 	# the threshold is wider for locations near the equator and narrower for locations near the poles.
-	coordinate_difference_threshold = 0.001
+	coordinate_difference_threshold = 0.003
 
 	values_longitude = float(get_location_field(import_config, 'longitude', values).strip())
 	values_latitude = float(get_location_field(import_config, 'latitude', values).strip())
