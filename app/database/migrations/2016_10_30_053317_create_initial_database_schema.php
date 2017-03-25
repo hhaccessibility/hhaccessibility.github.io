@@ -111,6 +111,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('location_id')->references('id')->on('location');
 			$table->integer('data_source_id')->unsigned();
 			$table->foreign('data_source_id')->references('id')->on('data_source');
+			$table->string('external_id', 255)->nullable();
 			$table->string('name', 255);
 		});
 		Schema::create('user_location', function (Blueprint $table) {

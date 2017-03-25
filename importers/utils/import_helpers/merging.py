@@ -3,9 +3,32 @@ merging.py is a library of functions that help merge location
 information into seed data and prevent duplication of locations if the
 same location already exists.
 """
+import math
 
 def get_max_id(table_data):
 	return max([row['id'] for row in table_data])
+
+
+def get_direct_distance(lat1, lon1, lat2, lon2):
+	"""
+	Returns distance in km across the Earth's curvature between the specified coordinates.
+	
+	lat1, lon1, lat2, lon2 should be in degrees.
+	
+	This is basically a translation of a very similar method in BaseUser class implemented in PHP.
+	"""
+	earthRadius = 6371 # km
+	lon1 = math.radians(lon1)
+	lat1 = math.radians(lat1)
+	lon2 = math.radians(lon2)
+	lat2 = math.radians(lat2)
+	deltaLong = lon2 - lon1
+	deltaLat = lat2 - lat1
+	a = ( math.sin(deltaLat / 2) * math.sin(deltaLat / 2) +
+		math.cos(lat1) * math.cos(lat2) *
+		math.sin(deltaLong / 2) * math.sin(deltaLong / 2) )
+	c = 2 * math.atan2( math.sqrt( a ), math.sqrt( 1 - a ) )
+	return earthRadius * c
 
 
 def get_location_field(import_config, field_name, values):
@@ -33,25 +56,43 @@ def get_id_for_location_tag(location_tags, location_tag_name):
 	raise ValueError('Unable to find location tag with name ' + location_tag_name)
 
 	
-def get_id_of_matching_location(import_config, locations, values):
+def get_id_of_matching_location(import_config, locations, values, location_duplicates):
 	"""
 	Tries to find a location matching the latitude and longitude closely and matching names.
 	"""
-	
-	# Relying on coordinate difference keeps math simple but also means 
-	# the threshold is wider for locations near the equator and narrower for locations near the poles.
-	coordinate_difference_threshold = 0.003
+
+	distance_threshold_km = 0.2
+	distance_threshold_km_for_recorded_duplicate = 0.5
 
 	values_longitude = float(get_location_field(import_config, 'longitude', values).strip())
 	values_latitude = float(get_location_field(import_config, 'latitude', values).strip())
 	values_name = get_location_field(import_config, 'name', values).strip().lower()
-
+	
+	location_duplicates_with_same_name = [ld for ld in location_duplicates if ld['name'].strip().lower() == values_name]
+	if len(location_duplicates_with_same_name) != 0:
+		for location_duplicate in location_duplicates_with_same_name:
+			location = [loc for loc in locations if loc['id'] == location_duplicate['location_id']][0]
+			location['longitude'] = float(location['longitude'])
+			location['latitude'] = float(location['latitude'])
+			
+			# if not close enough, skip.
+			distance = get_direct_distance(location['latitude'], location['longitude'],
+				values_latitude, values_longitude)
+			if distance < distance_threshold_km_for_recorded_duplicate:
+				print('Match with duplicate found for ' + values_name)
+				return location_duplicate['location_id']
+				# return the id of the location that this is a duplicate of
+			
+		distance_threshold_km = distance_threshold_km_for_recorded_duplicate
+	
 	for location in locations:
 		location['longitude'] = float(location['longitude'])
 		location['latitude'] = float(location['latitude'])
+		
 		# if not close enough, skip.
-		if ( abs(location['longitude'] - values_longitude) > coordinate_difference_threshold or
-		abs(location['latitude'] - values_latitude) > coordinate_difference_threshold ):
+		distance = get_direct_distance(location['latitude'], location['longitude'],
+			values_latitude, values_longitude)
+		if ( distance > distance_threshold_km ):
 			continue
 
 		if values_name == location['name'].strip().lower():
@@ -99,10 +140,25 @@ def sanitize(location_field, value):
 	return value
 	
 
-def merge_location(import_config, locations, location_tags, location_location_tags, values):
-	matching_location_id = get_id_of_matching_location(import_config, locations, values)
+def is_location_of_interest(location_name):
+	location_name = location_name.strip().lower()
+	if location_name in ['windsor']:
+		return False
+
+	return True
+
+
+def merge_location(import_config, locations, location_tags,
+location_location_tags, values, location_duplicates):
+	location_name = get_location_field(import_config, 'name', values)
+	if not is_location_of_interest(location_name):
+		print('location is not of interest: ' + location_name)
+		return
+
+	matching_location_id = get_id_of_matching_location(import_config,
+		locations, values, location_duplicates)
 	if matching_location_id is not None:
-		print('matching location found for ' + get_location_field(import_config, 'name', values) + ' id ' + str(matching_location_id))
+		print('matching location found for ' + location_name + ' id ' + str(matching_location_id))
 		return
 
 	new_location = {
