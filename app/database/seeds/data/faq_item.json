@@ -1,0 +1,7 @@
+[
+{"id": 1, "question": "What is AccessLocator?", "answer_html": "AccessLocator is a service providing accessibility information for locations in your area."},
+{"id": 2, "question": "How does AccessLocator work?", "answer_html": "AccessLocator gathers gathers accessibility information from people like you and open data and shares it back with you."},
+{"id": 3, "question": "How can I get involved with AccessLocator?", "answer_html": "You can <a href=\"/signup\">sign up</a> and rate locations.  If you want to volunteer as a tester, graphic designer, or software developer, send a message through <a href=\"contact\">our contact page</a>."},
+{"id": 4, "question": "Who owns the map data?", "answer_html": "The map data on AccessLocator is open and public.  <a href=\"/contact\">Contact us</a> with a request if you want to get a lot of our data."},
+{"id": 5, "question": "Who is behind AccessLocator?", "answer_html": "AccessLocator was entirely created from volunteer labour and some funding from <a href=\"http://www.jmccentre.ca/\">JMCC</a>."}
+]
