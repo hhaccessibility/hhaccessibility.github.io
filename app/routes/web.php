@@ -28,6 +28,7 @@ Route::get('privacy-policy', function()
 {
     return View::make('pages.privacy_policy');
 });
+Route::get('faq', 'FaqController@index');
 Route::get('password-recovery', 'PasswordRecoveryController@form');
 Route::post('password-recovery', 'PasswordRecoveryController@sendEmail');
 
