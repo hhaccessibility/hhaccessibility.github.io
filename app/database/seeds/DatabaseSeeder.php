@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-		$tables_to_seed_using_json = ['role',
+		$tables_to_seed_using_json = ['faq_item', 'role',
 			'location_location_tag', 'location_duplicate',
 			'location', 'location_group', 'location_tag', 'question',
 			'question_category','region', 'country', 'data_source'];
