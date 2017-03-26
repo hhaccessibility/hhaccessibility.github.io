@@ -50,8 +50,21 @@ function selectImageFile()
     $(".hidden-uploader").click();
 }
 
+function randomizePhotoURL()
+{
+	$element = $('.photo-display .uploaded-photo');
+	// If a photo was uploaded for the current user
+	if ( $element.length !== 0 )
+	{
+		// Set a new URL so cache won't interfere with refreshing newly uploaded photos.
+		$element.css({
+			'background-image': "url('/profile-photo?t=" + (new Date().getTime()) + "')"
+		});
+	}
+}
 
 $( function() {
 	$( "#accordion" ).accordion();
 	initSelectAllBindings();
+	randomizePhotoURL();
 } );
