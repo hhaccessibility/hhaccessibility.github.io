@@ -13,6 +13,7 @@
 			<div class="photo-display" onclick="selectImageFile()">
 				<div class="uploaded-photo">
 				</div>
+				<div class="progress-element"></div>
                 <p>Change Photo</p>
 			</div>
 		@else

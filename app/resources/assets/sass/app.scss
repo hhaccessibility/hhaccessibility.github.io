@@ -352,7 +352,28 @@ footer {
     .photo-display {
         cursor: pointer;
         text-align: center;
-        
+        position: relative;
+
+        .progress-element {
+            display: none;
+            position: absolute;
+            opacity: 0.0;
+            transition: opacity 0.3s;
+
+            &.uploading {
+                display: block;
+                background-image: url('../images/progress.gif');
+                background-repeat: no-repeat;
+                background-position: center center;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #000;
+                opacity: 0.4;
+            }
+        }
+
         .user-icon {
            margin-top: 79px;
            display: block;

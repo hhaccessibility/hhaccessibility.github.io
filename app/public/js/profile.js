@@ -41,6 +41,9 @@ function initSelectAllBindings() {
 // Called after selecting a photo and hitting "Open"
 function upload()
 {
+	// indicate that the uploading is starting.
+	$element = $('.photo-display .progress-element').addClass('uploading');
+	
     $("#photo-upload").submit();
 }
 
