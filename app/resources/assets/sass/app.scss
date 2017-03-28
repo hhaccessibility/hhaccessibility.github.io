@@ -1287,6 +1287,19 @@ body.fixed-menu {
 			
 			.data {
 				max-height: calc(100vh - 162px);
+				
+				.location {
+					[class^='col-xs-'] {
+						color: #144d7e;
+						font-size: 1.05em;
+					}
+					
+					&:hover {
+						[class^='col-xs-'] {
+							color: #000;
+						}
+					}
+				}
 			}
 		}
 	
