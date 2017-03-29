@@ -16,10 +16,6 @@ use App\Location;
 Route::get('/', 'HomeController@index');
 Route::post('save-user-location', 'HomeController@saveUserLocation');
 
-Route::get('our-vision', function()
-{
-    return View::make('pages.our_vision');
-});
 Route::get('terms-of-use', function()
 {
     return View::make('pages.terms_of_use');
