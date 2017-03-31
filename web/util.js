@@ -1,1 +1,0 @@
-HOST = "http://hhaccessibility.herokuapp.com";
