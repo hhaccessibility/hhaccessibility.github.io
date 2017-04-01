@@ -5,6 +5,7 @@ use Session;
 use Exception;
 use DateTime;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\AuthenticationException;
 
 class BaseUser
 {
@@ -42,7 +43,7 @@ class BaseUser
 	public static function getDbUser() {
 		if (!BaseUser::isSignedIn())
 		{
-			throw new Exception('Unable to get database user because you are not signed in');
+			throw new AuthenticationException('Unable to get database user because you are not signed in');
 		}
 
 		$email = Session::get('email');
