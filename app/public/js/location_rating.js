@@ -71,7 +71,7 @@ function answerClicked()
 
 function getCommentElement()
 {
-	return $('.rate form textarea');
+	return $('.rate textarea.clean');
 }
 
 function saveCommentFromUI()

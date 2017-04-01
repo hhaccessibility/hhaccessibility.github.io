@@ -1,7 +1,6 @@
 <h2>{{ $question_category->name }}</h2>
 
-<form method="post" action="/location-rating">
-	<input type="hidden" name="location_id" value="{{ $location->id }}">
+<div>
 	<div class="questions">
 		@foreach ( $question_category->questions()->get() as $question )
 			<div class="row" data-question-id="{{ $question->id }}">
@@ -38,5 +37,14 @@
 	</div>
 	<textarea class="clean" placeholder="Comment on {{ $question_category->name }} at {{ $location->name }}"
 	>{{ $answer_repository->getComment() }}</textarea>
-	<input class="clean pull-right" type="submit" value="Next">
-</form>
+	<div class="pull-right">
+		@if ( $next_question_category_id )
+		<a class="clean" href="/location-rating/{{ $location->id }}/{{ $next_question_category_id }}">Next</a>
+		@else
+		@include('pages.location_rating.submit',
+					array(
+						'location_id' => $location->id
+					))
+		@endif
+	</div>
+</div>
