@@ -6,6 +6,7 @@
 /public/css/app.css.map
 /vendor
 ../importers/**/*.pyc
+../importers/**/*.class
 ../importers/**/raw_html/
 /.idea
 composer.lock

@@ -77,32 +77,28 @@ class LocationRatingController extends Controller {
 		return response()->json(['success' => true, 'comment' => $answer_repo->getComment()]);
 	}
 
-	public function setQuestionAnswerForLocation(int $location_id, int $question_id, int $answer_value)
+	public function submit(Request $request)
 	{
-		// Run some validation checks.
-		if ( $answer_value < 0 || $answer_value > 2 )
+		$validation_rules = [
+			'location_id' => 'required|integer'
+		];
+		$validator = Validator::make(Input::all(), $validation_rules);
+		if ($validator->fails())
 		{
-			return response()->setStatusCode(422, 'answer value is invalid');
+			return response(422)->json(['success' => false]);
 		}
-		$location = Location::find($location_id);
-		if ( $location === null )
-		{
-			return response()->setStatusCode(404, 'location not found with id ' . $location_id);
-		}
-		$question = Question::find($question_id);
-		if ( $question === null )
-		{
-			return response()->setStatusCode(404, 'question not found with id ' . $question_id);
-		}
-		// save answer in session.
-		
+		AnswerRepository::commitAnswersForLocation(Input::get('location_id'));
+		return response()->json(['success' => true]);
 	}
 
-   public function show(int $location_id, int $question_category_id = null)
-   {
+	public function show(int $location_id, int $question_category_id = null)
+	{
 	   $location = Location::find($location_id);
 	   $question_categories = QuestionCategory::with('questions')->get();
 	   $question_category = null;
+	   $next_question_category_id = null;
+
+	   // If no category is specified, pick the first one.
 	   if ( $question_category_id === null && !empty($question_categories) )
 	   {
 			$question_category_id = $question_categories[0]->id;
@@ -111,12 +107,22 @@ class LocationRatingController extends Controller {
 	   {
 			$question_category = QuestionCategory::find($question_category_id);
 	   }
+	   if ( $question_category_id )
+	   {
+			$next_question_category = QuestionCategory::where('id', '>', $question_category_id)
+				->first();
+			if ( $next_question_category )
+			{
+				$next_question_category_id = $next_question_category->id;
+			}
+	   }
 	   
 	   return view('pages.location_rating.rate', [
 			'location' => $location,
 			'question_category' => $question_category,
 			'question_categories' => $question_categories,
-			'answer_repository' => new AnswerRepository($location_id, $question_category_id)
+			'answer_repository' => new AnswerRepository($location_id, $question_category_id),
+			'next_question_category_id' => $next_question_category_id
 	   ]);
    }
 

@@ -18,15 +18,21 @@
 		<div class="menu">
 			<h1>Rate Location</h1>
 			<div class="question-categories">
-			@foreach ( $question_categories as $category )
-				<a href="/location-rating/{{ $location->id }}/{{ $category->id }}"
-				@if ( $category->id === $question_category->id )
-					class="selected"
-				@endif
-				>
-					{{ $category->name }}
-				</a>
-			@endforeach
+				@foreach ( $question_categories as $category )
+					<a href="/location-rating/{{ $location->id }}/{{ $category->id }}"
+					@if ( $category->id === $question_category->id )
+						class="selected"
+					@endif
+					>
+						{{ $category->name }}
+					</a>
+				@endforeach
+			</div>
+			<div class="submit">
+				@include('pages.location_rating.submit',
+					array(
+						'location_id' => $location->id
+					))
 			</div>
 		</div>
 		<div class="rate">
