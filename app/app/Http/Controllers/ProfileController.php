@@ -9,8 +9,15 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 class ProfileController extends Controller {
+	public function getRegions()
+	{
+		$regions = DB::table('region')->get();
+		return $regions;	
+	}
+	
 	public static function getProfileView($validator = null)
 	{
 		$user = BaseUser::getDbUser();
