@@ -48,6 +48,11 @@ class BaseUser
 
 		$email = Session::get('email');
 		$user = User::where('email', $email) -> first();
+		if ( !$user )
+		{
+			BaseUser::signout();
+			throw new AuthenticationException('Signed in but not able to get user from database');
+		}
 
 		return $user;
 	}

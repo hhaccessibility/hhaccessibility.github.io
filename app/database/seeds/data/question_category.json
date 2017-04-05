@@ -2,6 +2,7 @@
 {"id": 1, "name": "Parking"},
 {"id": 2, "name": "Entrance"},
 {"id": 3, "name": "Public Areas"},
-{"id": 4, "name": "Bathrooms"},
-{"id": 5, "name": "Amenities"}
+{"id": 4, "name": "Elevator"},
+{"id": 5, "name": "Bathrooms"},
+{"id": 6, "name": "Amenities"}
 ]
