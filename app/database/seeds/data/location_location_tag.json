@@ -2703,5 +2703,35 @@
         "id": 606,
         "location_id": 697,
         "location_tag_id": 8
+    },
+    {
+        "id": 607,
+        "location_id": 701,
+        "location_tag_id": 7
+    },
+    {
+        "id": 608,
+        "location_id": 701,
+        "location_tag_id": 8
+    },
+    {
+        "id": 609,
+        "location_id": 707,
+        "location_tag_id": 7
+    },
+    {
+        "id": 610,
+        "location_id": 707,
+        "location_tag_id": 8
+    },
+    {
+        "id": 611,
+        "location_id": 709,
+        "location_tag_id": 7
+    },
+    {
+        "id": 612,
+        "location_id": 709,
+        "location_tag_id": 8
     }
 ]

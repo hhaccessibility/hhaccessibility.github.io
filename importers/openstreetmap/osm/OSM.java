@@ -23,7 +23,7 @@ public class OSM {
 			if ( tag.getAttribute("k").equals(key) )
 				return tag.getAttribute("v");
 		}
-		return("");
+		return "";
     }
 
 	private static boolean isRestaurant(NodeList tags)
@@ -159,6 +159,31 @@ public class OSM {
 		return toiletWheelchair.equals("yes");
 	}
 	
+	private static boolean hasFreeWifi(NodeList tags)
+	{
+		String wifi = getValueForKey(tags, "wifi");
+		if ( wifi != null && wifi.equals("free") )
+			return true;
+		
+		wifi = getValueForKey(tags, "internet_access:fee");
+		if ( wifi != null && wifi.equals("no") )
+			return true;
+		
+		return false;
+	}
+	
+	private static boolean hasWifi(NodeList tags)
+	{
+		String [] wifiProperties = new String[] { "wifi",
+			"internet_access:fee", "internet_access"};
+		for (String key: wifiProperties)
+		{
+			if ( !getValueForKey(tags, key).equals("") )
+				return true;
+		}
+		return false;
+	}
+	
 	private static boolean isLocationOfInterest(NodeList tags)
 	{
 		String [] mustBeEmpty = new String[]{"surveillance", "bicycle_parking", "railway", "highway"};
@@ -211,78 +236,120 @@ public class OSM {
 	return result;
   }
 
+  private static void generateCSV(List<Location> locations, String filename) throws IOException
+  {
+	FileWriter writer = new FileWriter(filename);
+	csv.writeValues(writer, "Name", "Longitude", "Latitude", "Phone", "Address", "URL", "Is Restaurant",
+	"Is Entertainment", "Is Sports", "Is Education",
+	"Is Association","Public Service","Is Transportation",
+	"Is Accomodation","Is Shopping","Is Park", "Is Financial", 
+	"Is Healthcare", "Is wheelchair accessible", "Has Wheelchair Accessible Toilets", "Wifi", "Free Wifi");
+
+	for ( Location location: locations )
+	{
+		// skip locations that we don't want to rate.
+		if ( !isLocationOfInterest(location.getTags()) ) {
+			continue;
+		}
+		NodeList tags = location.getTags();
+		String phone = getValueForKey(tags, "phone");
+		String house_number = getValueForKey(tags, "addr:housenumber");
+		String postalCode = getValueForKey(tags, "addr:postcode");
+		String street = getValueForKey(tags, "addr:street");
+		String city = getValueForKey(tags, "addr:city");
+		String province = getValueForKey(tags, "addr:province");
+		String country = getValueForKey(tags, "addr:country");
+		String url = getValueForKey(tags, "website");
+
+		// a little sanitization
+		if ( !url.equals("") && !url.toLowerCase().startsWith("http:") 
+			&& !url.toLowerCase().startsWith("https:") ) {
+			url = "http://" + url;
+		}
+
+		// For consistency's sake, use Windsor instead of City of Windsor.
+		if ( city.equals("City of Windsor") )
+			city = "Windsor";
+		if ( province.equals("") )
+			province = getValueForKey(tags, "addr:state");
+
+		String name = getValueForKey(tags, "name");
+		String address = (postalCode + " " + house_number + " " + street + " " + city).trim();
+		if ( !province.equals("") ) {
+			if ( !address.equals("") )
+				address = address + ", ";
+
+			address += province;
+		}
+		csv.writeValues(writer, name, "" + location.getLongitude(), "" + location.getLatitude(),
+		phone, address, url, "" + isRestaurant(tags), "" + isEntertainment(tags), "" + isSports(tags),
+		"" + isEducation(tags), "" + isAssociation(tags),
+		"" + isPublicService(tags), "" + isTransportation(tags), "" + isAccomodation(tags),
+		"" + isShopping(tags), "" + isPark(tags), "" + isFinancial(tags), "" + isHealthcare(tags), 
+		"" + isWheelchairAccessible(tags), "" + isToiletWheelchairAccessible(tags),
+		"" + hasWifi(tags), "" + hasFreeWifi(tags)
+		);
+	}
+
+	writer.flush();
+	writer.close();
+	System.out.println("All locations written to csv file");
+  }
+  
+  private static Location getNearbyLocation(double longitude, double latitude, List<Location> locations)
+  {
+	  double coordinateThreshold = 0.000001;
+	  for (Location location: locations)
+	  {
+		  if (Math.abs(longitude - location.getLongitude()) < coordinateThreshold &&
+			Math.abs(latitude - location.getLatitude())) {
+				return location;
+			}
+	  }
+  }
+  
+  private static List<Location> removeDuplicateLocations(List<Location> newLocations, List<Location> otherLocations)
+  {
+	  LinkedList<Location> result = new LinkedList<Location>();
+	  for (Location loc: newLocations)
+	  {
+		  Location nearbyLocation = getNearbyLocation(loc.getLongitude(), loc.getLatitude(), otherLocations);
+		  if ( nearbyLocation == null )
+		  {
+			  result.add(loc);
+		  }
+		  else
+		  {
+			  System.out.println("Matching location found between " + loc.getName());
+		  }
+	  }
+	  
+	  return result;
+  }
+  
   public static void main(String argv[]) throws Exception
   {
-    try {
-		File fXmlFile = new File("book.xml");
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.parse(fXmlFile);
-		String csvFile = "book.csv";
-        FileWriter writer = new FileWriter(csvFile);
-		csv.writeValues(writer, "Name", "Longitude", "Latitude", "Phone", "Address", "URL", "Is Restaurant",
-			"Is Entertainment", "Is Sports", "Is Education",
-			"Is Association","Public Service","Is Transportation",
-			"Is Accomodation","Is Shopping","Is Park", "Is Financial", 
-			"Is Healthcare", "Is wheelchair accessible", "Has Wheelchair Accessible Toilets");
-		doc.getDocumentElement().normalize();
-		System.out.println("About to load document");
-		List<Location> allLocations = getLocationsFromNodes(doc);
-		System.out.println("Loaded all locations from node elements.  There were " + allLocations.size());
-		allLocations.addAll(WayProcessor.getLocationsFrom(doc));
-		System.out.println("Loaded all locations from both node and way elements.  There was a total of " + allLocations.size());
+	  String inputDirectory = "raw_xml";
+	  List<Location> allLocations = new LinkedList<Location>();
 
-		for ( Location location: allLocations )
+		// loop through all files in the input directory.
+		for (File xmlFile: new File(inputDirectory).listFiles())
 		{
-			// skip locations that we don't want to rate.
-			if ( !isLocationOfInterest(location.getTags()) ) {
-				continue;
-			}
-			NodeList tags = location.getTags();
-			String phone = getValueForKey(tags, "phone");
-			String house_number = getValueForKey(tags, "addr:housenumber");
-			String postalCode = getValueForKey(tags, "addr:postcode");
-			String street = getValueForKey(tags, "addr:street");
-			String city = getValueForKey(tags, "addr:city");
-			String province = getValueForKey(tags, "addr:province");
-			String country = getValueForKey(tags, "addr:country");
-			String url = getValueForKey(tags, "website");
-
-			// a little sanitization
-			if ( !url.equals("") && !url.toLowerCase().startsWith("http:") && !url.toLowerCase().startsWith("https:") ) {
-				url = "http://" + url;
-			}
-			
-			// For consistency's sake, use Windsor instead of City of Windsor.
-			if ( city.equals("City of Windsor") )
-				city = "Windsor";
-			if ( province.equals("") )
-				province = getValueForKey(tags, "addr:state");
-
-			String name = getValueForKey(tags, "name");
-			String address = (postalCode + " " + house_number + " " + street + " " + city).trim();
-			if ( !province.equals("") ) {
-				if ( !address.equals("") )
-					address = address + ", ";
-
-				address += province;
-			}
-			csv.writeValues(writer, name, "" + location.getLongitude(), "" + location.getLatitude(),
-				phone, address, url, "" + isRestaurant(tags), "" + isEntertainment(tags), "" + isSports(tags),
-				"" + isEducation(tags), "" + isAssociation(tags),
-				"" + isPublicService(tags), "" + isTransportation(tags), "" + isAccomodation(tags),
-				"" + isShopping(tags), "" + isPark(tags), "" + isFinancial(tags), "" + isHealthcare(tags), 
-				"" + isWheelchairAccessible(tags), "" + isToiletWheelchairAccessible(tags)
-				);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(xmlFile);
+			doc.getDocumentElement().normalize();
+			System.out.println("About to load document " + xmlFile.getPath());
+			List<Location> newLocations = new LinkedList<Location>();
+			newLocations.addAll(getLocationsFromNodes(doc));
+			System.out.println("Loaded all locations from node elements.  There were " + newLocations.size());
+			newLocations.addAll(WayProcessor.getLocationsFrom(doc));
+			System.out.println("Loaded all locations from both node and way elements.  There was a total of " + newLocations.size());
+			newLocations = removeDuplicateLocations(newLocations, allLocations);
+			allLocations.addAll(newLocations);
+			System.out.println("Total locations is now: " + allLocations.size());
 		}
-		
-         writer.flush();
-        writer.close();
-		System.out.println("All locations written to csv file");
-	} 
-	catch (IOException | ParserConfigurationException | SAXException e) 
-	{
-	}
+		generateCSV(allLocations, "locations.csv");
   }
 
 }
