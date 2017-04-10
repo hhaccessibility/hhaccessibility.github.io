@@ -47,6 +47,53 @@ function updateRatings(array $locations)
 	}
 }
 
+/**
+For efficiency's sake, we want to remove any locations that are outside 
+the latitude and longitude range we're interested in.
+
+The calculations are explained at:
+http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
+*/
+function filterLatitudeAndLongitude($locationsQuery)
+{
+	$searchRadius = BaseUser::getSearchRadius(); // km
+	$earthRadius = 6371; // km
+	// If search radius is larger than the Earth's radius, 
+	// we can't filter down at all here.
+	if ( $searchRadius >= $earthRadius * 0.99 )
+	{
+		return $locationsQuery;
+	}
+	$lat = BaseUser::getLatitude();
+	$r = $searchRadius / $earthRadius;
+	$latDelta = rad2deg($r);
+	$maxLat = $lat + $latDelta;
+	$minLat = $lat - $latDelta;
+	$locationsQuery = $locationsQuery->where('latitude', '<=', $maxLat)
+		->where('latitude', '>=', $minLat);
+
+	// If the latitude goes over the poles, 
+	// longitude is unrestricted.
+	// Imagine the circle overlapping the north or south pole and
+	// you'll see why all longitudes are covered.
+	if ( $maxLat >= 90 || $minLat <= -90 || abs($lat) === 90 )
+		return $locationsQuery;
+
+	$latR = deg2rad($lat);
+	$asinInput = sin($r) / cos($latR);
+	if ( abs($asinInput) > 1 ) {
+		return $locationsQuery;
+	}
+	$lonDelta = rad2deg(asin( $asinInput ));
+	$lon = BaseUser::getLongitude();
+	$maxLon = $lon + $lonDelta;
+	$minLon = $lon - $lonDelta;
+	$locationsQuery = $locationsQuery->where('longitude', '<=', $maxLon)
+		->where('longitude', '>=', $minLon);
+
+	return $locationsQuery;
+}
+
 function getSortedLocations($locations, $view, $order_by_field_name)
 {
 	if ( $view === 'table' ) {
@@ -55,6 +102,9 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 			$locations = $locations->orderBy('name');
 		}
 	}
+	// filter down to a bounding latitude and longitude range.
+	$locations = filterLatitudeAndLongitude($locations);
+	
 	$locations = $locations->get();
 	// get() doesn't return an array so let's make one.
 	$loc_array = [];

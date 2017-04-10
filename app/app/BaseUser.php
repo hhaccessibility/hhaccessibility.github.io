@@ -179,11 +179,11 @@ class BaseUser
 		return $earthRadius * $c;
 	}
 
-	public function getLatitude()
+	public static function getLatitude()
 	{
 		if ( BaseUser::isSignedIn() )
 		{
-			$user = $this->getDbUser();
+			$user = BaseUser::getDbUser();
 			if (is_numeric($user->latitude))
 				return $user->latitude;
 		}
@@ -195,11 +195,11 @@ class BaseUser
 		return 42.3174246;
 	}
 
-	public function getLongitude()
+	public static function getLongitude()
 	{
 		if ( BaseUser::isSignedIn() )
 		{
-			$user = $this->getDbUser();
+			$user = BaseUser::getDbUser();
 			if (is_numeric($user->longitude))
 				return $user->longitude;
 		}

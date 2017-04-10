@@ -4,7 +4,7 @@
 {"id": 3, "location_id": 132, "name": "St. Clair Center for the Arts", "data_source_id": 3, "external_id": null},
 {"id": 4, "location_id": 115, "name": "Prince Edward School", "data_source_id": 3, "external_id": null},
 {"id": 5, "location_id": 183, "name": "Jackson Park", "data_source_id": 3, "external_id": null},
-{"id": 6, "location_id": 182, "name": "Langlois Crt Linear Park", "data_source_id": 2, "external_id": null},
+{"id": 6, "location_id": 181, "name": "Langlois Crt Linear Park", "data_source_id": 2, "external_id": null},
 {"id": 7, "location_id": 471, "name": "Holy Trinity", "data_source_id": 3, "external_id": null},
 {"id": 8, "location_id": 494, "name": "Hiram Walkers", "data_source_id": 3, "external_id": null},
 {"id": 9, "location_id": 10, "name": "Centre for Engineering Innovation", "data_source_id": 3, "external_id": null},
@@ -13,5 +13,6 @@
 {"id": 12, "location_id": 137, "name": "\u00c9cole \u00e9l\u00e9mentaire L\u2019Envol\u00e9e", "data_source_id": 3, "external_id": null},
 {"id": 13, "location_id": 187, "name": "Esdras Park", "data_source_id": 2, "external_id": null},
 {"id": 14, "location_id": 331, "name": "Ganatchio Trail", "data_source_id": 2, "external_id": null},
-{"id": 15, "location_id": 173, "name": "Grand Marais Rd Drain Trail", "data_source_id": 2, "external_id": null}
+{"id": 15, "location_id": 173, "name": "Grand Marais Rd Drain Trail", "data_source_id": 2, "external_id": null},
+{"id": 16, "location_id": 153, "name": "Water World", "data_source_id": 3, "external_id": null}
 ]
