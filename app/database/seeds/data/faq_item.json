@@ -3,5 +3,9 @@
 {"id": 2, "question": "How does AccessLocator work?", "answer_html": "AccessLocator gathers accessibility information from people like you and open data and shares it with everyone."},
 {"id": 3, "question": "How can I get involved with AccessLocator?", "answer_html": "You can <a href=\"/signup\">sign up</a> and rate locations.  If you want to volunteer as a tester, graphic designer, or software developer, send a message through <a href=\"contact\">our contact page</a>."},
 {"id": 4, "question": "Who owns the map data?", "answer_html": "The map data on AccessLocator is open and public.  <a href=\"/contact\">Contact us</a> with a request if you want to get a lot of our data."},
-{"id": 5, "question": "Who is behind AccessLocator?", "answer_html": "AccessLocator was entirely created from volunteer labour and some funding from <a href=\"http://www.jmccentre.ca/\">JMCC</a>."}
+{"id": 5, "question": "Who is behind AccessLocator?", "answer_html": "AccessLocator was entirely created from volunteer labour and some funding from <a href=\"http://www.jmccentre.ca/\">JMCC</a>."},
+{"id": 6, "question": "Why can’t I find some places on AccessLocator?", "answer_html": "AccessLocator is under development but growing.  Our data set is focused on Windsor, Detroit, and Toronto for now but if you <a href=\"/contact\">contact us</a>, we'll be happy to discuss the possibility of expanding our data set in your area."},
+{"id": 7, "question": "How do I rate a location?", "answer_html": "The rating feature is under development but not ready yet."},
+{"id": 8, "question": "How can I upload photos of a location?", "answer_html": "The location photos feature is under development but not ready yet."},
+{"id": 9, "question": "How do I register with AccessLocator?", "answer_html": "You can register on <a href=\"/signup\">our sign up page</a>."}
 ]
