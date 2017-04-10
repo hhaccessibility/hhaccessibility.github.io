@@ -70,6 +70,19 @@ public class WayProcessor
 		return total / size;
 	}
 	
+	private static String getNameFromTags(NodeList tags)
+	{
+		for ( int i = 0; i < tags.getLength(); i++ )
+		{
+			Element tag = (Element) (tags.item(i));
+			String key = tag.getAttribute("k");
+			String value = tag.getAttribute("v");
+			if ( key != null && value != null && key.equals("name") )
+				return value;
+		}
+		return ""; // indicate not set
+	}
+	
 	/**
 	Returns locations taken from way elements in the specified document
 	
@@ -86,15 +99,18 @@ public class WayProcessor
 			Element way = (Element)ways.item(i);
 			NodeList tags = way.getElementsByTagName("tag");
 			NodeList nds = way.getElementsByTagName("nd");
-			String name = OSM.getValueForKey(tags, "name");
+			String name = getNameFromTags(tags);
 
 			// if the node has a name and at least 1 reference node, handle it.
-			if ( name != null && !name.equals("") && nds.getLength() > 0 )
+			if ( !name.equals("") && nds.getLength() > 0 )
 			{
 				List<Element> referencedNodes = getReferencedNodes(nodes, nds);
 				double longitude = getAttributeAverage(referencedNodes, "lon");
 				double latitude = getAttributeAverage(referencedNodes, "lat");
-				result.add(new Location(longitude, latitude, tags));
+
+				Location newLocation = new Location(longitude, latitude, tags);
+				if ( OfInterestDecider.isLocationOfInterest(newLocation) )
+					result.add(newLocation);
 			}
 		}
 		System.out.println("Got way elements: " + result.size());
