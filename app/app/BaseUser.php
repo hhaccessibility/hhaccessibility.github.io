@@ -59,7 +59,7 @@ class BaseUser
 
 	public static function getSearchRadius()
 	{
-		$default_search_radius = 7;
+		$default_search_radius = 2;
 		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
