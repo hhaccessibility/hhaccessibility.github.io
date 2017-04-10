@@ -4,9 +4,19 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 
-public class csv {
+public class Csv {
 
     private static final char DEFAULT_SEPARATOR = ',';
+
+	public static void writeLine(Writer w, String[] values) throws IOException
+	{
+        writeLine(w, Arrays.asList(values), DEFAULT_SEPARATOR, ' ');		
+	}
+
+	public static void writeLine(Writer w, List<String> values) throws IOException
+	{
+        writeLine(w, values, DEFAULT_SEPARATOR, ' ');		
+	}
 
     public static void writeValues(Writer w, String... values) throws IOException {
         writeLine(w, Arrays.asList(values), DEFAULT_SEPARATOR, ' ');
