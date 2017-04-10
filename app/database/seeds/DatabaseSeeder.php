@@ -29,8 +29,12 @@ class DatabaseSeeder extends Seeder
 	
 	private static function insertDataToTables($tableNames)
 	{
+		$maxSize = 64000;
 		foreach (array_reverse($tableNames) as $table_name) {
-			DB::table($table_name)->insert(DatabaseSeeder::readTableData($table_name . '.json'));
+			$data = DatabaseSeeder::readTableData($table_name . '.json');
+			foreach (array_chunk($data, 1000) as $t) {
+                DB::table($table_name)->insert($t);
+            }
 		}
 	}
 		
