@@ -5,7 +5,7 @@
 		  function initMap() {
 			var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
 			var map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 13,
+			  zoom: 9,
 			  center: locationPoint,
 			  draggable: false
 			});
