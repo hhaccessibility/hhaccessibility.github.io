@@ -21,5 +21,8 @@
 {"id": 20, "location_id": 2338, "name": "Elephant & Castle", "data_source_id": 3, "external_id": null},
 {"id": 21, "location_id": 6662, "name": "University of Toronto", "data_source_id": 3, "external_id": null},
 {"id": 22, "location_id": 868, "name": "Aden", "data_source_id": 3, "external_id": null},
-{"id": 23, "location_id": 1141, "name": "Batteries and Gadgets", "data_source_id": 3, "external_id": null}
+{"id": 23, "location_id": 1141, "name": "Batteries and Gadgets", "data_source_id": 3, "external_id": null},
+{"id": 24, "location_id": 66, "name": "Notre Dame", "data_source_id": 3, "external_id": null},
+{"id": 25, "location_id": 81, "name": "Holy Names Catholic Secondary School", "data_source_id": 3, "external_id": null},
+{"id": 26, "location_id": 104, "name": "Glenwood School", "data_source_id": 3, "external_id": null}
 ]

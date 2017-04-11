@@ -35230,19 +35230,6 @@
         "universal_rating": null
     },
     {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 2794,
-        "latitude": 42.26164153,
-        "location_group_id": null,
-        "longitude": -83.02805047,
-        "name": "Glenwood School",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
         "address": "480 University Avenue Toronto, ON",
         "data_source_id": 3,
         "external_web_url": "",
@@ -54720,19 +54707,6 @@
         "address": "",
         "data_source_id": 3,
         "external_web_url": "",
-        "id": 4293,
-        "latitude": 42.26930308,
-        "location_group_id": null,
-        "longitude": -83.03552868,
-        "name": "Notre Dame",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
         "id": 4294,
         "latitude": 43.6483786,
         "location_group_id": null,
@@ -70221,32 +70195,6 @@
         "location_group_id": null,
         "longitude": -79.39053023,
         "name": "Southern Linear Park",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 5486,
-        "latitude": 42.2540671,
-        "location_group_id": null,
-        "longitude": -83.0183945,
-        "name": "Southwood PS",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 5487,
-        "latitude": 42.25374642,
-        "location_group_id": null,
-        "longitude": -83.0179921,
-        "name": "Southwood School",
         "owner_user_id": null,
         "phone_number": "",
         "universal_rating": null
@@ -90189,19 +90137,6 @@
         "location_group_id": null,
         "longitude": -83.085471,
         "name": "McDonald's",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 7025,
-        "latitude": 42.2776214,
-        "location_group_id": null,
-        "longitude": -83.0342102095238,
-        "name": "Holy Names Catholic Secondary School",
         "owner_user_id": null,
         "phone_number": "",
         "universal_rating": null
