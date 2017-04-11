@@ -14,5 +14,6 @@
 {"id": 13, "location_id": 187, "name": "Esdras Park", "data_source_id": 2, "external_id": null},
 {"id": 14, "location_id": 331, "name": "Ganatchio Trail", "data_source_id": 2, "external_id": null},
 {"id": 15, "location_id": 173, "name": "Grand Marais Rd Drain Trail", "data_source_id": 2, "external_id": null},
-{"id": 16, "location_id": 153, "name": "Water World", "data_source_id": 3, "external_id": null}
+{"id": 16, "location_id": 153, "name": "Water World", "data_source_id": 3, "external_id": null},
+{"id": 17, "location_id": 1438, "name": "Bset Western Plus", "data_source_id": 3, "external_id": null}
 ]

@@ -29,7 +29,8 @@ public class OfInterestDecider
 		String name = location.getValueFor("name");
 		String[] uninterestingNames = new String[]{
 			"Windsor", "Toronto", "Amherstburg", "Old Castle",
-			"Essex", "Belle River", "Detroit", "compost"};
+			"Essex", "Belle River", "Detroit", "compost",
+			"University of Toronto"};
 		if( Arrays.asList(uninterestingNames).contains(name) )
 			return false;
 
