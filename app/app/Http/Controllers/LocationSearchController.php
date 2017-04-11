@@ -27,6 +27,11 @@ function compareByRating($location1, $location2)
 		return 1;
 }
 
+function compareByName($location1, $location2)
+{
+	return strcmp($location1->name, $location2->name);
+}
+
 function updateDistances(array $locations)
 {
 	$user = new BaseUser();
@@ -99,13 +104,18 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 	if ( $view === 'table' ) {
 		if ( $order_by_field_name === 'name' )
 		{
-			$locations = $locations->orderBy('name');
+			if ( is_array($locations) )
+				usort($locations, 'App\Http\Controllers\compareByName');	
+			else
+				$locations = $locations->orderBy('name');
 		}
 	}
 	// filter down to a bounding latitude and longitude range.
-	$locations = filterLatitudeAndLongitude($locations);
-	
-	$locations = $locations->get();
+	if ( !is_array($locations) )
+	{
+		$locations = filterLatitudeAndLongitude($locations);
+		$locations = $locations->get();
+	}
 	// get() doesn't return an array so let's make one.
 	$loc_array = [];
 	foreach ($locations as $loc)
@@ -121,7 +131,6 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )
 			usort($locations, 'App\Http\Controllers\compareByRating');
-
 	}
 	return $locations;
 }
@@ -208,9 +217,9 @@ class LocationSearchController extends Controller {
 			$location_tag_id = Input::get('location_tag_id');
 			$location_tag = LocationTag::find($location_tag_id);
 			$location_tag_name = $location_tag->name;
-			$locations = $location_tag->locations();
+			$locationsQuery = $location_tag->locations();
 		}
-		else if ( Input::has('keywords') || isset($_GET['keywords']) )
+		if ( Input::has('keywords') || isset($_GET['keywords']) )
 		{
 			$keywords = Input::get('keywords');
 			if ( !Input::has('keywords') )
@@ -222,13 +231,14 @@ class LocationSearchController extends Controller {
 			{
 				$locationsQuery->where('name', 'LIKE', '%' . $keyword . '%');
 			}
-			$locations = $locationsQuery->distinct();
+			$locationsQuery = $locationsQuery->distinct();
 		}
-		else
+		else if ( !Input::has('location_tag_id') || !is_numeric(Input::get('location_tag_id')))
 		{
 			\App::abort(422, 'Either keywords or location_tag_id must be specified');
 		}
-		$locations = getSortedLocations($locations, $view, $order_by_field_name);
+		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);		
+		$locations = getSortedLocations($locationsQuery, $view, $order_by_field_name);
 
 		// Remove locations that are too far away.
 		$filtered_locations = [];
