@@ -106,11 +106,12 @@ function processAddress()
 Sends HTTP request to save the location information inside the
 database or session
 */
-function saveUserLocation(user_address, latitude, longitude){
+function saveUserLocation(user_address, latitude, longitude)
+{
 	$.ajax({
 		type: 'post',
 		url: '/save-user-location',
-		data:{
+		data: {
 			'_token': $('input[name=_token]').val(),
 			'latitude' : latitude,
 			'longitude' : longitude,
@@ -121,3 +122,59 @@ function saveUserLocation(user_address, latitude, longitude){
 		},
 	});
 }
+
+function getLocationCategoryIdFromURL(url)
+{
+	var index = url.indexOf('location_tag_id=');
+	if ( index !== -1 )
+	{
+		var choppedUrl = url.substring(index + 'location_tag_id='.length);
+		
+		// Remove parameters after the location category/tag id
+		index = choppedUrl.indexOf('&');
+		if ( index !== -1 )
+		{
+			choppedUrl = choppedUrl.substring(0, index);
+		}
+
+		return choppedUrl;
+	}
+	else
+	{
+		throw new Error('Unable to find location_tag_id in URL: ' + url);
+	}
+}
+
+function getKeywordsInputElement()
+{
+	return $('[name="keywords"]');
+}
+
+function updateCategoryLinksOffKeywords()
+{
+	// We want the category links on the home page 
+	// to filter also by keyword.
+	// To accomplish this, we're adding the keywords as an encoded parameter
+	// in the location search URL's of each location category.
+
+	var keywords = getKeywordsInputElement().val().trim();
+	keywords = encodeURIComponent(keywords); // encode keywords to safely use in URL.
+	$('.location-tags a').each(function() {
+		var $this = $(this);
+		var oldUrl = $this.attr('href');
+		var location_category_id = getLocationCategoryIdFromURL(oldUrl);
+		var newUrl = '/location-search?location_tag_id=' + location_category_id;
+		if ( keywords )
+		{
+			newUrl = newUrl + '&keywords=' + keywords;
+		}
+		$this.attr('href', newUrl);
+	});
+}
+
+function bindCategoryLinksToKeywordInput()
+{
+	getKeywordsInputElement().keyup(updateCategoryLinksOffKeywords);
+}
+
+$(document).ready(bindCategoryLinksToKeywordInput);
