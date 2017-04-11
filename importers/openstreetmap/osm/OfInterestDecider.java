@@ -47,6 +47,14 @@ public class OfInterestDecider
 		beaches, hot springs, sink holes.
 		*/
 		
+		String waterway = location.getValueFor("waterway");
+		String[] uninterestingWaterways = new String[] {
+			"stream", "river", "riverbank", "drain", "ditch",
+			"weir", "stream_end", "lock_gate", "turning_point", 
+			"water_point"};
+		if ( Arrays.asList(uninterestingWaterways).contains(waterway) )
+			return false;
+		
 		return true;
 	}
 }

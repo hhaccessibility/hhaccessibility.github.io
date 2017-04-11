@@ -51,6 +51,10 @@ public class LocationExtractor
 		// loop through all files in the input directory.
 		for (File xmlFile: new File(inputDirectory).listFiles())
 		{
+			// Skip directories.
+			if ( !xmlFile.isFile() )
+				continue;
+
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(xmlFile);
