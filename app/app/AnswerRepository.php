@@ -3,6 +3,8 @@
 namespace App;
 use Session;
 use App\ReviewComment;
+use App\UserAnswer;
+use App\BaseUser;
 
 class AnswerRepository
 {
@@ -111,7 +113,11 @@ class AnswerRepository
 	*/
 	public static function commitAnswersForLocation(int $location_id)
 	{
+		$user_id = BaseUser::getDbUser()->id;
 		$location_key = 'answers_'.$location_id.'_';
+		$now = date('Y-m-d H:i:s');
+		$user_answers = [];
+		$review_comments = [];
 		foreach ( Session::all() as $key => $obj )
 		{
 			if ( strpos($key, $location_key) === 0 )
@@ -123,15 +129,31 @@ class AnswerRepository
 					$question_category_id = intval(substr($key, $index + strlen('comment_')));
 					$comment = $obj;
 					
-					// If there is already a comment from this user to $question_category_id, update it.
-					// FIXME: save comment to review_comment table.
+					$review_comment = [
+						'answered_by_user_id' => $user_id,
+						'location_id' => $location_id,
+						'question_category_id' => $question_category_id,
+						'content' => $comment,
+						'when_submitted' => $now];
+					$review_comments []= $review_comment;
 				}
 				else
 				{
-					// answer
+					echo 'saving an answer';
+					// Answer to a question
+					$question_id = intval(substr($key, strlen($location_key)));
+					$answer_value = $obj;
+					$user_answers []= [
+						'answered_by_user_id' => $user_id,
+						'location_id' => $location_id,
+						'question_id' => $question_id,
+						'answer_value' => $answer_value,
+						'when_submitted' => $now];
 				}
 			}
 		}
+		UserAnswer::insert($user_answers);
+		ReviewComment::insert($review_comments);
 		
 		AnswerRepository::destroyUncommittedChanges();
 	}
