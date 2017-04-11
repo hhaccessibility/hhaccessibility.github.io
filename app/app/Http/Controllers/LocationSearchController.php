@@ -27,11 +27,6 @@ function compareByRating($location1, $location2)
 		return 1;
 }
 
-function compareByName($location1, $location2)
-{
-	return strcmp($location1->name, $location2->name);
-}
-
 function updateDistances(array $locations)
 {
 	$user = new BaseUser();
@@ -104,18 +99,10 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 	if ( $view === 'table' ) {
 		if ( $order_by_field_name === 'name' )
 		{
-			if ( is_array($locations) )
-				usort($locations, 'App\Http\Controllers\compareByName');	
-			else
-				$locations = $locations->orderBy('name');
+			$locations = $locations->orderBy('name');
 		}
 	}
-	// filter down to a bounding latitude and longitude range.
-	if ( !is_array($locations) )
-	{
-		$locations = filterLatitudeAndLongitude($locations);
-		$locations = $locations->get();
-	}
+	$locations = $locations->get();
 	// get() doesn't return an array so let's make one.
 	$loc_array = [];
 	foreach ($locations as $loc)
