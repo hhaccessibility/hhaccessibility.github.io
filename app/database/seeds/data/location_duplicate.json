@@ -15,5 +15,11 @@
 {"id": 14, "location_id": 331, "name": "Ganatchio Trail", "data_source_id": 2, "external_id": null},
 {"id": 15, "location_id": 173, "name": "Grand Marais Rd Drain Trail", "data_source_id": 2, "external_id": null},
 {"id": 16, "location_id": 153, "name": "Water World", "data_source_id": 3, "external_id": null},
-{"id": 17, "location_id": 1438, "name": "Bset Western Plus", "data_source_id": 3, "external_id": null}
+{"id": 17, "location_id": 1438, "name": "Bset Western Plus", "data_source_id": 3, "external_id": null},
+{"id": 18, "location_id": 196, "name": "Alton Parker", "data_source_id": 3, "external_id": null},
+{"id": 19, "location_id": 772, "name": "3 Brewers", "data_source_id": 3, "external_id": null},
+{"id": 20, "location_id": 2338, "name": "Elephant & Castle", "data_source_id": 3, "external_id": null},
+{"id": 21, "location_id": 6662, "name": "University of Toronto", "data_source_id": 3, "external_id": null},
+{"id": 22, "location_id": 868, "name": "Aden", "data_source_id": 3, "external_id": null},
+{"id": 23, "location_id": 1141, "name": "Batteries and Gadgets", "data_source_id": 3, "external_id": null}
 ]

@@ -2675,16 +2675,6 @@
         "location_tag_id": 11
     },
     {
-        "id": 605,
-        "location_id": 697,
-        "location_tag_id": 7
-    },
-    {
-        "id": 606,
-        "location_id": 697,
-        "location_tag_id": 8
-    },
-    {
         "id": 607,
         "location_id": 701,
         "location_tag_id": 7
@@ -2853,16 +2843,6 @@
         "id": 640,
         "location_id": 770,
         "location_tag_id": 6
-    },
-    {
-        "id": 641,
-        "location_id": 771,
-        "location_tag_id": 1
-    },
-    {
-        "id": 642,
-        "location_id": 771,
-        "location_tag_id": 12
     },
     {
         "id": 643,
@@ -3153,11 +3133,6 @@
         "id": 700,
         "location_id": 865,
         "location_tag_id": 8
-    },
-    {
-        "id": 701,
-        "location_id": 867,
-        "location_tag_id": 3
     },
     {
         "id": 702,
@@ -4337,11 +4312,6 @@
     {
         "id": 937,
         "location_id": 1141,
-        "location_tag_id": 3
-    },
-    {
-        "id": 938,
-        "location_id": 1142,
         "location_tag_id": 3
     },
     {
@@ -8908,11 +8878,6 @@
         "id": 1853,
         "location_id": 2335,
         "location_tag_id": 3
-    },
-    {
-        "id": 1854,
-        "location_id": 2337,
-        "location_tag_id": 12
     },
     {
         "id": 1855,
@@ -27298,5 +27263,40 @@
         "id": 5537,
         "location_id": 7015,
         "location_tag_id": 1
+    },
+    {
+        "id": 5538,
+        "location_id": 7016,
+        "location_tag_id": 3
+    },
+    {
+        "id": 5539,
+        "location_id": 7017,
+        "location_tag_id": 4
+    },
+    {
+        "id": 5540,
+        "location_id": 7018,
+        "location_tag_id": 9
+    },
+    {
+        "id": 5541,
+        "location_id": 7019,
+        "location_tag_id": 1
+    },
+    {
+        "id": 5542,
+        "location_id": 7020,
+        "location_tag_id": 6
+    },
+    {
+        "id": 5543,
+        "location_id": 7021,
+        "location_tag_id": 6
+    },
+    {
+        "id": 5544,
+        "location_id": 7022,
+        "location_tag_id": 6
     }
 ]
