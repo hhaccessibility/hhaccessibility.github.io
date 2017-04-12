@@ -10,7 +10,7 @@ public class OfInterestDecider
 			return false;
 
 		String [] mustBeEmpty = new String[]{
-			"surveillance", "bicycle_parking", "railway", "highway"};
+			"surveillance", "bicycle_parking", "railway", "highway", "boundary"};
 		for (String key: mustBeEmpty)
 		{
 			if ( !location.getValueFor(key).equals("") )
@@ -28,9 +28,7 @@ public class OfInterestDecider
 		
 		String name = location.getValueFor("name");
 		String[] uninterestingNames = new String[]{
-			"Windsor", "Toronto", "Amherstburg", "Old Castle",
-			"Essex", "Belle River", "Detroit", "compost",
-			"University of Toronto"};
+			"compost", "University of Toronto"};
 		if( Arrays.asList(uninterestingNames).contains(name) )
 			return false;
 
@@ -53,6 +51,16 @@ public class OfInterestDecider
 			"weir", "stream_end", "lock_gate", "turning_point", 
 			"water_point"};
 		if ( Arrays.asList(uninterestingWaterways).contains(waterway) )
+			return false;
+		
+		String place = location.getValueFor("place");
+		String[] uninterestingPlaces = new String[] {
+			"neighbourhood", "city", "state", "region",
+			"province", "district", "county",
+			"municipality", "suburb", "continent",
+			"village", "town", "island", "city_block"
+		};
+		if ( Arrays.asList(uninterestingPlaces).contains(place) )
 			return false;
 		
 		return true;

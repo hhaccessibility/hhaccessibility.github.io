@@ -24,5 +24,9 @@
 {"id": 23, "location_id": 1141, "name": "Batteries and Gadgets", "data_source_id": 3, "external_id": null},
 {"id": 24, "location_id": 66, "name": "Notre Dame", "data_source_id": 3, "external_id": null},
 {"id": 25, "location_id": 81, "name": "Holy Names Catholic Secondary School", "data_source_id": 3, "external_id": null},
-{"id": 26, "location_id": 104, "name": "Glenwood School", "data_source_id": 3, "external_id": null}
+{"id": 26, "location_id": 104, "name": "Glenwood School", "data_source_id": 3, "external_id": null},
+{"id": 27, "location_id": 5849, "name": "t tephens Anglican Churchyard", "data_source_id": 3, "external_id": null},
+{"id": 28, "location_id": 11, "name": "Odette School of Business", "data_source_id": 3, "external_id": null},
+{"id": 29, "location_id": 379, "name": "Black Oak Prairie Heritage Park", "data_source_id": 3, "external_id": null},
+{"id": 30, "location_id": 169, "name": "Tall Grass Prairie Heritage Reserve", "data_source_id": 3, "external_id": null}
 ]
