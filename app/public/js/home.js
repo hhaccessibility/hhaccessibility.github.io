@@ -175,6 +175,7 @@ function updateCategoryLinksOffKeywords()
 function bindCategoryLinksToKeywordInput()
 {
 	getKeywordsInputElement().keyup(updateCategoryLinksOffKeywords);
+	updateCategoryLinksOffKeywords();
 }
 
 $(document).ready(bindCategoryLinksToKeywordInput);
