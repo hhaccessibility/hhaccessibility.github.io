@@ -3978,19 +3978,6 @@
         "universal_rating": 0
     },
     {
-        "address": "Church St. between Wyandotte st. W. and Elliot St. W.",
-        "data_source_id": 2,
-        "external_web_url": null,
-        "id": 372,
-        "latitude": 42.311435,
-        "location_group_id": null,
-        "longitude": -83.0407462,
-        "name": "Bruce Ave Park",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": 0
-    },
-    {
         "address": "Brookview Cres. and Alderbrook Dr.",
         "data_source_id": 2,
         "external_web_url": null,
@@ -7249,19 +7236,6 @@
         "location_group_id": null,
         "longitude": -83.04224181666667,
         "name": "Arts District",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 634,
-        "latitude": 42.311505963636364,
-        "location_group_id": null,
-        "longitude": -83.04052380000002,
-        "name": "Bruce Park",
         "owner_user_id": null,
         "phone_number": "",
         "universal_rating": null
