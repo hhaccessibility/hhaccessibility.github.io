@@ -1610,11 +1610,6 @@
         "location_tag_id": 8
     },
     {
-        "id": 385,
-        "location_id": 372,
-        "location_tag_id": 8
-    },
-    {
         "id": 386,
         "location_id": 373,
         "location_tag_id": 8
@@ -2473,16 +2468,6 @@
         "id": 565,
         "location_id": 632,
         "location_tag_id": 12
-    },
-    {
-        "id": 566,
-        "location_id": 634,
-        "location_tag_id": 7
-    },
-    {
-        "id": 567,
-        "location_id": 634,
-        "location_tag_id": 8
     },
     {
         "id": 568,
