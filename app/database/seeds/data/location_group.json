@@ -14,5 +14,6 @@
 {"id": 55, "name": "Pizza Pizza", "external_web_url": "http://pizzapizza.com"},
 {"id": 56, "name": "Pizza Hut", "external_web_url": "http://pizzahut.com"},
 {"id": 57, "name": "Boston Pizza", "external_web_url": "http://bostonpizza.com"},
-{"id": 58, "name": "Subway", "external_web_url": "http://subway.com"}
+{"id": 58, "name": "Subway", "external_web_url": "http://subway.com"},
+{"id": 59, "name": "Tim Hortons", "external_web_url": "http://timhortons.com"}
 ]
