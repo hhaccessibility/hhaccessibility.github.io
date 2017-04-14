@@ -43,10 +43,15 @@
 					<div id="map"></div>
 				</div>
 				<div class="search">
-
+					{{ csrf_field() }}
 					<form role="search" action="/location-search">
-							{{ csrf_field() }}
+						<datalist id="location_search_options">
+							@foreach ($location_search_options as $option)
+								<option value="{{ $option->content }}">
+							@endforeach
+						</datalist>
 						<input
+							list="location_search_options"
 							class="form-control"
 							name="address"
 							id="address"
