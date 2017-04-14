@@ -4,10 +4,16 @@
 {"id": 3, "name": "St. Clair College", "external_web_url": "http://www.stclaircollege.ca/"},
 {"id": 4, "name": "Windsor City Hall", "external_web_url": "http://www.citywindsor.ca/"},
 {"id": 5, "name": "Transit Windsor", "external_web_url": "http://www.citywindsor.ca/residents/transitwindsor/Pages/Transit-Windsor.aspx"},
-{"id": 6, "name": "Travalodge", "external_web_url": "http://www.travelodge.ca/"},
+{"id": 6, "name": "Travelodge", "external_web_url": "http://www.travelodge.ca/"},
 {"id": 7, "name": "TD Bank", "external_web_url": "https://www.tdcanadatrust.com"},
 {"id": 50, "name": "McDonalds", "external_web_url": "https://www.mcdonalds.ca"},
 {"id": 51, "name": "Wendy's", "external_web_url": "https://www.wendys.com/"},
 {"id": 52, "name": "Harvey's", "external_web_url": "https://www.harveys.ca/"},
-{"id": 53, "name": "Applebees", "external_web_url": "http://applebees.com"}
+{"id": 53, "name": "Applebees", "external_web_url": "http://applebees.com"},
+{"id": 54, "name": "Starbucks Coffee", "external_web_url": "http://starbucks.com"},
+{"id": 55, "name": "Pizza Pizza", "external_web_url": "http://pizzapizza.com"},
+{"id": 56, "name": "Pizza Hut", "external_web_url": "http://pizzahut.com"},
+{"id": 57, "name": "Boston Pizza", "external_web_url": "http://bostonpizza.com"},
+{"id": 58, "name": "Subway", "external_web_url": "http://subway.com"},
+{"id": 59, "name": "Tim Hortons", "external_web_url": "http://timhortons.com"}
 ]
