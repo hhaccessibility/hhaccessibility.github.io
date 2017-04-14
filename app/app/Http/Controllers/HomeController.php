@@ -2,6 +2,7 @@
 
 use App\LocationTag;
 use App\BaseUser;
+use DB;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -20,13 +21,15 @@ class HomeController extends Controller {
 		{
 			$address_value = '';
 		}
+		$location_search_options = DB::table('location_search_option')->get();
         return view('pages.home', [
 			'location_tags' => LocationTag::orderBy('name')->get(),
 			'is_authenticated' => BaseUser::isSignedIn(),
 			'address_default' => BaseUser::getDefaultAddress(),
 			'address_value' => $address_value,
 			'google_map_api_key' => config('app.google_map_api_key'),
-			'turn_off_maps'      => config('app.turn_off_maps')
+			'turn_off_maps'      => config('app.turn_off_maps'),
+			'location_search_options' => $location_search_options
 			]);
     }
 

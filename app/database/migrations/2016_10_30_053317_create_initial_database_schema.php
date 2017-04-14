@@ -13,6 +13,10 @@ class CreateInitialDatabaseSchema extends Migration
      */
     public function up()
     {
+		Schema::create('location_search_option', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('content', 255);
+		});
 		Schema::create('faq_item', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('question', 255);
@@ -206,5 +210,6 @@ class CreateInitialDatabaseSchema extends Migration
         Schema::dropIfExists('country');
         Schema::dropIfExists('data_source');
         Schema::dropIfExists('faq_item');
+		Schema::dropIfExists('location_search_option');
     }
 }

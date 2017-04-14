@@ -1,15 +1,22 @@
+var user_zoom_detection_active = false;
+
+function updateMapPositionAndSize(map, bounds, zoomOffset) {
+	user_zoom_detection_active = false;
+	map.fitBounds(bounds);
+	map.setZoom(map.getZoom() + zoomOffset);
+	user_zoom_detection_active = true;
+}
 
 function initMap() {
 	//current user LatLng
 	var userPoint = {lat: user_latitude, lng: user_longitude };
-	var bounds = new google.maps.LatLngBounds();
-
+	
 	//Map div
 	var mapDiv = document.getElementById('map');
 
     //Map options
 	var options = {
-	  zoom: 12,
+	  zoom: 19,
 	  center: userPoint,
 	  draggable: false
 	};
@@ -29,12 +36,7 @@ function initMap() {
 		google.maps.event.addListener(locationMarker, 'click', function() {
 			window.location.href = '/location-report/' + location.id;
 		});
-
-		bounds.extend(myLatLng);
-
 	});
-
-	map.fitBounds(bounds);
 
 	var centreMarker = new google.maps.Marker({
 	  position: userPoint,
@@ -52,14 +54,34 @@ function initMap() {
 					    strokeOpacity: 0.6,
 					    strokeWeight: 1,
 					    fillColor: "#929599",
-					    fillOpacity: 0.4
+					    fillOpacity: 0.3
 					  });
-					  circle.setMap(map);
+	var bounds = new google.maps.LatLngBounds();
 
-	google.maps.event.addDomListener(window, 'resize', function() {
-		map.setCenter(userPoint);
+	bounds.union(circle.getBounds());
+	map.fitBounds(bounds);
+	circle.setMap(map);
+	var prev_zoom_level = map.getZoom();
+	var zoomOffset = 0;
+
+	google.maps.event.addListenerOnce(map, 'idle', function(){
+		zoomOffset = 0;
+		user_zoom_detection_active = true;
+	});
+	
+	google.maps.event.addDomListener(map, 'zoom_changed', function() {
+		zoomLevel = map.getZoom();
+		if( user_zoom_detection_active ) {
+			zoomOffset += zoomLevel - prev_zoom_level;
+			updateMapPositionAndSize(map, bounds, zoomOffset);
+		}
+		prev_zoom_level = zoomLevel;
 	});
 
-
-
+	window.addEventListener('resize', function(event){
+		google.maps.event.trigger(map, "resize");
+	});
+	google.maps.event.addDomListener(window, 'resize', function() {
+		updateMapPositionAndSize(map, bounds, zoomOffset);
+	});
 }

@@ -30,5 +30,6 @@
 {"id": 29, "location_id": 379, "name": "Black Oak Prairie Heritage Park", "data_source_id": 3, "external_id": "161929066"},
 {"id": 30, "location_id": 169, "name": "Tall Grass Prairie Heritage Reserve", "data_source_id": 3, "external_id": null},
 {"id": 31, "location_id": 630, "name": "Bruce Park", "data_source_id": 3, "external_id": "304470318"},
-{"id": 32, "location_id": 630, "name": "Bruce Ave Park", "data_source_id": 2, "external_id": null}
+{"id": 32, "location_id": 630, "name": "Bruce Ave Park", "data_source_id": 2, "external_id": null},
+{"id": 33, "location_id": 347, "name": "Dieppe Fountain", "data_source_id": 3, "external_id": "4510543965"}
 ]

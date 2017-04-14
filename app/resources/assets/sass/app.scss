@@ -407,7 +407,13 @@ footer {
 	}
     
     .hidden-uploader {
-        display: none;
+		// Hide the input on the profile.
+		// We can't use display: none or visibility: hidden because that doesn't work in Safari.
+		// More details at:
+		// http://stackoverflow.com/questions/793014/jquery-trigger-file-input
+        position: fixed;
+		opacity: 0;
+		top: -1000; // Way off top of the screen so it is essentially invisible.
     }
 }
 
@@ -711,9 +717,10 @@ body.fixed-menu {
 			background-repeat: no-repeat;
 			background-position: 0 center;
 			position: absolute;
-			top: 100px;
+			top: 50%;
 			left: 50%;
 			margin-left: 20px;
+			margin-top: -200px;
 			padding-left: 40px;
 		
 			.questions-box {
