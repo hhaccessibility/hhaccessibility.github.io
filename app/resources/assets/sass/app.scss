@@ -407,7 +407,13 @@ footer {
 	}
     
     .hidden-uploader {
-        display: none;
+		// Hide the input on the profile.
+		// We can't use display: none or visibility: hidden because that doesn't work in Safari.
+		// More details at:
+		// http://stackoverflow.com/questions/793014/jquery-trigger-file-input
+        position: fixed;
+		opacity: 0;
+		top: -1000; // Way off top of the screen so it is essentially invisible.
     }
 }
 

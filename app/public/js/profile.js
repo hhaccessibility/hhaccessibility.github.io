@@ -61,7 +61,7 @@ function randomizePhotoURL()
 	{
 		// Set a new URL so cache won't interfere with refreshing newly uploaded photos.
 		$element.css({
-			'background-image': "url('/profile-photo?t=" + (new Date().getTime()) + "')"
+			'background-image': "url(\'/profile-photo?t=" + (new Date().getTime()) + "\')"
 		});
 	}
 }
