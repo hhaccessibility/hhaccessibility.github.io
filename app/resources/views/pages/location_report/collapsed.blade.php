@@ -5,7 +5,7 @@
 		  function initMap() {
 			var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
 			var map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 9,
+			  zoom: 15,
 			  center: locationPoint,
 			  draggable: false
 			});
@@ -13,8 +13,14 @@
 			  position: locationPoint,
 			  map: map
 			});
-			google.maps.event.addDomListener(window, 'resize', function() {
+			
+			function centreLocation() {
 				map.setCenter(locationPoint);
+			}
+
+			google.maps.event.addDomListener(window, 'resize', centreLocation);
+			$(window).resize(function() {
+				google.maps.event.trigger(map, "resize");
 			});
 		  }
 		  
@@ -24,6 +30,7 @@
 	<script>
 		  
 		  function updateHeightOfMap() {
+			  var $map_parent = $('.map-and-box');
 			  var $map = $('#map');
 			  var $copyright = $('#copyright');
 			  var height = window.innerHeight - $(map).offset().top - $copyright.height();
@@ -31,6 +38,7 @@
 				height = 100;
 			
 			  $map.height(height);
+			  $map_parent.height(height);
 			  
 			  $questionBox = $('.questions-box');
 			  var questionBoxHeight = $questionBox.height();
