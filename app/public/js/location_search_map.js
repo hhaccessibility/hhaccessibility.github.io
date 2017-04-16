@@ -18,7 +18,8 @@ function initMap() {
 	var options = {
 	  zoom: 19,
 	  center: userPoint,
-	  draggable: false
+	  draggable: false,
+	  streetViewControl: false
 	};
 	//creating the map
 	var map = new google.maps.Map(mapDiv, options);

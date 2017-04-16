@@ -17273,7 +17273,7 @@
         "id": 3542,
         "location_id": 2855,
         "location_tag_id": 5
-    },	
+    },
     {
         "id": 3545,
         "location_id": 4550,
@@ -27312,6 +27312,136 @@
     {
         "id": 5568,
         "location_id": 7041,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5569,
+        "location_id": 7042,
+        "location_tag_id": 3
+    },
+    {
+        "id": 5570,
+        "location_id": 7043,
+        "location_tag_id": 9
+    },
+    {
+        "id": 5571,
+        "location_id": 7046,
+        "location_tag_id": 1
+    },
+    {
+        "id": 5572,
+        "location_id": 7047,
+        "location_tag_id": 1
+    },
+    {
+        "id": 5573,
+        "location_id": 7047,
+        "location_tag_id": 12
+    },
+    {
+        "id": 5574,
+        "location_id": 7048,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5575,
+        "location_id": 7049,
+        "location_tag_id": 5
+    },
+    {
+        "id": 5576,
+        "location_id": 7050,
+        "location_tag_id": 1
+    },
+    {
+        "id": 5577,
+        "location_id": 7052,
+        "location_tag_id": 6
+    },
+    {
+        "id": 5578,
+        "location_id": 7054,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5579,
+        "location_id": 7055,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5580,
+        "location_id": 7055,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5581,
+        "location_id": 7056,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5582,
+        "location_id": 7056,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5583,
+        "location_id": 7057,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5584,
+        "location_id": 7057,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5585,
+        "location_id": 7058,
+        "location_tag_id": 6
+    },
+    {
+        "id": 5586,
+        "location_id": 7059,
+        "location_tag_id": 1
+    },
+    {
+        "id": 5587,
+        "location_id": 7060,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5588,
+        "location_id": 7060,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5589,
+        "location_id": 7062,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5590,
+        "location_id": 7063,
+        "location_tag_id": 11
+    },
+    {
+        "id": 5591,
+        "location_id": 7064,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5592,
+        "location_id": 7064,
+        "location_tag_id": 8
+    },
+    {
+        "id": 5593,
+        "location_id": 7065,
+        "location_tag_id": 7
+    },
+    {
+        "id": 5594,
+        "location_id": 7065,
         "location_tag_id": 8
     }
 ]

@@ -50,8 +50,9 @@ see the names of location around the users current location.
 function initMap()
 {
      map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 17,
-		draggable: false
+		zoom: 15,
+		draggable: false,
+		streetViewControl: false
 	});
 
 	google.maps.event.addDomListener(window, "resize", function() {
@@ -59,10 +60,10 @@ function initMap()
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center); 
 	});
-	
+
 	conditionalProcessAddress();
-	
-	$('#address').bind('keyup change', delayedProcessAddress);
+
+	$('#address').bind('keyup change', delayedProcessAddress);	
 }
 
 /*
