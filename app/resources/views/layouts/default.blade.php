@@ -4,7 +4,7 @@
 		@include('includes.head')
 		@yield('head-content')
 	</head>
-	<body>
+	<body class="{{ isset($body_class) ? $body_class : '' }}">
 		<div class="container">
 
 			<header class="row">

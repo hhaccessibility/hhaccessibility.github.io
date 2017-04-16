@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['body_class' => 'nav-profile'])
 @section('content')
 
 <div class="sign-in">

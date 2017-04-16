@@ -94,7 +94,7 @@
 								array(
 									'percent' => $location->getAccessibilityRating($rating_system),
 									'size' => 'big'))
-							<span class="percentage">{{$location->getAccessibilityRating($rating_system)}}%</span>
+							<span class="percentage">{{ sprintf("%.1f", $location->getAccessibilityRating($rating_system)) }}%</span>
 							<div class="foreground">
 								<div class="accessible-label">Accessible</div>
 								<div class="num-ratings">( {{ $num_ratings }} ratings )</div>

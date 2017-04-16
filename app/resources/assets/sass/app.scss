@@ -53,6 +53,71 @@ $base_colour1: #153157;
 	color: #000;
 }
 
+@mixin location-report-box($font_size, $height) {
+	margin-top: ( -$height * 0.44 )+px;
+	padding-left: ($height * 0.13)+px;
+
+	.questions-box {
+		max-width: ( $height * 0.95 )+px;
+		
+		.title-bar {
+			height: ( $height * 0.15 )+px;
+
+			h3 {
+				margin-top: ($font_size / 3)+px;
+				margin-bottom: ($font_size / 3)+px;
+				font-size: $font_size+px;
+			}
+
+			.location-rating {
+				.pie-graph.big {
+					canvas {
+						height: ($font_size * 2.5)+px;
+						width: ($font_size * 2.5)+px;
+					}
+				}
+
+				.foreground .accessible-label {
+					font-size: ($font_size / 2)+px;
+				}
+				
+				.percentage {
+					font-size: $font_size+px;
+				}
+			}
+		}
+		
+		.question-category {
+			.pie-graph {
+				canvas {
+					height: ($font_size * 2)+px;
+					width: ($font_size * 2)+px;
+				}
+			}
+		
+			a {
+				padding-top: ($font_size * 0.1)+px;
+				padding-bottom: 0;
+				
+				.category-name {
+					font-size: ($font_size * 0.9)+px;
+					padding-top: ($font_size * 0.6)+px;
+				}
+				
+				.percentage {
+					 @if $font_size < 10 {
+					padding-top: 0;
+					 }
+					 @else {
+					padding-top: ($font_size * 0.4)+px;
+					}
+					font-size: $font_size+px;
+				}
+			}
+		}
+	}
+}
+
 @mixin social-media-large-button($colour) {
 	background-color: $colour;
 	border-color: $colour;
@@ -91,6 +156,22 @@ $base_colour1: #153157;
   @return mix(white, $color, $percentage);
 }
 
+@mixin solid-column-background($col1, $col2) {
+	.data > div {
+		&:nth-child(odd) .row { 
+			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
+				background-color: #f3f3f3;
+			}
+		}
+
+		&:nth-child(even) .row {
+			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
+				background-color: #fff;
+			}
+		}
+	}
+}
+
 html, body {
 	font-family: arial;
 	background-color: #e7f3f5;
@@ -115,20 +196,12 @@ h1, h2, h3 {
 	font-family: Didact Gothic, arial;
 }
 
-@mixin solid-column-background($col1, $col2) {
-	.data > div {
-		&:nth-child(odd) .row { 
-			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
-				background-color: #f3f3f3;
-			}
-		}
-
-		&:nth-child(even) .row {
-			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
-				background-color: #fff;
-			}
-		}
-	}
+.nav-home-page a.nav-home,
+.nav-profile a.nav-profile,
+.nav-faq a.nav-faq,
+.nav-contact a.nav-contact {
+	color: #000;
+	box-shadow: 0 0 4px #bbb inset;
 }
 
 .spreadsheet.sort-by-name .column-titles .name a {
@@ -429,6 +502,8 @@ footer {
 	}
 }
 
+// Used in location_rating.js for locking 
+// the left menu location.
 body.fixed-menu {
 	.location-rating {
 		display: block;
@@ -1077,6 +1152,30 @@ body.fixed-menu {
 			}
 		}
 	}	
+}
+
+@media screen and (max-height: 379px) {
+	body {
+		.location-report .map-and-box .outer-questions-box {
+			@include location-report-box(9, 222);
+		}
+	}
+}
+
+@media screen and (max-height: 479px) and (min-height: 380px) {
+	body {
+		.location-report .map-and-box .outer-questions-box {
+			@include location-report-box(11, 253);
+		}
+	}
+}
+
+@media screen and (max-height: 630px) and (min-height: 480px) {
+	body {
+		.location-report .map-and-box .outer-questions-box {
+			@include location-report-box(13, 290);
+		}
+	}
 }
 
 @media screen and (max-width: 250px) {
