@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['body_class' => 'nav-profile'])
 @section('head-content')
   <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
   <script src="/css/jquery/external/jquery/jquery.js"></script>

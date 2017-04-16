@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['body_class' => 'nav-faq'])
 @section('content')
 <div class="faq">
 	<h1>Frequently Asked Questions</h1>

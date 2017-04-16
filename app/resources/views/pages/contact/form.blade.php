@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['body_class' => 'nav-contact'])
 @section('content')
 <div class="contact">
 	<h1>Contact</h1>
