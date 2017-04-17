@@ -35,6 +35,11 @@
         "location_tag_id": 1
     },
     {
+        "id": 8,
+        "location_id": 13,
+        "location_tag_id": 1
+    },
+    {
         "id": 10,
         "location_id": 30,
         "location_tag_id": 1

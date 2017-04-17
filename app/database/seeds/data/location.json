@@ -65,6 +65,19 @@
         "universal_rating": 0
     },
     {
+        "address": "620 University Ave W, Windsor, ON N9A 5R5",
+        "data_source_id": 1,
+        "external_web_url": "https://www.facebook.com/bubisawesomeeats",
+        "id": 13,
+        "latitude": 42.31592800,
+        "location_group_id": null,
+        "longitude": -83.04642100,
+        "name": "Bubi's Awesome Eats",
+        "owner_user_id": null,
+        "phone_number": "(519) 252-2001",
+        "universal_rating": 0
+    },
+    {
         "address": "2110 Wyandotte St W",
         "data_source_id": 1,
         "external_web_url": "http://www.tdcanadatrust.com/locator/transit.jsp?transit=3904",
