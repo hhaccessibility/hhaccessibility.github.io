@@ -27,6 +27,11 @@ function compareByRating($location1, $location2)
 		return 1;
 }
 
+function compareByName($location1, $location2)
+{
+	return strcmp($location1->name, $location2->name);
+}
+
 function updateDistances(array $locations)
 {
 	$user = new BaseUser();
@@ -47,6 +52,111 @@ function updateRatings(array $locations)
 	}
 }
 
+function calcSum($numbers, $max)
+{
+	$total = 0;
+	foreach ($numbers as $num)
+	{
+		$total += min($max, $num);
+	}
+	return $total;
+}
+
+function calculateBucketHeightLimit($buckets, $max)
+{
+	$lens = [];
+	foreach ($buckets as $key => $bucket)
+	{
+		$len = count($bucket);
+		// Lengths of 0 won't affect the result
+		// so ignore them to keep things more efficient.
+		if ( $len > 0 )
+			$lens []= min($max, $len);
+			// lengths greater than max won't affect the result so ignore the amount over max.
+	}
+	$numLens = count($lens);
+	$maxResult = $max;
+	$minResult = $max / $numLens;
+	
+	// Use a binary search technique to bracket down the range.
+	while ( $minResult < $maxResult )
+	{
+		$midResult = floor(($maxResult + $minResult) / 2);
+		$midSum = calcSum($lens, $midResult);
+		if ( $midSum === $max ) {
+			$minResult = $midResult;
+			$maxResult = $midResult;
+		}
+		else if ( $midSum < $max )
+		{
+			$minResult = $midResult + 1;
+		}
+		else
+		{
+			$maxResult = $midResult;
+		}
+	}
+	return $minResult;
+}
+
+function getLatitudeAndLongitudeRange($lat, $lon, $searchRadiusKm)
+{
+	$earthRadius = 6371; // km
+	// If search radius is larger than the Earth's radius, 
+	// we can't filter down at all here.
+	if ( $searchRadiusKm >= $earthRadius * 0.99 )
+	{
+		$maxLat = 89.99;
+		$minLat = -89.99;
+		$maxLon = 179.99;
+		$minLon = -179.99;
+	}
+	else
+	{
+		$r = $searchRadiusKm / $earthRadius;
+		$latDelta = rad2deg($r);
+		$maxLat = $lat + $latDelta;
+		$minLat = $lat - $latDelta;
+		if ( $maxLat >= 90 || $minLat <= -90 )
+		{
+			$maxLon = 179.99;
+			$minLon = -179.99;
+		}
+		else
+		{
+			$latR = deg2rad($lat);
+			$asinInput = sin($r) / cos($latR);
+			if ( abs($asinInput) > 1 )
+			{
+				$maxLon = 179.99;
+				$minLon = -179.99;
+			}
+			else
+			{
+				$lonDelta = rad2deg(asin( $asinInput ));
+				$lon = BaseUser::getLongitude();
+				$maxLon = $lon + $lonDelta;
+				$minLon = $lon - $lonDelta;
+			}
+		}
+	}
+
+	return [
+		'maxLat' => $maxLat,
+		'minLat' => $minLat,
+		'maxLon' => $maxLon,
+		'minLon' => $minLon
+	];
+}
+
+function getLatitudeAndLongitudeRangeFromBaseUser()
+{
+	$searchRadius = BaseUser::getSearchRadius(); // km
+	$lat = BaseUser::getLatitude();
+	$lon = BaseUser::getLongitude();
+	return getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
+}
+
 /**
 For efficiency's sake, we want to remove any locations that are outside 
 the latitude and longitude range we're interested in.
@@ -56,53 +166,83 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 */
 function filterLatitudeAndLongitude($locationsQuery)
 {
-	$searchRadius = BaseUser::getSearchRadius(); // km
-	$earthRadius = 6371; // km
-	// If search radius is larger than the Earth's radius, 
-	// we can't filter down at all here.
-	if ( $searchRadius >= $earthRadius * 0.99 )
-	{
-		return $locationsQuery;
-	}
-	$lat = BaseUser::getLatitude();
-	$r = $searchRadius / $earthRadius;
-	$latDelta = rad2deg($r);
-	$maxLat = $lat + $latDelta;
-	$minLat = $lat - $latDelta;
-	$locationsQuery = $locationsQuery->where('latitude', '<=', $maxLat)
-		->where('latitude', '>=', $minLat);
+	$range = getLatitudeAndLongitudeRangeFromBaseUser();
 
-	// If the latitude goes over the poles, 
-	// longitude is unrestricted.
-	// Imagine the circle overlapping the north or south pole and
-	// you'll see why all longitudes are covered.
-	if ( $maxLat >= 90 || $minLat <= -90 || abs($lat) === 90 )
-		return $locationsQuery;
-
-	$latR = deg2rad($lat);
-	$asinInput = sin($r) / cos($latR);
-	if ( abs($asinInput) > 1 ) {
-		return $locationsQuery;
-	}
-	$lonDelta = rad2deg(asin( $asinInput ));
-	$lon = BaseUser::getLongitude();
-	$maxLon = $lon + $lonDelta;
-	$minLon = $lon - $lonDelta;
-	$locationsQuery = $locationsQuery->where('longitude', '<=', $maxLon)
-		->where('longitude', '>=', $minLon);
+	$locationsQuery = $locationsQuery->
+		where('latitude', '<=', $range['maxLat'])->
+		where('latitude', '>=', $range['minLat'])->
+		where('longitude', '>=', $range['minLon'])->
+		where('longitude', '<=', $range['maxLon']);
 
 	return $locationsQuery;
 }
 
-function getSortedLocations($locations, $view, $order_by_field_name)
+function filterLocationsToMax($locations, $max)
 {
-	if ( $view === 'table' ) {
-		if ( $order_by_field_name === 'name' )
+	$currentLength = count($locations);
+	if ( $currentLength > $max )
+	{
+		$searchRadius = BaseUser::getSearchRadius();
+		$lat = BaseUser::getLatitude();
+		$lon = BaseUser::getLongitude();
+		$range = getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
+		$buckets = [];
+		$gridSize = 10;
+		for ( $i = -$gridSize; $i < $gridSize; $i ++ )
 		{
-			$locations = $locations->orderBy('name');
+			$delta = ceil(sqrt($gridSize * $gridSize - $i * $i));
+			for ( $j = -$delta; $j < $delta; $j ++ )
+			{
+				$buckets['_'.$i.'_'.$j] = [];
+			}
+		}
+		$ratio = ( $gridSize * 1.0 ) / $searchRadius;
+		foreach ($locations as $location)
+		{
+			$i = floor( ($location->longitude - $lon ) * $ratio );
+			$j = floor( ($location->latitude - $lat ) * $ratio );
+			$key = '_'.$i.'_'.$j;
+			if ( isset( $buckets[$key] ) )
+			{
+				$buckets[$key] []= $location;
+			}
+		}
+		$bucket_height_limit = calculateBucketHeightLimit($buckets, $max);
+		$new_locations = [];
+		foreach ($buckets as $key => $bucket)
+		{ 
+			$bucket = array_slice($bucket, 0, $bucket_height_limit);
+			foreach ($bucket as $location)
+			{
+				$new_locations []= $location;
+			}
+		}
+		$locations = $new_locations;
+	}
+	return [
+		'locations' => $locations,
+		'unlimited_location_count' => $currentLength
+		];
+}
+
+function filterTooDistant($locations)
+{
+	// Remove locations that are too far away.
+	$filtered_locations = [];
+	$search_radius = BaseUser::getSearchRadius();
+	foreach ($locations as $location) {
+		if ( $location->distance <= $search_radius ) {
+			$filtered_locations []= $location;
 		}
 	}
-	$locations = $locations->get();
+	return $filtered_locations;
+}
+
+function getSortedLocations($locationsQuery, $view, $order_by_field_name)
+{
+	// Order by id just to clarify that any filtering will be deterministic.
+	$locationsQuery = $locationsQuery->orderBy('id');
+	$locations = $locationsQuery->get();
 	// get() doesn't return an array so let's make one.
 	$loc_array = [];
 	foreach ($locations as $loc)
@@ -110,16 +250,25 @@ function getSortedLocations($locations, $view, $order_by_field_name)
 		$loc_array []= $loc;
 	}
 	$locations = $loc_array;
-
 	updateDistances($locations);
+	$locations = filterTooDistant($locations);
+
+	$locationsResult = filterLocationsToMax($locations, 50);
+	$locations = $locationsResult['locations'];
+	
 	if ( $view === 'table' ) {
 		updateRatings($locations);
-		if ( $order_by_field_name === 'distance' )
+		if ( $order_by_field_name === 'name' )
+			usort($locations, 'App\Http\Controllers\compareByName');
+		else if ( $order_by_field_name === 'distance' )
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )
 			usort($locations, 'App\Http\Controllers\compareByRating');
 	}
-	return $locations;
+	return [
+		'locations' => $locations,
+		'unlimited_location_count' => $locationsResult['unlimited_location_count']
+		];
 }
 
 /**
@@ -225,17 +374,7 @@ class LocationSearchController extends Controller {
 			\App::abort(422, 'Either keywords or location_tag_id must be specified');
 		}
 		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);		
-		$locations = getSortedLocations($locationsQuery, $view, $order_by_field_name);
-
-		// Remove locations that are too far away.
-		$filtered_locations = [];
-		$search_radius = BaseUser::getSearchRadius();
-		foreach ($locations as $location) {
-			if ( $location->distance <= $search_radius ) {
-				$filtered_locations []= $location;
-			}
-		}
-		$locations = $filtered_locations;
+		$locationsResult = getSortedLocations($locationsQuery, $view, $order_by_field_name);
 
 		$url_factory = new URLFactory([
 			'keywords' => $keywords,
@@ -243,10 +382,14 @@ class LocationSearchController extends Controller {
 			'location_tag_id' => $location_tag_id,
 			'view' => $view
 		]);
+		
+		$search_radius = BaseUser::getSearchRadius();
 
 		return view('pages.location_search.search',
 			[
-				'locations'          => $locations,
+				'locations'          => $locationsResult['locations'],
+				'max_reached'        => (count($locationsResult['locations']) < $locationsResult['unlimited_location_count']),
+				'unlimited_location_count' => $locationsResult['unlimited_location_count'],
 				'keywords'           => $keywords,
 				'location_tag_name'  => $location_tag_name,
 				'url_factory'        => $url_factory,

@@ -21,7 +21,7 @@
 @stop
 @section('content')
 
-<div class="location-search">
+<div class="location-search {{ $max_reached ? 'warned' : '' }}">
 	<div class="title-map-table-bar">
 		@if ( !empty($location_tag_name) )
 		<h1>Location Search Results for {{ $location_tag_name }}</h1>
@@ -37,6 +37,10 @@
 				<a class="selected" href="{{ $url_factory->createURLForView('map') }}">Map</a>
 			@endif
 		</div>
+		@if ( $max_reached )
+			<span class="warning">Narrow your search to view all matches.  
+			{{ count($locations) }} of {{ $unlimited_location_count }} shown.</span>
+		@endif
 	</div>
 
 	@if ( $view === 'table' )
