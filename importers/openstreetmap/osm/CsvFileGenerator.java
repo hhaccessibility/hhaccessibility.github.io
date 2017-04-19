@@ -17,7 +17,7 @@ public class CsvFileGenerator
 		new Address(), new URLField(),
 		new Restaurant(), new Entertainment(), new Sports(), new Education(),
 		new Association(), new PublicService(), new Transportation(),
-		new Accomodation(), new Shopping(), new Park(), new Financial(),
+		new Accommodation(), new Shopping(), new Park(), new Financial(),
 		new Healthcare(), new WheelChairAccessible(),
 		new ToiletWheelChairAccessible(), new Wifi(), new FreeWifi()
 	};

@@ -2,11 +2,11 @@ package osm.location_fields;
 
 import osm.Location;
 
-public class Accomodation extends LocationField
+public class Accommodation extends LocationField
 {
-	public Accomodation()
+	public Accommodation()
 	{
-		super("Is Accomodation");
+		super("Is Accommodation");
 	}
 	
 	@Override
