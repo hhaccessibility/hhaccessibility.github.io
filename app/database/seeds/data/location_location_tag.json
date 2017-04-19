@@ -35,6 +35,11 @@
         "location_tag_id": 1
     },
     {
+        "id": 8,
+        "location_id": 13,
+        "location_tag_id": 1
+    },
+    {
         "id": 10,
         "location_id": 30,
         "location_tag_id": 1
@@ -25880,11 +25885,6 @@
         "location_tag_id": 6
     },
     {
-        "id": 5274,
-        "location_id": 6673,
-        "location_tag_id": 6
-    },
-    {
         "id": 5275,
         "location_id": 6674,
         "location_tag_id": 6
@@ -27443,5 +27443,15 @@
         "id": 5594,
         "location_id": 7065,
         "location_tag_id": 8
+    },
+    {
+        "id": 5595,
+        "location_id": 3377,
+        "location_tag_id": 6
+    },
+    {
+        "id": 5596,
+        "location_id": 5385,
+        "location_tag_id": 2
     }
 ]

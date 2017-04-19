@@ -6,6 +6,19 @@
 {"id": 5, "name": "Transit Windsor", "external_web_url": "http://www.citywindsor.ca/residents/transitwindsor/Pages/Transit-Windsor.aspx"},
 {"id": 6, "name": "Travelodge", "external_web_url": "http://www.travelodge.ca/"},
 {"id": 7, "name": "TD Bank", "external_web_url": "https://www.tdcanadatrust.com"},
+{"id": 8, "name": "Pita Pit", "external_web_url": "https://pitapit.ca"},
+{"id": 9, "name": "The Keg", "external_web_url": "https://www.kegsteakhouse.com"},
+{"id": 10, "name": "Moxie's", "external_web_url": "https://moxies.com"},
+{"id": 11, "name": "Food Basics", "external_web_url": "http://www.foodbasics.ca"},
+{"id": 12, "name": "Royal Bank of Canada", "external_web_url": "http://www.rbcroyalbank.com"},
+{"id": 13, "name": "Scotiabank", "external_web_url": "http://www.scotiabank.com"},
+{"id": 14, "name": "CIBC", "external_web_url": "http://cibc.com"},
+{"id": 15, "name": "Meridian", "external_web_url": "http://meridiancu.ca"},
+{"id": 16, "name": "HSBC", "external_web_url": "http://hsbc.com"},
+{"id": 17, "name": "Five Guys", "external_web_url": "http://www.fiveguys.ca"},
+{"id": 30, "name": "Comfort Inn", "external_web_url": "http://comfortinn.com"},
+{"id": 31, "name": "Best Western", "external_web_url": "http://bestwestern.com"},
+{"id": 49, "name": "Second Cup", "external_web_url": "http://www.secondcup.com"},
 {"id": 50, "name": "McDonalds", "external_web_url": "https://www.mcdonalds.ca"},
 {"id": 51, "name": "Wendy's", "external_web_url": "https://www.wendys.com/"},
 {"id": 52, "name": "Harvey's", "external_web_url": "https://www.harveys.ca/"},
@@ -15,5 +28,6 @@
 {"id": 56, "name": "Pizza Hut", "external_web_url": "http://pizzahut.com"},
 {"id": 57, "name": "Boston Pizza", "external_web_url": "http://bostonpizza.com"},
 {"id": 58, "name": "Subway", "external_web_url": "http://subway.com"},
-{"id": 59, "name": "Tim Hortons", "external_web_url": "http://timhortons.com"}
+{"id": 59, "name": "Tim Hortons", "external_web_url": "http://timhortons.com"},
+{"id": 60, "name": "University Preparatory Academy", "external_web_url": "http://upa.uprepschools.com"}
 ]

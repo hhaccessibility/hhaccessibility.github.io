@@ -18,7 +18,9 @@ public class Education extends LocationField
 		String building = location.getValueFor("building");
 		String name = location.getValueFor("name").toLowerCase();
 		String[] educationalNames = new String[]{"hackforge", "school",
-			"college", "école", "École", "university", "student", "library", "newspaper", "artwork"};
+			"college", "école", "École", "education", "university", "student",
+			"library", "newspaper", "artwork", "adult esl", "esl centre",
+			"esl center"};
 		String combinedString = amenity + tourism + office + building + name;
 	   for (String educationalName: educationalNames)
 	   {
