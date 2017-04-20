@@ -26,6 +26,7 @@ public class Financial extends LocationField
 	   }
 		return name.startsWith("bank") || name.endsWith("bank") ||
 		name.contains("financial") || name.contains("insurance")
+		|| name.contains("brokerage")
 		|| amenity.equals("bank") || amenity.equals("atm") ||
 		shop.equals("tax") || office.equals("tax_advisor");
 	}
