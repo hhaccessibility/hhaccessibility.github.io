@@ -1,6 +1,6 @@
 [
-{"id": 1, "name": "Restaurant", "description": "Fast-food, cafe, dinner..."},
-{"id": 2, "name": "Accommodation", "description": "Hotel, B&B..."},
+{"id": 1, "name": "Restaurant", "description": "Fast-food, cafe, diner..."},
+{"id": 2, "name": "Accommodation", "description": "Hotel, motel, b&b, hostel..."},
 {"id": 3, "name": "Shopping", "description": "Retail store, mall..."},
 {"id": 4, "name": "Healthcare", "description": "Hospital, clinic, pharmacy, laboratories, health centre, medical support centre, specialist clinic, dental clinic.... any medical building"},
 {"id": 5, "name": "Financial", "description": "Bank, ATM, accounting & tax service..."},
@@ -8,7 +8,7 @@
 {"id": 7, "name": "Sports & Recreation", "description": "Gym, fitness centre, recreational centre, swimming pool, sport club..."},
 {"id": 8, "name": "Parks", "description": "Public parks, amusement parks..."},
 {"id": 9, "name": "Public service", "description": "Government building, post office..."},
-{"id": 10, "name": "Transportation", "description": "Public transit, bus, train, airport..."},
+{"id": 10, "name": "Transportation", "description": "Public transit, bus, subway, train, airport..."},
 {"id": 11, "name": "Association & Organization", "description": "Not for profit organization, NGO, convention centre, religious building, Rotary club..."},
 {"id": 12, "name": "Arts & Entertainment", "description": "Nightclub, theatre, museum..."}
 ]
