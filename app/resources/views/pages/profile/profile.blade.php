@@ -107,7 +107,8 @@
 							<label for="province">State/Province</label>
 						</div>
 						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="province" name="province" value="{{ $user->home_region }}">
+							<input list="regions" class="form-control" id="province" name="province" value="{{ $user->home_region }}">
+							<datalist id="regions"></datalist>
 						</div>
 					</div>
 				</div>
