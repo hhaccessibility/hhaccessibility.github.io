@@ -29,6 +29,8 @@ Route::get('password-recovery', 'PasswordRecoveryController@form');
 Route::post('password-recovery', 'PasswordRecoveryController@sendEmail');
 
 Route::get('profile', 'ProfileController@index');
+
+Route::get('api/regions', 'ProfileController@getRegions');
 Route::post('profile', 'ProfileController@save');
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@post');

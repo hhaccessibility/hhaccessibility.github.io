@@ -2,6 +2,8 @@
 profile.js is used in the profile.blade.php view.
 */
 
+var regions = [];
+
 /**
 When select-all checkboxes are checked, check every other associated checkbox.
 */
@@ -66,8 +68,37 @@ function randomizePhotoURL()
 	}
 }
 
+function getCountryElement()
+{
+	return $('#home_country_id');
+}
+
+function updateRegionOptions()
+{
+	var country_id = parseInt(getCountryElement().val());
+	var $datalist = $('#regions');
+	$datalist.empty();
+	regions.forEach(function(region) {
+		if ( region.country_id === country_id )
+			$datalist.append($('<option />').text(region.name));
+	});
+}
+
+function downloadRegions()
+{
+	return $.ajax({
+		'method': 'GET',
+		'url': '/api/regions',
+		'success': function(response) {
+			regions = response;
+		}
+	});
+}
+
 $( function() {
 	$( "#accordion" ).accordion();
 	initSelectAllBindings();
 	randomizePhotoURL();
+	getCountryElement().change(updateRegionOptions);
+	downloadRegions().then(updateRegionOptions);
 } );
