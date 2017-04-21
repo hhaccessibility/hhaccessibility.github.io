@@ -16,6 +16,9 @@ public class Shopping extends LocationField
 	   String amenity = location.getValueFor("amenity");
 	   String name = location.getValueFor("name").toLowerCase();
 		return !shop.equals("") || amenity.equals("bicycle_repair_station") ||
-			name.equals("market") || name.endsWith(" market");
+			name.equals("market") || name.endsWith(" market") ||
+			name.contains("footwear") || name.contains("suits") ||
+			name.contains("cosmetics") || name.equals("macy's")
+			|| name.contains("clothing");
 	}
 }
