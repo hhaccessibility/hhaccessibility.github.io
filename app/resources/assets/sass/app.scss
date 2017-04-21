@@ -170,12 +170,14 @@ $base_colour1: #153157;
 }
 
 html, body {
-	font-family: arial;
 	background-color: #e7f3f5;
 	font-weight: 100;
 	min-height: 100%;
 }
 
+html body {
+	font-family: arial;
+}
 html {
 	position: relative;
 }
