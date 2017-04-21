@@ -16,10 +16,11 @@ public class Healthcare extends LocationField
 	   String amenity = location.getValueFor("amenity").toLowerCase();
 	   String emergency = location.getValueFor("emergency").toLowerCase();
 	   String []healthcareSubstrings = new String[]{"hospital", "clinic",
-		"pharma", "medical", "diet", "health", "drugs", "drugmart",
-		"drug mart", "optom",
-		"dentist", "dental", "clinic", "rexall", "i.d.a.", "physician",
-		"doctor", "surgeon"};
+		"pharma", "medical", "medicine", "diet", "health",
+		"drugs", "drugmart", "care ",
+		"drug mart", "optom", "pediatric",
+		"dentist", "dental", "rexall", "i.d.a.", "physician",
+		"doctor", "surgeon", "wellness"};
 		for( String healthcareSubstring: healthcareSubstrings)
 		{
 			if (name.contains(healthcareSubstring))

@@ -19,6 +19,7 @@ public class Sports extends LocationField
 		return !leisure.equals("") || leisure.equals("sports_centre")
 			|| leisure.equals("swimming_pool") || leisure.equals("playground")||
 				leisure.equals("pitch") || sport.equals("baseball") ||
-				name.indexOf("fitness") >= 0 || name.startsWith("sport");
+				name.indexOf("fitness") >= 0 || name.startsWith("sport")
+				|| name.contains("footwear");
 	}
 }
