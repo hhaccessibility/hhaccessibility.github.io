@@ -24,6 +24,7 @@
 {"id": 23, "name": "Buffalo Wild Wings", "external_web_url": "http://www.buffalowildwings.com"},
 {"id": 24, "name": "Hurricane Grill & Wings", "external_web_url": "http://www.hurricanewings.com"},
 {"id": 25, "name": "Popeyes Chicken", "external_web_url": "http://www.popeyeschicken.com"},
+{"id": 26, "name": "Domino's Pizza", "external_web_url": "https://www.dominos.com"},
 {"id": 30, "name": "Comfort Inn", "external_web_url": "http://comfortinn.com"},
 {"id": 31, "name": "Best Western", "external_web_url": "http://bestwestern.com"},
 {"id": 32, "name": "Holiday Inn", "external_web_url": "http://holidayinn.com"},
