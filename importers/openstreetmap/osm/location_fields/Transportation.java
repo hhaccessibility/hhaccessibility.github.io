@@ -25,7 +25,8 @@ public class Transportation extends LocationField
 	   if ( Arrays.asList(transportationNames).contains(name) ) {
 		   return true;
 	   }
-		return amenity.equals("car_sharing") || name.startsWith("zipcar") ||
+		return amenity.equals("car_sharing") || amenity.equals("fuel") 
+			|| name.startsWith("zipcar") ||
 			name.indexOf("airport") >= 0 || name.indexOf("train station") >= 0 ||
 			name.indexOf("charter") >= 0 || name.endsWith("transit") || name.startsWith("transit ") ||
 			name.startsWith("go transit") || name.contains("taxicab") ||
