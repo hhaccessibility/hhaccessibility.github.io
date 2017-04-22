@@ -88,7 +88,7 @@ class LocationRatingController extends Controller {
 			return response(422)->json(['success' => false]);
 		}
 		AnswerRepository::commitAnswersForLocation(Input::get('location_id'));
-		return response()->json(['success' => true]);
+		return redirect('/reviewed-locations');
 	}
 
 	public function show(int $location_id, int $question_category_id = null)
