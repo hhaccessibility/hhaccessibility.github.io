@@ -12,6 +12,6 @@ columns should be an Array of objects that describe the column's relationship to
 
 ## Columns
 
-location_field should case-sensitive match a corresponding field in the location table.
-location_tag_name should match the name of a location_tag record.
-question_ids should be an Array of question ids that correspond with the column.
+- **location_field** should case-sensitive match a corresponding field in the location table.
+- **location_tag_name** should match the name of a location_tag record.
+- **question_ids should** be an Array of question ids that correspond with the column.
