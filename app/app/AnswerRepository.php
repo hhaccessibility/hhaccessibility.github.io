@@ -4,7 +4,9 @@ namespace App;
 use Session;
 use App\ReviewComment;
 use App\UserAnswer;
+use App\Location;
 use App\BaseUser;
+use DB;
 
 class AnswerRepository
 {
@@ -68,7 +70,19 @@ class AnswerRepository
 	
 	public static function getReviewedLocations()
 	{
-		$location_ids = AnswerRepository::getUncommittedReviewedLocations();
+		$location_ids = AnswerRepository::getUncommittedReviewedLocations();			
+		$user = BaseUser::getDbUser();
+		// Find the distinct location ids from this query:
+		$rated_locations = UserAnswer::where('answered_by_user_id', '=', $user->id)
+			->distinct()->get(['location_id'])->toArray();
+		foreach ($rated_locations as $rated_location)
+		{
+			$rated_location = $rated_location['location_id'];
+			if ( !in_array($rated_location, $location_ids) )
+			{
+				$location_ids []= $rated_location;
+			}
+		}
 		
 		return $location_ids;
 	}
@@ -139,7 +153,6 @@ class AnswerRepository
 				}
 				else
 				{
-					echo 'saving an answer';
 					// Answer to a question
 					$question_id = intval(substr($key, strlen($location_key)));
 					$answer_value = $obj;
@@ -152,9 +165,17 @@ class AnswerRepository
 				}
 			}
 		}
-		UserAnswer::insert($user_answers);
-		ReviewComment::insert($review_comments);
-		
+		if ( !empty($user_answers) || !empty($review_comments) )
+		{
+			UserAnswer::insert($user_answers);
+			ReviewComment::insert($review_comments);
+			// invalidate the cache.
+			$location = Location::find($location_id);
+			$location->universal_rating = null;
+			$location->save();
+			// invalidate the personalized rating cache for this location.
+			DB::table('user_location')->where('location_id', '=', $location_id)->delete();
+		}
 		AnswerRepository::destroyUncommittedChanges();
 	}
 
