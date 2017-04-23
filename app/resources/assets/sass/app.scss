@@ -368,10 +368,14 @@ footer {
 	}
 }
 
-// Used in location_rating.js for locking 
+.location-reporting .menu h1 {
+	font-size: 26px;
+}
+
+// Used in smart_menu.js for locking 
 // the left menu location.
 body.fixed-menu {
-	.location-rating {
+	.location-rating, .location-reporting {
 		display: block;
 	
 		.menu {
@@ -379,13 +383,13 @@ body.fixed-menu {
 			top: 0;
 		}
 		
-		.rate {
+		.rate, .ratings {
 			margin-left: 230px;
 		}
 	}
 }
 
-#main > .location-rating {
+#main > .location-rating, #main > .location-reporting {
 	@extend %page-base;
 
 	display: flex;
@@ -446,7 +450,7 @@ body.fixed-menu {
 		}
 	}
 	
-	.rate {
+	.rate, .ratings {
 		margin-bottom: 50px;
 		flex-grow: 1;
 			

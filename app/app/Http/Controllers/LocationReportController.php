@@ -9,6 +9,20 @@ use Illuminate\Http\Request;
 
 class LocationReportController extends Controller {
 
+    public function show2(string $location_id, $question_category_id)
+	{
+		$location = Location::find($location_id);
+		$question_categories = QuestionCategory::with('questions')->get();
+		$question_category_id = intval($question_category_id);
+		$question_category = QuestionCategory::find($question_category_id);
+		$view_data = [
+			'location' => $location,
+			'question_categories' => $question_categories,
+			'question_category' => $question_category
+		];
+		return view('pages.location_report.question_category_report', $view_data);
+	}
+
     public function show(string $location_id, $rating_system = null, $question_category_id = null)
     {
 		if ($rating_system !== 'personal') {
