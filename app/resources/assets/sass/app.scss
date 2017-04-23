@@ -352,11 +352,19 @@ footer {
 	@extend %page-base;
 
 	h1 {
+		margin-top: 0;	
 		text-align: center;
 	}
 	
 	> p {
 		text-align: center;
+	}
+	
+	.data {
+		padding: 0 5px;
+		> div:nth-child(odd) {
+			background-color: #f4f4f4;
+		}
 	}
 }
 
