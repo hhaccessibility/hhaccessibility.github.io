@@ -408,7 +408,12 @@ body.fixed-menu {
 
 		.submit {
 			margin-top: 30px;
+			text-align: center;
 
+			form {
+				display: inline-block;
+			}
+			
 			.clean {
 				margin: auto;
 			}
@@ -444,7 +449,21 @@ body.fixed-menu {
 	.rate {
 		margin-bottom: 50px;
 		flex-grow: 1;
-
+			
+		h1 {
+			display: inline;
+		}
+		
+		.rate-report-toggle {
+			display: inline-block;
+			float: right;
+			margin-top: 10px;
+			
+			a {
+				@extend %selectable-link;
+			}
+		}
+		
 		.questions {
 			padding-right: 10px;
 			padding-left: 15px;
