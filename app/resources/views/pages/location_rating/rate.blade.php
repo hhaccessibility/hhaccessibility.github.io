@@ -1,6 +1,8 @@
 @extends('layouts.default')
 @section('head-content')
 	<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/smart_menu.js">
+    </script>
 	<script type="text/javascript" language="JavaScript" src="/js/location_rating.js">
     </script>
 	<script type="text/javascript" language="JavaScript">
@@ -17,17 +19,12 @@
 	@else
 		<div class="menu">
 			<h1>Rate Location</h1>
-			<div class="question-categories">
-				@foreach ( $question_categories as $category )
-					<a href="/location-rating/{{ $location->id }}/{{ $category->id }}"
-					@if ( $category->id === $question_category->id )
-						class="selected"
-					@endif
-					>
-						{{ $category->name }}
-					</a>
-				@endforeach
-			</div>
+			@include('includes.question_categories',
+				array(
+					'location_id' => $location->id,
+					'question_categories' => $question_categories,
+					'base_url' => '/location-rating/'
+				))
 			<div class="submit">
 				@include('pages.location_rating.submit',
 					array(
@@ -37,6 +34,13 @@
 		</div>
 		<div class="rate">
 			<h1>{{ $location->name }}</h1>
+				@include('includes.rate_report_toggle',
+					array(
+						'location_id' => $location->id,
+						'question_category_id' => $question_category->id,
+						'is_reporting' => false
+					))
+			
 			@if ( $question_category === null )
 				@include('pages.location_rating.introduction',
 					array(
