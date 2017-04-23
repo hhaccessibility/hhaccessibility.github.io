@@ -21,14 +21,19 @@ public class Downloader
 	
 	public static void main(String a[]) throws IOException
 	{
-		if ( a.length < 3 )
+		if ( a.length < 2 )
 		{
-			System.out.println("3 parameters are required but you specified " + a.length);
+			System.out.println("2 parameters are required but you specified " + a.length);
 			return;
 		}
 		double longitude = Double.parseDouble(a[0]);
 		double latitude = Double.parseDouble(a[1]);
-		String name = a[2];
+		System.out.println("You specified longitude to be " + longitude + " and latitude to be " + latitude);
+		if ( latitude < -90 || latitude > 90 )
+		{
+			System.out.println("The latitude must be between -90 and 90 degrees.  Check that you specified them in the correct order.");
+			return;
+		}
 		double delta = 0.03;
 		String url = "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=" + (longitude - delta) 
 		+ "," + (latitude - delta) + "," + (longitude + delta) + "," + (latitude + delta) + "]";
