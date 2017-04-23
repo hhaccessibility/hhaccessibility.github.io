@@ -70,7 +70,8 @@ class AnswerRepository
 	
 	public static function getReviewedLocations()
 	{
-		$location_ids = AnswerRepository::getUncommittedReviewedLocations();			
+		$unsubmitted_ids = AnswerRepository::getUncommittedReviewedLocations();			
+		$location_ids = $unsubmitted_ids;
 		$user = BaseUser::getDbUser();
 		// Find the distinct location ids from this query:
 		$rated_locations = UserAnswer::where('answered_by_user_id', '=', $user->id)
@@ -84,7 +85,10 @@ class AnswerRepository
 			}
 		}
 		
-		return $location_ids;
+		return [
+			'location_ids' => $location_ids,
+			'unsubmitted_ids' => $unsubmitted_ids
+			];
 	}
 
 	public static function getUncommittedReviewedLocations()
