@@ -880,6 +880,7 @@ body.fixed-menu {
 	.intro {
 		width: 410px;
 		padding-left: 78px;
+		padding-top: 50px; // For older browsers not supporting viewport units
 		padding-top: 20vh;
 		padding-right: 45px;
 		padding-bottom: 50px;
