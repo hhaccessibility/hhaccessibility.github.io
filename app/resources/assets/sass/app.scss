@@ -1,141 +1,8 @@
+@import "_mixins.scss";
+@import "_placeholders.scss";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
-$base_colour1: #153157;
-
-%fashionable-link {
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-%dark-link {
-	@extend %fashionable-link;
-
-	color: #fff;
-	font-size: 1.4em;
-	box-shadow: 0 0 4px #fff inset;
-	border-radius: 2px;
-	transition: border-color 0.2s, background-color 0.2s;
-}
-
-%selectable-link {
-	@extend %dark-link;
-	
-	padding: 5px 10px;
-	background-color: rgba($base_colour1, 0.5);
-	
-	&:hover {
-		background-color: rgba($base_colour1, 0.7);
-	}
-
-	&.selected {
-		background-color: rgba($base_colour1, 0.95);
-	}
-}
-
-%page-base {
-	padding-left: 10px;
-	padding-right: 10px;
-	box-shadow: inset 0 7px 9px -7px #ddd;
-	
-	> h1 {
-		margin-top: 0;
-	}
-}
-
-%sorted-column-title {
-	text-decoration: none;
-	color: #000;
-}
-
-@mixin location-report-box($font_size, $height) {
-	margin-top: ( -$height * 0.44 )+px;
-	padding-left: ($height * 0.13)+px;
-
-	.questions-box {
-		max-width: ( $height * 0.95 )+px;
-		
-		.title-bar {
-			height: ( $height * 0.15 )+px;
-
-			h3 {
-				margin-top: ($font_size / 3)+px;
-				margin-bottom: ($font_size / 3)+px;
-				font-size: $font_size+px;
-			}
-
-			.location-rating {
-				.pie-graph.big {
-					canvas {
-						height: ($font_size * 2.5)+px;
-						width: ($font_size * 2.5)+px;
-					}
-				}
-
-				.foreground .accessible-label {
-					font-size: ($font_size / 2)+px;
-				}
-				
-				.percentage {
-					font-size: $font_size+px;
-				}
-			}
-		}
-		
-		.question-category {
-			.pie-graph {
-				canvas {
-					height: ($font_size * 2)+px;
-					width: ($font_size * 2)+px;
-				}
-			}
-		
-			a {
-				padding-top: ($font_size * 0.1)+px;
-				padding-bottom: 0;
-				
-				.category-name {
-					font-size: ($font_size * 0.9)+px;
-					padding-top: ($font_size * 0.6)+px;
-				}
-				
-				.percentage {
-					 @if $font_size < 10 {
-					padding-top: 0;
-					 }
-					 @else {
-					padding-top: ($font_size * 0.4)+px;
-					}
-					font-size: $font_size+px;
-				}
-			}
-		}
-	}
-}
-
-@mixin social-media-large-button($colour) {
-	background-color: $colour;
-	border-color: $colour;
-	transition: background-color 0.2s, border-color 0.2s;
-	
-	> div {
-		color: $colour;
-		border-right-style: solid;
-		border-right-width: 1px;
-		transition: color 0.2s;
-	}
-			
-	&:hover, &:focus {
-		background-color: darken($colour, 20%);
-		border-color: darken($colour, 20%);
-
-		> div {
-			color: darken($colour, 20%);
-		}
-	} 
-}
 
 @mixin placeholder {
   &::-webkit-input-placeholder {@content}
@@ -151,22 +18,6 @@ $base_colour1: #153157;
 /// @return {Color}
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
-}
-
-@mixin solid-column-background($col1, $col2) {
-	.data > div {
-		&:nth-child(odd) .row { 
-			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
-				background-color: #f3f3f3;
-			}
-		}
-
-		&:nth-child(even) .row {
-			> div:nth-child(#{$col1}), > div:nth-child(#{$col2}) {
-				background-color: #fff;
-			}
-		}
-	}
 }
 
 html, body {
@@ -501,18 +352,30 @@ footer {
 	@extend %page-base;
 
 	h1 {
+		margin-top: 0;	
 		text-align: center;
 	}
 	
 	> p {
 		text-align: center;
 	}
+	
+	.data {
+		padding: 0 5px;
+		> div:nth-child(odd) {
+			background-color: #f4f4f4;
+		}
+	}
 }
 
-// Used in location_rating.js for locking 
+.location-reporting .menu h1 {
+	font-size: 26px;
+}
+
+// Used in smart_menu.js for locking 
 // the left menu location.
 body.fixed-menu {
-	.location-rating {
+	.location-rating, .location-reporting {
 		display: block;
 	
 		.menu {
@@ -520,13 +383,13 @@ body.fixed-menu {
 			top: 0;
 		}
 		
-		.rate {
+		.rate, .ratings {
 			margin-left: 230px;
 		}
 	}
 }
 
-#main > .location-rating {
+#main > .location-rating, #main > .location-reporting {
 	@extend %page-base;
 
 	display: flex;
@@ -549,7 +412,12 @@ body.fixed-menu {
 
 		.submit {
 			margin-top: 30px;
+			text-align: center;
 
+			form {
+				display: inline-block;
+			}
+			
 			.clean {
 				margin: auto;
 			}
@@ -582,10 +450,24 @@ body.fixed-menu {
 		}
 	}
 	
-	.rate {
+	.rate, .ratings {
 		margin-bottom: 50px;
 		flex-grow: 1;
-
+			
+		h1 {
+			display: inline;
+		}
+		
+		.rate-report-toggle {
+			display: inline-block;
+			float: right;
+			margin-top: 10px;
+			
+			a {
+				@extend %selectable-link;
+			}
+		}
+		
 		.questions {
 			padding-right: 10px;
 			padding-left: 15px;
@@ -1029,6 +911,7 @@ body.fixed-menu {
 	.intro {
 		width: 410px;
 		padding-left: 78px;
+		padding-top: 50px; // For older browsers not supporting viewport units
 		padding-top: 20vh;
 		padding-right: 45px;
 		padding-bottom: 50px;

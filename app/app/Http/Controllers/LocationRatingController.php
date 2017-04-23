@@ -128,10 +128,11 @@ class LocationRatingController extends Controller {
 
    public function reviewedLocations()
    {
-	   $location_ids = AnswerRepository::getReviewedLocations();
-	   $locations = Location::whereIn('id', $location_ids)->get();
+	   $location_reviews = AnswerRepository::getReviewedLocations();
+	   $locations = Location::whereIn('id', $location_reviews['location_ids'])->get();
 	   return view('pages.location_rating.reviewed_locations', [
-			'locations' => $locations
+			'locations' => $locations,
+			'locations_unsubmitted' => $location_reviews['unsubmitted_ids']
 		   ]);
    }
 }
