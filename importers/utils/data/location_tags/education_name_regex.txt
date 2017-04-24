@@ -1,0 +1,27 @@
+university
+ training
+^training
+technical institute
+ study$
+ study 
+^study 
+^studies
+ studies 
+ studies$
+school
+^press 
+ press$
+ press 
+museum
+library
+ esl 
+^esl 
+ esl$
+education
+école
+École
+ecole
+college
+classroom
+art gallery
+academy

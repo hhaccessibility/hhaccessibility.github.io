@@ -1,0 +1,80 @@
+zaatar
+^thai 
+^tea 
+tavern
+ tatoria
+sweet 
+sweet$
+sushi$
+sushi
+supper 
+sugar
+steakhouse
+steakbar
+spicy
+snack
+shishkebab
+shawarma
+ sandwich
+^sandwich 
+roadhouse
+restaurant
+ pub$
+^pub 
+pizzeria
+pizza
+pita$
+^pho 
+pastry
+pasta
+pancake
+ pad thai$
+^pad thai 
+kebab 
+kebab$
+hungry
+gyros$
+^gyros 
+ gyros 
+ grill$
+frozen yogurt
+fishn chips
+fish n chips
+fish and chips
+fish & chips
+falafel
+eggs 
+ eatery
+dunkin
+donut
+dining
+dinner
+diner
+ deli
+^deli
+curry
+cuisine
+coffee
+chili 
+chili$
+chicken
+cheese
+candy
+cafe$
+^cafe 
+cafeteria
+burger
+brunch
+breakfast
+bites
+^bistro 
+ bistro 
+ bistro$
+ bbq$
+^bbq 
+ bar
+^bar and
+ bar and
+bakery
+bacon$
+bacon 

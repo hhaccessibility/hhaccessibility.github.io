@@ -1,0 +1,53 @@
+yaht club
+worship
+temple
+ st 
+^st. 
+^st 
+spiritual
+^spirit 
+ spirit$
+ spirit 
+scientologist
+scientology
+saints
+saint 
+protestant
+presbyterian
+orthodox
+mosque
+monastic
+monastery
+missionary
+ministries
+methodist
+ lord 
+ lord$
+^lord 
+latter day saints
+jesus christ
+jehova
+^holy 
+ holy$
+ holy 
+hindu 
+hindu$
+god
+faith 
+faith$
+evangelical
+community centre
+community center
+club$
+ club 
+clubhouse
+church
+christian
+catholic
+cathedral
+buddhist
+buddhism
+baptist
+baptism
+association
+allah

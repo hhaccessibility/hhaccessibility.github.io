@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"prefix": "restaurant"
+	},
+	{
+		"id": 2,
+		"prefix": "accommodation"
+	},
+	{
+		"id": 3,
+		"prefix": "shopping"
+	},
+	{
+		"id": 4,
+		"prefix": "healthcare"
+	},
+	{
+		"id": 5,
+		"prefix": "financial"
+	},
+	{
+		"id": 6,
+		"prefix": "education"
+	},
+	{
+		"id": 7,
+		"prefix": "sports"
+	},
+	{
+		"id": 8,
+		"prefix": "park"
+	},
+	{
+		"id": 9,
+		"prefix": "public_service"
+	},
+	{
+		"id": 10,
+		"prefix": "transportation"
+	},
+	{
+		"id": 11,
+		"prefix": "association"
+	},
+	{
+		"id": 12,
+		"prefix": "entertainment"
+	}
+]

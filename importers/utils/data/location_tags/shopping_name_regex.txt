@@ -1,0 +1,28 @@
+vegetable
+tools
+supplies
+supermarket
+ store
+^store 
+ shop
+^shop
+retail
+outlet
+^meat
+ meat
+mattress
+ market
+ mall
+^mall
+home building
+hardware
+grocery
+groceries
+gifts
+furniture warehouse
+farmers
+farmer's
+convenience
+clothing
+butcher
+appliances

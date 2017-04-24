@@ -1,0 +1,18 @@
+theater
+theatre
+stadium
+ pub$
+pub 
+museum
+karaoke
+film
+dancing
+dance
+circus
+cinema
+casino
+ bar$
+auditorium
+artwork
+ arts
+^arts
