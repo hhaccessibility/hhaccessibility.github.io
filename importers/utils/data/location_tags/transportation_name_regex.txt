@@ -1,0 +1,71 @@
+wheel$
+ wheel 
+used cars
+tricycl
+^transit
+train station
+ train$
+trails$
+trail$
+ tour
+^tour
+ tire 
+ tire$
+taxi
+subway station
+rent a car
+raceway
+preowned car
+pre-owned car
+ pathway
+ paths
+^path
+oil change
+new cars
+motorcycl
+mercadez
+landing strip
+jeep
+gasoline
+ ford
+^ford
+fairy
+engine repair
+driving test
+driver test
+dodge
+diesel
+ cycling
+ cycle 
+ cycle$
+^cycle 
+corvette
+collision repair
+chrysler
+caravan
+car repair
+car rental
+car mechanic
+car doctor
+car dealers
+bus station$
+^bus 
+brakes
+boating
+boats$
+boat$
+boat port
+boat launch
+boat dock
+bicycling
+bicycle
+auto$
+automotive$
+automotive 
+auto repair
+auto mechanic
+auto dealers
+alignment
+airstrip
+airport
+airplane

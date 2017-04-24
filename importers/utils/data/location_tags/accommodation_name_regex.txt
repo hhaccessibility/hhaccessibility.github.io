@@ -1,0 +1,34 @@
+townhouses
+ suites$
+ suites 
+ seniors living
+ seniors home
+ senior living
+ senior home
+ retirement living
+ retirement home
+ resort 
+ resort$
+ resorts 
+ resorts$
+motel
+ inn$
+inn 
+hotel
+ hostel
+^hostel
+hospitality
+ homes
+ home 
+ home$
+duplex
+bed and breakfast
+bed & breakfast
+b&b
+ bnb
+ apartments
+ apts.
+ apts$
+ apts 
+airbnb
+accommodation

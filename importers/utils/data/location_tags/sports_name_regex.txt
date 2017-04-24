@@ -1,0 +1,25 @@
+ymca
+tennis
+swimming
+^sports 
+ sport
+soccer
+racketball
+muscle
+mma
+martial art
+kinetic
+gymnastic
+gymnasium
+goodlife
+golf
+hockey
+football
+fitness
+cricket
+boxing
+bicycl
+basketball
+baseball
+ athletic
+$athletic
