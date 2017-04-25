@@ -5,12 +5,14 @@ stadium
 pub 
 museum
 karaoke
+gambling
 film
 dancing
 dance
 circus
 cinema
 casino
+bingo
  bar$
 auditorium
 artwork

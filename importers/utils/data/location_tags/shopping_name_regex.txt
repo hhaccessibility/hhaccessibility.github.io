@@ -4,8 +4,10 @@ supplies
 supermarket
  store
 ^store 
+spa & salon
  shop
 ^shop
+skin care
 retail
 outlet
 ^meat

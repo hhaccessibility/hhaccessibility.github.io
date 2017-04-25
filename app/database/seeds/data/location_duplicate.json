@@ -33,5 +33,6 @@
 {"id": 32, "location_id": 630, "name": "Bruce Ave Park", "data_source_id": 2, "external_id": null},
 {"id": 33, "location_id": 347, "name": "Dieppe Fountain", "data_source_id": 3, "external_id": "4510543965"},
 {"id": 34, "location_id": 6674, "name": "University Preparatory Academy", "data_source_id": 3, "external_id": "354015106"},
-{"id": 35, "location_id": 3660, "name": "Little Caersar's Headquarters", "data_source_id": 3, "external_id": "69412723"}
+{"id": 35, "location_id": 3660, "name": "Little Caersar's Headquarters", "data_source_id": 3, "external_id": "69412723"},
+{"id": 36, "location_id": 548, "name": "Central Resource Library", "data_source_id": 2, "external_id": null}
 ]

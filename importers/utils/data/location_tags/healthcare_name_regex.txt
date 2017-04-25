@@ -1,4 +1,7 @@
+yoga
+wholistic
 wellness
+vision care
 treatment cent
 tooth
 therapy
@@ -7,6 +10,7 @@ psychology
 physician
 pharma
 pediatric
+pain specialist
 orthotics
 optometry
 optometrist
@@ -18,6 +22,8 @@ massage
 hospital
 health
 foot care
+fitness
+family practice
 family physician
 family doctor
 eye care
@@ -28,3 +34,4 @@ dental
 clinic
 chiropractor
 chiropractic
+back pain

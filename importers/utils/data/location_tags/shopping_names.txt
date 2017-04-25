@@ -1,5 +1,6 @@
 zellers
 zehrs
+winners
 whole foods
 wallmart
 tip top tailors
@@ -37,6 +38,7 @@ leons
 leon's
 lcbo
 home hardware
+home depot
 home building centres
 home building centre
 gap
