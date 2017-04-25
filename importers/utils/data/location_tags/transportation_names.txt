@@ -9,6 +9,7 @@ shell
 pioneer gas
 pioneer
 petro canada
+petro-canada
 overpass
 mr lube
 minivan
