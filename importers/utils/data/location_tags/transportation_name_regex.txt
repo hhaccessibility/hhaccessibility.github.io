@@ -3,6 +3,8 @@ wheel$
 used cars
 tricycl
 ^transit
+ transit 
+ transit$
 train station
  train$
 trails$
@@ -29,6 +31,7 @@ jeep
 gasoline
  ford
 ^ford
+ferry service
 fairy
 engine repair
 driving test
@@ -60,11 +63,13 @@ boat dock
 bicycling
 bicycle
 auto$
+autoparts
 automotive$
 automotive 
 auto repair
+auto parts
 auto mechanic
-auto dealers
+auto dealer
 alignment
 airstrip
 airport

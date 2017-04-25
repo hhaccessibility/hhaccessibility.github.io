@@ -16,12 +16,155 @@
 		"prefix": "windsor_city_hall"
 	},
 	{
-		"id": 1,
-		"prefix": "university_of_windsor"
+		"id": 5,
+		"prefix": "transit_windsor"
 	},
 	{
-		"id": 1,
-		"prefix": "university_of_windsor"
+		"id": 6,
+		"prefix": "travelodge"
 	},
-
+	{
+		"id": 7,
+		"prefix": "td_bank"
+	},
+	{
+		"id": 8,
+		"prefix": "pita_pit"
+	},
+	{
+		"id": 9,
+		"prefix": "keg"
+	},
+	{
+		"id": 10,
+		"prefix": "moxies"
+	},
+	{
+		"id": 11,
+		"prefix": "food_basics"
+	},
+	{
+		"id": 12,
+		"prefix": "rbc"
+	},
+	{
+		"id": 13,
+		"prefix": "scotiabank"
+	},
+	{
+		"id": 14,
+		"prefix": "cibc"
+	},
+	{
+		"id": 15,
+		"prefix": "meridian"
+	},
+	{
+		"id": 16,
+		"prefix": "hsbc"
+	},
+	{
+		"id": 17,
+		"prefix": "five_guys"
+	},
+	{
+		"id": 18,
+		"prefix": "taco_bell"
+	},
+	{
+		"id": 19,
+		"prefix": "kfc"
+	},
+	{
+		"id": 20,
+		"prefix": "dunkin_donuts"
+	},
+	{
+		"id": 21,
+		"prefix": "kelseys"
+	},
+	{
+		"id": 22,
+		"prefix": "little_caesars"
+	},
+	{
+		"id": 23,
+		"prefix": "buffalo_wild_wings"
+	},
+	{
+		"id": 24,
+		"prefix": "hurricane_grill"
+	},
+	{
+		"id": 25,
+		"prefix": "popeyes_chicken"
+	},
+	{
+		"id": 26,
+		"prefix": "dominos"
+	},
+	{
+		"id": 30,
+		"prefix": "comfort_inn"
+	},
+	{
+		"id": 31,
+		"prefix": "best_western"
+	},
+	{
+		"id": 32,
+		"prefix": "holiday_inn"
+	},
+	{
+		"id": 48,
+		"prefix": "coffee_time"
+	},
+	{
+		"id": 49,
+		"prefix": "second_cup"
+	},
+	{
+		"id": 50,
+		"prefix": "mcdonalds"
+	},
+	{
+		"id": 51,
+		"prefix": "wendys"
+	},
+	{
+		"id": 52,
+		"prefix": "harveys"
+	},
+	{
+		"id": 53,
+		"prefix": "applebees"
+	},
+	{
+		"id": 54,
+		"prefix": "starbucks"
+	},
+	{
+		"id": 55,
+		"prefix": "pizza_pizza"
+	},
+	{
+		"id": 56,
+		"prefix": "pizza_hut"
+	},
+	{
+		"id": 57,
+		"prefix": "boston_pizza"
+	},
+	{
+		"id": 58,
+		"prefix": "subway"
+	},
+	{
+		"id": 59,
+		"prefix": "tim_hortons"
+	},
+	{
+		"id": 60,
+		"prefix": "university_preparatory_academy"
+	}
 ]

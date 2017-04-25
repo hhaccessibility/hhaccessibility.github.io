@@ -1,4 +1,5 @@
 ymca
+thai quyen do
 tennis
 swimming
 ^sports 
@@ -9,10 +10,13 @@ muscle
 mma
 martial art
 kinetic
+karate
 gymnastic
 gymnasium
 goodlife
-golf
+ golf 
+^golf 
+ golf$
 hockey
 football
 fitness
@@ -21,5 +25,6 @@ boxing
 bicycl
 basketball
 baseball
+badminton
  athletic
 $athletic
