@@ -10,11 +10,14 @@
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
-			<div class="photo-display" onclick="selectImageFile()">
-				<div class="uploaded-photo">
+			<div class="photo-display">
+			    <p class="remove-photo">Remove Photo</p>
+				<div class="photo-changer" onclick="selectImageFile()">
+					<div class="uploaded-photo">
+					</div>
+					<div class="progress-element"></div>
+					<p>Change Photo</p>
 				</div>
-				<div class="progress-element"></div>
-                <p>Change Photo</p>
 			</div>
 		@else
         
