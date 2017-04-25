@@ -17,6 +17,7 @@ shishkebab
 shawarma
  sandwich
 ^sandwich 
+roast
 roadhouse
 restaurant
  pub$
