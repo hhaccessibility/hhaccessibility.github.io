@@ -285,6 +285,21 @@ footer {
         text-align: center;
         position: relative;
 
+        .remove-photo {
+            margin-top: 59px;
+            margin-bottom: 0;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .photo-changer:hover {
+            p {
+                text-decoration: underline;
+            }
+        }
+
         .progress-element {
             display: none;
             position: absolute;
@@ -329,7 +344,6 @@ footer {
 		background-color: mix($base_colour1, #ffffff, 80%);
 		display: block;
 		font-size: 20px;
-		margin-top: 79px;
 		min-height: 200px;
 		background-image: url('/profile-photo');
 		background-repeat: no-repeat;
