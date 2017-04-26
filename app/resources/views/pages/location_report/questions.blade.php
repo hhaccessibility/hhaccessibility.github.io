@@ -6,6 +6,8 @@
 			<div class="row" data-question-id="{{ $question->id }}">
 				<div class="col-xs-6">
 					{!! $question->question_html !!}
+					{!! $question->getAccessibilityRating($location_id, 'universal') !!}%
+					
 				</div>
 				<div class="col-xs-6">
 				</div>
