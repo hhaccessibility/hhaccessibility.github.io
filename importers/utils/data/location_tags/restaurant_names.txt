@@ -3,6 +3,8 @@ wetzel's pretzels
 wendys
 wendy's
 tim hortons
+tim horton's
+tim horton
 the keg
 thai time
 thai silk
@@ -23,7 +25,9 @@ popeyes chicken and seafood
 popeyes chicken
 popeyes
 pizzaway
+pizzatime
 pizzaplus
+pizza time
 pizza plus
 pizza pizza
 pizza hut
@@ -34,6 +38,7 @@ pho nguyen
 pho maxim
 pho mango
 panda express
+pad thai
 orange leaf frozen yogurt
 noodle
 new york fries

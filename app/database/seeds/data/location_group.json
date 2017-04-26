@@ -28,6 +28,7 @@
 {"id": 30, "name": "Comfort Inn", "external_web_url": "http://comfortinn.com"},
 {"id": 31, "name": "Best Western", "external_web_url": "http://bestwestern.com"},
 {"id": 32, "name": "Holiday Inn", "external_web_url": "http://holidayinn.com"},
+{"id": 47, "name": "Arby's", "external_web_url": "http://arbys.com"},
 {"id": 48, "name": "Coffee Time", "external_web_url": "http://www.coffeetime.com"},
 {"id": 49, "name": "Second Cup", "external_web_url": "http://www.secondcup.com"},
 {"id": 50, "name": "McDonalds", "external_web_url": "https://www.mcdonalds.ca"},

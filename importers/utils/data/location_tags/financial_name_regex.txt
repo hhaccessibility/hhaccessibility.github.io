@@ -2,19 +2,24 @@
 taxes
 tax 
 stocks
+mutual fund
  lender
  lending
  insurance
+income tax
  funds
 financial
 debt consolidation
 debt collect
- credit
+ credit 
+ credit$
+^credit 
 credit union
  brokerage
  bank
 ^bank
 autitors
 auditing
+accutax
 accountant
 accounting

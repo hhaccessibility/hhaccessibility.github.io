@@ -1,8 +1,12 @@
 zaatar
+ wings 
+^wings
+^waffle
+ waffle
 ^thai 
 ^tea 
 tavern
- tatoria
+ trattoria
 sweet 
 sweet$
 sushi$
@@ -19,6 +23,7 @@ shawarma
 ^sandwich 
 roast
 roadhouse
+ristorante
 restaurant
  pub$
 ^pub 
@@ -39,6 +44,9 @@ gyros$
  gyros 
  grill$
 frozen yogurt
+ food 
+ food$
+^food 
 fishn chips
 fish n chips
 fish and chips

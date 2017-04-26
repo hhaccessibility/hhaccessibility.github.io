@@ -1,4 +1,6 @@
 vegetable
+ variety
+^variety
 tools
 supplies
 supermarket
@@ -10,6 +12,8 @@ spa & salon
 skin care
 retail
 outlet
+minimart
+mini mart
 ^meat
  meat
 mattress
@@ -22,6 +26,7 @@ grocery
 groceries
 gifts
 furniture warehouse
+fresh fruit
 farmers
 farmer's
 convenience
