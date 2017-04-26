@@ -26,11 +26,11 @@
 					'question_category_id' => $question_category->id,
 					'is_reporting' => true
 				))
-				@include('pages.location_report.questions',
-					array(
-						'question_category' => $question_category,
-						'location' => $location
-					))
+			@include('pages.location_report.questions',
+				array(
+					'question_category' => $question_category,
+					'location_id' => $location->id
+				))
 		</div>
 	@endif
 	</div>

@@ -26,6 +26,8 @@ fitness
 family practice
 family physician
 family doctor
+eyewear
+eye doctor
 eye care
 drugs
 dentistry

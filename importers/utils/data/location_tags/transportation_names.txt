@@ -14,6 +14,8 @@ overpass
 mr lube
 minivan
 meineke car care center
+macs
+mac's
 maaco
 jeep
 harley davidson
@@ -23,6 +25,7 @@ go transit
 go transit station
 honest-1 auto care
 fleet services international
+firestone
 express oil change & tire engineers
 enterprise rent-a-car
 enterprise rent a car

@@ -29,7 +29,7 @@ function compareByRating($location1, $location2)
 
 function compareByName($location1, $location2)
 {
-	return strcmp($location1->name, $location2->name);
+	return strcasecmp($location1->name, $location2->name);
 }
 
 function updateDistances(array $locations)

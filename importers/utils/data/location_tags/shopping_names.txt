@@ -12,6 +12,8 @@ tepperman's
 teppermans
 target
 tanning salon
+superstore
+super store
 superfresh
 super fresh
 store
@@ -58,6 +60,7 @@ food basics
 first choice haircutters
 dollarama
 dollar tree
+costco
 chapters
 canadian tire
 buck or two plus
@@ -67,4 +70,5 @@ beauty salon
 apple store
 ali baba's
 a&p
+a & p
 7-11
