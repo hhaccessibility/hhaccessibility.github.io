@@ -104,6 +104,10 @@
 		"prefix": "dominos"
 	},
 	{
+		"id": 29,
+		"prefix": "econolodge"
+	},
+	{
 		"id": 30,
 		"prefix": "comfort_inn"
 	},
@@ -170,5 +174,9 @@
 	{
 		"id": 60,
 		"prefix": "university_preparatory_academy"
-	}
+	},
+	{
+		"id": 100,
+		"prefix": "petro_canada"
+	}	
 ]

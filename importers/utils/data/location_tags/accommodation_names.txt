@@ -18,6 +18,7 @@ quality inn & suites
 quality inn
 quality
 park inn
+pace
 motel 6
 microtel inn & suites
 microtel inn
@@ -45,7 +46,9 @@ hampton
 grandstay hospitality
 embassy suites by hilton
 embassy suites
+econo lodge inn & suites
 econolodge
+econo lodge
 doubletree
 days inn
 curio

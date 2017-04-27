@@ -1,8 +1,6 @@
 theater
 theatre
 stadium
- pub$
-pub 
 museum
 karaoke
 gambling

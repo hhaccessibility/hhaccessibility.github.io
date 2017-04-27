@@ -69,3 +69,4 @@ Route::get('signup/confirmEmail/{user_email}/{email_verification_token}', 'SignU
 Route::get('api/locations', function (Request $request) {
 	return Location::all();
 });
+Route::get('profile-photo-delete', 'ProfilePhotoUploadController@delete');

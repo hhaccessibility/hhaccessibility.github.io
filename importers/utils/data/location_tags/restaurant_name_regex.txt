@@ -3,10 +3,17 @@ zaatar
 ^wings
 ^waffle
  waffle
+vegetarian
+vegan
+ trattoria
 ^thai 
 ^tea 
 tavern
- trattoria
+taste of
+tandori
+tandoori
+takeout
+take out
 sweet 
 sweet$
 sushi$
@@ -21,6 +28,9 @@ shishkebab
 shawarma
  sandwich
 ^sandwich 
+ roti 
+ roti$
+^roti 
 roast
 roadhouse
 ristorante
@@ -36,9 +46,13 @@ pasta
 pancake
  pad thai$
 ^pad thai 
+ lounge
+^lounge
 kebab 
 kebab$
 hungry
+hot taste
+hot dog stand
 gyros$
 ^gyros 
  gyros 
@@ -74,11 +88,15 @@ cafe$
 cafeteria
 burger
 brunch
+ briyani
+^briyani
 breakfast
 bites
 ^bistro 
  bistro 
  bistro$
+^biriyani
+ biriyani
  bbq$
 ^bbq 
  bar

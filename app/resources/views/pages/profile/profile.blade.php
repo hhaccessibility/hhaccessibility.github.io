@@ -11,7 +11,7 @@
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
 			<div class="photo-display">
-			    <p class="remove-photo">Remove Photo</p>
+			    <p class="remove-photo"><a href="/profile-photo-delete">Remove Photo</a></p>
 				<div class="photo-changer" onclick="selectImageFile()">
 					<div class="uploaded-photo">
 					</div>

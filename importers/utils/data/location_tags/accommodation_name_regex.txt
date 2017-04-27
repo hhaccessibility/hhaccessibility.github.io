@@ -22,6 +22,9 @@ hospitality
  home 
  home$
 duplex
+condos
+condo$
+condominium
 bed and breakfast
 bed & breakfast
 b&b

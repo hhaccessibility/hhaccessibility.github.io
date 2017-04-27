@@ -4,6 +4,8 @@ waste dump
 waste disposal
 town hall
 recycle
+rcmp
+post office
 police
 opp
 museum
