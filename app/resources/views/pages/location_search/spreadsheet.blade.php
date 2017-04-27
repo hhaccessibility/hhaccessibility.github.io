@@ -22,7 +22,7 @@
 							{{ $value->name }}
 						</div>
 						<div class="col-xs-3">
-							{{ $value->rating }}
+							{{ round($value->rating) }}
 						</div>
 						<div class="col-xs-3">
 							{{ number_format((float)$value->distance, 2, '.', '') }}
