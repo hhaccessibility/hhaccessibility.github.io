@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\BaseUser;
 use App\Location;
 use App\QuestionCategory;
 use App\Question;
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Input;
 class LocationRatingController extends Controller {
 	public function commitReview(Request $request)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 		$validation_rules = [
 			'location_id' => 'required|integer'
 		];
@@ -29,6 +33,9 @@ class LocationRatingController extends Controller {
 
 	public function setAnswer(Request $request)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 		$validation_rules = [
 			'answer'      => 'required|integer|max:2|min:0',
 			'question_id' => 'required|integer|min:1',
@@ -47,6 +54,9 @@ class LocationRatingController extends Controller {
 	
 	public function removeAnswer(Request $request)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 		$validation_rules = [
 			'question_id' => 'required|integer|min:1',
 			'location_id' => 'required|integer'
@@ -62,6 +72,9 @@ class LocationRatingController extends Controller {
 	
 	public function setComment(Request $request)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 		$validation_rules = [
 			'question_category_id' => 'required|integer',
 			'location_id' => 'required|integer'
@@ -79,6 +92,9 @@ class LocationRatingController extends Controller {
 
 	public function submit(Request $request)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 		$validation_rules = [
 			'location_id' => 'required|integer'
 		];
@@ -93,6 +109,9 @@ class LocationRatingController extends Controller {
 
 	public function show(int $location_id, int $question_category_id = null)
 	{
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 	   $location = Location::find($location_id);
 	   $question_categories = QuestionCategory::with('questions')->get();
 	   $question_category = null;
@@ -128,6 +147,9 @@ class LocationRatingController extends Controller {
 
    public function reviewedLocations()
    {
+		if ( !BaseUser::isSignedIn() ) {
+			return redirect()->intended('/signin');
+		}
 	   $location_reviews = AnswerRepository::getReviewedLocations();
 	   $locations = Location::whereIn('id', $location_reviews['location_ids'])->get();
 	   return view('pages.location_rating.reviewed_locations', [
