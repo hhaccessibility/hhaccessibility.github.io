@@ -152,4 +152,17 @@ class ProfilePhotoUploadController extends Controller {
         }
 	}
 
+	public function delete()
+	{
+        $file = ProfilePhotoUploadController::getProfilePhotoPath();
+        if (!unlink($file))
+        {
+            echo ("Error deleting $file");
+        }
+        else
+        {
+            return redirect()->intended('profile');
+        }
+	}
+
 }
