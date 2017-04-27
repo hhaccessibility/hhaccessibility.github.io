@@ -11,6 +11,7 @@ physician
 pharma
 pediatric
 pain specialist
+pain clinic
 orthotics
 optometry
 optometrist
@@ -20,6 +21,8 @@ medicine
 medical
 massage
 hospital
+ hearing
+^hearing
 health
 foot care
 fitness

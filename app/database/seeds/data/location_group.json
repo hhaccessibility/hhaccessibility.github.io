@@ -25,6 +25,7 @@
 {"id": 24, "name": "Hurricane Grill & Wings", "external_web_url": "http://www.hurricanewings.com"},
 {"id": 25, "name": "Popeyes Chicken", "external_web_url": "http://www.popeyeschicken.com"},
 {"id": 26, "name": "Domino's Pizza", "external_web_url": "https://www.dominos.com"},
+{"id": 29, "name": "Econo Lodge", "external_web_url": "http://econolodge.com"},
 {"id": 30, "name": "Comfort Inn", "external_web_url": "http://comfortinn.com"},
 {"id": 31, "name": "Best Western", "external_web_url": "http://bestwestern.com"},
 {"id": 32, "name": "Holiday Inn", "external_web_url": "http://holidayinn.com"},
@@ -41,5 +42,6 @@
 {"id": 57, "name": "Boston Pizza", "external_web_url": "http://bostonpizza.com"},
 {"id": 58, "name": "Subway", "external_web_url": "http://subway.com"},
 {"id": 59, "name": "Tim Hortons", "external_web_url": "http://timhortons.com"},
-{"id": 60, "name": "University Preparatory Academy", "external_web_url": "http://upa.uprepschools.com"}
+{"id": 60, "name": "University Preparatory Academy", "external_web_url": "http://upa.uprepschools.com"},
+{"id": 100, "name": "Petro-Canada", "external_web_url": "http://petro-canada.ca"}
 ]
