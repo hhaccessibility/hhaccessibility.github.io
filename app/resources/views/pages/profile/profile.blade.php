@@ -215,7 +215,7 @@
 			</div>
 
 			<div class="text-right">
-				<button type="submit" class="btn btn-lg btn-primary save-button"><i class="fa fa-check"></i> Save Profile</button>
+				<button type="submit" class="btn btn-lg btn-primary save-button">Save Profile</button>
 		   </div>
 	 </form>
 	 
