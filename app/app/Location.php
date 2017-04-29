@@ -114,6 +114,6 @@ class Location extends Eloquent
 			if (strlen($group_url) > 3)
 				return $group_url;
 		}
-		return 'http://www.google.com/search?q=' . urlencode($this->getName() . ' ' . $this->address);
+		return 'http://www.google.com/search?q=' . urlencode(trim($this->getName() . ' ' . $this->address));
 	}
 }
