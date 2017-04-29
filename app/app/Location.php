@@ -2,6 +2,7 @@
 
 namespace App;
 use Eloquent;
+use DB;
 
 class Location extends Eloquent
 {
@@ -13,6 +14,19 @@ class Location extends Eloquent
 
 	protected $table = 'location';
 
+	public function getLocationTagIds()
+	{
+		$associated_location_tag_ids = DB::table('location_location_tag')
+			->where('location_id', '=', $this->id)
+			->get(['location_tag_id'])->toArray();
+		$result = [];
+		foreach ($associated_location_tag_ids as $location_tag)
+		{
+			$result[]= $location_tag->location_tag_id;
+		}
+		return $result;
+	}
+	
     /**
      * The tags that belong to this location.
      */
