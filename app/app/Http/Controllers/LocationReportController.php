@@ -23,7 +23,7 @@ class LocationReportController extends Controller {
 		return view('pages.location_report.question_category_report', $view_data);
 	}
 
-    public function show(string $location_id, $rating_system = null, $question_category_id = null)
+    public function show(string $location_id, $rating_system = null)
     {
 		if ($rating_system !== 'personal') {
 			$rating_system = 'universal';
@@ -37,15 +37,9 @@ class LocationReportController extends Controller {
 			'rating_system' => $rating_system,
 			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile(),
 			'turn_off_maps' => config('app.turn_off_maps'),
-			'num_ratings' => 0
+			'num_ratings' => 0,
+			'is_internal_user' => BaseUser::isInternal()
 		];
-		if ($question_category_id && is_numeric($question_category_id))
-		{
-			$question_category_id = intval($question_category_id);
-			$view_data['question_category_id'] = $question_category_id;
-			$view_data['comments'] = $location->comments()->orderBy('when_submitted', 'DESC')->get();
-			return view('pages.location_report.expanded', $view_data);
-		}
 		
 		return view('pages.location_report.collapsed', $view_data);
     }

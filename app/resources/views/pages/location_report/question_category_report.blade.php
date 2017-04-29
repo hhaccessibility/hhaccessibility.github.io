@@ -19,7 +19,7 @@
 				))
 		</div>
 		<div class="ratings">
-			<h1>{{ $location->name }}</h1>
+			<h1><a href="/location-report/{{ $location->id }}">{{ $location->name }}</a></h1>
 			@include('includes.rate_report_toggle',
 				array(
 					'location_id' => $location->id,

@@ -362,6 +362,26 @@ footer {
     }
 }
 
+.location-management {
+	@extend %page-base;
+
+	input[type="text"], select {
+		width: 100%;
+		box-style: border-box;
+	}
+	
+	form > .row > div {
+		min-height: 40px;
+	}
+	
+	.categories {
+		label {
+			margin-bottom: 0;
+			cursor: pointer;
+		}
+	}
+}
+
 .reviewed-locations {
 	@extend %page-base;
 
@@ -382,8 +402,28 @@ footer {
 	}
 }
 
-.location-reporting .menu h1 {
-	font-size: 26px;
+.location-reporting {
+	.menu h1 {
+		@extend %location-menu-heading;
+	}
+
+	.questions {
+		> div {
+			padding-bottom: 10px;
+			padding-top: 5px;
+			border-bottom: 1px solid #ddd;
+
+			.percentage {
+				float: right;
+			}
+		}
+	}
+}
+
+.location-rating {
+	.menu h1 {
+		@extend %location-menu-heading;
+	}
 }
 
 // Used in smart_menu.js for locking 
@@ -682,6 +722,10 @@ body.fixed-menu {
 
 .location-report {
 	@extend %page-base;
+	a.modify-location {
+		@extend %selectable-link;
+		
+	}
 	
 	.map-and-box {
 		position: relative;

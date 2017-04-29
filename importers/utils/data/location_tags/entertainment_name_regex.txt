@@ -1,7 +1,9 @@
 theater
 theatre
 stadium
-museum
+recording studio
+nightclub
+night club
 karaoke
 gambling
 film
@@ -14,5 +16,13 @@ bingo
  bar$
 auditorium
 artwork
+^art store
+ art store
+^art shop
+ art shop
+ art museum
+^art museum
+^art gallery
+ art gallery
  arts
 ^arts

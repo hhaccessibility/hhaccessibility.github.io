@@ -1,8 +1,10 @@
 wheel$
  wheel 
+wheel alignment
 used cars
+uber
 tricycl
-^transit
+^transit 
  transit 
  transit$
 train station
@@ -16,6 +18,7 @@ trail$
 taxi
 subway station
 rent a car
+railway
 raceway
 preowned car
 pre-owned car
@@ -52,6 +55,8 @@ car rental
 car mechanic
 car doctor
 car dealers
+cadillac
+bus terminal$
 bus station$
 ^bus 
 brakes
@@ -61,12 +66,16 @@ boat$
 boat port
 boat launch
 boat dock
+bmw 
+^bmw 
 bicycling
 bicycle
 auto$
 autoparts
 automotive$
 automotive 
+autobody
+auto body
 auto repair
 auto parts
 auto mechanic

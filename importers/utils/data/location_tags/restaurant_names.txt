@@ -2,16 +2,21 @@ yogurtland
 wetzel's pretzels
 wendys
 wendy's
+tropical hut
 tim hortons
 tim horton's
 tim horton
+tiki sushi
+the manchester
 the keg
 thai time
 thai silk
 thai palace
 tacobell
 taco bell
+swisschalet
 swiss chalet
+sushi california
 subway
 sub zero ice cream
 starbucks
@@ -53,6 +58,7 @@ mcdonalds
 mcdonald's
 mario's
 marble slab creamery
+manchester
 little caesars
 krispy kreme doughnut
 kona ice
@@ -65,6 +71,7 @@ hurricane grill & wings
 hurricane grill and wings
 hurricane grill
 hurricane
+hoi sushi
 harveys
 great american cookies
 golden chick
@@ -91,6 +98,7 @@ boston pizza
 biggby coffee
 ben & jerrys
 ben & jerry's
+basil court
 baskin robbins
 baskin-robbins
 arbys

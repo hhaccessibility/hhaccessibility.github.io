@@ -57,6 +57,8 @@ gyros$
 ^gyros 
  gyros 
  grill$
+ grill 
+greek pita
 frozen yogurt
  food 
  food$
@@ -87,6 +89,7 @@ cafe$
 ^cafe 
 cafeteria
 burger
+buffet
 brunch
  briyani
 ^briyani
@@ -105,3 +108,5 @@ bites
 bakery
 bacon$
 bacon 
+all you can eat
+all you can drink

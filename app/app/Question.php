@@ -22,14 +22,6 @@ class Question extends Eloquent
 			->groupBy(['user_answer.answered_by_user_id', 'a2.when_submitted'])
 			->havingRaw('max(user_answer.when_submitted) = a2.when_submitted')
 			->get([DB::raw('avg(a2.answer_value) as answer_value')]);
-		/*	
-SELECT avg(a2.answer_value)
-FROM user_answer a1 LEFT JOIN user_answer a2
- ON (a1.answered_by_user_id = a2.answered_by_user_id)
-WHERE a2.location_id = 10 and a2.question_id = 1 and a1.location_id = 10 and a1.question_id = 1
-group by a1.answered_by_user_id, a2.when_submitted
-having max(a1.when_submitted) = a2.when_submitted;
-			*/
 		$sum = 0;
 		$totalCount = 0;
 		foreach ($answers as $answer)

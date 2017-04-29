@@ -1,10 +1,16 @@
  trading
 taxes
 tax 
+tax$
 stocks
+payday
 mutual fund
+ money 
+ money$
+loan service
  lender
  lending
+ investments
  insurance
 income tax
  funds
@@ -15,6 +21,7 @@ debt collect
  credit$
 ^credit 
 credit union
+cash advance
  brokerage
  bank
 ^bank

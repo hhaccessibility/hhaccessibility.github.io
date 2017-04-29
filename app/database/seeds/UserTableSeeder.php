@@ -20,12 +20,16 @@ class UserTableSeeder extends Seeder
 			'home_region' => 'Ontario',
 			'home_country_id' => 39
 		));
-		DB::table('user_role')->insert(
+		DB::table('user_role')->insert([
             [
                 'user_id' => $newUser->id,
                 'role_id' => Role::GENERAL_SEARCH_AND_REVIEW,
-            ]
-        );		
+            ],
+            [
+                'user_id' => $newUser->id,
+                'role_id' => Role::INTERNAL,
+            ]]
+        );
 	}
 
 }

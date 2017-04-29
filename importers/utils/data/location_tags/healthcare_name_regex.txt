@@ -17,6 +17,7 @@ optometry
 optometrist
 nutritionist
 neck care
+medilab
 medicine
 medical
 massage
@@ -33,10 +34,15 @@ eyewear
 eye doctor
 eye care
 drugs
+ denture
+^denture
 dentistry
 dental$
 dental 
+cronic pain
+cronic care
 clinic
 chiropractor
 chiropractic
 back pain
+acupuncture

@@ -9,15 +9,19 @@ technical institute
 ^studies
  studies 
  studies$
+science center
+science centre
 school
 ^press 
  press$
  press 
 museum
 library
+junior high
  esl 
 ^esl 
  esl$
+elementary
 education
 école
 École
