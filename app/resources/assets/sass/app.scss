@@ -722,6 +722,10 @@ body.fixed-menu {
 
 .location-report {
 	@extend %page-base;
+	a.modify-location {
+		@extend %selectable-link;
+		
+	}
 	
 	.map-and-box {
 		position: relative;

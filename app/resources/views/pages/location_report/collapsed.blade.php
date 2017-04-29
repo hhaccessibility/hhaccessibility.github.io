@@ -57,6 +57,9 @@
 			@endforeach
 		</div>
 	</div>
+	@if ( $is_internal_user )
+		<a class="modify-location" href="/location-modify/{{ $location->id }}">Modify</a>
+	@endif
 	<div class="map-and-box">
 		<div id="map">
 		</div>
