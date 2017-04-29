@@ -28,29 +28,7 @@
     </script>
 	@endif
 	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
-	<script>
-		  
-		  function updateHeightOfMap() {
-			  var $map_parent = $('.map-and-box');
-			  var $map = $('#map');
-			  var $copyright = $('#copyright');
-			  var height = window.innerHeight - $(map).offset().top - $copyright.height();
-			  if (height < 100)
-				height = 100;
-			
-			  $map.height(height);
-			  $map_parent.height(height);
-			  
-			  $questionBox = $('.questions-box');
-			  var questionBoxHeight = $questionBox.height();
-			  var questionBoxTop = Math.max(0, (height - questionBoxHeight) / 2);
-				$questionBox.css('top', Math.round(questionBoxTop) + 'px');
-		  }
-		$(window).resize(updateHeightOfMap);
-		document.addEventListener("DOMContentLoaded", function(event) {
-			updateHeightOfMap();
-		});		  
-	</script>
+	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
 @stop
 @section('footer-content')
