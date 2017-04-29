@@ -40,7 +40,6 @@ Route::get('profile-photo', 'ProfilePhotoUploadController@photo');
 Route::get('location-search', 'LocationSearchController@search');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
 Route::get('location-report/{location_id}/{rating_system}', 'LocationReportController@show');
-Route::get('location-report/{location_id}/{rating_system}/{question_category_id}', 'LocationReportController@show');
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');
 Route::get('location-rating/{location_id}', 'LocationRatingController@show');
 Route::get('location-rating/{location_id}/{question_category_id}', 'LocationRatingController@show');

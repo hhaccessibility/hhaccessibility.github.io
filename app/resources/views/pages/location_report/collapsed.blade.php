@@ -104,7 +104,7 @@
 					<div class="questions">
 						@foreach ( $question_categories as $category )
 							<div class="question-category">
-								<a href="/location-report/{{ $location->id }}/{{ $rating_system }}/{{ $category->id }}">
+								<a href="/location-reporting/{{ $location->id }}/{{ $category->id }}">
 								@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, $rating_system)))
 								
 									<span class="category-name">{{ $category->name }}</span>
