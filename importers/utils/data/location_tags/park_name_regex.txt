@@ -1,3 +1,6 @@
 reserve
- park
+ park 
+ park$
 conservation
+circus
+amusement

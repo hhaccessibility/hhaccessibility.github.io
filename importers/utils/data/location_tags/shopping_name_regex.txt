@@ -20,6 +20,7 @@ mattress
  market
  mall
 ^mall
+jewlery
 home building
 hardware
 grocery
@@ -29,6 +30,8 @@ furniture warehouse
 fresh fruit
 farmers
 farmer's
+depot$
+depot 
 convenience
 clothing
 butcher

@@ -1,9 +1,12 @@
 zipcar
 ziebart
+volkswegan
+vets cab
 union station
 truck
 train station
 subway station
+speedy glass
 shell gas
 shell
 pioneer gas
@@ -11,8 +14,12 @@ pioneer
 petro canada
 petro-canada
 overpass
+mr transmission
+mr. transmission
 mr lube
+mr. lube
 minivan
+mercedez
 meineke car care center
 macs
 mac's
@@ -33,6 +40,7 @@ enterprise
 dodge
 detailxperts
 chrysler
+checker cab
 caravan
 bus stop
 bus station

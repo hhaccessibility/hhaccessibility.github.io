@@ -3,6 +3,7 @@ zehrs
 winners
 whole foods
 wallmart
+toys r us
 tip top tailors
 tip top tailor
 the beer store
@@ -32,6 +33,8 @@ price chopper
 pc outfitters
 old navy
 no frills
+multifood
+multi food
 mini mart
 metro
 marshall's
@@ -65,8 +68,11 @@ chapters
 canadian tire
 buck or two plus
 buck or two
+blinds 2 go
+blinds to go
 best buy
 beauty salon
+babies r us
 apple store
 ali baba's
 a&p
