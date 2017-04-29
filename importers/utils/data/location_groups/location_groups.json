@@ -120,6 +120,14 @@
 		"prefix": "holiday_inn"
 	},
 	{
+		"id": 40,
+		"prefix": "lcbo"
+	},
+	{
+		"id": 43,
+		"prefix": "ymca"
+	},
+	{
 		"id": 47,
 		"prefix": "arbys"
 	},
