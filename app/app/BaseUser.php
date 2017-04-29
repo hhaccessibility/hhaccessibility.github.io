@@ -43,7 +43,8 @@ class BaseUser
 	public static function getDbUser() {
 		if (!BaseUser::isSignedIn())
 		{
-			throw new AuthenticationException('Unable to get database user because you are not signed in');
+			throw new AuthenticationException(
+			'Unable to get database user because you are not signed in');
 		}
 
 		$email = Session::get('email');
@@ -51,7 +52,8 @@ class BaseUser
 		if ( !$user )
 		{
 			BaseUser::signout();
-			throw new AuthenticationException('Signed in but not able to get user from database');
+			throw new AuthenticationException(
+			'Signed in but not able to get user from database');
 		}
 
 		return $user;
@@ -137,10 +139,6 @@ class BaseUser
 		if (BaseUser::isSignedIn())
 		{
 			$user = BaseUser::getDbUser();
-			if( !$user )
-			{
-				throw new Exception('Signed in but unable to find user in database');
-			}
 			return $user->location_search_text;
 		}
 		else if ( Session::has('location_search_text') )
@@ -152,10 +150,19 @@ class BaseUser
 			return '';
 		}
 	}
+	
+	public static function isInternal()
+	{
+		if ( !BaseUser::isSignedIn() )
+			return false;
+
+		$user = BaseUser::getDbUser();
+		return $user->hasRole(Role::INTERNAL);
+	}
 
 	/**
-	Calculates distance that a direct flight would take across the spherical surface of Earth.
-
+	Calculates distance that a direct flight would take across the spherical
+	surface of Earth.
 
 	@param long1 is longitude in degrees
 	@param lat1 is latitude in degrees

@@ -3,6 +3,7 @@
 namespace App;
 use Eloquent;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class User extends Eloquent
 {
@@ -19,6 +20,16 @@ class User extends Eloquent
 	public function roles()
 	{
 	   return $this->belongsToMany(Role::class, 'user_role');
+	}
+	
+	// Checks if this user has the specified role
+	public function hasRole(int $role_id)
+	{
+		$matches = DB::table('user_role')
+			->where('user_id', '=', $this->id)
+			->where('role_id', '=', $role_id)
+			->first(['id']);
+		return !!$matches;
 	}
 	
 	/**
