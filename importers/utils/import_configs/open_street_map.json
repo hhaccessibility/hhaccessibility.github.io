@@ -1,5 +1,6 @@
 {
 	"data_source_id": 3,
+	"import_user_id": 2,
 	"is_first_row_titles": true,
 	"columns": [
 		{"location_field": "name"},

@@ -10,26 +10,24 @@ class UserTableSeeder extends Seeder
 	{
 		DB::table('user_role')->delete();
 		DB::table('user')->delete();
-		$newUser = User::create(array(
-			'id' => 1,
-			'password_hash' => User::generateSaltedHash('password'),
-			'email' => 'josh.greig2@gmail.com',
-			'first_name' => 'John',
-			'last_name' => 'Smith',
-			'home_city' => 'Windsor',
-			'home_region' => 'Ontario',
-			'home_country_id' => 39
-		));
-		DB::table('user_role')->insert([
-            [
-                'user_id' => $newUser->id,
-                'role_id' => Role::GENERAL_SEARCH_AND_REVIEW,
-            ],
-            [
-                'user_id' => $newUser->id,
-                'role_id' => Role::INTERNAL,
-            ]]
-        );
+		$users = SeedHelper::readTableData('user.json');
+		$user_roles = [];
+		// set passwords.
+		foreach ($users as $user)
+		{
+			$user['password_hash'] = User::generateSaltedHash('password');
+			$user_roles []= [
+				'user_id' => $user['id'],
+				'role_id' => Role::GENERAL_SEARCH_AND_REVIEW
+			];
+		}
+		DB::table('user')->insert($users);
+		$user_roles []= [
+			'user_id' => 1,
+			'role_id' => Role::INTERNAL
+		];
+
+		DB::table('user_role')->insert($user_roles);
 	}
 
 }

@@ -4,7 +4,6 @@
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
   <script src="/js/profile.js"></script>
-  <link href="/css/app.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
 <div class="profile row">
@@ -34,8 +33,10 @@
 		</form>
  	</div>
     <div class="col-md-9 col-sm-8 col-xs-12">
+		@if ( $is_internal_user )
+			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
+		@endif
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
-
 		<form method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))

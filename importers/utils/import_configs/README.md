@@ -6,9 +6,10 @@ This includes information on if the first row is just for column titles, the ass
 
 ## Root keys in configuration json format
 
-data_source_id should correspond with a data source in the data_source table.
-is_first_row_titles should be true or false indicating if the first row of the CSV is for column titles.  In other words, indicating if the first row should be ignored.
 columns should be an Array of objects that describe the column's relationship to the location, location_tag, and question tables.
+data_source_id should correspond with a data source in the data_source table.
+import_user_id is for a user that will have all imported rating information associated with.  Rating information is imported to the same format used when a human user rates a building so the rating information must be tied with a user record.
+is_first_row_titles should be true or false indicating if the first row of the CSV is for column titles.  In other words, indicating if the first row should be ignored.
 
 ## Columns
 

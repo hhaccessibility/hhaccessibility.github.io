@@ -1,7 +1,7 @@
 [
 {"id": 1, "name": "Restaurant", "description": "Fast-food, cafe, diner..."},
 {"id": 2, "name": "Accommodation", "description": "Hotel, motel, b&b, hostel..."},
-{"id": 3, "name": "Shopping", "description": "Retail store, mall, grocery store, jewlery, hair cutting/styling..."},
+{"id": 3, "name": "Shopping", "description": "Retail store, mall, grocery store, jewelry, hair cutting/styling..."},
 {"id": 4, "name": "Healthcare", "description": "Hospital, clinic, pharmacy, laboratories, health centre, dental, optometrist.... any medical building"},
 {"id": 5, "name": "Financial", "description": "Bank, ATM, accounting & tax service, loans..."},
 {"id": 6, "name": "Education", "description": "School, university, college, library, special education centre, museum..."},
