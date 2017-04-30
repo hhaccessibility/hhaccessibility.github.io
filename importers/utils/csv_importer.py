@@ -35,7 +35,6 @@ with open(task['csv_filename']) as csv_file:
 	num_values = len(import_config['columns'])
 	# loop through lines of the file.
 	for values in csv_reader:
-		# loop through each of the cells.
 		if len(values) != num_values:
 			print(task['csv_filename'] + ': Line should have ' + str(num_values)
 			+ ' but ' + str(len(values)) + ' found in line: ' + str(values))
