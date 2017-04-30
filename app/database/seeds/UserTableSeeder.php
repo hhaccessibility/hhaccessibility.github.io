@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
 		$users = SeedHelper::readTableData('user.json');
 		$user_roles = [];
 		// set passwords.
-		foreach ($users as $user)
+		foreach ($users as &$user)
 		{
 			$user['password_hash'] = User::generateSaltedHash('password');
 			$user_roles []= [
