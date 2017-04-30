@@ -3,23 +3,10 @@
 use Illuminate\Database\Seeder;
 use Database\Seeds\UserTableSeeder;
 
-function object_to_array($obj) {
-	return (array)$obj;
-}
+require_once('SeedHelper.php');
 
 class DatabaseSeeder extends Seeder
 {
-		
-	private static function readTableData($json_filename) {
-		$content = file_get_contents('database/seeds/data/'.$json_filename);
-		$content = json_decode($content);
-		if( !is_array($content) )
-			throw new Error('Expected array not found in '.$json_filename);
-
-		$content = array_map('object_to_array', $content);
-		return $content;
-	}
-	
 	private static function deleteDataFromTables($tableNames)
 	{
 		foreach ($tableNames as $tableName) {
@@ -31,7 +18,7 @@ class DatabaseSeeder extends Seeder
 	{
 		$maxSize = 64000;
 		foreach (array_reverse($tableNames) as $table_name) {
-			$data = DatabaseSeeder::readTableData($table_name . '.json');
+			$data = SeedHelper::readTableData($table_name . '.json');
 			foreach (array_chunk($data, 1000) as $t) {
                 DB::table($table_name)->insert($t);
             }
