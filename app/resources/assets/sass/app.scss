@@ -248,12 +248,18 @@ footer {
 
 .profile {
 	@extend %page-base;
-	
+
 	h1 {
 		padding-bottom: 20px;
 		border-bottom: 3px solid mix($base_colour1, #ffffff, 50%);
 	}
-    
+
+	.internal-dashboard-link {
+		font-size: 30px;
+		float: right;
+		margin-top: 20px;
+	}
+
     .accessibility-interests {
         padding-left: 15px;
     }
@@ -262,13 +268,13 @@ footer {
 		margin-top: 20px;
 		margin-bottom: 15px;
 	}
-	
+
 	.category {
 		> .checkbox {
 			padding-bottom: 10px;
 			border-bottom: 1px solid #ddd;
 		}
-		
+
 		.questions > .checkbox {
 			> label {
 				vertical-align: top;
@@ -397,8 +403,37 @@ footer {
 	.data {
 		padding: 0 5px;
 		> div:nth-child(odd) {
-			background-color: #f4f4f4;
+			background-color: $dark_data_background_colour;
 		}
+	}
+}
+
+.internal-dashboard {
+	@extend %page-base;
+}
+
+.users {
+	@extend %page-base;
+
+	.data {
+		border: 1px solid #999;
+
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+
+			&:nth-child(even) {
+				background-color: $dark_data_background_colour;
+			}
+			&.headings {
+				> div {
+					font-weight: bold;
+					min-height: 45px;
+					border-bottom: 1px solid #ccc;
+				}
+			}
+		}
+		
 	}
 }
 

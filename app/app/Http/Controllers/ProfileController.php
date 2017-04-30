@@ -31,7 +31,8 @@ class ProfileController extends Controller {
 			'countries' => $countries,
 			'required_questions' => $required_questions,
 			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto(),
-			'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids'])
+			'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
+			'is_internal_user' => BaseUser::isInternal()
 			];
 
 		if ($validator === null)
