@@ -19,6 +19,23 @@ public class Downloader
 		}
 	}
 	
+	private static void downloadMultipleParts(double longitude, double latitude, double delta, int numDivisions)
+	throws MalformedURLException, IOException
+	{
+		double partDelta = delta / numDivisions;
+		System.out.println("partDelta = " + partDelta);
+		for (double lon = longitude - delta; lon < longitude + delta; lon += partDelta)
+		{
+			for (double lat = latitude - delta; lat < latitude + delta; lat += partDelta)
+			{
+				String url = "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=" + (lon - partDelta) 
+				+ "," + (lat - partDelta) + "," + (lon + partDelta) + "," + (lat + partDelta) + "]";
+				System.out.println("About to download file.");
+				downloadFromURLToFile(url, "raw_xml/box_" + lon + "_" + lat + ".xml");
+			}
+		}
+	}
+	
 	public static void main(String a[]) throws IOException
 	{
 		if ( a.length < 2 )
@@ -35,9 +52,6 @@ public class Downloader
 			return;
 		}
 		double delta = 0.03;
-		String url = "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=" + (longitude - delta) 
-		+ "," + (latitude - delta) + "," + (longitude + delta) + "," + (latitude + delta) + "]";
-		System.out.println("About to download file.");
-		downloadFromURLToFile(url, "raw_xml/box_" + longitude + "_" + latitude + ".xml");
+		downloadMultipleParts(longitude, latitude, delta, 2);
 	}
 }
