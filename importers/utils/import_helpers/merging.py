@@ -4,6 +4,7 @@ information into seed data and prevent duplication of locations if the
 same location already exists.
 """
 import math
+import import_helpers.location_groups as location_groups
 
 def get_max_id(table_data):
 	return max([row['id'] for row in table_data])
@@ -179,6 +180,7 @@ location_location_tags, values, location_duplicates):
 
 		i += 1
 
+	new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	locations.append(new_location)
 	location_location_tag_id = 1 + get_max_id(location_location_tags)
 	for tag_id in tag_ids:
