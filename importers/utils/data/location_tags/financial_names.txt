@@ -24,4 +24,5 @@ cibc
 boa
 bmo
 bank of america
+allstate insurance
 accutax

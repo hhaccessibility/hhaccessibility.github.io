@@ -92,6 +92,7 @@ coffee time
 cinnabon
 church's chicken
 carvel
+burrito boyz
 burger king
 buffalo wild wings
 boston pizza
@@ -101,6 +102,8 @@ ben & jerry's
 basil court
 baskin robbins
 baskin-robbins
+armando's
+armandos
 arbys
 arby's
 applebees

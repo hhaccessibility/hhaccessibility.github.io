@@ -1,3 +1,4 @@
+wholesale
 vegetable
  variety
 ^variety
@@ -11,6 +12,8 @@ spa & salon
 ^shop
 skin care
 retail
+plaza 
+ plaza
 outlet
 minimart
 mini mart
@@ -18,6 +21,7 @@ mini mart
  meat
 mattress
  market
+^market 
  mall
 ^mall
 jewlery
@@ -28,6 +32,7 @@ groceries
 gifts
 furniture warehouse
 fresh fruit
+food market
 farmers
 farmer's
 depot$
