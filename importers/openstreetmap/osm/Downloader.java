@@ -23,13 +23,21 @@ public class Downloader
 	throws MalformedURLException, IOException
 	{
 		double partDelta = delta / numDivisions;
-		System.out.println("partDelta = " + partDelta);
+		/*
+		The 1.03 is slightly greater than 1 so we won't miss locations on the lines between
+		rectangles we download from.  5% seemed like a safely large overlap while not 
+		hurting efficiency a lot.
+		*/
+		double partDeltaWithOverlap = partDelta * 1.05 / 2;
+		
 		for (double lon = longitude - delta; lon < longitude + delta; lon += partDelta)
 		{
 			for (double lat = latitude - delta; lat < latitude + delta; lat += partDelta)
 			{
-				String url = "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=" + (lon - partDelta) 
-				+ "," + (lat - partDelta) + "," + (lon + partDelta) + "," + (lat + partDelta) + "]";
+				String url = "http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=" 
+				+ (lon - partDeltaWithOverlap) 
+				+ "," + (lat - partDeltaWithOverlap) + "," + (lon + partDeltaWithOverlap) 
+				+ "," + (lat + partDeltaWithOverlap) + "]";
 				System.out.println("About to download file.");
 				downloadFromURLToFile(url, "raw_xml/box_" + lon + "_" + lat + ".xml");
 			}
