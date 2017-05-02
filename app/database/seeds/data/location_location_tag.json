@@ -1085,6 +1085,11 @@
         "location_tag_id": 8
     },
     {
+        "id": 275,
+        "location_id": 262,
+        "location_tag_id": 1
+    },
+    {
         "id": 276,
         "location_id": 263,
         "location_tag_id": 8

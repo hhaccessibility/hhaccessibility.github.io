@@ -2613,6 +2613,19 @@
         "universal_rating": 0
     },
     {
+        "address": "4450 Walker Road",
+        "data_source_id": 1,
+        "external_web_url": "http://www.phowindsor.com/",
+        "id": 262,
+        "latitude": 42.2555336,
+        "location_group_id": null,
+        "longitude": -82.9631308,
+        "name": "Pho Windsor",
+        "owner_user_id": null,
+        "phone_number": "(519)-969-2188",
+        "universal_rating": 0
+    },
+    {
         "address": "4714 Riverside Dr. E.",
         "data_source_id": 2,
         "external_web_url": null,
