@@ -30,6 +30,7 @@
 {"id": 31, "name": "Best Western", "external_web_url": "http://bestwestern.com"},
 {"id": 32, "name": "Holiday Inn", "external_web_url": "http://holidayinn.com"},
 {"id": 40, "name": "Liquor Control Board of Ontario (LCBO)", "external_web_url": "http://www.lcbo.com"},
+{"id": 41, "name": "Bank of Montreal (BMO)", "external_web_url": "https://www.bmo.com"},
 {"id": 43, "name": "YMCA", "external_web_url": "http://ymca.com"},
 {"id": 47, "name": "Arby's", "external_web_url": "http://arbys.com"},
 {"id": 48, "name": "Coffee Time", "external_web_url": "http://www.coffeetime.com"},
