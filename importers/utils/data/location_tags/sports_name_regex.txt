@@ -2,6 +2,7 @@ ymca
 thai quyen do
 tennis
 swimming
+sportswear
 ^sports 
  sport
 soccer

@@ -14,6 +14,9 @@ tandori
 tandoori
 takeout
 take out
+^taco 
+ taco 
+ taco$
 sweet 
 sweet$
 sushi$
@@ -46,11 +49,16 @@ pasta
 pancake
  pad thai$
 ^pad thai 
+ mexicana 
+ mexicana$
+^mexicana 
  lounge
 ^lounge
 kebab 
 kebab$
 hungry
+hotpot
+hot pot
 hot taste
 hot dog stand
 gyros$
@@ -88,6 +96,9 @@ candy
 cafe$
 ^cafe 
 cafeteria
+burritos
+ burrito 
+ burrito$
 burger
 buffet
 brunch

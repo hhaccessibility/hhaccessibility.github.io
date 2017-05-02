@@ -12,6 +12,7 @@ loan service
  lending
  investments
  insurance
+insurance 
 income tax
  funds
 financial
