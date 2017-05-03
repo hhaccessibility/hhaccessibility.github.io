@@ -1,6 +1,12 @@
 [
 {"id": 1, "answered_by_user_id": 1, "location_id": 40,
-	"content": "The bus station is pretty simple to get around in and all in one floor.",
+	"question_category_id": 1,
+	"content": "Cars can be parked only on the street which is metered.",
+	"when_submitted": "2017-01-01 00:00:00"
+},
+{"id": 2, "answered_by_user_id": 1, "location_id": 40,
 	"question_category_id": null,
-	"when_submitted": "2017-01-01 00:00:00"}
+	"content": "The bus station is pretty simple to get around in and all in one floor.",
+	"when_submitted": "2017-01-01 00:00:00"
+}
 ]

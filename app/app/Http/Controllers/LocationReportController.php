@@ -18,7 +18,12 @@ class LocationReportController extends Controller {
 		$view_data = [
 			'location' => $location,
 			'question_categories' => $question_categories,
-			'question_category' => $question_category
+			'question_category' => $question_category,
+			'comments' => $question_category
+				->comments()
+				->orderBy('when_submitted')
+				->limit(10)
+				->get()
 		];
 		return view('pages.location_report.question_category_report', $view_data);
 	}
