@@ -2,12 +2,30 @@
 
 use App\Location;
 use App\BaseUser;
+use App\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use DB;
 
 class LocationManagementController extends Controller {
+	public function showUserReport($user_id)
+	{
+		if ( !BaseUser::isInternal() ) {
+			throw new AuthenticationException('Must be internal user');
+		}
+		$user = User::find($user_id);
+		$home_country_name = ( $user->home_country_id ? $user->home_country()->first()->name : '');
+		$view_data = [
+			'user' => $user,
+			'home_country_name' => $home_country_name,
+			'num_comments' => DB::table('review_comment')->where('answered_by_user_id', '=', $user_id)->count(),
+			'num_answers' => DB::table('user_answer')->where('answered_by_user_id', '=', $user_id)->count()
+		];
+		
+		return view('pages.internal_features.user_report', $view_data);
+	}
+	
 	public function showDashboard()
 	{
 		if ( !BaseUser::isInternal() ) {
