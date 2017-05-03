@@ -32,5 +32,9 @@ class QuestionCategory extends Eloquent
     {
         return $this->hasMany('App\Question');
     }	
-	
+
+	public function comments()
+	{
+		return $this->hasMany('App\ReviewComment');
+	}
 }
