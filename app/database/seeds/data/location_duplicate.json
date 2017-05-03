@@ -37,5 +37,6 @@
 {"id": 36, "location_id": 548, "name": "Central Resource Library", "data_source_id": 2, "external_id": null},
 {"id": 37, "location_id": 5849, "name": "Saint Stephen's & Church of the Redeemer", "data_source_id": 3, "external_id": null},
 {"id": 38, "location_id": 103, "name": "Southwood School", "data_source_id": 3, "external_id": "23414498"},
-{"id": 39, "location_id": 7035, "name": "Vollmer Culture and Recreation Complex", "data_source_id": 3, "external_id": "488481934"}
+{"id": 39, "location_id": 7035, "name": "Vollmer Culture and Recreation Complex", "data_source_id": 3, "external_id": "488481934"},
+{"id": 40, "location_id": 7568, "name": "Shalom Fellowship Internaitonal", "data_source_id": 3, "external_id": "373558001"}
 ]

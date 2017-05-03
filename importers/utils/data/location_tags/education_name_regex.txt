@@ -16,6 +16,7 @@ school
  press$
  press 
 museum
+mathematics
 library
 junior high
  esl 

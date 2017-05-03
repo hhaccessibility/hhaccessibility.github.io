@@ -39,6 +39,7 @@ Route::post('profile-photo-upload', 'ProfilePhotoUploadController@post');
 Route::get('profile-photo', 'ProfilePhotoUploadController@photo');
 Route::get('location-search', 'LocationSearchController@search');
 Route::get('location-modify/{location_id}', 'LocationManagementController@show');
+Route::get('user-report/{user_id}', 'LocationManagementController@showUserReport');
 Route::get('users', 'LocationManagementController@showUsers');
 Route::get('dashboard', 'LocationManagementController@showDashboard');
 Route::get('location-report/{location_id}', 'LocationReportController@show');

@@ -15,7 +15,7 @@
 		</div>
 		@foreach ($users as $user)
 		<div class="row">
-			<div class="col-xs-2">{{ $user->email }}</div>
+			<div class="col-xs-2"><a href="/user-report/{{ $user->id }}">{{ $user->email }}</a></div>
 			<div class="col-xs-2">{{ $user->first_name }}</div>
 			<div class="col-xs-2">{{ $user->last_name }}</div>
 			<div class="col-xs-2">{{ $user->home_city }}</div>

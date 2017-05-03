@@ -53,6 +53,11 @@ class User extends Eloquent
 		return false;
 	}
 	
+	public function home_country()
+	{
+        return $this->belongsTo('App\Country');
+	}
+	
 	/**
 	requiredQuestions returns an Eloquent query object that can be used to get 
 	the questions or accessibility needs indicated by the user.
