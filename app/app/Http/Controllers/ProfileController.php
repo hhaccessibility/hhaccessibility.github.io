@@ -4,6 +4,7 @@ use App\BaseUser;
 use App\QuestionCategory;
 use App\Country;
 use App\AnswerRepository;
+use App\Region;
 use App\Http\Controllers\ProfilePhotoUploadController;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -23,6 +24,16 @@ class ProfileController extends Controller {
 		$user = BaseUser::getDbUser();
 		$question_categories = QuestionCategory::with('questions')->get();
 		$countries = Country::orderBy('name')->get();
+		$enabled_countries = Country::whereIn('id', function($query){
+			$query->select('country_id')
+			->from(with(new Region)->getTable());
+		}
+			)->get(['id']);
+		$enabled_country_ids = [];
+		foreach ( $enabled_countries as $country_id )
+		{
+			$enabled_country_ids []= $country_id->id;
+		}
 		$required_questions = $user->requiredQuestions()->get();
 		$view_data = [
 			'user' => $user,
@@ -32,7 +43,8 @@ class ProfileController extends Controller {
 			'required_questions' => $required_questions,
 			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto(),
 			'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
-			'is_internal_user' => BaseUser::isInternal()
+			'is_internal_user' => BaseUser::isInternal(),
+			'enabled_country_ids' => $enabled_country_ids
 			];
 
 		if ($validator === null)
