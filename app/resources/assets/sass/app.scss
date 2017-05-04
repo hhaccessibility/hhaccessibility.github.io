@@ -285,6 +285,12 @@ footer {
 			}
 		}
 	}
+	
+	select {
+		option[disabled] {
+			display: none;
+		}
+	}
 
     .photo-display {
         cursor: pointer;

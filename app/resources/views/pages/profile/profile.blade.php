@@ -95,11 +95,14 @@
 							<select class="form-control" id="home_country_id" name="home_country_id">
 								<option value="">-- Select Country --</option>
 								@foreach ($countries as $country)
-									@if ($user->home_country_id === $country->id)
-									<option value="{{ $country->id }}" selected>{{ $country->name }}</option>
-									@else
-									<option value="{{ $country->id }}">{{ $country->name }}</option>
+									<option value="{{ $country->id }}" 
+									@if ( $user->home_country_id === $country->id )
+									selected
 									@endif
+									@if ( !in_array($country->id, $enabled_country_ids) )
+									disabled
+									@endif
+									>{{ $country->name }}</option>
 								@endforeach
 							</select>
 						</div>

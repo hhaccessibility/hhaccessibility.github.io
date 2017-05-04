@@ -18,9 +18,9 @@
 			<h2>Ratings</h2>
 			<ul>
 				<li>Comments: {{ $num_comments }}</li>
-				<li>Rating Submissions: Under Development</li>
+				<li>Rating Submissions: {{ $num_rating_submissions }}</li>
 				<li>Question Answers: {{ $num_answers }}</li>
-				<li>At least partly rated locations: Under Development</li>
+				<li>At least partly rated locations: {{ $num_rated_locations }}</li>
 			</ul>
 		</div>
 	</div>

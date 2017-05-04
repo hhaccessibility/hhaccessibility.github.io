@@ -16,11 +16,21 @@ class LocationManagementController extends Controller {
 		}
 		$user = User::find($user_id);
 		$home_country_name = ( $user->home_country_id ? $user->home_country()->first()->name : '');
+		$num_rating_submissions = count(DB::table('user_answer')
+			->where('answered_by_user_id', '=', $user_id)
+			->groupBy(['when_submitted', 'location_id'])
+			->get(['when_submitted', 'location_id']));
+		$num_rated_locations = DB::table('user_answer')
+			->where('answered_by_user_id', '=', $user_id)
+			->distinct('location_id')
+			->count('location_id');
 		$view_data = [
 			'user' => $user,
 			'home_country_name' => $home_country_name,
 			'num_comments' => DB::table('review_comment')->where('answered_by_user_id', '=', $user_id)->count(),
-			'num_answers' => DB::table('user_answer')->where('answered_by_user_id', '=', $user_id)->count()
+			'num_answers' => DB::table('user_answer')->where('answered_by_user_id', '=', $user_id)->count(),
+			'num_rating_submissions' => $num_rating_submissions,
+			'num_rated_locations' => $num_rated_locations
 		];
 		
 		return view('pages.internal_features.user_report', $view_data);
