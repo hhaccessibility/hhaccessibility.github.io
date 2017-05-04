@@ -21,6 +21,7 @@ class LocationReportController extends Controller {
 			'question_category' => $question_category,
 			'comments' => $question_category
 				->comments()
+				->where('location_id', '=', $location_id)
 				->orderBy('when_submitted')
 				->limit(10)
 				->get()
