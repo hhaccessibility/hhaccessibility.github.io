@@ -5,21 +5,30 @@
 	
 	<div class="row">
 		<div class="col-sm-6 col-xs-12">
-			<h2>General</h2>
-			<ul>
-				<li><a href="/users">{{ $num_users }} user(s)</a></li>
-				<li>{{ $num_locations }} locations</li>
-				<li>{{ $num_location_groups }} location groups</li>
-				<li>{{ $num_data_sources }} data sources</li>
-			</ul>
+			<div class="box">
+				<h2>General</h2>
+				<ul>
+					<li><a href="/users"><span>{{ $num_users }}</span> users</a></li>
+					<li><span>{{ $num_users_using_screen_readers }}</span> user(s) use screen readers</li>
+					<li><span>{{ $num_locations }}</span> locations</li>
+					<li>
+						<a href="/location-groups">
+							<span>{{ $num_location_groups }}</span> location groups
+						</a>
+					</li>
+					<li><span>{{ $num_data_sources }}</span> data sources</li>
+				</ul>
+			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12">
-			<h2>Ratings</h2>
-			<ul>
-				<li>{{ $num_rating_submissions }} total rating submissions</li>
-				<li>{{ $num_comments }} total rating comments</li>
-				<li>{{ $num_rated_locations }} at least partly rated locations</li>
-			</ul>
+			<div class="box">
+				<h2>Ratings</h2>
+				<ul>
+					<li><span>{{ $num_rating_submissions }}</span> total rating submissions</li>
+					<li><span>{{ $num_comments }}</span> total rating comments</li>
+					<li><span>{{ $num_rated_locations }}</span> at least partly rated locations</li>
+				</ul>
+			</div>
 		</div>
 </div>
 @stop

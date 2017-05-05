@@ -1,5 +1,6 @@
 @import "_mixins.scss";
 @import "_placeholders.scss";
+@import "_functions.scss";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -9,15 +10,6 @@
   &:-moz-placeholder           {@content}
   &::-moz-placeholder          {@content}
   &:-ms-input-placeholder      {@content}  
-}
-
-/// Slightly lighten a color
-/// @access public
-/// @param {Color} $color - color to tint
-/// @param {Number} $percentage - percentage of `$color` in returned color
-/// @return {Color}
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
 }
 
 html, body {
@@ -416,30 +408,33 @@ footer {
 
 .internal-dashboard {
 	@extend %page-base;
+
+	.box {
+		@extend %internal-box;
+	}
 }
 
 .users {
 	@extend %page-base;
+	
+	.data {
+		@extend %nonscrolling-spreadsheet;
+	}
+}
+
+.location-groups {
+	@extend %page-base;
 
 	.data {
-		border: 1px solid #999;
+		@extend %nonscrolling-spreadsheet;
+	}
+}
 
-		.row {
-			margin-left: 0;
-			margin-right: 0;
-
-			&:nth-child(even) {
-				background-color: $dark_data_background_colour;
-			}
-			&.headings {
-				> div {
-					font-weight: bold;
-					min-height: 45px;
-					border-bottom: 1px solid #ccc;
-				}
-			}
-		}
-		
+.user-report {
+	@extend %page-base;
+	
+	.box {
+		@extend %internal-box;
 	}
 }
 

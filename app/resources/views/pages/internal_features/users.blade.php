@@ -1,7 +1,9 @@
 @extends('layouts.default')
 @section('content')
 <div class="users">
-	<h1>Users</h1>
+	<h1><a class="internal-dashboard-link" href="/dashboard">
+			<em class="fa fa-gears"></em>
+		</a> Users</h1>
 	<p>{{ count($users) }} total user(s)</p>
 	<div class="data">
 		<div class="row headings">
