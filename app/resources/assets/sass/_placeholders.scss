@@ -50,3 +50,39 @@
 	font-size: 28px;
 	text-align: center;
 }
+
+%nonscrolling-spreadsheet {
+	border: 1px solid #999;
+
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+
+		&:nth-child(even) {
+			background-color: $dark_data_background_colour;
+		}
+		&.headings {
+			> div {
+				font-weight: bold;
+				min-height: 45px;
+				border-bottom: 1px solid #ccc;
+			}
+		}
+	}
+}
+
+%internal-box {
+	h2 {
+		margin-top: 0;
+	}
+
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+		padding-left: 0;
+
+		span {
+			font-weight: bold;
+		}
+	}
+}
