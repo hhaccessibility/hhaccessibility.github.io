@@ -262,7 +262,8 @@ class BaseUser
 		$body = "Final step...\r\n".
 				"Confirm your email address to complete your Accesslocator account. It's easy — just copy and past link below into your browser. \r\n".
 				config('app.url')."/signup/confirmEmail/".$user->email."/".$user->email_verification_token;
-		mail($user->email, "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name, $body);
+		$headers = "Content-Type: text/plain; charset=\"utf-8\"\r\n";
+		mail($user->email, "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name, $body, $headers);
 	}
 	/**
 	* to verify user's email verification code
