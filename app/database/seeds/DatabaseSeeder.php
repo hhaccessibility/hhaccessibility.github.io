@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
 	
 	private static function insertDataToTables($tableNames)
 	{
-		$maxSize = 64000;
 		foreach (array_reverse($tableNames) as $table_name) {
 			$data = SeedHelper::readTableData($table_name . '.json');
 			foreach (array_chunk($data, 1000) as $t) {
