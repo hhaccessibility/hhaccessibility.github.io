@@ -1033,7 +1033,7 @@ body.fixed-menu {
 		width: 410px;
 		padding-left: 78px;
 		padding-top: 50px; // For older browsers not supporting viewport units
-		padding-top: 20vh;
+		padding-top: 12vh;
 		padding-right: 45px;
 		padding-bottom: 50px;
 		margin-right: auto;
@@ -1126,6 +1126,7 @@ body.fixed-menu {
 		padding-right: 15px;
 		padding-left: 15px;
 		margin-top: 40px;
+		margin-bottom: 40px;
 		
 		.location-tag {
 			padding-left: 0;
