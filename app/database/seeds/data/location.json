@@ -13,6 +13,19 @@
         "universal_rating": 0
     },
     {
+        "address": "",
+        "data_source_id": 1,
+        "external_web_url": "",
+        "id": 2,
+        "latitude": 42.3063536,
+        "location_group_id": 1,
+        "longitude": -83.0681036,
+        "name": "CAW Student Centre",
+        "owner_user_id": null,
+        "phone_number": "",
+        "universal_rating": null
+    },	
+    {
         "address": "401 Sunset Ave, Windsor, ON N9B 3P4",
         "data_source_id": 1,
         "external_web_url": "http://leddy.uwindsor.ca",
@@ -5139,9 +5152,9 @@
         "data_source_id": 3,
         "external_web_url": "http://www.jmccentre.ca/",
         "id": 463,
-        "latitude": 42.3063536,
+        "latitude": 42.2829299,
         "location_group_id": null,
-        "longitude": -83.0681036,
+        "longitude": -83.0679855,
         "name": "John McGivney Children's Centre",
         "owner_user_id": null,
         "phone_number": "519-252-7281",
