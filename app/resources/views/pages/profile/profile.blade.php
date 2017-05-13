@@ -181,7 +181,7 @@
 					<h3>{{ $category->name }}</h3>
 					<div class="category">
 						<div class="checkbox">
-						  <label><input class="select-all" type="checkbox" value="">Select All</label>
+							<button type="button" class="btn btn-lg btn-primary select-all">Select All</button>
 						</div>
 						<div class="questions">
 							@foreach ($category->questions()->get() as $question)
