@@ -146,6 +146,7 @@ h1, h2, h3 {
 	font-size: 26px;
 	text-decoration: none;
 	background-image: url('../images/logo.png');
+	background-image: url('../images/logo.svg'), linear-gradient(transparent, transparent);
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: inline-block;
