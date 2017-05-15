@@ -8,6 +8,7 @@ function initSelectAllText() {
 	var isAllChecked = true;
 	$("div.category").each( iterateCategory );
 	selectAllToggle();
+	bindCheckboxes();
 
 	function iterateCategory(index,category) {
 		$(category).find("input:checkbox").each( iternateCategoryCheckboxes );
@@ -20,6 +21,18 @@ function initSelectAllText() {
 	function iternateCategoryCheckboxes(index,checkbox) {
 		if($(checkbox).prop("checked") == false) {
 			isAllChecked = false;
+		}
+	}
+}
+
+function bindCheckboxes() {
+	$("div.questions input:checkbox").change(uncheckBox);
+
+	function uncheckBox() {
+		var SelectAllBtn = $(this).closest("div.category").find("button.select-all");
+		var isAllChecked = ( $(SelectAllBtn).text() == "Unselect All" );
+		if( !$(this).prop("checked") && isAllChecked ) {
+			$(SelectAllBtn).text("SelectAll");
 		}
 	}
 }
