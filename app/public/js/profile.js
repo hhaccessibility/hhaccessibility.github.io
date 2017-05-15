@@ -11,17 +11,14 @@ function initSelectAllText() {
 	bindCheckboxes();
 
 	function iterateCategory(index,category) {
-		$(category).find("input:checkbox").each( iternateCategoryCheckboxes );
+		var NumberOfCheckboxes = $(category).find("div.questions input:checkbox").length;
+		var NumberOfcheckedCheckboxes = $(category).find("div.questions input:checked").length;
+		var isAllChecked = (NumberOfCheckboxes == NumberOfcheckedCheckboxes);
 		if(isAllChecked) {
 			$(category).find("button.select-all").text("Unselect All");
 		}
 		else $(category).find("button.select-all").text("Select All");
 		isAllChecked = true;
-	}
-	function iternateCategoryCheckboxes(index,checkbox) {
-		if($(checkbox).prop("checked") == false) {
-			isAllChecked = false;
-		}
 	}
 }
 
