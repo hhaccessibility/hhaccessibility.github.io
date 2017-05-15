@@ -44,12 +44,11 @@ function bindCheckboxes() {
 function selectAllToggle() {
 	$('button.select-all').click(function(){
 		if($(this).text() === "Select All") {
-		$(this).closest("div.category").find("input:checkbox").prop('checked',true);
-		$(this).text('Unselect All');
+			$(this).closest("div.category").find("input:checkbox").prop('checked',true);
+			$(this).text('Unselect All');
 		} else {
-		$(this).closest("div.category").find("input:checkbox").prop('checked',false);
-		//$(this).closest("div.category").find("input:checkbox").removeAttr('checked');
-		$(this).text('Select All');
+			$(this).closest("div.category").find("input:checkbox").prop('checked',false);
+			$(this).text('Select All');
 		}
 	})
 }
