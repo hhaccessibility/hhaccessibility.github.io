@@ -26,14 +26,18 @@ function initSelectAllText() {
 }
 
 function bindCheckboxes() {
-	$("div.questions input:checkbox").change(uncheckBox);
+	$("div.questions input:checkbox").change(uncheckLastBox);
 
-	function uncheckBox() {
+	function uncheckLastBox() {
 		var SelectAllBtn = $(this).closest("div.category").find("button.select-all");
-		var isAllChecked = ( $(SelectAllBtn).text() == "Unselect All" );
-		if( !$(this).prop("checked") && isAllChecked ) {
-			$(SelectAllBtn).text("SelectAll");
-		}
+		var NumberOfCheckboxes = $(this).closest("div.questions").find("input:checkbox").length;
+		var NumberOfcheckedCheckboxes = $(this).closest("div.questions").find("input:checked").length;
+		var isAllChecked = (NumberOfCheckboxes == NumberOfcheckedCheckboxes);
+		var isSelectAllShowed = ( $(SelectAllBtn).text() === "Select All" );
+		if( isAllChecked && isSelectAllShowed )
+			$(SelectAllBtn).text("Unselect All");
+		else
+			$(SelectAllBtn).text("Select All");
 	}
 }
 
