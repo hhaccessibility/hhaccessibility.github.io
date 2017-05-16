@@ -4,41 +4,59 @@ profile.js is used in the profile.blade.php view.
 
 var regions = [];
 
-/**
-When select-all checkboxes are checked, check every other associated checkbox.
-*/
-function selectAllChanged() {
-	if ( $(this).is(':checked') ) {
-		var tab = $(this).closest('[role="tabpanel"]');
-		var questions = tab.find('.questions input[type="checkbox"]');
-		questions.prop('checked', true);
+function updateButtonCaption($category_element)
+{
+	// Sanitize $category_element if it is a 
+	// descendent element of the category.
+	if ( !$category_element.hasClass('category') )
+	{
+		$category_element = $category_element.closest('.category');
+	}
+	var numberOfCheckboxes = $category_element.find("div.questions input:checkbox").length;
+	var numberOfcheckedCheckboxes = $category_element.find("div.questions input:checked").length;
+	var isAllChecked = ( numberOfCheckboxes === numberOfcheckedCheckboxes );
+	if ( isAllChecked )
+	{
+		$category_element.find("button.select-all").text("Unselect All");
+	}
+	else
+	{
+		$category_element.find("button.select-all").text("Select All");
 	}
 }
 
-function updateSelectAll() {
-	var tab = $(this).closest('[role="tabpanel"]');
-	var selectAll = tab.find('input.select-all');
-	var checkboxes = tab.find('.questions input[type="checkbox"]');
-	var allChecked = true;
-	checkboxes.each(function() {
-		if ( !$(this).is(':checked') )
-			allChecked = false;
+// initializes the Select All/Unselect All buttons
+function initSelectAllText()
+{
+	$.each($("div.category"), function(index, element)
+	{
+		updateButtonCaption($(element));
 	});
-	selectAll.prop('checked', allChecked);
+	selectAllToggle();
+	bindCheckboxes();
 }
 
-function initSelectAllBindings() {
-	var interests_box = $('.accessibility-interests');
-	var select_all_elements = interests_box.find('input.select-all');
-	var checkboxes = interests_box.find('.questions input');
-	var question_categories = interests_box.find('.category > .checkbox');
-	select_all_elements.change(selectAllChanged);
-	checkboxes.change(updateSelectAll);
-	question_categories.each(function() {
-		updateSelectAll.call(this);
+function bindCheckboxes() {
+	$("div.questions input:checkbox").change(function()
+	{
+		updateButtonCaption($(this));
 	});
 }
 
+// Toggles between Select All and Unselect All
+function selectAllToggle()
+{
+	$('button.select-all').click(function(){
+		var $checkboxes = $(this).closest("div.category").find("input:checkbox");
+		if ( $(this).text() === "Select All" ) {
+			$checkboxes.prop('checked', true);
+			$(this).text('Unselect All');
+		} else {
+			$checkboxes.removeAttr('checked');
+			$(this).text('Select All');
+		}
+	})
+}
 // uploads the profile photo by submitting the image upload form
 // Called after selecting a photo and hitting "Open"
 function upload()
@@ -84,6 +102,7 @@ function updateRegionOptions()
 	});
 }
 
+// Used for the State/Province datalist
 function downloadRegions()
 {
 	return $.ajax({
@@ -97,7 +116,7 @@ function downloadRegions()
 
 $( function() {
 	$( "#accordion" ).accordion();
-	initSelectAllBindings();
+	initSelectAllText();
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
 	downloadRegions().then(updateRegionOptions);
