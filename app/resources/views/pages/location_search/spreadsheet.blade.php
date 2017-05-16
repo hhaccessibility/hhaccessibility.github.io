@@ -1,3 +1,8 @@
+	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
+	<script src="/css/jquery/external/jquery/jquery.js"></script>
+	<script src="/css/jquery/jquery-ui.js"></script>
+	<script src="/js/location_search_table.js"></script>
+	<script src="/js/location_search_table.js"></script>
 	<div class="spreadsheet sort-by-{{ $order_by }}">
 	@if (count($locations) === 0)
 		No location found matching the specified keywords
