@@ -4,6 +4,24 @@
 	<script src="/js/location_search_table.js"></script>
 	<script src="/js/location_search_table.js"></script>
 	<div class="spreadsheet sort-by-{{ $order_by }}">
+	<div class="spreadsheet form-container">
+			<form class="form-inline">
+			<input type="hidden" id="_token" value="{{ csrf_token() }}">
+			<div class="form-group">
+				<label class="sr-only" for="distance">Radius Distance</label>
+				<div class="input-group">
+					<div class="input-group-addon">Radius</div>
+					@if (Session::has('search_radius_km'))
+					<input type="text" class="form-control" id="distance" placeholder="distance" value="{{ Session::get('search_radius_km')->time }}">
+					@else
+					<input type="text" class="form-control" id="distance" placeholder="distance" value="">
+					@endif
+					<div class="input-group-addon">km</div>
+				</div>
+			</div>
+			<button type="button" id="updateRadius" class="btn btn-primary">Update</button>
+		</form>
+	</div>
 	@if (count($locations) === 0)
 		No location found matching the specified keywords
 	@else
