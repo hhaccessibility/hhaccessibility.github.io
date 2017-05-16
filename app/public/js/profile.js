@@ -29,9 +29,8 @@ function bindCheckboxes() {
 		var SelectAllBtn = $(this).closest("div.category").find("button.select-all");
 		var NumberOfCheckboxes = $(this).closest("div.questions").find("input:checkbox").length;
 		var NumberOfcheckedCheckboxes = $(this).closest("div.questions").find("input:checked").length;
-		var isAllChecked = (NumberOfCheckboxes == NumberOfcheckedCheckboxes);
-		var isSelectAllShowed = ( $(SelectAllBtn).text() === "Select All" );
-		if( isAllChecked && isSelectAllShowed )
+		var isAllChecked = (NumberOfCheckboxes === NumberOfcheckedCheckboxes);
+		if( isAllChecked && ( $(SelectAllBtn).text() === "Select All" ) )
 			$(SelectAllBtn).text("Unselect All");
 		else
 			$(SelectAllBtn).text("Select All");
