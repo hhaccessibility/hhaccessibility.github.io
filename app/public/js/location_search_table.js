@@ -25,8 +25,8 @@ function bindeUpdateRadius() {
 					'X-CSRF-Token': $("#_token").val()
 				},
 				data: {
-					distance: distNumber,
-					_token: $("#_token").val()
+					'distance': distNumber,
+					'_token': $("#_token").val()
 				},
 				success: refreshDiv
 			}
