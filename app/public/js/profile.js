@@ -4,46 +4,55 @@ profile.js is used in the profile.blade.php view.
 
 var regions = [];
 
-function initSelectAllText() {
-	var isAllChecked = true;
-	$("div.category").each( iterateCategory );
+function updateButtonCaption($category_element)
+{
+	// Sanitize $category_element if it is a 
+	// descendent element of the category.
+	if ( !$category_element.hasClass('category') )
+	{
+		$category_element = $category_element.closest('.category');
+	}
+	var numberOfCheckboxes = $category_element.find("div.questions input:checkbox").length;
+	var numberOfcheckedCheckboxes = $category_element.find("div.questions input:checked").length;
+	var isAllChecked = ( numberOfCheckboxes === numberOfcheckedCheckboxes );
+	if ( isAllChecked )
+	{
+		$category_element.find("button.select-all").text("Unselect All");
+	}
+	else
+	{
+		$category_element.find("button.select-all").text("Select All");
+	}
+}
+
+// initializes the Select All/Unselect All buttons
+function initSelectAllText()
+{
+	$.each($("div.category"), function(index, element)
+	{
+		updateButtonCaption($(element));
+	});
 	selectAllToggle();
 	bindCheckboxes();
-
-	function iterateCategory(index,category) {
-		var NumberOfCheckboxes = $(category).find("div.questions input:checkbox").length;
-		var NumberOfcheckedCheckboxes = $(category).find("div.questions input:checked").length;
-		var isAllChecked = (NumberOfCheckboxes == NumberOfcheckedCheckboxes);
-		if(isAllChecked) {
-			$(category).find("button.select-all").text("Unselect All");
-		}
-		else $(category).find("button.select-all").text("Select All");
-		isAllChecked = true;
-	}
 }
 
 function bindCheckboxes() {
-	$("div.questions input:checkbox").change(uncheckLastBox);
-
-	function uncheckLastBox() {
-		var SelectAllBtn = $(this).closest("div.category").find("button.select-all");
-		var NumberOfCheckboxes = $(this).closest("div.questions").find("input:checkbox").length;
-		var NumberOfcheckedCheckboxes = $(this).closest("div.questions").find("input:checked").length;
-		var isAllChecked = (NumberOfCheckboxes === NumberOfcheckedCheckboxes);
-		if( isAllChecked && ( $(SelectAllBtn).text() === "Select All" ) )
-			$(SelectAllBtn).text("Unselect All");
-		else
-			$(SelectAllBtn).text("Select All");
-	}
+	$("div.questions input:checkbox").change(function()
+	{
+		updateButtonCaption($(this));
+	});
 }
 
-function selectAllToggle() {
+// Toggles between Select All and Unselect All
+function selectAllToggle()
+{
 	$('button.select-all').click(function(){
-		if($(this).text() === "Select All") {
-			$(this).closest("div.category").find("input:checkbox").prop('checked',true);
+		var $checkboxes = $(this).closest("div.category").find("input:checkbox");
+		if ( $(this).text() === "Select All" ) {
+			$checkboxes.prop('checked', true);
 			$(this).text('Unselect All');
 		} else {
-			$(this).closest("div.category").find("input:checkbox").prop('checked',false);
+			$checkboxes.removeAttr('checked');
 			$(this).text('Select All');
 		}
 	})
@@ -93,6 +102,7 @@ function updateRegionOptions()
 	});
 }
 
+// Used for the State/Province datalist
 function downloadRegions()
 {
 	return $.ajax({
