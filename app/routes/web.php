@@ -38,6 +38,7 @@ Route::get('profile-photo-upload', 'ProfilePhotoUploadController@index');
 Route::post('profile-photo-upload', 'ProfilePhotoUploadController@post');
 Route::get('profile-photo', 'ProfilePhotoUploadController@photo');
 Route::get('location-search', 'LocationSearchController@search');
+Route::post('api/set-search-radius', 'LocationSearchController@setSearchRadius');
 Route::get('location-modify/{location_id}', 'LocationManagementController@show');
 Route::get('user-report/{user_id}', 'InternalFeaturesController@showUserReport');
 Route::get('users', 'InternalFeaturesController@showUsers');
