@@ -295,13 +295,13 @@ class BaseUser
 		{
 			$user = BaseUser::getDbUser();
 			if ( $distance > 0) {
-				$user-> search_radius_km = distance;
+				$user-> search_radius_km = $distance;
 				$user->save();
 			}
 		}
 		else if ( Session::has('search_radius_km') )
 		{
-			Session::put('search_radius_km', distance);
+			Session::put('search_radius_km', $distance);
 		}
 
 	}
