@@ -1,4 +1,5 @@
 function bindeUpdateRadius() {
+	preventSubmitForm();
 	$("#updateRadius").click(onclickUpdateButtonEvent);
 	function onclickUpdateButtonEvent(event){
 		var updateRadiusApi = "/api/set-search-radius"
@@ -41,6 +42,10 @@ function bindeUpdateRadius() {
 		var x = xhr.getResponseHeader("X-CSRF-Token");
 		console.log(x);
 		*/
+	function preventSubmitForm(){
+		$("form").submit(function(e){
+			e.preventDefault(e);
+		});
 	}
 }
 
