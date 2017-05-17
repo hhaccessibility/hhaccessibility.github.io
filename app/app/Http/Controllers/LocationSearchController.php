@@ -410,6 +410,6 @@ class LocationSearchController extends Controller {
 			if(($f_distance < 200) && ($f_distance > 0))
 				BaseUser::setSearchRadius($f_distance);
 		}
-		return "hello";
+		return "OK";
 	}
 }
