@@ -299,7 +299,7 @@ class BaseUser
 				$user->save();
 			}
 		}
-		else if ( Session::has('search_radius_km') )
+		else
 		{
 			Session::put('search_radius_km', $distance);
 		}
