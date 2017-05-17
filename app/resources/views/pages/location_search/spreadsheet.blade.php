@@ -6,11 +6,7 @@
 				<label class="sr-only" for="distance">Radius Distance</label>
 				<div class="input-group">
 					<div class="input-group-addon">Radius</div>
-					@if (Session::has('search_radius_km'))
-					<input type="text" class="form-control" id="distance" placeholder="distance" value="{{ Session::get('search_radius_km')->time }}">
-					@else
-					<input type="text" class="form-control" id="distance" placeholder="distance" value="">
-					@endif
+					<input type="text" class="form-control" id="distance" placeholder="distance" value="{{ $search_radius }}">
 					<div class="input-group-addon">km</div>
 				</div>
 			</div>
