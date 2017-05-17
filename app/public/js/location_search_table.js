@@ -9,16 +9,6 @@ function bindeUpdateRadius() {
 			$("#distance").val("");
 			return;
 		}
-		/*
-		$.post( updateRadiusApi,
-			{
-				distantce: distNumber,
-				_token: $("#_token").val()
-			}, function(data) {
-				$("div.data").html(data);
-			}
-		);
-		*/
 		$.ajax(
 			{
 				url: updateRadiusApi,
