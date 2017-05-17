@@ -405,9 +405,10 @@ class LocationSearchController extends Controller {
 	 */
 	public function setSearchRadius(Request $request) {
 		$distance = Input::get('distance');
-		if(is_numeric($distance) ) {
-			$int_distance = intval( $distance );
-			BaseUser::setSearchRadius($int_distance);
+		if(is_numeric($distance)) {
+			$f_distance = floatval( $distance );
+			if(($f_distance < 200) && ($f_distance > 0))
+				BaseUser::setSearchRadius($f_distance);
 		}
 		return "hello";
 	}

@@ -2,8 +2,9 @@ function bindeUpdateRadius() {
 	$("#updateRadius").click(onclickUpdateButtonEvent);
 	function onclickUpdateButtonEvent(event){
 		var updateRadiusApi = "/api/set-search-radius"
-		var distNumber = parseInt($("#distance").val());
-		if (!distNumber) {
+		var distNumber = parseFloat($("#distance").val());
+		if (!distNumber || distNumber > 200  || distNumber<=0 ) {
+			$("dev.disform").addClass("has-error");
 			$("#distance").val("");
 			return;
 		}
