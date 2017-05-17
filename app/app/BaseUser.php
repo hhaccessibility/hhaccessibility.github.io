@@ -290,7 +290,7 @@ class BaseUser
 		return !is_null($matching_user->email_verification_time);
 	}
 	// set search radius
-	public static function setSearchRadius(int $distance) {
+	public static function setSearchRadius(float $distance) {
 		if ( BaseUser::isSignedIn() )
 		{
 			$user = BaseUser::getDbUser();
