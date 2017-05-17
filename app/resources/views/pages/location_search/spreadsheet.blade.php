@@ -2,7 +2,7 @@
 	<div class="spreadsheet form-container">
 			<form class="form-inline">
 			<input type="hidden" id="_token" value="{{ csrf_token() }}">
-			<div class="form-group">
+			<div class="form-group disform">
 				<label class="sr-only" for="distance">Radius Distance</label>
 				<div class="input-group">
 					<div class="input-group-addon">Radius</div>
