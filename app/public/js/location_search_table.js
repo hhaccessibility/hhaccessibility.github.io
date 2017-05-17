@@ -20,18 +20,14 @@ function bindeUpdateRadius() {
 					'distance': distNumber,
 					'_token': $("#_token").val()
 				},
-				success: refreshDiv
+				success: refreshPage
 			}
 		);
 		event.preventDefault();
 	}
-	function refreshDiv(data, status, xhr) {
-		$("div.data").html(data);
-		/*
-		console.log(xhr.getAllResponseHeaders());
-		var x = xhr.getResponseHeader("X-CSRF-Token");
-		console.log(x);
-		*/
+	function refreshPage(data, status, xhr) {
+		location.reload();
+	}
 	function preventSubmitForm(){
 		$("form").submit(function(e){
 			e.preventDefault(e);
