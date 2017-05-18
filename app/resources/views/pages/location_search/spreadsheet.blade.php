@@ -1,6 +1,5 @@
 	<div class="spreadsheet sort-by-{{ $order_by }}">
-	<div class="spreadsheet form-container">
-			<form class="form-inline">
+	<div class="spreadsheet form-inline form-container">
 			<input type="hidden" id="_token" value="{{ csrf_token() }}">
 			<div class="form-group disform">
 				<label class="sr-only" for="distance">Radius Distance</label>
@@ -11,7 +10,6 @@
 				</div>
 			</div>
 			<button type="button" id="updateRadius" class="btn btn-primary">Update</button>
-		</form>
 	</div>
 	@if (count($locations) === 0)
 		No location found matching the specified keywords

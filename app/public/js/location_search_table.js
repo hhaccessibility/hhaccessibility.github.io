@@ -1,5 +1,4 @@
-function bindeUpdateRadius() {
-	preventSubmitForm();
+function bindUpdateRadius() {
 	$("#updateRadius").click(onclickUpdateButtonEvent);
 	function onclickUpdateButtonEvent(event){
 		var updateRadiusApi = "/api/set-search-radius"
@@ -27,11 +26,6 @@ function bindeUpdateRadius() {
 	}
 	function refreshPage(data, status, xhr) {
 		location.reload();
-	}
-	function preventSubmitForm(){
-		$("form").submit(function(e){
-			e.preventDefault(e);
-		});
 	}
 }
 
