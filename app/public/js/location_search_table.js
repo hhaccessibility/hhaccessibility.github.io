@@ -23,7 +23,7 @@ function bindUpdateRadius() {
 		);
 		event.preventDefault();
 	}
-	function refreshPage(data, status, xhr) {
+	function refreshPage() {
 		location.reload();
 	}
 }
