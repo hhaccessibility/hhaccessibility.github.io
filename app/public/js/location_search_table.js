@@ -1,7 +1,6 @@
 function bindUpdateRadius() {
 	$("#updateRadius").click(onclickUpdateButtonEvent);
 	function onclickUpdateButtonEvent(event){
-		var updateRadiusApi = "/api/set-search-radius"
 		var distNumber = parseFloat($("#distance").val());
 		if (!distNumber || distNumber > 200  || distNumber<=0 ) {
 			$("dev.disform").addClass("has-error");
@@ -10,7 +9,7 @@ function bindUpdateRadius() {
 		}
 		$.ajax(
 			{
-				url: updateRadiusApi,
+				url: "/api/set-search-radius",
 				type: 'post',
 				headers: {
 					'X-CSRF-Token': $("#_token").val()
