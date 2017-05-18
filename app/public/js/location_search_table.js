@@ -2,7 +2,7 @@ function bindUpdateRadius() {
 	$("#updateRadius").click(onclickUpdateButtonEvent);
 	function onclickUpdateButtonEvent(event){
 		var distNumber = parseFloat($("#distance").val());
-		if (!distNumber || distNumber > 200  || distNumber<=0 ) {
+		if (!distNumber || distNumber<=0 ) {
 			$("dev.disform").addClass("has-error");
 			$("#distance").val("");
 			return;
