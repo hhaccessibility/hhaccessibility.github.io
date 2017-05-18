@@ -28,6 +28,6 @@ function bindUpdateRadius() {
 	}
 }
 
-$().ready(function() {
-	bindeUpdateRadius();
+$(document).ready(function() {
+	bindUpdateRadius();
 });
