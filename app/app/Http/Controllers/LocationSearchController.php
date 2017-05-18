@@ -412,10 +412,10 @@ class LocationSearchController extends Controller {
 				BaseUser::setSearchRadius($f_distance);
 			else return Response::json([
 				'message' => 'radius must be greater than 0'
-			]);
+			],412);
 		}
 		return Response::json([
 			'message' => 'okay'
-		]);
+		],201);
 	}
 }
