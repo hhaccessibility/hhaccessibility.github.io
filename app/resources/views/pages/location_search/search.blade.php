@@ -11,7 +11,7 @@
   <script src="/js/location_search_map.js">
   </script>
   @endif
-  @if ( $view === 'table' && $turn_off_maps  )
+  @if ( $view === 'table' )
 	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
 	<script src="/css/jquery/external/jquery/jquery.js"></script>
 	<script src="/css/jquery/jquery-ui.js"></script>
