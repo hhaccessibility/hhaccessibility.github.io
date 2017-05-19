@@ -409,13 +409,21 @@ class LocationSearchController extends Controller {
 		if( is_numeric($distance) ) {
 			$f_distance = floatval( $distance );
 			if( $f_distance > 0)
+			{
 				BaseUser::setSearchRadius($f_distance);
+				return Response::json([
+					'message' => 'okay'
+				], 200);
+			}
 			else return Response::json([
 				'message' => 'radius must be greater than 0'
-			],412);
+			], 422);
 		}
-		return Response::json([
-			'message' => 'okay'
-		],201);
+		else
+		{
+			return Response::json([
+				'message' => 'radius must be a number'
+			], 422);			
+		}
 	}
 }
