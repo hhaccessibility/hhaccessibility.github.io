@@ -289,6 +289,22 @@ class BaseUser
 		$matching_user = User::where('email', '=', $email)->first();
 		return !is_null($matching_user->email_verification_time);
 	}
+	// set search radius
+	public static function setSearchRadius(float $distance) {
+		if ( BaseUser::isSignedIn() )
+		{
+			$user = BaseUser::getDbUser();
+			if ( $distance > 0) {
+				$user-> search_radius_km = $distance;
+				$user->save();
+			}
+		}
+		else
+		{
+			Session::put('search_radius_km', $distance);
+		}
+
+	}
 }
 
 ?>

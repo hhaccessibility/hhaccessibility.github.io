@@ -3,6 +3,7 @@
 use App\LocationTag;
 use App\Location;
 use App\BaseUser;
+use Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -399,5 +400,30 @@ class LocationSearchController extends Controller {
 				'order_by'           => $order_by_field_name,
 				'search_radius'      => $search_radius
 			]);
+	}
+	/**
+	 * set search radius
+	 */
+	public function setSearchRadius(Request $request) {
+		$distance = Input::get('distance');
+		if( is_numeric($distance) ) {
+			$f_distance = floatval( $distance );
+			if( $f_distance > 0)
+			{
+				BaseUser::setSearchRadius($f_distance);
+				return Response::json([
+					'message' => 'okay'
+				], 200);
+			}
+			else return Response::json([
+				'message' => 'radius must be greater than 0'
+			], 422);
+		}
+		else
+		{
+			return Response::json([
+				'message' => 'radius must be a number'
+			], 422);			
+		}
 	}
 }
