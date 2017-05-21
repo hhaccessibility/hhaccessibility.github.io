@@ -4,6 +4,7 @@
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
   <script src="/js/profile.js"></script>
+  <script src="/js/profile_save_button.js"></script>
 @stop
 @section('content')
 <div class="profile row">
