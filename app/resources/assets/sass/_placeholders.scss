@@ -86,3 +86,16 @@
 		}
 	}
 }
+
+%photo-replace-remove-link {
+	display: block;
+	color: #558;
+	background-color: #eee;
+	box-shadow: 0 0 3px #ccc inset;
+	transition: color 0.3s;
+	
+	&:hover {
+		color: #225;
+		text-decoration: underline;
+	}
+}

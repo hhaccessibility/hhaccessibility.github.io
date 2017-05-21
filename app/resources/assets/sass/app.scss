@@ -293,17 +293,19 @@ footer {
         .remove-photo {
             margin-top: 59px;
             margin-bottom: 0;
+			
+			a {
+				@extend %photo-replace-remove-link;
+			}
 
             &:hover {
                 text-decoration: underline;
             }
         }
 
-        .photo-changer:hover {
-            p {
-                text-decoration: underline;
-            }
-        }
+		.photo-changer {
+			@extend %photo-replace-remove-link;
+		}
 
         .progress-element {
             display: none;
