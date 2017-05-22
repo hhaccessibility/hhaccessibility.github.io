@@ -220,8 +220,8 @@
 			</div>
 
 			<div class="text-right">
-				<button type="button" id="resetbtn" class="btn btn-lg btn-primary save-button" disabled>reset</button>
 				<button type="submit" id="submitbtn" class="btn btn-lg btn-primary save-button" disabled>Save Profile</button>
+				<button type="button" id="resetButton" class="btn btn-lg btn-primary save-button" disabled>reset</button>
 		   </div>
 	 </form>
 	 
