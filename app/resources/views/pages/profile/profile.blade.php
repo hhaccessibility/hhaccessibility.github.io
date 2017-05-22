@@ -220,7 +220,6 @@
 			</div>
 
 			<div class="text-right">
-				<button type="button" id="resetButton" class="btn btn-lg btn-primary save-button" disabled>reset</button>
 				<button type="submit" id="submitButton" class="btn btn-lg btn-primary save-button" disabled>Save Profile</button>
 		   </div>
 	 </form>
