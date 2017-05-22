@@ -4,6 +4,7 @@
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
   <script src="/js/profile.js"></script>
+  <script src="/js/profile_save_button.js"></script>
 @stop
 @section('content')
 <div class="profile row">
@@ -37,7 +38,7 @@
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
-		<form method="post" action="/profile">
+		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
 			<h2>Personal</h2>
@@ -219,7 +220,7 @@
 			</div>
 
 			<div class="text-right">
-				<button type="submit" class="btn btn-lg btn-primary save-button">Save Profile</button>
+				<button type="submit" id="submitButton" class="btn btn-lg btn-primary save-button" disabled>Save Profile</button>
 		   </div>
 	 </form>
 	 
