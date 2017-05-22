@@ -38,7 +38,7 @@
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
         <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
-		<form id="profile_form" method="post" action="/profile">
+		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
 			<h2>Personal</h2>
