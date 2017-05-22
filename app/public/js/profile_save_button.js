@@ -3,8 +3,8 @@ $(document).ready(function() {
 	$("#resetButton").click(resetButton);
 	var DefaultFormValue = $("#profileForm").serialize();
 
-	function form_change() {
 			$("#submitbtn").prop("disabled",true);
+	function formChange() {
 		if ( $("#profileForm").serialize() === DefaultFormValue) {
 			$("#resetButton").prop("disabled", true);
 		} else {
