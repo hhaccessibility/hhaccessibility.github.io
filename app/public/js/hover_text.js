@@ -59,8 +59,10 @@ $(document).ready(function()
 		var $this = $(this);
 		var title = $this.attr('title');
 		var location_tag_id = getLocationTagId($this);
+		var $div = $('<div />').addClass('sr-only').text(title);
 		location_tag_descriptions[location_tag_id] = title;
 		$this.attr('title', '');
+		$this.append($div);
 	});
 	$location_tag_elements.hover(function(){
 		delayedHide(location_tag_descriptions[getLocationTagId($(this))]);
