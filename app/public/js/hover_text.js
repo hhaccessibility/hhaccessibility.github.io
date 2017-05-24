@@ -66,7 +66,11 @@ $(document).ready(function()
 	});
 	$location_tag_elements.hover(function(){
 		delayedHide(location_tag_descriptions[getLocationTagId($(this))]);
-	}); 
+	});
+	$location_tag_elements.focus(function(){
+		delayedHide(location_tag_descriptions[getLocationTagId($(this))]);
+	});
+	$location_tag_elements.blur(hideHoverText);
 });
 
 function getHoverTextElement()
