@@ -1,0 +1,61 @@
+@import "_placeholders.scss";
+@import "_functions.scss";
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+.clean {
+	border-top-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 1px;
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	border-bottom-color: #bbb;
+	box-style: border-box;
+	transition: border-color 0.2s, color 0.2s;
+	
+	@include placeholder {
+		color: #bbb;
+	}
+
+	@at-root #{selector-unify(&, textarea)} {
+		border-top-width: 1px;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+	
+	&:hover {
+		border-color: #238;
+		color: #238;
+		
+		@include placeholder {
+			color: tint(#223388, 50%);
+		}
+	}
+		
+	&:focus {
+		border-color: #000;
+		outline: none;
+
+		@include placeholder {
+			color: #888;
+		}
+	}
+
+	&[type="submit"] {
+		@extend %clean-submit;
+	}
+}
+
+a.clean {
+	@extend %clean-submit;
+	display: inline-block;
+	padding-top: 6px;
+}

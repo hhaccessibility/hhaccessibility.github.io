@@ -1,0 +1,53 @@
+@import "_placeholders.scss";
+
+.user-report {
+	@extend %page-base;
+	
+	.box {
+		@extend %internal-box;
+	}
+}
+
+.location-management {
+	@extend %page-base;
+
+	input[type="text"], select {
+		width: 100%;
+		box-style: border-box;
+	}
+	
+	form > .row > div {
+		min-height: 40px;
+	}
+	
+	.categories {
+		label {
+			margin-bottom: 0;
+			cursor: pointer;
+		}
+	}
+}
+
+.internal-dashboard {
+	@extend %page-base;
+
+	.box {
+		@extend %internal-box;
+	}
+}
+
+.users {
+	@extend %page-base;
+	
+	.data {
+		@extend %nonscrolling-spreadsheet;
+	}
+}
+
+.location-groups {
+	@extend %page-base;
+
+	.data {
+		@extend %nonscrolling-spreadsheet;
+	}
+}
