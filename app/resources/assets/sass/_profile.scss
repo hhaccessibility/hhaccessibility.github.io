@@ -1,0 +1,171 @@
+@import "_placeholders.scss";
+
+
+.profile {
+	@extend %page-base;
+
+	h1 {
+		padding-bottom: 20px;
+		border-bottom: 3px solid mix($base_colour1, #ffffff, 50%);
+	}
+
+	.internal-dashboard-link {
+		font-size: 30px;
+		float: right;
+		margin-top: 20px;
+	}
+
+    .accessibility-interests {
+        padding-left: 15px;
+    }
+
+	.save-button{
+		margin-top: 20px;
+		margin-bottom: 15px;
+	}
+
+	.category {
+		> .checkbox {
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.questions > .checkbox {
+			> label {
+				vertical-align: top;
+			}
+		
+			> div {
+				display: inline-block;
+			}
+		}
+	}
+	
+	select {
+		option[disabled] {
+			display: none;
+		}
+	}
+
+    .photo-display {
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+
+        .remove-photo {
+            margin-top: 59px;
+            margin-bottom: 0;
+			
+			a {
+				@extend %photo-replace-remove-link;
+			}
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+		.photo-changer {
+			@extend %photo-replace-remove-link;
+		}
+
+        .progress-element {
+            display: none;
+            position: absolute;
+            opacity: 0.0;
+            transition: opacity 0.3s;
+
+            &.uploading {
+                display: block;
+                background-image: url('../images/progress.gif');
+                background-repeat: no-repeat;
+                background-position: center center;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #000;
+                opacity: 0.4;
+            }
+        }
+
+        .user-icon {
+           margin-top: 79px;
+           display: block;
+           color: mix($base_colour1, #ffffff, 20%);
+           height: 200px;
+           overflow: hidden;
+           transition: color 0.2s;
+
+            i {
+               font-size: 180px;
+               margin-left: auto;
+               margin-right: auto;
+           }
+
+           &:hover {
+                color: mix($base_colour1, #ffffff, 30%);
+           }
+        }        
+    }
+    
+	.uploaded-photo {
+		background-color: mix($base_colour1, #ffffff, 80%);
+		display: block;
+		font-size: 20px;
+		min-height: 200px;
+		background-image: url('/profile-photo');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+    
+    .hidden-uploader {
+		// Hide the input on the profile.
+		// We can't use display: none or visibility: hidden because that doesn't work in Safari.
+		// More details at:
+		// http://stackoverflow.com/questions/793014/jquery-trigger-file-input
+        position: fixed;
+		opacity: 0;
+		top: -1000; // Way off top of the screen so it is essentially invisible.
+    }
+}
+
+.profile-photo-upload {
+	@extend %page-base;
+
+	h1 {
+		text-align: center;
+		padding-top: 30px;
+		margin-bottom: 50px;
+	}
+
+	.profile-photo-upload-form {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 300px;
+	}
+	
+	.photo-upload-message-box {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 500px;
+
+		p {
+			text-align: center;
+			font-size: 1.3em;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	body {		
+		.profile {
+			.user-icon {
+				margin-top: 0;
+			}
+		}		
+	}
+}

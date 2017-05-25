@@ -99,3 +99,21 @@
 		text-decoration: underline;
 	}
 }
+
+%clean-submit {
+	height: 38px;
+	font-size: 18px;
+	margin-top: 30px;
+	border: 1px solid #337ab7;
+	color: #337ab7;
+	width: auto;
+	padding-left: 40px;
+	padding-right: 40px;
+	border-radius: 19px;
+	background-color: #fff;
+	
+	&:hover, &:focus {
+		border-color: #000;
+		color: #000;
+	}
+}
