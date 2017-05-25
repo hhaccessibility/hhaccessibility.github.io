@@ -1,7 +1,12 @@
-$(window).on("beforeunload", function(e) {
-	var dialogtxt = 'do you want to save your data?';
-	if(isProfileChanged) {
-		e.returnValue = dialogtxt;
-		return dialogtxt;
+$(window).on('beforeunload', function(e) {
+	if ( submitted ) {
+		return;
 	}
+	if ( e === undefined ) {
+		e = window.event;
+	}
+	if ( isProfileChanged() ) {
+		return '';
+	}
+	return undefined;
 });
