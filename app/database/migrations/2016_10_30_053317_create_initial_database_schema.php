@@ -57,6 +57,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->double('latitude', 11, 8)->nullable();
 			$table->string('location_search_text', 255)->nullable();
 			$table->string('email_verification_token', 255)->nullable();
+			$table->string('password_recovery_token', 255)->nullable();
 			$table->datetime('email_verification_time')->nullable();
 		});
 		Schema::create('role', function (Blueprint $table) {
