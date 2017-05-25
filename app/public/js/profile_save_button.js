@@ -1,12 +1,20 @@
-$(document).ready(function() {
-	$("#profileForm").change(formChange);
-	var DefaultFormValue = $("#profileForm").serialize();
+var defaultFormValue;
 
+// submitted is true if the user profile form is being submitted.
+var submitted = false;
+
+function isProfileChanged()
+{
+   return $("#profileForm").serialize() !== defaultFormValue;
+}
+
+$(document).ready(function() {
+  	$("#profileForm").change(formChange).submit(function() {
+		submitted = true;
+	});
+  	defaultFormValue = $("#profileForm").serialize();
+	
 	function formChange() {
-		if ( $("#profileForm").serialize() === DefaultFormValue) {
-			$("#submitButton").prop("disabled", true);
-		} else {
-			$("#submitButton").prop("disabled", false);
-		}
+		$("#submitButton").prop("disabled", !isProfileChanged());
 	}
 });
