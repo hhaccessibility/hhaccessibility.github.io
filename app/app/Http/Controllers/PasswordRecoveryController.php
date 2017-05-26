@@ -61,7 +61,7 @@ class PasswordRecoveryController extends Controller {
 			$failing = $validator->fails();
 			if ($failing)
 			{
-				return Redirect::to('password-recovery/reset-password')->withErrors($validator)->withInput();
+				return Redirect::back()->withErrors($validator)->withInput();
 			}
 			else
 			{
