@@ -26,6 +26,7 @@ Route::get('privacy-policy', function()
 });
 Route::get('faq', 'FaqController@index');
 Route::get('password-recovery', 'PasswordRecoveryController@form');
+Route::get('password-recovery/{user_email}/{password_recovery_token}', 'PasswordRecoveryController@passworkRecover');
 Route::post('password-recovery', 'PasswordRecoveryController@sendEmail');
 
 Route::get('profile', 'ProfileController@index');
