@@ -51,5 +51,31 @@ class PasswordRecoveryController extends Controller {
 
 		return view('pages.password_recovery.unmatched_token');
 	}
+	public function resetPassword(Request $request) {
+		if ( Session::has('PasswordRecovery') ) {
+			$validation_rules = array(
+				'new_password'         => 'required',
+				'password_confirm'     => 'required|same:new_password'
+			);
+			$validator = Validator::make(Input::all(), $validation_rules);
+			$failing = $validator->fails();
+			if ($failing)
+			{
+				return view('pages.password_recovery.reset_password')->withErrors($validator)->withInput();
+			}
+			else
+			{
+				$user = User::where('email', '=', Session::get('PasswordRecovery'))->first();
+				$user->password_hash = User::generateSaltedHash($request->input('new_password'));
+				$user->save();
+				Session::forget('PasswordRecovery');
+				return view('pages.password_recovery.reset_password_success');
+			}
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
+	}
 }
 ?>
