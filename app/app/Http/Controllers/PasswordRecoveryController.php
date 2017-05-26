@@ -2,6 +2,7 @@
 
 use App\BaseUser;
 use App\User;
+use Session;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -35,4 +36,20 @@ class PasswordRecoveryController extends Controller {
 		BaseUser::sendPasswordRecoveryEmail($matching_user);
 		return view('pages.password_recovery.email_sent');
 	}
+
+	public function passworkRecover($user_email, $password_recovery_token) {
+		$matching_user = User::where('email', '=', $user_email)->first();
+
+		if ( !$matching_user ) {
+			return view('pages.password_recovery.unmatched_email');
+		}
+
+		if ( $matching_user->password_recovery_token == $password_recovery_token ) {
+			Session::put('PasswordRecovery',$matching_user->email);
+			return view('pages.password_recovery.reset_password');
+		}
+
+		return view('pages.password_recovery.unmatched_token');
+	}
 }
+?>
