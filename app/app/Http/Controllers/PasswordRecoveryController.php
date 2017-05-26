@@ -32,8 +32,7 @@ class PasswordRecoveryController extends Controller {
 		if ( !$matching_user ) {
 			return view('pages.password_recovery.unmatched_email');
 		}
-		
-		mail($email, 'Password Recovery', 'Your password has been reset.');
+		BaseUser::sendPasswordRecoveryEmail($matching_user);
 		return view('pages.password_recovery.email_sent');
 	}
 }
