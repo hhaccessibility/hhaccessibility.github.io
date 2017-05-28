@@ -1,6 +1,6 @@
 function onUpdateRadiusError()
 {
-	$("dev.disform").addClass("has-error");
+	$("div.disform").addClass("has-error");
 	$("#distance").val("");
 }
 
