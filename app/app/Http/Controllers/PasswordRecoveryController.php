@@ -2,7 +2,6 @@
 
 use App\BaseUser;
 use App\User;
-use Session;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
