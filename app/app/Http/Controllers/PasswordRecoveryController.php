@@ -37,7 +37,6 @@ class PasswordRecoveryController extends Controller {
 		return view('pages.password_recovery.email_sent');
 	}
 
-	public function passworkRecover($user_email, $password_recovery_token) {
 		$matching_user = User::where('email', '=', $user_email)->first();
 
 		if ( !$matching_user ) {
