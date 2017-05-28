@@ -283,6 +283,26 @@ class BaseUser
 
 		return false;
 	}
+	/**
+	* send password recovery verification email to user's mailbox
+	*
+	*/
+	public static function sendPasswordRecoveryEmail($user)
+	{
+
+		$password_recovery_token = str_random(60); //generate email verification token
+		$body = <<<EOT
+This e-mail is in response to your recent request to recover a forgotten password.
+To reset your password, please click the link below and follow the instructions provided.
+
+EOT;
+		$body .= config('app.url')."/password-recovery/".$user->email."/".$password_recovery_token;
+		$headers = "From: password_security@accesslocator.com\r\n";
+		$headers .= "Content-Type: text/plain; charset=\"utf-8\"\r\n";
+		mail($user->email, "reset your Accesslocator account password", $body, $headers);
+		$user->password_recovery_token = $password_recovery_token;
+		$user->save();
+	}
 
 	// check if user's email verificated while loging in
 	public static function checkEmail(string $email) {
