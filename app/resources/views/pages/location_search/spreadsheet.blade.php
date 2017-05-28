@@ -6,6 +6,7 @@
 				<div class="input-group">
 					<div class="input-group-addon">Radius</div>
 					<input type="number" step="0.1" 
+						min="0.1"
 						class="form-control" id="distance" 
 						placeholder="distance" value="{{ $search_radius }}">
 					<div class="input-group-addon">km</div>
