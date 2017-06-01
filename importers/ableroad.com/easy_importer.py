@@ -5,6 +5,7 @@ import os.path
 import re
 import csv
 import urllib2
+import logging
 import time
 
 def getlatlng(js):
@@ -145,7 +146,7 @@ def write_csv(rows):
         print row
         writer.writerow(row)
     csv_file.close()
-    print 'done writing'
+    logging.info('csv file has been written!')
 
 def download_if_not():
     pagecontent = ''
@@ -178,6 +179,12 @@ def gen_url():
                     offset = page * 20
                     url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                             '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
+                    logging.info(url)
                     time.sleep(5)
 #print  businesses
+
+def setuplogging():
+    #logging setting
+    logging.basicConfig(filename='importer.log',level=logging.DEBUG,\
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
