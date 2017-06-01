@@ -156,29 +156,15 @@ def write_csv(rows):
     csv_file.close()
     logging.info('csv file has been written!')
 
-def download_if_not():
+def download_if_not(url):
     pagecontent = ''
-#load file from path
-    if not os.path.exists('testhtml.html'):
-        page = requests.get('http://ableroad.com/search.php?s=&offset=0&s1=windsor%2Contario&searchBut=Search&cat=1&action=search')
-        f = open('testhtml.html','w')
-        f.write(page.content)
-        pagecontent = page.content
-    else:
-        f = open('testhtml.html','r')
-        pagecontent = f.read()
+    page = requests.get(url)
+    f = open('testhtml.html','w')
+    f.write(page.content)
     f.close()
+    pagecontent = page.content
     return pagecontent
 
-dom = html.fromstring(download_if_not())
-
-businesses = dom.xpath('//div[@class="bigresultframe"]')
-
-rows = []
-for bus in businesses:
-    row = extract_info(bus)
-    rows.append(row)
-write_csv(rows)
 def gen_url():
     locations = ['windsor, ontario']
     for location in locations:
@@ -205,3 +191,7 @@ def setuplogging():
     logging.basicConfig(filename='importer.log',level=logging.DEBUG,\
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
+def main():
+    setuplogging()
+    gen_url()
+main()
