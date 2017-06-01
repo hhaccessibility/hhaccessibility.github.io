@@ -160,13 +160,19 @@ def write_csv(rows):
     csv_file.close()
     logging.info('csv file has been written!')
 
-def download_if_not(url):
+def download_if_not(url, islocalfile):
     pagecontent = ''
-    page = requests.get(url)
-    f = open('tmp.html','w')
-    f.write(page.content)
+
+    if islocalfile and os.path.exists('tmp.html'):
+        f = open('tmp.html','r')
+        pagecontent = f.read()
+    else:
+        page = requests.get(url)
+        f = open('tmp.html','w')
+        f.write(page.content)
+        pagecontent = page.content
+
     f.close()
-    pagecontent = page.content
     return pagecontent
 
 def gen_url():
@@ -181,8 +187,8 @@ def gen_url():
                     mainapp(url)
                     time.sleep(5)
 
-def mainapp(url):
-    dom = html.fromstring(download_if_not(url))
+def mainapp(url, islocalfile=False):
+    dom = html.fromstring(download_if_not(url, islocalfile))
     businesses = dom.xpath('//div[@class="bigresultframe"]')
     rows = []
     for bus in businesses:
@@ -195,8 +201,13 @@ def setuplogging():
     logging.basicConfig(filename='importer.log',level=logging.DEBUG,\
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
+def test_download():
+    url = 'http://ableroad.com/search.php?s=reds-kitchen-tavern&offset=0&s1=peabody+ma&searchBut=Search&cat=1&action=search'
+    mainapp(url, True)
+
 def main():
     setuplogging()
-    gen_url()
+    #gen_url()
+    test_download()
 
 main()
