@@ -41,7 +41,11 @@ def getdistance(s):
     m = re.search(reg,s[0])
     if not m:
         return ''
-    return m.group('dis')
+    #conver mile to km
+    dis = m.group('dis')
+    dis = float(dis) * 1.60934
+    dis = str(round(dis, 2))
+    return dis
 
 def getneighborhood(s):
     if not len(s):
