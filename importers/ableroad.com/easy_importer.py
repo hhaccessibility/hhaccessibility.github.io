@@ -86,7 +86,7 @@ def getpostcode(s):
     s = ' '.join(s)
     m = re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s)
     if not m:
-        return ''.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s)
+        return ''
     return m.group('post')
 
 def getphone(s):
@@ -108,7 +108,7 @@ def extract_info(dombus):
 
     distance = dombus.xpath('.//div[@class="itemdistance"]/text()')
     distance = getdistance(distance)
-    row.append(category)
+    row.append(distance)
 
     neighborhood = dombus.xpath('.//div[@class="neighborhood"]/text()')
     neighborhood = getneighborhood(neighborhood)
