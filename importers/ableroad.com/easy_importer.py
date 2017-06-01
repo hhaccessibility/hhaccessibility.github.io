@@ -159,7 +159,7 @@ def write_csv(rows):
 def download_if_not(url):
     pagecontent = ''
     page = requests.get(url)
-    f = open('testhtml.html','w')
+    f = open('tmp.html','w')
     f.write(page.content)
     f.close()
     pagecontent = page.content
