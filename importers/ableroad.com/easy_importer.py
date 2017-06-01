@@ -52,6 +52,15 @@ def getneighborhood(s):
         return ''
     return re.split(r':\s*',s[0])[1]
 
+def getableroad(s):
+    if not len(s):
+        return ''
+    reg = r'(?P<ablerating>\d+\.?\d*)'
+    m = re.search(reg,s[0])
+    if not m:
+        return ''
+    return m.group('ablerating')
+
 def getyelp(s):
     if not len(s):
         return ''
@@ -118,6 +127,10 @@ def extract_info(dombus):
     neighborhood = getneighborhood(neighborhood)
     row.append(neighborhood )
 
+    ableroadating = dombus.xpath('.//div[@class="startableft"]/text()')
+    ableroadating = getableroad(ableroadating)
+    row.append(ableroadating)
+
     yelprating = dombus.xpath('.//img[@class="yelprating"]/@alt')
     yelprating = getyelp(yelprating)
     row.append(yelprating)
@@ -152,7 +165,7 @@ def write_csv(rows):
     else:
         csv_file = open(csv_filename,'w')
         writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
-        title = ['name','category','distance','neighborhood','yelprating','street','city',
+        title = ['name','category','distance','neighborhood','ablerating','yelprating','street','city',
                 'state','postcode','phone','lat','lng']
         writer.writerow(title)
     for row in rows:
