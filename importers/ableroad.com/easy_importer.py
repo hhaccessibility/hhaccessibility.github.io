@@ -4,6 +4,8 @@ import requests
 import os.path
 import re
 import csv
+import urllib2
+import time
 
 def getlatlng(js):
    """
@@ -168,5 +170,14 @@ for bus in businesses:
     row = extract_info(bus)
     rows.append(row)
 write_csv(rows)
+def gen_url():
+    locations = ['windsor, ontario']
+    for location in locations:
+            for category_id in range(2, 3):
+                for page in range(0,5):
+                    offset = page * 20
+                    url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
+                            '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
+                    time.sleep(5)
 #print  businesses
 
