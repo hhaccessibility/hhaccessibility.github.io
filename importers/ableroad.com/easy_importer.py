@@ -191,8 +191,8 @@ def download_if_not(url, islocalfile):
 def gen_url():
     locations = ['windsor, ontario']
     for location in locations:
-            for category_id in range(2, 3):
-                for page in range(0,5):
+            for category_id in range(2, 22):
+                for page in range(0,10):
                     offset = page * 20
                     url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                             '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
@@ -220,7 +220,7 @@ def test_download():
 
 def main():
     setuplogging()
-    #gen_url()
-    test_download()
+    gen_url()
+    #test_download()
 
 main()
