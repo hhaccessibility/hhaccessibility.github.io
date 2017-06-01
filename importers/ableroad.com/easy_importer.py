@@ -142,8 +142,7 @@ def write_csv(rows):
         title = ['name','category','distance','neighborhood','yelprating','street','city',
                 'state','postcode','phone','lat','lng']
         writer.writerow(title)
-    for  row in rows:
-        print row
+    for row in rows:
         writer.writerow(row)
     csv_file.close()
     logging.info('csv file has been written!')
