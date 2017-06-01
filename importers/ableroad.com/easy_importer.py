@@ -127,7 +127,7 @@ def extract_info(dombus):
     neighborhood = getneighborhood(neighborhood)
     row.append(neighborhood )
 
-    ableroadating = dombus.xpath('.//div[@class="startableft"]/text()')
+    ableroadating = dombus.xpath('.//div[@class="searchableRating"]//div[@class="visually-hidden startableft"]/text()')
     ableroadating = getableroad(ableroadating)
     row.append(ableroadating)
 
