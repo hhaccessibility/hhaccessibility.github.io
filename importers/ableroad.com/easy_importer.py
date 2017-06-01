@@ -66,19 +66,28 @@ def getcity(s):
     if len(s) < 1:
         return ''
     s = ' '.join(s)
-    return re.search(r'(?P<city>[a-zA-Z]+),\s*', s).group('city')
+    m = re.search(r'(?P<city>[a-zA-Z]+),\s*', s)
+    if not m:
+        return ''
+    return m.group('city')
 
 def getstate(s):
     if not len(s):
         return ''
     s = ' '.join(s)
-    return re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)', s).group('state')
+    m = re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)', s)
+    if not m:
+        return ''
+    return m.group('state')
 
 def getpostcode(s):
     if not len(s):
         return ''
     s = ' '.join(s)
-    return re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s).group('post')
+    m = re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s)
+    if not m:
+        return ''.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s)
+    return m.group('post')
 
 def getphone(s):
     if len(s) < 1:
