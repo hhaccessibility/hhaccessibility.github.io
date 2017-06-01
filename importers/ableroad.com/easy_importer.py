@@ -126,6 +126,7 @@ def download_if_not():
     else:
         f = open('testhtml.html','r')
         pagecontent = f.read()
+    f.close()
     return pagecontent
 
 dom = html.fromstring(download_if_not())
