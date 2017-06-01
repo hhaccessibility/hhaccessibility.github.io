@@ -180,8 +180,17 @@ def gen_url():
                     url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                             '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
                     logging.info(url)
+                    mainapp(url)
                     time.sleep(5)
-#print  businesses
+
+def mainapp(url):
+    dom = html.fromstring(download_if_not(url))
+    businesses = dom.xpath('//div[@class="bigresultframe"]')
+    rows = []
+    for bus in businesses:
+        row = extract_info(bus)
+        rows.append(row)
+    write_csv(rows)
 
 def setuplogging():
     #logging setting
