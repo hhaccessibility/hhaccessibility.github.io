@@ -3,6 +3,7 @@ from lxml import html
 import requests
 import os.path
 import re
+import csv
 
 def getlatlng(js):
    """
@@ -84,36 +85,65 @@ def getphone(s):
     return s[-1]
 
 def extract_info(dombus):
+    row = []
     name = dombus.xpath('.//a[@class="titlelink"]/text()')
     name = getname(name)
+    row.append(name)
 
     category = dombus.xpath('.//div[@class="category"]/text()')
     category = getcategory(category)
+    row.append(category)
 
     distance = dombus.xpath('.//div[@class="itemdistance"]/text()')
     distance = getdistance(distance)
+    row.append(category)
 
     neighborhood = dombus.xpath('.//div[@class="neighborhood"]/text()')
     neighborhood = getneighborhood(neighborhood)
+    row.append(neighborhood )
 
     yelprating = dombus.xpath('.//img[@class="yelprating"]/@alt')
     yelprating = getyelp(yelprating)
+    row.append(yelprating)
 
     address = dombus.xpath('.//address/text()')
 
     street = getstreet(address)
+    row.append(street)
 
     city = getcity(address)
+    row.append(city)
 
     state = getstate(address)
+    row.append(state)
 
     postcode = getpostcode(address)
+    row.append(postcode)
 
     phone = getphone(address)
+    row.append(phone)
 
     latlng = dombus.getprevious().text #lat lng is hidden in javascript
     latlng = getlatlng(latlng)
-    print latlng
+    row = row + latlng
+    return row
+
+def write_csv(rows):
+    csv_filename = 'export.csv'
+    if os.path.exists(csv_filename):
+        csv_file = open(csv_filename,'a')
+        writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
+    else:
+        csv_file = open(csv_filename,'w')
+        writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
+        title = ['name','category','distance','neighborhood','yelprating','street','city',
+                'state','postcode','phone','lat','lng']
+        writer.writerow(title)
+    for  row in rows:
+        print row
+        writer.writerow(row)
+    csv_file.close()
+    print 'done writing'
 
 def download_if_not():
     pagecontent = ''
@@ -132,7 +162,11 @@ def download_if_not():
 dom = html.fromstring(download_if_not())
 
 businesses = dom.xpath('//div[@class="bigresultframe"]')
+
+rows = []
 for bus in businesses:
-    extract_info(bus)
+    row = extract_info(bus)
+    rows.append(row)
+write_csv(rows)
 #print  businesses
 
