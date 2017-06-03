@@ -151,7 +151,7 @@ class LocationRatingController extends Controller {
 			return redirect()->intended('/signin');
 		}
 	   $location_reviews = AnswerRepository::getReviewedLocations();
-	   $locations = Location::whereIn('id', $location_reviews['location_ids'])->get();
+	   $locations = Location::whereIn('id', $location_reviews['location_ids'])->orderBy('name')->orderBy('address')->get();
 	   return view('pages.location_rating.reviewed_locations', [
 			'locations' => $locations,
 			'locations_unsubmitted' => $location_reviews['unsubmitted_ids']
