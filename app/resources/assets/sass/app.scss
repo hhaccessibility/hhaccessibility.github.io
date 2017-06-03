@@ -167,6 +167,10 @@ footer {
 		> div:nth-child(odd) {
 			background-color: $dark_data_background_colour;
 		}
+		
+		a {
+			display: block;
+		}
 	}
 }
 
