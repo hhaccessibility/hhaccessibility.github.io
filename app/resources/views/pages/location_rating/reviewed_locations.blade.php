@@ -7,11 +7,25 @@
 	@if ( count($locations) === 0 )
 		<p>No locations have been reviewed yet.</p>
 	@else
+	<div class="row column-titles">
+		<div class="col-xs-4">
+			<h3>Name</h3>
+		</div>
+		<div class="col-xs-4">
+			<h3>Address</h3>
+		</div>
+		<div class="col-xs-4">
+			<h3 class="text-right">Status</h3>
+		</div>
+	</div>
 	<div class="data">
 		@foreach ($locations as $location)
 			<div class="row">
-				<div class="col-xs-8">
-					<a href="/location-rating/{{ $location->id }}">{{ $location->name }} - {{ $location->address }}</a>
+				<div class="col-xs-4">
+					<a href="/location-rating/{{ $location->id }}">{{ $location->name }}</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="/location-rating/{{ $location->id }}">{{ $location->address }}</a>
 				</div>
 				<div class="col-xs-4">
 					<div class="pull-right">
