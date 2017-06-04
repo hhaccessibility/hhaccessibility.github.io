@@ -33,19 +33,6 @@ def get_category(s):
         return ''
     return re.split(r':\s*', s[0])[1]
 
-def get_distance(s):
-    if not len(s):
-        return ''
-    reg = r'(?P<dis>\d+\.?\d*)'
-    m = re.search(reg, s[0])
-    if not m:
-        return ''
-    #conver mile to km
-    dis = m.group('dis')
-    dis = float(dis) * 1.60934
-    dis = str(round(dis, 2))
-    return dis
-
 def get_neighborhood(s):
     if not len(s):
         return ''
@@ -118,10 +105,6 @@ def extract_info(dombus):
     category = get_category(category)
     row.append(category)
 
-    distance = dombus.xpath('.//div[@class="itemdistance"]/text()')
-    distance = get_distance(distance)
-    row.append(distance)
-
     neighborhood = dombus.xpath('.//div[@class="neighborhood"]/text()')
     neighborhood = get_neighborhood(neighborhood)
     row.append(neighborhood )
@@ -164,7 +147,7 @@ def write_csv(rows):
     else:
         csv_file = open(csv_filename, 'w')
         writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
-        title = ['name', 'category', 'distance', 'neighborhood', 'ablerating', 'yelprating', 'street', 'city',
+        title = ['name', 'category', 'neighborhood', 'ablerating', 'yelprating', 'street', 'city',
                 'state', 'postcode', 'phone', 'lat', 'lng']
         writer.writerow(title)
     for row in rows:
