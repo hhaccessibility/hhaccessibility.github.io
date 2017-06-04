@@ -7,7 +7,7 @@ import urllib2
 import logging
 import time
 
-def getlatlng(js):
+def get_latlng(js):
    """
    a sample js string looks like this
    debug stuff maphidden = 0;
@@ -19,7 +19,7 @@ def getlatlng(js):
    reg = r'\([^)]+\)'
    m = re.findall(reg, js)
    return re.split(',\s*', m[1])[-4:-2]
-def getname(s):
+def get_name(s):
     if not len(s):
         return ''
     reg = r'\d+\.\s*(?P<name>(\w|\s)+)'
@@ -28,12 +28,12 @@ def getname(s):
         return ''
     return m.group('name')
 
-def getcategory(s):
+def get_category(s):
     if not len(s):
         return ''
     return re.split(r':\s*', s[0])[1]
 
-def getdistance(s):
+def get_distance(s):
     if not len(s):
         return ''
     reg = r'(?P<dis>\d+\.?\d*)'
@@ -46,12 +46,12 @@ def getdistance(s):
     dis = str(round(dis, 2))
     return dis
 
-def getneighborhood(s):
+def get_neighborhood(s):
     if not len(s):
         return ''
     return re.split(r':\s*', s[0])[1]
 
-def getableroad(s):
+def get_ableroad(s):
     if not len(s):
         return ''
     reg = r'(?P<ablerating>\d+\.?\d*)'
@@ -60,7 +60,7 @@ def getableroad(s):
         return ''
     return m.group('ablerating')
 
-def getyelp(s):
+def get_yelp(s):
     if not len(s):
         return ''
     reg = r'(?P<yelp>\d+\.?\d*)'
@@ -69,12 +69,12 @@ def getyelp(s):
         return ''
     return m.group('yelp')
 
-def getstreet(s):
+def get_street(s):
     if not len(s):
         return ''
     return s[0]
 
-def getcity(s):
+def get_city(s):
     if len(s) < 1:
         return ''
     s = ' '.join(s)
@@ -83,7 +83,7 @@ def getcity(s):
         return ''
     return m.group('city')
 
-def getstate(s):
+def get_state(s):
     if not len(s):
         return ''
     s = ' '.join(s)
@@ -92,7 +92,7 @@ def getstate(s):
         return ''
     return m.group('state')
 
-def getpostcode(s):
+def get_postcode(s):
     if not len(s):
         return ''
     s = ' '.join(s)
@@ -101,7 +101,7 @@ def getpostcode(s):
         return ''
     return m.group('post')
 
-def getphone(s):
+def get_phone(s):
     if len(s) < 1:
         return ''
     if not re.search(r'\d{2,}-\d+', s[-1]):
@@ -111,48 +111,48 @@ def getphone(s):
 def extract_info(dombus):
     row = []
     name = dombus.xpath('.//a[@class="titlelink"]/text()')
-    name = getname(name)
+    name = get_name(name)
     row.append(name)
 
     category = dombus.xpath('.//div[@class="category"]/text()')
-    category = getcategory(category)
+    category = get_category(category)
     row.append(category)
 
     distance = dombus.xpath('.//div[@class="itemdistance"]/text()')
-    distance = getdistance(distance)
+    distance = get_distance(distance)
     row.append(distance)
 
     neighborhood = dombus.xpath('.//div[@class="neighborhood"]/text()')
-    neighborhood = getneighborhood(neighborhood)
+    neighborhood = get_neighborhood(neighborhood)
     row.append(neighborhood )
 
     ableroadating = dombus.xpath('.//div[@class="searchableRating"]//div[@class="visually-hidden startableft"]/text()')
-    ableroadating = getableroad(ableroadating)
+    ableroadating = get_ableroad(ableroadating)
     row.append(ableroadating)
 
     yelprating = dombus.xpath('.//img[@class="yelprating"]/@alt')
-    yelprating = getyelp(yelprating)
+    yelprating = get_yelp(yelprating)
     row.append(yelprating)
 
     address = dombus.xpath('.//address/text()')
 
-    street = getstreet(address)
+    street = get_street(address)
     row.append(street)
 
-    city = getcity(address)
+    city = get_city(address)
     row.append(city)
 
-    state = getstate(address)
+    state = get_state(address)
     row.append(state)
 
-    postcode = getpostcode(address)
+    postcode = get_postcode(address)
     row.append(postcode)
 
-    phone = getphone(address)
+    phone = get_phone(address)
     row.append(phone)
 
     latlng = dombus.getprevious().text #lat lng is hidden in javascript
-    latlng = getlatlng(latlng)
+    latlng = get_latlng(latlng)
     row = row + latlng
     return row
 
