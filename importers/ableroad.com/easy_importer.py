@@ -95,29 +95,29 @@ def get_phone(s):
         return ''
     return s[-1]
 
-def extract_info(dombus):
+def extract_info(dom_locations):
     row = []
-    name = dombus.xpath('.//a[@class="titlelink"]/text()')
+    name = dom_locations.xpath('.//a[@class="titlelink"]/text()')
     name = get_name(name)
     row.append(name)
 
-    category = dombus.xpath('.//div[@class="category"]/text()')
+    category = dom_locations.xpath('.//div[@class="category"]/text()')
     category = get_category(category)
     row.append(category)
 
-    neighborhood = dombus.xpath('.//div[@class="neighborhood"]/text()')
+    neighborhood = dom_locations.xpath('.//div[@class="neighborhood"]/text()')
     neighborhood = get_neighborhood(neighborhood)
     row.append(neighborhood )
 
-    ableroadating = dombus.xpath('.//div[@class="searchableRating"]//div[@class="visually-hidden startableft"]/text()')
+    ableroadating = dom_locations.xpath('.//div[@class="searchableRating"]//div[@class="visually-hidden startableft"]/text()')
     ableroadating = get_ableroad(ableroadating)
     row.append(ableroadating)
 
-    yelprating = dombus.xpath('.//img[@class="yelprating"]/@alt')
+    yelprating = dom_locations.xpath('.//img[@class="yelprating"]/@alt')
     yelprating = get_yelp(yelprating)
     row.append(yelprating)
 
-    address = dombus.xpath('.//address/text()')
+    address = dom_locations.xpath('.//address/text()')
 
     street = get_street(address)
     row.append(street)
@@ -134,7 +134,7 @@ def extract_info(dombus):
     phone = get_phone(address)
     row.append(phone)
 
-    latlng = dombus.getprevious().text #lat lng is hidden in javascript
+    latlng = dom_locations.getprevious().text #lat lng is hidden in javascript
     latlng = get_latlng(latlng)
     row = row + latlng
     return row
@@ -182,10 +182,10 @@ def generate_url(location):
 
 def retrieve_and_generate_csv(url, islocalfile=False):
     dom = html.fromstring(download_if_not(url, islocalfile))
-    businesses = dom.xpath('//div[@class="bigresultframe"]')
+    locations = dom.xpath('//div[@class="bigresultframe"]')
     rows = []
-    for bus in businesses:
-        row = extract_info(bus)
+    for location in locations:
+        row = extract_info(location)
         rows.append(row)
     write_csv(rows)
 
