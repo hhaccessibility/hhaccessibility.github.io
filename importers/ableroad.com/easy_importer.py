@@ -177,10 +177,10 @@ def generate_url(location):
             url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                     '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
             logging.info(url)
-            mainapp(url)
+            retrieve_and_generate_csv(url)
             time.sleep(5)
 
-def mainapp(url, islocalfile=False):
+def retrieve_and_generate_csv(url, islocalfile=False):
     dom = html.fromstring(download_if_not(url, islocalfile))
     businesses = dom.xpath('//div[@class="bigresultframe"]')
     rows = []
@@ -196,7 +196,7 @@ def setuplogging():
 
 def test_download():
     url = 'http://ableroad.com/search.php?s=reds-kitchen-tavern&offset=0&s1=peabody+ma&searchBut=Search&cat=1&action=search'
-    mainapp(url, True)
+    retrieve_and_generate_csv(url, True)
 
 def main():
     setuplogging()
@@ -204,5 +204,5 @@ def main():
     for location in locations:
         generate_url(location)
     #test_download()
-
-main()
+if __name__ == '__main__':
+    main()
