@@ -12,18 +12,18 @@ def getlatlng(js):
    a sample js string looks like this
    debug stuff maphidden = 0;
        if (!maphidden) {
-                createSearchMarker('20. Craft Heads Brewing Company','<label style="display:none">phone and address</label>89 University Avenue W<br/>Windsor, ON N9A 5N8<br/>Canada<br/>+1-226-246-3925','','ableroad.com/edit.php?index=20&amp;newID=craft-heads-brewing-company-windsor&amp;s=&amp;s1=windsor,ontario&amp;action=write',42.317252218728,-83.039797096553,20 - 1,1);
+                createSearchMarker('20. Craft Heads Brewing Company', '<label style="display:none">phone and address</label>89 University Avenue W<br/>Windsor, ON N9A 5N8<br/>Canada<br/>+1-226-246-3925','','ableroad.com/edit.php?index=20&amp;newID=craft-heads-brewing-company-windsor&amp;s=&amp;s1=windsor,ontario&amp;action=write',42.317252218728,-83.039797096553,20 - 1,1);
                      }
    """
-   js = js.encode('ascii','ignore') # unicode to ascii
+   js = js.encode('ascii', 'ignore') # unicode to ascii
    reg = r'\([^)]+\)'
    m = re.findall(reg, js)
-   return re.split(',\s*',m[1])[-4:-2]
+   return re.split(',\s*', m[1])[-4:-2]
 def getname(s):
     if not len(s):
         return ''
     reg = r'\d+\.\s*(?P<name>(\w|\s)+)'
-    m = re.match(reg,s[0])
+    m = re.match(reg, s[0])
     if not m:
         return ''
     return m.group('name')
@@ -31,13 +31,13 @@ def getname(s):
 def getcategory(s):
     if not len(s):
         return ''
-    return re.split(r':\s*',s[0])[1]
+    return re.split(r':\s*', s[0])[1]
 
 def getdistance(s):
     if not len(s):
         return ''
     reg = r'(?P<dis>\d+\.?\d*)'
-    m = re.search(reg,s[0])
+    m = re.search(reg, s[0])
     if not m:
         return ''
     #conver mile to km
@@ -49,13 +49,13 @@ def getdistance(s):
 def getneighborhood(s):
     if not len(s):
         return ''
-    return re.split(r':\s*',s[0])[1]
+    return re.split(r':\s*', s[0])[1]
 
 def getableroad(s):
     if not len(s):
         return ''
     reg = r'(?P<ablerating>\d+\.?\d*)'
-    m = re.search(reg,s[0])
+    m = re.search(reg, s[0])
     if not m:
         return ''
     return m.group('ablerating')
@@ -64,7 +64,7 @@ def getyelp(s):
     if not len(s):
         return ''
     reg = r'(?P<yelp>\d+\.?\d*)'
-    m = re.search(reg,s[0])
+    m = re.search(reg, s[0])
     if not m:
         return ''
     return m.group('yelp')
@@ -104,7 +104,7 @@ def getpostcode(s):
 def getphone(s):
     if len(s) < 1:
         return ''
-    if not re.search(r'\d{2,}-\d+',s[-1]):
+    if not re.search(r'\d{2,}-\d+', s[-1]):
         return ''
     return s[-1]
 
@@ -159,13 +159,13 @@ def extract_info(dombus):
 def write_csv(rows):
     csv_filename = 'export.csv'
     if os.path.exists(csv_filename):
-        csv_file = open(csv_filename,'a')
-        writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
+        csv_file = open(csv_filename, 'a')
+        writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
     else:
-        csv_file = open(csv_filename,'w')
-        writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
-        title = ['name','category','distance','neighborhood','ablerating','yelprating','street','city',
-                'state','postcode','phone','lat','lng']
+        csv_file = open(csv_filename, 'w')
+        writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        title = ['name', 'category', 'distance', 'neighborhood', 'ablerating', 'yelprating', 'street', 'city',
+                'state', 'postcode', 'phone', 'lat', 'lng']
         writer.writerow(title)
     for row in rows:
         writer.writerow(row)
@@ -176,11 +176,11 @@ def download_if_not(url, islocalfile):
     pagecontent = ''
 
     if islocalfile and os.path.exists('tmp.html'):
-        f = open('tmp.html','r')
+        f = open('tmp.html', 'r')
         pagecontent = f.read()
     else:
         page = requests.get(url)
-        f = open('tmp.html','w')
+        f = open('tmp.html', 'w')
         f.write(page.content)
         pagecontent = page.content
 
@@ -191,7 +191,7 @@ def gen_url():
     locations = ['windsor, ontario']
     for location in locations:
             for category_id in range(2, 22):
-                for page in range(0,10):
+                for page in range(0, 10):
                     offset = page * 20
                     url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                             '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
@@ -210,7 +210,7 @@ def mainapp(url, islocalfile=False):
 
 def setuplogging():
     #logging setting
-    logging.basicConfig(filename='importer.log',level=logging.DEBUG,\
+    logging.basicConfig(filename='importer.log', level=logging.DEBUG,\
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 def test_download():
