@@ -170,17 +170,15 @@ def download_if_not(url, islocalfile):
     f.close()
     return pagecontent
 
-def gen_url():
-    locations = ['windsor, ontario']
-    for location in locations:
-            for category_id in range(2, 22):
-                for page in range(0, 10):
-                    offset = page * 20
-                    url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
-                            '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
-                    logging.info(url)
-                    mainapp(url)
-                    time.sleep(5)
+def generate_url(location):
+    for category_id in range(2, 22):
+        for page in range(0, 10):
+            offset = page * 20
+            url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
+                    '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
+            logging.info(url)
+            mainapp(url)
+            time.sleep(5)
 
 def mainapp(url, islocalfile=False):
     dom = html.fromstring(download_if_not(url, islocalfile))
@@ -202,7 +200,9 @@ def test_download():
 
 def main():
     setuplogging()
-    gen_url()
+    locations = ['windsor, ontario']
+    for location in locations:
+        generate_url(location)
     #test_download()
 
 main()
