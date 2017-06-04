@@ -1,7 +1,7 @@
 The ableroad.com importer downloads information off ableroad.com and converts to a CSV file.
 No API was found so most of the code downloads HTML and scrapes data out of the HTML.
 
-## dependencies
+## Dependencies
 
 python
 pip
@@ -14,11 +14,11 @@ To make a CSV file that includes all the information that we extracted from able
 python easy_importer.py
 
 
-## explain
+## Explanation
 
 it will retrieve category 2 - 22 and 10 pages for each category
 each page will take 5 second
-it will generate the flowing file
+it will generate the following file
 # export.csv - the csv format file it generates
 # importer.log - log info
 # tmp.html - the last file that cached in local directory
