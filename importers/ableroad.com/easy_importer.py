@@ -9,8 +9,8 @@ import time
 
 def getlatlng(js):
    """
-   a sample js string lookes like this
-   #//debug stuff maphidden = 0;
+   a sample js string looks like this
+   debug stuff maphidden = 0;
        if (!maphidden) {
                 createSearchMarker('20. Craft Heads Brewing Company','<label style="display:none">phone and address</label>89 University Avenue W<br/>Windsor, ON N9A 5N8<br/>Canada<br/>+1-226-246-3925','','ableroad.com/edit.php?index=20&amp;newID=craft-heads-brewing-company-windsor&amp;s=&amp;s1=windsor,ontario&amp;action=write',42.317252218728,-83.039797096553,20 - 1,1);
                      }
