@@ -1,4 +1,3 @@
-#!/home/liu1ee/apps/virtualenv/bin/python
 from lxml import html
 import requests
 import os.path
