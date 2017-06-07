@@ -82,6 +82,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('question_html');
 			$table->integer('question_category_id')->unsigned()->nullable();
 			$table->foreign('question_category_id')->references('id')->on('question_category');
+			$table->boolean('is_always_required')->default(false);
 		});
 		Schema::create('user_question', function (Blueprint $table) {
 			$table->increments('id');
