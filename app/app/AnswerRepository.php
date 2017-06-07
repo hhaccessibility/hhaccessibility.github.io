@@ -34,7 +34,20 @@ class AnswerRepository
 	}
 
 	public static function saveAnswer(int $location_id, int $question_id, int $answer_value)
-	{		
+	{
+		// Validate that the corresponding question doesn't have "is_always_required" set when answer_value indicates that 
+		// the question's feature is not required.
+		// For example, "Lit parking lot" is required regardless of the specific location because no matter what the location is, 
+		// if you use a wheelchair and have poor eyesight, you'd need struggle to get there.  The client isn't allowed to 
+		// indicate these few questions as "not required" because it is required for EVERY location.
+		if ( $answer_value === 2 )
+		{
+			$question = DB::table('question')->where('id', '=', $question_id)->where('is_always_required', '=', '0')->first();
+			if ( !$question )
+			{
+				throw new Exception('Unable to find question with id '.$question_id.' that is not always required');
+			}
+		}
 		Session::put('answers_'.$location_id.'_'.$question_id, $answer_value);
 	}
 	

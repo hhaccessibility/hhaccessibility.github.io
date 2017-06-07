@@ -25,7 +25,11 @@
 						</div>
 						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
 							selected
-						@endif" title="Location does not require this">
+						@endif
+						@if ( $question->is_always_required )
+							always-required
+						@endif
+						" title="Location does not require this">
 							<div>
 							Not Required
 							</div>

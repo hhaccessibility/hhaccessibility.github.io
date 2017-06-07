@@ -4771,29 +4771,29 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "68 University Ave West",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/Milk-Coffee-Bar-104262952958276/",
         "id": 434,
         "latitude": 42.3175316,
         "location_group_id": null,
         "longitude": -83.0397069,
-        "name": "milk Coffee Bar",
+        "name": "Milk Coffee Bar",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 256-1414",
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "256 Pelissier",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/villainsbeastro/",
         "id": 435,
         "latitude": 42.3176927,
         "location_group_id": null,
         "longitude": -83.0400938,
         "name": "Villains Beastro",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 915-5215",
         "universal_rating": null
     },
     {

@@ -1,0 +1,28 @@
+@import "_placeholders.scss";
+
+.faq {
+	@extend %page-base;
+
+	.faq-items {
+		margin-top: 30px;
+	
+		> div {
+			> p {
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+			
+			> .answer {
+				padding-left: 25px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	html > body {
+		.faq h1 {
+			font-size: 7vw;
+		}
+	}
+}

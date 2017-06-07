@@ -1,12 +1,19 @@
-@import "_mixins.scss";
-@import "_placeholders.scss";
+@import "_clean.scss";
+@import "_contact.scss";
+@import "_faq.scss";
 @import "_functions.scss";
 @import "_home.scss";
+@import "_internal.scss";
 @import "_location_report.scss";
 @import "_location_search.scss";
+@import "_menu.scss";
+@import "_mixins.scss";
+@import "_placeholders.scss";
 @import "_profile.scss";
-@import "_clean.scss";
-@import "_internal.scss";
+@import "_reviewed_locations.scss";
+@import "_sign_in.scss";
+@import "_sign_up.scss";
+@import "_social_media_buttons.scss";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -41,58 +48,12 @@ h1, h2, h3 {
 	font-weight: bold;
 }
 
-.nav-home-page a.nav-home,
-.nav-profile a.nav-profile,
-.nav-faq a.nav-faq,
-.nav-contact a.nav-contact {
-	color: #000;
-	box-shadow: 0 0 4px #bbb inset;
-}
-
 #map {
 	background-color: #ddd;
 }
 
-#logo {
-	font-size: 26px;
-	text-decoration: none;
-	background-image: url('../images/logo.png');
-	background-image: url('../images/logo.svg'), linear-gradient(transparent, transparent);
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: inline-block;
-	height: 40px;
-	padding-left: 45px;
-}
-
-header {
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-// horizontal menu at top of every page
-ul.nav {
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-	
-	li {
-		float: left;
-	}
-	
-	.sign-out {
-		font-size: 20px;
-		line-height: 16px;
-	}
-}
-
 .content {
 	text-align: center;
-}
-
-.signin-form {
-	margin: auto;
-	width: 300px;
 }
 
 #main {
@@ -131,49 +92,6 @@ footer {
 	}
 }
 
-.faq {
-	@extend %page-base;
-
-	.faq-items {
-		margin-top: 30px;
-	
-		> div {
-			> p {
-				font-size: 1.2em;
-				font-weight: bold;
-			}
-			
-			> .answer {
-				padding-left: 25px;
-			}
-		}
-	}
-}
-
-.reviewed-locations {
-	@extend %page-base;
-
-	h1 {
-		margin-top: 0;	
-		text-align: center;
-	}
-	
-	> p {
-		text-align: center;
-	}
-	
-	.data {
-		padding: 0 5px;
-		> div:nth-child(odd) {
-			background-color: $dark_data_background_colour;
-		}
-		
-		a {
-			display: block;
-		}
-	}
-}
-
 .password-recovery {
 	@extend %page-base;
 	
@@ -204,59 +122,6 @@ footer {
 	}
 }
 
-.contact {
-	@extend %page-base;
-	
-	h1 {
-		padding-top: 20px;
-		text-align: center;
-		margin-bottom: 20px;
-	}
-	
-	.contact-form {
-		max-width: 500px;
-		margin-left: auto;
-		margin-right: auto;
-		
-		textarea {
-			resize: vertical;
-		}
-	}
-	
-	.sent-message {
-		font-size: 1.5em;
-		
-		strong {
-			line-height: 70px;
-			
-			.sent {
-				font-size: 1.3em;
-			}
-		}
-	}
-}
-
-.sign-in {
-	@extend %page-base;
-	
-	> div {
-		margin-bottom: 20px;
-
-		> h1 {
-			margin-top: 0;
-			padding-top: 15px;
-		}
-	}
-
-	.remember-password {
-		padding-top: 10px;
-
-		label {
-			font-weight: 100;
-		}
-	}
-}
-
 .terms-of-use {
 	@extend %page-base;
 }
@@ -265,157 +130,14 @@ footer {
 	@extend %page-base;
 }
 
-.sign-up {
-	@extend %page-base;
-	
-	> h1 {
-		text-align: center;
-		margin-bottom: 40px;
-	}
-	
-	> .header {
-		margin-bottom: 30px;
-
-		> h1 {
-			margin-top: 0;
-			padding-top: 15px;
-		}
-	}
-	
-	.success {
-		font-size: 1.5em;
-	}
-	
-	.agreements {
-		margin-top: 70px;
-		margin-left: auto;
-		margin-right: auto;
-		line-height: 25px;
-		color: #666;
-		width: 350px;
-	}
-}
-
 @media screen and (max-width: 450px) {
 	html > body {
-		.signup-form {
-			width: 100%;
-		}
-
-		div.social-media-signins {
-			width: 305px;
-			> a {
-				width: 300px;
-				
-				> div {
-					width: 242px;
-				}
-			}
-		}
-
-		.sign-up .agreements {
-			width: 100%;
-		}
-
 		#copyright {
 			// keep the copyright notice on a single line.
 			// Use em for older browsers not supporting vw units.
 			font-size: 0.8em;
 
 			font-size: 3.3vw;
-		}
-	}
-}
-
-@media screen and (max-width: 500px) {
-	html > body {
-		.faq h1 {
-			font-size: 7vw;
-		}
-	}
-}
-
-@media screen and (max-width: 550px) {
-	html > body {
-		.nav > li > a {
-			// Some pixel units for older browsers not supporting vw units
-			padding-left: 7px;
-			padding-right: 7px;
-
-			// vw units for newer browsers
-			padding-left: 2vw;
-			padding-right: 2vw;
-		}
-	}
-}
-
-@media only screen and (max-width: 991px) {
-	body {
-		.social-media-signins {
-			width: 350px;
-			padding-left: 0;
-			padding-bottom: 0;
-			border-left-width: 0;
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 40px;
-		}
-		
-		.sign-up {
-			.agreements {
-				margin-bottom: 50px;
-			}
-		}
-	}
-}
-
-.signup-form {
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.social-media-signins {
-	padding-top: 40px;
-	padding-bottom: 70px;
-	padding-left: 80px;
-	border-left: 1px solid #bbb;
-	
-	> a {
-		display: block;
-		height: 40px;
-		width: 347px;
-		padding-top: 1px;
-		margin-top: 25px;
-		border-radius: 3px;
-		
-		> i {
-			text-align: center;
-			font-size: 25px;
-			width: 53px;
-			padding-top: 11px;
-			color: #fff;
-			display: inline-block;
-		}
-		
-		> div {
-			padding-top: 8px;
-			font-size: 16px;
-			background-color: #fff;
-			text-decoration: none;
-			text-align: center;
-			height: 38px;
-			width: 290px;
-			border-top-right-radius: 2px;
-			border-bottom-right-radius: 2px;
-		}
-		
-		&.facebook {
-			@include social-media-large-button(#3b5998);
-		}
-		
-		&.google-plus {
-			@include social-media-large-button(#ea4335);
 		}
 	}
 }
