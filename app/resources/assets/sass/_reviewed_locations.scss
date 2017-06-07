@@ -1,0 +1,29 @@
+// Styles for reviewed locations
+// Reviewed Locations can be navigated to from the profile page
+
+@import "_placeholders.scss";
+
+
+.reviewed-locations {
+	@extend %page-base;
+
+	h1 {
+		margin-top: 0;	
+		text-align: center;
+	}
+	
+	> p {
+		text-align: center;
+	}
+	
+	.data {
+		padding: 0 5px;
+		> div:nth-child(odd) {
+			background-color: $dark_data_background_colour;
+		}
+		
+		a {
+			display: block;
+		}
+	}
+}
