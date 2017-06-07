@@ -37,7 +37,7 @@ class LocationRatingController extends Controller {
 			return redirect()->intended('/signin');
 		}
 		$validation_rules = [
-			'answer'      => 'required|integer|max:2|min:0',
+			'answer'      => 'required|integer|max:3|min:0',
 			'question_id' => 'required|integer|min:1',
 			'location_id' => 'required|integer'
 		];
@@ -66,6 +66,8 @@ class LocationRatingController extends Controller {
 		{
 			return response(422)->json(['success' => false]);
 		}
+		
+		AnswerRepository::removeAnswer(Input::get('location_id'), Input::get('question_id'));
 		
 		return response()->json(['success' => true]);
 	}

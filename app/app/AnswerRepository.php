@@ -38,6 +38,11 @@ class AnswerRepository
 		Session::put('answers_'.$location_id.'_'.$question_id, $answer_value);
 	}
 	
+	public static function removeAnswer(int $location_id, int $question_id)
+	{
+		Session::forget('answers_'.$location_id.'_'.$question_id);
+	}
+	
 	public static function getAnswer(int $location_id, int $question_id)
 	{
 		$key = 'answers_'.$location_id.'_'.$question_id;

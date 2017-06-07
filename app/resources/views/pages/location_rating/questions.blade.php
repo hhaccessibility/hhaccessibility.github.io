@@ -9,25 +9,32 @@
 				</div>
 				<div class="col-xs-6">
 					<div class="row answers">
-						<div class="col-xs-3 @if ( $answer_repository->getAnswerForQuestion($question->id) === 1 )
+						<div class="col-xs-2 @if ( $answer_repository->getAnswerForQuestion($question->id) === 1 )
 							selected
 						@endif">
 							<div>
 							Yes
 							</div>
 						</div>
-						<div class="col-xs-3 @if ( $answer_repository->getAnswerForQuestion($question->id) === 0 )
+						<div class="col-xs-2 @if ( $answer_repository->getAnswerForQuestion($question->id) === 0 )
 							selected
 						@endif">
 							<div>
 							No
 							</div>
 						</div>
-						<div class="col-xs-6 @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
+						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
 							selected
 						@endif" title="Location does not require this">
 							<div>
-							Not Applicable
+							Not Required
+							</div>
+						</div>
+						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 3 )
+							selected
+						@endif" title="I didn't look to see if this criteria is met">
+							<div>
+							Didn't Look
 							</div>
 						</div>
 					</div>
