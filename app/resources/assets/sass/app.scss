@@ -1,14 +1,15 @@
 @import "_mixins.scss";
-@import "_placeholders.scss";
+@import "_clean.scss";
+@import "_faq.scss";
 @import "_functions.scss";
 @import "_home.scss";
-@import "_faq.scss";
-@import "_menu.scss";
+@import "_internal.scss";
 @import "_location_report.scss";
 @import "_location_search.scss";
+@import "_menu.scss";
+@import "_placeholders.scss";
 @import "_profile.scss";
-@import "_clean.scss";
-@import "_internal.scss";
+@import "_sign_up.scss";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -207,42 +208,8 @@ footer {
 	@extend %page-base;
 }
 
-.sign-up {
-	@extend %page-base;
-	
-	> h1 {
-		text-align: center;
-		margin-bottom: 40px;
-	}
-	
-	> .header {
-		margin-bottom: 30px;
-
-		> h1 {
-			margin-top: 0;
-			padding-top: 15px;
-		}
-	}
-	
-	.success {
-		font-size: 1.5em;
-	}
-	
-	.agreements {
-		margin-top: 70px;
-		margin-left: auto;
-		margin-right: auto;
-		line-height: 25px;
-		color: #666;
-		width: 350px;
-	}
-}
-
 @media screen and (max-width: 450px) {
 	html > body {
-		.signup-form {
-			width: 100%;
-		}
 
 		div.social-media-signins {
 			width: 305px;
@@ -253,10 +220,6 @@ footer {
 					width: 242px;
 				}
 			}
-		}
-
-		.sign-up .agreements {
-			width: 100%;
 		}
 
 		#copyright {
@@ -280,19 +243,7 @@ footer {
 			margin-right: auto;
 			margin-bottom: 40px;
 		}
-		
-		.sign-up {
-			.agreements {
-				margin-bottom: 50px;
-			}
-		}
 	}
-}
-
-.signup-form {
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .social-media-signins {
