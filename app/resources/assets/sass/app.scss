@@ -2,6 +2,7 @@
 @import "_placeholders.scss";
 @import "_functions.scss";
 @import "_home.scss";
+@import "_faq.scss";
 @import "_location_report.scss";
 @import "_location_search.scss";
 @import "_profile.scss";
@@ -127,25 +128,6 @@ footer {
 		
 		&:last-of-type {
 			margin-bottom: 0;
-		}
-	}
-}
-
-.faq {
-	@extend %page-base;
-
-	.faq-items {
-		margin-top: 30px;
-	
-		> div {
-			> p {
-				font-size: 1.2em;
-				font-weight: bold;
-			}
-			
-			> .answer {
-				padding-left: 25px;
-			}
 		}
 	}
 }
@@ -323,14 +305,6 @@ footer {
 			font-size: 0.8em;
 
 			font-size: 3.3vw;
-		}
-	}
-}
-
-@media screen and (max-width: 500px) {
-	html > body {
-		.faq h1 {
-			font-size: 7vw;
 		}
 	}
 }
