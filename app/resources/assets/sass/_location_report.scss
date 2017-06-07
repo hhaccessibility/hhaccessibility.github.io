@@ -384,6 +384,14 @@ body.fixed-menu {
 								border-color: #004;
 							}
 						}
+
+						&.always-required[class] {
+							> div {
+								background-color: #ccc;
+								border-color: #888;
+								cursor: not-allowed;
+							}
+						}
 						
 						> div {
 							text-align: center;
