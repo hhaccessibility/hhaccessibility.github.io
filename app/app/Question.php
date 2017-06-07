@@ -31,9 +31,13 @@ class Question extends Eloquent
 			// count N/A the same as yes(1).
 			if ($individualRating === 2)
 				$individualRating = 1;
-			
-			$sum = $sum + $individualRating;
-			$totalCount = $totalCount + 1;
+
+			// Skip the "I didn't look at this" values.
+			if ( $individualRating !== 3 )
+			{
+				$sum = $sum + $individualRating;
+				$totalCount = $totalCount + 1;
+			}
 		}
 		if ($totalCount === 0)
 			return 0;
