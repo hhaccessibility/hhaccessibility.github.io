@@ -260,7 +260,7 @@ class BaseUser
 	public static function sendVerificationEmail($user)
 	{
 		$body = "Final step...\r\n".
-				"Confirm your email address to complete your Accesslocator account. It's easy — just copy and past link below into your browser. \r\n".
+				"Confirm your email address to complete your Accesslocator account. It's easy — just click on the link below or simply copy and paste it into your browser.\r\n".
 				config('app.url')."/signup/confirmEmail/".$user->email."/".$user->email_verification_token;
 		$headers = "From: noreply@accesslocator.com\r\n";
 		$headers .= "Content-Type: text/plain; charset=\"utf-8\"\r\n";
