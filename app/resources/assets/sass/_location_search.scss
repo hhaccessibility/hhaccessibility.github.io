@@ -13,10 +13,6 @@
 	@extend %sorted-column-title;
 }
 
-.location-search.warned .data {
-	max-height: calc(100vh - 160px);
-}
-
 .spreadsheet {
 	h3 {
 		margin-top: 5px;
@@ -48,7 +44,7 @@
 	}
 	
 	.data {
-		max-height: calc(100vh - 135px);
+		max-height: calc(100vh - 165px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		
@@ -73,7 +69,7 @@
 
 .location-search {
 	@extend %page-base;
-
+	
 	.title-map-table-bar {
 		h1 {
 			margin-top: 0;
@@ -102,6 +98,10 @@
 		.data {
 			background-image: url('../images/vertical_arrows.png');
 		}
+	}
+
+	&.warned .data {
+		max-height: calc(100vh - 200px);
 	}
 	
 	.warning {
@@ -145,6 +145,19 @@
 	}
 }
 
+@media only screen and (max-width: 750px) {
+	body {
+		.location-search {
+			h1 {
+				font-size: 2.0em;
+			}
+			
+			h3 {
+				font-size: 1.5em;
+			}
+		}
+	}
+}
 
 @media screen and (min-width: 751px) and (max-width: 970px) {
 	body {
@@ -155,20 +168,6 @@
 			
 			h3 {
 				font-size: 1.6em;
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: 750px) {
-	body {
-		.location-search {
-			h1 {
-				font-size: 2.0em;
-			}
-			
-			h3 {
-				font-size: 1.5em;
 			}
 		}
 	}
@@ -187,6 +186,7 @@
 					clear: both;
 					display: block;
 					text-align: center;
+					margin-bottom: 5px;
 				}
 			}
 			
@@ -195,7 +195,7 @@
 			}
 			
 			.data {
-				max-height: calc(100vh - 162px);
+				max-height: calc(100vh - 215px);
 				
 				.location {
 					[class^='col-xs-'] {
