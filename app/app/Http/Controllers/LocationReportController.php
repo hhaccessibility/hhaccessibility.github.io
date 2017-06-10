@@ -43,7 +43,7 @@ class LocationReportController extends Controller {
 			'rating_system' => $rating_system,
 			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile(),
 			'turn_off_maps' => config('app.turn_off_maps'),
-			'num_ratings' => 0,
+			'num_ratings' => $location->getNumberOfUsersWhoRated(),
 			'is_internal_user' => BaseUser::isInternal()
 		];
 		
