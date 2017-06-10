@@ -58,6 +58,14 @@ class Location extends Eloquent
 			return $this->locationGroup()->name;
 	}
 	
+	public function getNumberOfUsersWhoRated()
+	{
+		return DB::table('user_answer')
+			->where('location_id', '=', $this->id)
+			->distinct()
+			->get(['answered_by_user_id'])->count();
+	}
+	
 	public function getAccessibilityRating($ratingSystem)
 	{
 		if ( $this->universal_rating !== null && $ratingSystem === 'universal' )
