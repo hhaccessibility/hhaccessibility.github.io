@@ -6,6 +6,25 @@ import csv
 import urllib2
 import logging
 import time
+import string
+
+#global variable
+data_counter = 0
+
+def get_text_from_css(root, css_selector):
+    child_element = root.cssselect(css_selector)
+    if child_element:
+        return sanitize_chars(child_element[0].xpath('string()').strip())
+    else:
+        return ''
+
+def sanitize_chars(s):
+    """
+    sanitize_chars strips out non-ascii characters so the result is
+    more easily stored in CSV format
+    """
+    printable = set(string.printable)
+    return filter(lambda x: x in printable, s)
 
 def get_latlng(js):
    """
@@ -20,118 +39,133 @@ def get_latlng(js):
    m = re.findall(reg, js)
    return re.split(',\s*', m[1])[-4:-2]
 def get_name(s):
-    if not len(s):
+    if not s:
         return ''
     reg = r'\d+\.\s*(?P<name>(\w|\s)+)'
-    m = re.match(reg, s[0])
+    m = re.search(reg, s)
     if not m:
         return ''
     return m.group('name')
 
 def get_category(s):
-    if not len(s):
+    if not s:
         return ''
-    return re.split(r':\s*', s[0])[1]
+    return re.split(r':\s*', s)[1]
 
 def get_neighborhood(s):
-    if not len(s):
+    if not s:
         return ''
-    return re.split(r':\s*', s[0])[1]
+    return re.split(r':\s*', s)[1]
 
 def get_ableroad(s):
-    if not len(s):
+    if not s:
         return ''
     reg = r'(?P<ablerating>\d+\.?\d*)'
-    m = re.search(reg, s[0])
+    m = re.search(reg, s)
     if not m:
         return ''
     return m.group('ablerating')
 
-def get_yelp(s):
-    if not len(s):
+def get_yelp(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
+    s = child_node[0].get('alt')
     reg = r'(?P<yelp>\d+\.?\d*)'
-    m = re.search(reg, s[0])
+    m = re.search(reg, s)
     if not m:
         return ''
     return m.group('yelp')
 
-def get_street(s):
-    if not len(s):
+def get_street(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
-    return s[0]
+    address = child_node[0].xpath('text()')
+    reg = r'\d+'
+    m = re.match(reg, address[0])
+    if not m:
+        return ''
+    return address[0]
 
-def get_city(s):
-    if len(s) < 1:
+def get_city(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
-    s = ' '.join(s)
+    address = child_node[0].xpath('text()')
+    s = ' '.join(address)
     m = re.search(r'(?P<city>[a-zA-Z]+),\s*', s)
     if not m:
         return ''
     return m.group('city')
 
-def get_state(s):
-    if not len(s):
+def get_state(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
-    s = ' '.join(s)
+    address = child_node[0].xpath('text()')
+    s = ' '.join(address)
     m = re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)', s)
     if not m:
         return ''
     return m.group('state')
 
-def get_postcode(s):
-    if not len(s):
+def get_postcode(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
-    s = ' '.join(s)
+    address = child_node[0].xpath('text()')
+    s = ' '.join(address)
     m = re.search(r'(?P<city>[a-zA-Z]+),\s*(?P<state>[a-zA-Z]+)\s+(?P<post>(\d{5,5})|(\w{3}\s\w{3}))', s)
     if not m:
         return ''
     return m.group('post')
 
-def get_phone(s):
-    if len(s) < 1:
+def get_phone(root, css):
+    child_node = root.cssselect(css)
+    if not len(child_node):
         return ''
+    s = child_node[0].xpath('text()')
     if not re.search(r'\d{2,}-\d+', s[-1]):
         return ''
     return s[-1]
 
 def extract_info(dom_locations):
     row = []
-    name = dom_locations.xpath('.//a[@class="titlelink"]/text()')
+    name = get_text_from_css(dom_locations,'a.titlelink')
     name = get_name(name)
     row.append(name)
 
-    category = dom_locations.xpath('.//div[@class="category"]/text()')
+    category = get_text_from_css(dom_locations,'div.category')
     category = get_category(category)
     row.append(category)
 
-    neighborhood = dom_locations.xpath('.//div[@class="neighborhood"]/text()')
+    neighborhood = get_text_from_css(dom_locations,'div.neighborhood')
     neighborhood = get_neighborhood(neighborhood)
     row.append(neighborhood )
 
-    ableroadating = dom_locations.xpath('.//div[@class="searchableRating"]//div[@class="visually-hidden startableft"]/text()')
+    ableroadating = get_text_from_css(dom_locations,'div[class="visually-hidden startableft"]')
     ableroadating = get_ableroad(ableroadating)
     row.append(ableroadating)
 
-    yelprating = dom_locations.xpath('.//img[@class="yelprating"]/@alt')
-    yelprating = get_yelp(yelprating)
+    yelprating = get_yelp(dom_locations,'img[class="yelprating"]')
     row.append(yelprating)
 
     address = dom_locations.xpath('.//address/text()')
 
-    street = get_street(address)
+    street = get_street(dom_locations,'address')
     row.append(street)
 
-    city = get_city(address)
+    city = get_city(dom_locations,'address')
     row.append(city)
 
-    state = get_state(address)
+    state = get_state(dom_locations,'address')
     row.append(state)
 
-    postcode = get_postcode(address)
+    postcode = get_postcode(dom_locations,'address')
     row.append(postcode)
 
-    phone = get_phone(address)
+    phone =  get_phone(dom_locations,'address')
     row.append(phone)
 
     latlng = dom_locations.getprevious().text #lat lng is hidden in javascript
@@ -153,6 +187,9 @@ def write_csv(rows):
     for row in rows:
         writer.writerow(row)
     csv_file.close()
+    global data_counter
+    data_counter += len(rows)
+    print('parsed {0} locations, having {1} records'.format(len(rows), data_counter))
     logging.info('csv file has been written!')
 
 def download_if_not(url, islocalfile):
@@ -177,6 +214,7 @@ def generate_url(location):
             url = 'http://ableroad.com/search.php?s=&s1=' + urllib2.quote(location) + \
                     '&cat=' + str(category_id) + '&offset=' + str(offset) + '&action=search'
             logging.info(url)
+            print('retriving and downloading page {0}'.format(url))
             retrieve_and_generate_csv(url)
             time.sleep(5)
 
