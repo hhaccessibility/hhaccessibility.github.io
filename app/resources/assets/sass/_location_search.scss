@@ -44,7 +44,7 @@
 	}
 	
 	.data {
-		max-height: calc(100vh - 165px);
+		max-height: calc(100vh - 185px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		
@@ -135,11 +135,11 @@
 			}
 			
 			.data {
-				max-height: calc(100vh - 175px);
+				max-height: calc(100vh - 195px);
 			}
 			
 			&.warned .data {
-				max-height: calc(100vh - 200px);
+				max-height: calc(100vh - 220px);
 			}
 		}
 	}
@@ -191,11 +191,11 @@
 			}
 			
 			&.warned .data {
-				max-height: calc(100vh - 195px);
+				max-height: calc(100vh - 215px);
 			}
 			
 			.data {
-				max-height: calc(100vh - 215px);
+				max-height: calc(100vh - 235px);
 				
 				.location {
 					[class^='col-xs-'] {
