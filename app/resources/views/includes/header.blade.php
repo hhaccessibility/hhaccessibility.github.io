@@ -6,7 +6,7 @@
 				<li><a class="nav-faq" href="/faq">FAQ</a></li>
 				<li><a class="nav-contact" href="/contact">Contact</a></li>
 				@if ( $base_user->isSignedIn() )
-				<li><a class="sign-out" href="/signout"><i class="fa fa-sign-out"></i><span class="sr-only">Sign out</span></a></li>
+				<li><a class="sign-out" href="/signout" title="Sign out"><i class="fa fa-sign-out"></i><span class="sr-only">Sign out</span></a></li>
 				@endif
 			</ul>
 		</div>
