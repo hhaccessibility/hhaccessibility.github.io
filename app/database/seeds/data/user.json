@@ -98,5 +98,15 @@
         "home_region": "Ontario",
         "home_country_id": 39,
         "email_verification_time": "2017-04-30 00:00:00"
+    },
+    {
+        "id": 11,
+        "email": "info@uwindsor.ca",
+        "first_name": "uwindsor",
+        "last_name": "campus-Importer",
+        "home_city": "Windsor",
+        "home_region": "Ontario",
+        "home_country_id": 39,
+        "email_verification_time": "2017-07-23 00:00:00"
     }
 ]
