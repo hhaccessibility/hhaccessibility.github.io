@@ -29,6 +29,7 @@
 					<li>Rating Submissions: <span>{{ $num_rating_submissions }}</span></li>
 					<li>Question Answers: <span>{{ $num_answers }}</span></li>
 					<li>At least partly rated locations: <span>{{ $num_rated_locations }}</span></li>
+					<li>Created locations: <span>{{ $num_created_locations }}</span></li>
 				</ul>
 			</div>
 		</div>

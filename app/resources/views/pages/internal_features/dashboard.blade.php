@@ -11,6 +11,7 @@
 					<li><a href="/users"><span>{{ $num_users }}</span> users</a></li>
 					<li><span>{{ $num_users_using_screen_readers }}</span> user(s) use screen readers</li>
 					<li><span>{{ $num_locations }}</span> locations</li>
+					<li><span>{{ $num_user_created_locations }}</span> locations created by users</li>
 					<li>
 						<a href="/location-groups">
 							<span>{{ $num_location_groups }}</span> location groups
