@@ -62,13 +62,17 @@ class InternalFeaturesController extends Controller
 			->where('answered_by_user_id', '=', $user_id)
 			->distinct('location_id')
 			->count('location_id');
+		$num_created_locations = DB::table('location')
+			->where('creator_user_id', '=', $user_id)
+			->count();
 		$view_data = [
 			'user' => $user,
 			'home_country_name' => $home_country_name,
 			'num_comments' => DB::table('review_comment')->where('answered_by_user_id', '=', $user_id)->count(),
 			'num_answers' => DB::table('user_answer')->where('answered_by_user_id', '=', $user_id)->count(),
 			'num_rating_submissions' => $num_rating_submissions,
-			'num_rated_locations' => $num_rated_locations
+			'num_rated_locations' => $num_rated_locations,
+			'num_created_locations' => $num_created_locations
 		];
 		
 		return view('pages.internal_features.user_report', $view_data);
@@ -79,10 +83,12 @@ class InternalFeaturesController extends Controller
 		if ( !BaseUser::isInternal() ) {
 			throw new AuthenticationException('Must be internal user');
 		}
+		$num_user_created_locations = DB::table('location')->whereNotNull('creator_user_id')->count();
 		$view_data = [
 		'num_users' => DB::table('user')->count(),
 		'num_users_using_screen_readers' => DB::table('user')->where('uses_screen_reader', '=', 1)->count(),
 		'num_locations' => DB::table('location')->count(),
+		'num_user_created_locations' => $num_user_created_locations,
 		'num_location_groups' => DB::table('location_group')->count(),
 		'num_rating_submissions' => count(DB::table('user_answer')
 			->groupBy(['when_submitted', 'answered_by_user_id', 'location_id'])
