@@ -8,7 +8,7 @@ class Location extends Eloquent
 {
     protected $fillable = [
         'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
-		'data_source_id', 'universal_rating',
+		'data_source_id', 'universal_rating', 'creator_user_id',
     ];
 	public $timestamps = false;
 
