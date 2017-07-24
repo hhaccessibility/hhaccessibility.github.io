@@ -66,7 +66,7 @@ class PasswordRecoveryController extends Controller {
 			{
 				$user->password_hash = User::generateSaltedHash($request->input('new_password'));
 				$user->save();
-				return view('pages.password_recovery.reset_password_success');
+				return Redirect::to('/signin?message=Password+Updated!');
 			}
 
 		} else {

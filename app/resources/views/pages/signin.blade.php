@@ -9,6 +9,9 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="signin-form">
+				<div class="message text-center">
+					{{$message}}
+				</div>
 				@if ( $confirmmessage )
 				<strong>{{ $confirmmessage }}</strong>
 				@else
