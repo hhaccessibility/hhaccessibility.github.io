@@ -1,5 +1,6 @@
 import lxml
 from lxml import html, etree
+import urllib.request
 
 
 # Decides if we want to collect information on the specified type of location
@@ -14,7 +15,6 @@ def is_location_type_of_interest(type):
 def get_locations(file_name):
 	locations = []
 	with open(file_name) as xml_file:
-		# content = xml_file.read()
 		doc = etree.parse(xml_file)
 
 	root = doc.getroot()
@@ -38,3 +38,14 @@ def get_locations(file_name):
 			})
 
 	return locations
+
+	
+def download(file_name):
+	response = urllib.request.urlopen('http://web2.uwindsor.ca/pac/campusmap/markers.xml')
+	data = response.read()
+	with open(file_name, 'wb') as outfile:
+		outfile.write(data)
+
+
+if __name__ == '__main__':
+	download('building_markers.xml')
