@@ -14,11 +14,16 @@ class SignInController extends Controller {
 	
 	public function showForm(Request $request)
 	{
+		$message = '';
 		$email = '';
 		if ( !empty(Input::get('email')) ) {
 			$email = trim(Input::get('email'));
 		}
-		return view('pages.signin', ['email' => $email, 'confirmmessage' => '']);
+		if ( !empty(Input::get('message')) ) {
+			$message = trim(Input::get('message'));
+		}
+		return view('pages.signin', ['email' => $email,
+		'confirmmessage' => '', 'message' => $message]);
 	}
 
     /**
