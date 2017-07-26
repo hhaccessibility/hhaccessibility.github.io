@@ -1,0 +1,19 @@
+{
+	"data_source_id": 4,
+	"import_user_id": 11,
+	"is_first_row_titles": true,
+	"columns": [
+		{"location_field": "name"},
+		{"location_field": "latitude"},
+		{"location_field": "longitude"},
+		{},
+		{"location_field": "external_web_url"},
+		{},
+		{"location_tag_name": "Education"},
+		{"location_tag_name": "Restaurant"},
+		{"location_tag_name": "Transportation"},
+		{"location_tag_name": "Financial"},
+		{"location_tag_name": "Accommodation"},
+		{"location_tag_name": "Sports & Recreation"}
+	]
+}
