@@ -15,7 +15,7 @@
     {
         "address": "",
         "data_source_id": 1,
-        "external_web_url": "",
+        "external_web_url": "http://web2.uwindsor.ca/pac/campusmap/BU_caw.php",
         "id": 2,
         "latitude": 42.3063536,
         "location_group_id": 1,
@@ -7925,19 +7925,6 @@
         "location_group_id": 1,
         "longitude": -83.0681599652174,
         "name": "Computer Centre - IT Services",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "http://web2.uwindsor.ca/pac/campusmap/BU_caw.php",
-        "id": 686,
-        "latitude": 42.30674226666666,
-        "location_group_id": 1,
-        "longitude": -83.06854355897435,
-        "name": "CAW Student Centre",
         "owner_user_id": null,
         "phone_number": "",
         "universal_rating": null
