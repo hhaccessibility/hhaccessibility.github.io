@@ -32,7 +32,9 @@ def get_location_info(location_details_filename):
         # strips all whitespace from string and creates list
         review = root.cssselect('.review-content > p')
         number_of_reviews = Counter(review) # retreives list with elements
-
+        misc_info = None
+        wheelchair = None
+        accessible = None
         for i in range(len(number_of_reviews)):
             reviews = review[i].xpath('string()')
             # loops through all reviews
@@ -57,18 +59,25 @@ def get_location_info(location_details_filename):
         else:
             wheelchair_accessible = "N/A"
             misc_info = "Call restaurant/store to verify accessibility."
-
+        if "Wi-Fi" in filtered:
+            wifi = dict_business_info['Wi-Fi']
+        else:
+            wifi = "N/A"
+        if "Parking" in filtered:
+            parking = dict_business_info['Parking']
+        else:
+            parking = "N/A"
         return {
             'name': biz_name,
             'address': address,
             'longitude': longitude,
             'latitude': latitude,
             'wheelchair accessible': wheelchair_accessible,
-            'wifi': dict_business_info['Wi-Fi'],
+            'wifi': wifi,
             'phone number': phone_number,
-            'parking': dict_business_info['Parking'],
+            'parking': parking,
             'map': yelp_base_url + location_url,
-            'Other accessibility info': misc_info
+            'Misc Info': misc_info
             }
 
 
@@ -83,21 +92,23 @@ def get_all_downloaded_locations():
         for filename in files:
             if filename.startswith('raw_html'):
                 filename = data_dir + filename
-                location_details = get_all_downloaded_locations(filename)
+                location_details = get_location_info(filename)
                 locations.append(location_details)
     return locations
 
 
 def generate_csv():
+    print "Gathering info.."
     locations = get_all_downloaded_locations()
-    keys = ['name','address','latitude','longitude','wheelchair_accesible','wifi','parking']
+    keys = ['name','address','latitude','longitude','wheelchair accessible','wifi','phone number','parking', 'map', 'Misc Info']
     for i in range(len(locations)):
-        filename = locations[i] + '.csv'
+        filename = (locations[i]['name']).encode('utf-8') + '.csv'
+        print "Generating csv: " + filename
         with open(filename, 'w') as csv_file:
             csv_writer = csv.DictWriter(csv_file, fieldnames=keys)
             csv_writer.writeheader()
             for location in locations:
-                csv_writer.writerow(location)
+                csv_writer.writerow((location).encode('utf-8'))
 
 
 if __name__ == '__main__':
