@@ -9,14 +9,14 @@ def is_location_type_of_interest(type):
 	return type not in ['aEntrance', 'ebike', 'ephone', 'smoking',
 		'parkingPay', 'parkingStaff', 'parkingStudent']
 
-		
+
 def is_restaurant(location):
 	return location['type'] in ['restaurant', 'eatingSite']
 
 
 def is_transportation(location):
 	return location['type'] in ['aTransit', 'parkingPay', 'parkingStaff', 'parkingStudent', 'ebike']
-	
+
 
 def is_education(location):
 	if location['name'] in ['Forge Fitness Centre', 'Graduate Student Society',
@@ -26,7 +26,7 @@ def is_education(location):
 
 	return location['type'] in ['ubuilding']
 
-	
+
 def is_financial(location):
 	return location['name'] in ['Central Receiving', 'Student Awards and Financial Aid']
 
@@ -39,7 +39,7 @@ def is_accommodation(location):
 
 
 def is_sports(location):
-	return location['name'] in ['Forge Fitness Centre', 'Human Kinetics', 'Stadium'])
+	return location['name'] in ['Forge Fitness Centre', 'Human Kinetics', 'Stadium']
 
 
 # Returns a list of locations extracted from the specified XML file.
@@ -60,7 +60,7 @@ def get_locations(file_name):
 			# if only part of a URL given, include the full path.
 			if not url.startswith('http'):
 				url = 'http://web2.uwindsor.ca/pac/campusmap/' + url
-			
+
 			# encoding and decoding to utf-8 was required in order to avoid errors during csv creation
 			location = {
 				'name': i.get('name').encode("utf-8"),
@@ -80,7 +80,7 @@ def get_locations(file_name):
 
 	return locations
 
-	
+
 def download(file_name):
 	response = urllib.request.urlopen('http://web2.uwindsor.ca/pac/campusmap/markers.xml')
 	data = response.read()
