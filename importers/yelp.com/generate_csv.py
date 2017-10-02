@@ -5,11 +5,10 @@ import itertools
 from utils import get_text_from_css
 import re
 import unicodecsv as csv
-from collections import Counter
-import re
+# from collections import Counter
 
 
-yelp_base_url = 'https://www.yelp.ca'
+yelp_base_url = 'https://www.yelp.com'
 
 
 def get_data_from(root):
@@ -26,53 +25,96 @@ def get_location_info(location_details_filename):
     with open(location_details_filename, 'r') as html_file:
         content = html_file.read()
         root = html.fromstring(content)
-        data = get_data_from(root)
-        coordinates = root.cssselect('.lightbox-map')[0].xpath('@data-map-state')[0]
         # xpath pulls attributes from within given div
-        coordinates = json.loads(coordinates)
-        biz_name = get_text_from_css(root,'div.u-space-t1 > h1')
-        phone_number = get_text_from_css(root,'span.biz-phone')
-        latitude = coordinates['center']['latitude']
-        longitude = coordinates['center']['longitude']
+        data = get_data_from(root)
+        lightbox_div = root.cssselect('.lightbox-map')[0]
+        if lightbox_div != "":
+            coordinates = root.cssselect('.lightbox-map')[0].xpath('@data-map-state')[0]
+            coordinates = json.loads(coordinates)
+            latitude = coordinates['center']['latitude']
+            longitude = coordinates['center']['longitude']
+        else:
+            latitude = 0
+            longitude = 0
+            # No coordinates found
         location_url = root.cssselect('.mapbox-map > a')[0].xpath('@href')[0]
         # gets map url of location
-        address = data['address']['streetAddress']
-        overallRating = data['aggregateRating']['ratingValue']
+        if 'name' in data:
+            biz_name = data['name']
+            biz_name.encode("utf-8")
+        else:
+            biz_name = "-"
+        if 'telephone' in data:
+            phone_number = data['telephone']
+        else:
+            phone_number = 0
+            # Indicates no phone number found
+        if 'aggregateRating' in data:
+            overall_rating = data['aggregateRating']['ratingValue']
+        else:
+            overall_rating = 0
+            # Indicates no rating given
+        if 'priceRange' in data:
+            price_range = data['priceRange']
+        else:
+            price_range = 0
+            # No price range found
+        if 'address' in data:
+            address = "{}, {}, {}, {}".format(data['address']['streetAddress'],data['address']['addressLocality'],data['address']['addressRegion'],data['address']['postalCode'])
+        else:
+            address = "No address found"
         # strips all whitespace from string and creates list
-        review = root.cssselect('.review-content > p')
-        number_of_reviews = Counter(review) # retreives list with elements
-        price_range = data['priceRange']
-        misc_info = None
-        wheelchair = None
-        accessible = None
-        for i in range(len(number_of_reviews)):
-            reviews = review[i].xpath('string()')
+        if 'review' in data:
+            review = data['review']
+        else:
+            review = ["No reviews found"]
+        # looking for comments with information regarding accessibility incase wheelchair accessible is empty or absent.
+        misc_info = ""
+        wheelchair = ""
+        accessible = ""
+        wheelchair_comments = []
+        comment_author = []
+        accessible_comments = []
+        for i in range(len(review)):
+            reviews = review[i]['description']
+            author = review[i]['author']
             # loops through all reviews
-            wheelchair = re.findall(r"([^.]*?wheelchair[^.]*\.)",reviews)
             # searches for keyword in reviews and returns list containing sentences containing keyword
-            accessible = re.findall(r"([^.]*?accessible[^.]*\.)",reviews)
+            wheelchair = "".join(re.findall(r"([^.]*?wheelchair[^.]*\.)", reviews))
+            wheelchair.encode("utf-8")
+            accessible = "".join(re.findall(r"([^.]*?accessible[^.]*\.)", reviews))
+            accessible.encode("utf-8")
+            if wheelchair:
+                wheelchair_comments.append("".join(wheelchair))
+                comment_author.append(author)
+            elif accessible:
+                accessible_comments.append("".join(accessible))
+                comment_author.append(author)
 
-        business_info = get_text_from_css(root,'div.ywidget > ul')
-        business_info = business_info.replace(" ","").split('\n')
+        # right-hand side column of page - more business info
+        business_info = get_text_from_css(root, 'div.ywidget > ul')
+        business_info = business_info.replace(" ", "").split('\n')
         filtered = []
         for i in business_info:
             if i != "":
                 filtered.append(i)
         dict_business_info = dict(itertools.izip_longest(*[iter(filtered)] * 2, fillvalue = "" ))
-        # looking for comments with information regarding accessibility incase wheelchair accessible is empty or absent        if dict_business_info['WheelchairAccessible'] == "Yes":
+        # retreiving accessibility information
         if 'WheelchairAccessible' in filtered:
             wheelchair_accessible = dict_business_info['WheelchairAccessible']
-        elif wheelchair:
-            misc_info = wheelchair[0]
-        elif accessible:
-            misc_info = accessible[0]
+        elif wheelchair != "" and author != "":
+            misc_info = "{} by {}".format(wheelchair_comments[0], author[0])
+        elif accessible != "" and wheelchair == "":
+            misc_info = "{} by {}".format(accessible_comments[0], author[0])
         else:
             wheelchair_accessible = "N/A"
             misc_info = "Call restaurant/store to verify accessibility."
+        # checking for wifi info
         if "Wi-Fi" in filtered:
             wifi = dict_business_info['Wi-Fi']
         else:
             wifi = "N/A"
+        # checking for parking info
         if "Parking" in filtered:
             parking = dict_business_info['Parking']
         else:
@@ -87,9 +129,9 @@ def get_location_info(location_details_filename):
             'phone number': phone_number,
             'parking': parking,
             'map': yelp_base_url + location_url,
-            'overall rating': overallRating,
-            'Misc Info': misc_info,
-			'price range': price_range
+            'price range': price_range,
+            'overall rating': overall_rating,
+            'misc info': misc_info
             }
 
 
@@ -109,21 +151,21 @@ def get_all_downloaded_locations():
     return locations
 
 
-def location_name_to_filename(location_name):
-	location_name = re.sub('[^0-9a-zA-Z]+', '_', location_name)
-	return location_name.encode('utf-8') + '.csv'
-
-
 def generate_csv():
-    print "Gathering info.."
+    print ("Gathering info..")
     locations = get_all_downloaded_locations()
-    keys = ['name','address','latitude','longitude','wheelchair accessible','wifi','phone number','parking', 'map', 'price range', 'overall rating', 'Misc Info']
+    blank_row = {'name': "", 'address': "", 'latitude': "", 'longitude':"", 'wheelchair accessible':"",'phone number': "", 'parking': "", 'map': "", 'price range': "", 'overall rating': "", 'misc info': ""}
+    keys = ['name', 'address', 'latitude', 'longitude', 'wheelchair accessible', 'wifi', 'phone number', 'parking', 'map', 'price range', 'overall rating', 'misc info']
     filename = 'locations.csv'
+    print ("Creating file..")
     with open(filename, 'w') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=keys)
         csv_writer.writeheader()
         for location in locations:
             csv_writer.writerow(location)
+            # csv_writer.writerow(blank_row)
+            # adds empty row to separate store info
+    print ("Done.")
 
 
 if __name__ == '__main__':

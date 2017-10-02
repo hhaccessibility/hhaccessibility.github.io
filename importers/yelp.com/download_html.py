@@ -4,7 +4,7 @@ import urllib2
 import re
 
 
-yelp_base_url = 'https://www.yelp.ca/'
+yelp_base_url = 'https://www.yelp.com/'
 
 
 def filename_encode(s):
