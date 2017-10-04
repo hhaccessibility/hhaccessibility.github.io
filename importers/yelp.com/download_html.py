@@ -86,7 +86,7 @@ def auto_page_download(number_of_pages, find_query, location):
 	"""
 	Function will download every page based on number of pages, the
 	description/query and locality. It will then create an offline copy of the page
-	and store it in yelp.ca/data folder. Parameter 'number_of_pages' signifies
+	and store it in yelp.com/data folder. Parameter 'number_of_pages' signifies
 	number of pages to be downloaded, 'find_query' is a based on user input,
 	and 'location' signifies the location the user is currently targeting.
 
@@ -102,7 +102,7 @@ def auto_page_download(number_of_pages, find_query, location):
 		if page_results > 0:
 			search_yelp = search_yelp + '&start=' + str(page_results)
 
-		# yelp.ca search parameter for location, and description is designed like search_yelp.
+		# yelp.com search parameter for location, and description is designed like search_yelp.
 		# The search page is designed to show 10 results per page
 		filename = "data/page_" + filename_encode(location) + "_" +  filename_encode(find_query) + "_{}.html".format(i)
 
