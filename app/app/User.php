@@ -4,6 +4,7 @@ namespace App;
 use Eloquent;
 use Illuminate\Support\Facades\Hash;
 use DB;
+use Webpatser\Uuid\Uuid;
 
 class User extends Eloquent
 {
@@ -16,6 +17,16 @@ class User extends Eloquent
 	public $timestamps = false;
 	
 	protected $table = 'user';
+	/**
+	 * Indicates if the IDs are auto-incrementing.
+	 *
+	 * @var bool
+	 */
+	public $incrementing = false;
+
+	public function __construct() {
+		$this->attributes = array('id' => Uuid::generate(4)->string);
+	}
 	
 	public function roles()
 	{

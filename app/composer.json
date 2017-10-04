@@ -9,7 +9,9 @@
        "laravel/framework": "5.3.*",
        "laravelcollective/html": "5.*",
        "hybridauth/hybridauth": "dev-master",
-       "anhskohbo/no-captcha": "^2.2"
+       "anhskohbo/no-captcha": "^2.2",
+        "webpatser/laravel-uuid": "^3.0",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

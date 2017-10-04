@@ -1,112 +1,112 @@
 [
     {
-        "id": 1,
         "email": "josh.greig2@gmail.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "John",
-        "last_name": "Smith",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "last_name": "Smith"
     },
     {
-        "id": 2,
         "email": "osm@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Open",
-        "last_name": "StreetMap-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000002",
+        "last_name": "StreetMap-Importer"
     },
     {
-        "id": 3,
         "email": "jaccede@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Jaccede",
-        "last_name": "Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000003",
+        "last_name": "Importer"
     },
     {
-        "id": 4,
         "email": "tim_hortons@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Tim",
-        "last_name": "Hortons-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000004",
+        "last_name": "Hortons-Importer"
     },
     {
-        "id": 5,
         "email": "dominos@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Dominos",
-        "last_name": "Pizza-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000005",
+        "last_name": "Pizza-Importer"
     },
     {
-        "id": 6,
         "email": "seven-eleven@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Seven",
-        "last_name": "Eleven-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000006",
+        "last_name": "Eleven-Importer"
     },
     {
-        "id": 7,
         "email": "td-bank@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "TD",
-        "last_name": "Bank-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000007",
+        "last_name": "Bank-Importer"
     },
     {
-        "id": 8,
         "email": "scotiabank@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "Scotia",
-        "last_name": "Bank-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000008",
+        "last_name": "Bank-Importer"
     },
     {
-        "id": 9,
         "email": "mcdonalds@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "McDonalds",
-        "last_name": "Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000009",
+        "last_name": "Importer"
     },
     {
-        "id": 10,
         "email": "ymca@fake.com",
+        "email_verification_time": "2017-04-30 00:00:00",
         "first_name": "YMCA",
-        "last_name": "Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-04-30 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000010",
+        "last_name": "Importer"
     },
     {
-        "id": 11,
         "email": "info@uwindsor.ca",
+        "email_verification_time": "2017-07-23 00:00:00",
         "first_name": "uwindsor",
-        "last_name": "campus-Importer",
         "home_city": "Windsor",
-        "home_region": "Ontario",
         "home_country_id": 39,
-        "email_verification_time": "2017-07-23 00:00:00"
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000011",
+        "last_name": "campus-Importer"
     }
 ]

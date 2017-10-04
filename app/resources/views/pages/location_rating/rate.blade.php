@@ -9,7 +9,7 @@
     </script>
 	<script type="text/javascript" language="JavaScript">
 	// values used in location_rating.js
-	var location_id = {{ $location->id }};
+	var location_id = '{{ $location->id }}';
 	var question_category_id = {{ $question_category->id }};
 	var csrf_token = '{{ csrf_token() }}';
     </script>

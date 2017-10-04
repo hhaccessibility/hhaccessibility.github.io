@@ -12,6 +12,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use DB;
+use Webpatser\Uuid\Uuid;
+
 
 class LocationManagementController extends Controller {
 	public function getLocationsNear($longitude, $latitude)
@@ -199,7 +201,9 @@ class LocationManagementController extends Controller {
 			foreach ($view_data['location_tags'] as $location_tag) {
 				if ($location_tag->is_selected) {
 					DB::table('location_location_tag')->insert(
-						['location_id' => $location->id, 'location_tag_id' => $location_tag->id]
+						['location_id' => $location->id, 
+						'location_tag_id' => $location_tag->id,
+						'id' => Uuid::generate(4)->string]
 					);
 				}
 			}

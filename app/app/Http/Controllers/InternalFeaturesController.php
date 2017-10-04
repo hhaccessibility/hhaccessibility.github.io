@@ -62,7 +62,7 @@ class InternalFeaturesController extends Controller
 		return view('pages.internal_features.location_groups_report', $view_data);
 	}
 	
-	public function showUserReport($user_id)
+	public function showUserReport(string $user_id)
 	{
 		if ( !BaseUser::isInternal() ) {
 			throw new AuthenticationException('Must be internal user');

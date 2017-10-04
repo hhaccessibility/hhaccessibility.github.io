@@ -1,82 +1,562 @@
 [
-{"id": 1, "location_id": 134, "name": "University of Windsor", "data_source_id": 3, "external_id": null},
-{"id": 2, "location_id": 169, "name": "Tall Grass Prairie Heritage", "data_source_id": 2, "external_id": null},
-{"id": 3, "location_id": 132, "name": "St. Clair Center for the Arts", "data_source_id": 3, "external_id": null},
-{"id": 4, "location_id": 115, "name": "Prince Edward School", "data_source_id": 3, "external_id": null},
-{"id": 5, "location_id": 183, "name": "Jackson Park", "data_source_id": 3, "external_id": null},
-{"id": 6, "location_id": 181, "name": "Langlois Crt Linear Park", "data_source_id": 2, "external_id": null},
-{"id": 7, "location_id": 471, "name": "Holy Trinity", "data_source_id": 3, "external_id": null},
-{"id": 8, "location_id": 494, "name": "Hiram Walkers", "data_source_id": 3, "external_id": null},
-{"id": 9, "location_id": 10, "name": "Centre for Engineering Innovation", "data_source_id": 3, "external_id": null},
-{"id": 10, "location_id": 188, "name": "Devonshire Court", "data_source_id": 2, "external_id": null},
-{"id": 11, "location_id": 99, "name": "Dougall Avenue Public School", "data_source_id": 3, "external_id": null},
-{"id": 12, "location_id": 137, "name": "\u00c9cole \u00e9l\u00e9mentaire L\u2019Envol\u00e9e", "data_source_id": 3, "external_id": null},
-{"id": 13, "location_id": 187, "name": "Esdras Park", "data_source_id": 2, "external_id": null},
-{"id": 14, "location_id": 331, "name": "Ganatchio Trail", "data_source_id": 2, "external_id": null},
-{"id": 15, "location_id": 173, "name": "Grand Marais Rd Drain Trail", "data_source_id": 2, "external_id": null},
-{"id": 16, "location_id": 153, "name": "Water World", "data_source_id": 3, "external_id": null},
-{"id": 17, "location_id": 1438, "name": "Bset Western Plus", "data_source_id": 3, "external_id": null},
-{"id": 18, "location_id": 196, "name": "Alton Parker", "data_source_id": 3, "external_id": null},
-{"id": 19, "location_id": 772, "name": "3 Brewers", "data_source_id": 3, "external_id": null},
-{"id": 20, "location_id": 2338, "name": "Elephant & Castle", "data_source_id": 3, "external_id": null},
-{"id": 21, "location_id": 6662, "name": "University of Toronto", "data_source_id": 3, "external_id": null},
-{"id": 22, "location_id": 868, "name": "Aden", "data_source_id": 3, "external_id": null},
-{"id": 23, "location_id": 1141, "name": "Batteries and Gadgets", "data_source_id": 3, "external_id": null},
-{"id": 24, "location_id": 66, "name": "Notre Dame", "data_source_id": 3, "external_id": null},
-{"id": 25, "location_id": 81, "name": "Holy Names Catholic Secondary School", "data_source_id": 3, "external_id": "23422500"},
-{"id": 26, "location_id": 104, "name": "Glenwood School", "data_source_id": 3, "external_id": "23375175"},
-{"id": 27, "location_id": 5849, "name": "t tephens Anglican Churchyard", "data_source_id": 3, "external_id": "1736801413"},
-{"id": 28, "location_id": 11, "name": "Odette School of Business", "data_source_id": 3, "external_id": "228017377"},
-{"id": 29, "location_id": 379, "name": "Black Oak Prairie Heritage Park", "data_source_id": 3, "external_id": "161929066"},
-{"id": 30, "location_id": 169, "name": "Tall Grass Prairie Heritage Reserve", "data_source_id": 3, "external_id": null},
-{"id": 31, "location_id": 630, "name": "Bruce Park", "data_source_id": 3, "external_id": "304470318"},
-{"id": 32, "location_id": 630, "name": "Bruce Ave Park", "data_source_id": 2, "external_id": null},
-{"id": 33, "location_id": 347, "name": "Dieppe Fountain", "data_source_id": 3, "external_id": "4510543965"},
-{"id": 34, "location_id": 6674, "name": "University Preparatory Academy", "data_source_id": 3, "external_id": "354015106"},
-{"id": 35, "location_id": 3660, "name": "Little Caersar's Headquarters", "data_source_id": 3, "external_id": "69412723"},
-{"id": 36, "location_id": 548, "name": "Central Resource Library", "data_source_id": 2, "external_id": null},
-{"id": 37, "location_id": 5849, "name": "Saint Stephen's & Church of the Redeemer", "data_source_id": 3, "external_id": null},
-{"id": 38, "location_id": 103, "name": "Southwood School", "data_source_id": 3, "external_id": "23414498"},
-{"id": 39, "location_id": 7035, "name": "Vollmer Culture and Recreation Complex", "data_source_id": 3, "external_id": "488481934"},
-{"id": 40, "location_id": 7568, "name": "Shalom Fellowship Internaitonal", "data_source_id": 3, "external_id": "373558001"},
-{"id": 41, "location_id": 423, "name": "Rose Convenience 1", "data_source_id": 6, "external_id": "ChIJBQK1iBwtO4gR-NhJCp9yLew"},
-{"id": 42, "location_id": 5482, "name": "South Windsor Recreation Complex", "data_source_id": 6, "external_id": null},
-{"id": 43, "location_id": 7028, "name": "Nemak Windsor Aluminum Plant", "data_source_id": 6, "external_id": null},
-{"id": 44, "location_id": 283, "name": "MicMac Park", "data_source_id": 3, "external_id": null},
-{"id": 45, "location_id": 3095, "name": "HSBC Bank", "data_source_id": 6, "external_id": "ChIJhyGT1xEsO4gRZK3AuZlqMIA"},
-{"id": 46, "location_id": 405, "name": "May Wah Inn Chinese Cuisine", "data_source_id": 6, "external_id": "ChIJD6EOX20tO4gR7gMAzyEdH98"},
-{"id": 47, "location_id": 405, "name": "Mei Wah", "data_source_id": 3, "external_id": null},
-{"id": 48, "location_id": 429, "name": "Classic Bingo IV", "data_source_id": 6, "external_id": "ChIJ3zRS-pcsO4gRD9U9boZGrnw"},
-{"id": 49, "location_id": 7016, "name": "Tetreault's valu-mart", "data_source_id": 6, "external_id": "ChIJ18o_SBrNOogRNJVQGpETc50"},
-{"id": 50, "location_id": 7497, "name": "St. Denis Athletic & Community Centre", "data_source_id": 6, "external_id": "ChIJQQDy8Z4tO4gRtHkGFiEfVAY"},
-{"id": 51, "location_id": 7018, "name": "Ontario Provincial Police", "data_source_id": 6, "external_id": "ChIJvW6aNDDMOogRCutJwHvpMPk"},
-{"id": 52, "location_id": 581, "name": "Biology Building", "data_source_id": 6, "external_id": "ChIJOcRoF3ctO4gRkNKu462OD2Q"},
-{"id": 53, "location_id": 392, "name": "Windsor Police Headquarters", "data_source_id": 6, "external_id": "ChIJuS1y6x8tO4gR37caT-7usrU"},
-{"id": 54, "location_id": 689, "name": "Caesars Windsor", "data_source_id": 6, "external_id": "ChIJXx5FfrksO4gReswUvMeNSZs"},
-{"id": 55, "location_id": 391, "name": "Ontario Travel Information Centre - Windsor", "data_source_id": 6, "external_id": "ChIJIfFRJh4tO4gRIv7bHTHm6pI"},
-{"id": 56, "location_id": 548, "name": "Windsor Public Library - Central", "data_source_id": 6, "external_id": null},
-{"id": 57, "location_id": 437, "name": "Simon's Prime Time Hamburgers", "data_source_id": 6, "external_id": "ChIJGf2FAR8tO4gRfaTIjgnjZIs"},
-{"id": 58, "location_id": 439, "name": "Downtown Cigar Shop", "data_source_id": 6, "external_id": "ChIJOUpx_h4tO4gRXLI-qtvBUS8"},
-{"id": 59, "location_id": 435, "name": "Villains", "data_source_id": 6, "external_id": null},
-{"id": 60, "location_id": 577, "name": "Comfort Suites Downtown", "data_source_id": 6, "external_id": null},
-{"id": 61, "location_id": 40, "name": "Greyhound Canada", "data_source_id": 6, "external_id": null},
-{"id": 62, "location_id": 40, "name": "Transit Windsor Terminal", "data_source_id": 6, "external_id": null},
-{"id": 63, "location_id": 40, "name": "Windsor International Transit Terminal", "data_source_id": 3, "external_id": null},
-{"id": 64, "location_id": 40, "name": "Transit Terminal at Chatham", "data_source_id": 3, "external_id": null},
-{"id": 65, "location_id": 40, "name": "Windsor Transit Terminal", "data_source_id": 6, "external_id": "ChIJSzwzAxktO4gRE2ES0dqzb7w"},
-{"id": 67, "location_id": 158, "name": "Francois Baby House", "data_source_id": 6, "external_id": null},
-{"id": 68, "location_id": 158, "name": "Fran\u00e7ois Baby House", "data_source_id": 3, "external_id": null},
-{"id": 69, "location_id": 8939, "name": "School of Social Work Building", "data_source_id": 6, "external_id": "ChIJga9o1BgtO4gRe8MnBlQwH9Q"},
-{"id": 70, "location_id": 1438, "name": "Best Western Plus Waterfront Hotel", "data_source_id": 6, "external_id": null},
-{"id": 71, "location_id": 132, "name": "St. Clair College Centre for the Arts", "data_source_id": 6, "external_id": null},
-{"id": 72, "location_id": 132, "name": "Center Of The Arts Campus", "data_source_id": 6, "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E"},
-{"id": 73, "location_id": 283, "name": "Mic-Mac Park", "data_source_id": 6, "external_id": null},
-{"id": 74, "location_id": 4640, "name": "PizzaPapalis of Greektown", "data_source_id": 6, "external_id": null},
-{"id": 75, "location_id": 362, "name": "City Hall", "data_source_id": 3, "external_id": null},
-{"id": 76, "location_id": 689, "name": "Ceasars Windsor", "data_source_id": 6, "external_id": null},
-{"id": 77, "location_id": 7050, "name": "Mamo Burger Bar", "data_source_id": 6, "external_id": null},
-{"id": 78, "location_id": 137, "name": "\u00c9cole \u00e9l\u00e9mentaire L'Envol\u00e9e", "data_source_id": 3, "external_id": null},
-{"id": 79, "location_id": 137, "name": "Ecole elementaire L'Envolee", "data_source_id": 3, "external_id": null},
-{"id": 80, "location_id": 638, "name": "The Guardian Building", "data_source_id": 6, "external_id": null},
-{"id": 81, "location_id": 2880, "name": "Greektown Hotel", "data_source_id": 6, "external_id": null}
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 1,
+        "location_id": "00000000-0000-0000-0000-000000000134",
+        "name": "University of Windsor"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 2,
+        "location_id": "00000000-0000-0000-0000-000000000169",
+        "name": "Tall Grass Prairie Heritage"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 3,
+        "location_id": "00000000-0000-0000-0000-000000000132",
+        "name": "St. Clair Center for the Arts"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 4,
+        "location_id": "00000000-0000-0000-0000-000000000115",
+        "name": "Prince Edward School"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 5,
+        "location_id": "00000000-0000-0000-0000-000000000183",
+        "name": "Jackson Park"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 6,
+        "location_id": "00000000-0000-0000-0000-000000000181",
+        "name": "Langlois Crt Linear Park"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 7,
+        "location_id": "00000000-0000-0000-0000-000000000471",
+        "name": "Holy Trinity"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 8,
+        "location_id": "00000000-0000-0000-0000-000000000494",
+        "name": "Hiram Walkers"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 9,
+        "location_id": "00000000-0000-0000-0000-000000000010",
+        "name": "Centre for Engineering Innovation"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 10,
+        "location_id": "00000000-0000-0000-0000-000000000188",
+        "name": "Devonshire Court"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 11,
+        "location_id": "00000000-0000-0000-0000-000000000099",
+        "name": "Dougall Avenue Public School"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 12,
+        "location_id": "00000000-0000-0000-0000-000000000137",
+        "name": "\u00c9cole \u00e9l\u00e9mentaire L\u2019Envol\u00e9e"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 13,
+        "location_id": "00000000-0000-0000-0000-000000000187",
+        "name": "Esdras Park"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 14,
+        "location_id": "00000000-0000-0000-0000-000000000331",
+        "name": "Ganatchio Trail"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 15,
+        "location_id": "00000000-0000-0000-0000-000000000173",
+        "name": "Grand Marais Rd Drain Trail"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 16,
+        "location_id": "00000000-0000-0000-0000-000000000153",
+        "name": "Water World"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 17,
+        "location_id": "00000000-0000-0000-0000-000000001438",
+        "name": "Bset Western Plus"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 18,
+        "location_id": "00000000-0000-0000-0000-000000000196",
+        "name": "Alton Parker"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 19,
+        "location_id": "00000000-0000-0000-0000-000000000772",
+        "name": "3 Brewers"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 20,
+        "location_id": "00000000-0000-0000-0000-000000002338",
+        "name": "Elephant & Castle"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 21,
+        "location_id": "00000000-0000-0000-0000-000000006662",
+        "name": "University of Toronto"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 22,
+        "location_id": "00000000-0000-0000-0000-000000000868",
+        "name": "Aden"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 23,
+        "location_id": "00000000-0000-0000-0000-000000001141",
+        "name": "Batteries and Gadgets"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 24,
+        "location_id": "00000000-0000-0000-0000-000000000066",
+        "name": "Notre Dame"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "23422500",
+        "id": 25,
+        "location_id": "00000000-0000-0000-0000-000000000081",
+        "name": "Holy Names Catholic Secondary School"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "23375175",
+        "id": 26,
+        "location_id": "00000000-0000-0000-0000-000000000104",
+        "name": "Glenwood School"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "1736801413",
+        "id": 27,
+        "location_id": "00000000-0000-0000-0000-000000005849",
+        "name": "t tephens Anglican Churchyard"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "228017377",
+        "id": 28,
+        "location_id": "00000000-0000-0000-0000-000000000011",
+        "name": "Odette School of Business"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "161929066",
+        "id": 29,
+        "location_id": "00000000-0000-0000-0000-000000000379",
+        "name": "Black Oak Prairie Heritage Park"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 30,
+        "location_id": "00000000-0000-0000-0000-000000000169",
+        "name": "Tall Grass Prairie Heritage Reserve"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "304470318",
+        "id": 31,
+        "location_id": "00000000-0000-0000-0000-000000000630",
+        "name": "Bruce Park"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 32,
+        "location_id": "00000000-0000-0000-0000-000000000630",
+        "name": "Bruce Ave Park"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "4510543965",
+        "id": 33,
+        "location_id": "00000000-0000-0000-0000-000000000347",
+        "name": "Dieppe Fountain"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "354015106",
+        "id": 34,
+        "location_id": "00000000-0000-0000-0000-000000006674",
+        "name": "University Preparatory Academy"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "69412723",
+        "id": 35,
+        "location_id": "00000000-0000-0000-0000-000000003660",
+        "name": "Little Caersar's Headquarters"
+    },
+    {
+        "data_source_id": 2,
+        "external_id": null,
+        "id": 36,
+        "location_id": "00000000-0000-0000-0000-000000000548",
+        "name": "Central Resource Library"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 37,
+        "location_id": "00000000-0000-0000-0000-000000005849",
+        "name": "Saint Stephen's & Church of the Redeemer"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "23414498",
+        "id": 38,
+        "location_id": "00000000-0000-0000-0000-000000000103",
+        "name": "Southwood School"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "488481934",
+        "id": 39,
+        "location_id": "00000000-0000-0000-0000-000000007035",
+        "name": "Vollmer Culture and Recreation Complex"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": "373558001",
+        "id": 40,
+        "location_id": "00000000-0000-0000-0000-000000007568",
+        "name": "Shalom Fellowship Internaitonal"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJBQK1iBwtO4gR-NhJCp9yLew",
+        "id": 41,
+        "location_id": "00000000-0000-0000-0000-000000000423",
+        "name": "Rose Convenience 1"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 42,
+        "location_id": "00000000-0000-0000-0000-000000005482",
+        "name": "South Windsor Recreation Complex"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 43,
+        "location_id": "00000000-0000-0000-0000-000000007028",
+        "name": "Nemak Windsor Aluminum Plant"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 44,
+        "location_id": "00000000-0000-0000-0000-000000000283",
+        "name": "MicMac Park"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJhyGT1xEsO4gRZK3AuZlqMIA",
+        "id": 45,
+        "location_id": "00000000-0000-0000-0000-000000003095",
+        "name": "HSBC Bank"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJD6EOX20tO4gR7gMAzyEdH98",
+        "id": 46,
+        "location_id": "00000000-0000-0000-0000-000000000405",
+        "name": "May Wah Inn Chinese Cuisine"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 47,
+        "location_id": "00000000-0000-0000-0000-000000000405",
+        "name": "Mei Wah"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJ3zRS-pcsO4gRD9U9boZGrnw",
+        "id": 48,
+        "location_id": "00000000-0000-0000-0000-000000000429",
+        "name": "Classic Bingo IV"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJ18o_SBrNOogRNJVQGpETc50",
+        "id": 49,
+        "location_id": "00000000-0000-0000-0000-000000007016",
+        "name": "Tetreault's valu-mart"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJQQDy8Z4tO4gRtHkGFiEfVAY",
+        "id": 50,
+        "location_id": "00000000-0000-0000-0000-000000007497",
+        "name": "St. Denis Athletic & Community Centre"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJvW6aNDDMOogRCutJwHvpMPk",
+        "id": 51,
+        "location_id": "00000000-0000-0000-0000-000000007018",
+        "name": "Ontario Provincial Police"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJOcRoF3ctO4gRkNKu462OD2Q",
+        "id": 52,
+        "location_id": "00000000-0000-0000-0000-000000000581",
+        "name": "Biology Building"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJuS1y6x8tO4gR37caT-7usrU",
+        "id": 53,
+        "location_id": "00000000-0000-0000-0000-000000000392",
+        "name": "Windsor Police Headquarters"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJXx5FfrksO4gReswUvMeNSZs",
+        "id": 54,
+        "location_id": "00000000-0000-0000-0000-000000000689",
+        "name": "Caesars Windsor"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJIfFRJh4tO4gRIv7bHTHm6pI",
+        "id": 55,
+        "location_id": "00000000-0000-0000-0000-000000000391",
+        "name": "Ontario Travel Information Centre - Windsor"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 56,
+        "location_id": "00000000-0000-0000-0000-000000000548",
+        "name": "Windsor Public Library - Central"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJGf2FAR8tO4gRfaTIjgnjZIs",
+        "id": 57,
+        "location_id": "00000000-0000-0000-0000-000000000437",
+        "name": "Simon's Prime Time Hamburgers"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJOUpx_h4tO4gRXLI-qtvBUS8",
+        "id": 58,
+        "location_id": "00000000-0000-0000-0000-000000000439",
+        "name": "Downtown Cigar Shop"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 59,
+        "location_id": "00000000-0000-0000-0000-000000000435",
+        "name": "Villains"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 60,
+        "location_id": "00000000-0000-0000-0000-000000000577",
+        "name": "Comfort Suites Downtown"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 61,
+        "location_id": "00000000-0000-0000-0000-000000000040",
+        "name": "Greyhound Canada"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 62,
+        "location_id": "00000000-0000-0000-0000-000000000040",
+        "name": "Transit Windsor Terminal"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 63,
+        "location_id": "00000000-0000-0000-0000-000000000040",
+        "name": "Windsor International Transit Terminal"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 64,
+        "location_id": "00000000-0000-0000-0000-000000000040",
+        "name": "Transit Terminal at Chatham"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJSzwzAxktO4gRE2ES0dqzb7w",
+        "id": 65,
+        "location_id": "00000000-0000-0000-0000-000000000040",
+        "name": "Windsor Transit Terminal"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 67,
+        "location_id": "00000000-0000-0000-0000-000000000158",
+        "name": "Francois Baby House"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 68,
+        "location_id": "00000000-0000-0000-0000-000000000158",
+        "name": "Fran\u00e7ois Baby House"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJga9o1BgtO4gRe8MnBlQwH9Q",
+        "id": 69,
+        "location_id": "00000000-0000-0000-0000-000000008939",
+        "name": "School of Social Work Building"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 70,
+        "location_id": "00000000-0000-0000-0000-000000001438",
+        "name": "Best Western Plus Waterfront Hotel"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 71,
+        "location_id": "00000000-0000-0000-0000-000000000132",
+        "name": "St. Clair College Centre for the Arts"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E",
+        "id": 72,
+        "location_id": "00000000-0000-0000-0000-000000000132",
+        "name": "Center Of The Arts Campus"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 73,
+        "location_id": "00000000-0000-0000-0000-000000000283",
+        "name": "Mic-Mac Park"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 74,
+        "location_id": "00000000-0000-0000-0000-000000004640",
+        "name": "PizzaPapalis of Greektown"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 75,
+        "location_id": "00000000-0000-0000-0000-000000000362",
+        "name": "City Hall"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 76,
+        "location_id": "00000000-0000-0000-0000-000000000689",
+        "name": "Ceasars Windsor"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 77,
+        "location_id": "00000000-0000-0000-0000-000000007050",
+        "name": "Mamo Burger Bar"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 78,
+        "location_id": "00000000-0000-0000-0000-000000000137",
+        "name": "\u00c9cole \u00e9l\u00e9mentaire L'Envol\u00e9e"
+    },
+    {
+        "data_source_id": 3,
+        "external_id": null,
+        "id": 79,
+        "location_id": "00000000-0000-0000-0000-000000000137",
+        "name": "Ecole elementaire L'Envolee"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 80,
+        "location_id": "00000000-0000-0000-0000-000000000638",
+        "name": "The Guardian Building"
+    },
+    {
+        "data_source_id": 6,
+        "external_id": null,
+        "id": 81,
+        "location_id": "00000000-0000-0000-0000-000000002880",
+        "name": "Greektown Hotel"
+    }
 ]

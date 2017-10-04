@@ -1,0 +1,16 @@
+{
+	"primary_key_tables": [
+		"user", "review_comment", "user_answer", "user_location", "location", "user_role",
+		"location_location_tag"
+	],
+	"foreign_keys": {
+		"location" : ["owner_user_id", "creator_user_id"],
+		"location_duplicate" : ["location_id"],
+		"location_location_tag" : ["location_id"],
+		"review_comment" : ["answered_by_user_id", "location_id"],
+		"user_answer" : ["answered_by_user_id", "location_id"],
+		"user_location" : ["user_id", "location_id"],
+		"user_question" : ["user_id"],
+		"user_role" : ["user_id"]
+	}
+}
