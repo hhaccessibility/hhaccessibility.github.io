@@ -22,10 +22,10 @@
 				<h3><a href="{{ $url_factory->createURLForOrderByField('name') }}">Name</a></h3>
 			</div>
 			<div class="col-xs-3 accessibility-rating">
-				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}">Accessibility Rating (%)</a></h3>
+				<h3><a href="{{ $url_factory->createURLForOrderByField('rating') }}"><span class="hide-for-small-viewports">Accessibility</span> Rating <span class="percentage">(%)</span></a></h3>
 			</div>
 			<div class="col-xs-3 distance">
-				<h3><a href="{{ $url_factory->createURLForOrderByField('distance') }}">Distance (km)</a></h3>
+				<h3><a href="{{ $url_factory->createURLForOrderByField('distance') }}">Distance <span class="hide-for-small-viewports">(km)</span></a></h3>
 			</div>
 		</div>
 		<div class="data">

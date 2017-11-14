@@ -87,6 +87,10 @@
 			}
 		}
 	}
+		
+	.accessibility-rating {
+		padding-right: 0;
+	}
 	
 	#map {
 		height: 200px;
@@ -116,6 +120,10 @@
 			h1 {
 				font-size: 1.3em;
 			}
+
+			h3 {
+				font-size: 0.76em;
+			}
 		}
 	}
 }
@@ -130,7 +138,7 @@
 			}
 			
 			h3 {
-				font-size: 1.0em;
+				font-size: 0.8em;
 				font-weight: bold;
 			}
 			
@@ -140,6 +148,77 @@
 			
 			&.warned .data {
 				max-height: calc(100vh - 200px);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 100px) and (max-width: 275px) {
+	html > body {
+
+		.location-search {
+			.form-inline {
+				text-align: center;
+				
+				.form-group {
+					margin-bottom: 3px;
+				}
+			}
+			
+			.hide-for-small-viewports {
+				display: none;
+			}
+			
+			.percentage {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 275px) and (max-width: 767px) {
+	html > body {
+
+		.location-search {
+			.form-inline {
+				display: flex;
+				
+				.form-group {
+					flex-grow: 1;
+				}
+				
+				button {
+					flex-shrink: 0;
+					flex-grow: 0;
+					padding-top: 0;
+					padding-bottom: 0;
+					height: 34px;
+					margin-left: 3px;
+				}
+			}
+			
+			.hide-for-small-viewports {
+				display: none;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+	html > body {
+		.location-search {
+			h3 {
+				font-size: 20px; /* prevent wrapping of text in the Accessibility Rating (%) column */
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+	html > body {
+		.location-search {
+			.percentage {
+				display: none;
 			}
 		}
 	}
