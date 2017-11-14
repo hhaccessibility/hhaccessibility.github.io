@@ -4,10 +4,10 @@
 	<div class="questions">
 		@foreach ( $question_category->questions()->get() as $question )
 			<div class="row" data-question-id="{{ $question->id }}">
-				<div class="col-xs-6">
+				<div class="col-md-6 col-xs-12">
 					{!! $question->question_html !!}
 				</div>
-				<div class="col-xs-6">
+				<div class="col-md-6 col-xs-12">
 					<div class="row answers">
 						<div class="col-xs-2 @if ( $answer_repository->getAnswerForQuestion($question->id) === 1 )
 							selected
