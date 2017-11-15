@@ -23,8 +23,10 @@
 			@include('includes.rate_report_toggle',
 				array(
 					'location_id' => $location->id,
+					'question_categories' => $question_categories,
 					'question_category_id' => $question_category->id,
-					'is_reporting' => true
+					'is_reporting' => true,
+					'base_url' => '/location-reporting/'
 				))
 			@include('pages.location_report.questions',
 				array(

@@ -31,6 +31,26 @@
 	}
 }
 
+%selectable-question-category {
+	display: block;
+	text-align: center;
+	font-size: 1.5em;
+	padding: 8px;
+	border-bottom: 1px solid #ddd;
+	transition: color 0.2s, background-color 0.2s;
+	
+	&:hover {
+		color: #002;
+		background-color: #c6d8fd;
+	}
+	
+	&.selected {
+		color: #001;
+		border: 1px solid #888;
+		box-shadow: 0 0 5px #888 inset;
+	}
+}
+
 %page-base {
 	padding-left: 10px;
 	padding-right: 10px;

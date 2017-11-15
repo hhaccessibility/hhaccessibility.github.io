@@ -13,7 +13,7 @@
         "universal_rating": 0
     },
     {
-        "address": "",
+        "address": "401 Sunset Avenue; Windsor",
         "data_source_id": 1,
         "external_web_url": "http://web2.uwindsor.ca/pac/campusmap/BU_caw.php",
         "id": 2,
@@ -520,7 +520,7 @@
         "universal_rating": 0
     },
     {
-        "address": "451 PARK AVE W",
+        "address": "451 Park Avenue West",
         "data_source_id": 2,
         "external_web_url": null,
         "id": 89,
@@ -4251,7 +4251,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "377 Riverside Dr E, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 394,
@@ -4537,7 +4537,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "239 W Congress St, Detroit",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 416,
@@ -4615,16 +4615,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "978 University Ave W, Windsor",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.shinshinchinese.com/",
         "id": 422,
         "latitude": 42.3143317,
         "location_group_id": null,
         "longitude": -83.0508531,
         "name": "Shin Shin",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 252-1449",
         "universal_rating": null
     },
     {
@@ -4667,16 +4667,16 @@
         "universal_rating": null
     },
     {
-        "address": "N9A 5P8 493 University Ave W Windsor",
+        "address": "493 University Ave W Windsor N9A 5P8",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/TheWindsorBeerExchange/",
         "id": 426,
         "latitude": 42.3161236,
         "location_group_id": null,
         "longitude": -83.0445282,
         "name": "The Windsor Beer Exchange",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(226) 674-1212",
         "universal_rating": null
     },
     {
@@ -4875,7 +4875,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "255 Ouellette Ave, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 442,
@@ -4940,7 +4940,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "327 Ouellette Ave, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 447,
@@ -19903,7 +19903,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "4240 Cass Avenue #110, Detroit",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 1617,
@@ -19916,7 +19916,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2733 2nd Avenue, Detroit",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 1618,
@@ -19929,7 +19929,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2700 2nd Avenue, Detroit",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 1619,
@@ -19942,7 +19942,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2501 2nd Ave, Detroit",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 1620,
@@ -20033,7 +20033,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "250 Front St W, Toronto",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 1627,
@@ -102570,7 +102570,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "Počernická 631, 100 00 Praha 10",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 8002,
@@ -102579,7 +102579,7 @@
         "longitude": 14.5085551,
         "name": "Italian restaurant Albero",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+420 274 781 811",
         "universal_rating": null
     },
     {
@@ -103942,9 +103942,9 @@
         "latitude": 50.09514674,
         "location_group_id": null,
         "longitude": 14.4849775,
-        "name": "kostel sv. Vojt?cha",
+        "name": "Kostel sv. Vojt?cha",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "603 82 42 83",
         "universal_rating": null
     },
     {
@@ -114922,7 +114922,7 @@
     {
         "address": "",
         "data_source_id": 4,
-        "external_web_url": "",
+        "external_web_url": "https://williamsfreshcafe.com/",
         "id": 8954,
         "latitude": 42.307592,
         "location_group_id": null,
@@ -115016,7 +115016,7 @@
         "external_web_url": "",
         "id": 8961,
         "latitude": 42.306773,
-        "location_group_id": null,
+        "location_group_id": 49,
         "longitude": -83.06867,
         "name": "Second Cup Coffee",
         "owner_user_id": null,

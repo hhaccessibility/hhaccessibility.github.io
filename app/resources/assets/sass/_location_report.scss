@@ -269,6 +269,20 @@
 	}
 }
 
+.location-rating, .location-reporting {
+	.collapsible-menu {
+		display: none;
+
+		a {
+			@extend %selectable-question-category;
+		}
+	}
+
+	.rate-report {
+		display: inline-block;
+	}
+}
+
 // Used in smart_menu.js for locking 
 // the left menu location.
 body.fixed-menu {
@@ -326,23 +340,7 @@ body.fixed-menu {
 			padding-right: 10px;
 
 			a {
-				display: block;
-				text-align: center;
-				font-size: 1.5em;
-				padding: 8px;
-				border-bottom: 1px solid #ddd;
-				transition: color 0.2s, background-color 0.2s;
-				
-				&:hover {
-					color: #002;
-					background-color: #c6d8fd;
-				}
-				
-				&.selected {
-					color: #001;
-					border: 1px solid #888;
-					box-shadow: 0 0 5px #888 inset;
-				}
+				@extend %selectable-question-category;
 			}
 		}
 	}
@@ -360,8 +358,10 @@ body.fixed-menu {
 			float: right;
 			margin-top: 10px;
 			
-			a {
-				@extend %selectable-link;
+			.rate-report {
+				a {
+					@extend %selectable-link;
+				}
 			}
 		}
 		
@@ -387,8 +387,9 @@ body.fixed-menu {
 
 						&.always-required[class] {
 							> div {
-								background-color: #ccc;
+								background-color: #ddd;
 								border-color: #888;
+								color: #777;
 								cursor: not-allowed;
 							}
 						}
@@ -428,10 +429,158 @@ body.fixed-menu {
 	}
 }
 
+@media screen and (min-width: 340px) and (max-width: 380px) {
+	body {
+		#main {
+			.location-reporting, .location-rating {
+				h2 {
+					font-size: 25px;
+					font-size: 7vw;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 340px) {
+	html > body {
+		div#main {
+			> .location-reporting, > .location-rating {
+				.ratings, .rate {
+					.rate-report-toggle {
+						float: none;
+						width: 100%;
+						
+						.rate-report {
+							right: auto;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 320px) {
+	html > body {
+		.location-reporting, .location-rating {
+			
+			.answers > div > div {
+				vertical-align: middle;
+				min-height: 52px;
+				padding-top: auto;
+				padding-bottom: auto;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 379px) {
+	html > body {
+		.location-reporting, .location-rating {
+			h2 {
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
 @media screen and (max-height: 479px) and (min-height: 380px) {
 	body {
 		.location-report .map-and-box .outer-questions-box {
 			@include location-report-box(11, 253);
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		&.fixed-menu {
+			#main {
+				.location-reporting, .location-rating {
+					.rate, .ratings {
+						margin-left: 0;
+					}
+					
+					.collapsible-menu {
+						position: fixed;
+						top: 0;
+					}
+				}
+			}
+		}
+
+		#main {
+			.location-reporting, .location-rating {
+				padding-right: 0;
+				padding-left: 0;
+			
+				h1 {
+					display: block;
+					min-height: 8vw;
+					font-size: 7vw;
+				}
+
+				.menu {
+					display: none;
+				}
+				
+				.questions {
+					margin-right: 5px;
+					margin-left: 5px;
+				}
+
+				.rate-report-toggle {
+					position: relative;
+					width: 183px;
+					height: 30px;
+
+					.rate-report {
+						position: absolute;
+						top: 0;
+						right: 32px;
+					}
+					
+					.collapsible-menu {
+						position: absolute;
+						top: 0;
+						right: 0;
+						display: block;
+						text-align: right;
+						transition: background-color 0.2s;
+
+						span {
+							font-size: 22px;
+							padding-left: 4px;
+							padding-right: 4px;
+							margin-top: 2px;
+							height: 32px;
+						}
+
+						ul {
+							display: none;
+						}
+						
+						&:hover {
+							z-index: 1;
+							width: 100%;
+							width: 95vw;
+							width: calc(100vw - 1em);
+							background-color: rgba(255, 255, 255, 0.4);
+
+							ul {
+								padding: 0;
+								margin: 0;
+								background-color: #fff;
+								list-style-type: none;
+								display: block;
+								box-sizing: border-box;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
