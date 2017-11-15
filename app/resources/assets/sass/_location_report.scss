@@ -387,8 +387,9 @@ body.fixed-menu {
 
 						&.always-required[class] {
 							> div {
-								background-color: #ccc;
+								background-color: #ddd;
 								border-color: #888;
+								color: #777;
 								cursor: not-allowed;
 							}
 						}
