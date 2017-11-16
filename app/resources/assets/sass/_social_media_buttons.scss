@@ -5,10 +5,6 @@
 	padding-bottom: 70px;
 	padding-left: 80px;
 	border-left: 1px solid #bbb;
-
-	&:hover > a > i {
-		text-decoration: none;
-	}
 	
 	> a {
 		display: flex;
@@ -17,6 +13,10 @@
 		padding-top: 1px;
 		margin-top: 25px;
 		border-radius: 3px;
+
+		&:hover {
+			text-decoration: none;
+		}
 		
 		> i {
 			flex-grow: 0;
