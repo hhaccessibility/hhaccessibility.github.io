@@ -1,5 +1,12 @@
 @import "_variables.scss";
 
+@mixin recaptcha-scale($scale) {
+	#rc-imageselect, .g-recaptcha {
+		transform: scale($scale);
+		-webkit-transform: scale($scale);
+	}
+}
+
 @mixin location-report-box($font_size, $height) {
 	margin-top: ( -$height * 0.44 )+px;
 	padding-left: ($height * 0.13)+px;
