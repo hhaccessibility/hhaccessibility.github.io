@@ -5,9 +5,13 @@
 	padding-bottom: 70px;
 	padding-left: 80px;
 	border-left: 1px solid #bbb;
+
+	&:hover > a > i {
+		text-decoration: none;
+	}
 	
 	> a {
-		display: block;
+		display: flex;
 		height: 40px;
 		width: 347px;
 		padding-top: 1px;
@@ -15,6 +19,8 @@
 		border-radius: 3px;
 		
 		> i {
+			flex-grow: 0;
+			flex-shrink: 0;
 			text-align: center;
 			font-size: 25px;
 			width: 53px;
@@ -24,13 +30,13 @@
 		}
 		
 		> div {
+			flex-grow: 1;
 			padding-top: 8px;
 			font-size: 16px;
 			background-color: #fff;
 			text-decoration: none;
 			text-align: center;
 			height: 38px;
-			width: 290px;
 			border-top-right-radius: 2px;
 			border-bottom-right-radius: 2px;
 		}
@@ -45,7 +51,31 @@
 	}
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 350px) {
+	html > body {
+		div.social-media-signins {
+			width: 90vw;
+
+			> a {
+				width: 85vw;
+
+				i {
+					font-size: 8vw;
+					width: 17vw;
+				}
+				
+				> div {
+					width: 65vw;
+					padding-top: 0;
+					line-height: 38px;
+					font-size: 5vw;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 350px) and (max-width: 450px) {
 	html > body {
 
 		div.social-media-signins {

@@ -32,3 +32,34 @@
 		}
 	}
 }
+
+@media screen and (max-width: 320px) {
+	body .signin-form {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 250px) and (max-width: 290px) {
+	body .signin-form {
+		label, a {
+			font-size: 0.9em;
+		}
+
+		a {
+			padding-top: 4px;
+			display: inline-block;
+		}
+	}
+}
+
+@media screen and (max-width: 250px) {
+	body .signin-form {
+		label {
+			display: block;
+		}
+
+		a {
+			float: none !important;
+		}
+	}
+}
