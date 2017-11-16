@@ -1,7 +1,7 @@
 			<div class="rate-report-toggle">
 				<div class="rate-report">
 					<a class="{{ !$is_reporting ? 'selected' : '' }}" href="/location-rating/{{ $location_id }}/{{ $question_category_id }}">Rate</a>
-					<a class="{{ $is_reporting ? 'selected' : '' }}" href="/location-reporting/{{ $location_id }}/{{ $question_category_id }}">Report</a>
+					<a class="{{ $is_reporting ? 'selected' : '' }}" href="/location-reporting/{{ $location_id }}/{{ $question_category_id }}">View</a>
 				</div>
 				<div class="collapsible-menu">
 					<span class="fa fa-bars"></span>
