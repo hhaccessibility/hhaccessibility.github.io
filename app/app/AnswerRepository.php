@@ -7,6 +7,8 @@ use App\UserAnswer;
 use App\Location;
 use App\BaseUser;
 use DB;
+use DateTime;
+use DateTimeZone;
 
 class AnswerRepository
 {
@@ -151,7 +153,7 @@ class AnswerRepository
 	{
 		$user_id = BaseUser::getDbUser()->id;
 		$location_key = 'answers_'.$location_id.'_';
-		$now = date('Y-m-d H:i:s');
+		$now = new DateTime('now', new DateTimeZone('UTC'));
 		$user_answers = [];
 		$review_comments = [];
 		foreach ( Session::all() as $key => $obj )
