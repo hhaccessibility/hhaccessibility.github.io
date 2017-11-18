@@ -24,7 +24,7 @@
 						said,
 						
 						<span class="pull-right">
-						{{ $comment->when_submitted }}
+						{{ $comment->getWhenSubmitted() }}
 						</span>
 					</div>
 					<div class="comment-content">

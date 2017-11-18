@@ -2,6 +2,8 @@
 
 namespace App;
 use Eloquent;
+use DateTime;
+use DateTimeZone;
 
 class ReviewComment extends Eloquent
 {
@@ -23,4 +25,12 @@ class ReviewComment extends Eloquent
         return $this->belongsTo('App\User');
 	}
 	
+	public function getWhenSubmitted()
+	{
+		// UTC is the time zone we assume the when_submitted is saved with.
+		$new_str = new DateTime($this->when_submitted, new DateTimeZone('UTC') );
+		// time zone for display in Windsor, Ontario.
+		$new_str->setTimeZone(new DateTimeZone( 'America/Toronto' ));
+		return $new_str->format('Y-M-d h:i a');
+	}
 }
