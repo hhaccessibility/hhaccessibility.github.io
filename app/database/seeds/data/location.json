@@ -143,16 +143,16 @@
         "universal_rating": 0
     },
     {
-        "address": "910 Raymo Rd",
+        "address": "910 Raymo Rd, Windsor",
         "data_source_id": 2,
-        "external_web_url": null,
+        "external_web_url": "https://sites.google.com/a/wecdsb.on.ca/ccmsweb/",
         "id": 60,
         "latitude": 42.32477123,
         "location_group_id": null,
         "longitude": -82.97520943,
         "name": "Corpus Christi Catholic Middle School",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 946-0260",
         "universal_rating": 0
     },
     {
