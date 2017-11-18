@@ -188,12 +188,12 @@
 						<div class="questions">
 							@foreach ($category->questions()->get() as $question)
 								<div class="checkbox">
-								  <label>
-									@if ($user->isQuestionRequired($required_questions, $question->id))
-									<input name="question_{{ $question->id }}" type="checkbox" checked>
-									@else
-									<input name="question_{{ $question->id }}" type="checkbox">
-									@endif
+									<label>
+										@if ($user->isQuestionRequired($required_questions, $question->id))
+										<input name="question_{{ $question->id }}" type="checkbox" checked>
+										@else
+										<input name="question_{{ $question->id }}" type="checkbox">
+										@endif
 									</label>
 									<div>
 									{!! $question->question_html !!}
