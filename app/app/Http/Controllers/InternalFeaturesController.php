@@ -84,11 +84,15 @@ class InternalFeaturesController extends Controller
 			throw new AuthenticationException('Must be internal user');
 		}
 		$num_user_created_locations = DB::table('location')->whereNotNull('creator_user_id')->count();
+		$num_no_phone_locations = DB::table('location')->whereNull('phone_number')->orWhere('phone_number', '=', '')->count();
+		$num_no_address_locations = DB::table('location')->whereNull('address')->orWhere('address', '=', '')->count();
 		$view_data = [
 		'num_users' => DB::table('user')->count(),
 		'num_users_using_screen_readers' => DB::table('user')->where('uses_screen_reader', '=', 1)->count(),
 		'num_locations' => DB::table('location')->count(),
 		'num_user_created_locations' => $num_user_created_locations,
+		'num_no_address_locations' => $num_no_address_locations,
+		'num_no_phone_locations' => $num_no_phone_locations,
 		'num_location_groups' => DB::table('location_group')->count(),
 		'num_rating_submissions' => count(DB::table('user_answer')
 			->groupBy(['when_submitted', 'answered_by_user_id', 'location_id'])
