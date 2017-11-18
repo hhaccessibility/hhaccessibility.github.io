@@ -53,6 +53,7 @@
 					array(
 						'question_category' => $question_category,
 						'location' => $location,
+						'uses_screen_reader' => $uses_screen_reader,
 						'answer_repository' => $answer_repository
 					))
 			@endif

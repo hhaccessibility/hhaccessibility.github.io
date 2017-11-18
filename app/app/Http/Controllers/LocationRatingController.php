@@ -114,10 +114,12 @@ class LocationRatingController extends Controller {
 		if ( !BaseUser::isSignedIn() ) {
 			return redirect()->intended('/signin');
 		}
-	   $location = Location::find($location_id);
-	   $question_categories = QuestionCategory::with('questions')->get();
-	   $question_category = null;
-	   $next_question_category_id = null;
+	
+		$uses_screen_reader = BaseUser::getDbUser()->uses_screen_reader;
+		$location = Location::find($location_id);
+		$question_categories = QuestionCategory::with('questions')->get();
+		$question_category = null;
+		$next_question_category_id = null;
 
 	   // If no category is specified, pick the first one.
 	   if ( $question_category_id === null && !empty($question_categories) )
@@ -140,6 +142,7 @@ class LocationRatingController extends Controller {
 	   
 	   return view('pages.location_rating.rate', [
 			'location' => $location,
+			'uses_screen_reader' => $uses_screen_reader,
 			'question_category' => $question_category,
 			'question_categories' => $question_categories,
 			'answer_repository' => new AnswerRepository($location_id, $question_category_id),
