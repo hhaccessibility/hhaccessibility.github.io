@@ -53,13 +53,21 @@
 }
 
 @media screen and (max-width: 250px) {
-	body .signin-form {
-		label {
-			display: block;
+	body {
+		.signin-form {
+			label {
+				display: block;
+			}
+
+			a {
+				float: none !important;
+			}
 		}
 
-		a {
-			float: none !important;
+		.sign-in {
+			> div {
+				margin-bottom: 5px;
+			}
 		}
 	}
 }
