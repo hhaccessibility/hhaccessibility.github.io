@@ -1,5 +1,9 @@
 @import "_placeholders.scss";
 
+html > body #main > .home-page {
+	padding-left: 0;
+	padding-right: 0;
+}
 
 .home-page {
 	min-height: 94vh;

@@ -31,12 +31,15 @@
 		}
 
 		.questions > .checkbox {
+			display: flex;
+
 			> label {
 				vertical-align: top;
+				flex-shrink: 0;
 			}
 		
 			> div {
-				display: inline-block;
+				flex-grow: 1;
 			}
 		}
 	}
@@ -167,5 +170,46 @@
 				margin-top: 0;
 			}
 		}		
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	html > body {
+		.profile {
+			h2 {
+				font-size: 6vw;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	html > body {
+		.profile {
+			h1 {
+				font-size: 11.5vw;
+			}
+
+			.box {
+				.form-group > .row {
+					> .col-xs-5, .col-xs-7 {
+						width: 100%;
+					}
+				}
+			}
+
+			.photo-display > p.remove-photo {
+				margin-top: 10px;
+			}
+
+			.ui-accordion-content {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			.ui-accordion-header {
+				padding-left: 0;
+			}
+		}
 	}
 }

@@ -26,3 +26,15 @@
 		}
 	}
 }
+
+@media screen and (max-width: 300px) {
+	html > body {
+		.faq {
+			.faq-items {
+				> div > .answer {
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+}
