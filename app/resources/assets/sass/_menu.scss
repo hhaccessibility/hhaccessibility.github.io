@@ -55,3 +55,17 @@ ul.nav {
 		}
 	}
 }
+
+@media screen and (max-width: 250px) {
+	html > body {
+		#logo {
+			font-size: 10vw;
+			height: 14vw;
+			padding-left: 15vw;
+		}
+
+		header .navbar-inner .nav > li > a {
+			font-size: 6vw;
+		}
+	}
+}

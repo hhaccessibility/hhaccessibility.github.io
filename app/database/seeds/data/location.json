@@ -4682,7 +4682,7 @@
     {
         "address": "551 Hall Avenue Windsor",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/bitworkscanada/",
         "id": 427,
         "latitude": 42.32095,
         "location_group_id": null,
@@ -4693,16 +4693,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1728 Lincoln Rd, Windsor",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.emmanuelunited.org",
         "id": 428,
         "latitude": 42.3032409,
         "location_group_id": null,
         "longitude": -83.0036332,
         "name": "Emmanuel United",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 253-8791",
         "universal_rating": null
     },
     {
@@ -4758,7 +4758,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "121 University Ave W, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 433,
@@ -4767,7 +4767,7 @@
         "longitude": -83.0402307,
         "name": "Capitol Theatre",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 973-1238",
         "universal_rating": null
     },
     {
@@ -4797,9 +4797,9 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "266 Ouellette Ave, Windsor",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.coffeeexchange.ca/",
         "id": 436,
         "latitude": 42.3178629,
         "location_group_id": null,
@@ -4810,20 +4810,20 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "256 Ouellete Ave",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://simonsprimehamburgers.com/windsor/",
         "id": 437,
         "latitude": 42.3179006,
         "location_group_id": null,
         "longitude": -83.0391238,
         "name": "Simon's Prime Burger",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "915-1614",
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "276 Ouellette Ave, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 438,
@@ -4832,7 +4832,7 @@
         "longitude": -83.0390541,
         "name": "Shawarma Palace",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 254-7531",
         "universal_rating": null
     },
     {
@@ -77833,7 +77833,7 @@
     {
         "address": "512 Jarvis Street Toronto, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pg/Gloucester-Square-Inns-of-Toronto-18204541505/photos/?tab=album&album_id=18207986505",
         "id": 6090,
         "latitude": 43.66764636,
         "location_group_id": null,
@@ -77846,14 +77846,14 @@
     {
         "address": "189 Yonge Street Toronto, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.heritagetrust.on.ca/ewg",
         "id": 6091,
         "latitude": 43.6531366,
         "location_group_id": null,
         "longitude": -79.3793735,
         "name": "The Elgin & Winter Garden",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "416-314-2901",
         "universal_rating": null
     },
     {
@@ -77924,14 +77924,14 @@
     {
         "address": "M5A 3C4 28 Distillery Lane Toronto, ON",
         "data_source_id": 3,
-        "external_web_url": "http://www.fermentingcellar.ca/",
+        "external_web_url": "http://www.distilleryevents.com/venues/the-fermenting-cellar.aspx",
         "id": 6097,
         "latitude": 43.6498061,
         "location_group_id": null,
         "longitude": -79.3605381,
         "name": "The Fermenting Cellar",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(647) 849-3264",
         "universal_rating": null
     },
     {
@@ -78351,7 +78351,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "459 Church Street, M4Y 2C5. Toronto",
         "data_source_id": 3,
         "external_web_url": "http://www.thehealthygreek.ca/",
         "id": 6130,
@@ -78360,7 +78360,7 @@
         "longitude": -79.3886613,
         "name": "The Healthy Greek",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "647 435 3568",
         "universal_rating": null
     },
     {
