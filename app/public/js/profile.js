@@ -115,7 +115,9 @@ function downloadRegions()
 }
 
 $( function() {
-	$( "#accordion" ).accordion();
+	$( "#accordion" ).accordion({
+		heightStyle: "content" 
+	});
 	initSelectAllText();
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
