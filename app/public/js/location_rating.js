@@ -81,7 +81,7 @@ function saveCommentFromUI()
 
 function initAnswerBindings()
 {
-	var $answer_buttons = $('.questions .answers > div:not(.always-required)');
+	var $answer_buttons = $('.questions .answers > div:not(.always-required, .disabled)');
 	var $comment = getCommentElement();
 
 	$answer_buttons.bind('click', answerClicked);

@@ -34,9 +34,14 @@
 							Not Required
 							</div>
 						</div>
-						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 3 )
+						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 3 &&
+						!($question->id === 3 && !$uses_screen_reader) )
 							selected
-						@endif" title="I didn't look to see if this criteria is met">
+						@endif
+						@if ( $question->id === 3 && !$uses_screen_reader )
+							disabled
+						@endif
+						" title="I didn't look to see if this criteria is met">
 							<div>
 							Didn't Look
 							</div>
