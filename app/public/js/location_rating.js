@@ -1,4 +1,5 @@
 var promises_remaining = [];
+var comment_saving_promise = undefined;
 
 function blockUnload()
 {
@@ -29,7 +30,12 @@ function processPromise(promise) {
 
 function setComment(comment)
 {
-	processPromise($.ajax({
+	// setComment tries to keep at most 1 comment-related API call active at a time.
+	// This prevents overloading the server with wasteful HTTP requests and controls sequence of the requests so they don't get processed out of order.
+	if( comment_saving_promise ) {
+		return;
+	}
+	comment_saving_promise = $.ajax({
 		'method': 'PUT',
 		'url': '/location-rating/comment',
 		'data': {
@@ -38,7 +44,15 @@ function setComment(comment)
 			'comment': comment,
 			'_token': csrf_token
 		}
-	}));
+	});
+	processPromise(comment_saving_promise);
+	comment_saving_promise.always(function() {
+		comment_saving_promise = undefined;
+		var new_comment = getCommentElement().val();
+		if ( comment !== new_comment ) {
+			setComment(new_comment);
+		}
+	});
 }
 
 function removeAnswer(question_id)
@@ -131,21 +145,24 @@ function processAElements()
 	});
 }
 
+function submitCallback(event)
+{
+	unblockUnload();
+	var form = this;
+	$(form).unbind('submit');
+	if ( promises_remaining.length > 0 ) {
+		event.preventDefault();
+		$.when.apply($, promises_remaining).then(
+			function() {
+				$('.submit input[type="submit"]').click();
+			}
+		);
+	}
+}
+
 function delaySubmit()
 {
-	$('.submit form').submit(function(event) {
-		unblockUnload();
-		var form = this;
-		$(form).unbind('submit');
-		if ( promises_remaining.length > 0 ) {
-			event.preventDefault();
-			$.when.apply($, promises_remaining).then(
-				function() {
-					form.submit();
-				}
-			);
-		}
-	});
+	$('.submit form').submit(submitCallback);
 }
 
 function initAnswerBindings()
