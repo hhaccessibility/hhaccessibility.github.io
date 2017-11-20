@@ -149,6 +149,18 @@ def is_location_of_interest(location_name):
 	return True
 
 
+def find_by_id(list1, id_value):
+	return [element for element in list1 if element['id'] == id_value][0]
+
+
+def merge_location_information(import_config, location, values):
+	fields_to_merge = ['location_group_id', 'address', 'phone_number', 'external_web_url']
+	for field_name in fields_to_merge:
+		val = get_location_field(import_config, field_name, values)
+		if val and not location[field_name]:
+			location[field_name] = val
+
+
 def merge_location(import_config, locations, location_tags,
 location_location_tags, values, location_duplicates):
 	location_name = get_location_field(import_config, 'name', values)
@@ -160,6 +172,7 @@ location_location_tags, values, location_duplicates):
 		locations, values, location_duplicates)
 	if matching_location_id is not None:
 		print('matching location found for ' + location_name + ' id ' + str(matching_location_id))
+		merge_location_information(import_config, find_by_id(locations, matching_location_id), values)
 		return
 
 	new_location = {
