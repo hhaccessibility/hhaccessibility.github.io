@@ -52,7 +52,7 @@ public class LocationExtractor
 		for (File xmlFile: new File(inputDirectory).listFiles())
 		{
 			// Skip directories.
-			if ( !xmlFile.isFile() )
+			if ( !xmlFile.isFile() || !xmlFile.getName().endsWith(".xml")  )
 				continue;
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
