@@ -6552,7 +6552,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "500 Tuscarora St, Windsor",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 577,
@@ -6561,7 +6561,7 @@
         "longitude": -83.02920758333333,
         "name": "Comfort Suites",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 971-0505",
         "universal_rating": null
     },
     {
@@ -17589,16 +17589,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "277 Riverside Dr W, Windsor",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.bestwestern.com/en_US/book/hotels-in-windsor/best-western-plus-waterfront-hotel/propertyCode.66117.html",
         "id": 1438,
         "latitude": 42.31862568,
         "location_group_id": 31,
         "longitude": -83.04309577,
         "name": "Best Western Plus",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 973-5555",
         "universal_rating": null
     },
     {
@@ -17617,7 +17617,7 @@
     {
         "address": "",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://bubbletease.com/",
         "id": 1440,
         "latitude": 43.65676,
         "location_group_id": null,
@@ -17643,7 +17643,7 @@
     {
         "address": "25 Carlton Street Toronto, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://bubbletease.com/",
         "id": 1442,
         "latitude": 43.66111448,
         "location_group_id": null,
@@ -17654,16 +17654,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "53 Scollard Street, Toronto",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://buca.ca/yorkville.html",
         "id": 1443,
         "latitude": 43.6720175,
         "location_group_id": null,
         "longitude": -79.3892236,
-        "name": "BUCA",
+        "name": "Buca Osteria & Bar",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(416) 962-2822",
         "universal_rating": null
     },
     {
