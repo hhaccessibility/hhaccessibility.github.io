@@ -60,10 +60,52 @@ function initMap()
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center); 
 	});
+	google.maps.event.addListener(map, 'click', function(event) {
+    locationInfo(map, event.latLng);
+  	});
 
 	conditionalProcessAddress();
 
 	$('#address').bind('keyup change', delayedProcessAddress);	
+}
+//To calculate the radian value of a point
+var rad = function(x) {
+  return x * Math.PI / 180;
+};
+// To calculate the distance between two points on a map 
+var calculateDistance = function(pt1, pt2) {
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(pt2.lat() - pt1.lat());
+  var dLong = rad(pt2.lng() - pt1.lng());
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(pt1.lat())) * Math.cos(rad(pt2.lat())) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  return d; // returns the distance in meter
+};
+/*
+Maps the clicked coordinates on a map to an addresse and set that addresse as a current location
+*/
+function locationInfo(map, location) {
+	var geocoder = new google.maps.Geocoder();
+        var latlng = {lat: location.lat(), lng: location.lng()};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+        		if (calculateDistance(location,results[0].geometry.location)<=100){
+        			document.getElementById("address").value=results[0].formatted_address;
+        			processAddress();
+        		} else {
+        			document.getElementById("address").value="lat"+location.lat()+" long: "+location.lng();
+        		}
+            } else {
+            	throw new Error('No Results');
+          }
+          } else {
+            throw new Error('Geocode failed for the following reason: '+status);
+          }
+        });
 }
 
 /*
