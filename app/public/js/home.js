@@ -61,7 +61,7 @@ function initMap()
 		map.setCenter(center); 
 	});
 	google.maps.event.addListener(map, 'click', function(event) {
-    locationInfo(map, event.latLng);
+    	locationInfo(map, event.latLng);
   	});
 
 	conditionalProcessAddress();
@@ -100,10 +100,10 @@ function locationInfo(map, location) {
         			document.getElementById("address").value="("+location.lat().toFixed(2)+","+location.lng().toFixed(2)+")";
         		}
             } else {
-            	throw new Error('No Results');
+            	console.error('No Results');
           }
           } else {
-            throw new Error('Geocode failed for the following reason: '+status);
+            console.error('Geocode failed for the following reason: '+status);
           }
         });
 }
