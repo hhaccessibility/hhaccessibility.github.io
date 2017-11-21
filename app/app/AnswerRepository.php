@@ -173,7 +173,12 @@ class AnswerRepository
 						'question_category_id' => $question_category_id,
 						'content' => $comment,
 						'when_submitted' => $now];
-					$review_comments []= $review_comment;
+					
+					// Don't save empty comments.
+					if ( trim($comment) !== '' )
+					{
+						$review_comments []= $review_comment;
+					}
 				}
 				else
 				{

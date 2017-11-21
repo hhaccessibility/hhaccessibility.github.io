@@ -59,6 +59,35 @@ def run_query(db, sql):
 	return db_data
 
 
+def add_missing_data(db, table_names):
+	cursor = db.cursor()
+	for table_name in table_names:
+		json_data = load_seed_data_from(table_name)
+		db_data = run_query(db, 'select id from ' + table_name)
+		db_data = [row['id'] for row in db_data]
+		new_data = [new_row for new_row in json_data if new_row['id'] not in db_data]
+		if len(new_data) > 0:
+			base_insert_sql = 'insert into `' + table_name + '`('
+			for field_name in new_data[0].keys():
+				base_insert_sql += '`' + field_name + '`,'
+
+			base_insert_sql = base_insert_sql[:-1] + ') values(' # remove trailing comma.
+			
+			for new_row in new_data:
+				values = []
+				insert_sql = base_insert_sql
+				for field_name in new_row.keys():
+					values.append(new_row[field_name])
+					insert_sql += '%s,'
+
+				insert_sql = insert_sql[:-1] + ')' # remove trailing comma.
+				print 'Table ' + table_name + ' Inserting ' + str(new_row['id'])
+				print 'SQL: ' + insert_sql
+				print 'values: ' + str(values)
+				cursor.execute(insert_sql, values)
+	db.commit()
+
+
 def set_fields_on_locations(db):
 	locations_data = load_seed_data_from('location')
 
