@@ -69,11 +69,11 @@ function initMap()
 	$('#address').bind('keyup change', delayedProcessAddress);	
 }
 //To calculate the radian value of a point
-var rad = function(x) {
-  return x * Math.PI / 180;
-};
+function rad(pt) {
+  return pt * Math.PI / 180;
+}
 // To calculate the distance between two points on a map 
-var calculateDistance = function(pt1, pt2) {
+function calculateDistance(pt1,pt2){
   var R = 6378137; // Earth’s mean radius in meter
   var dLat = rad(pt2.lat() - pt1.lat());
   var dLong = rad(pt2.lng() - pt1.lng());
@@ -83,7 +83,7 @@ var calculateDistance = function(pt1, pt2) {
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = R * c;
   return d; // returns the distance in meter
-};
+}
 /*
 Maps the clicked coordinates on a map to an addresse and set that addresse as a current location
 */
@@ -97,7 +97,7 @@ function locationInfo(map, location) {
         			document.getElementById("address").value=results[0].formatted_address;
         			processAddress();
         		} else {
-        			document.getElementById("address").value="lat"+location.lat()+" long: "+location.lng();
+        			document.getElementById("address").value="("+location.lat().toFixed(2)+","+location.lng().toFixed(2)+")";
         		}
             } else {
             	throw new Error('No Results');
