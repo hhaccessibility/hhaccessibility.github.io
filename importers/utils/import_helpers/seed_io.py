@@ -14,7 +14,7 @@ def get_seed_file_path_for_table(table_name):
 
 
 def load_seed_data_from(table_name):
-	with open(get_seed_file_path_for_table(table_name)) as seed_file:
+	with open(get_seed_file_path_for_table(table_name), 'rb') as seed_file:
 		return json.load(seed_file)
 
 
@@ -27,5 +27,7 @@ def write_seed_data(table_name, data):
 	if not isinstance(data, list):
 		raise ValueError('write_seed_data data must be a list')
 
-	with open(get_seed_file_path_for_table(table_name), 'w') as seed_file:
-		seed_file.write(json.dumps(data, sort_keys=True, indent=4))
+	with open(get_seed_file_path_for_table(table_name), 'wb') as seed_file:
+		s = json.dumps(data, sort_keys=True, indent=4)
+		s = "\n".join([line.rstrip() for line in s.splitlines()])
+		seed_file.write(s)
