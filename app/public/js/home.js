@@ -61,7 +61,7 @@ function initMap()
 		map.setCenter(center); 
 	});
 	google.maps.event.addListener(map, 'click', function(event) {
-    	locationInfo(map, event.latLng);
+		locationInfo(map, event.latLng);
   	});
 
 	conditionalProcessAddress();
@@ -85,7 +85,7 @@ function calculateDistance(pt1,pt2){
   return d; // returns the distance in meter
 }
 /*
-Maps the clicked coordinates on a map to an addresse and set that addresse as a current location
+Maps the clicked coordinates on a map to an address and set that address as a current location
 */
 function locationInfo(map, location) {
 	var geocoder = new google.maps.Geocoder();
