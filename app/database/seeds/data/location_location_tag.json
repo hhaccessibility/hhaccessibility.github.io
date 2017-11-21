@@ -35143,5 +35143,55 @@
         "id": 7137,
         "location_id": 8965,
         "location_tag_id": 1
+    },
+    {
+        "id": 7138,
+        "location_id": 8966,
+        "location_tag_id": 11
+    },
+    {
+        "id": 7139,
+        "location_id": 8967,
+        "location_tag_id": 11
+    },
+    {
+        "id": 7140,
+        "location_id": 8968,
+        "location_tag_id": 6
+    },
+    {
+        "id": 7141,
+        "location_id": 8970,
+        "location_tag_id": 6
+    },
+    {
+        "id": 7142,
+        "location_id": 8972,
+        "location_tag_id": 2
+    },
+    {
+        "id": 7143,
+        "location_id": 8973,
+        "location_tag_id": 1
+    },
+    {
+        "id": 7144,
+        "location_id": 8975,
+        "location_tag_id": 1
+    },
+    {
+        "id": 7145,
+        "location_id": 8975,
+        "location_tag_id": 12
+    },
+    {
+        "id": 7146,
+        "location_id": 8977,
+        "location_tag_id": 1
+    },
+    {
+        "id": 7147,
+        "location_id": 8978,
+        "location_tag_id": 2
     }
 ]
