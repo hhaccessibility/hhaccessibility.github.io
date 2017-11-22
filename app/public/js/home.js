@@ -60,10 +60,56 @@ function initMap()
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center); 
 	});
-
+	google.maps.event.addListener(map, 'click', function(event) {
+		locationInfo(map, event.latLng);
+  	});
 	conditionalProcessAddress();
-
 	$('#address').bind('keyup change', delayedProcessAddress);	
+}
+//To calculate the radian value of a point
+function rad(pt) {
+  return pt * Math.PI / 180;
+}
+// To calculate the distance between two points on a map 
+function calculateDistance(pt1,pt2){
+  var R = 6378137; // Earth’s mean radius in meter
+  var dLat = rad(pt2.lat() - pt1.lat());
+  var dLong = rad(pt2.lng() - pt1.lng());
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(rad(pt1.lat())) * Math.cos(rad(pt2.lat())) *
+    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  return d; // returns the distance in meter
+}
+/*
+Maps the clicked coordinates on a map to an address and set that address as a current location
+*/
+function locationInfo(map, location)
+{
+	var geocoder = new google.maps.Geocoder();
+    var latlng = {lat: location.lat(), lng: location.lng()};
+    geocoder.geocode({'location': latlng}, function(results, status)
+    {
+    	if (status === 'OK')
+    	{
+            if (results[0])
+            {
+        		if (calculateDistance(location,results[0].geometry.location)<=100)
+        		{
+        			document.getElementById("address").value=results[0].formatted_address;
+        			
+        		} else {
+        			document.getElementById("address").value="("+location.lat().toFixed(5)+","+location.lng().toFixed(5)+")";
+		        }
+		        conditionalProcessAddress();
+			} else {
+					console.error('No Results');
+			}
+		} else {
+			console.error('Geocode failed for the following reason: '+status);
+		}
+ 	});
 }
 
 /*
@@ -85,24 +131,35 @@ function processAddress()
 			//get the latitude and longitude: Note this is part of what I would store to the database or session
 			var latitude = results[0].geometry.location.lat();
 			var longitude = results[0].geometry.location.lng();
-			//center the map at that location
-			map.setCenter(results[0].geometry.location);
-
-			//place the marker on that location
-			if ( marker === undefined )
-			{
-				marker = new google.maps.Marker({
-					map: map
-				});
-			}
-			marker.setPosition(results[0].geometry.location);
+			setMarker(results[0].geometry.location);
 			saveUserLocation(address, latitude, longitude);
-		} else {
-			throw new Error('Geocode was not successful for the following reason: ' + status);
+		} else if (status=="ZERO_RESULTS")
+		{
+			//get the latitude and longitude in case when coordinates are provided in the address field and set the marker as well as string to the database or session
+			var location=address.replace(/[()]/g, '').split(',');
+			var latitude = location[0];
+			var longitude = location[1];
+			setMarker({lat:parseFloat(latitude), lng:parseFloat(longitude)});
+			saveUserLocation(address, latitude, longitude);
+		} else 
+		{
+			console.error('Geocode was not successful for the following reason: ' + status);
 		}
 	});
 }
-
+// Places the marker on a provided location
+function setMarker(location)
+{
+	map.setCenter(location);
+	//place the marker on that location
+	if ( marker === undefined )
+	{
+		marker = new google.maps.Marker({
+			map: map
+		});
+	}
+	marker.setPosition(location);
+}
 /*
 Sends HTTP request to save the location information inside the
 database or session
