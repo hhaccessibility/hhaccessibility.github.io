@@ -114,33 +114,33 @@ class LocationRatingController extends Controller {
 		if ( !BaseUser::isSignedIn() ) {
 			return redirect()->intended('/signin');
 		}
-	
 		$uses_screen_reader = BaseUser::getDbUser()->uses_screen_reader;
 		$location = Location::find($location_id);
-		$question_categories = QuestionCategory::with('questions')->get();
+		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
 		$question_category = null;
 		$next_question_category_id = null;
 
-	   // If no category is specified, pick the first one.
-	   if ( $question_category_id === null && !empty($question_categories) )
-	   {
+		// If no category is specified, pick the first one.
+		if ( $question_category_id === null && !empty($question_categories) )
+		{
 			$question_category_id = $question_categories[0]->id;
-	   }
-	   if ( $question_category_id !== null )
-	   {
+		}
+		if ( $question_category_id !== null )
+		{
 			$question_category = QuestionCategory::find($question_category_id);
-	   }
-	   if ( $question_category_id )
-	   {
-			$next_question_category = QuestionCategory::where('id', '>', $question_category_id)
-				->first();
+		}
+		if ( $question_category_id )
+		{
+			$next_question_category = QuestionCategory::where('name', '>', $question_category->name)
+				->orderBy('name', 'ASC')->first();
+			
 			if ( $next_question_category )
 			{
 				$next_question_category_id = $next_question_category->id;
 			}
-	   }
+		}
 	   
-	   return view('pages.location_rating.rate', [
+		return view('pages.location_rating.rate', [
 			'location' => $location,
 			'uses_screen_reader' => $uses_screen_reader,
 			'question_category' => $question_category,
