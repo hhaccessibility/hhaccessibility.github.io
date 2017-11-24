@@ -4,6 +4,7 @@ namespace App;
 use Eloquent;
 use DateTime;
 use DateTimeZone;
+use DateInterval;
 
 class ReviewComment extends Eloquent
 {
@@ -28,9 +29,21 @@ class ReviewComment extends Eloquent
 	public function getWhenSubmitted()
 	{
 		// UTC is the time zone we assume the when_submitted is saved with.
-		$new_str = new DateTime($this->when_submitted, new DateTimeZone('UTC') );
-		// time zone for display in Windsor, Ontario.
-		$new_str->setTimeZone(new DateTimeZone( 'America/Toronto' ));
-		return $new_str->format('Y-M-d h:i a');
+		$when_submitted = new DateTime($this->when_submitted, new DateTimeZone('UTC') );
+		
+		// Adjust the UTC time based on the user's current time zone offset.
+		$when_submitted->sub(new DateInterval('PT' . BaseUser::getTimeZoneOffset() . 'M'));
+		$resulting_format = 'Y-M-d h:i a';
+		
+		// if more than more than a week ago, give date without time.
+		// This mitigates a time zone change problem where times before a 
+		// change will display with the new offset.
+		$diff_from_now = (new DateTime("now"))->diff($when_submitted);
+		if( intval($diff_from_now->format('%a')) > 7 )
+		{
+			$resulting_format = 'Y-M-d';
+		}
+		
+		return $when_submitted->format($resulting_format);
 	}
 }

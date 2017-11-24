@@ -16,13 +16,14 @@ class LocationReportController extends Controller {
 		$question_category_id = intval($question_category_id);
 		$question_category = QuestionCategory::find($question_category_id);
 		$view_data = [
+			'time_zone_offset' => BaseUser::getTimeZoneOffset(),
 			'location' => $location,
 			'question_categories' => $question_categories,
 			'question_category' => $question_category,
 			'comments' => $question_category
 				->comments()
 				->where('location_id', '=', $location_id)
-				->orderBy('when_submitted')
+				->orderBy('when_submitted', 'DESC')
 				->limit(10)
 				->get()
 		];

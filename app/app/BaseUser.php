@@ -252,6 +252,23 @@ class BaseUser
 	{
 		Session::forget(['email']);
 	}
+	
+	public static function setTimeZoneOffset(int $timeZoneOffset)
+	{
+		Session::put('time_zone_offset', $timeZoneOffset);
+	}
+	
+	public static function getTimeZoneOffset()
+	{
+		if ( Session::has('time_zone_offset') )
+		{
+			return Session::get('time_zone_offset');
+		}
+		else
+		{
+			return 300;
+		}
+	}
 
 	/**
 	* send verification email to user's email
