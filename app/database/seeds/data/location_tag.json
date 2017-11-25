@@ -1,14 +1,14 @@
 [
-{"id": 1, "name": "Restaurant", "description": "Fast-food, cafe, diner..."},
-{"id": 2, "name": "Accommodation", "description": "Hotel, motel, b&b, hostel..."},
-{"id": 3, "name": "Shopping", "description": "Retail store, mall, grocery store, jewelry, hair cutting/styling..."},
-{"id": 4, "name": "Healthcare", "description": "Hospital, clinic, pharmacy, laboratories, health centre, dental, optometrist.... any medical building"},
-{"id": 5, "name": "Financial", "description": "Bank, ATM, accounting & tax service, loans..."},
-{"id": 6, "name": "Education", "description": "School, university, college, library, special education centre, museum..."},
-{"id": 7, "name": "Sports & Recreation", "description": "Gym, sports equipment store, recreational centre, swimming pool, sport club..."},
-{"id": 8, "name": "Parks", "description": "Public parks, amusement parks..."},
-{"id": 9, "name": "Public service", "description": "Government building, post office, tourist information..."},
-{"id": 10, "name": "Transportation", "description": "Public transit, bus, subway, train, airport, fuel station, car repair..."},
-{"id": 11, "name": "Association & Organization", "description": "Not for profit organization, NGO, convention centre, religious building, rotary club..."},
-{"id": 12, "name": "Arts & Entertainment", "description": "Nightclub, theatre, cinema, art gallery..."}
+{"id": 1, "name": "Restaurant", "description": "Fast-food, cafe, diner...", "icon_selector": "fa fa-cutlery"},
+{"id": 2, "name": "Accommodation", "description": "Hotel, motel, b&b, hostel...", "icon_selector": "fa fa-bed"},
+{"id": 3, "name": "Shopping", "description": "Retail store, mall, grocery store, jewelry, hair cutting/styling...", "icon_selector": "fa fa-shopping-bag"},
+{"id": 4, "name": "Healthcare", "description": "Hospital, clinic, pharmacy, laboratories, health centre, dental, optometrist.... any medical building", "icon_selector": "fa fa-h-square"},
+{"id": 5, "name": "Financial", "description": "Bank, ATM, accounting & tax service, loans...", "icon_selector": "fa fa-usd"},
+{"id": 6, "name": "Education", "description": "School, university, college, library, special education centre, museum...", "icon_selector": "fa fa-graduation-cap"},
+{"id": 7, "name": "Sports & Recreation", "description": "Gym, sports equipment store, recreational centre, swimming pool, sport club...", "icon_selector": "fa fa-futbol-o"},
+{"id": 8, "name": "Parks", "description": "Public parks, amusement parks...", "icon_selector": "fa fa-tree"},
+{"id": 9, "name": "Public service", "description": "Government building, post office, tourist information...", "icon_selector": "fa fa-university"},
+{"id": 10, "name": "Transportation", "description": "Public transit, bus, subway, train, airport, fuel station, car repair...", "icon_selector": "fa fa-car"},
+{"id": 11, "name": "Association & Organization", "description": "Not for profit organization, NGO, convention centre, religious building, rotary club...", "icon_selector": "fa fa-sitemap"},
+{"id": 12, "name": "Arts & Entertainment", "description": "Nightclub, theatre, cinema, art gallery...", "icon_selector": "fa fa-paint-brush"}
 ]
