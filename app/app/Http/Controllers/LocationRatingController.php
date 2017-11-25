@@ -141,6 +141,7 @@ class LocationRatingController extends Controller {
 		}
 	   
 		return view('pages.location_rating.rate', [
+			'time_zone_offset' => BaseUser::getTimeZoneOffset(),
 			'location' => $location,
 			'uses_screen_reader' => $uses_screen_reader,
 			'question_category' => $question_category,

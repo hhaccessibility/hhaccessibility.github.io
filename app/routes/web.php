@@ -57,6 +57,7 @@ Route::put('location-rating/answer', 'LocationRatingController@setAnswer');
 Route::delete('location-rating/answer', 'LocationRatingController@removeAnswer');
 Route::put('location-rating/comment', 'LocationRatingController@setComment');
 Route::post('location-rating-commit', 'LocationRatingController@commitReview');
+Route::post('time-zone', 'TimeZoneController@setTimeZone');
 
 Route::get('contact', 'ContactController@index');
 Route::post('contact', 'ContactController@sendMessage');
