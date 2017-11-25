@@ -1,0 +1,49 @@
+/*
+This is where to put SCSS for the location report that shows a map.
+
+There is some SCSS in _location_report.scss that should be moved here but that's not 
+been moved yet to prevent Prince from having extra rebasing difficulties. 
+*/
+
+.location-report {
+	.location-tags {
+		padding: 0;
+
+		.icon {
+			display: none;
+		}
+	}
+
+	&.show-location-tag-icons {
+		.location-tag {
+			.icon {
+				display: block;
+				font-size: 30px;
+			}
+			
+			.name {
+				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+	html body .location-report.show-location-tag-icons {
+		.location-tag {
+			.icon {
+				font-size: 5.5vw;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+	html body .location-report.show-location-tag-icons {
+		.location-tag {
+			.icon {
+				font-size: 4vw;
+			}
+		}
+	}
+}

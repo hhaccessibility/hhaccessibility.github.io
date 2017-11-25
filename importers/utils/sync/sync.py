@@ -88,6 +88,15 @@ def add_missing_data(db, table_names):
 	db.commit()
 
 
+def set_fields_on_location_tags(db):
+	print 'setting fields on location_tags table'
+	location_tags_data = load_seed_data_from('location_tag')
+	cursor = db.cursor()
+	for location_tag in location_tags_data:
+		update_sql = 'update location_tag set icon_selector=%s where id=%s'
+		cursor.execute(update_sql, (location_tag['icon_selector'], location_tag['id']))
+
+
 def set_fields_on_locations(db):
 	locations_data = load_seed_data_from('location')
 

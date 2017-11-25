@@ -49,12 +49,15 @@
 			<address>{{ $location->address }}</address>
 			<a href="{{ $location->getExternalWebURL() }}">{{ $location->getExternalWebURL() }}</a>
 		</div>
-		<div class="col-xs-7 text-right location-tags">
+		<div class="col-xs-7 text-right">
+			<div class="location-tags">
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
-				<a class="location-tag" href="/location-search?location_tag_id={{ $location_tag->id }}">
-					{{ $location_tag->name }}
+				<a class="location-tag" title="{{ $location_tag->name }}" href="/location-search?location_tag_id={{ $location_tag->id }}">
+					<span class="name">{{ $location_tag->name }}</span>
+					<span class="icon {{ $location_tag->icon_selector }}"></span>
 				</a>
 			@endforeach
+			</div>
 		</div>
 	</div>
 	@if ( $is_internal_user )
