@@ -269,6 +269,16 @@ class BaseUser
 			return 300;
 		}
 	}
+	
+	public static function setLocationSearchPath(string $location_search_path)
+	{
+		Session::put('location_search_path', $location_search_path);
+	}
+	
+	public static function getLocationSearchPath()
+	{
+		return Session::get('location_search_path');
+	}
 
 	/**
 	* send verification email to user's email
