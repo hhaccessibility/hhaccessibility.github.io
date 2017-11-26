@@ -376,6 +376,8 @@ class LocationSearchController extends Controller {
 		{
 			\App::abort(422, 'Either keywords or location_tag_id must be specified');
 		}
+		BaseUser::setLocationSearchPath('/'.$request->path().'?'.$request->getQueryString());
+		
 		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);		
 		$locationsResult = getSortedLocations($locationsQuery, $view, $order_by_field_name);
 

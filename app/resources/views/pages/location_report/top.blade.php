@@ -1,9 +1,14 @@
 	<div class="title">
-		@if (isset($question_category_id))
-			<h1><a href="/location-report/{{ $location->id }}/{{ $rating_system }}">{{ $location->name }}</a></h1>
-		@else
-			<h1>{{ $location->name }}</h1>
-		@endif
+		<div class="search-and-title">
+			@if ($location_search_path)
+				<a href="{{ $location_search_path }}" title="Latest Location Search" class="fa fa-search"></a>
+			@endif
+			@if (isset($question_category_id))
+				<h1><a href="/location-report/{{ $location->id }}/{{ $rating_system }}">{{ $location->name }}</a></h1>
+			@else
+				<h1>{{ $location->name }}</h1>
+			@endif
+		</div>
 		<div class="universal-personal">
 			<a class="{{ $rating_system === 'universal' ? 'selected' : '' }}"
 				href="/location-report/{{ $location->id }}/universal{{

@@ -8,7 +8,9 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class LocationReportController extends Controller {
-
+	/*
+	Shows location rating "View" on a specific question category like 'Amenities'.
+	*/
     public function show2(string $location_id, $question_category_id)
 	{
 		$location = Location::find($location_id);
@@ -30,6 +32,9 @@ class LocationReportController extends Controller {
 		return view('pages.location_report.question_category_report', $view_data);
 	}
 
+	/*
+	Shows location report with map
+	*/
     public function show(string $location_id, $rating_system = null)
     {
 		if ($rating_system !== 'personal') {
@@ -38,6 +43,7 @@ class LocationReportController extends Controller {
 		$location = Location::find($location_id);
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
 		$view_data = [
+			'location_search_path' => BaseUser::getLocationSearchPath(),
 			'location' => $location,
 			'question_categories' => $question_categories,
 			'google_map_api_key' => config('app.google_map_api_key'),

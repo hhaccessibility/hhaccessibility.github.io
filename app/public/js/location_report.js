@@ -30,7 +30,6 @@ function updateShowLocationTagIcons() {
 		// reports(with only 1 tag) but not others(with many like Devonshire Mall).
 		location_tag_width_when_expanded = Math.max(200, location_tag_width_when_expanded);
 	}
-	console.log('w = ' + location_tag_width_when_expanded);
 	var $container = $('.location-tags');
 	if( location_tag_width_when_expanded !== undefined && location_tag_width_when_expanded > $container.outerWidth() ) {
 		showLocationTagIcons();

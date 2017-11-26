@@ -6,6 +6,36 @@ been moved yet to prevent Prince from having extra rebasing difficulties.
 */
 
 .location-report {
+	.title {
+		display: flex;
+
+		.search-and-title {
+			flex-grow: 1;
+			display: flex;
+			width: 100%;
+
+			a {
+				font-size: 28px;
+				flex-grow: 0;
+				flex-shrink: 0;
+				padding-top: 5px;
+				width: 35px;
+			}
+			
+			h1 {
+				flex-grow: 1;
+				line-height: 40px;
+				vertical-align: middle;
+			}
+		}
+		
+		.universal-personal {
+			width: 205px;
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+
 	.location-tags {
 		padding: 0;
 
@@ -28,21 +58,66 @@ been moved yet to prevent Prince from having extra rebasing difficulties.
 	}
 }
 
-@media screen and (min-width: 400px) and (max-width: 600px) {
-	html body .location-report.show-location-tag-icons {
-		.location-tag {
-			.icon {
-				font-size: 5.5vw;
+@media screen and (min-width: 767px) and (max-width: 991px) {
+	html body .location-report {
+		.title {
+			display: block;
+
+			h1 {
+				font-size: 28px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 400px) and (max-width: 767px) {
+	html body .location-report {
+		.title {
+			display: block;
+
+			a {
+				padding-top: 2px;
+			}
+
+			h1 {
+				font-size: 4.1vw;
+			}
+		}
+		&.show-location-tag-icons {
+			.location-tag {
+				padding-left: 7px;
+				padding-right: 7px;
+
+				.icon {
+					font-size: 5.5vw;
+				}
 			}
 		}
 	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 400px) {
-	html body .location-report.show-location-tag-icons {
-		.location-tag {
-			.icon {
+	html body .location-report {	
+		.title {
+			display: block;
+
+			a {
+				padding-top: 0;
+			}
+
+			h1 {
 				font-size: 4vw;
+			}
+		}
+
+		&.show-location-tag-icons {
+			.location-tag {
+				padding-left: 5px;
+				padding-right: 5px;
+			
+				.icon {
+					font-size: 4vw;
+				}
 			}
 		}
 	}
