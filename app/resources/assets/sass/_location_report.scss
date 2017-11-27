@@ -40,14 +40,11 @@
 		}
 		
 		.outer-questions-box {
-			background-image: url('../images/arrow.png');
-			background-repeat: no-repeat;
-			background-position: 0 center;
 			position: absolute;
-			top: 50%;
-			left: 50%;
+			top: 0;
+			right: 0;
+			left:75%;
 			margin-left: 20px;
-			margin-top: -200px;
 			padding-left: 40px;
 		
 			.questions-box {
