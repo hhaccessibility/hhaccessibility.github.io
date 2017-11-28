@@ -49,11 +49,6 @@ function updateHeightOfMap() {
 
   $map.height(height);
   $map_parent.height(height);
-  
-  $questionBox = $('.questions-box');
-  var questionBoxHeight = $questionBox.height();
-  var questionBoxTop = Math.max(0, (height - questionBoxHeight) / 2);
-	$questionBox.css('top', Math.round(questionBoxTop) + 'px');
 }
 $(window).resize(function() {
 	updateHeightOfMap();
