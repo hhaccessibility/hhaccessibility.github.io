@@ -8,8 +8,6 @@
 }
 
 @mixin location-report-box($font_size, $height) {
-	margin-top: ( -$height * 0.44 )+px;
-	padding-left: ($height * 0.13)+px;
 
 	.questions-box {
 		max-width: ( $height * 0.95 )+px;
