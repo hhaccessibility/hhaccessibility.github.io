@@ -46,6 +46,7 @@ Route::get('user-report/{user_id}', 'InternalFeaturesController@showUserReport')
 Route::get('users', 'InternalFeaturesController@showUsers');
 Route::get('location-groups', 'InternalFeaturesController@showLocationGroupsReport');
 Route::get('dashboard', 'InternalFeaturesController@showDashboard');
+Route::get('map-location-visualizer', 'InternalFeaturesController@showMapVisualizer');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
 Route::get('location-report/{location_id}/{rating_system}', 'LocationReportController@show');
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');

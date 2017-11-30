@@ -1,0 +1,8 @@
+.map-location-visualizer {
+	@extend %page-base;
+
+	#map {
+		height: calc(100vh - 150px);
+		min-height: 400px;
+	}
+}

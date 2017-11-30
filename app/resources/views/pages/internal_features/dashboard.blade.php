@@ -10,7 +10,7 @@
 				<ul>
 					<li><a href="/users"><span>{{ $num_users }}</span> users</a></li>
 					<li><span>{{ $num_users_using_screen_readers }}</span> user(s) use screen readers</li>
-					<li><span>{{ $num_locations }}</span> locations</li>
+					<li><span>{{ $num_locations }}</span> locations (<a href="/map-location-visualizer">visualizer</a>)</li>
 					<li><span>{{ $num_user_created_locations }}</span> locations created by users</li>
 					<li><span>{{ $num_no_address_locations }}</span> locations with blank addresses</li>
 					<li><span>{{ $num_no_phone_locations }}</span> locations with blank phone numbers</li>
