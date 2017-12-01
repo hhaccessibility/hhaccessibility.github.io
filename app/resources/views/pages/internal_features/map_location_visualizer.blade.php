@@ -17,5 +17,9 @@
 	<h1>Map Location Visualizer</h1>
 	<div id="map">
 	</div>
+	Coordinates removed are:
+	<textarea>
+	</textarea>
 </div>
+
 @stop

@@ -17,7 +17,7 @@ function initMap() {
 	var map = new google.maps.Map(mapDiv, options);
 
 	locations.filter(function(location) {
-		return !location.address || location.address === '';
+		return !location.address || location.address.trim() === '';
 	}).forEach(function(location) {
 
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
@@ -25,11 +25,13 @@ function initMap() {
 		var locationMarker = new google.maps.Marker({
 		  position: {lat: location.latitude, lng: location.longitude},
 		  map: map,
-		  title: location.name
+		  title: location.name + '(' + location.id + ')'
 		});
 
 		google.maps.event.addListener(locationMarker, 'click', function() {
-			window.location.href = '/location-report/' + location.id;
+			var textarea = document.getElementsByTagName('textarea')[0];
+			textarea.value += "\n" + location.latitude + ', ' + location.longitude;
+			locationMarker.setMap(null);
 		});
 	});
 }

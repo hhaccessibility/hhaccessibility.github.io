@@ -74,25 +74,29 @@ def remove_place_ids_to_skip(places):
 	return [place for place in places if place.place_id not in place_ids_to_skip]
 
 
+def get_places_for_circular_search(lat, lng, radius_meters):
+	query_result = google_places.nearby_search(
+		lat_lng={'lat': lat, 'lng': lng},
+		radius=radius_meters)
+	results = query_result.places
+	if query_result.has_next_page_token:
+		print 'Will send another request for more results after short delay' 
+		time.sleep(3)
+		query_result_next_page = google_places.nearby_search(
+			pagetoken=query_result.next_page_token)
+		results.extend(query_result_next_page.places)
+	return results
+
+
 def get_places():
 	results = []
-	delta = 0.02
+	delta = 0.005
 	for x in range(-1, 2):
 		for y in range(-1, 2):
-			lat = 42.2569622 + (delta * x)
-			lng = -83.0112237 + (delta * y)
+			lat = 42.3337237 + (delta * x)
+			lng = -83.0482347 + (delta * y)
 			print 'Requesting for lat=' + str(lat) + ', long=' + str(lng) 
-			query_result = google_places.nearby_search(
-				lat_lng={'lat': lat, 'lng': lng},
-				radius=2000)
-			results.extend(query_result.places)
-			if query_result.has_next_page_token:
-				print 'Will send another request for more results after short delay' 
-				time.sleep(3)
-				query_result_next_page = google_places.nearby_search(
-					pagetoken=query_result.next_page_token)
-				results.extend(query_result_next_page.places)
-				query_request = query_result_next_page
+			results.extend(get_places_for_circular_search(lat, lng, 100))
 
 	return remove_place_ids_to_skip(remove_duplicate_places(results))
 
