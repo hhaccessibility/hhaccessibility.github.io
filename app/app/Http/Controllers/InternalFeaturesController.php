@@ -15,6 +15,21 @@ function compareByName($named1, $named2)
 
 class InternalFeaturesController extends Controller
 {
+	public function showMapVisualizer()
+	{
+		if ( !BaseUser::isInternal() ) {
+			throw new AuthenticationException('Must be internal user');
+		}
+		
+		$location_data = DB::table('location')->get();
+		$view_data = [
+			'locations' => json_encode($location_data),
+			'google_map_api_key' => config('app.google_map_api_key')
+		];
+		
+		return view('pages.internal_features.map_location_visualizer', $view_data);
+	}
+	
 	public function showLocationGroupsReport()
 	{
 		if ( !BaseUser::isInternal() ) {
