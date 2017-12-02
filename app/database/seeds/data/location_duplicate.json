@@ -38,5 +38,19 @@
 {"id": 37, "location_id": 5849, "name": "Saint Stephen's & Church of the Redeemer", "data_source_id": 3, "external_id": null},
 {"id": 38, "location_id": 103, "name": "Southwood School", "data_source_id": 3, "external_id": "23414498"},
 {"id": 39, "location_id": 7035, "name": "Vollmer Culture and Recreation Complex", "data_source_id": 3, "external_id": "488481934"},
-{"id": 40, "location_id": 7568, "name": "Shalom Fellowship Internaitonal", "data_source_id": 3, "external_id": "373558001"}
+{"id": 40, "location_id": 7568, "name": "Shalom Fellowship Internaitonal", "data_source_id": 3, "external_id": "373558001"},
+{"id": 41, "location_id": 423, "name": "Rose Convenience 1", "data_source_id": 6, "external_id": "ChIJBQK1iBwtO4gR-NhJCp9yLew"},
+{"id": 42, "location_id": 5482, "name": "South Windsor Recreation Complex", "data_source_id": 6, "external_id": null},
+{"id": 43, "location_id": 7028, "name": "Nemak Windsor Aluminum Plant", "data_source_id": 6, "external_id": null},
+{"id": 44, "location_id": 7456, "name": "MicMac Park", "data_source_id": 3, "external_id": null},
+{"id": 45, "location_id": 3095, "name": "HSBC Bank", "data_source_id": 6, "external_id": "ChIJhyGT1xEsO4gRZK3AuZlqMIA"},
+{"id": 46, "location_id": 405, "name": "May Wah Inn Chinese Cuisine", "data_source_id": 6, "external_id": "ChIJD6EOX20tO4gR7gMAzyEdH98"},
+{"id": 47, "location_id": 405, "name": "Mei Wah", "data_source_id": 3, "external_id": null},
+{"id": 48, "location_id": 429, "name": "Classic Bingo IV", "data_source_id": 6, "external_id": "ChIJ3zRS-pcsO4gRD9U9boZGrnw"},
+{"id": 49, "location_id": 7016, "name": "Tetreault's valu-mart", "data_source_id": 6, "external_id": "ChIJ18o_SBrNOogRNJVQGpETc50"},
+{"id": 50, "location_id": 7497, "name": "St. Denis Athletic & Community Centre", "data_source_id": 6, "external_id": "ChIJQQDy8Z4tO4gRtHkGFiEfVAY"},
+{"id": 51, "location_id": 7018, "name": "Ontario Provincial Police", "data_source_id": 6, "external_id": "ChIJvW6aNDDMOogRCutJwHvpMPk"},
+{"id": 52, "location_id": 581, "name": "Biology Building", "data_source_id": 6, "external_id": "ChIJOcRoF3ctO4gRkNKu462OD2Q"},
+{"id": 53, "location_id": 392, "name": "Windsor Police Headquarters", "data_source_id": 6, "external_id": "ChIJuS1y6x8tO4gR37caT-7usrU"},
+{"id": 54, "location_id": 689, "name": "Caesars Windsor", "data_source_id": 6, "external_id": "ChIJXx5FfrksO4gReswUvMeNSZs"}
 ]
