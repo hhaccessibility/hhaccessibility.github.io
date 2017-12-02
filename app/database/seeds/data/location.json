@@ -2899,7 +2899,7 @@
         "universal_rating": 0
     },
     {
-        "address": "Prince Rd.",
+        "address": "Prince Rd. Windsor",
         "data_source_id": 2,
         "external_web_url": null,
         "id": 283,
@@ -4238,16 +4238,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "Goyeau Street Essex County Canada",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.police.windsor.on.ca/",
         "id": 392,
         "latitude": 42.3189942,
         "location_group_id": null,
         "longitude": -83.0371477,
         "name": "Windsor Police HQ",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "Windsor Police Headquarters",
         "universal_rating": null
     },
     {
@@ -4396,7 +4396,7 @@
     {
         "address": "1689 University Ave W, Windsor, ON N9B 1C3",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pages/May-Wah-Inn-Chinese-Cuisine/131279003561305",
         "id": 405,
         "latitude": 42.3115825,
         "location_group_id": null,
@@ -4628,7 +4628,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "406 Wyandotte Street West Essex County Canada",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 423,
@@ -4637,7 +4637,7 @@
         "longitude": -83.041095,
         "name": "Rose Convenience",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-252-9018",
         "universal_rating": null
     },
     {
@@ -4706,7 +4706,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1385 Walker Rd, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 429,
@@ -4715,7 +4715,7 @@
         "longitude": -83.0021354,
         "name": "Classic Bingo",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-977-1010",
         "universal_rating": null
     },
     {
@@ -5343,16 +5343,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "298 Walker Rd. Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.viarail.ca/en/explore-our-destinations/stations/ontario/windsor",
         "id": 479,
         "latitude": 42.32521578461539,
         "location_group_id": null,
         "longitude": -83.00827302307692,
         "name": "Windsor Station",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(888) 842-7245",
         "universal_rating": null
     },
     {
@@ -5421,16 +5421,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "350 City Hall Square W",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.citywindsor.ca/cityhall/Pages/City-Hall.aspx",
         "id": 486,
         "latitude": 42.317360254545456,
         "location_group_id": null,
         "longitude": -83.03534294545453,
         "name": "City Hall",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 255-6515",
         "universal_rating": null
     },
     {
@@ -5447,7 +5447,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "572 McDougall St, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 489,
@@ -5456,7 +5456,7 @@
         "longitude": -83.03235976363636,
         "name": "Windsor Arena",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 256-4549",
         "universal_rating": null
     },
     {
@@ -5499,7 +5499,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2072 Riverside Dr E, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 494,
@@ -5508,20 +5508,7 @@
         "longitude": -83.01608944324326,
         "name": "Hiram Walkers",
         "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 495,
-        "latitude": 42.32557926,
-        "location_group_id": null,
-        "longitude": -83.01147962,
-        "name": "Hiram Walkers",
-        "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 254-5171",
         "universal_rating": null
     },
     {
@@ -6613,7 +6600,7 @@
         "longitude": -83.0664527125,
         "name": "Biology",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "519-253-3000 ext. 2695",
         "universal_rating": null
     },
     {
@@ -6695,7 +6682,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "781 Sunset Ave, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 589,
@@ -7956,9 +7943,9 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "377 Riverside Dr E, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.caesars.com/caesars-windsor",
         "id": 689,
         "latitude": 42.320102734969325,
         "location_group_id": null,
@@ -7992,19 +7979,6 @@
         "name": "Windsor Regional Hospital - Ouellette Campus",
         "owner_user_id": null,
         "phone_number": "+1 519-973-4411",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 693,
-        "latitude": 42.31651527297298,
-        "location_group_id": null,
-        "longitude": -83.0254338243243,
-        "name": "Saint Michael's Alternate Catholic High School",
-        "owner_user_id": null,
-        "phone_number": "",
         "universal_rating": null
     },
     {
@@ -8073,20 +8047,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 703,
-        "latitude": 42.107272959999996,
-        "location_group_id": null,
-        "longitude": -83.13549831,
-        "name": "Powder House Island",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
+        "address": "Ontario L0E 1S0",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 704,
@@ -8125,7 +8086,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "73 North St, Amherstburg, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 707,
@@ -8151,7 +8112,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "50 North St, Amherstburg, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 709,
@@ -8160,11 +8121,11 @@
         "longitude": -83.11288723999999,
         "name": "Toddy Jones",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 736-5712",
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "50 North St, Amherstburg, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 710,
@@ -8173,7 +8134,7 @@
         "longitude": -83.11271466086957,
         "name": "Splash Pad",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 736-5712",
         "universal_rating": null
     },
     {
@@ -39026,7 +38987,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "3205 Howard Ave, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 3095,
@@ -39035,7 +38996,7 @@
         "longitude": -83.0047372,
         "name": "Hong Kong and Shanghai Bank",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 888-310-4722",
         "universal_rating": null
     },
     {
@@ -45266,7 +45227,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "3165 Howard Ave, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "http://www.lcbo.com/",
         "id": 3578,
@@ -45275,7 +45236,7 @@
         "longitude": -83.00582381,
         "name": "LCBO",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 972-1772",
         "universal_rating": null
     },
     {
@@ -58981,7 +58942,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1770 Huron Church Rd, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 4634,
@@ -58990,7 +58951,7 @@
         "longitude": -83.0110582,
         "name": "Pizza Hut",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 252-5570",
         "universal_rating": null
     },
     {
@@ -69992,16 +69953,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2555 Pulford Rd, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.citywindsor.ca/residents/facilities-for-rent/pages/south-windsor-recreation-complex.aspx",
         "id": 5482,
         "latitude": 42.25782192,
         "location_group_id": null,
         "longitude": -83.03556242,
         "name": "South Windsor Arena",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 966-6040",
         "universal_rating": null
     },
     {
@@ -89791,16 +89752,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "345 Notre Dame St, Belle River, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.valumart.ca/store-locator/?storeId=0456",
         "id": 7016,
         "latitude": 42.2933327,
         "location_group_id": null,
         "longitude": -82.6999455,
         "name": "valu-mart",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-728-3404",
         "universal_rating": null
     },
     {
@@ -89817,7 +89778,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "775 Notre Dame St, Belle River, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 7018,
@@ -89826,7 +89787,7 @@
         "longitude": -82.718678,
         "name": "OPP",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-728-1810",
         "universal_rating": null
     },
     {
@@ -89843,7 +89804,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "333 South St, Belle River, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 7020,
@@ -89852,7 +89813,7 @@
         "longitude": -82.70942182,
         "name": "Belle River District High School",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 728-1212",
         "universal_rating": null
     },
     {
@@ -89869,16 +89830,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "494 St Peter St, Belle River, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://mail.wecdsb.on.ca/~208/",
         "id": 7022,
         "latitude": 42.2897897235294,
         "location_group_id": null,
         "longitude": -82.70648231176469,
         "name": "St John The Baptist Catholic School",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 728-2150",
         "universal_rating": null
     },
     {
@@ -89908,22 +89869,22 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1025 Sprucewood Avenue Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.ambassadorgolfclub.com/",
         "id": 7026,
         "latitude": 42.25203823076924,
         "location_group_id": null,
         "longitude": -83.08236062307694,
         "name": "Ambassador Golf Club",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "519-966-2425",
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "5555 Ojibway Pkwy, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://windsorstar.com/news/local-news/hope-for-return-of-horses-at-windsor-raceway-dies-as-wreckers-move-in",
         "id": 7027,
         "latitude": 42.258835232,
         "location_group_id": null,
@@ -89934,16 +89895,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "4600 G N Booth Dr Windsor, ON N9C 4G8 G N Booth Drive Essex County Canada",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://www.nemak.com/",
         "id": 7028,
         "latitude": 42.27612332857143,
         "location_group_id": null,
         "longitude": -83.08630307142857,
         "name": "Nemak",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-250-2500",
         "universal_rating": null
     },
     {
@@ -90168,7 +90129,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "13430 Tecumseh Rd E, Tecumseh, ON",
         "data_source_id": 3,
         "external_web_url": "http://mamoburgerbar.com/",
         "id": 7050,
@@ -90177,7 +90138,7 @@
         "longitude": -82.8684178,
         "name": "Mamo Burger",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 735-3999",
         "universal_rating": null
     },
     {
@@ -90194,16 +90155,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "13605 St Gregory's Rd, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pages/%C3%89cole-secondaire-lEssor/106144369417415",
         "id": 7052,
         "latitude": 42.3147037,
         "location_group_id": null,
         "longitude": -82.8633064,
         "name": "L'Essor High School (French)",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 735-4115",
         "universal_rating": null
     },
     {
@@ -90217,19 +90178,6 @@
         "name": "Shields Clean",
         "owner_user_id": null,
         "phone_number": "519-956-8824",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 7054,
-        "latitude": 42.32255818,
-        "location_group_id": null,
-        "longitude": -82.88374575,
-        "name": "Bert Lacasse Park Baseball Facility",
-        "owner_user_id": null,
-        "phone_number": "",
         "universal_rating": null
     },
     {
@@ -90324,16 +90272,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "Lesperance Rd, Windsor, Ontario",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 7063,
         "latitude": 42.3110969,
         "location_group_id": null,
         "longitude": -82.88638968,
-        "name": "St. Anne",
+        "name": "St. Anne Church",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 979-4271",
         "universal_rating": null
     },
     {
@@ -93366,16 +93314,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "5550 Maplewood Dr, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.adm.com/adm-worldwide/canada",
         "id": 7299,
         "latitude": 42.26497022,
         "location_group_id": null,
         "longitude": -83.10077764,
         "name": "ADM Milling",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 972-8100",
         "universal_rating": null
     },
     {
@@ -93431,7 +93379,7 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1640 Huron Church Rd, Windsor, ON",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 7304,
@@ -93440,7 +93388,7 @@
         "longitude": -83.05735778,
         "name": "Ambassador Plaza",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 973-5380",
         "universal_rating": null
     },
     {
@@ -94175,19 +94123,6 @@
         "address": "",
         "data_source_id": 3,
         "external_web_url": "",
-        "id": 7361,
-        "latitude": 42.27810829,
-        "location_group_id": null,
-        "longitude": -83.10304566,
-        "name": "Detroit-Windsor Truck Ferry",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
         "id": 7362,
         "latitude": 42.31671136,
         "location_group_id": null,
@@ -94731,20 +94666,20 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1855 Huron Church Road, Windsor, ON",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "https://www.holidayinn.com/hotels/us/en/windsor/yqgca/hoteldetail",
         "id": 7404,
         "latitude": 42.281027,
         "location_group_id": null,
         "longitude": -83.0545887,
         "name": "Holiday Inn",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 966-1200",
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "1711 Junction St, Detroit, MI",
         "data_source_id": 3,
         "external_web_url": "",
         "id": 7405,
@@ -94753,7 +94688,7 @@
         "longitude": -83.10150655,
         "name": "Holy Redeemer School",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 313-841-5230",
         "universal_rating": null
     },
     {
@@ -95319,19 +95254,6 @@
         "address": "",
         "data_source_id": 3,
         "external_web_url": "",
-        "id": 7449,
-        "latitude": 42.3115825,
-        "location_group_id": null,
-        "longitude": -83.0582349,
-        "name": "Mei Wah",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
         "id": 7450,
         "latitude": 42.32398576,
         "location_group_id": null,
@@ -95402,19 +95324,6 @@
         "location_group_id": null,
         "longitude": -83.0816562,
         "name": "Michigan Welcome Center",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "",
-        "data_source_id": 3,
-        "external_web_url": "",
-        "id": 7456,
-        "latitude": 42.285106,
-        "location_group_id": null,
-        "longitude": -83.07253985,
-        "name": "MicMac Park",
         "owner_user_id": null,
         "phone_number": "",
         "universal_rating": null
@@ -95940,16 +95849,16 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2555 College Avenue Essex County Canada",
         "data_source_id": 3,
-        "external_web_url": "http://web2.uwindsor.ca/pac/campusmap/BU_stdenis.php",
+        "external_web_url": "http://uwindsor.ca/campusrec",
         "id": 7497,
         "latitude": 42.29902089,
         "location_group_id": 1,
         "longitude": -83.06148496,
         "name": "St. Denis Centre",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-253-3000",
         "universal_rating": null
     },
     {
@@ -96449,7 +96358,7 @@
     {
         "address": "",
         "data_source_id": 3,
-        "external_web_url": "",
+        "external_web_url": "http://wikimapia.org/11555970/Ontario-Power-JC-Keith-TS",
         "id": 7536,
         "latitude": 42.2808783,
         "location_group_id": null,
@@ -114595,9 +114504,9 @@
         "universal_rating": null
     },
     {
-        "address": "",
+        "address": "2990 Riverside Dr. W. Windsor, Ontario",
         "data_source_id": 4,
-        "external_web_url": "http://web2.uwindsor.ca/pac/campusmap/BU_glier.php",
+        "external_web_url": "https://www.facebook.com/GLIERUWINDSOR/",
         "id": 8933,
         "latitude": 42.30752,
         "location_group_id": 1,
@@ -117585,19 +117494,6 @@
         "universal_rating": null
     },
     {
-        "address": "377 Riverside Drive East Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "https://www.caesars.com/caesars-windsor?utm_campaign=GMB&utm_source=google&utm_medium=local&utm_term=CaesarsWindsor&utm_content=Hotel",
-        "id": 9165,
-        "latitude": 42.3201287,
-        "location_group_id": null,
-        "longitude": -83.0335051,
-        "name": "Caesars Windsor",
-        "owner_user_id": null,
-        "phone_number": "+1 800-991-7777",
-        "universal_rating": null
-    },
-    {
         "address": "1 Hanna Street West Essex County Canada",
         "data_source_id": 6,
         "external_web_url": "http://www.impact-staffing.com/",
@@ -119064,19 +118960,6 @@
         "name": "Jump 'N' Party",
         "owner_user_id": null,
         "phone_number": "+1 519-252-3866",
-        "universal_rating": null
-    },
-    {
-        "address": "Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.citywindsor.ca/residents/facilities-for-rent/pages/south-windsor-recreation-complex.aspx",
-        "id": 9279,
-        "latitude": 42.25763190000001,
-        "location_group_id": null,
-        "longitude": -83.0358955,
-        "name": "South Windsor Recreation Complex",
-        "owner_user_id": null,
-        "phone_number": "+1 519-966-6040",
         "universal_rating": null
     },
     {
@@ -121222,19 +121105,6 @@
         "name": "Secretary of State office",
         "owner_user_id": null,
         "phone_number": "+1 888-767-6424",
-        "universal_rating": null
-    },
-    {
-        "address": "4600 G N Booth Dr Windsor, ON N9C 4G8 G N Booth Drive Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.nemak.com/",
-        "id": 9446,
-        "latitude": 42.276638,
-        "location_group_id": null,
-        "longitude": -83.0836411,
-        "name": "Nemak Windsor Aluminum Plant",
-        "owner_user_id": null,
-        "phone_number": "+1 519-250-2500",
         "universal_rating": null
     },
     {
@@ -131313,19 +131183,6 @@
         "universal_rating": null
     },
     {
-        "address": "775 Notre Dame Street Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "https://www.opp.ca/",
-        "id": 10222,
-        "latitude": 42.2938658,
-        "location_group_id": null,
-        "longitude": -82.7187896,
-        "name": "Ontario Provincial Police",
-        "owner_user_id": null,
-        "phone_number": "+1 519-728-1810",
-        "universal_rating": null
-    },
-    {
         "address": "2455 Wyandotte Street West Essex County Canada",
         "data_source_id": 6,
         "external_web_url": "",
@@ -131336,19 +131193,6 @@
         "name": "Joyce innovation Centre University of Windsor",
         "owner_user_id": null,
         "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "Goyeau Street Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.police.windsor.on.ca/",
-        "id": 10224,
-        "latitude": 42.319173,
-        "location_group_id": null,
-        "longitude": -83.0373448,
-        "name": "Windsor Police Headquarters",
-        "owner_user_id": null,
-        "phone_number": "+1 519-258-6111",
         "universal_rating": null
     },
     {
@@ -131934,19 +131778,6 @@
         "name": "University of Windsor Conference and Accommodation Centre",
         "owner_user_id": null,
         "phone_number": "+1 519-973-7041",
-        "universal_rating": null
-    },
-    {
-        "address": "406 Wyandotte Street West Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "",
-        "id": 10271,
-        "latitude": 42.31286279999999,
-        "location_group_id": null,
-        "longitude": -83.04110279999999,
-        "name": "Rose Convenience 1",
-        "owner_user_id": null,
-        "phone_number": "+1 519-252-9018",
         "universal_rating": null
     },
     {
@@ -132639,19 +132470,6 @@
         "universal_rating": null
     },
     {
-        "address": "450 Patricia Road Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "",
-        "id": 10325,
-        "latitude": 42.3057678,
-        "location_group_id": null,
-        "longitude": -83.0663878,
-        "name": "Biology Building",
-        "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
         "address": "Essex County Canada",
         "data_source_id": 6,
         "external_web_url": "",
@@ -132688,19 +132506,6 @@
         "name": "Blue Apple",
         "owner_user_id": null,
         "phone_number": "+1 519-252-9451",
-        "universal_rating": null
-    },
-    {
-        "address": "1689 University Avenue West Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://maywahinn.com/",
-        "id": 10329,
-        "latitude": 42.3116286,
-        "location_group_id": null,
-        "longitude": -83.0581725,
-        "name": "May Wah Inn Chinese Cuisine",
-        "owner_user_id": null,
-        "phone_number": "+1 519-256-4755",
         "universal_rating": null
     },
     {
@@ -133003,19 +132808,6 @@
         "universal_rating": null
     },
     {
-        "address": "3205 Howard Avenue Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.hsbc.ca/",
-        "id": 10353,
-        "latitude": 42.2724166,
-        "location_group_id": null,
-        "longitude": -83.0046862,
-        "name": "HSBC Bank",
-        "owner_user_id": null,
-        "phone_number": "+1 888-310-4722",
-        "universal_rating": null
-    },
-    {
         "address": "1695 University Avenue West Essex County Canada",
         "data_source_id": 6,
         "external_web_url": "http://chorneyoptometry.com/",
@@ -133065,19 +132857,6 @@
         "name": "ClaimsPro Inc",
         "owner_user_id": null,
         "phone_number": "+1 519-258-3555",
-        "universal_rating": null
-    },
-    {
-        "address": "1385 Walker Road Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "",
-        "id": 10358,
-        "latitude": 42.3116878,
-        "location_group_id": null,
-        "longitude": -83.00219729999999,
-        "name": "Classic Bingo IV",
-        "owner_user_id": null,
-        "phone_number": "+1 519-977-1010",
         "universal_rating": null
     },
     {
@@ -133221,32 +133000,6 @@
         "name": "Ste-Anne's Parish",
         "owner_user_id": null,
         "phone_number": "+1 519-735-2182",
-        "universal_rating": null
-    },
-    {
-        "address": "345 Notre Dame Street Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "https://www.valumart.ca/store-locator/?storeId=0456",
-        "id": 10370,
-        "latitude": 42.293315,
-        "location_group_id": null,
-        "longitude": -82.699683,
-        "name": "Tetreault's valu-mart",
-        "owner_user_id": null,
-        "phone_number": "+1 519-728-3404",
-        "universal_rating": null
-    },
-    {
-        "address": "2555 College Avenue Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://uwindsor.ca/campusrec",
-        "id": 10371,
-        "latitude": 42.2989874,
-        "location_group_id": null,
-        "longitude": -83.06126479999999,
-        "name": "St. Denis Athletic & Community Centre",
-        "owner_user_id": null,
-        "phone_number": "+1 519-253-3000",
         "universal_rating": null
     }
 ]

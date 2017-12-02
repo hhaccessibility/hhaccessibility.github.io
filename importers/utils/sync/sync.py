@@ -99,11 +99,16 @@ def set_fields_on_location_tags(db):
 
 def set_fields_on_locations(db):
 	locations_data = load_seed_data_from('location')
+	
+	for location in locations_data:
+		if location['external_web_url'] and len(location['external_web_url'])> 255:
+			print 'external_web_url for location ' + str(location['id']) + ' is too long at ' + str(len(location['external_web_url'])) + '.'
+			return
 
-	# We're only concerned with locations that have either address, phone number or both so 
+	# We're only concerned with locations that have either address, phone number, external_web_url or any combination so 
 	# let's filter out the useless data.
 	# This may boost efficiency of the m*n time loop below by reducing m considerably.
-	locations_data = [location for location in locations_data if location['address'] or location['phone_number']]
+	locations_data = [location for location in locations_data if location['address'] or location['phone_number'] or location['external_web_url']]
 
 	fields = ['address', 'phone_number', 'external_web_url']
 	location_query = 'select * from location where 0'
@@ -135,6 +140,62 @@ def set_fields_on_locations(db):
 				print 'running: ' + update_sql
 				cursor.execute(update_sql, field_values)
 	db.commit()
+
+
+def safely_remove_removed_locations(db):
+	locations_data = load_seed_data_from('location')
+	json_location_ids = [loc['id'] for loc in locations_data]
+	locations_with_answers = run_query(db, 
+		'select distinct location_id from user_answer union distinct select distinct location_id from review_comment')
+	locations_with_answers = [loc['location_id'] for loc in locations_with_answers]
+	locations_in_db = run_query(db, 'select id from location where creator_user_id is null')
+	locations_safe_to_delete = [loc['id'] for loc in locations_in_db if loc['id'] not in locations_with_answers]
+	locations_to_delete = [id for id in locations_safe_to_delete if id not in json_location_ids]
+	if len(locations_to_delete) > 0:
+		id_list = '('
+		for location_id in locations_to_delete:
+			id_list += '%s, '
+
+		id_list = id_list[:-2] # remove trailing comma.
+		id_list += ')'
+
+		delete_location_location_tag_sql = 'delete from location_location_tag where location_id in ' + id_list
+		stringified_ids = [str(id) for id in locations_to_delete]
+		print 'removing locations: ' + (', '.join(stringified_ids))
+		cursor = db.cursor()
+		cursor.execute(delete_location_location_tag_sql, locations_to_delete)
+		delete_location_sql = 'delete from location where id in ' + id_list
+		cursor.execute(delete_location_sql, locations_to_delete)
+		db.commit()
+
+
+def add_locations_not_conflicting_with_user_added_locations(db):		
+	locations_data = load_seed_data_from('location')
+	location_location_tags = load_seed_data_from('location_location_tag')
+	json_location_ids = [loc['id'] for loc in locations_data]
+	locations_in_db = run_query(db, 'select id from location')
+	locations_in_db = [loc['id'] for loc in locations_in_db]
+	locations_to_add = [id for id in json_location_ids if id not in locations_in_db]
+	if len(locations_to_add) > 0:
+		cursor = db.cursor()
+		insert_sql = 'insert into location('
+		for field in locations_data[0].keys():
+			insert_sql += '`' + field + '`,'
+		insert_sql = insert_sql[:-1] + ') values('
+		for field in locations_data[0].keys():
+			insert_sql += '%s,'
+		insert_sql = insert_sql[:-1] + ')'
+		location_tag_insert_sql = 'insert into location_location_tag(location_id, location_tag_id) values(%s, %s)'
+		for location in locations_to_add:
+			print 'Adding location ' + str(location)
+			# find location by id.
+			location = [loc for loc in locations_data if loc['id'] == location][0]
+			cursor.execute(insert_sql, location.values())
+			location_tags = [loct for loct in location_location_tags if loct['location_id'] == location['id']]
+			for location_tag in location_tags:
+				cursor.execute(location_tag_insert_sql, (location_tag['location_id'], location_tag['location_tag_id']))
+		db.commit()
+
 
 if __name__ == 'main':
 	set_fields_on_locations(get_db_connection())
