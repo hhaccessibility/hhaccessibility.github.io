@@ -117715,19 +117715,6 @@
         "universal_rating": null
     },
     {
-        "address": "2320 Wyandotte Street West Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.greenbeancoffee.ca/",
-        "id": 9183,
-        "latitude": 42.305348,
-        "location_group_id": null,
-        "longitude": -83.062584,
-        "name": "Green Bean Caf\u00e9",
-        "owner_user_id": null,
-        "phone_number": "+1 519-997-4710",
-        "universal_rating": null
-    },
-    {
         "address": "477 Michigan Avenue Wayne County United States",
         "data_source_id": 6,
         "external_web_url": "https://www.nlrb.gov/region/detroit",
@@ -120595,7 +120582,7 @@
         "latitude": 42.2318431,
         "location_group_id": null,
         "longitude": -82.9734316,
-        "name": "WINMAR Property Restoration Specialists \u2013 Windsor",
+        "name": "WINMAR Property Restoration Specialists Windsor",
         "owner_user_id": null,
         "phone_number": "+1 519-737-0001",
         "universal_rating": null
@@ -126419,7 +126406,7 @@
         "latitude": 42.32073440000001,
         "location_group_id": null,
         "longitude": -83.0354842,
-        "name": "Atrium Courtyard\u2122 food court",
+        "name": "Atrium Courtyard food court",
         "owner_user_id": null,
         "phone_number": "+1 800-991-7777",
         "universal_rating": null
@@ -131144,19 +131131,6 @@
         "universal_rating": null
     },
     {
-        "address": "1689 University Avenue West Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "",
-        "id": 10219,
-        "latitude": 42.3113944,
-        "location_group_id": null,
-        "longitude": -83.0583705,
-        "name": "\u4f0d\u5c11\u58f0\u7259\u533b\u8bca\u6240",
-        "owner_user_id": null,
-        "phone_number": "+1 519-977-8685",
-        "universal_rating": null
-    },
-    {
         "address": "401 Sunset Avenue Essex County Canada",
         "data_source_id": 6,
         "external_web_url": "",
@@ -132961,19 +132935,6 @@
         "name": "Tyler Jones",
         "owner_user_id": null,
         "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "2320 Wyandotte Street West Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.jlpc15.com/",
-        "id": 10367,
-        "latitude": 42.3053082,
-        "location_group_id": null,
-        "longitude": -83.06258919999999,
-        "name": "\uc708\uc800\ud55c\uc778\uc8fc\uae30\uc068\uad50\ud68c",
-        "owner_user_id": null,
-        "phone_number": "+1 226-975-8291",
         "universal_rating": null
     },
     {
