@@ -148,7 +148,7 @@ def safely_remove_removed_locations(db):
 	locations_with_answers = run_query(db, 
 		'select distinct location_id from user_answer union distinct select distinct location_id from review_comment')
 	locations_with_answers = [loc['location_id'] for loc in locations_with_answers]
-	locations_in_db = run_query(db, 'select id from location')
+	locations_in_db = run_query(db, 'select id from location where creator_user_id is null')
 	locations_safe_to_delete = [loc['id'] for loc in locations_in_db if loc['id'] not in locations_with_answers]
 	locations_to_delete = [id for id in locations_safe_to_delete if id not in json_location_ids]
 	if len(locations_to_delete) > 0:
@@ -166,6 +166,34 @@ def safely_remove_removed_locations(db):
 		cursor.execute(delete_location_location_tag_sql, locations_to_delete)
 		delete_location_sql = 'delete from location where id in ' + id_list
 		cursor.execute(delete_location_sql, locations_to_delete)
+		db.commit()
+
+
+def add_locations_not_conflicting_with_user_added_locations(db):		
+	locations_data = load_seed_data_from('location')
+	location_location_tags = load_seed_data_from('location_location_tag')
+	json_location_ids = [loc['id'] for loc in locations_data]
+	locations_in_db = run_query(db, 'select id from location')
+	locations_in_db = [loc['id'] for loc in locations_in_db]
+	locations_to_add = [id for id in json_location_ids if id not in locations_in_db]
+	if len(locations_to_add) > 0:
+		cursor = db.cursor()
+		insert_sql = 'insert into location('
+		for field in locations_data[0].keys():
+			insert_sql += '`' + field + '`,'
+		insert_sql = insert_sql[:-1] + ') values('
+		for field in locations_data[0].keys():
+			insert_sql += '%s,'
+		insert_sql = insert_sql[:-1] + ')'
+		location_tag_insert_sql = 'insert into location_location_tag(location_id, location_tag_id) values(%s, %s)'
+		for location in locations_to_add:
+			print 'Adding location ' + str(location)
+			# find location by id.
+			location = [loc for loc in locations_data if loc['id'] == location][0]
+			cursor.execute(insert_sql, location.values())
+			location_tags = [loct for loct in location_location_tags if loct['location_id'] == location['id']]
+			for location_tag in location_tags:
+				cursor.execute(location_tag_insert_sql, (location_tag['location_id'], location_tag['location_tag_id']))
 		db.commit()
 
 
