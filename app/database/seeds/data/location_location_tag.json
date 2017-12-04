@@ -28895,16 +28895,6 @@
         "location_tag_id": 9
     },
     {
-        "id": 5896,
-        "location_id": 7456,
-        "location_tag_id": 7
-    },
-    {
-        "id": 5897,
-        "location_id": 7456,
-        "location_tag_id": 8
-    },
-    {
         "id": 5898,
         "location_id": 7457,
         "location_tag_id": 11
@@ -39530,16 +39520,6 @@
         "location_tag_id": 11
     },
     {
-        "id": 8042,
-        "location_id": 9437,
-        "location_tag_id": 8
-    },
-    {
-        "id": 8043,
-        "location_id": 9437,
-        "location_tag_id": 11
-    },
-    {
         "id": 8044,
         "location_id": 9438,
         "location_tag_id": 11
@@ -39603,21 +39583,6 @@
         "id": 8056,
         "location_id": 9445,
         "location_tag_id": 9
-    },
-    {
-        "id": 8057,
-        "location_id": 9446,
-        "location_tag_id": 10
-    },
-    {
-        "id": 8058,
-        "location_id": 9446,
-        "location_tag_id": 11
-    },
-    {
-        "id": 8059,
-        "location_id": 9446,
-        "location_tag_id": 3
     },
     {
         "id": 8060,
