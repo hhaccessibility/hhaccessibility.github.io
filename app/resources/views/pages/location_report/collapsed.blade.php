@@ -62,6 +62,7 @@
 	</div>
 	@if ( $is_internal_user )
 		<a class="modify-location" href="/location-modify/{{ $location->id }}">Modify</a>
+		<a class="find-duplicate-location" href="/duplicate-location-finder?location_id={{ $location->id }}">Find Duplicates</a>
 	@endif
 	<div class="map-and-box">
 		<div id="map">
