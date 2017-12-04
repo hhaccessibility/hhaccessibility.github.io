@@ -52,5 +52,22 @@
 {"id": 51, "location_id": 7018, "name": "Ontario Provincial Police", "data_source_id": 6, "external_id": "ChIJvW6aNDDMOogRCutJwHvpMPk"},
 {"id": 52, "location_id": 581, "name": "Biology Building", "data_source_id": 6, "external_id": "ChIJOcRoF3ctO4gRkNKu462OD2Q"},
 {"id": 53, "location_id": 392, "name": "Windsor Police Headquarters", "data_source_id": 6, "external_id": "ChIJuS1y6x8tO4gR37caT-7usrU"},
-{"id": 54, "location_id": 689, "name": "Caesars Windsor", "data_source_id": 6, "external_id": "ChIJXx5FfrksO4gReswUvMeNSZs"}
+{"id": 54, "location_id": 689, "name": "Caesars Windsor", "data_source_id": 6, "external_id": "ChIJXx5FfrksO4gReswUvMeNSZs"},
+{"id": 55, "location_id": 391, "name": "Ontario Travel Information Centre - Windsor", "data_source_id": 6, "external_id": "ChIJIfFRJh4tO4gRIv7bHTHm6pI"},
+{"id": 56, "location_id": 548, "name": "Windsor Public Library - Central", "data_source_id": 6, "external_id": null},
+{"id": 57, "location_id": 437, "name": "Simon's Prime Time Hamburgers", "data_source_id": 6, "external_id": "ChIJGf2FAR8tO4gRfaTIjgnjZIs"},
+{"id": 58, "location_id": 439, "name": "Downtown Cigar Shop", "data_source_id": 6, "external_id": "ChIJOUpx_h4tO4gRXLI-qtvBUS8"},
+{"id": 59, "location_id": 435, "name": "Villains", "data_source_id": 6, "external_id": null},
+{"id": 60, "location_id": 577, "name": "Comfort Suites Downtown", "data_source_id": 6, "external_id": null},
+{"id": 61, "location_id": 40, "name": "Greyhound Canada", "data_source_id": 6, "external_id": null},
+{"id": 62, "location_id": 40, "name": "Transit Windsor Terminal", "data_source_id": 6, "external_id": null},
+{"id": 63, "location_id": 40, "name": "Windsor International Transit Terminal", "data_source_id": 3, "external_id": null},
+{"id": 64, "location_id": 40, "name": "Transit Terminal at Chatham", "data_source_id": 3, "external_id": null},
+{"id": 65, "location_id": 40, "name": "Windsor Transit Terminal", "data_source_id": 6, "external_id": "ChIJSzwzAxktO4gRE2ES0dqzb7w"},
+{"id": 67, "location_id": 158, "name": "Francois Baby House", "data_source_id": 6, "external_id": null},
+{"id": 68, "location_id": 158, "name": "Fran\u00e7ois Baby House", "data_source_id": 3, "external_id": null},
+{"id": 69, "location_id": 8939, "name": "School of Social Work Building", "data_source_id": 6, "external_id": "ChIJga9o1BgtO4gRe8MnBlQwH9Q"},
+{"id": 70, "location_id": 1438, "name": "Best Western Plus Waterfront Hotel", "data_source_id": 6, "external_id": null},
+{"id": 71, "location_id": 132, "name": "St. Clair College Centre for the Arts", "data_source_id": 6, "external_id": null},
+{"id": 72, "location_id": 132, "name": "Center Of The Arts Campus", "data_source_id": 6, "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E"}
 ]

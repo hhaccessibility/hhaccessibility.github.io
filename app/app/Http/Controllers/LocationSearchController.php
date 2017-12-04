@@ -3,6 +3,7 @@
 use App\LocationTag;
 use App\Location;
 use App\BaseUser;
+use App\Libraries\Gis;
 use Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -40,11 +41,7 @@ function updateDistances(array $locations)
 	$user = new BaseUser();
 	$longitude = $user->getLongitude();
 	$latitude = $user->getLatitude();
-	foreach ($locations as $location)
-	{
-		$location->distance = BaseUser::getDirectDistance(
-			$longitude, $latitude, $location->longitude, $location->latitude);
-	}
+	\App\Libraries\Gis::updateDistancesFromPoint($longitude, $latitude, $locations);
 }
 
 function updateRatings(array $locations)
@@ -102,62 +99,12 @@ function calculateBucketHeightLimit($buckets, $max)
 	return $minResult;
 }
 
-function getLatitudeAndLongitudeRange($lat, $lon, $searchRadiusKm)
-{
-	$earthRadius = 6371; // km
-	// If search radius is larger than the Earth's radius, 
-	// we can't filter down at all here.
-	if ( $searchRadiusKm >= $earthRadius * 0.99 )
-	{
-		$maxLat = 89.99;
-		$minLat = -89.99;
-		$maxLon = 179.99;
-		$minLon = -179.99;
-	}
-	else
-	{
-		$r = $searchRadiusKm / $earthRadius;
-		$latDelta = rad2deg($r);
-		$maxLat = $lat + $latDelta;
-		$minLat = $lat - $latDelta;
-		if ( $maxLat >= 90 || $minLat <= -90 )
-		{
-			$maxLon = 179.99;
-			$minLon = -179.99;
-		}
-		else
-		{
-			$latR = deg2rad($lat);
-			$asinInput = sin($r) / cos($latR);
-			if ( abs($asinInput) > 1 )
-			{
-				$maxLon = 179.99;
-				$minLon = -179.99;
-			}
-			else
-			{
-				$lonDelta = rad2deg(asin( $asinInput ));
-				$lon = BaseUser::getLongitude();
-				$maxLon = $lon + $lonDelta;
-				$minLon = $lon - $lonDelta;
-			}
-		}
-	}
-
-	return [
-		'maxLat' => $maxLat,
-		'minLat' => $minLat,
-		'maxLon' => $maxLon,
-		'minLon' => $minLon
-	];
-}
-
 function getLatitudeAndLongitudeRangeFromBaseUser()
 {
 	$searchRadius = BaseUser::getSearchRadius(); // km
 	$lat = BaseUser::getLatitude();
 	$lon = BaseUser::getLongitude();
-	return getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
+	return \App\Libraries\Gis::getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
 }
 
 /**
@@ -171,13 +118,7 @@ function filterLatitudeAndLongitude($locationsQuery)
 {
 	$range = getLatitudeAndLongitudeRangeFromBaseUser();
 
-	$locationsQuery = $locationsQuery->
-		where('latitude', '<=', $range['maxLat'])->
-		where('latitude', '>=', $range['minLat'])->
-		where('longitude', '>=', $range['minLon'])->
-		where('longitude', '<=', $range['maxLon']);
-
-	return $locationsQuery;
+	return \App\Libraries\Gis::filterLatitudeAndLongitudeToRange($locationsQuery, $range);
 }
 
 function filterLocationsToMax($locations, $max)
@@ -188,7 +129,7 @@ function filterLocationsToMax($locations, $max)
 		$searchRadius = BaseUser::getSearchRadius();
 		$lat = BaseUser::getLatitude();
 		$lon = BaseUser::getLongitude();
-		$range = getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
+		$range = \App\Libraries\Gis::getLatitudeAndLongitudeRange($lat, $lon, $searchRadius);
 		$buckets = [];
 		$gridSize = 10;
 		for ( $i = -$gridSize; $i < $gridSize; $i ++ )
@@ -228,19 +169,6 @@ function filterLocationsToMax($locations, $max)
 		];
 }
 
-function filterTooDistant($locations)
-{
-	// Remove locations that are too far away.
-	$filtered_locations = [];
-	$search_radius = BaseUser::getSearchRadius();
-	foreach ($locations as $location) {
-		if ( $location->distance <= $search_radius ) {
-			$filtered_locations []= $location;
-		}
-	}
-	return $filtered_locations;
-}
-
 function getSortedLocations($locationsQuery, $view, $order_by_field_name)
 {
 	// Order by id just to clarify that any filtering will be deterministic.
@@ -254,7 +182,7 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name)
 	}
 	$locations = $loc_array;
 	updateDistances($locations);
-	$locations = filterTooDistant($locations);
+	$locations = \App\Libraries\Gis::filterTooDistant($locations, BaseUser::getSearchRadius());
 
 	$locationsResult = filterLocationsToMax($locations, 50);
 	$locations = $locationsResult['locations'];
