@@ -42,7 +42,7 @@
 {"id": 41, "location_id": 423, "name": "Rose Convenience 1", "data_source_id": 6, "external_id": "ChIJBQK1iBwtO4gR-NhJCp9yLew"},
 {"id": 42, "location_id": 5482, "name": "South Windsor Recreation Complex", "data_source_id": 6, "external_id": null},
 {"id": 43, "location_id": 7028, "name": "Nemak Windsor Aluminum Plant", "data_source_id": 6, "external_id": null},
-{"id": 44, "location_id": 7456, "name": "MicMac Park", "data_source_id": 3, "external_id": null},
+{"id": 44, "location_id": 283, "name": "MicMac Park", "data_source_id": 3, "external_id": null},
 {"id": 45, "location_id": 3095, "name": "HSBC Bank", "data_source_id": 6, "external_id": "ChIJhyGT1xEsO4gRZK3AuZlqMIA"},
 {"id": 46, "location_id": 405, "name": "May Wah Inn Chinese Cuisine", "data_source_id": 6, "external_id": "ChIJD6EOX20tO4gR7gMAzyEdH98"},
 {"id": 47, "location_id": 405, "name": "Mei Wah", "data_source_id": 3, "external_id": null},
@@ -69,5 +69,6 @@
 {"id": 69, "location_id": 8939, "name": "School of Social Work Building", "data_source_id": 6, "external_id": "ChIJga9o1BgtO4gRe8MnBlQwH9Q"},
 {"id": 70, "location_id": 1438, "name": "Best Western Plus Waterfront Hotel", "data_source_id": 6, "external_id": null},
 {"id": 71, "location_id": 132, "name": "St. Clair College Centre for the Arts", "data_source_id": 6, "external_id": null},
-{"id": 72, "location_id": 132, "name": "Center Of The Arts Campus", "data_source_id": 6, "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E"}
+{"id": 72, "location_id": 132, "name": "Center Of The Arts Campus", "data_source_id": 6, "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E"},
+{"id": 73, "location_id": 283, "name": "Mic-Mac Park", "data_source_id": 6, "external_id": null}
 ]
