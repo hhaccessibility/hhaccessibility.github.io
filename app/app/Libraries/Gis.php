@@ -1,8 +1,5 @@
 <?php namespace App\Libraries;
-
 use App\BaseUser;
-
-
 class Gis
 {
 	public static function updateDistancesFromPoint($longitude, $latitude, array $locations)
@@ -13,7 +10,6 @@ class Gis
 				$longitude, $latitude, $location->longitude, $location->latitude);
 		}
 	}
-
 	public static function getLatitudeAndLongitudeRange($lat, $lon, $searchRadiusKm)
 	{
 		$earthRadius = 6371; // km
@@ -55,7 +51,6 @@ class Gis
 				}
 			}
 		}
-
 		return [
 			'maxLat' => $maxLat,
 			'minLat' => $minLat,
@@ -63,7 +58,6 @@ class Gis
 			'minLon' => $minLon
 		];
 	}
-
 	public static function filterLatitudeAndLongitudeToRange($locationsQuery, array $range)
 	{
 		$locationsQuery = $locationsQuery->
@@ -71,10 +65,8 @@ class Gis
 			where('latitude', '>=', $range['minLat'])->
 			where('longitude', '>=', $range['minLon'])->
 			where('longitude', '<=', $range['maxLon']);
-
 		return $locationsQuery;
 	}
-
 	public static function filterTooDistant($locations, $maxDistance)
 	{
 		// Remove locations that are too far away.
