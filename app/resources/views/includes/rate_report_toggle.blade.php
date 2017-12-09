@@ -17,6 +17,16 @@
 							</a>
 						</li>
 						@endforeach
+						@if ( !$is_reporting )
+						<li class="text-center">
+							<div class="submit">
+								@include('pages.location_rating.submit',
+									array(
+										'location_id' => $location_id
+									))
+							</div>
+						</li>
+						@endif
 					</ul>
 				</div>
 			</div>
