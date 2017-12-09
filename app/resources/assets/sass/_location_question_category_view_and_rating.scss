@@ -51,6 +51,11 @@
 	.menu h1 {
 		@extend %location-menu-heading;
 	}
+	.collapsible-menu {
+		.submit {
+			display: inline-block;
+		}
+	}
 }
 
 .location-rating, .location-reporting {
