@@ -60,7 +60,7 @@ function initMap()
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center); 
 	});
-	google.maps.event.addListener(map, 'click', function(event) {
+	google.maps.event.addListener(map, 'mousedown', function(event) {
 		locationInfo(map, event.latLng);
   	});
 	conditionalProcessAddress();
