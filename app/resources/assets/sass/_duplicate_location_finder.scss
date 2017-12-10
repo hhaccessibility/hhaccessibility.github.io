@@ -31,8 +31,18 @@
 	}
 
 	.spreadsheet {
+		padding-left: 15px;
+		padding-right: 15px;
+
 		.row {
 			border-bottom: 1px solid #ddd;
+			background-color: #fff;
+			transition: background-color 0.2s, border-bottom-color 0.2s;
+			
+			&:hover {
+				background-color: #eee;
+				border-bottom-color: #ccc;
+			}
 		}
 	}
 }

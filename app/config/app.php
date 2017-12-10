@@ -152,6 +152,11 @@ return [
 	*/
 	'turn_off_maps' => env('TURN_OFF_MAPS', '0') === '1' || empty(env('GOOGLE_MAP_API_KEY', '')),
 
+	/*
+	| Used for some internal tools such as a duplicate location finder
+	*/
+	'update_seed_files' => env('UPDATE_SEED_FILES', '0') === '1',
+
     'cipher' => 'AES-256-CBC',
 
     /*

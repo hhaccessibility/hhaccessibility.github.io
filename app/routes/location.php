@@ -17,3 +17,4 @@ Route::get('location-comprehensive-ratings/{location_id}', 'LocationReportContro
 Route::get('location-comprehensive-ratings/{location_id}/{rating_system}', 'LocationReportController@showComprehensiveRatings');
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');
 Route::post('api/set-search-radius', 'LocationSearchController@setSearchRadius');
+Route::put('duplicates-confirmed', 'DuplicateLocationFinderController@markConfirmedDuplicate');

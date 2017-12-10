@@ -1,5 +1,4 @@
 <?php
-
 Route::get('/', 'HomeController@index');
 Route::post('save-user-location', 'HomeController@saveUserLocation');
 Route::get('terms-of-use', function() { return View::make('pages.terms_of_use'); });
