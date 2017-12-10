@@ -4,9 +4,14 @@ function onUpdateRadiusError()
 	$("#distance").val("");
 }
 
+function getDistanceElement()
+{
+	return $("#distance");
+}
+
 function updateRadiusClicked()
 {
-	var distNumber = parseFloat($("#distance").val());
+	var distNumber = parseFloat(getDistanceElement().val());
 	if (!distNumber || distNumber<=0 ) {
 		onUpdateRadiusError();
 		return;
@@ -37,6 +42,12 @@ function refreshPage() {
 
 function bindUpdateRadius() {
 	$("#updateRadius").click(updateRadiusClicked);
+	getDistanceElement().keypress(function(event) {
+		if ( event.which === 13 ) // ENTER keypress
+		{
+			updateRadiusClicked();
+		}
+	});
 }
 
 $(document).ready(function() {
