@@ -62,7 +62,7 @@
 						<table>
 							<tr>
 								<td>
-									<input name="keywords" type="text" placeholder="Search by keyword(s)" class="form-control">
+									<input name="keywords" type="text" placeholder="Search by keyword(s)" class="form-control" value="{{ htmlspecialchars($keywords) }}">
 								</td>
 								<td class="search-button">
 									<button class="btn btn-default" type="submit">

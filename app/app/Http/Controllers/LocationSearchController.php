@@ -110,9 +110,6 @@ function getLatitudeAndLongitudeRangeFromBaseUser()
 /**
 For efficiency's sake, we want to remove any locations that are outside 
 the latitude and longitude range we're interested in.
-
-The calculations are explained at:
-http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 */
 function filterLatitudeAndLongitude($locationsQuery)
 {
@@ -305,6 +302,7 @@ class LocationSearchController extends Controller {
 			\App::abort(422, 'Either keywords or location_tag_id must be specified');
 		}
 		BaseUser::setLocationSearchPath('/'.$request->path().'?'.$request->getQueryString());
+		BaseUser::setKeywords($keywords);
 		
 		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);		
 		$locationsResult = getSortedLocations($locationsQuery, $view, $order_by_field_name);

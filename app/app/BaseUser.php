@@ -279,6 +279,20 @@ class BaseUser
 	{
 		return Session::get('location_search_path');
 	}
+	
+	public static function setKeywords(string $keywords)
+	{
+		Session::put('keywords', $keywords);
+	}
+	
+	public static function getKeywords()
+	{
+		if ( Session::has('keywords') )
+		{
+			return Session::get('keywords');
+		}
+		return '';
+	}
 
 	/**
 	* send verification email to user's email
