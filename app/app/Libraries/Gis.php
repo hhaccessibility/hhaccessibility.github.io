@@ -10,6 +10,10 @@ class Gis
 				$longitude, $latitude, $location->longitude, $location->latitude);
 		}
 	}
+	/*
+The calculations are explained at:
+http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
+*/
 	public static function getLatitudeAndLongitudeRange($lat, $lon, $searchRadiusKm)
 	{
 		$earthRadius = 6371; // km
