@@ -22,7 +22,17 @@ class HomeController extends Controller {
 			$address_value = '';
 		}
 		$location_search_options = DB::table('location_search_option')->get();
+		if( Input::has('keywords') )
+		{
+			$keywords = trim(Input::get('keywords'));
+			BaseUser::setKeywords($keywords);
+		}
+		else
+		{
+			$keywords = BaseUser::getKeywords();
+		}
         return view('pages.home', [
+			'keywords' => $keywords,
 			'location_tags' => LocationTag::orderBy('name')->get(),
 			'is_authenticated' => BaseUser::isSignedIn(),
 			'address_default' => BaseUser::getDefaultAddress(),
