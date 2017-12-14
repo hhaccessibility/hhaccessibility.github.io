@@ -65,8 +65,6 @@
 		<a class="find-duplicate-location" href="/duplicate-location-finder?location_id={{ $location->id }}">Find Duplicates</a>
 	@endif
 	<div class="map-and-box">
-		<div id="map">
-		</div>
 		<div class="questions-box">
 			@if ($rating_system === 'personal' && !$personal_rating_is_available)
 				@include('pages.location_report.personal_not_available')
@@ -99,6 +97,8 @@
 					@endforeach
 				</div>
 			@endif
+		</div>
+		<div id="map">
 		</div>
 	</div>
 </div>
