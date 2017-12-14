@@ -44,11 +44,18 @@ function updateHeightOfMap() {
   var $map = $('#map');
   var $copyright = $('#copyright');
   var height = window.innerHeight - $(map).offset().top - $copyright.height();
-  if (height < 100)
-	height = 100;
+  var viewport_width = $(window).width();
+  if (height < 250)
+	height = 250;
 
-  $map.height(height);
-  $map_parent.height(height);
+  if ( viewport_width > 990 ) {
+	  $map.height(height);
+	  $map_parent.height(height);
+  }
+  else {
+	  $map.css('height', '');
+	  $map_parent.css('height', '');
+  }
 }
 $(window).resize(function() {
 	updateHeightOfMap();

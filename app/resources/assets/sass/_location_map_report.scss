@@ -56,7 +56,8 @@ This is where to put SCSS for the location report that shows a map.
 		}
 
 		.universal-personal {
-			width: 205px;
+			width: 215px;
+			white-space: nowrap;
 			flex-grow: 0;
 			flex-shrink: 0;
 		}
@@ -118,6 +119,7 @@ This is where to put SCSS for the location report that shows a map.
 			box-shadow: 0 0 5px #ddd inset;
 			border-radius: 4px;
 			max-width: 350px;
+			z-index: 1;
 
 			p {
 				color: #fff;
@@ -291,6 +293,37 @@ This is where to put SCSS for the location report that shows a map.
 	}
 }
 
+@media screen and (max-width: 991px) {
+	html > body .location-report > .map-and-box {
+		position: static;
+	
+		.questions-box {
+			position: static;
+			width: 100%;
+			max-width: 100%;
+			
+			.title-bar {
+				width: 100%;
+				
+				h3 {
+					width: 80%; /* for browsers that don't support calc or vw */
+					max-width: 80%;
+					width: calc(100vw - 45px);
+					max-width: calc(100vw - 45px);
+				}
+			}
+		}
+		
+		#map {
+			position: static;
+			width: 100%;
+			height: 300px; /* in case the device doesn't support vh units */
+			height: 100vh;
+			min-height: 200px;
+		}
+	}
+}
+
 @media screen and (min-width: 767px) and (max-width: 991px) {
 	html body .location-report {
 		.title {
@@ -312,8 +345,11 @@ This is where to put SCSS for the location report that shows a map.
 				padding-top: 2px;
 			}
 
-			h1 {
+			.search-and-title h1 {
+				font-size: 14px; /* for browsers that don't support vw units */
 				font-size: 4.1vw;
+				line-height: 16px;
+				line-height: 4.2vw;
 			}
 		}
 		&.show-location-tag-icons {
@@ -339,14 +375,20 @@ This is where to put SCSS for the location report that shows a map.
 
 @media screen and (max-height: 379px) {
 	body {
-		.location-report .map-and-box .questions-box {
-			@include location-report-box(9, 222);
+		.location-report {
+
+			.map-and-box .questions-box {
+				@include location-report-box(9, 222);
+			}
 		}
 	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 400px) {
 	html body .location-report {
+		padding-left: 0;
+		padding-right: 0;
+
 		.title {
 			display: block;
 
@@ -354,8 +396,10 @@ This is where to put SCSS for the location report that shows a map.
 				padding-top: 0;
 			}
 
-			h1 {
+			.search-and-title h1 {
+				font-size: 12px; /* for browsers that don't support vw units */
 				font-size: 4vw;
+				line-height: 4vw;
 			}
 		}
 
