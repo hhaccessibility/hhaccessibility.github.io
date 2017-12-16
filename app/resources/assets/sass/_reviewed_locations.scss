@@ -6,6 +6,7 @@
 
 .reviewed-locations {
 	@extend %page-base;
+	@extend %alternative-row-data;
 
 	h1 {
 		margin-top: 0;	
@@ -14,16 +15,5 @@
 	
 	> p {
 		text-align: center;
-	}
-	
-	.data {
-		padding: 0 5px;
-		> div:nth-child(odd) {
-			background-color: $dark_data_background_colour;
-		}
-		
-		a {
-			display: block;
-		}
 	}
 }

@@ -2,7 +2,7 @@
 @section('content')
 <div class="reviewed-locations">
 	<div>
-		<h1>Reviewed Locations</h1>
+		<h1>Reviewed Locations ({{ count($locations) }})</h1>
 	</div>
 	@if ( count($locations) === 0 )
 		<p>No locations have been reviewed yet.</p>

@@ -1,0 +1,10 @@
+@import "_placeholders.scss";
+
+.locations-added-by-me {
+	@extend %page-base;
+	@extend %alternative-row-data;
+	
+	> div > h1 {
+		margin-top: 0;
+	}
+}

@@ -35,6 +35,7 @@ class ProfileController extends Controller {
 			$enabled_country_ids []= $country_id->id;
 		}
 		$required_questions = $user->requiredQuestions()->get();
+		$num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
 		$view_data = [
 			'user' => $user,
 			'question_categories' => $question_categories,
@@ -43,6 +44,7 @@ class ProfileController extends Controller {
 			'required_questions' => $required_questions,
 			'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto(),
 			'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
+			'num_locations_added_by_me' => $num_locations_added_by_me,
 			'is_internal_user' => BaseUser::isInternal(),
 			'enabled_country_ids' => $enabled_country_ids
 			];
