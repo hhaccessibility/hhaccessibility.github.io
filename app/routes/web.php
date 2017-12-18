@@ -43,6 +43,7 @@ Route::get('location-search', 'LocationSearchController@search');
 Route::post('api/set-search-radius', 'LocationSearchController@setSearchRadius');
 Route::get('location-modify/{location_id}', 'LocationManagementController@show');
 Route::get('locations-added-by-me', 'LocationManagementController@showCurrentUserLocations');
+Route::get('location-suggestions-for-name/{location_name}', 'LocationManagementController@getLocationSuggestionsForLocationName');
 Route::get('delete-my-location/{location_id}', 'LocationManagementController@deleteMyLocation');
 Route::get('user-report/{user_id}', 'InternalFeaturesController@showUserReport');
 Route::get('users', 'InternalFeaturesController@showUsers');

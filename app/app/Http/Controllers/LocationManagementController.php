@@ -3,12 +3,49 @@
 use App\Location;
 use App\BaseUser;
 use App\User;
+use App\Libraries\StringMatcher;
+use App\Libraries\StringMatcherRepository;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use DB;
 
 class LocationManagementController extends Controller {
+	public function getLocationSuggestionsForLocationName($location_name)
+	{
+		$data = [];
+		$string_repo = new StringMatcherRepository(
+			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).'\\importers\\utils\\data\\location_tags\\location_tags.json');
+		
+		$item_ids = $string_repo->getItemIds();
+		foreach ($item_ids as $id)
+		{
+			$data[$id]['is_matched'] = $string_repo->appliesTo($location_name, $id);
+		}
+		return [
+			'location_tags' => $data,
+			'location_group' => $this->getLocationGroupForLocationName($location_name)
+			];
+	}
+	
+	private function getLocationGroupForLocationName($location_name)
+	{
+		$data = [];
+		$string_repo = new StringMatcherRepository(
+			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).'\\importers\\utils\\data\\location_groups\\location_groups.json');
+		
+		$item_ids = $string_repo->getItemIds();
+		$matched_group = null;
+		foreach ($item_ids as $id)
+		{
+			if ( $string_repo->appliesTo($location_name, $id) )
+			{
+				$matched_group = $id;
+			}
+		}
+		return $matched_group;
+	}
+	
 	public function showCurrentUserLocations()
 	{
 		$user = BaseUser::getDbUser();
