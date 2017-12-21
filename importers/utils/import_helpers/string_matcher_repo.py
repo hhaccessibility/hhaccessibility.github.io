@@ -15,7 +15,7 @@ class StringMatcherRepo:
 		self.load_config()
 		item = [t for t in self.items_config if t['id'] == item_id][0]
 		return self.json_dir + item['prefix']
-		
+
 	def load_config(self):
 		if self.items_config is None:
 			with open(self.json_path, 'r') as f:
@@ -24,7 +24,7 @@ class StringMatcherRepo:
 	def get_item_ids(self):
 		self.load_config()
 		return [item['id'] for item in self.items_config]
-				
+
 	def applies_to(self, s, item_id):
 		if str(item_id) in self.string_matchers:
 			s_matcher = self.string_matchers[str(item_id)]
