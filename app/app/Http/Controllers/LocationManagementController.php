@@ -11,11 +11,16 @@ use Illuminate\Auth\AuthenticationException;
 use DB;
 
 class LocationManagementController extends Controller {
+	private static function sanitizeDirectorySeparators($path)
+	{
+		return str_replace('\\', DIRECTORY_SEPARATOR, $path);
+	}
+	
 	public function getLocationSuggestionsForLocationName($location_name)
 	{
 		$data = [];
 		$string_repo = new StringMatcherRepository(
-			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).'\\importers\\utils\\data\\location_tags\\location_tags.json');
+			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).self::sanitizeDirectorySeparators('\\importers\\utils\\data\\location_tags\\location_tags.json'));
 		
 		$item_ids = $string_repo->getItemIds();
 		foreach ($item_ids as $id)
@@ -32,7 +37,7 @@ class LocationManagementController extends Controller {
 	{
 		$data = [];
 		$string_repo = new StringMatcherRepository(
-			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).'\\importers\\utils\\data\\location_groups\\location_groups.json');
+			dirname(dirname($_SERVER['DOCUMENT_ROOT'])).self::sanitizeDirectorySeparators('\\importers\\utils\\data\\location_groups\\location_groups.json'));
 		
 		$item_ids = $string_repo->getItemIds();
 		$matched_group = null;
