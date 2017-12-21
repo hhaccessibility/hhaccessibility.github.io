@@ -120,6 +120,18 @@
 		"prefix": "holiday_inn"
 	},
 	{
+		"id": 37,
+		"prefix": "lens_crafters"
+	},
+	{
+		"id": 38,
+		"prefix": "hakim_optical"
+	},
+	{
+		"id": 39,
+		"prefix": "beer_store"
+	},
+	{
 		"id": 40,
 		"prefix": "lcbo"
 	},
@@ -130,6 +142,14 @@
 	{
 		"id": 43,
 		"prefix": "ymca"
+	},
+	{
+		"id": 45,
+		"prefix": "freshii"
+	},
+	{
+		"id": 46,
+		"prefix": "east_side_marios"
 	},
 	{
 		"id": 47,
@@ -188,7 +208,131 @@
 		"prefix": "university_preparatory_academy"
 	},
 	{
+		"id": 61,
+		"prefix": "walmart"
+	},
+	{
+		"id": 62,
+		"prefix": "hi_ho"
+	},
+	{
+		"id": 63,
+		"prefix": "swiss_chalet"
+	},
+	{
+		"id": 64,
+		"prefix": "hilton_hotel"
+	},	
+	{
+		"id": 65,
+		"prefix": "freshco"
+	},
+	{
+		"id": 66,
+		"prefix": "sobeys"
+	},
+	{
+		"id": 67,
+		"prefix": "foodland"
+	},
+	{
+		"id": 68,
+		"prefix": "no_frills"
+	},
+	{
 		"id": 100,
 		"prefix": "petro_canada"
-	}	
+	},
+	{
+		"id": 101,
+		"prefix": "windsor_family_credit_union"
+	},
+	{
+		"id": 102,
+		"prefix": "motor_city_credit_union"
+	},
+	{
+		"id": 103,
+		"prefix": "public_service_credit_union"
+	},
+	{
+		"id": 150,
+		"prefix": "goodlife_fitness"
+	},
+	{
+		"id": 151,
+		"prefix": "fit4less"
+	},
+	{
+		"id": 152,
+		"prefix": "fit_for_life_food"
+	},
+	{
+		"id": 200,
+		"prefix": "state_farm_insurance"
+	},
+	{
+		"id": 201,
+		"prefix": "comerica_bank"
+	},
+	{
+		"id": 202,
+		"prefix": "hr_block"
+	},
+	{
+		"id": 249,
+		"prefix": "metro"
+	},
+	{
+		"id": 250,
+		"prefix": "papa_johns_pizza"
+	},
+	{
+		"id": 251,
+		"prefix": "pizza_papalis"
+	},
+	{
+		"id": 252,
+		"prefix": "chuck_e_cheese"
+	},
+	{
+		"id": 253,
+		"prefix": "aroma_espresso_bar"
+	},
+	{
+		"id": 254,
+		"prefix": "booster_juice"
+	},
+	{
+		"id": 255,
+		"prefix": "pizza_nova"
+	},
+	{
+		"id": 256,
+		"prefix": "capri_pizza"
+	},
+	{
+		"id": 257,
+		"prefix": "naples_pizza"
+	},
+	{
+		"id": 300,
+		"prefix": "best_buy"
+	},
+	{
+		"id": 301,
+		"prefix": "red_apple_store"
+	},
+	{
+		"id": 302,
+		"prefix": "apple_store"
+	},
+	{
+		"id": 350,
+		"prefix": "delta_driving_school"
+	},
+	{
+		"id": 400,
+		"prefix": "hr_block"
+	}
 ]

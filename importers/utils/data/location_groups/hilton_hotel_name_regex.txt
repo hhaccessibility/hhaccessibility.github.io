@@ -1,0 +1,5 @@
+the hilton
+hilton hotel
+hilton holiday
+hilton garden inn
+^hilton$

@@ -70,5 +70,13 @@
 {"id": 70, "location_id": 1438, "name": "Best Western Plus Waterfront Hotel", "data_source_id": 6, "external_id": null},
 {"id": 71, "location_id": 132, "name": "St. Clair College Centre for the Arts", "data_source_id": 6, "external_id": null},
 {"id": 72, "location_id": 132, "name": "Center Of The Arts Campus", "data_source_id": 6, "external_id": "ChIJnfrkxRgtO4gRy8vLqRLEu1E"},
-{"id": 73, "location_id": 283, "name": "Mic-Mac Park", "data_source_id": 6, "external_id": null}
+{"id": 73, "location_id": 283, "name": "Mic-Mac Park", "data_source_id": 6, "external_id": null},
+{"id": 74, "location_id": 4640, "name": "PizzaPapalis of Greektown", "data_source_id": 6, "external_id": null},
+{"id": 75, "location_id": 362, "name": "City Hall", "data_source_id": 3, "external_id": null},
+{"id": 76, "location_id": 689, "name": "Ceasars Windsor", "data_source_id": 6, "external_id": null},
+{"id": 77, "location_id": 7050, "name": "Mamo Burger Bar", "data_source_id": 6, "external_id": null},
+{"id": 78, "location_id": 137, "name": "\u00c9cole \u00e9l\u00e9mentaire L'Envol\u00e9e", "data_source_id": 3, "external_id": null},
+{"id": 79, "location_id": 137, "name": "Ecole elementaire L'Envolee", "data_source_id": 3, "external_id": null},
+{"id": 80, "location_id": 638, "name": "The Guardian Building", "data_source_id": 6, "external_id": null},
+{"id": 81, "location_id": 2880, "name": "Greektown Hotel", "data_source_id": 6, "external_id": null}
 ]

@@ -46,6 +46,8 @@ pita$
 ^pho 
 pastry
 pasta
+papa john's
+papa johns
 pancake
  pad thai$
 ^pad thai 
@@ -68,6 +70,7 @@ gyros$
  grill 
 greek pita
 frozen yogurt
+freshii
  food 
  food$
 ^food 
@@ -76,6 +79,8 @@ fish n chips
 fish and chips
 fish & chips
 falafel
+expresso
+espresso
 eggs 
  eatery
 dunkin

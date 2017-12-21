@@ -3,6 +3,8 @@ waste service
 waste dump
 waste disposal
 town hall
+service ontario
+service canada centre
 recycle
 rcmp
 post office

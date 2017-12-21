@@ -22,6 +22,7 @@ debt collect
  credit$
 ^credit 
 credit union
+comerica atm
 cash advance
  brokerage
  bank

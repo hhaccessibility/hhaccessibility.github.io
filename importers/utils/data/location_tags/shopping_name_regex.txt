@@ -1,4 +1,5 @@
 wholesale
+walmart
 vegetable
  variety
 ^variety

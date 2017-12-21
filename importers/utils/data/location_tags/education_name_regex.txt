@@ -16,9 +16,12 @@ school
  press$
  press 
 museum
+monument$
+monument 
 mathematics
 library
 junior high
+historical
  esl 
 ^esl 
  esl$
