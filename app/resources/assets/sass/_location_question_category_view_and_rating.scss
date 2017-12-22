@@ -18,12 +18,12 @@
 			}
 		}
 	}
-	
+
 	div.comments {
 		> h2 {
 			margin-bottom: 10px;
 		}
-		
+
 		> div {
 			margin-left: 5px;
 			margin-top: 5px;
@@ -33,12 +33,12 @@
 				border: 1px solid #aaa;
 				border-radius: 3px;
 				box-shadow: 0 0 5px #ccc inset;
-				
+
 				.comment-header {
 					font-weight: bold;
 					margin-bottom: 5px;
 				}
-				
+
 				.comment-content {
 					font-size: 1.2em;
 				}
@@ -72,17 +72,17 @@
 	}
 }
 
-// Used in smart_menu.js for locking 
+// Used in smart_menu.js for locking
 // the left menu location.
 body.fixed-menu {
 	.location-rating, .location-reporting {
 		display: block;
-	
+
 		.menu {
 			position: fixed;
 			top: 0;
 		}
-		
+
 		.rate, .ratings {
 			margin-left: 230px;
 		}
@@ -94,18 +94,18 @@ body.fixed-menu {
 
 	display: flex;
 	margin-bottom: 100px;
-	
+
 	h1 {
 		margin-top: 5px;
 		margin-left: 5px;
 	}
-	
+
 	h2 {
 		margin-top: 5px;
 		margin-left: 5px;
 		margin-bottom: 0;
 	}
-	
+
 	.menu {
 		width: 230px;
 		flex-shrink: 0;
@@ -117,12 +117,12 @@ body.fixed-menu {
 			form {
 				display: inline-block;
 			}
-			
+
 			.clean {
 				margin: auto;
 			}
 		}
-		
+
 		.question-categories {
 			margin-top: 5px;
 			padding-left: 5px;
@@ -133,40 +133,40 @@ body.fixed-menu {
 			}
 		}
 	}
-	
+
 	.rate, .ratings {
 		margin-bottom: 50px;
 		flex-grow: 1;
-			
+
 		h1 {
 			display: inline;
 		}
-		
+
 		.rate-report-toggle {
 			display: inline-block;
 			float: right;
 			margin-top: 10px;
-			
+
 			.rate-report {
 				a {
 					@extend %selectable-link;
 				}
 			}
 		}
-		
+
 		.questions {
 			padding-right: 10px;
 			padding-left: 15px;
-		
+
 			> .row {
 				padding-top: 12px;
 				padding-bottom: 12px;
 				border-bottom: 1px solid #ddd;
-				
+
 				.answers {
 					> div {
 						padding: 0 3px;
-						
+
 						&.selected[class] {
 							> div {
 								background-color: #84e39a;
@@ -182,7 +182,7 @@ body.fixed-menu {
 								cursor: not-allowed;
 							}
 						}
-						
+
 						> div {
 							text-align: center;
 							padding-top: 5px;
@@ -193,7 +193,7 @@ body.fixed-menu {
 							border-radius: 2px;
 							cursor: pointer;
 							transition: background-color 0.2s, border-color 0.2s;
-							
+
 							&:hover {
 								border-color: #000;
 								background-color: #eee;
@@ -203,7 +203,7 @@ body.fixed-menu {
 				}
 			}
 		}
-		
+
 		textarea {
 			height: 150px;
 		}
@@ -231,7 +231,7 @@ body.fixed-menu {
 					.rate-report-toggle {
 						float: none;
 						width: 100%;
-						
+
 						.rate-report {
 							right: auto;
 							left: 0;
@@ -246,12 +246,10 @@ body.fixed-menu {
 @media screen and (max-width: 320px) {
 	html > body {
 		.location-reporting, .location-rating {
-			
+
 			.answers > div > div {
 				vertical-align: middle;
 				min-height: 52px;
-				padding-top: auto;
-				padding-bottom: auto;
 			}
 		}
 	}
@@ -275,7 +273,7 @@ body.fixed-menu {
 					.rate, .ratings {
 						margin-left: 0;
 					}
-					
+
 					.collapsible-menu {
 						position: fixed;
 						top: 0;
@@ -288,7 +286,7 @@ body.fixed-menu {
 			.location-reporting, .location-rating {
 				padding-right: 0;
 				padding-left: 0;
-			
+
 				h1 {
 					display: block;
 					min-height: 8vw;
@@ -298,7 +296,7 @@ body.fixed-menu {
 				.menu {
 					display: none;
 				}
-				
+
 				.questions {
 					margin-right: 5px;
 					margin-left: 5px;
@@ -314,7 +312,7 @@ body.fixed-menu {
 						top: 0;
 						right: 32px;
 					}
-					
+
 					.collapsible-menu {
 						position: absolute;
 						top: 0;
@@ -334,7 +332,7 @@ body.fixed-menu {
 						ul {
 							display: none;
 						}
-						
+
 						&:hover {
 							z-index: 1;
 							width: 100%;
