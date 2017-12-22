@@ -5,7 +5,7 @@
   &::-webkit-input-placeholder {@content}
   &:-moz-placeholder           {@content}
   &::-moz-placeholder          {@content}
-  &:-ms-input-placeholder      {@content}  
+  &:-ms-input-placeholder      {@content}
 }
 
 .clean {
@@ -18,9 +18,9 @@
 	width: 100%;
 	font-size: 20px;
 	border-bottom-color: #bbb;
-	box-style: border-box;
+	box-sizing: border-box;
 	transition: border-color 0.2s, color 0.2s;
-	
+
 	@include placeholder {
 		color: #bbb;
 	}
@@ -30,16 +30,16 @@
 		border-left-width: 1px;
 		border-right-width: 1px;
 	}
-	
+
 	&:hover {
 		border-color: #238;
 		color: #238;
-		
+
 		@include placeholder {
 			color: tint(#223388, 50%);
 		}
 	}
-		
+
 	&:focus {
 		border-color: #000;
 		outline: none;
