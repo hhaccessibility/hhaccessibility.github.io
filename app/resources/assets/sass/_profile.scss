@@ -37,13 +37,13 @@
 				vertical-align: top;
 				flex-shrink: 0;
 			}
-		
+
 			> div {
 				flex-grow: 1;
 			}
 		}
 	}
-	
+
 	select {
 		option[disabled] {
 			display: none;
@@ -58,7 +58,7 @@
         .remove-photo {
             margin-top: 59px;
             margin-bottom: 0;
-			
+
 			a {
 				@extend %photo-replace-remove-link;
 			}
@@ -109,9 +109,9 @@
            &:hover {
                 color: mix($base_colour1, #ffffff, 30%);
            }
-        }        
+        }
     }
-    
+
 	.uploaded-photo {
 		background-color: mix($base_colour1, #ffffff, 80%);
 		display: block;
@@ -122,7 +122,7 @@
 		background-size: contain;
 		background-position: center center;
 	}
-    
+
     .hidden-uploader {
 		// Hide the input on the profile.
 		// We can't use display: none or visibility: hidden because that doesn't work in Safari.
@@ -130,7 +130,7 @@
 		// http://stackoverflow.com/questions/793014/jquery-trigger-file-input
         position: fixed;
 		opacity: 0;
-		top: -1000; // Way off top of the screen so it is essentially invisible.
+		top: -1000px; // Way off top of the screen so it is essentially invisible.
     }
 }
 
@@ -148,7 +148,7 @@
 		margin-right: auto;
 		max-width: 300px;
 	}
-	
+
 	.photo-upload-message-box {
 		margin-left: auto;
 		margin-right: auto;
@@ -164,12 +164,12 @@
 }
 
 @media only screen and (max-width: 767px) {
-	body {		
+	body {
 		.profile {
 			.user-icon {
 				margin-top: 0;
 			}
-		}		
+		}
 	}
 }
 
