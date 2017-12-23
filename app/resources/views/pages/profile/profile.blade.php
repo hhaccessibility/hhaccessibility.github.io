@@ -1,6 +1,6 @@
 @extends('layouts.default', ['body_class' => 'nav-profile'])
 @section('head-content')
-  <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css"> 
+  <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
   <script src="/css/jquery/external/jquery/jquery.js"></script>
   <script src="/css/jquery/jquery-ui.js"></script>
   <script src="/js/profile.js"></script>
@@ -21,14 +21,14 @@
 				</div>
 			</div>
 		@else
-        
+
         <div class="photo-display" onclick="selectImageFile()">
-            <div class="user-icon"> 
+            <div class="user-icon">
                 <div><i class="fa fa-user"></i></div>
                 <p>Choose File</p>
             </div>
         </div>
-        @endif        	
+        @endif
 		<form id="photo-upload" method="post" action="/profile-photo-upload" enctype="multipart/form-data">
 			{!! csrf_field() !!}
             <input class="hidden-uploader" type="file" name="profile_photo" onchange="upload()">
@@ -85,7 +85,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<h2>Home</h2>
 			<div class="box">
 				<div class="form-group">
@@ -97,7 +97,7 @@
 							<select class="form-control" id="home_country_id" name="home_country_id">
 								<option value="">-- Select Country --</option>
 								@foreach ($countries as $country)
-									<option value="{{ $country->id }}" 
+									<option value="{{ $country->id }}"
 									@if ( $user->home_country_id === $country->id )
 									selected
 									@endif
@@ -132,7 +132,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<h2>Search Location</h2>
 			<div class="box">
 				<div class="form-group">
@@ -177,9 +177,9 @@
 					Screen Reader</label>
 				</div>
 				<div id="accordion">
-			
+
 				@foreach ($question_categories as $category)
-			
+
 					<h3>{{ $category->name }}</h3>
 					<div class="category">
 						<div class="checkbox">
@@ -202,19 +202,15 @@
 							@endforeach
 						</div>
 					</div>
-					
+
 				@endforeach
 
 				</div>
-				
+
 			</div>
-			
-			<h2>Reward Program</h2>
+
+			<h2>My Reviews</h2>
 			<div class="box rewards">
-				<p>My Rewards:</p>
-				<div>
-					 <i class="fa fa-trophy fa-3x"></i> <i class="fa fa-trophy fa-3x"></i>
-				</div>
 				<div>
 					<a class="btn btn-default" href="/reviewed-locations">My Reviews({{ $num_reviews }})</a>
 					<a class="btn btn-default" href="/locations-added-by-me">My Locations({{ $num_locations_added_by_me }})</a>
@@ -225,7 +221,7 @@
 				<button type="submit" id="submitButton" class="btn btn-lg btn-primary save-button" disabled>Save Profile</button>
 		   </div>
 	 </form>
-	 
+
 	</div>
 </div>
 
