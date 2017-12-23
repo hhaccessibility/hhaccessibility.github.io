@@ -82,4 +82,11 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 		}
 		return $filtered_locations;
 	}
+	public static function findLocationsWithinRadius($latitude, $longitude, $radiusMeters, $locationQuery)
+	{
+		$range = self::getLatitudeAndLongitudeRange($latitude, $longitude, (0.6 + ($radiusMeters * 0.001)) );
+		$locationQuery = self::filterLatitudeAndLongitudeToRange($locationQuery, $range);
+		$search_results = $locationQuery->get();
+		return $search_results;
+	}
 }

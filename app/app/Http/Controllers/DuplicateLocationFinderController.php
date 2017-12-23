@@ -31,9 +31,7 @@ class DuplicateLocationFinderController extends Controller
 		$location_id = Input::get('location_id');
 		$location = DB::table('location')->find($location_id);
 		$locationQuery = DB::table('location')->where('id', '<>', $location_id);
-		$range = \App\Libraries\Gis::getLatitudeAndLongitudeRange($location->latitude, $location->longitude, (0.4 + ($radiusMeters / 1000)) );
-		$locationQuery = \App\Libraries\Gis::filterLatitudeAndLongitudeToRange($locationQuery, $range);
-		$search_results = $locationQuery->get();
+		$search_results = \App\Libraries\Gis::findLocationsWithinRadius($location->latitude, $location->longitude, $radiusMeters, $locationQuery);
 		$loc_array = [];
 		foreach ($search_results as $loc)
 		{
