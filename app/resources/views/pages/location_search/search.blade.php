@@ -44,7 +44,7 @@
 			@endif
 		</div>
 		@if ( $max_reached )
-			<span class="warning">Narrow your search to view all matches.  
+			<span class="warning">Narrow your search to view all matches.
 			{{ count($locations) }} of {{ $unlimited_location_count }} shown.</span>
 		@endif
 	</div>

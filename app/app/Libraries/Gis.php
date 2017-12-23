@@ -49,7 +49,6 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 				else
 				{
 					$lonDelta = rad2deg(asin( $asinInput ));
-					$lon = BaseUser::getLongitude();
 					$maxLon = $lon + $lonDelta;
 					$minLon = $lon - $lonDelta;
 				}
@@ -84,7 +83,7 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 	}
 	public static function findLocationsWithinRadius($latitude, $longitude, $radiusMeters, $locationQuery)
 	{
-		$range = self::getLatitudeAndLongitudeRange($latitude, $longitude, (0.6 + ($radiusMeters * 0.001)) );
+		$range = self::getLatitudeAndLongitudeRange($latitude, $longitude, (0.7 + ($radiusMeters * 0.001)) );
 		$locationQuery = self::filterLatitudeAndLongitudeToRange($locationQuery, $range);
 		$search_results = $locationQuery->get();
 		return $search_results;
