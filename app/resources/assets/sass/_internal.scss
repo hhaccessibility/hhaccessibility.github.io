@@ -8,26 +8,6 @@
 	}
 }
 
-.location-management {
-	@extend %page-base;
-
-	input[type="text"], select {
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	form > .row > div {
-		min-height: 40px;
-	}
-
-	.categories {
-		label {
-			margin-bottom: 0;
-			cursor: pointer;
-		}
-	}
-}
-
 .internal-dashboard {
 	@extend %page-base;
 

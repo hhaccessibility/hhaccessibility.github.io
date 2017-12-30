@@ -105,12 +105,12 @@ def set_fields_on_locations(db):
 			print 'external_web_url for location ' + str(location['id']) + ' is too long at ' + str(len(location['external_web_url'])) + '.'
 			return
 
-	# We're only concerned with locations that have either address, phone number, external_web_url or any combination so 
+	# We're only concerned with locations that have either address, phone number, external_web_url, location_group_id or any combination so 
 	# let's filter out the useless data.
 	# This may boost efficiency of the m*n time loop below by reducing m considerably.
-	locations_data = [location for location in locations_data if location['address'] or location['phone_number'] or location['external_web_url']]
+	locations_data = [location for location in locations_data if location['address'] or location['phone_number'] or location['external_web_url'] or location['location_group_id']]
 
-	fields = ['address', 'phone_number', 'external_web_url']
+	fields = ['address', 'phone_number', 'external_web_url', 'location_group_id']
 	location_query = 'select * from location where 0'
 	for field in fields:
 		location_query += ' or %s is null or %s=\'\'' % (field, field)

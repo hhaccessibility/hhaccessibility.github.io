@@ -3,8 +3,33 @@
 .locations-added-by-me {
 	@extend %page-base;
 	@extend %alternative-row-data;
+
+	.add-create {
+		font-size: 36px;
+		float: right;
+	}
 	
 	> div > h1 {
 		margin-top: 0;
+	}
+}
+
+@media screen and (max-width: 509px) {
+	.locations-added-by-me {
+		h1 {
+			font-size: 6.5vw;
+		}
+		
+		h3 {
+			font-size: 4.5vw;
+			line-height: 4.5vw;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.add-create {
+			font-size: 7vw;
+			line-height: 7vw;
+		}
 	}
 }

@@ -173,9 +173,14 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name)
 	$locations = $locationsQuery->get();
 	// get() doesn't return an array so let's make one.
 	$loc_array = [];
+	$location_ids = []; // for avoiding duplicates.
 	foreach ($locations as $loc)
 	{
-		$loc_array []= $loc;
+		if ( !in_array($loc['id'], $location_ids) )
+		{
+			$loc_array []= $loc;
+			$location_ids []= $loc['id'];
+		}
 	}
 	$locations = $loc_array;
 	updateDistances($locations);

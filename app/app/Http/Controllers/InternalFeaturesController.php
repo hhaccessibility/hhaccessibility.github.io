@@ -101,6 +101,13 @@ class InternalFeaturesController extends Controller
 		$num_user_created_locations = DB::table('location')->whereNotNull('creator_user_id')->count();
 		$num_no_phone_locations = DB::table('location')->whereNull('phone_number')->orWhere('phone_number', '=', '')->count();
 		$num_no_address_locations = DB::table('location')->whereNull('address')->orWhere('address', '=', '')->count();
+		
+		$location_tags = DB::table('location_tag')->orderBy('name')->get();
+		foreach ($location_tags as $location_tag)
+		{
+			$location_tag->num_locations = DB::table('location_location_tag')->where('location_tag_id', '=', $location_tag->id)->count();
+		}
+		
 		$view_data = [
 		'num_users' => DB::table('user')->count(),
 		'num_users_using_screen_readers' => DB::table('user')->where('uses_screen_reader', '=', 1)->count(),
@@ -114,7 +121,8 @@ class InternalFeaturesController extends Controller
 			->get(['when_submitted', 'answered_by_user_id', 'location_id'])),
 		'num_rated_locations' => DB::table('user_answer')->distinct('location_id')->count('location_id'),
 		'num_comments' => DB::table('review_comment')->count(),
-		'num_data_sources' => DB::table('data_source')->count()
+		'num_data_sources' => DB::table('data_source')->count(),
+		'location_tags' => $location_tags
 		];
 
 		return view('pages.internal_features.dashboard', $view_data);

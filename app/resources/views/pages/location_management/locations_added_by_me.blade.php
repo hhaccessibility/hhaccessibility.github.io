@@ -2,6 +2,7 @@
 @section('content')
 <div class="locations-added-by-me">
 	<div class="text-center">
+		<a class="add-create" href="/add-location" title="Add New Location">+</a>
 		<h1>Locations Added By Me ({{ count($locations) }})</h1>
 	</div>
 	@if ( count($locations) === 0 )

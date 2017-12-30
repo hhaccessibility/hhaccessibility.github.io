@@ -33,5 +33,16 @@
 				</ul>
 			</div>
 		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="box">
+				<h2>Location Categories</h2>
+				<ul>
+					@foreach ($location_tags as $location_tag)
+					<li>{{ $location_tag->name }} - {{ $location_tag->num_locations }}</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 @stop

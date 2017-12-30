@@ -5,6 +5,8 @@ same location already exists.
 """
 import math
 import import_helpers.location_groups as location_groups
+import string
+import re
 
 def get_max_id(table_data):
 	return max([row['id'] for row in table_data])
@@ -56,7 +58,20 @@ def get_id_for_location_tag(location_tags, location_tag_name):
 
 	raise ValueError('Unable to find location tag with name ' + location_tag_name)
 
-	
+
+def simplify_name(name):
+	punctuation_translator = string.maketrans(string.punctuation, ' ' * len(string.punctuation))
+	name = name.translate(punctuation_translator) # replace punctuation marks with spaces.
+	name = re.sub(r'\s+', ' ', name)	# replace all double spaces with single space.
+	return name.strip().lower()
+
+
+def is_name_very_similar(name1, name2):
+	name1 = simplify_name(name1)
+	name2 = simplify_name(name2)
+	return name1 == name2
+
+
 def get_id_of_matching_location(import_config, locations, values, location_duplicates):
 	"""
 	Tries to find a location matching the latitude and longitude closely and matching names.
@@ -96,7 +111,7 @@ def get_id_of_matching_location(import_config, locations, values, location_dupli
 		if ( distance > distance_threshold_km ):
 			continue
 
-		if values_name == location['name'].strip().lower():
+		if is_name_very_similar(values_name, location['name']):
 			return location['id']
 	
 	return None

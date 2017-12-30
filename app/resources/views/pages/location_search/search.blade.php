@@ -21,7 +21,7 @@
 @section('footer-content')
 	@if ( $view === 'map' && !$turn_off_maps )
 	<script async defer
-		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
+		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
     </script>
 	@endif
 @stop
@@ -44,7 +44,7 @@
 			@endif
 		</div>
 		@if ( $max_reached )
-			<span class="warning">Narrow your search to view all matches.  
+			<span class="warning">Narrow your search to view all matches.
 			{{ count($locations) }} of {{ $unlimited_location_count }} shown.</span>
 		@endif
 	</div>
