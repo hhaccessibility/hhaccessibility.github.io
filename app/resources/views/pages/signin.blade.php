@@ -9,9 +9,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="signin-form">
+				@if ( isset($message) )
 				<div class="message text-center">
 					{{$message}}
 				</div>
+				@endif
 				@if ( $confirmmessage )
 				<strong>{{ $confirmmessage }}</strong>
 				@else
