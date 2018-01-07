@@ -5,6 +5,8 @@
     </script>
 	<script type="text/javascript" language="JavaScript" src="/js/location_rating.js">
     </script>
+	<script type="text/javascript" language="JavaScript" src="/js/question_category_mobile_menu.js">
+    </script>
 	<script type="text/javascript" language="JavaScript">
 	// values used in location_rating.js
 	var location_id = {{ $location->id }};

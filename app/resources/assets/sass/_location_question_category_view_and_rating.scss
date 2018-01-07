@@ -70,6 +70,10 @@
 	.rate-report {
 		display: inline-block;
 	}
+
+	.collapse-toggle-button {
+		display: none;
+	}
 }
 
 // Used in smart_menu.js for locking
@@ -300,8 +304,8 @@ body.fixed-menu {
 				.questions {
 					margin-right: 5px;
 					margin-left: 5px;
-				}
-
+				}				
+				
 				.rate-report-toggle {
 					position: relative;
 					width: 183px;
@@ -310,36 +314,40 @@ body.fixed-menu {
 					.rate-report {
 						position: absolute;
 						top: 0;
-						right: 32px;
+						right: 38px;
 					}
 
+					.collapse-toggle-button {
+						display: block;
+						margin-top: -3px;
+						float: right;
+						cursor: pointer;
+
+						span {
+							font-size: 32px;
+							padding-left: 4px;
+							padding-right: 4px;
+							padding-top: 0;
+							margin-top: 0;
+							height: 32px;
+						}
+					}
+					
 					.collapsible-menu {
 						position: absolute;
-						top: 0;
+						top: 34px;
 						right: 0;
 						display: block;
 						text-align: right;
+						margin-top: 0;
 						transition: background-color 0.2s;
-
-						span {
-							font-size: 22px;
-							padding-left: 4px;
-							padding-right: 4px;
-							margin-top: 2px;
-							height: 32px;
-						}
 
 						ul {
 							display: none;
 						}
 
-						&:hover {
+						&.show-popup {
 							z-index: 1;
-							width: 100%;
-							width: 95vw;
-							width: calc(100vw - 1em);
-							background-color: rgba(255, 255, 255, 0.4);
-
 							ul {
 								padding: 0;
 								margin: 0;
@@ -347,6 +355,11 @@ body.fixed-menu {
 								list-style-type: none;
 								display: block;
 								box-sizing: border-box;
+
+								li {
+									width: 100%;
+									width: 100vw;
+								}
 							}
 						}
 					}
