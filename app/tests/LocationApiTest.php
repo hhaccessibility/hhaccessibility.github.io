@@ -19,9 +19,8 @@ class LocationApiTest extends TestCase
 		$this->assertTrue(is_array($locations_data));
 		foreach ($locations_data as $location) {
 			$this->assertTrue(is_object($location));
-			$this->assertTrue(is_int($location->id));
 			$this->assertTrue(is_int($location->data_source_id));
-			$this->assertTrue($location->owner_user_id === NULL || is_int($location->owner_user_id));
+			$this->assertTrue($location->owner_user_id === NULL);
 			$this->assertTrue($location->name === NULL || is_string($location->name));
 			$this->assertTrue(is_int($location->longitude) || is_float($location->longitude));
 			$this->assertTrue(is_int($location->longitude) || is_float($location->longitude));

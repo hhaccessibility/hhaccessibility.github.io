@@ -2,6 +2,7 @@
 
 namespace App;
 use Eloquent;
+use Webpatser\Uuid\Uuid;
 
 class UserAnswer extends Eloquent
 {
@@ -11,4 +12,8 @@ class UserAnswer extends Eloquent
 	public $timestamps = false;
 	
 	protected $table = 'user_answer';
+	
+	public function __construct() {
+		$this->attributes = array('id' => Uuid::generate(4)->string);
+	}	
 }

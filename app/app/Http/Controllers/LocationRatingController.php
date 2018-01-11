@@ -17,7 +17,7 @@ class LocationRatingController extends Controller {
 			return redirect()->intended('/signin');
 		}
 		$validation_rules = [
-			'location_id' => 'required|integer'
+			'location_id' => 'required'
 		];
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
@@ -39,7 +39,7 @@ class LocationRatingController extends Controller {
 		$validation_rules = [
 			'answer'      => 'required|integer|max:3|min:0',
 			'question_id' => 'required|integer|min:1',
-			'location_id' => 'required|integer'
+			'location_id' => 'required'
 		];
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
@@ -59,7 +59,7 @@ class LocationRatingController extends Controller {
 		}
 		$validation_rules = [
 			'question_id' => 'required|integer|min:1',
-			'location_id' => 'required|integer'
+			'location_id' => 'required'
 		];
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
@@ -79,7 +79,7 @@ class LocationRatingController extends Controller {
 		}
 		$validation_rules = [
 			'question_category_id' => 'required|integer',
-			'location_id' => 'required|integer'
+			'location_id' => 'required'
 		];
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
@@ -98,7 +98,7 @@ class LocationRatingController extends Controller {
 			return redirect()->intended('/signin');
 		}
 		$validation_rules = [
-			'location_id' => 'required|integer'
+			'location_id' => 'required'
 		];
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
@@ -109,7 +109,7 @@ class LocationRatingController extends Controller {
 		return redirect('/reviewed-locations');
 	}
 
-	public function show(int $location_id, int $question_category_id = null)
+	public function show(string $location_id, int $question_category_id = null)
 	{
 		if ( !BaseUser::isSignedIn() ) {
 			return redirect()->intended('/signin');

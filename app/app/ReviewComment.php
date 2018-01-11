@@ -5,6 +5,7 @@ use Eloquent;
 use DateTime;
 use DateTimeZone;
 use DateInterval;
+use Webpatser\Uuid\Uuid;
 
 class ReviewComment extends Eloquent
 {
@@ -12,6 +13,10 @@ class ReviewComment extends Eloquent
         'content', 'answered_by_user_id', 'question_category_id', 'location_id'
     ];
 	protected $table = 'review_comment';
+
+	public function __construct() {
+		$this->attributes = array('id' => Uuid::generate(4)->string);
+	}
 
 	public function getAnsweredByUser()
 	{

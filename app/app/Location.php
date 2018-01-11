@@ -3,6 +3,7 @@
 namespace App;
 use Eloquent;
 use DB;
+use Webpatser\Uuid\Uuid;
 
 class Location extends Eloquent
 {
@@ -13,6 +14,16 @@ class Location extends Eloquent
 	public $timestamps = false;
 
 	protected $table = 'location';
+	/**
+	 * Indicates if the IDs are auto-incrementing.
+	 *
+	 * @var bool
+	 */
+	public $incrementing = false;
+
+	public function __construct() {
+		$this->attributes = array('id' => Uuid::generate(4)->string);
+	}
 
 	public function getLocationTagIds()
 	{
