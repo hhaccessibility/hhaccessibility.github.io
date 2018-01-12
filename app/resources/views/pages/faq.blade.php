@@ -9,7 +9,7 @@
 		<div>
 			<p>{{ $faq_item->question }}</p>
 			<div class="answer">
-				<p>{!! $faq_item->answer_html !!}</p>
+				{!! $faq_item->answer_html !!}
 			</div>
 		</div>
 	
