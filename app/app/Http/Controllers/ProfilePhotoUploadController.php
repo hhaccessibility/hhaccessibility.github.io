@@ -40,9 +40,9 @@ class ProfilePhotoUploadController extends Controller {
 	/**
 	Returns a string with the original file extension but named with the specified user id.
 	
-	For example, getFileNameFromOriginalName(3, 'Bobby.png') returns 'user_3.png'.
+	For example, getFileNameFromOriginalName('00000000-0000-0000-0000-000000000003', 'Bobby.png') returns 'user_00000000-0000-0000-0000-000000000003.png'.
 	*/
-	private static function getFileNameFromOriginalName(int $user_id, string $originalFilename)
+	private static function getFileNameFromOriginalName(string $user_id, string $originalFilename)
 	{
 		$dotIndex = strrpos($originalFilename, '.');
 		if ( $dotIndex === FALSE )
