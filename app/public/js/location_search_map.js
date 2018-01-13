@@ -48,16 +48,18 @@ function initMap() {
 
     //convert kilometers to meters
 	var circleRadius =search_radius*1000;
+	var default_circle_stroke = '#555759';
 
 	var circle = new google.maps.Circle({
 					    center: userPoint,
 					    radius: circleRadius,
-					    strokeColor: "#555759",
+					    strokeColor: default_circle_stroke,
 					    strokeOpacity: 0.6,
 					    strokeWeight: 1,
 					    fillColor: "#929599",
 					    fillOpacity: 0.3
-					  });
+					});
+
 	var bounds = new google.maps.LatLngBounds();
 
 	bounds.union(circle.getBounds());
@@ -65,6 +67,29 @@ function initMap() {
 	circle.setMap(map);
 	var prev_zoom_level = map.getZoom();
 	var zoomOffset = 0;
+
+
+	google.maps.event.addListener(circle,'mouseover',function() {
+		circle.setOptions({'strokeColor': '#000'});
+	}); 
+	google.maps.event.addListener(circle,'mouseout',function() {
+		circle.setOptions({'strokeColor': default_circle_stroke});
+	}); 
+	google.maps.event.addListener(circle,'mousedown',function() {
+		circle.setOptions({'editable': true});
+	}); 
+	google.maps.event.addListener(map,'mouseover',function() {
+		circle.setOptions({'editable': true});
+	}); 
+	google.maps.event.addListener(map,'mouseout',function() {
+		circle.setOptions({'editable': false});
+	}); 
+
+	// when circle is dragged, we calculate search_radius based on new circleRadius
+	google.maps.event.addListener(circle,'radius_changed',function() {
+		search_radius = circle.getRadius()/1000;
+		setSearchRadius(search_radius);
+	});
 
 	google.maps.event.addListenerOnce(map, 'idle', function(){
 		zoomOffset = 0;
@@ -86,4 +111,5 @@ function initMap() {
 	google.maps.event.addDomListener(window, 'resize', function() {
 		updateMapPositionAndSize(map, bounds, zoomOffset);
 	});
+
 }
