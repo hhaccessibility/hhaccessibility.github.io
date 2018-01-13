@@ -1,19 +1,46 @@
 @extends('layouts.default')
 @section('head-content')
+  <script src="/js/jquery-3.1.1.js"></script>
+  <script>
+	var search_radius  = parseFloat({{ $search_radius }});
+
+	function refreshPage() {
+		location.reload();
+	}
+
+	function setSearchRadius(new_radius_km)
+	{
+		var csrf_token = $("#_token").val();
+		return $.ajax(
+			{
+				url: "/api/set-search-radius",
+				type: 'post',
+				headers: {
+					'X-CSRF-Token': csrf_token
+				},
+				data: {
+					'distance': new_radius_km,
+					'_token': csrf_token
+				},
+				success: refreshPage,
+				fail: function() {
+					console.error('Something failed in ajax request');
+				}
+			}
+		);
+	}
+  </script>
   @if ( $view === 'map' && !$turn_off_maps  )
   <script>
     var locations      = {!! json_encode($locations) !!};
 	var user_longitude = {{ $base_user->getLongitude() }};
 	var user_latitude  = {{ $base_user->getLatitude() }};
-	var search_radius  = parseFloat({{ $search_radius }});
-
   </script>
   <script src="/js/location_search_map.js">
   </script>
   @endif
   @if ( $view === 'table' )
 	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
-	<script src="/css/jquery/external/jquery/jquery.js"></script>
 	<script src="/css/jquery/jquery-ui.js"></script>
 	<script src="/js/location_search_table.js"></script>
   @endif
@@ -28,6 +55,7 @@
 @section('content')
 
 <div class="location-search {{ $max_reached ? 'warned' : '' }}">
+	<input type="hidden" id="_token" value="{{ csrf_token() }}">
 	<div class="title-map-table-bar">
 		@if ( !empty($location_tag_name) )
 		<h1>Location Search Results for {{ $location_tag_name }}</h1>
