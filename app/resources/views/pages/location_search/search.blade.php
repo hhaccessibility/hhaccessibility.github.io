@@ -1,12 +1,9 @@
 @extends('layouts.default')
 @section('head-content')
   <script src="/js/jquery-3.1.1.js"></script>
+  <script src="/js/utils.js" type="text/javascript"></script>
   <script>
 	var search_radius  = parseFloat({{ $search_radius }});
-
-	function refreshPage() {
-		location.reload();
-	}
 
 	function setSearchRadius(new_radius_km)
 	{

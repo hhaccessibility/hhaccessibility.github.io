@@ -67,50 +67,20 @@ function initMap()
 	conditionalProcessAddress();
 	$('#address').bind('keyup change', delayedProcessAddress);	
 }
-//To calculate the radian value of a point
-function rad(pt) {
-  return pt * Math.PI / 180;
-}
-// To calculate the distance between two points on a map 
-function calculateDistance(pt1,pt2){
-  var R = 6378137; // Earth’s mean radius in meter
-  var dLat = rad(pt2.lat() - pt1.lat());
-  var dLong = rad(pt2.lng() - pt1.lng());
-  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(rad(pt1.lat())) * Math.cos(rad(pt2.lat())) *
-    Math.sin(dLong / 2) * Math.sin(dLong / 2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  var d = R * c;
-  return d; // returns the distance in meter
-}
 /*
 Maps the clicked coordinates on a map to an address and set that address as a current location
 */
-function locationInfo(map, location)
+function locationInfo(map, lat_lng)
 {
-	var geocoder = new google.maps.Geocoder();
-    var latlng = {lat: location.lat(), lng: location.lng()};
-    geocoder.geocode({'location': latlng}, function(results, status)
-    {
-    	if (status === 'OK')
-    	{
-            if (results[0])
-            {
-        		if (calculateDistance(location,results[0].geometry.location)<=100)
-        		{
-        			document.getElementById("address").value=results[0].formatted_address;
-        			
-        		} else {
-        			document.getElementById("address").value="("+location.lat().toFixed(5)+","+location.lng().toFixed(5)+")";
-		        }
-		        conditionalProcessAddress();
-			} else {
-					console.error('No Results');
-			}
-		} else {
-			console.error('Geocode failed for the following reason: '+status);
-		}
- 	});
+	getAddressFromLatLng(lat_lng).then(function(address_info) {
+		document.getElementById("address").value=address_info.address;
+		conditionalProcessAddress();
+	});
+}
+
+function saveUserLocation(address, latitude, longitude)
+{
+	saveSearchLocationWithOptionalAddress({'lat': latitude, 'lng': longitude}, address);
 }
 
 /*
@@ -140,7 +110,8 @@ function processAddress()
 			var location=address.replace(/[()]/g, '').split(',');
 			var latitude = location[0];
 			var longitude = location[1];
-			setMarker({lat:parseFloat(latitude), lng:parseFloat(longitude)});
+			var new_location = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
+			setMarker(new_location);
 			saveUserLocation(address, latitude, longitude);
 		} else 
 		{
@@ -160,26 +131,6 @@ function setMarker(location)
 		});
 	}
 	marker.setPosition(location);
-}
-/*
-Sends HTTP request to save the location information inside the
-database or session
-*/
-function saveUserLocation(user_address, latitude, longitude)
-{
-	$.ajax({
-		type: 'post',
-		url: '/save-user-location',
-		data: {
-			'_token': $('input[name=_token]').val(),
-			'latitude' : latitude,
-			'longitude' : longitude,
-			'address':   user_address
-		},
-		error: function(xhr, reason, ex ){
-			throw new Error('there was an error in your code.'+ JSON.stringify(xhr));
-		},
-	});
 }
 
 function getLocationCategoryIdFromURL(url)
