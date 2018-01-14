@@ -1,15 +1,70 @@
 var user_zoom_detection_active = false;
 
-function updateMapPositionAndSize(map, bounds, zoomOffset) {
+function updateMapPositionAndSize(map, bounds, zoom_offset) {
 	user_zoom_detection_active = false;
 	map.fitBounds(bounds);
-	map.setZoom(map.getZoom() + zoomOffset);
+	map.setZoom(map.getZoom() + zoom_offset);
 	user_zoom_detection_active = true;
+}
+
+function addCircleToMap(map, user_point) {
+    //convert kilometers to meters
+	var circle_radius = search_radius * 1000;
+	var default_circle_stroke = '#555759';
+
+	var circle = new google.maps.Circle({
+		center: user_point,
+		radius: circle_radius,
+		strokeColor: default_circle_stroke,
+		strokeOpacity: 0.6,
+		strokeWeight: 1,
+		fillColor: "#929599",
+		fillOpacity: 0.3
+	});
+
+	var bounds = new google.maps.LatLngBounds();
+
+	bounds.union(circle.getBounds());
+	map.fitBounds(bounds);
+	circle.setMap(map);
+
+	google.maps.event.addListener(circle,'mouseover',function() {
+		circle.setOptions({'strokeColor': '#000'});
+	}); 
+	google.maps.event.addListener(circle,'mouseout',function() {
+		circle.setOptions({'strokeColor': default_circle_stroke});
+	}); 
+	google.maps.event.addListener(circle,'mousedown',function() {
+		circle.setOptions({'editable': true});
+	}); 
+	google.maps.event.addListener(map,'mouseover',function() {
+		circle.setOptions({'editable': true});
+	});
+	google.maps.event.addListener(map,'mouseout',function() {
+		circle.setOptions({'editable': false});
+	}); 
+
+	var max_radius_meters = 500000;
+
+	// when circle is dragged, we calculate search_radius based on new circleRadius
+	google.maps.event.addListener(circle, 'radius_changed', function() {
+		if (this.getRadius() > max_radius_meters) {
+			this.setRadius(max_radius_meters);
+		}
+		search_radius = circle.getRadius()/1000;
+		setSearchRadius(search_radius);
+	});
+	google.maps.event.addListener(circle, 'center_changed', function() {
+		saveSearchLocationWithOptionalAddress(circle.getCenter(), undefined).
+			fail(console.error).
+			then(refreshPage);
+	});
+	return circle;
 }
 
 function initMap() {
 	//current user LatLng
-	var userPoint = {lat: user_latitude, lng: user_longitude };
+	var user_point = {lat: user_latitude, lng: user_longitude };
 	
 	//Map div
 	var mapDiv = document.getElementById('map');
@@ -17,7 +72,7 @@ function initMap() {
     //Map options
 	var options = {
 	  zoom: 19,
-	  center: userPoint,
+	  center: user_point,
 	  draggable: false,
 	  streetViewControl: false,
 	  clickableIcons: false
@@ -41,66 +96,30 @@ function initMap() {
 	});
 
 	var centreMarker = new google.maps.Marker({
-	  position: userPoint,
+	  position: user_point,
 	  map: map,
 	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 	});
 
     //convert kilometers to meters
-	var circleRadius =search_radius*1000;
-	var default_circle_stroke = '#555759';
-
-	var circle = new google.maps.Circle({
-					    center: userPoint,
-					    radius: circleRadius,
-					    strokeColor: default_circle_stroke,
-					    strokeOpacity: 0.6,
-					    strokeWeight: 1,
-					    fillColor: "#929599",
-					    fillOpacity: 0.3
-					});
-
+	var circle = addCircleToMap(map, user_point);
 	var bounds = new google.maps.LatLngBounds();
 
 	bounds.union(circle.getBounds());
 	map.fitBounds(bounds);
-	circle.setMap(map);
 	var prev_zoom_level = map.getZoom();
-	var zoomOffset = 0;
-
-
-	google.maps.event.addListener(circle,'mouseover',function() {
-		circle.setOptions({'strokeColor': '#000'});
-	}); 
-	google.maps.event.addListener(circle,'mouseout',function() {
-		circle.setOptions({'strokeColor': default_circle_stroke});
-	}); 
-	google.maps.event.addListener(circle,'mousedown',function() {
-		circle.setOptions({'editable': true});
-	}); 
-	google.maps.event.addListener(map,'mouseover',function() {
-		circle.setOptions({'editable': true});
-	}); 
-	google.maps.event.addListener(map,'mouseout',function() {
-		circle.setOptions({'editable': false});
-	}); 
-
-	// when circle is dragged, we calculate search_radius based on new circleRadius
-	google.maps.event.addListener(circle,'radius_changed',function() {
-		search_radius = circle.getRadius()/1000;
-		setSearchRadius(search_radius);
-	});
+	var zoom_offset = 0;
 
 	google.maps.event.addListenerOnce(map, 'idle', function(){
-		zoomOffset = 0;
+		zoom_offset = 0;
 		user_zoom_detection_active = true;
 	});
 	
 	google.maps.event.addDomListener(map, 'zoom_changed', function() {
 		zoomLevel = map.getZoom();
 		if( user_zoom_detection_active ) {
-			zoomOffset += zoomLevel - prev_zoom_level;
-			updateMapPositionAndSize(map, bounds, zoomOffset);
+			zoom_offset += zoomLevel - prev_zoom_level;
+			updateMapPositionAndSize(map, bounds, zoom_offset);
 		}
 		prev_zoom_level = zoomLevel;
 	});
@@ -109,7 +128,7 @@ function initMap() {
 		google.maps.event.trigger(map, "resize");
 	});
 	google.maps.event.addDomListener(window, 'resize', function() {
-		updateMapPositionAndSize(map, bounds, zoomOffset);
+		updateMapPositionAndSize(map, bounds, zoom_offset);
 	});
 
 }
