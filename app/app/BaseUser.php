@@ -9,6 +9,11 @@ use Illuminate\Auth\AuthenticationException;
 
 class BaseUser
 {
+	public static function getMaximumSearchRadiusKM()
+	{
+		return 500;
+	}
+
 	/**
 	* Checks that the username and password matches a user record in the database.
 	*
@@ -150,7 +155,7 @@ class BaseUser
 			return '';
 		}
 	}
-	
+
 	public static function isInternal()
 	{
 		if ( !BaseUser::isSignedIn() )
@@ -240,7 +245,7 @@ class BaseUser
 			BaseUser::setAddress(Session::get('location_search_text'));
 			BaseUser::setLatitude(Session::get('latitude'));
 			BaseUser::setLongitude(Session::get('longitude'));
-			
+
 			// Remove the data from the session.
 			Session::forget('longitude');
 			Session::forget('latitude');
@@ -252,12 +257,12 @@ class BaseUser
 	{
 		Session::forget(['email']);
 	}
-	
+
 	public static function setTimeZoneOffset(int $timeZoneOffset)
 	{
 		Session::put('time_zone_offset', $timeZoneOffset);
 	}
-	
+
 	public static function getTimeZoneOffset()
 	{
 		if ( Session::has('time_zone_offset') )
@@ -269,22 +274,22 @@ class BaseUser
 			return 300;
 		}
 	}
-	
+
 	public static function setLocationSearchPath(string $location_search_path)
 	{
 		Session::put('location_search_path', $location_search_path);
 	}
-	
+
 	public static function getLocationSearchPath()
 	{
 		return Session::get('location_search_path');
 	}
-	
+
 	public static function setKeywords(string $keywords)
 	{
 		Session::put('keywords', $keywords);
 	}
-	
+
 	public static function getKeywords()
 	{
 		if ( Session::has('keywords') )
@@ -350,13 +355,17 @@ EOT;
 		$matching_user = User::where('email', '=', $email)->first();
 		return !is_null($matching_user->email_verification_time);
 	}
+
 	// set search radius
 	public static function setSearchRadius(float $distance) {
+		if ( $distance > self::getMaximumSearchRadiusKM() ) {
+			$distance = self::getMaximumSearchRadiusKM();
+		}
 		if ( BaseUser::isSignedIn() )
 		{
 			$user = BaseUser::getDbUser();
 			if ( $distance > 0) {
-				$user-> search_radius_km = $distance;
+				$user->search_radius_km = $distance;
 				$user->save();
 			}
 		}
