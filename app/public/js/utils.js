@@ -37,7 +37,7 @@ function degreesToRadians(degrees) {
   return degrees * Math.PI / 180;
 }
 
-// To calculate the distance between two points on a map 
+// To calculate the distance between two points on a map
 function calculateDistance(pt1, pt2) {
   var R = 6378137; // Earth's mean radius in meter
   var dLat = degreesToRadians(pt2.lat() - pt1.lat());
@@ -141,7 +141,7 @@ function sanitizeLatLng(lat_lng) {
 
 function saveSearchLocationWithOptionalAddress(lat_lng, address) {
 	sanitizeLatLng(lat_lng);
-	
+
 	function saveNewSearchLocation() {
 		return saveSearchLocation(address, lat_lng.lat(), lat_lng.lng());
 	}
@@ -151,7 +151,7 @@ function saveSearchLocationWithOptionalAddress(lat_lng, address) {
 		return getAddressFromLatLng(lat_lng).then(function(address_info) {
 			lat_lng = address_info.lat_lng;
 			address = address_info.address;
-			saveNewSearchLocation();
+			return saveNewSearchLocation();
 		});
 	}
 	else {

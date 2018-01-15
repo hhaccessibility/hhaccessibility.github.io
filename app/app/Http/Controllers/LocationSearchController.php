@@ -77,7 +77,7 @@ function calculateBucketHeightLimit($buckets, $max)
 	$numLens = count($lens);
 	$maxResult = $max;
 	$minResult = $max / $numLens;
-	
+
 	// Use a binary search technique to bracket down the range.
 	while ( $minResult < $maxResult )
 	{
@@ -108,7 +108,7 @@ function getLatitudeAndLongitudeRangeFromBaseUser()
 }
 
 /**
-For efficiency's sake, we want to remove any locations that are outside 
+For efficiency's sake, we want to remove any locations that are outside
 the latitude and longitude range we're interested in.
 */
 function filterLatitudeAndLongitude($locationsQuery)
@@ -151,7 +151,7 @@ function filterLocationsToMax($locations, $max)
 		$bucket_height_limit = calculateBucketHeightLimit($buckets, $max);
 		$new_locations = [];
 		foreach ($buckets as $key => $bucket)
-		{ 
+		{
 			$bucket = array_slice($bucket, 0, $bucket_height_limit);
 			foreach ($bucket as $location)
 			{
@@ -188,7 +188,7 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name)
 
 	$locationsResult = filterLocationsToMax($locations, 50);
 	$locations = $locationsResult['locations'];
-	
+
 	if ( $view === 'table' ) {
 		updateRatings($locations);
 		if ( $order_by_field_name === 'name' )
@@ -308,8 +308,8 @@ class LocationSearchController extends Controller {
 		}
 		BaseUser::setLocationSearchPath('/'.$request->path().'?'.$request->getQueryString());
 		BaseUser::setKeywords($keywords);
-		
-		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);		
+
+		$locationsQuery = filterLatitudeAndLongitude($locationsQuery);
 		$locationsResult = getSortedLocations($locationsQuery, $view, $order_by_field_name);
 
 		$url_factory = new URLFactory([
@@ -318,7 +318,7 @@ class LocationSearchController extends Controller {
 			'location_tag_id' => $location_tag_id,
 			'view' => $view
 		]);
-		
+
 		$search_radius = BaseUser::getSearchRadius();
 
 		return view('pages.location_search.search',
@@ -358,7 +358,7 @@ class LocationSearchController extends Controller {
 		{
 			return Response::json([
 				'message' => 'radius must be a number'
-			], 422);			
+			], 422);
 		}
 	}
 }
