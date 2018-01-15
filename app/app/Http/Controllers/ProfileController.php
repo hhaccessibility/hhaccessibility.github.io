@@ -46,7 +46,8 @@ class ProfileController extends Controller {
 			'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
 			'num_locations_added_by_me' => $num_locations_added_by_me,
 			'is_internal_user' => BaseUser::isInternal(),
-			'enabled_country_ids' => $enabled_country_ids
+			'enabled_country_ids' => $enabled_country_ids,
+			'max_search_radius_km' => BaseUser::getMaximumSearchRadiusKM()
 			];
 
 		if ($validator === null)
@@ -88,10 +89,12 @@ class ProfileController extends Controller {
 		$user->first_name = $request->first_name;
 		$user->last_name = $request->last_name;
 		$user->location_search_text = $request->location_search_text;
-		if ( $request->search_radius_km === '' )
+		if ( !is_numeric($request->search_radius_km) )
 			$user->search_radius_km = null;
-		else
-			$user->search_radius_km = floatval(trim($request->search_radius_km));
+		else {
+			// Sanitize to within the valid range.
+			$user->search_radius_km = max(0.01, min(floatval(trim($request->search_radius_km)), BaseUser::getMaximumSearchRadiusKM()));
+		}
 		$user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
 
 		$current_user_questions = $user->requiredQuestions()->get();
