@@ -3,10 +3,10 @@
 <div class="locations-added-by-me">
 	<div class="text-center">
 		<a class="add-create" href="/add-location" title="Add New Location">+</a>
-		<h1>Locations Added By Me ({{ count($locations) }})</h1>
+		<h1>Added Locations ({{ count($locations) }})</h1>
 	</div>
 	@if ( count($locations) === 0 )
-		<p>No locations have been added yet.</p>
+		<p class="text-center">No locations have been added yet.</p>
 	@else
 	<div class="row column-titles">
 		<div class="col-xs-4">
