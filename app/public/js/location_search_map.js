@@ -19,7 +19,8 @@ function addCircleToMap(map, user_point) {
 		strokeOpacity: 0.6,
 		strokeWeight: 1,
 		fillColor: "#929599",
-		fillOpacity: 0.3
+		fillOpacity: 0.3,
+		editable: true
 	});
 
 	var bounds = new google.maps.LatLngBounds();
@@ -33,15 +34,6 @@ function addCircleToMap(map, user_point) {
 	});
 	google.maps.event.addListener(circle,'mouseout',function() {
 		circle.setOptions({'strokeColor': default_circle_stroke});
-	});
-	google.maps.event.addListener(circle,'mousedown',function() {
-		circle.setOptions({'editable': true});
-	});
-	google.maps.event.addListener(map,'mouseover',function() {
-		circle.setOptions({'editable': true});
-	});
-	google.maps.event.addListener(map,'mouseout',function() {
-		circle.setOptions({'editable': false});
 	});
 
 	// when circle is dragged, we calculate search_radius based on new circleRadius
