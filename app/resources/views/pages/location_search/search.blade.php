@@ -55,9 +55,9 @@
 	<input type="hidden" id="_token" value="{{ csrf_token() }}">
 	<div class="title-map-table-bar">
 		@if ( !empty($location_tag_name) )
-		<h1>Location Search Results for {{ $location_tag_name }}</h1>
+		<h1><span class="location-search-results-for">Location Search Results for</span> {{ $location_tag_name }}</h1>
 		@else
-		<h1>Location Search Results for {{ $keywords }}</h1>
+		<h1><span class="location-search-results-for">Location Search Results for</span> {{ $keywords }}</h1>
 		@endif
 		<div class="text-right">
 			@if ( $view === 'table' )
