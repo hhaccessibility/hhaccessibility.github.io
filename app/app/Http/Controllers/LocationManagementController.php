@@ -278,6 +278,7 @@ class LocationManagementController extends Controller {
 		{
 			DB::table('user_answer')->where('location_id', '=', $location->id)->delete();
 			DB::table('review_comment')->where('location_id', '=', $location->id)->delete();
+			DB::table('location_location_tag')->where('location_id', '=', $location->id)->delete();
 			DB::table('location')->where('id', '=', $location->id)->delete();
 		});
 		return Redirect('/locations-added-by-me');
