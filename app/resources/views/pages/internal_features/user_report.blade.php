@@ -33,6 +33,22 @@
 				</ul>
 			</div>
 		</div>
+		@if ( $is_hard_deletable )
+		<div class="col-sm-6 col-xs-12">
+			<div class="box">
+				<h2>Make Changes</h2>
+				<ul>
+					<li>
+						<form method="post" action="/api/user/delete">
+							{{ csrf_field() }}
+							<input type="hidden" name="user_id" value="{{ $user->id }}">
+							<button class="btn btn-primary" type="submit">Delete User</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+		@endif
 	</div>
 </div>
 @stop

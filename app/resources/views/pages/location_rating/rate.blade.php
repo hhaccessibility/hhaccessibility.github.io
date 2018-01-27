@@ -44,7 +44,6 @@
 						'base_url' => '/location-rating/',
 						'is_reporting' => false
 					))
-			
 			@if ( $question_category === null )
 				@include('pages.location_rating.introduction',
 					array(
