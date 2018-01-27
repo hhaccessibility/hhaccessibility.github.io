@@ -13,6 +13,9 @@ class Location extends Eloquent
     ];
 	public $timestamps = false;
 
+	protected $casts = [
+        'ratings_cache' => 'json'
+    ];
 	protected $table = 'location';
 	/**
 	 * Indicates if the IDs are auto-incrementing.
