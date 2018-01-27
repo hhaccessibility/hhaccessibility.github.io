@@ -29,9 +29,9 @@
 						@if ( $question->is_always_required )
 							always-required
 						@endif
-						" title="Location does not require this">
+						" title="Location does not require this. For example, one level building does not require an elevator, so check 'N/A to Location' for the Elevator category.">
 							<div>
-							Not Required
+							N/A to Location
 							</div>
 						</div>
 						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 3 &&

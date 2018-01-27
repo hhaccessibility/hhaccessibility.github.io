@@ -62,6 +62,17 @@ This is where to put SCSS for the location report that shows a map.
 			flex-shrink: 0;
 		}
 	}
+	
+	> .row > .col-xs-5 {
+		a {
+			max-width: 100%;
+			display: inline-block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			height: 1.2em; 
+			white-space: nowrap;
+		}
+	}
 
 	.location-tags {
 		padding: 0;
