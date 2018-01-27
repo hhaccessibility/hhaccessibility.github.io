@@ -49,6 +49,7 @@ Route::get('locations-added-by-me', 'LocationManagementController@showCurrentUse
 Route::get('location-suggestions-for-name/{location_name}', 'LocationManagementController@getLocationSuggestionsForLocationName');
 Route::get('delete-my-location/{location_id}', 'LocationManagementController@deleteMyLocation');
 Route::get('user-report/{user_id}', 'InternalFeaturesController@showUserReport');
+Route::post('api/user/delete', 'InternalFeaturesController@deleteUser');
 Route::get('users', 'InternalFeaturesController@showUsers');
 Route::get('location-groups', 'InternalFeaturesController@showLocationGroupsReport');
 Route::get('dashboard', 'InternalFeaturesController@showDashboard');
