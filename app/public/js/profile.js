@@ -75,15 +75,28 @@ function selectImageFile()
 
 function randomizePhotoURL()
 {
+	var deferred = $.Deferred();
 	$element = $('.photo-display .uploaded-photo');
 	// If a photo was uploaded for the current user
 	if ( $element.length !== 0 )
 	{
+		var src = "/profile-photo?t=" + (new Date().getTime());
+		var $img = $( '<img src="' + src + '">' );
+		$img.bind( 'load', function(){
+			$element.css( 'background-image', 'url(' + src + ')' );
+			deferred.resolve();
+		} );
+		if( $img[0].width ){ $img.trigger( 'load' ); }
+		
 		// Set a new URL so cache won't interfere with refreshing newly uploaded photos.
 		$element.css({
-			'background-image': "url(\'/profile-photo?t=" + (new Date().getTime()) + "\')"
+			'background-image': "url(\'" + src + "\')"
 		});
 	}
+	else {
+		deferred.resolve();
+	}
+	return deferred.promise();
 }
 
 function getCountryElement()
@@ -102,6 +115,21 @@ function updateRegionOptions()
 	});
 }
 
+function rotateImage()
+{
+	var token = $('[name="_token"]').val();
+	$.ajax({
+		'method': 'POST',
+		'data': {
+			'_token': token
+		},
+		'url': '/profile-photo-rotate',
+		'success': function() {
+			randomizePhotoURL().then(showRotateFeature);
+		}
+	});
+}
+
 // Used for the State/Province datalist
 function downloadRegions()
 {
@@ -114,6 +142,24 @@ function downloadRegions()
 	});
 }
 
+var rotate_feature_timer = false;
+
+function showRotateFeature() {
+	if ( rotate_feature_timer ) {
+		clearTimeout(rotate_feature_timer);
+	}
+	var $profile_photo_rotate = $('#profile-photo-rotate');
+	$profile_photo_rotate.addClass('overlay').css('display', 'block');
+	// profile photo rotate icon will disappear in 20 secs
+    rotate_feature_timer = setTimeout(function() {
+		$profile_photo_rotate.removeClass('overlay');
+		rotate_feature_timer = setTimeout(function() {
+			$profile_photo_rotate.css('display', 'none');
+			rotate_feature_timer = false;
+		}, 2000);
+    }, 8000);
+}
+
 $( function() {
 	$( "#accordion" ).accordion({
 		heightStyle: "content" 
@@ -122,4 +168,7 @@ $( function() {
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
 	downloadRegions().then(updateRegionOptions);
+	if ( window.location.href.indexOf('show_rotate_feature') !== -1 ) {
+		showRotateFeature();
+	}
 } );
