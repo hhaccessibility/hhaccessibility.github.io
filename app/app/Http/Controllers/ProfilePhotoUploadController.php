@@ -119,17 +119,7 @@ class ProfilePhotoUploadController extends Controller {
 		$scaled_result = imagescale ( $image , $newDimensions['width'], $newDimensions['height']);
 		imagejpeg($scaled_result, $full_path);
 		
-		/**
-		Redirect to profile and ask the browser to clear its cache.
-		The cache clearing was to fix a problem where the new profile
-		photo wouldn't refresh itself properly.
-		
-		I couldn't find a cache clearing option in Laravel's redirect so I used PHP's header function instead.
-		This was adapted from:
-		http://stackoverflow.com/questions/1571973/best-way-redirect-reload-pages-in-php
-		*/
-		header('Location: /profile', true, 302);
-		exit(0);
+		return redirect()->intended('profile?show_rotate_feature=true');
 	}
 
 	public function post(Request $request)
@@ -149,7 +139,7 @@ class ProfilePhotoUploadController extends Controller {
 			$content = file_get_contents($temp_filename);
 			$new_image = imagecreatefromstring($content);
 
-			ProfilePhotoUploadController::save($new_image);
+			return ProfilePhotoUploadController::save($new_image);
 		}
         else
         {
@@ -179,7 +169,7 @@ class ProfilePhotoUploadController extends Controller {
 		$image = imagecreatefromstring($content);
 
 		$new_image = imagerotate($image, -90, 0);
-		ProfilePhotoUploadController::save($new_image);
+		return ProfilePhotoUploadController::save($new_image);
 	}
 
 }

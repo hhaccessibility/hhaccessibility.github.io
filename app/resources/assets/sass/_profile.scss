@@ -54,6 +54,31 @@
         cursor: pointer;
         text-align: center;
         position: relative;
+		
+		#profile-photo-rotate {
+			position: absolute;
+			top: 20px;
+			left: 0;
+			right: 0;
+			cursor: pointer;
+			background-color: rgba(255, 255, 255, 0.01);
+			transition: background-color 2s, opacity 2s;
+
+			i {
+				transition: font-size 1s;
+				font-size: 0.1em;
+			}
+
+			&.overlay {
+				background-color: rgba(255, 255, 255, 0.5);
+				transition: background-color 0s, opacity 0s;
+
+				i {
+					transition: font-size 0s;
+					font-size: 4em;
+				}
+			}
+		}
 
         .remove-photo {
             margin-top: 59px;
