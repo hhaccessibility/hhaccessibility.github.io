@@ -57,4 +57,41 @@ class LocationReportController extends Controller {
 		return view('pages.location_report.collapsed', $view_data);
     }
 
+	public function showMap(string $location_id, $rating_system = null)
+	{
+		if ($rating_system !== 'personal') {
+			$rating_system = 'universal';
+		}
+		$location = Location::find($location_id);
+		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
+		$view_data = [
+			'location_search_path' => BaseUser::getLocationSearchPath(),
+			'location' => $location,
+			'question_categories' => $question_categories,
+			'google_map_api_key' => config('app.google_map_api_key'),
+			'turn_off_maps' => config('app.turn_off_maps')
+		];
+		
+		return view('pages.location_report.map', $view_data);
+	}
+
+	public function showComprehensiveRatings(string $location_id, $rating_system = null)
+	{
+		if ($rating_system !== 'personal') {
+			$rating_system = 'universal';
+		}
+		$location = Location::find($location_id);
+		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
+		$view_data = [
+			'location_search_path' => BaseUser::getLocationSearchPath(),
+			'location' => $location,
+			'question_categories' => $question_categories,
+			'rating_system' => $rating_system,
+			'num_ratings' => $location->getNumberOfUsersWhoRated(),
+			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile()
+		];
+
+		return view('pages.location_report.ratings_only', $view_data);
+	}
+
 }

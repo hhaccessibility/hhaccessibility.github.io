@@ -2,7 +2,7 @@
 
 .location-search {
 	@extend %page-base;
-	
+
 	.title-map-table-bar {
 		h1 {
 			margin-top: 0;
@@ -14,13 +14,13 @@
 			display: inline-block;
 			padding-top: 10px;
 			float: right;
-			
+
 			> a {
 				@extend %selectable-link;
 			}
 		}
 	}
-	
+
 	#map {
 		height: 200px;
 		height: calc(100vh - 100px);
@@ -30,7 +30,7 @@
 	&.warned .data {
 		max-height: calc(100vh - 200px);
 	}
-	
+
 	.warning {
 		display: block;
 		text-align: center;
@@ -75,31 +75,11 @@
 	}
 }
 
-@media screen and (max-width: 450px) {
-	html > body {
-		div.location-search {
-			h3 {
-				font-size: 0.76em;
-			}
-		}
-	}
-}
-
 @media screen and (max-width: 551px) {
 	html > body {
 		div.location-search {
 			padding-left: 2px;
 			padding-right: 2px;
-		}
-	}
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-	html > body {
-		.location-search {
-			h1 {
-				font-size: 33px;
-			}
 		}
 	}
 }
@@ -110,9 +90,15 @@
 			h1 {
 				font-size: 1.9em;
 			}
-			
-			h3 {
-				font-size: 1.6em;
+		}
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	html > body {
+		.location-search {
+			h1 {
+				font-size: 33px;
 			}
 		}
 	}

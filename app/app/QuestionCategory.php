@@ -8,9 +8,9 @@ class QuestionCategory extends Eloquent
     protected $fillable = [
         'id', 'name',
     ];
-	
+
 	protected $table = 'question_category';
-	
+
 	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
 		$questions = $this->questions()->get();
@@ -24,14 +24,14 @@ class QuestionCategory extends Eloquent
 		}
 		if ($totalCount === 0)
 			return 0;
-		
+
 		return round($sum / $totalCount);
 	}
-	
+
     public function questions()
     {
         return $this->hasMany('App\Question');
-    }	
+    }
 
 	public function comments()
 	{

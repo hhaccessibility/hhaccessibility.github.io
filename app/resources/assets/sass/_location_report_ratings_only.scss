@@ -1,0 +1,28 @@
+@import "_placeholders.scss";
+
+.location-report.ratings-only {
+	.questions-box {
+		width: 350px;
+		margin: auto;
+		
+		.question-category {
+			a {
+				display: block;
+				width: 100%;
+				position: relative;
+				
+				span {
+					top: 0;
+
+					&.category-name {
+						left: 0;
+					}
+
+					&.percentage {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}

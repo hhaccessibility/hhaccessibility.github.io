@@ -20,16 +20,16 @@
 			color: #000;
 		}
 	}
-	
+
 	.column-titles a {
 		text-decoration: underline;
 		transition: color 0.3s;
-		
+
 		&:hover {
 			color: #029;
 		}
 	}
-	
+
 	&.sort-by-name {
 		@include solid-column-background(2, 3);
 	}
@@ -41,20 +41,20 @@
 	&.sort-by-distance {
 		@include solid-column-background(1, 2);
 	}
-	
+
 	.data {
 		max-height: calc(100vh - 165px);
 		overflow-y: auto;
 		overflow-x: hidden;
-		
+
 		> div {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 			transition: color 0.3s, border-color 0.3s, background-color 0.3s;
-			
+
 			&:nth-child(odd) {
 				background-color: rgba(0, 0, 0, 0.05);
 			}
-			
+
 			&:hover {
 				border-color: rgba(0, 0, 0, 0.3);
 
@@ -66,11 +66,11 @@
 	}
 }
 
-.location-search {	
+.location-search {
 	.accessibility-rating {
 		padding-right: 0;
 	}
-	
+
 	.spreadsheet {
 		.data {
 			background-image: url('../images/vertical_arrows.png');
@@ -86,7 +86,7 @@
 					padding-left: 3px;
 					padding-right: 3px;
 				}
-			
+
 				input {
 					padding: 3px;
 					text-align: right;
@@ -102,11 +102,11 @@
 		.location-search {
 			.form-inline {
 				display: flex;
-				
+
 				.form-group {
 					flex-grow: 1;
 				}
-				
+
 				button {
 					flex-shrink: 0;
 					flex-grow: 0;
@@ -116,7 +116,7 @@
 					margin-left: 3px;
 				}
 			}
-			
+
 			.hide-for-small-viewports {
 				display: none;
 			}
@@ -134,18 +134,28 @@
 
 			.form-inline {
 				text-align: center;
-				
+
 				.form-group {
 					margin-bottom: 3px;
 				}
 			}
-			
+
 			.hide-for-small-viewports {
 				display: none;
 			}
-			
+
 			.percentage {
 				display: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	html > body {
+		div.location-search {
+			h3 {
+				font-size: 0.76em;
 			}
 		}
 	}
@@ -158,11 +168,11 @@
 				font-size: 0.8em;
 				font-weight: bold;
 			}
-			
+
 			.data {
 				max-height: calc(100vh - 175px);
 			}
-			
+
 			&.warned .data {
 				max-height: calc(100vh - 200px);
 			}
@@ -175,6 +185,16 @@
 		.location-search {
 			h3 {
 				font-size: 1.5em;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 751px) and (max-width: 991px) {
+	body {
+		.location-search {
+			h3 {
+				font-size: 1.6em;
 			}
 		}
 	}
@@ -206,16 +226,16 @@
 			&.warned .data {
 				max-height: calc(100vh - 195px);
 			}
-			
+
 			.data {
 				max-height: calc(100vh - 215px);
-				
+
 				.location {
 					[class^='col-xs-'] {
 						color: #144d7e;
 						font-size: 1.05em;
 					}
-					
+
 					&:hover {
 						[class^='col-xs-'] {
 							color: #000;

@@ -58,6 +58,10 @@ Route::get('map-location-visualizer', 'InternalFeaturesController@showMapVisuali
 Route::get('duplicate-location-finder', 'DuplicateLocationFinderController@showDuplicateLocationFinder');
 Route::get('location-report/{location_id}', 'LocationReportController@show');
 Route::get('location-report/{location_id}/{rating_system}', 'LocationReportController@show');
+Route::get('location-map/{location_id}', 'LocationReportController@showMap');
+Route::get('location-map/{location_id}/{rating_system}', 'LocationReportController@showMap');
+Route::get('location-comprehensive-ratings/{location_id}', 'LocationReportController@showComprehensiveRatings');
+Route::get('location-comprehensive-ratings/{location_id}/{rating_system}', 'LocationReportController@showComprehensiveRatings');
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');
 Route::get('location-rating/{location_id}', 'LocationRatingController@show');
 Route::get('location-rating/{location_id}/{question_category_id}', 'LocationRatingController@show');

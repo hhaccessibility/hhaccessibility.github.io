@@ -9,10 +9,13 @@ class Location extends Eloquent
 {
     protected $fillable = [
         'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
-		'data_source_id', 'universal_rating', 'creator_user_id',
+		'data_source_id', 'universal_rating', 'creator_user_id', 'ratings_cache'
     ];
 	public $timestamps = false;
 
+	protected $casts = [
+        'ratings_cache' => 'array'
+    ];
 	protected $table = 'location';
 	/**
 	 * Indicates if the IDs are auto-incrementing.

@@ -40,21 +40,19 @@ function updateShowLocationTagIcons() {
 }
 
 function updateHeightOfMap() {
-  var $map_parent = $('.map-and-box');
   var $map = $('#map');
   var $copyright = $('#copyright');
-  var height = window.innerHeight - $(map).offset().top - $copyright.height();
+  var extra_height = $map.offset().top + $copyright.height();
+  var height = window.innerHeight - extra_height;
   var viewport_width = $(window).width();
   if (height < 250)
 	height = 250;
 
   if ( viewport_width > 990 ) {
-	  $map.height(height);
-	  $map_parent.height(height);
+	  $map.css('height', 'calc(100vh - ' + extra_height + 'px)');
   }
   else {
 	  $map.css('height', '');
-	  $map_parent.css('height', '');
   }
 }
 $(window).resize(function() {
