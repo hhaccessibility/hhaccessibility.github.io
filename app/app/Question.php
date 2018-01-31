@@ -3,6 +3,7 @@
 namespace App;
 use Eloquent;
 use DB;
+use App\Location;
 
 class Question extends Eloquent
 {
@@ -12,8 +13,29 @@ class Question extends Eloquent
 	
 	protected $table = 'question';
 	
+	private static function setQuestionRatingInCache(int $question_id, $location, $new_value)
+	{
+		if ( is_string($location)) {
+			// If location is just the id of a location, look it up.
+			$location = Location::find($location);
+		}
+		$ratings_cache = $location->ratings_cache;
+		if ( $location->ratings_cache === null ) {
+			$ratings_cache = [];
+		}
+		$ratings_cache[''.$question_id] = $new_value;
+		$location->ratings_cache = $ratings_cache;
+		$location->save();
+	}
+	
 	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
+		// See if the value is in the location's ratings_cache.
+		$location = Location::find($location_id);
+		if ( $location->ratings_cache && isset($location->ratings_cache[''.$this->id]) ) {
+			return $location->ratings_cache[$this->id];
+		}
+		
 		$answers = $this->answers()
 			->join('user_answer as a2', 'a2.answered_by_user_id', '=', 'user_answer.answered_by_user_id')
 			->where('a2.location_id', '=', $location_id)
@@ -39,10 +61,12 @@ class Question extends Eloquent
 				$totalCount = $totalCount + 1;
 			}
 		}
-		if ($totalCount === 0)
-			return 0;
-		else
-			return $sum * 100 / $totalCount;
+		$rating_value = 0;
+		if ($totalCount !== 0) {
+			$rating_value = $sum * 100 / $totalCount;
+		}
+		self::setQuestionRatingInCache($this->id, $location, $rating_value);
+		return $rating_value;
 	}
 
 	public function answers()
