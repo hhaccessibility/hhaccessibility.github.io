@@ -1,32 +1,8 @@
 @extends('layouts.default')
 @section('head-content')
-	@if (!$turn_off_maps)
 	<script>
-		  function initMap() {
-			var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
-			var map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 15,
-			  center: locationPoint,
-			  draggable: false,
-			  streetViewControl: false
-			});
-			var marker = new google.maps.Marker({
-			  position: locationPoint,
-			  map: map
-			});
-			
-			function centreLocation() {
-				map.setCenter(locationPoint);
-			}
-
-			google.maps.event.addDomListener(window, 'resize', centreLocation);
-			$(window).resize(function() {
-				google.maps.event.trigger(map, "resize");
-			});
-		  }
-		  
-    </script>
-	@endif
+	var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };	
+	</script>
 	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
 	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
@@ -97,6 +73,9 @@
 					@endforeach
 				</div>
 			@endif
+			<div class="text-center">
+				Close
+			</div>
 		</div>
 		<div id="map">
 		</div>

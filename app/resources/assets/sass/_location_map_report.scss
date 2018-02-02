@@ -23,7 +23,13 @@ This is where to put SCSS for the location report that shows a map.
 	}
 }
 
-
+.show-ratings-popup .location-report {
+	.map-and-box {
+		.questions-box {
+			display: block;
+		}
+	}
+}
 
 .location-report {
 	@extend %page-base;
@@ -122,6 +128,7 @@ This is where to put SCSS for the location report that shows a map.
 		}
 
 		.questions-box {
+			display: none;
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -132,6 +139,15 @@ This is where to put SCSS for the location report that shows a map.
 			max-width: 350px;
 			z-index: 1;
 
+			> div.text-center {
+				color: #fff;
+				cursor: pointer;
+				
+				&:hover {
+					background-color: #000;
+				}
+			}
+			
 			p {
 				color: #fff;
 

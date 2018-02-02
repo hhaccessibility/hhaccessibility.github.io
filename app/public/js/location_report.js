@@ -2,6 +2,28 @@
 location_report.js is used in the report on a single location, 
 pages/location_report/collapsed.blade.php.
 */
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  zoom: 15,
+	  center: locationPoint,
+	  draggable: false,
+	  streetViewControl: false
+	});
+	var marker = new google.maps.Marker({
+	  position: locationPoint,
+	  map: map
+	});
+
+	function centreLocation() {
+		map.setCenter(locationPoint);
+	}
+
+	google.maps.event.addDomListener(window, 'resize', centreLocation);
+	google.maps.event.addDomListener(marker, 'click', showRatingsPopup);
+	$(window).resize(function() {
+		google.maps.event.trigger(map, "resize");
+	});
+}
 
 function hideLocationTagIcons() {
 	$('.location-tag').attr('title', '');
@@ -55,6 +77,19 @@ function updateHeightOfMap() {
 	  $map.css('height', '');
   }
 }
+
+function hideRatingsPopup() {
+	$('body').removeClass('show-ratings-popup');
+}
+
+function showRatingsPopup() {
+	$('body').addClass('show-ratings-popup');
+}
+
+function setupToggleRatingsPopup() {
+	$('.questions-box > .text-center').click(hideRatingsPopup);
+}
+
 $(window).resize(function() {
 	updateHeightOfMap();
 	updateShowLocationTagIcons();
@@ -62,4 +97,6 @@ $(window).resize(function() {
 document.addEventListener("DOMContentLoaded", function(event) {
 	updateHeightOfMap();
 	updateShowLocationTagIcons();
+	setupToggleRatingsPopup();
 });
+
