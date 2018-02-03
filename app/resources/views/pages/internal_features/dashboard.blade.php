@@ -9,6 +9,7 @@
 				<h2>General</h2>
 				<ul>
 					<li><a href="/users"><span>{{ $num_users }}</span> users</a></li>
+					<li>{{ $num_internal_users }}</span> internal users</a></li>
 					<li><span>{{ $num_users_using_screen_readers }}</span> user(s) use screen readers</li>
 					<li><span>{{ $num_locations }}</span> locations (<a href="/map-location-visualizer">visualizer</a>)</li>
 					<li><span>{{ $num_user_created_locations }}</span> locations created by users</li>
