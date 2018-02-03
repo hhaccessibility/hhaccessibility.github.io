@@ -31,6 +31,7 @@ class SocialAuthController extends Controller {
 			else 
 				throw new Exception('Unrecognized provider name '.$providerName);
 			BaseUser::signIn($profile->email);
+			BaseUser::updateEmailConfirmationDate();
 			return redirect()->intended('profile');
 
 		} catch (Exception $e) {
