@@ -2,7 +2,7 @@
 
 <div>
 	<div class="questions">
-		@foreach ( $question_category->questions()->get() as $question )
+		@foreach ( $question_category->getSortedQuestions() as $question )
 			<div class="row" data-question-id="{{ $question->id }}">
 				<div class="col-md-6 col-xs-12">
 					{!! $question->question_html !!}

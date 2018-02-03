@@ -10,7 +10,8 @@ class Question extends Eloquent
     protected $fillable = [
         'question_html',
     ];
-	
+
+	public $timestamps = false;
 	protected $table = 'question';
 	
 	private static function setQuestionRatingInCache(int $question_id, $location, $new_value)

@@ -24,10 +24,10 @@ class LocationRatingController extends Controller {
 		{
 			return response(422)->json(['success' => false]);
 		}
-		
+
 		$location_id = Input::get('location_id');
 		AnswerRepository::commitAnswersForLocation($location_id);
-		
+
 		return redirect()->intended('/reviewed-locations');
 	}
 
@@ -48,10 +48,10 @@ class LocationRatingController extends Controller {
 		}
 
 		AnswerRepository::saveAnswer(Input::get('location_id'), Input::get('question_id'), Input::get('answer'));
-	
+
 		return response()->json(['success' => true]);
 	}
-	
+
 	public function removeAnswer(Request $request)
 	{
 		if ( !BaseUser::isSignedIn() ) {
@@ -66,12 +66,12 @@ class LocationRatingController extends Controller {
 		{
 			return response(422)->json(['success' => false]);
 		}
-		
+
 		AnswerRepository::removeAnswer(Input::get('location_id'), Input::get('question_id'));
-		
+
 		return response()->json(['success' => true]);
 	}
-	
+
 	public function setComment(Request $request)
 	{
 		if ( !BaseUser::isSignedIn() ) {
@@ -86,7 +86,7 @@ class LocationRatingController extends Controller {
 		{
 			return response(422)->json(['success' => false]);
 		}
-		
+
 		AnswerRepository::saveComment(Input::get('location_id'), Input::get('question_category_id'), Input::get('comment'));
 		$answer_repo = new AnswerRepository(Input::get('location_id'), Input::get('question_category_id'));
 		return response()->json(['success' => true, 'comment' => $answer_repo->getComment()]);
@@ -133,13 +133,13 @@ class LocationRatingController extends Controller {
 		{
 			$next_question_category = QuestionCategory::where('name', '>', $question_category->name)
 				->orderBy('name', 'ASC')->first();
-			
+
 			if ( $next_question_category )
 			{
 				$next_question_category_id = $next_question_category->id;
 			}
 		}
-	   
+
 		return view('pages.location_rating.rate', [
 			'time_zone_offset' => BaseUser::getTimeZoneOffset(),
 			'location' => $location,

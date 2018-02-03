@@ -105,6 +105,15 @@ def add_missing_data(db, table_names):
 	db.commit()
 
 
+def set_fields_on_questions(db):
+	cursor = db.cursor()
+	questions_data = load_seed_data_from('question')
+	for question_data in questions_data:
+		update_sql = 'update question set question_html=%s, is_always_required=%s, `order`=%s where id=%s'
+		cursor.execute(update_sql, (question_data['question_html'],
+			question_data['is_always_required'], question_data['order'], question_data['id']))
+
+
 def set_fields_on_location_tags(db):
 	print 'setting fields on location_tags table'
 	location_tags_data = load_seed_data_from('location_tag')
