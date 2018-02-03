@@ -313,7 +313,7 @@ class BaseUser
 		mail($user->email, "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name, $body, $headers);
 	}
 
-	private static function updateEmailConfirmationDate()
+	public static function updateEmailConfirmationDate()
 	{
 		$matching_user = self::getDbUser();
 		$matching_user->email_verification_time = new DateTime();
