@@ -312,6 +312,14 @@ class BaseUser
 		$headers .= "Content-Type: text/plain; charset=\"utf-8\"\r\n";
 		mail($user->email, "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name, $body, $headers);
 	}
+
+	private static function updateEmailConfirmationDate()
+	{
+		$matching_user = self::getDbUser();
+		$matching_user->email_verification_time = new DateTime();
+		$matching_user->save();
+	}
+
 	/**
 	* to verify user's email verification code
 	*
@@ -322,8 +330,7 @@ class BaseUser
 
 		if ($matching_user && $matching_user->email_verification_token === $confirmCode)
 		{
-			$matching_user->email_verification_time = new DateTime();
-			$matching_user->save();
+			self::updateEmailConfirmationDate();
 			return true;
 		}
 

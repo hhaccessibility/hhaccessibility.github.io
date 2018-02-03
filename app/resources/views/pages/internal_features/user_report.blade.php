@@ -18,6 +18,7 @@
 					<li>Home Country: <span>{{ $home_country_name }}</span></li>
 					<li>Search text: <span>{{ $user->location_search_text }}</span></li>
 					<li>Email verification: <span>{{ $user->email_verification_time }}</span></li>
+					<li>Is Internal: <span>{{ $is_internal ? 'true' : 'false' }}</span></li>
 				</ul>
 			</div>
 		</div>

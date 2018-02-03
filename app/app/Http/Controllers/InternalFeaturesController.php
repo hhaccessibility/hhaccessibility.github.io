@@ -2,6 +2,7 @@
 
 use App\BaseUser;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
@@ -124,7 +125,8 @@ class InternalFeaturesController extends Controller
 			'num_rating_submissions' => $num_rating_submissions,
 			'num_rated_locations' => $num_rated_locations,
 			'num_created_locations' => $num_created_locations,
-			'is_hard_deletable' => self::isDeletableEmailAddress($user->email)
+			'is_hard_deletable' => self::isDeletableEmailAddress($user->email),
+			'is_internal' => $user->hasRole(Role::INTERNAL)
 		];
 
 		return view('pages.internal_features.user_report', $view_data);
@@ -147,6 +149,7 @@ class InternalFeaturesController extends Controller
 
 		$view_data = [
 		'num_users' => DB::table('user')->count(),
+		'num_internal_users' => DB::table('user_role')->where('role_id', '=', Role::INTERNAL)->count(),
 		'num_users_using_screen_readers' => DB::table('user')->where('uses_screen_reader', '=', 1)->count(),
 		'num_locations' => DB::table('location')->count(),
 		'num_user_created_locations' => $num_user_created_locations,
