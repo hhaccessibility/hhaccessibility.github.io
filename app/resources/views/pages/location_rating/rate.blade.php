@@ -14,6 +14,7 @@
 	var location_id = '{{ $location->id }}';
 	var question_category_id = {{ $question_category->id }};
 	var csrf_token = '{{ csrf_token() }}';
+	var questions = {!! json_encode($questions_data) !!};
     </script>
 @stop
 @section('content')

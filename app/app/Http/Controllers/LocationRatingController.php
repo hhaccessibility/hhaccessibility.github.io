@@ -141,12 +141,24 @@ class LocationRatingController extends Controller
                 $next_question_category_id = $next_question_category->id;
             }
         }
+		$questions_data = [];
+		foreach ($question_category->getSortedQuestions() as $question) {
+			$is_required_config = $question->is_required_config;
+			if ($is_required_config) {
+				$is_required_config = json_decode($is_requied_config);
+			}
+			$questions_data []= [
+				'id' => $question->id,
+				'is_required_config' => $is_required_config
+			];
+		}
 
         return view('pages.location_rating.rate', [
             'time_zone_offset' => BaseUser::getTimeZoneOffset(),
             'location' => $location,
             'uses_screen_reader' => $uses_screen_reader,
             'question_category' => $question_category,
+            'questions_data' => $questions_data,
             'question_categories' => $question_categories,
             'answer_repository' => new AnswerRepository($location_id, $question_category_id),
             'next_question_category_id' => $next_question_category_id,

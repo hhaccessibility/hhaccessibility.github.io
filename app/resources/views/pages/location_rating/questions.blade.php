@@ -31,7 +31,7 @@
 							No
 							</div>
 						</div>
-						<div class="col-xs-4 @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
+						<div class="col-xs-4 not-applicable @if ( $answer_repository->getAnswerForQuestion($question->id) === 2 )
 							selected
 						@endif
 						@if ( $question->is_always_required )

@@ -28,6 +28,56 @@ function processPromise(promise) {
 	});
 }
 
+function hideQuestion(question_id)
+{
+	$('[data-question-id="' + question_id + '"]').css({
+		'display': 'none'
+	});
+}
+
+function showQuestion(question_id)
+{
+	$('[data-question-id="' + question_id + '"]').css({
+		'display': 'block'
+	});
+}
+
+function setAlwaysRequiredForQuestion(question_id, is_always_required)
+{
+	var $element = $('[data-question-id="' + question_id + '"] .answers .not-applicable');
+	if (is_always_required) {
+		$element.addClass('always-required');
+	}
+	else {
+		$element.removeClass('always-required');
+	}
+}
+
+function getAnswerFor(question_id)
+{
+	var $element = $('.answers [data-question_id="' + question_id + '"] .selected');
+	if ($element.length === 0) {
+		return undefined;
+	}
+	else {
+		return $element.text().trim().toLowerCase();
+	}
+}
+
+function updateQuestionList(questions)
+{
+	questions.forEach(function(question) {
+		setAlwaysRequiredForQuestion(question.id, question.is_always_required);
+	});
+}
+
+function initializeQuestions()
+{
+	// loop through every question.
+		// process "is_required_if_yes_to".
+		// process "is_required_if_matching_tag".
+}
+
 function setComment(comment)
 {
 	// setComment tries to keep at most 1 comment-related API call active at a time.
@@ -63,7 +113,8 @@ function removeAnswer(question_id)
 		'data': {
 			'location_id': location_id,
 			'question_id': question_id,
-			'_token': csrf_token
+			'_token': csrf_token,
+			'success': updateQuestionList
 		}
 	}));
 }
@@ -85,7 +136,8 @@ function saveAnswerChange(question_id, answer_text)
 			'question_id': question_id,
 			'answer': answer_text,
 			'_token': csrf_token
-		}
+		},
+		'success': updateQuestionList
 	}));
 }
 
@@ -177,6 +229,7 @@ function initAnswerBindings()
 	initQuestionExplanationLinks();
 	processAElements();
 	delaySubmit();
+	initializeQuestions();
 }
 
 $(document).ready(initAnswerBindings);
