@@ -13,5 +13,6 @@ class Role extends Eloquent
         'name', 'description',
     ];
 	
+	public $timestamps = false;
 	protected $table = 'role';	
 }

@@ -10,6 +10,7 @@ class QuestionCategory extends Eloquent
     ];
 
 	protected $table = 'question_category';
+	public $timestamps = false;
 
 	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
@@ -32,6 +33,11 @@ class QuestionCategory extends Eloquent
     {
         return $this->hasMany('App\Question');
     }
+
+	public function getSortedQuestions()
+	{
+		return $this->questions()->orderBy('order')->get();
+	}
 
 	public function comments()
 	{

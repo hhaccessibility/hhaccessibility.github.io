@@ -189,7 +189,7 @@
 							<button type="button" class="btn btn-lg btn-primary select-all">Select All</button>
 						</div>
 						<div class="questions">
-							@foreach ($category->questions()->get() as $question)
+							@foreach ($category->getSortedQuestions() as $question)
 								<div class="checkbox">
 									<label>
 										@if ($user->isQuestionRequired($required_questions, $question->id))
