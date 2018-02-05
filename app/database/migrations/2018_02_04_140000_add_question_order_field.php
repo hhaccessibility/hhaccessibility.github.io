@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 /*
 This migration adds a new order field to the question table.
 
-This should make it easier to insert new questions into the 
+This should make it easier to insert new questions into the question list.
 */
 class AddQuestionOrderField extends Migration
 {
