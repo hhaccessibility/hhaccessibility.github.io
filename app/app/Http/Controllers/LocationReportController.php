@@ -51,7 +51,8 @@ class LocationReportController extends Controller {
 			'personal_rating_is_available' => BaseUser::isCompleteAccessibilityProfile(),
 			'turn_off_maps' => config('app.turn_off_maps'),
 			'num_ratings' => $location->getNumberOfUsersWhoRated(),
-			'is_internal_user' => BaseUser::isInternal()
+			'is_internal_user' => BaseUser::isInternal(),
+			'body_class' => 'show-ratings-popup'
 		];
 		
 		return view('pages.location_report.collapsed', $view_data);

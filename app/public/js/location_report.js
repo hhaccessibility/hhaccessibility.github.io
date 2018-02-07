@@ -19,7 +19,7 @@ function initMap() {
 	}
 
 	google.maps.event.addDomListener(window, 'resize', centreLocation);
-	google.maps.event.addDomListener(marker, 'click', showRatingsPopup);
+	google.maps.event.addDomListener(marker, 'click', toggleRatingsPopup);
 	$(window).resize(function() {
 		google.maps.event.trigger(map, "resize");
 	});
@@ -84,6 +84,10 @@ function hideRatingsPopup() {
 
 function showRatingsPopup() {
 	$('body').addClass('show-ratings-popup');
+}
+
+function toggleRatingsPopup() {
+	$('body').toggleClass('show-ratings-popup');
 }
 
 function setupToggleRatingsPopup() {
