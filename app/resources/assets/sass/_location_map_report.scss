@@ -133,26 +133,30 @@ This is where to put SCSS for the location report that shows a map.
 			top: 0;
 			right: 0;
 			padding: 5px;
-			background-color: #235;
-			box-shadow: 0 0 5px #ddd inset;
+			background-color: #f8f8ff;
+			z-index: 1;
+			border: 1px solid mix($base_colour1, #ffffff, 70%);
+			box-shadow: 0 0 8px #aaa inset;
 			border-radius: 4px;
 			max-width: 350px;
-			z-index: 1;
 
 			> div.text-center {
-				color: #fff;
+				color: #222;
 				cursor: pointer;
-				
+				border-top: 1px solid mix($base_colour1, #ffffff, 50%);
+
 				&:hover {
-					background-color: #000;
+					background-color: #fff;
+					color: #000;
+					box-shadow:  0px 3px 3px #ddd inset, 0px -3px 3px #ddd inset;
 				}
 			}
 			
 			p {
-				color: #fff;
+				color: #222;
 
 				a {
-					color: #ddf;
+					color: #003;
 				}
 			}
 
@@ -162,7 +166,7 @@ This is where to put SCSS for the location report that shows a map.
 				border-bottom: 1px solid mix(#fff, #235, 20%);
 
 				h3 {
-					color: #fff;
+					color: #000;
 					max-width: 250px;
 					font-size: 16px;
 					vertical-align: middle;
@@ -175,7 +179,7 @@ This is where to put SCSS for the location report that shows a map.
 					vertical-align: top;
 
 					* {
-						text-shadow: 0 0 5px $base_colour1, 0 0 5px $base_colour1, 0 0 5px $base_colour1;
+						text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
 					}
 
 					.pie-graph {
@@ -187,7 +191,7 @@ This is where to put SCSS for the location report that shows a map.
 						position: absolute;
 						top: 0;
 						right: 0;
-						color: #fff;
+						color: #000;
 						font-size: 18px;
 					}
 
@@ -200,14 +204,14 @@ This is where to put SCSS for the location report that shows a map.
 						.accessible-label {
 							text-transform: uppercase;
 							text-align: center;
-							color: #fff;
+							color: #000;
 							font-size: 9px;
 							line-height: 11px;
 						}
 
 						.num-ratings {
 							text-align: center;
-							color: #fff;
+							color: #000;
 							font-size: 8px;
 							line-height: 11px;
 						}
@@ -217,14 +221,15 @@ This is where to put SCSS for the location report that shows a map.
 
 			.question-category {
 				a {
-					color: #fff;
-					padding: 5px 5px;
+					color: #000;
+					padding: 5px 0;
 					display: block;
 					text-decoration: none;
 
 					&:hover {
-						box-shadow: inset 25px 0px 25px -25px #358, inset -25px 0px 25px -25px #358;
-						background-color: #000;
+						box-shadow: inset 25px 0px 25px -25px #f8f8f8, inset -25px 0px 25px -25px #f8f8f8;
+						box-shadow:  0px 3px 3px #ddd inset, 0px -3px 3px #ddd inset;
+						background-color: #fff;
 					}
 
 					.category-name, .percentage {
@@ -245,10 +250,6 @@ This is where to put SCSS for the location report that shows a map.
 	.question-category {
 		> a {
 			border-top: 1px solid mix($base_colour1, #ffffff, 50%);
-
-			&:hover {
-				border-top: 1px solid mix($base_colour1, #ffffff, 10%);
-			}
 		}
 
 		.title-bar {
