@@ -41,9 +41,22 @@
 		<a class="find-duplicate-location" href="/duplicate-location-finder?location_id={{ $location->id }}">Find Duplicates</a>
 	@endif
 	<div class="map-and-box">
-		<div class="questions-box">
+		<div class="questions-box @if ( $num_ratings === 0 )
+			unrated
+		@endif">
 			@if ($rating_system === 'personal' && !$personal_rating_is_available)
 				@include('pages.location_report.personal_not_available')
+			@elseif ($num_ratings === 0)
+				<div class="title-bar">
+					<h3>{{ $location->name }}</h3>
+				</div>
+				<div class="questions">
+					<div class="question-category">
+						<h4 class="text-center">Not Rated Yet</h4>
+						
+						<p><a href="/location-rating/{{ $location->id }}/6">Be the first to rate this location.</a></p>
+					</div>
+				</div>
 			@else
 				<div class="title-bar">
 					<h3>{{ $location->name }}</h3>
