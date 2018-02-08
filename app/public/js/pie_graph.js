@@ -35,8 +35,9 @@ function drawBigGraph(g, w, h, percent)
 	var diskRadius = ( w / 2 ) - 1;
 	var angle = (percent / 50.0) * Math.PI;
 	var shapes = [
-	{'type': 'disk', 'colour': '#bebec0', 'radius': diskRadius},
-	{'type': 'arc', 'colour': '#267ac2', 'radius': diskRadius + 1, 'angle': angle},
+	{'type': 'disk', 'colour': '#666', 'radius': diskRadius},
+	{'type': 'disk', 'colour': '#ccc', 'radius': diskRadius * 0.93},
+	{'type': 'arc', 'colour': '#fff', 'radius': diskRadius * 0.95, 'angle': angle},
 	];
 	shapes.forEach(function(shape) {
 		drawShape(g, shape, w, h);
@@ -55,10 +56,10 @@ function drawBigGraph(g, w, h, percent)
 function drawNormalGraph(g, w, h, percent)
 {
 	var shapes = [
-	{'type': 'disk', 'colour': '#bebec0', 'radius': ( w / 2 ) -1},
-	{'type': 'arc', 'colour': '#267ac2', 'radius': ( w / 2 ), 'angle': (percent / 50.0) * Math.PI},
-	{'type': 'disk', 'colour': '#ddd', 'radius': ( w / 2 ) * 0.75},
-	{'type': 'disk', 'colour': '#555', 'radius': ( w / 2 ) * 0.65},
+	{'type': 'disk', 'colour': '#bbb', 'radius': ( w / 2 ) -1},
+	{'type': 'arc', 'colour': '#566480', 'radius': ( w / 2 ), 'angle': (percent / 50.0) * Math.PI},
+	{'type': 'disk', 'colour': '#558', 'radius': ( w / 2 ) * 0.75},
+	{'type': 'disk', 'colour': '#fff', 'radius': ( w / 2 ) * 0.65},
 	];
 	shapes.forEach(function(shape) {
 		drawShape(g, shape, w, h);
@@ -66,7 +67,7 @@ function drawNormalGraph(g, w, h, percent)
 	
 	g.textAlign="center";
 	g.textBaseline="middle";
-	g.fillStyle = '#fff';
+	g.fillStyle = '#000';
 	g.font = (w * 0.28) + "px Arial";
 	g.fillText(percent + "%", w / 2, h / 2);
 }
