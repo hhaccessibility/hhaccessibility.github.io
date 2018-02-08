@@ -136,9 +136,29 @@ This is where to put SCSS for the location report that shows a map.
 			background-color: #f8f8ff;
 			z-index: 1;
 			border: 1px solid mix($base_colour1, #ffffff, 70%);
-			box-shadow: 0 0 8px #aaa inset;
+			box-shadow: 0 0 8px #aaa inset, 0 0 8px rgba(0, 0, 0, 0.6);
 			border-radius: 4px;
 			max-width: 350px;
+			
+			&.unrated {
+				.title-bar {
+					padding-top: 15px;
+					h3 {
+						text-align: center;
+						display: block;
+						margin-top: 0;
+						margin-bottom: 0;
+					}
+				}
+				
+				.questions {
+					padding-bottom: 20px;
+					
+					p {
+						text-align: center;
+					}
+				}
+			}
 
 			> div.text-center {
 				color: #222;
