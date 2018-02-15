@@ -50,7 +50,7 @@ class SignUpController extends Controller {
 			$newUserRole->save();
 			return view('pages.signup.success',[
 				'email' => $email,
-				'confirmmessage' => 'A verification code has been sent to ' . $email . '. Check your email to confirm.',
+				'confirmmessage' => 'A verification code has been sent to ' . $email . '. Check your email inbox or SPAM folder to confirm.',
 				'can_sign_in' => false
 				]);
 		}
