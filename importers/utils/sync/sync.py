@@ -143,9 +143,14 @@ def update_coordinates_for_locations(db):
 	db.commit()
 
 
+def clear_ratings_cache(db):
+	cur = db.cursor(MySQLdb.cursors.DictCursor)
+	clear_cache_statement = 'update location set ratings_cache=null, universal_rating=null'
+	cur.execute(clear_cache_statement)
+
+
 def set_fields_on_locations(db):
 	locations_data = load_seed_data_from('location')
-	
 	for location in locations_data:
 		if location['external_web_url'] and len(location['external_web_url'])> 255:
 			print 'external_web_url for location ' + str(location['id']) + ' is too long at ' + str(len(location['external_web_url'])) + '.'
