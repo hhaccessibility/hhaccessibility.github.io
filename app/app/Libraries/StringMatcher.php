@@ -43,7 +43,7 @@ class StringMatcher
 		return explode("\n", file_get_contents($filename));
 	}
 
-	private static function singleSpace($s)
+	public static function singleSpace($s)
 	{
 		return preg_replace('/\s+/', ' ', $s);
 	}
