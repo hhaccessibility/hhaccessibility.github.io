@@ -131,6 +131,18 @@ def set_fields_on_location_tags(db):
 		cursor.execute(update_sql, (location_tag['icon_selector'], location_tag['id']))
 
 
+def update_coordinates_for_locations(db):
+	location_ids = ['00000000-0000-0000-0000-000000000020']
+	locations_data = load_seed_data_from('location')
+	cursor = db.cursor(MySQLdb.cursors.DictCursor)
+	for location_id in location_ids:
+		matching_location = [loc for loc in locations_data if loc['id'] == location_id][0]
+		location_statement = ('update location set latitude=%s,longitude=%s where id=\'%s\'' % 
+			(matching_location['latitude'], matching_location['longitude'], location_id))
+		cursor.execute(location_statement)
+	db.commit()
+
+
 def set_fields_on_locations(db):
 	locations_data = load_seed_data_from('location')
 	
