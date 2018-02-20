@@ -41,6 +41,9 @@ class LocationReportController extends Controller {
 			$rating_system = 'universal';
 		}
 		$location = Location::find($location_id);
+		if (!$location) {
+			abort(404, 'Specified location not found');
+		}
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
 		$view_data = [
 			'location_search_path' => BaseUser::getLocationSearchPath(),

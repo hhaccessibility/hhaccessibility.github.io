@@ -9,8 +9,8 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="signin-form">
-				@if ( isset($message) )
-				<div class="message text-center">
+				@if ( isset($message) && $message )
+				<div class="message text-center alert alert-info">
 					{{$message}}
 				</div>
 				@endif
@@ -20,6 +20,7 @@
 				<form method="post" action="/signin">
 					{!! csrf_field() !!}
 					@include('pages.validation_messages', array('errors'=>$errors))
+					<input type="hidden" name="after_signin_redirect" value="{{ $after_signin_redirect }}">
 					<div class="row">
 						<div class="col-xs-12">
 							<input type="email"
