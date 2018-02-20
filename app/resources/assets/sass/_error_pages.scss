@@ -1,0 +1,10 @@
+/*
+Styling for various error pages
+*/
+@import "_placeholders.scss";
+
+body.error {
+	.missing {
+		@extend %page-base;		
+	}
+}

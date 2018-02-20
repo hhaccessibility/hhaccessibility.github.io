@@ -22,8 +22,10 @@ class SignInController extends Controller {
 		if ( !empty(Input::get('message')) ) {
 			$message = trim(Input::get('message'));
 		}
+		$after_signin_redirect = Input::get('after_signin_redirect');
+		
 		return view('pages.signin', ['email' => $email,
-		'confirmmessage' => '', 'message' => $message]);
+		'confirmmessage' => '', 'message' => $message, 'after_signin_redirect' => $after_signin_redirect]);
 	}
 
     /**
@@ -47,6 +49,9 @@ class SignInController extends Controller {
 				if(!BaseUser::checkEmail($email))
 					return view('pages.signin',['email' => $email,'confirmmessage'=>'A verification code has been sent to '.$email.'. Check your email to confirm.']);
 				BaseUser::signIn($email);
+				if (Input::has('after_signin_redirect')) {
+					return redirect()->intended($request->input('after_signin_redirect'));
+				}
 				return redirect()->intended('profile');
 			}
 			else

@@ -1,12 +1,13 @@
+@import "_add_location.scss";
 @import "_clean.scss";
 @import "_contact.scss";
+@import "_error_pages.scss";
 @import "_faq.scss";
 @import "_functions.scss";
 @import "_home.scss";
 @import "_duplicate_location_finder.scss";
 @import "_locations_added_by_me.scss";
 @import "_location_management.scss";
-@import "_add_location.scss";
 @import "_location_created.scss";
 @import "_internal.scss";
 @import "_location_map_report.scss";
@@ -19,11 +20,11 @@
 @import "_mixins.scss";
 @import "_placeholders.scss";
 @import "_profile.scss";
+@import "_recaptcha_scaling.scss";
 @import "_reviewed_locations.scss";
 @import "_sign_in.scss";
 @import "_sign_up.scss";
 @import "_social_media_buttons.scss";
-@import "_recaptcha_scaling.scss";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

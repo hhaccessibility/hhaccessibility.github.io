@@ -112,10 +112,13 @@ class LocationRatingController extends Controller {
 	public function show(string $location_id, int $question_category_id = null)
 	{
 		if ( !BaseUser::isSignedIn() ) {
-			return redirect()->intended('/signin');
+			return redirect()->intended('/signin?message=You+must+sign+in+to+rate+a+location&after_signin_redirect=/location-rating/'.$location_id);
 		}
 		$uses_screen_reader = BaseUser::getDbUser()->uses_screen_reader;
 		$location = Location::find($location_id);
+		if (!$location) {
+			abort(404, 'Specified location not found');
+		}
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
 		$question_category = null;
 		$next_question_category_id = null;
