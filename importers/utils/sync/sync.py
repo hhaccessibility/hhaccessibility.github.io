@@ -187,7 +187,7 @@ def set_fields_on_locations(db):
 					update_sql += field + '=%s,'
 				
 				update_sql = update_sql[:-1] # remove trailing comma.
-				update_sql += ' where id=' + str(location['id'])
+				update_sql += ' where id=\'' + str(location['id']) + '\''
 				print 'running: ' + update_sql
 				cursor.execute(update_sql, field_values)
 	db.commit()

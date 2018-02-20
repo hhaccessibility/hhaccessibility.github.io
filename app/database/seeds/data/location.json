@@ -1400,7 +1400,7 @@
         "longitude": -83.05012,
         "name": "Bridgeview Library",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "+1 519-255-6770",
         "universal_rating": 0
     },
     {
@@ -93496,19 +93496,6 @@
         "universal_rating": null
     },
     {
-        "address": "1295 Campbell Avenue Essex County Canada",
-        "data_source_id": 3,
-        "external_web_url": "http://www.windsorpubliclibrary.com/",
-        "id": "00000000-0000-0000-0000-000000007319",
-        "latitude": 42.29687462,
-        "location_group_id": null,
-        "longitude": -83.0500815,
-        "name": "Bridgeview Public Library",
-        "owner_user_id": null,
-        "phone_number": "+1 519-255-6770",
-        "universal_rating": null
-    },
-    {
         "address": "",
         "data_source_id": 3,
         "external_web_url": "",
@@ -131302,7 +131289,7 @@
     {
         "address": "1950 Tecumseh Road West Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/VoulasHairPlusStudio/",
         "id": "00000000-0000-0000-0000-000000010264",
         "latitude": 42.2943413,
         "location_group_id": null,
@@ -131331,7 +131318,7 @@
         "external_web_url": "http://www.uwindsor.ca/cepe",
         "id": "00000000-0000-0000-0000-000000010267",
         "latitude": 42.31820820000001,
-        "location_group_id": null,
+        "location_group_id": 1,
         "longitude": -83.0418705,
         "name": "Centre for Executive and Professional Education",
         "owner_user_id": null,
@@ -131354,7 +131341,7 @@
     {
         "address": "1722 Tecumseh Road West Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pg/Hyperdealz/",
         "id": "00000000-0000-0000-0000-000000010269",
         "latitude": 42.2950636,
         "location_group_id": null,
@@ -131370,7 +131357,7 @@
         "external_web_url": "http://www.uwindsor.ca/conferences/book-a-room-with-us-now",
         "id": "00000000-0000-0000-0000-000000010270",
         "latitude": 42.3025595,
-        "location_group_id": null,
+        "location_group_id": 1,
         "longitude": -83.0630974,
         "name": "University of Windsor Conference and Accommodation Centre",
         "owner_user_id": null,
@@ -131385,7 +131372,7 @@
         "latitude": 42.2433406,
         "location_group_id": null,
         "longitude": -83.0105693,
-        "name": "Our Lady of Mont Carmel",
+        "name": "Our Lady of Mount Carmel",
         "owner_user_id": null,
         "phone_number": "+1 519-969-1400",
         "universal_rating": null
@@ -131419,27 +131406,14 @@
     {
         "address": "1689 University Avenue West Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pages/Dr-Wu-Simon/478656572344886",
         "id": "00000000-0000-0000-0000-000000010276",
         "latitude": 42.311608,
         "location_group_id": null,
         "longitude": -83.0583807,
         "name": "Dental Office",
         "owner_user_id": null,
-        "phone_number": "",
-        "universal_rating": null
-    },
-    {
-        "address": "1295 Campbell Avenue Essex County Canada",
-        "data_source_id": 6,
-        "external_web_url": "http://www.windsorpubliclibrary.com",
-        "id": "00000000-0000-0000-0000-000000010277",
-        "latitude": 42.2969746,
-        "location_group_id": null,
-        "longitude": -83.05008749999999,
-        "name": "Windsor Public Library",
-        "owner_user_id": null,
-        "phone_number": "+1 519-255-6770",
+        "phone_number": "(519) 977-8685",
         "universal_rating": null
     },
     {
@@ -131458,7 +131432,7 @@
     {
         "address": "398 University Avenue West Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/letotravelservice/",
         "id": "00000000-0000-0000-0000-000000010279",
         "latitude": 42.3166869,
         "location_group_id": null,
@@ -131471,7 +131445,7 @@
     {
         "address": "Riverside Drive West Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.citywindsor.ca/residents/Culture/Monuments/Pages/RAF-RCAF-Monument.aspx",
         "id": "00000000-0000-0000-0000-000000010281",
         "latitude": 42.3191512,
         "location_group_id": null,
@@ -131487,11 +131461,11 @@
         "external_web_url": "",
         "id": "00000000-0000-0000-0000-000000010282",
         "latitude": 42.3065653,
-        "location_group_id": null,
+        "location_group_id": 1,
         "longitude": -83.0652925,
         "name": "Schulich School Of Medicine - Windsor Campus",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 253-3000",
         "universal_rating": null
     },
     {
@@ -131517,7 +131491,7 @@
         "longitude": -83.0354244,
         "name": "Windsor (City of) - Windsor Utilities Commission",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 255-2888",
         "universal_rating": null
     },
     {
@@ -132115,7 +132089,7 @@
         "longitude": -83.035225,
         "name": "Portamedic Hooper Holmes",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "1-866-493-2800",
         "universal_rating": null
     },
     {
@@ -132141,7 +132115,7 @@
         "longitude": -83.035225,
         "name": "The Essex Voice",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 776-5358",
         "universal_rating": null
     },
     {
@@ -132394,25 +132368,25 @@
     {
         "address": "310 Wyandotte Street East Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.facebook.com/pages/Tyler-Jones-Barrister-Solicitor/1095905173764925",
         "id": "00000000-0000-0000-0000-000000010366",
         "latitude": 42.3158993,
         "location_group_id": null,
         "longitude": -83.03236249999999,
         "name": "Tyler Jones",
         "owner_user_id": null,
-        "phone_number": "",
+        "phone_number": "(519) 256-5720",
         "universal_rating": null
     },
     {
         "address": "350 City Hall Square East Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "",
+        "external_web_url": "https://www.citywindsor.ca/cityhall/Administration/Chief-Administrative-Officer/Pages/Chief-Administrative-Officer.aspx",
         "id": "00000000-0000-0000-0000-000000010368",
         "latitude": 42.3173925,
         "location_group_id": null,
         "longitude": -83.0354244,
-        "name": "Windsor Chief Adm Officer",
+        "name": "Windsor Chief Administrative Officer",
         "owner_user_id": null,
         "phone_number": "+1 519-255-6500",
         "universal_rating": null
