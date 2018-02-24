@@ -115663,19 +115663,6 @@
     {
         "address": "3100 Howard Avenue Essex County Canada",
         "data_source_id": 6,
-        "external_web_url": "http://www.devonshiremall.com/",
-        "id": "00000000-0000-0000-0000-000000009034",
-        "latitude": 42.274902,
-        "location_group_id": null,
-        "longitude": -83.002073,
-        "name": "Devonshire Mall",
-        "owner_user_id": null,
-        "phone_number": "+1 519-966-3100",
-        "universal_rating": null
-    },
-    {
-        "address": "3100 Howard Avenue Essex County Canada",
-        "data_source_id": 6,
         "external_web_url": "https://locations.cibc.com/on/windsor/05382?utm_source=google&utm_medium=distrib&utm_campaign=google-distrib",
         "id": "00000000-0000-0000-0000-000000009035",
         "latitude": 42.2757379,
