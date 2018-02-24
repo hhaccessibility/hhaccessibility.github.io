@@ -69,14 +69,28 @@ This is where to put SCSS for the location report that shows a map.
 		}
 	}
 
-	> .row > .col-xs-5 {
-		a {
-			display: inline-block;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			height: 1.2em;
-			white-space: nowrap;
-			max-width: 100%;
+	> .basic-info {
+		display: flex;
+		width: 100%;
+
+		> div {
+			&.addresses {
+				flex-grow: 8;
+				overflow-x: hidden;
+
+				a {
+					display: inline-block;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					height: 1.2em;
+					white-space: nowrap;
+					max-width: 100%;
+				}
+			}
+
+			&.location-tags {
+				flex-grow: 1;
+			}
 		}
 	}
 
@@ -251,7 +265,7 @@ This is where to put SCSS for the location report that shows a map.
 					border-width: 1px;
 					border-style: solid;
 					border-color: #888;
-					margin-bottom: 2px;
+					margin-bottom: 4px;
 					color: #000;
 					padding: 5px 2px;
 					display: block;
