@@ -20,12 +20,12 @@
 	@include('pages.location_report.top', array(
 		'rating_system' => $rating_system,
 		'location' => $location))
-	<div class="row">
-		<div class="col-xs-5">
+	<div class="basic-info">
+		<div class="addresses">
 			<address>{{ $location->address }}</address>
 			<a href="{{ $location->getExternalWebURL() }}">{{ $location->getExternalWebURL() }}</a>
 		</div>
-		<div class="col-xs-7 text-right">
+		<div class="location-tags text-right">
 			<div class="location-tags">
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
 				<a class="location-tag" title="{{ $location_tag->name }}" href="/location-search?location_tag_id={{ $location_tag->id }}">
