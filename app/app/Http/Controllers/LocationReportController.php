@@ -101,4 +101,24 @@ class LocationReportController extends Controller {
 		return view('pages.location_report.ratings_only', $view_data);
 	}
 
+	// show all the comments related to the location
+
+    public function showComments(string $location_id)
+	{
+		$location = Location::find($location_id);
+
+		$comments = $location->comments()->join('question_category', 'question_category.id', '=', 'review_comment.question_category_id')
+					->select('question_category.name as category_name', 'review_comment.*')
+					->orderBy('category_name', 'ASC')
+					->orderBy('when_submitted', 'DESC')->get();
+
+		$view_data = [
+			'location' => $location,
+			'comments' => $comments
+		];
+		
+		return view('pages.location_report.comments', $view_data);
+	}
+
+
 }

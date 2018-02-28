@@ -18,6 +18,21 @@ class ReviewComment extends Eloquent
 		$this->attributes = array('id' => Uuid::generate(4)->string);
 	}
 
+	public function getQuestionCategory()
+	{
+	$this->question_category = $this->questionCategory()->first();
+
+		return $this->question_category;
+//		return $this->belongTo('App\QuestionCategory');
+	}
+
+	public function questionCategory()
+	{
+        return $this->belongsTo('App\QuestionCategory');
+	}
+
+
+
 	public function getAnsweredByUser()
 	{
 		if ( !isset($this->answered_by_user) )

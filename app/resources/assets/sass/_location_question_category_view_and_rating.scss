@@ -47,6 +47,48 @@
 	}
 }
 
+.location-comments {
+	margin-left: 10px;
+	margin-right: 10px;
+
+	div.comments {
+		> h2 {
+			margin-bottom: 10px;
+		}
+
+		.category-subheader {
+			font-size : 1.5em;
+			font-weight: bold;
+			margin-bottom: 5px;
+			text-align: center;
+		}
+		
+		> div {
+			margin-left: 5px;
+			margin-top: 5px;
+
+
+			&.comment {
+				padding: 5px 8px;
+				border: 1px solid #aaa;
+				border-radius: 3px;
+				box-shadow: 0 0 5px #ccc inset;
+
+
+
+				.comment-header {
+					font-weight: bold;
+					margin-bottom: 5px;
+				}
+
+				.comment-content {
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
 .location-rating {
 	.menu h1 {
 		@extend %location-menu-heading;
