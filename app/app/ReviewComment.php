@@ -20,10 +20,9 @@ class ReviewComment extends Eloquent
 
 	public function getQuestionCategory()
 	{
-	$this->question_category = $this->questionCategory()->first();
+		$this->question_category = $this->questionCategory()->first();
 
 		return $this->question_category;
-//		return $this->belongTo('App\QuestionCategory');
 	}
 
 	public function questionCategory()
