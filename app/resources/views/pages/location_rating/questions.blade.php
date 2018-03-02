@@ -6,6 +6,12 @@
 			<div class="row" data-question-id="{{ $question->id }}">
 				<div class="col-md-6 col-xs-12">
 					{!! $question->question_html !!}
+					@if ($question->explanation)
+						<a href="/question-explanation/{{ 
+							$question->id }}/{{ 
+							$location->id }}" title="See Examples"><em 
+								class="fa fa-eye"></em></a>
+					@endif
 				</div>
 				<div class="col-md-6 col-xs-12">
 					<div class="row answers">

@@ -20,9 +20,29 @@ function fillArc(g, cx, cy, radius, colour, angle)
 	g.closePath();
 }
 
+function drawArc(g, cx, cy, radius, colour, angle)
+{
+	var drawLinesToCentre = (angle < Math.PI * 2 - 0.0001);
+	var initAngle = - Math.PI / 2;
+	g.strokeStyle = colour;
+	g.beginPath();
+	if (drawLinesToCentre) {
+		g.moveTo(cx, cy);
+	}
+	g.arc(cx, cy, radius, initAngle, initAngle + angle);
+	if (drawLinesToCentre) {
+		g.lineTo(cx, cy);
+	}
+	g.stroke();
+	g.closePath();
+}
+
 function drawShape(g, shape, w, h)
 {
-	if (shape.type === 'arc') {
+	if (shape.type === 'arc-outline') {
+		drawArc(g, w / 2, h / 2, shape.radius, shape.colour, shape.angle);
+	}
+	else if (shape.type === 'arc') {
 		fillArc(g, w / 2, h / 2, shape.radius, shape.colour, shape.angle);
 	}
 	else {
@@ -57,19 +77,12 @@ function drawNormalGraph(g, w, h, percent)
 {
 	var shapes = [
 	{'type': 'disk', 'colour': '#bbb', 'radius': ( w / 2 ) -1},
-	{'type': 'arc', 'colour': '#566480', 'radius': ( w / 2 ), 'angle': (percent / 50.0) * Math.PI},
-	{'type': 'disk', 'colour': '#558', 'radius': ( w / 2 ) * 0.75},
-	{'type': 'disk', 'colour': '#fff', 'radius': ( w / 2 ) * 0.65},
+	{'type': 'arc', 'colour': '#566480', 'radius': ( w / 2 -1 ), 'angle': (percent / 50.0) * Math.PI},
+	{'type': 'arc-outline', 'colour': '#000', 'radius': ( w / 2 -1), 'angle': (percent / 50.0) * Math.PI},
 	];
 	shapes.forEach(function(shape) {
 		drawShape(g, shape, w, h);
 	});
-	
-	g.textAlign="center";
-	g.textBaseline="middle";
-	g.fillStyle = '#000';
-	g.font = (w * 0.28) + "px Arial";
-	g.fillText(percent + "%", w / 2, h / 2);
 }
 
 function initGraph(divElement, componentData)

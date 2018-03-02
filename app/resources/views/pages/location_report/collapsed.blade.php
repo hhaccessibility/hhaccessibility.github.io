@@ -20,12 +20,12 @@
 	@include('pages.location_report.top', array(
 		'rating_system' => $rating_system,
 		'location' => $location))
-	<div class="row">
-		<div class="col-xs-5">
+	<div class="basic-info">
+		<div class="addresses">
 			<address>{{ $location->address }}</address>
 			<a href="{{ $location->getExternalWebURL() }}">{{ $location->getExternalWebURL() }}</a>
 		</div>
-		<div class="col-xs-7 text-right">
+		<div class="location-tags text-right">
 			<div class="location-tags">
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
 				<a class="location-tag" title="{{ $location_tag->name }}" href="/location-search?location_tag_id={{ $location_tag->id }}">
@@ -45,7 +45,7 @@
 			unrated
 		@endif">
 			@if ($rating_system === 'personal' && !$personal_rating_is_available)
-				@include('pages.location_report.personal_not_available')
+				@include('pages.location_report.personal_not_available', ['location_id' => $location->id])
 			@elseif ($num_ratings === 0)
 				<div class="title-bar">
 					<h3>{{ $location->name }}</h3>
@@ -76,11 +76,11 @@
 					@foreach ( $question_categories as $category )
 						<div class="question-category">
 							<a href="/location-reporting/{{ $location->id }}/{{ $category->id }}">
-							@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, $rating_system)))
+							@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, 'universal')))
 							
 								<span class="category-name">{{ $category->name }}</span>
 								
-								<span class="percentage">{{ $category->getAccessibilityRating($location->id, $rating_system).'%' }}</span>
+								<span class="percentage">{{ $category->getAccessibilityRating($location->id, 'universal').'%' }}</span>
 							</a>
 						</div>
 					@endforeach
