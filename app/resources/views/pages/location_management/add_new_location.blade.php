@@ -18,7 +18,7 @@
 @stop
 @section('content')
 <div class="add-location @if ( !$errors->isEmpty() ) with-errors @endif">
-	<h1>Create New Location</h1>
+	<h1>Add New Location</h1>
 	@include('pages.validation_messages', array('errors'=>$errors, 'show_only_first' => true))
 	<form method="post" action="/add-location">
 		{!! csrf_field() !!}
@@ -34,7 +34,7 @@
 				<div class="location-tags">
 					<label for="address">Address</label>
 					<input id="address" name="address" value="{{ $location->address }}">
-					<label for="external_web_url">Web Address</label>
+					<label for="external_web_url">URL</label>
 					<input id="external_web_url" name="external_web_url" type="url" value="{{ $location->external_web_url }}">
 					<label for="location_tags">Location Categories</label>
 					<select id="location_tags" name="location_tags[]" multiple>
