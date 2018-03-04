@@ -14,6 +14,21 @@ html > body #main > .home-page {
 	background-color: #818d87;
 	color: #fff;
 	
+	.address-row {
+		display: flex;
+		height: 34px;
+		margin-bottom: 15px;
+		
+		input {
+			flex-grow: 1;
+		}
+		
+		button {
+			width: 40px;
+			flex-grow: 0;
+		}
+	}
+	
 	.intro {
 		width: 410px;
 		padding-left: 78px;

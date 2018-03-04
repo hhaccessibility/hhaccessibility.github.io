@@ -159,6 +159,16 @@ function saveSearchLocationWithOptionalAddress(lat_lng, address) {
 	}
 }
 
+function isMobile() {
+	// copied from:
+	// https://stackoverflow.com/questions/7995752/detect-desktop-browser-not-mobile-with-javascript
+	return navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+}
+
+function isDesktop() {
+	return !isMobile();
+}
+
 function refreshPage() {
 	location.reload();
 }

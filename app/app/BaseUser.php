@@ -214,6 +214,15 @@ class BaseUser
 		return $earthRadius * $c;
 	}
 
+	public static function getDefaultLocation()
+	{
+		// location of Windsor city hall
+		return [
+			'latitude' => 42.3174246,
+			'longitude' => -83.0374028
+		];
+	}
+
 	public static function getLatitude()
 	{
 		if ( BaseUser::isSignedIn() )
@@ -226,8 +235,7 @@ class BaseUser
 			return Session::get('latitude');
 		}
 
-		// Latitude of Windsor city hall
-		return 42.3174246;
+		return self::getDefaultLocation()['latitude'];
 	}
 
 	public static function getLongitude()
@@ -243,8 +251,7 @@ class BaseUser
 			return Session::get('longitude');
 		}
 
-		// Longitude of Windsor city hall
-		return -83.0374028;
+		return self::getDefaultLocation()['longitude'];
 	}
 
 	/**

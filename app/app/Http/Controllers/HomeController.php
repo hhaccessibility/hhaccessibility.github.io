@@ -37,6 +37,7 @@ class HomeController extends Controller {
 			'is_authenticated' => BaseUser::isSignedIn(),
 			'address_default' => BaseUser::getDefaultAddress(),
 			'address_value' => $address_value,
+			'default_location' => BaseUser::getDefaultLocation(),
 			'google_map_api_key' => config('app.google_map_api_key'),
 			'turn_off_maps'      => config('app.turn_off_maps'),
 			'location_search_options' => $location_search_options
