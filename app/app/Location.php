@@ -40,7 +40,7 @@ class Location extends Eloquent
 		}
 		return $result;
 	}
-	
+
     /**
      * The tags that belong to this location.
      */
@@ -53,17 +53,17 @@ class Location extends Eloquent
     {
         return $this->hasMany('App\UserLocation');
     }
-	
+
     public function comments()
     {
         return $this->hasMany('App\ReviewComment');
     }
-	
+
 	public function locationGroup()
 	{
         return $this->belongsTo('App\LocationGroup');
 	}
-	
+
 	public function getName()
 	{
 		if ($this->name)
@@ -71,7 +71,7 @@ class Location extends Eloquent
 		if ($this->location_group_id !== null)
 			return $this->locationGroup()->name;
 	}
-	
+
 	public function getNumberOfUsersWhoRated()
 	{
 		return DB::table('user_answer')
@@ -79,7 +79,7 @@ class Location extends Eloquent
 			->distinct()
 			->get(['answered_by_user_id'])->count();
 	}
-	
+
 	public function getAccessibilityRating($ratingSystem)
 	{
 		if ( $this->universal_rating !== null && $ratingSystem === 'universal' )
@@ -105,16 +105,16 @@ class Location extends Eloquent
 			$result = 0;
 		else
 			$result = $sum / $totalCount;
-		
+
 		if ( $ratingSystem === 'universal' )
 		{
 			$this->universal_rating = $result;
 			if ( isset($this->distance) ) {
 				$distance = $this->distance;
-				unset($this->distance); 
+				unset($this->distance);
 				/* avoid error with Eloquent trying to set 'distance' field in location table
 				when it doesn't actually exist.
-				
+
 				The distance can be set for convenience in the location search feature.
 				Maybe that feature should only use plain data objects someday.
 				*/
@@ -126,10 +126,10 @@ class Location extends Eloquent
 				$this->save();
 			}
 		}
-		
+
 		return $result;
 	}
-	
+
 	public function getExternalWebURL()
 	{
 		if (strlen($this->external_web_url) > 3)

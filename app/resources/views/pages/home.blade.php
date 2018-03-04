@@ -4,6 +4,12 @@
 	<script src="/js/utils.js" type="text/javascript"></script>
 	<script src="/js/home.js" type="text/javascript"></script>
 	<script src="/js/hover_text.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var default_location = {
+			'latitude': {{ $default_location['latitude'] }},
+			'longitude': {{ $default_location['longitude'] }} 
+		};
+	</script>
 	<script type="text/javascript" async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
 	</script>
@@ -47,19 +53,24 @@
 				<div class="search">
 					{{ csrf_field() }}
 					<form role="search" action="/location-search">
-						<datalist id="location_search_options">
-							@foreach ($location_search_options as $option)
-								<option value="{{ $option->content }}">
-							@endforeach
-						</datalist>
-						<input
-							list="location_search_options"
-							class="form-control"
-							name="address"
-							id="address"
-							value="{{ $address_value }}"
-							placeholder="{{ $address_default }}"
-							title="Address">
+						<div class="address-row">
+							<datalist id="location_search_options">
+								@foreach ($location_search_options as $option)
+									<option value="{{ $option->content }}">
+								@endforeach
+							</datalist>
+							<input
+								list="location_search_options"
+								class="form-control"
+								name="address"
+								id="address"
+								value="{{ $address_value }}"
+								placeholder="{{ $address_default }}"
+								title="Address">
+							<button id="set-location-to-geo-location" class="btn btn-default" title="Set to current physical location">
+								<em class="glyphicon glyphicon-repeat"></em>
+							</button>
+						</div>
 						<table>
 							<tr>
 								<td>

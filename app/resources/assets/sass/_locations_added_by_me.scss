@@ -7,9 +7,14 @@
 	.add-create {
 		font-size: 36px;
 		text-align: center;
+		margin-bottom: 0;
 	}
 	
 	> div > h1 {
+		margin-top: 0;
+	}
+	
+	h3 {
 		margin-top: 0;
 	}
 }
@@ -23,7 +28,6 @@
 		h3 {
 			font-size: 4.5vw;
 			line-height: 4.5vw;
-			margin-top: 0;
 			margin-bottom: 0;
 		}
 

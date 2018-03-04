@@ -136,7 +136,7 @@ class LocationManagementController extends Controller {
 			'longitude'           => 'numeric|required|between:-180,180',
 			'latitude'            => 'numeric|required|between:-90,90',
 			'phone_number'          => 'max:50',
-			'address'				=> 'max:255',
+			'address'				=> 'max:255|required',
 			'external_web_url'		=> 'max:255|url',
 			'location_tags'			=> 'array',
 			'location_tags.*'		=> 'int|required' // Every array element is an integer.
@@ -173,12 +173,16 @@ class LocationManagementController extends Controller {
 			$location_tag->is_selected = in_array($location_tag->id, $selected_location_tag_ids);
 		}
 		if (!$validator->fails()) {
-			if ($location->phone_number !== '' && preg_match_all( "/[0-9]/", $location->phone_number ) < 7) {
-				$validator->errors()->add('phone_number', 'At least 7 digits needed in phone number');
+			if ($location->phone_number !== '' && preg_match_all( "/[0-9]/", $location->phone_number ) < 9) {
+				$validator->errors()->add('phone_number', 'At least 9 digits needed in phone number');
 				$custom_validation_failed = true;
 			}
 			else if (self::isDuplicateLocation($location)) {
 				$validator->errors()->add('name', 'Likely a duplicate.  A location by the same name is very close.');
+				$custom_validation_failed = true;
+			}
+			else if (strlen(trim($location->address)) < 5) {
+				$validator->errors()->add('address', 'Address must be at least 5 characters long');
 				$custom_validation_failed = true;
 			}
 		}

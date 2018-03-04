@@ -49,12 +49,13 @@ see the names of location around the users current location.
 */
 function initMap()
 {
-     map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 15,
 		draggable: false,
 		streetViewControl: false,
 		clickableIcons: false
 	});
+	default_location = new google.maps.LatLng(default_location.latitude, default_location.longitude);
 
 	google.maps.event.addDomListener(window, "resize", function() {
 		var center = map.getCenter();
@@ -65,7 +66,8 @@ function initMap()
 		locationInfo(map, event.latLng);
   	});
 	conditionalProcessAddress();
-	$('#address').bind('keyup change', delayedProcessAddress);	
+	$('#address').bind('keyup change', delayedProcessAddress);
+	$('#set-location-to-geo-location').click(setToGeoLocation);
 }
 /*
 Maps the clicked coordinates on a map to an address and set that address as a current location
@@ -80,7 +82,8 @@ function locationInfo(map, lat_lng)
 
 function saveUserLocation(address, latitude, longitude)
 {
-	saveSearchLocationWithOptionalAddress({'lat': latitude, 'lng': longitude}, address);
+	saveSearchLocationWithOptionalAddress(
+			new google.maps.LatLng(latitude, longitude), address);
 }
 
 /*
@@ -180,6 +183,28 @@ function updateCategoryLinksOffKeywords()
 		}
 		$this.attr('href', newUrl);
 	});
+}
+
+/*
+Sets current search location to be whatever GPS coordinates are used.
+*/
+function setToGeoLocation()
+{
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+			latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			// if on desktop and not within 10km of Windsor, just use city hall.
+			if (isDesktop()) {
+				var distance = calculateDistance(latlon, default_location);
+				if (distance > 10000) {
+					latlon = default_location;
+				}
+			}
+			
+			locationInfo(map, latlon);
+		});
+    }
+	return false;
 }
 
 function bindCategoryLinksToKeywordInput()
