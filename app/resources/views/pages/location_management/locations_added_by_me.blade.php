@@ -5,7 +5,7 @@
 		<h1>Added Locations ({{ count($locations) }})</h1>
 	</div>
 	@if ( count($locations) === 0 )
-		<p class="text-center">No locations have been added yet.</p>
+		<p class="text-center">No locations have been added yet.  Add a location by clicking '+' below.</p>
 		<p class="add-create"><a href="/add-location" title="Add New Location">+</a></p>
 	@else
 		<p class="add-create"><a href="/add-location" title="Add New Location">+</a></p>
