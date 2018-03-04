@@ -159,10 +159,15 @@ function processName(new_name) {
 		'url': api_route + new_name,
 		'success': function(response) {
 			// update the location tags.
-			$('#location_tags option').each(function() {
+			var selected_a_location_tag = false;
+			$('#location_tags option:not(#location-tag-i-do-not-know)').each(function() {
 				var $this = $(this);
 				$this.prop('selected', response.location_tags[$this.val()].is_matched);
+				selected_a_location_tag = true;
 			});
+			if( selected_a_location_tag ) {
+				$('#location-tag-i-do-not-know').prop('selected', false);
+			}
 
 			// update the location group.
 			if( response.location_group === null ) {
