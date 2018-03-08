@@ -159,6 +159,27 @@ function saveSearchLocationWithOptionalAddress(lat_lng, address) {
 	}
 }
 
+function showMessage(html) {
+	html = '<div class="message-backdrop"></div>' +
+		'<div class="modal-message">' +
+			'<div class="content">'	+ html +
+			'</div>' +
+			'<div class="modal-footer">' +
+				'<button class="btn btn-primary ok">OK</button' +
+			'</div>' +
+		'</div>';
+
+	var $body = $('body');
+	$body.append(html);
+	var $ok_button = $('.modal-message button.ok');
+	var deferred = $.Deferred();
+	$ok_button.click(function() {
+		$('.message-backdrop, .modal-message').remove();
+		deferred.resolve('ok');
+	});
+	return deferred.promise();
+}
+
 function isMobile() {
 	// copied from:
 	// https://stackoverflow.com/questions/7995752/detect-desktop-browser-not-mobile-with-javascript
