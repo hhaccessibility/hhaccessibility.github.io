@@ -1,0 +1,37 @@
+
+.message-backdrop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	overflow: hidden;
+	background-color: #ddd;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-message {
+	position: fixed;
+	width: 500px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px; /* Negative half of height. */
+	margin-left: -250px; /* Negative half of width. */
+	background-color: #fff;
+	padding: 5px;
+	border-radius: 5px;
+	border-color: #bbb;
+	border-style: solid;
+	border-width: 2px;
+	display: flex;
+	flex-direction: column;
+	
+	.content {
+		flex-grow: 1;
+	}
+	
+	.footer {
+		flex-grow: 0;
+	}
+}
