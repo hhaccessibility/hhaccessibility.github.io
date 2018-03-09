@@ -69,6 +69,7 @@ function initMap()
 	$('#address').bind('keyup change', delayedProcessAddress);
 	$('#set-location-to-geo-location').click(setToGeoLocation);
 	if (window.location.href.indexOf('setToGeoLocation') !== -1) {
+		window.history.pushState("removing_setToGeoLocation", "Removing setToGeoLocation", "/");
 		setToGeoLocation();
 	}
 }
@@ -188,6 +189,12 @@ function updateCategoryLinksOffKeywords()
 	});
 }
 
+function redirectToHTTPSForSettingGeoLocation() {
+	var new_url = window.location.href + '#setToGeoLocation';
+	new_url = 'https' + new_url.substring(4); // replace protocol with https.
+	window.location.href = new_url;
+}
+
 /*
 Sets current search location to be whatever GPS coordinates are used.
 */
@@ -208,9 +215,8 @@ function setToGeoLocation()
 		}, function(error) {
 			if (window.location.protocol === 'http:') {
 				showMessage('<p>We need to redirect to get your physical location.</p>' +
-				'<p>We do not have a signed SSL certificate yet but are working on it.  If you\'re asked if you want to accept the risk of navigating to HTTPS, please accept so we can finish getting your location.</p>').then(function() {					
-					window.location.protocol = "https:";
-					window.location.href = window.location.href + '#setToGeoLocation';
+				'<p>We do not have a signed SSL certificate yet but are working on it.  If you\'re asked if you want to accept the risk of navigating to HTTPS, please accept so we can finish getting your location.</p>').then(function() {
+					redirectToHTTPSForSettingGeoLocation();
 				});
 			}
 		});
