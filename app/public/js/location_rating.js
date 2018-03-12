@@ -174,6 +174,7 @@ function initAnswerBindings()
 	$comment[0].setComment = setComment;
 	$comment[0].getCommentElement = getCommentElement;
 	$comment.bind('keyup blur', saveCommentFromUI);
+	initQuestionExplanationLinks();
 	processAElements();
 	delaySubmit();
 }

@@ -5,6 +5,11 @@
     </script>
 	<script type="text/javascript" language="JavaScript" src="/js/smart_menu.js">
     </script>
+    <script type="text/javascript" language="JavaScript" src="/js/utils.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/question_explanation.js"></script>
+	<script>
+		$(document).ready(initQuestionExplanationLinks);
+	</script>
 	@include('includes.time_zone', ['time_zone_offset' => $time_zone_offset])
 @stop
 @section('content')

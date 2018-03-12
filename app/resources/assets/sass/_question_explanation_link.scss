@@ -1,0 +1,17 @@
+.question-explanation-link {
+	cursor: pointer;
+
+	&:hover {
+		.fa-eye {
+			font-size: 1.4em;
+		}
+	}
+
+	.fa-eye {
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 1.2em;
+		transition: font-size 0.2s;
+		color: #337ab7;
+	}
+}

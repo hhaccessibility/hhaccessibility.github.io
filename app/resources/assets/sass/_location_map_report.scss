@@ -371,6 +371,10 @@ This is where to put SCSS for the location report that shows a map.
 			width: 100%;
 			max-width: 100%;
 
+			&.unrated .title-bar h3 {
+				width: 100%;
+			}
+
 			.title-bar {
 				width: 100%;
 

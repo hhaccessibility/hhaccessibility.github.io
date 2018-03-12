@@ -4,34 +4,34 @@
 	@extend %page-base;
 
 	h1 {
-		display: inline-block;
+		text-align: center;
+		&.title {
+			padding-left: 10px;
+		}
 	}
-	
+
 	h3 {
 		text-align: center;
 	}
-	
+
 	.question-html {
 		margin-top: 20px;
 		margin-bottom: 30px;
 		font-size: 1.3em;
 		text-align: center;
 	}
-	
+
 	.question-explanation {
 		max-width: 700px;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
-	.bread-crumb, .middle-bread-crumb {
-		font-size: 18px;
-		padding-right: 15px;
-		border-right: 2px solid #888;
-	}
-	
-	.middle-bread-crumb, h1.title {
-		padding-left: 10px;
+
+	.close-row {
+		margin-top: 30px;
+		border-top: 1px solid #ddd;
+		padding-top: 20px;
+		text-align: center;
 	}
 }
 
@@ -47,18 +47,9 @@
 			font-size: 9vw;
 			padding-left: 0;
 		}
-		
+
 		h3 {
 			font-size: 7vw;
-		}
-
-		.middle-bread-crumb {
-			padding-left: 5px;
-		}
-		
-		.bread-crumb, .middle-bread-crumb {
-			padding-right: 7px;
-			font-size: 14px;
 		}
 	}
 }
