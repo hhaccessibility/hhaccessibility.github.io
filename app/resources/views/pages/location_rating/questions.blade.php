@@ -7,10 +7,12 @@
 				<div class="col-md-6 col-xs-12">
 					{!! $question->question_html !!}
 					@if ($question->explanation)
-						<a href="/question-explanation/{{ 
-							$question->id }}/{{ 
-							$location->id }}" title="See Examples"><em 
-								class="fa fa-eye"></em></a>
+							@include('pages.components.question_explanation_link',
+							array(
+								'location_id' => $location->id,
+								'question_id' => $question->id
+								)
+							)
 					@endif
 				</div>
 				<div class="col-md-6 col-xs-12">

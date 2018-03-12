@@ -23,15 +23,46 @@
 	border-radius: 5px;
 	border-color: #bbb;
 	border-style: solid;
-	border-width: 2px;
+	border-width: 1px;
 	display: flex;
 	flex-direction: column;
-	
+	box-shadow: 0 0 15px #000;
+
 	.content {
 		flex-grow: 1;
+		overflow-y: auto;
 	}
-	
+
 	.footer {
 		flex-grow: 0;
+	}
+
+	&.question-explanation-dialog {
+		height: 350px;
+		margin-top: -175px;
+
+		h3 {
+			font-size: 18px;
+		}
+
+		ul {
+			padding-left: 20px;
+
+			li {
+				text-align: left;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	div.modal-message {
+		width: 100%;
+		margin-left: 0;
+		left: 0;
+		right: 0;
+		border-left-width: 0;
+		border-right-width: 0;
+		border-radius: 0;
 	}
 }

@@ -1,5 +1,7 @@
 /*
 utils.js contains a few functions that may be useful for a few different JavaScript files in AccessLocator.
+
+utils.js depends on jQuery.
 */
 
 /*
@@ -159,16 +161,18 @@ function saveSearchLocationWithOptionalAddress(lat_lng, address) {
 	}
 }
 
-function showMessage(html) {
+function showMessage(html, extra_classes) {
+	if (extra_classes === undefined) {
+		extra_classes = '';
+	}
 	html = '<div class="message-backdrop"></div>' +
-		'<div class="modal-message">' +
+		'<div class="modal-message ' + extra_classes + '">' +
 			'<div class="content">'	+ html +
 			'</div>' +
 			'<div class="modal-footer">' +
 				'<button class="btn btn-primary ok">OK</button' +
 			'</div>' +
 		'</div>';
-
 	var $body = $('body');
 	$body.append(html);
 	var $ok_button = $('.modal-message button.ok');
@@ -178,6 +182,25 @@ function showMessage(html) {
 		deferred.resolve('ok');
 	});
 	return deferred.promise();
+}
+
+var is_using_screen_reader;
+
+/*
+Returns a promise that resolves to true or false indicating if the current user uses a screen reader.
+*/
+function isUsingScreenReader() {
+	if (is_using_screen_reader !== undefined) {
+		return $.Deferred().resolve(is_using_screen_reader).promise();
+	}
+	else {
+		return $.ajax({
+			'url': '/api/is-using-screen-reader',
+			'success': function(response) {
+				is_using_screen_reader = response;
+			}
+		});
+	}
 }
 
 function isMobile() {

@@ -168,6 +168,8 @@ $( function() {
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
 	downloadRegions().then(updateRegionOptions);
+	initQuestionExplanationLinks();
+
 	if ( window.location.href.indexOf('show_rotate_feature') !== -1 ) {
 		window.history.pushState("removing_rotate_feature", "Removing Rotate Feature", "/profile");
 		showRotateFeature();

@@ -6,6 +6,8 @@
   <script src="/js/profile.js"></script>
   <script src="/js/profile_save_button.js"></script>
   <script src="/js/profile_save_prompt.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/question_explanation.js"></script>
 @stop
 @section('content')
 <div class="profile row">
@@ -200,6 +202,13 @@
 									</label>
 									<div>
 									{!! $question->question_html !!}
+									@if ($question->explanation)
+											@include('pages.components.question_explanation_link',
+											array(
+												'question_id' => $question->id
+												)
+											)
+									@endif
 									</div>
 								</div>
 							@endforeach

@@ -5,6 +5,14 @@
 		@foreach ( $question_category->questions()->get() as $question )
 			<div>
 				{!! $question->question_html !!}
+				@if ($question->explanation)
+						@include('pages.components.question_explanation_link',
+						array(
+							'question_id' => $question->id
+							)
+						)
+				@endif
+
 				<span class="percentage">
 				{!! $question->getAccessibilityRating($location_id, 'universal') !!}%
 				</span>
