@@ -15,13 +15,13 @@ class SignUpController extends Controller {
     {
 		return view('pages.signup.form');
     }
-	
+
     public function createUser(Request $request)
     {
 		$validation_rules = array(
 			'first_name'            => 'required|max:255',
 			'last_name'             => 'required|max:255',
-			'email'                 => 'required|email|unique:user|max:255',  
+			'email'                 => 'required|email|unique:user|max:255',
 			'password'              => 'required',
 			'password_confirm'      => 'required|same:password',
 			'g-recaptcha-response'  => 'required|captcha'
@@ -29,7 +29,7 @@ class SignUpController extends Controller {
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
 		{
-			return Redirect::to('signup')->withErrors($validator)->withInput();			
+			return Redirect::to('signup')->withErrors($validator)->withInput();
 		}
 		else
 		{
@@ -43,14 +43,14 @@ class SignUpController extends Controller {
 			$newUser->email_verification_token = str_random(60); //generate email verification token
 			BaseUser::sendVerificationEmail($newUser);
 			$newUser->save();
-			
+
 			$newUserRole = new UserRole;
 			$newUserRole->role_id = 2;
 			$newUserRole->user_id = $newUser->id;
 			$newUserRole->save();
 			return view('pages.signup.success',[
 				'email' => $email,
-				'confirmmessage' => 'A verification code has been sent to ' . $email . '. Check your email to confirm.',
+				'confirmmessage' => 'A verification code has been sent to ' . $email . '. Check your email inbox or SPAM folder to confirm.',
 				'can_sign_in' => false
 				]);
 		}
