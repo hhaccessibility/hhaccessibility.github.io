@@ -40,7 +40,8 @@
 			@include('pages.location_report.questions',
 				array(
 					'question_category' => $question_category,
-					'location_id' => $location->id
+					'location_id' => $location->id,
+					'user_counts' => $user_counts
 				))
 		</div>
 	@endif

@@ -4,6 +4,7 @@ use App\Location;
 use App\QuestionCategory;
 use App\BaseUser;
 use App\ReviewComment;
+use DB;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
@@ -17,11 +18,33 @@ class LocationReportController extends Controller {
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
 		$question_category_id = intval($question_category_id);
 		$question_category = QuestionCategory::find($question_category_id);
+		$user_ratings_data = DB::table('user_answer')
+			->select(DB::raw("question_id, answered_by_user_id, avg(answer_value) as answer_value"))
+			->where('location_id', '=', $location_id)
+			->groupBy('answered_by_user_id', 'question_id')
+			->get();
+		$user_ratings = [];
+		
+		foreach ($question_category->questions()->get() as $question) {
+			$user_ratings[''. $question->id] = 0;
+		}
+
+		foreach ($user_ratings_data as $user_rating) {
+			$key = '' . $user_rating->question_id;
+			if (!array_key_exists($key, $user_ratings)) {
+				$user_ratings[$key] = 1;
+			}
+			else {
+				$user_ratings[$key]++;
+			}
+		}
+
 		$view_data = [
 			'time_zone_offset' => BaseUser::getTimeZoneOffset(),
 			'location' => $location,
 			'question_categories' => $question_categories,
 			'question_category' => $question_category,
+			'user_counts' => $user_ratings,
 			'comments' => $question_category
 				->comments()
 				->where('location_id', '=', $location_id)

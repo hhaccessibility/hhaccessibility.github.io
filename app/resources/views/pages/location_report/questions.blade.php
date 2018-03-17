@@ -4,6 +4,7 @@
 	<div class="questions">
 		@foreach ( $question_category->questions()->get() as $question )
 			<div>
+				<div class="question-html">
 				{!! $question->question_html !!}
 				@if ($question->explanation)
 						@include('pages.components.question_explanation_link',
@@ -12,10 +13,15 @@
 							)
 						)
 				@endif
-
-				<span class="percentage">
-				{!! $question->getAccessibilityRating($location_id, 'universal') !!}%
-				</span>
+				</div>
+				<div class="stats">
+					<div class="percentage">
+					{!! round($question->getAccessibilityRating($location_id, 'universal')) !!}%
+					</div>
+					<div class="user-count">
+					{!! $user_counts[''.$question->id] !!} rating(s)
+					</div>
+				</div>
 			</div>
 		@endforeach
 	</div>
