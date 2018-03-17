@@ -86,6 +86,87 @@ function saveSearchLocation(address, latitude, longitude)
 	});
 }
 
+/*
+Retrieves the Google Maps API key out of the document assuming we have at
+least 1 script element for Google Maps specifying a key.
+*/
+function getGoogleMapsKey() {
+	var $map_script_elements = $('script[src*="//maps.googleapis.com"][src*="key="]');
+	if ( $map_script_elements.length > 0 ) {
+		var $map_script_element = $map_script_elements.first();
+		var src = $map_script_element.attr('src');
+		var key = src.substring(src.indexOf('key=') + 4);
+		if (key.indexOf('&') !== -1 ) {
+			key = key.substring(0, key.indexOf('&'));
+		}
+		return key;
+	}
+	else {
+		console.error('Unable to get Google Maps API key because unable to find google maps script element in document.');
+	}
+}
+
+/*
+This is a useful fallback when the navigator.geolocation fails.
+*/
+function getCurrentGeolocationUsingGoogleMapsKey() {
+	var key = getGoogleMapsKey();
+	if (key === undefined) {
+		return $.Deferred().reject('Unable to get Google Maps API Key').promise();
+	}
+	else {
+		return $.post("https://www.googleapis.com/geolocation/v1/geolocate?key=" + key).then(
+			function(success) {
+				var latlon = new google.maps.LatLng(success.location.lat, success.location.lng);
+				return latlon;
+		  });
+	}
+
+}
+
+/*
+Tries to get the geographical location of the end user using navigator.geolocation.
+This is useful if using the HTTPS protocol and we don't want to use any Google Maps API quota.
+This will also indirectly retrieve the value from the GPS sensor.
+*/
+function getCurrentGeolocationUsingNavigator() {
+	var deferred = $.Deferred();
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+			latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			deferred.resolve(latlon);
+		}, function(error) {
+			deferred.reject(error);
+		});
+    }
+	else {
+		deferred.reject('No geolocation in navigator.');
+	}
+
+	return deferred.promise();
+}
+
+/*
+Returns a promise that resolves to a Google Maps latlon object.
+
+Uses a couple different techniques to retrieve the location in case not all work.
+*/
+function getCurrentGeolocation() {
+	var deferred = $.Deferred();
+	getCurrentGeolocationUsingNavigator().then(function(latlon) {
+		deferred.resolve(latlon);
+	}, function() {
+		// Getting the location from navigator failed so try using Google Maps.
+		getCurrentGeolocationUsingGoogleMapsKey().then(function(latlon) {
+			deferred.resolve(latlon);
+		}, function() {
+			deferred.reject('Both navigator and google maps failed.');
+		});
+	});
+
+	return deferred.promise();
+}
+
 function getAddressFromLatLng(lat_lng) {
 	sanitizeLatLng(lat_lng);
 	var deferred = $.Deferred();
