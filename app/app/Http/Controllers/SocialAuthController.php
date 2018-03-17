@@ -17,7 +17,7 @@ class SocialAuthController extends Controller {
 	public function getSocialLogin($providerName) {
 		$providerName = trim($providerName);
 		if(!in_array($providerName, array('Facebook', 'Google'))) {
-			return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
+			return view('pages.signin')->withErrors('Ooops, there is a problem! Provider(' . $providerName . ') not found. You can try again.')->with('email','');
 		}
 		try {
 			$auth = new Hybrid_Auth(config_path('hybridauth.php'));
@@ -39,10 +39,11 @@ class SocialAuthController extends Controller {
 			return redirect()->intended('profile');
 
 		} catch (Exception $e) {
-			return view('pages.signin')->withErrors('Ooophs, there is a problem! you can try it again.')->with('email','');
+			return view('pages.signin')->withErrors('Ooops, there is a problem(' . $e->getMessage() . ')! You can try again.')->with('email','');
 		}
 		
 	}
+
 	private function createNewUserWithFacebook($profile) {
 		$email = $profile->email;
 		//facebook email field is not guaranteed to have since users may login facebook by their phone number.
@@ -69,6 +70,7 @@ class SocialAuthController extends Controller {
 			$newUserRole->save();
 		}
 	}
+
 	private function createNewUserWithGoogle($profile) {
 		$email = $profile->email;
 		$isExist = User::where("email", "=", $email)->count();

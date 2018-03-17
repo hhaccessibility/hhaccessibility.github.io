@@ -14,13 +14,13 @@
 					{{$message}}
 				</div>
 				@endif
-				@if ( $confirmmessage )
+				@if ( isset($confirmmessage) && $confirmmessage )
 				<strong>{{ $confirmmessage }}</strong>
 				@else
 				<form method="post" action="/signin">
 					{!! csrf_field() !!}
 					@include('pages.validation_messages', array('errors'=>$errors))
-					<input type="hidden" name="after_signin_redirect" value="{{ $after_signin_redirect }}">
+					<input type="hidden" name="after_signin_redirect" value="{{ isset($after_signin_redirect) ? $after_signin_redirect : '' }}">
 					<div class="row">
 						<div class="col-xs-12">
 							<input type="email"
@@ -50,13 +50,13 @@
 				Or sign in using your social media account
 				
 				<a class="facebook" href="/socialauth/auth/Facebook{{
-					$after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
+					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
 				}}">
 					<i class="fa-lg fa fa-facebook"></i>
 					<div class="pull-right">Sign in with facebook</div>
 				</a>
 				<a class="google-plus" href="/socialauth/auth/Google{{
-					$after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
+					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
 				}}">
 					<i class="fa-lg fa fa-google-plus"></i>
 					<div class="pull-right">Sign in with Google</div>
