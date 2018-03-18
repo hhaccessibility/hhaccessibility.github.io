@@ -49,13 +49,13 @@
 			<div class="social-media-signins">
 				Or sign in using your social media account
 				
-				<a class="facebook" href="/socialauth/auth/Facebook{{
+				<a rel="nofollow" class="facebook" href="/socialauth/auth/Facebook{{
 					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
 				}}">
 					<i class="fa-lg fa fa-facebook"></i>
 					<div class="pull-right">Sign in with facebook</div>
 				</a>
-				<a class="google-plus" href="/socialauth/auth/Google{{
+				<a rel="nofollow" class="google-plus" href="/socialauth/auth/Google{{
 					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
 				}}">
 					<i class="fa-lg fa fa-google-plus"></i>
