@@ -43,6 +43,8 @@
 	<div class="map-and-box">
 		<div class="questions-box @if ( $num_ratings === 0 )
 			unrated
+		@else
+			rated
 		@endif">
 			@if ($rating_system === 'personal' && !$personal_rating_is_available)
 				@include('pages.location_report.personal_not_available', ['location_id' => $location->id])
@@ -59,28 +61,44 @@
 				</div>
 			@else
 				<div class="title-bar">
-					<h3>{{ $location->name }}</h3>
-					<div class="location-rating">
+					<div class="graph">
 						@include('pages.components.pie_graph',
 							array(
 								'percent' => $location->getAccessibilityRating($rating_system),
 								'size' => 'big'))
-						<span class="percentage">{{ round($location->getAccessibilityRating($rating_system)) }}%</span>
-						<div class="foreground">
-							<div class="accessible-label">Accessible</div>
-							<div class="num-ratings">( {{ $num_ratings }} ratings )</div>
+					</div>
+					<div class="location-name-and-comments">
+						<div class="location-name">
+							<h3 class="@if (strlen($location->name) > 30) 
+								long-name
+						@endif">{{ $location->name }}</h3>
 						</div>
+						<div class="comments">
+							<a href="/location-comments/{{ $location->id }}">Comments</a>
+						</div>
+					</div>
+					<div class="location-rating">
+						<div class="percentage">{{ round($location->getAccessibilityRating($rating_system)) }}% <span class="accessible">accessible</span></div>
+						<div class="num-ratings">( {{ $num_ratings }} ratings )</div>
 					</div>
 				</div>
 				<div class="questions">
 					@foreach ( $question_categories as $category )
 						<div class="question-category">
 							<a href="/location-reporting/{{ $location->id }}/{{ $category->id }}">
-							@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, 'universal')))
-							
-								<span class="category-name">{{ $category->name }}</span>
-								
-								<span class="percentage">{{ $category->getAccessibilityRating($location->id, 'universal').'%' }}</span>
+								<div class="graph">
+									@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, 'universal')))
+								</div>
+								<div class="category-name">{{ $category->name }}</div>
+
+								<div class="location-category-rating">
+									<div class="percentage">
+										<span>{{ $category->getAccessibilityRating($location->id, 'universal').'%' }}</span> accessible
+									</div>
+									<div class="ratings">
+										( {{ $category_rating_counts[$category->id] }} rating(s) )
+									</div>
+								</div>
 							</a>
 						</div>
 					@endforeach

@@ -71,6 +71,22 @@ class LocationReportController extends Controller {
 			abort(404, 'Specified location not found');
 		}
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
+		$category_rating_counts = [];
+		foreach ($question_categories as $category) {
+			$db_question_ids = DB::table('question')
+				->where('question_category_id', '=', $category->id)
+				->get(['id'])->values();
+			$question_ids = [];
+			foreach ($db_question_ids as $key=>$qid) {
+				$question_ids[]=$qid->id;
+			}
+			$num_user_answers = DB::table('user_answer')
+				->whereIn('question_id', $question_ids)
+				->where('location_id', '=', $location_id)
+				->distinct('answered_by_user_id')
+				->count('answered_by_user_id');
+			$category_rating_counts[$category->id] = $num_user_answers;
+		}
 		$view_data = [
 			'location_search_path' => BaseUser::getLocationSearchPath(),
 			'location' => $location,
@@ -81,9 +97,10 @@ class LocationReportController extends Controller {
 			'turn_off_maps' => config('app.turn_off_maps'),
 			'num_ratings' => $location->getNumberOfUsersWhoRated(),
 			'is_internal_user' => BaseUser::isInternal(),
-			'body_class' => 'show-ratings-popup'
+			'body_class' => 'show-ratings-popup',
+			'category_rating_counts' => $category_rating_counts
 		];
-		
+
 		return view('pages.location_report.collapsed', $view_data);
     }
 
