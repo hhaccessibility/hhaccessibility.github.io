@@ -36,6 +36,7 @@ class ProfileController extends Controller {
 		}
 		$required_questions = $user->requiredQuestions()->get();
 		$num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
+		$user->search_radius_km = BaseUser::getSearchRadius();
 		$view_data = [
 			'user' => $user,
 			'question_categories' => $question_categories,
