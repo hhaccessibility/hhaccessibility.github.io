@@ -74,12 +74,12 @@
 						@endif">{{ $location->name }}</h3>
 						</div>
 						<div class="comments">
-							<a href="/location-comments/{{ $location->id }}">Comments</a>
+							<a href="/location-comments/{{ $location->id }}">See All Comments</a>
 						</div>
 					</div>
 					<div class="location-rating">
 						<div class="percentage">{{ round($location->getAccessibilityRating($rating_system)) }}% <span class="accessible">accessible</span></div>
-						<div class="num-ratings">( {{ $num_ratings }} ratings )</div>
+						<div class="num-ratings">{{ $num_ratings }} ratings</div>
 					</div>
 				</div>
 				<div class="questions">
@@ -96,7 +96,7 @@
 										<span>{{ $category->getAccessibilityRating($location->id, 'universal').'%' }}</span> accessible
 									</div>
 									<div class="ratings">
-										( {{ $category_rating_counts[$category->id] }} rating(s) )
+										{{ $category_rating_counts[$category->id] }} ratings
 									</div>
 								</div>
 							</a>
