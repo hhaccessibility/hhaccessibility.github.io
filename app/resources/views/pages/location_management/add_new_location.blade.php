@@ -46,12 +46,12 @@
 					<label for="location_group_id">Group/Franchise</label> 
 					<select id="location_group_id" name="location_group_id">
 						<option value="none">None</option>
-						<option value="-">Other</option>
 					@foreach ($location_groups as $location_group) 
 						<option value="{{ $location_group->id }}" @if ( $location->location_group_id === $location_group->id )
 							selected
 						@endif>{{ $location_group->name }}</option>
 					@endforeach
+						<option value="-">Other</option>
 					</select>
 					<button class="btn btn-primary" type="submit">Add</button>
 				</div>
