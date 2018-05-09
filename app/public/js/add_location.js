@@ -23,6 +23,7 @@ function initMap() {
 	// When clicking on map, move center of map there.
 	google.maps.event.addListener(map, 'mousedown', function(event) {
 		setLocationPosition(event.latLng);
+		locationInfo(map, event.latLng);
   	});
 
 	var address_timer = new DelayedNonEmptyTimer(1000, getAddress, processAddress);
@@ -131,6 +132,15 @@ function addLocationsNear(longitude, latitude) {
 			});
 			updateNearbyLocationMarkers();
 		}
+	});
+}
+/*
+Maps the clicked coordinates on a map to an address and set that address as a current location
+*/
+function locationInfo(map, lat_lng)
+{
+	getAddressFromLatLng(lat_lng).then(function(address_info) {
+		document.getElementById("address").value=address_info.address;
 	});
 }
 
