@@ -109,10 +109,13 @@ function updateRegionOptions()
 	let country_id = parseInt(getCountryElement().val());
 	let home_region = $('#home_region');
 	home_region.empty();
-	console.log(country_id);
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			home_region.append($('<option value='+region.name+'/>').text(region.name));
+			if (home_region.data('value') === region.name) {
+                home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
+			} else {
+                home_region.append($('<option value='+region.name+'/>').text(region.name));
+			}
 	});
 }
 
