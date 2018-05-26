@@ -112,7 +112,7 @@ function updateRegionOptions()
 	console.log(country_id);
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			home_region.append($('<option />').text(region.name));
+			home_region.append($('<option value='+region.name+'/>').text(region.name));
 	});
 }
 
