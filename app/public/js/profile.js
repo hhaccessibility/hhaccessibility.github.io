@@ -106,12 +106,13 @@ function getCountryElement()
 
 function updateRegionOptions()
 {
-	var country_id = parseInt(getCountryElement().val());
-	var $datalist = $('#regions');
-	$datalist.empty();
+	let country_id = parseInt(getCountryElement().val());
+	let home_region = $('#home_region');
+	home_region.empty();
+	console.log(country_id);
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			$datalist.append($('<option />').text(region.name));
+			home_region.append($('<option />').text(region.name));
 	});
 }
 
