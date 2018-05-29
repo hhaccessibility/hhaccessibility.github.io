@@ -123,7 +123,6 @@
 						<div class="col-sm-8 col-xs-7">
 							<select list="regions" class="form-control" id="home_region" name="home_region" data-value="{{ $user->home_region }}">
 							</select>
-							<datalist id="regions"></datalist>
 						</div>
 					</div>
 				</div>
