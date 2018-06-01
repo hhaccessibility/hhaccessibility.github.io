@@ -41,7 +41,8 @@ def get_import_config(import_config_filename):
 			{'name': 'columns', 'type': list}
 		]
 		optional_keys = [
-			{'name': 'import_user_id', 'type': basestring}
+			{'name': 'import_user_id', 'type': basestring},
+			{'name': 'location_group_id', 'type': int},
 		]
 		for required_key in required_keys:
 			if required_key['name'] not in import_config:
@@ -95,6 +96,8 @@ def get_task_info():
 	if len(sys.argv) > 2:
 		import_config_filename = sys.argv[2]
 
+	validate_filename(import_config_filename, '.json')
+		
 	return {
 		"csv_filename": csv_filename,
 		"import_config": get_import_config(import_config_filename)

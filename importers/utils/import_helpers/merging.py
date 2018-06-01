@@ -195,6 +195,9 @@ location_location_tags, values, location_duplicates):
 		'id': guid_generator.get_guid(),
 		'data_source_id': import_config['data_source_id']
 	}
+	if 'location_group_id' in import_config:
+		new_location['location_group_id'] = import_config['location_group_id']
+
 	new_location = set_every_key(locations, new_location)
 
 	tag_ids = []
@@ -209,7 +212,8 @@ location_location_tags, values, location_duplicates):
 
 		i += 1
 
-	new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
+	if 'location_group_id' not in new_location or not new_location['location_group_id']:
+		new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	locations.append(new_location)
 	location_location_tag_id = guid_generator.get_guid()
 	for tag_id in tag_ids:
