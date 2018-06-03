@@ -107,11 +107,18 @@ function getCountryElement()
 function updateRegionOptions()
 {
 	var country_id = parseInt(getCountryElement().val());
-	var $datalist = $('#regions');
-	$datalist.empty();
+	var $home_region = $('#home_region');
+	$home_region.empty();
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			$datalist.append($('<option />').text(region.name));
+			if ($home_region.data('value') === region.name)
+			{
+				$home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
+			}
+			else
+			{
+				$home_region.append($('<option/>').val(region.name).text(region.name));
+			}
 	});
 }
 
