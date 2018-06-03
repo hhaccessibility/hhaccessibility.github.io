@@ -121,7 +121,7 @@
 							<label for="province">State/Province</label>
 						</div>
 						<div class="col-sm-8 col-xs-7">
-							<select list="regions" class="form-control" id="home_region" name="home_region" data-value="{{ $user->home_region }}">
+							<select class="form-control" id="home_region" name="home_region" data-value="{{ $user->home_region }}">
 							</select>
 						</div>
 					</div>
