@@ -40,12 +40,20 @@ def get_import_config(import_config_filename):
 			{'name': 'is_first_row_titles', 'type': bool},
 			{'name': 'columns', 'type': list}
 		]
+		optional_keys = [
+			{'name': 'import_user_id', 'type': basestring}
+		]
 		for required_key in required_keys:
 			if required_key['name'] not in import_config:
 				print(import_config_filename + ': ' + required_key['name'] + ' must be set on root object.')
 				sys.exit(errno.EINVAL)
 			elif not isinstance(import_config[required_key['name']], required_key['type']):
 				print(import_config_filename + ': ' + required_key['name'] + ' must be a ' + str(required_key['type']))
+				sys.exit(errno.EINVAL)
+
+		for optional_key in optional_keys:
+			if optional_key['name'] in import_config and not isinstance(import_config[optional_key['name']], optional_key['type']):
+				print(import_config_filename + ': ' + optional_key['name'] + ' must be a ' + str(required_key['type']))
 				sys.exit(errno.EINVAL)
 
 		for column in import_config['columns']:

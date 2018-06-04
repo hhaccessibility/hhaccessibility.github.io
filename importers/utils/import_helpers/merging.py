@@ -5,6 +5,7 @@ same location already exists.
 """
 import math
 import import_helpers.location_groups as location_groups
+import import_helpers.guid_generator as guid_generator
 import string
 import re
 
@@ -191,7 +192,7 @@ location_location_tags, values, location_duplicates):
 		return
 
 	new_location = {
-		'id': get_max_id(locations) + 1,
+		'id': guid_generator.get_guid(),
 		'data_source_id': import_config['data_source_id']
 	}
 	new_location = set_every_key(locations, new_location)
@@ -210,7 +211,7 @@ location_location_tags, values, location_duplicates):
 
 	new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	locations.append(new_location)
-	location_location_tag_id = 1 + get_max_id(location_location_tags)
+	location_location_tag_id = guid_generator.get_guid()
 	for tag_id in tag_ids:
 		location_location_tags.append({
 			'id': location_location_tag_id,
