@@ -8,6 +8,8 @@ import import_helpers.location_groups as location_groups
 import import_helpers.guid_generator as guid_generator
 import string
 import re
+import json
+
 
 def get_max_id(table_data):
 	return max([row['id'] for row in table_data])
@@ -201,6 +203,11 @@ location_location_tags, values, location_duplicates):
 	new_location = set_every_key(locations, new_location)
 
 	tag_ids = []
+	if 'location_tag_names' in import_config:
+		for location_tag_name in import_config['location_tag_names']:
+				location_tag_id = get_id_for_location_tag(location_tags, location_tag_name)
+				tag_ids.append(location_tag_id)
+
 	i = 0
 	for column in import_config['columns']:
 		if 'location_field' in column:
@@ -215,11 +222,9 @@ location_location_tags, values, location_duplicates):
 	if 'location_group_id' not in new_location or not new_location['location_group_id']:
 		new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	locations.append(new_location)
-	location_location_tag_id = guid_generator.get_guid()
 	for tag_id in tag_ids:
 		location_location_tags.append({
-			'id': location_location_tag_id,
+			'id': guid_generator.get_guid(),
 			'location_tag_id': tag_id,
 			'location_id': new_location['id']
 		})
-		location_location_tag_id += 1

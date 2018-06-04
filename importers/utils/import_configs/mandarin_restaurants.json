@@ -3,6 +3,7 @@
 	"import_user_id": "00000000-0000-0000-0000-110000000001",
 	"is_first_row_titles": true,
 	"location_group_id": 80,
+	"location_tag_names": ["Restaurant"],
 	"columns": [
 		{"location_field": "name"},
 		{},

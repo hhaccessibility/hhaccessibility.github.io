@@ -43,6 +43,7 @@ def get_import_config(import_config_filename):
 		optional_keys = [
 			{'name': 'import_user_id', 'type': basestring},
 			{'name': 'location_group_id', 'type': int},
+			{'name': 'location_tag_names', 'type': list}
 		]
 		for required_key in required_keys:
 			if required_key['name'] not in import_config:
