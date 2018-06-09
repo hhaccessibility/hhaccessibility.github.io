@@ -39,7 +39,12 @@ class AnswerRepository
 		$totalRating = 0;
 		foreach ($question_ids as $question_id)
 		{
-			$totalRating += $ratings['' . $question_id];
+			$question_key = '' . $question_id;
+			$rating = 0;
+			if (isset($ratings[$question_key])) {
+				$rating = $ratings[$question_key];
+			}
+			$totalRating += $rating;
 		}
 		return $totalRating / $num_questions;
 	}
@@ -64,7 +69,12 @@ class AnswerRepository
 					$totalRating = 0;
 					foreach ($question_ids as $question_id)
 					{
-						$totalRating += $ratings['' . $question_id];
+						$rating = 0;
+						$question_id_key = '' . $question_id;
+						if (isset($ratings[$question_id_key])) {
+							$rating = $ratings[$question_id_key];
+						}
+						$totalRating += $rating;
 					}
 					$location->rating = $totalRating / $num_questions;
 				}
