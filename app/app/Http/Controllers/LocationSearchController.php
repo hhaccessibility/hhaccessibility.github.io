@@ -12,7 +12,6 @@ use Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Log;
 
 function compareByDistance($location1, $location2)
 {
@@ -317,7 +316,6 @@ class LocationSearchController extends Controller {
 		]);
 
 		$search_radius = BaseUser::getSearchRadius();
-		Log::debug('LocationSearchController is using search_radius: ' . $search_radius);
 
 		return view('pages.location_search.search',
 			[
@@ -344,7 +342,6 @@ class LocationSearchController extends Controller {
 			], 422);
 		}
 		$distance = Input::get('distance');
-		Log::debug('LocationSearchController setSearchRadius called with distance: '.$distance);
 		if( is_numeric($distance) ) {
 			$f_distance = floatval( $distance );
 			if( $f_distance > 0)
