@@ -9,13 +9,13 @@ class LocationSearchRadiusTest extends TestCase
 		$response_data = json_decode($response_content);
 		$testCase->assertTrue(is_object($response_data));
 		$testCase->assertTrue(isset($response_data->message));
-		
+
 		// Check that the radius was set.
 		$search_content = $testCase->get('/location-search?location_tag_id=1')->seeStatusCode(200)->response->getContent();
 		$pos = strpos($search_content, 'placeholder="distance" value="'.$testDistance.'"');
 		$testCase->assertTrue($pos !== false);
 	}
-	
+
     /**
 	 * Tests that the set search radius API used in the location search feature works.
      *
