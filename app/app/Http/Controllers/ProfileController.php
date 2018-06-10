@@ -64,7 +64,6 @@ class ProfileController extends \Illuminate\Routing\Controller {
 		$validation_rules = array(
 			'first_name'           => 'required|max:255',
 			'last_name'            => 'required|max:255',
-			'email'                => 'required|email|max:255',
 			'country_id'           => 'integer|exists:country,id',
 			'home_city'            => 'max:255',
 			'home_region'          => 'max:255',
@@ -142,9 +141,9 @@ class ProfileController extends \Illuminate\Routing\Controller {
 			*/
 			$user->personalizedRatings()->detach();
 		}
-		
+
 		$user->save();
-		
+
 		return ProfileController::getProfileView();
 	}
 

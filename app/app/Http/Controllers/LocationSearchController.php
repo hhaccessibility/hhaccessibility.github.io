@@ -365,4 +365,9 @@ class LocationSearchController extends Controller {
 			], 422);
 		}
 	}
+
+	public function all()
+	{
+		return Location::all();
+	}
 }
