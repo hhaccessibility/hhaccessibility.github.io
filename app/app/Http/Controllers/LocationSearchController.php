@@ -4,6 +4,7 @@ use App\LocationTag;
 use App\Location;
 use App\BaseUser;
 use App\Libraries\Gis;
+use App\Libraries\Utils;
 use App\Question;
 use App\AnswerRepository;
 use DB;
@@ -11,6 +12,7 @@ use Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 
 function compareByDistance($location1, $location2)
 {
@@ -19,7 +21,7 @@ function compareByDistance($location1, $location2)
 	if ( $distance1 < $distance2 )
 		return -1;
 	else if ( $distance1 === $distance2 )
-		return compareByName($location1, $location2);
+		return Utils::compareByName($location1, $location2);
 	else
 		return 1;
 }
@@ -32,11 +34,6 @@ function compareByRating($location1, $location2)
 		return compareByDistance($location1, $location2);
 	else
 		return -1;
-}
-
-function compareByName($location1, $location2)
-{
-	return strcasecmp($location1->name, $location2->name);
 }
 
 function updateDistances(array $locations)
@@ -187,7 +184,7 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name, $ratin
 	if ( $view === 'table' ) {
 		AnswerRepository::updateRatings($locations, $ratingSystem);
 		if ( $order_by_field_name === 'name' )
-			usort($locations, 'App\Http\Controllers\compareByName');
+			usort($locations, array("App\Libraries\Utils", "compareByName"));
 		else if ( $order_by_field_name === 'distance' )
 			usort($locations, 'App\Http\Controllers\compareByDistance');
 		else if ( $order_by_field_name === 'rating' )
@@ -320,6 +317,7 @@ class LocationSearchController extends Controller {
 		]);
 
 		$search_radius = BaseUser::getSearchRadius();
+		Log::debug('LocationSearchController is using search_radius: ' . $search_radius);
 
 		return view('pages.location_search.search',
 			[
@@ -340,7 +338,13 @@ class LocationSearchController extends Controller {
 	 * set search radius
 	 */
 	public function setSearchRadius(Request $request) {
+		if (!Input::has('distance')) {
+			return Response::json([
+				'message' => 'distance must be specified.'
+			], 422);
+		}
 		$distance = Input::get('distance');
+		Log::debug('LocationSearchController setSearchRadius called with distance: '.$distance);
 		if( is_numeric($distance) ) {
 			$f_distance = floatval( $distance );
 			if( $f_distance > 0)
