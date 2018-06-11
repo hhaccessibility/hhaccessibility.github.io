@@ -95,9 +95,48 @@ class SigninApiTest extends TestCase
 		$this->checkLocationGroups();
 		$this->checkUsers();
 	}
+	
+	private function saveProfileInformation($overrides)
+	{
+		$data = [
+			'uses_screen_reader' => true,
+			'home_country_id' => 39,
+			'home_region' => 'Ontario',
+			'home_city' => 'Windsor',
+			'first_name' => 'John',
+			'last_name' => 'Smith',
+			'location_search_text' => '',
+			'search_radius_km' => 1
+		];
+		if (isset($overrides['uses_screen_reader']) && $overrides['uses_screen_reader'] === false) {
+			unset($overrides['uses_screen_reader']);
+			unset($data['uses_screen_reader']);
+		}
+		// merge with the overrides.
+		$data = array_merge($data, $overrides);
+		$content = $this->post('/profile', $data)->seeStatusCode(200)->response->getContent();
+		return $content;
+	}
+	
+	private function isUsingScreenReader()
+	{
+		return json_decode($this->get('/api/is-using-screen-reader')->seeStatusCode(200)->response->getContent());
+	}
+	
+	private function checkScreenReader()
+	{
+		$content = $this->saveProfileInformation(['uses_screen_reader' => false]);
+		$this->assertTrue(strpos($content, 'name="uses_screen_reader" checked') === false);
+		$this->assertFalse($this->isUsingScreenReader());
+
+		$content = $this->saveProfileInformation(['uses_screen_reader' => true]);
+		$this->assertTrue(strpos($content, 'name="uses_screen_reader" checked') !== false);
+		$this->assertTrue($this->isUsingScreenReader());
+	}
 
 	public function testSuccessfulSignIn()
 	{
+		$this->flushSession();
 		$data = ['email' => 'josh.greig2@gmail.com', 'password' => 'password'];
 		$response = $this->post('/signin', $data);
 		$response->seeStatusCode(302);
@@ -109,6 +148,7 @@ class SigninApiTest extends TestCase
 		$this->checkAddLocationFeature();
 		$this->checkChangePasswordFeature();
 		$this->checkInternalDashboard();
+		$this->checkScreenReader();
 	}
 
 	public function testSignout()
