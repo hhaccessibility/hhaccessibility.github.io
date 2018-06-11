@@ -10,7 +10,6 @@ use DB;
 use DateTime;
 use DateTimeZone;
 use Webpatser\Uuid\Uuid;
-use Illuminate\Support\Facades\Log;
 
 class AnswerRepository
 {
