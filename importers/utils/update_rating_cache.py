@@ -3,6 +3,28 @@
 import requests
 import sys
 import time
+import import_helpers.rating_cache_task_loader as rating_cache_task_loader
+import MySQLdb
+
+
+def get_db_connection(connection_settings):
+	db = MySQLdb.connect(host=connection_settings['DB_HOST'],
+                     user=connection_settings['DB_USERNAME'],
+                     passwd=connection_settings['DB_PASSWORD'],
+                     db=connection_settings['DB_DATABASE'])
+	return db
+
+
+def run_query(db, sql):
+	cur = db.cursor(MySQLdb.cursors.DictCursor)
+	cur.execute(sql)
+	db_data = [row for row in cur.fetchall()]
+	return db_data
+
+
+def clear_cache(connection_info):
+	connection = get_db_connection(connection_info)
+	run_query(connection, 'update location set ratings_cache=null, universal_rating=null')
 
 
 def format_seconds(time_seconds):
@@ -38,21 +60,9 @@ def populate_ratings_cache(site_url):
 		sys.stdout.flush()
 
 
-def sanitize_site_url(site_url):
-	if '://' not in site_url:
-		site_url = 'http://' + site_url
-	if site_url[-1] == '/':
-		site_url = site_url[:-1]
-
-	return site_url
-
-
-if len(sys.argv) < 2:
-	print('site url must be specified.')
-	sys.exit(1)
-
-site_url = sanitize_site_url(sys.argv[1])
 if __name__ == '__main__':
-	populate_ratings_cache(site_url)
+	task_info = rating_cache_task_loader.get_task_info()
+	if task_info['is_resetting_cache']:
+		clear_cache(task_info)
+	populate_ratings_cache(task_info['site_url'])
 	sys.exit(0)
-
