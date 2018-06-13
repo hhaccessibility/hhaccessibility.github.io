@@ -27,15 +27,21 @@ def get_task_info():
 	site_url = 'localhost:8000'
 	env_data = env_loader.get_env_data()
 
-	if len(sys.argv) < 2:
-		if 'APP_URL' in env_data:
-			site_url = env_data['APP_URL']
-			print ('Using APP_URL from .env file: ' + site_url)
-		else:
-			print ('site_url should be specified.  Defaulting to: ' + site_url)
+	my_args = sys.argv[1:]
+	is_resetting_cache = '--reset' in my_args
+	my_args = list(set(my_args) - set(['--reset']))
+
+	if len(my_args) < 1:
+			if 'APP_URL' in env_data:
+					site_url = env_data['APP_URL']
+					print ('Using APP_URL from .env file: ' + site_url)
+			else:
+					print ('site_url should be specified.  Defaulting to: ' + site_url)
+	else:
+		site_url = my_args[0]
 
 	site_url = sanitize_site_url(site_url)
-	is_resetting_cache = '--reset' in sys.argv
+
 	if is_resetting_cache and not is_local(site_url, env_data):
 		raise ValueError('Can not clear cache for remote site\'s database')
 
