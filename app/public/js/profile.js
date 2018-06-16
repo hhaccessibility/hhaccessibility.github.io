@@ -109,13 +109,10 @@ function updateRegionOptions()
 	var country_id = parseInt(getCountryElement().val());
 	var $home_region = $('#home_region');
 	$home_region.empty();
+	//Below statement enables the default region to be empty or no region
+	$home_region.append($('<option/>').attr('selected', 'selected').text("-- Select Region --"));
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			if ($home_region.data('value') === region.name)
-			{
-				$home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
-			}
-			else
 			{
 				$home_region.append($('<option/>').val(region.name).text(region.name));
 			}
