@@ -7,6 +7,17 @@ def remove_inline_comment(line):
 		return line
 
 
+# Quotes are required around values that contain spaces.
+# Quotes are usually optional around .env values.
+def remove_quotes(env_value):
+	if env_value == '':
+		return ''
+	elif ( env_value[0] == env_value[-1]) and env_value[0] in '"\'':
+		return env_value[1:-1]
+	else:
+		return env_value
+
+
 def get_env_data():
 	env_filename = '../../app/.env'
 	with open(env_filename, 'r') as env_f:
@@ -18,5 +29,5 @@ def get_env_data():
 			index = line.find('=')
 			key = line[:index].strip()
 			value = line[index + 1:].strip()
-			key_values[key] = value
+			key_values[key] = remove_quotes(value)
 		return key_values
