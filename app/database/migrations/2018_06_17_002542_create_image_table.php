@@ -14,7 +14,8 @@ class CreateImageTable extends Migration
     public function up()
     {
         Schema::create('image', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id', 36)->nullable(false);
+            $table->primary(['id']);
             $table->timestamps();
             $table->string('location_id', 36)->nullable(false);
             $table->foreign('location_id')->references('id')->on('location');
