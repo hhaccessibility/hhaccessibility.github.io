@@ -17,6 +17,8 @@ class CreateImageTable extends Migration
             $table->string('id', 36)->nullable(false);
             $table->primary(['id']);
             $table->timestamps();
+            $table->string('uploader_user_id', 36)->nullable(false);
+            $table->foreign('uploader_user_id')->references('id')->on('user');
             $table->string('location_id', 36)->nullable(false);
             $table->foreign('location_id')->references('id')->on('location');
             $table->binary('raw_data', 16777215);
