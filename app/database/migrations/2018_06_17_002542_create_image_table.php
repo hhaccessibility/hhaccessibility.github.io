@@ -16,12 +16,9 @@ class CreateImageTable extends Migration
         Schema::create('image', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-<<<<<<< HEAD
             $table->string('location_id', 36)->nullable(false);
             $table->foreign('location_id')->references('id')->on('location');
             $table->binary('raw_data', 16777215);
-=======
->>>>>>> 1930466... First Commit for Image table
         });
     }
 
