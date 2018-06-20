@@ -20,9 +20,9 @@ if ( !function_exists('getSiteURL') )
 		else
 		{
 			$host = env('APP_URL', 'http://localhost:8000');
-			if (strpos($host, '://') === FALSE )
+			if (strpos($host, '://') !== FALSE )
 			{
-				$host = substr($host, strpos('://', $host) + 3);
+				$host = substr($host, strpos($host, '://') + 3);
 			}
 		}
 		
