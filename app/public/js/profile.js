@@ -57,14 +57,32 @@ function selectAllToggle()
 		}
 	})
 }
+
+function validatePhoto(file) {
+	var fileExtensions = ['jpeg', 'png'];
+	var isValid = false;
+	fileExtensions.forEach(function (extension) {
+		if (file.type.match('image/'+extension)) {
+			isValid = true;
+		}
+	});
+	return isValid;
+}
+
 // uploads the profile photo by submitting the image upload form
 // Called after selecting a photo and hitting "Open"
-function upload()
+function upload(event)
 {
-	// indicate that the uploading is starting.
-	$element = $('.photo-display .progress-element').addClass('uploading');
-	
-    $("#photo-upload").submit();
+	var file = event.target.files[0];
+	if (file.size > 5000 * 1024) {
+		document.getElementById("profile_error").innerText = "Photo should be smaller than 5MB.";
+	} else if (!validatePhoto(file)) {
+		document.getElementById("profile_error").innerText = "Photo should be jpeg or png format.";
+	} else {
+        // indicate that the uploading is starting.
+        $element = $('.photo-display .progress-element').addClass('uploading');
+        $("#photo-upload").submit();
+	}
 }
 
 // Opens a dialog for the user to select an image
