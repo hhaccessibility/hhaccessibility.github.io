@@ -40,12 +40,11 @@ class Emailer
 		//Password to use for SMTP authentication
 		$mail->Password = config('app.gmail_password');
 		//Set who the message is to be sent from
-		// $mail->setFrom(config('app.gmail_from_address'), config('app.gmail_from_name'));
-		$mail->setFrom('josh.greig@gmail.com', 'First Last');
+		$mail->setFrom(config('app.gmail_from_address'), config('app.gmail_from_name'));
 		//Set an alternative reply-to address
 		//$mail->addReplyTo('replyto@example.com', 'First Last');
 		//Set who the message is to be sent to
-		$mail->addAddress('josh.greig@gmail.com', 'Josh Greig');
+		$mail->addAddress($to, '');
 		//Set the subject line
 		$mail->Subject = $subject;
 		//Read an HTML message body from an external file, convert referenced images to embedded,
