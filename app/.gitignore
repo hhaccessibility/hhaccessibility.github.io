@@ -14,3 +14,4 @@ composer.lock
 Homestead.json
 Homestead.yaml
 .env
+/public/fonts
