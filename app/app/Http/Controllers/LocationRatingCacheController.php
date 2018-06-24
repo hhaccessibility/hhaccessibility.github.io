@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 /*
-The LocationRatingCacheController is used to refresh the ratings cache after a deployment or when initializing a new development environment.  Having an empty cache makes 
+The LocationRatingCacheController is used to refresh the ratings cache after a deployment or when initializing a new development environment.  Having an empty cache makes the location search run slowly.
 */
 
 use App\Location;

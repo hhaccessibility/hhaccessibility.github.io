@@ -339,8 +339,7 @@ class BaseUser
 		$body = "Final step...\r\n".
 				"Confirm your email address to complete your Accesslocator account. It's easy — just click on the link below or simply copy and paste it into your browser.\r\n".
 				config('app.url')."/signup/confirmEmail/".$user->email."/".$user->email_verification_token;
-		$subject = "Confirm your Accesslocator account, 
-		".$user->first_name." ".$user->last_name;
+		$subject = "Confirm your Accesslocator account, ".$user->first_name." ".$user->last_name;
 		Emailer::send($user->email, $subject, $body);
 	}
 

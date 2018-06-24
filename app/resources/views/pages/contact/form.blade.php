@@ -5,7 +5,7 @@
 	<div class="contact-form">
 		<form method="post" action="/contact">
 			{!! csrf_field() !!}
-			@include('pages.validation_messages', array('errors'=>$errors))					
+			@include('pages.validation_messages', array('errors'=>$errors))
 			<div class="row">
 				<div class="col-xs-12">
 					<input class="clean" type="email" name="email"

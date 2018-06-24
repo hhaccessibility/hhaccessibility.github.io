@@ -1,8 +1,8 @@
 @extends('layouts.default')
 @section('head-content')
-  <script src="/js/jquery-3.1.1.js"></script>
-  <script src="/js/utils.js" type="text/javascript"></script>
-  <script>
+	<script src="/js/jquery-3.1.1.js"></script>
+	<script src="/js/utils.js" type="text/javascript"></script>
+	<script>
 	var search_radius  = parseFloat({{ $search_radius }});
 
 	function setSearchRadius(new_radius_km)
@@ -26,27 +26,27 @@
 			}
 		);
 	}
-  </script>
-  @if ( $view === 'map' && !$turn_off_maps  )
-  <script>
-    var locations      = {!! json_encode($locations) !!};
-	var user_longitude = {{ $base_user->getLongitude() }};
-	var user_latitude  = {{ $base_user->getLatitude() }};
-  </script>
-  <script src="/js/location_search_map.js">
-  </script>
-  @endif
-  @if ( $view === 'table' )
+	</script>
+	@if ( $view === 'map' && !$turn_off_maps  )
+	<script>
+		var locations      = {!! json_encode($locations) !!};
+		var user_longitude = {{ $base_user->getLongitude() }};
+		var user_latitude  = {{ $base_user->getLatitude() }};
+	</script>
+	<script src="/js/location_search_map.js">
+	</script>
+	@endif
+	@if ( $view === 'table' )
 	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
 	<script src="/css/jquery/jquery-ui.js"></script>
 	<script src="/js/location_search_table.js"></script>
-  @endif
+	@endif
 @stop
 @section('footer-content')
 	@if ( $view === 'map' && !$turn_off_maps )
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
-    </script>
+	</script>
 	@endif
 @stop
 @section('content')

@@ -12,13 +12,13 @@
 		<div class="universal-personal">
 			<a class="{{ $rating_system === 'universal' ? 'selected' : '' }}"
 				href="/location-report/{{ $location->id }}/universal{{
-					isset($question_category_id) 
+					isset($question_category_id)
 					? '/'.$question_category_id
 					: ''
 				}}">Universal</a>
 			<a class="{{ $rating_system === 'personal' ? 'selected' : '' }}"
 			href="/location-report/{{ $location->id }}/personal{{
-					isset($question_category_id) 
+					isset($question_category_id)
 					? '/'.$question_category_id
 					: ''
 				}}">Personal</a>

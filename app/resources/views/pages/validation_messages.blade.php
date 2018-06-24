@@ -4,7 +4,7 @@
 		{{ $errors->all()[0] }}
 	@else
 		@foreach ($errors->all() as $error)
-			{{ $error }}<br>        
+			{{ $error }}<br>
 		@endforeach
 	@endif
 </div>

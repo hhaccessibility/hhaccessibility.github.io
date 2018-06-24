@@ -4,11 +4,11 @@
 <div class="password-recovery">
 	<h1>Password Recovery</h1>
 	<p>Under development</p>
-	
+
 	<div class="form-box">
 		<form method="post" action="/password-recovery">
 			{!! csrf_field() !!}
-			@include('pages.validation_messages', array('errors'=>$errors))					
+			@include('pages.validation_messages', array('errors'=>$errors))
 			<input class="clean" type="email" name="email" placeholder="Your Email">
 			<div>
 				{!! app('captcha')->display(); !!}

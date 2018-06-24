@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('head-content')
-	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
+	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
 @stop
 @section('content')
@@ -48,9 +48,9 @@
 					<div class="question-category">
 						<a href="/location-reporting/{{ $location->id }}/{{ $category->id }}">
 						@include('pages.components.pie_graph', array('percent' => $category->getAccessibilityRating($location->id, $rating_system)))
-						
+
 							<span class="category-name">{{ $category->name }}</span>
-							
+
 							<span class="percentage">{{ $category->getAccessibilityRating($location->id, $rating_system).'%' }}</span>
 						</a>
 					</div>

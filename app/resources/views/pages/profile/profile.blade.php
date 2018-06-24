@@ -1,20 +1,20 @@
 @extends('layouts.default', ['body_class' => 'nav-profile'])
 @section('head-content')
-  <link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
-  <script src="/css/jquery/external/jquery/jquery.js"></script>
-  <script src="/css/jquery/jquery-ui.js"></script>
-  <script src="/js/profile.js"></script>
-  <script src="/js/profile_save_button.js"></script>
-  <script src="/js/profile_save_prompt.js"></script>
-  <script src="/js/utils.js"></script>
-  <script src="/js/question_explanation.js"></script>
+	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
+	<script src="/css/jquery/external/jquery/jquery.js"></script>
+	<script src="/css/jquery/jquery-ui.js"></script>
+	<script src="/js/profile.js"></script>
+	<script src="/js/profile_save_button.js"></script>
+	<script src="/js/profile_save_prompt.js"></script>
+	<script src="/js/utils.js"></script>
+	<script src="/js/question_explanation.js"></script>
 @stop
 @section('content')
 <div class="profile row">
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		@if ($has_profile_photo)
 			<div class="photo-display">
-			    <p class="remove-photo"><a href="/profile-photo-delete">Remove Photo</a></p>
+				<p class="remove-photo"><a href="/profile-photo-delete">Remove Photo</a></p>
 				<div id="profile-photo-rotate" onclick="rotateImage()"><i class="fa fa-repeat fa-4x"></i></div>
 				<div class="photo-changer" onclick="selectImageFile()">
 					<div class="uploaded-photo">
@@ -25,24 +25,24 @@
 			</div>
 		@else
 
-        <div class="photo-display" onclick="selectImageFile()">
-            <div class="user-icon">
-                <div><i class="fa fa-user"></i></div>
-                <p>Choose File</p>
-            </div>
-        </div>
-        @endif
+		<div class="photo-display" onclick="selectImageFile()">
+			<div class="user-icon">
+				<div><i class="fa fa-user"></i></div>
+				<p>Choose File</p>
+			</div>
+		</div>
+		@endif
 		<p class="text-danger text-center" id="profile_error"></p>
 		<form id="photo-upload" method="post" action="/profile-photo-upload" enctype="multipart/form-data">
 			{!! csrf_field() !!}
-            <input class="hidden-uploader" type="file" name="profile_photo" onchange="upload(event)">
+			<input class="hidden-uploader" type="file" name="profile_photo" onchange="upload(event)">
 		</form>
- 	</div>
-    <div class="col-md-9 col-sm-8 col-xs-12">
+	</div>
+	<div class="col-md-9 col-sm-8 col-xs-12">
 		@if ( $is_internal_user )
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
-        <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
+		<h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
@@ -230,8 +230,8 @@
 
 			<div class="text-right">
 				<button type="submit" id="submitButton" class="btn btn-lg btn-primary save-button" disabled>Save Profile</button>
-		   </div>
-	 </form>
+			</div>
+		</form>
 
 	</div>
 </div>

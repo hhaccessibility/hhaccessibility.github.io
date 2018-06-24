@@ -30,25 +30,25 @@
 						<div class="col-xs-12">
 							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
 						</div>
-						
-                        <div class="col-xs-12">
+
+						<div class="col-xs-12">
 							<div class="remember-password">
 								<a class="pull-right" href="/password-recovery"> Forgot Password? </a>
 							</div>
-                        </div>
-                                                
+						</div>
+
 					</div>
 					<div>
 						<input class="clean" type="submit" value="Sign in">
 					</div>
 				</form>
 				@endif
-			</div> 
+			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="social-media-signins">
 				Or sign in using your social media account
-				
+
 				<a rel="nofollow" class="facebook" href="/socialauth/auth/Facebook{{
 					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
 				}}">

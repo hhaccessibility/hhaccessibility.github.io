@@ -2,11 +2,11 @@
 @section('head-content')
 	<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
 	<script type="text/javascript" language="JavaScript" src="/js/question_category_mobile_menu.js">
-    </script>
+	</script>
 	<script type="text/javascript" language="JavaScript" src="/js/smart_menu.js">
-    </script>
-    <script type="text/javascript" language="JavaScript" src="/js/utils.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/js/question_explanation.js"></script>
+	</script>
+	<script type="text/javascript" language="JavaScript" src="/js/utils.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/question_explanation.js"></script>
 	<script>
 		$(document).ready(initQuestionExplanationLinks);
 	</script>

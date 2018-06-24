@@ -6,9 +6,9 @@ use DB;
 
 class Region extends Eloquent
 {
-    protected $fillable = [
-        'name', 'country_id',
-    ];
+	protected $fillable = [
+		'name', 'country_id',
+	];
 	public $timestamps = false;
 
 	protected $table = 'region';

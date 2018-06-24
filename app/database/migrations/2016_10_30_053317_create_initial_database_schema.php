@@ -6,13 +6,13 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateInitialDatabaseSchema extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
+	/**
+	* Run the migrations.
+	*
+	* @return void
+	*/
+	public function up()
+	{
 		Schema::create('location_search_option', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('content', 255);
@@ -109,7 +109,7 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->string('external_web_url', 255)->nullable();
 			$table->string('address', 255)->nullable();
 			$table->string('phone_number', 50)->nullable();
-			
+
 			// universal_rating is a cached value.
 			// It maintained to avoid doing expensive/slow queries repeatedly.
 			$table->double('universal_rating', 11, 8)->nullable();
@@ -132,12 +132,12 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('user_id')->references('id')->on('user');
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('location');
-			
+
 			// personalized_rating is a cached value.
 			// It maintained to avoid doing expensive/slow queries repeatedly.
 			$table->double('personalized_rating', 11, 8);
 			$table->datetime('when_submitted');
-			
+
 			// There is no point to have more than one association between the same user and location.
 			$table->unique(array('location_id', 'user_id'));
 		});
@@ -149,11 +149,11 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->foreign('question_id')->references('id')->on('question');
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('location');
-			
+
 			/*
-			 0 = No, the location does not meet the feature/requirement in question.
-			 1 = Yes, the location has the feature/requirement in question
-			 2 = Not required.  The location may or may not have the feature/requirement 
+				0 = No, the location does not meet the feature/requirement in question.
+				1 = Yes, the location has the feature/requirement in question
+				2 = Not required.  The location may or may not have the feature/requirement
 			in question but it doesn't matter because the location doesn't need to have
 			it to meet the underlying accessibility needs.
 			*/
@@ -184,34 +184,33 @@ class CreateInitialDatabaseSchema extends Migration
 			$table->integer('location_tag_id')->unsigned();
 			$table->foreign('location_tag_id')->references('id')->on('location_tag');
 		});
-    }
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-    	
-        Schema::dropIfExists('location_location_tag');
-        Schema::dropIfExists('location_tag');
-        Schema::dropIfExists('review_comment');
-        Schema::dropIfExists('user_answer');
-        Schema::dropIfExists('user_location');
-        Schema::dropIfExists('location_duplicate');
-        Schema::dropIfExists('location');
-        Schema::dropIfExists('location_group');
-        Schema::dropIfExists('user_question');
-        Schema::dropIfExists('question');
-        Schema::dropIfExists('question_category');
-        Schema::dropIfExists('user_role');
-        Schema::dropIfExists('user');
-        Schema::dropIfExists('role');
-        Schema::dropIfExists('region');
-        Schema::dropIfExists('country');
-        Schema::dropIfExists('data_source');
-        Schema::dropIfExists('faq_item');
+	/**
+	* Reverse the migrations.
+	*
+	* @return void
+	*/
+	public function down()
+	{
+		Schema::dropIfExists('location_location_tag');
+		Schema::dropIfExists('location_tag');
+		Schema::dropIfExists('review_comment');
+		Schema::dropIfExists('user_answer');
+		Schema::dropIfExists('user_location');
+		Schema::dropIfExists('location_duplicate');
+		Schema::dropIfExists('location');
+		Schema::dropIfExists('location_group');
+		Schema::dropIfExists('user_question');
+		Schema::dropIfExists('question');
+		Schema::dropIfExists('question_category');
+		Schema::dropIfExists('user_role');
+		Schema::dropIfExists('user');
+		Schema::dropIfExists('role');
+		Schema::dropIfExists('region');
+		Schema::dropIfExists('country');
+		Schema::dropIfExists('data_source');
+		Schema::dropIfExists('faq_item');
 		Schema::dropIfExists('location_search_option');
-    }
+	}
 }

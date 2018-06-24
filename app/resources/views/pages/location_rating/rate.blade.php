@@ -2,19 +2,19 @@
 @section('head-content')
 	<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
 	<script type="text/javascript" language="JavaScript" src="/js/smart_menu.js">
-    </script>
+	</script>
 	<script type="text/javascript" language="JavaScript" src="/js/location_rating.js">
-    </script>
+	</script>
 	<script type="text/javascript" language="JavaScript" src="/js/question_category_mobile_menu.js">
-    </script>
-    <script type="text/javascript" language="JavaScript" src="/js/utils.js"></script>
-    <script type="text/javascript" language="JavaScript" src="/js/question_explanation.js"></script>
+	</script>
+	<script type="text/javascript" language="JavaScript" src="/js/utils.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/js/question_explanation.js"></script>
 	<script type="text/javascript" language="JavaScript">
 	// values used in location_rating.js
 	var location_id = '{{ $location->id }}';
 	var question_category_id = {{ $question_category->id }};
 	var csrf_token = '{{ csrf_token() }}';
-    </script>
+	</script>
 @stop
 @section('content')
 	<div class="location-rating">

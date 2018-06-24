@@ -22,11 +22,11 @@
 						</div>
 						<div class="comment">
 
-							<div class="comment-header">						
+							<div class="comment-header">
 								{{ $comment->getAnsweredByUser()->first_name }}
 								{{ $comment->getAnsweredByUser()->last_name }}
 								said,
-								
+
 								<span class="pull-right">
 								{{ $comment->getWhenSubmitted() }}
 								</span>

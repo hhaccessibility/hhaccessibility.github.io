@@ -22,7 +22,7 @@ function getFieldsToUpdate() {
 function getAffectedTableNames() {
 	$fieldsToUpdate = getFieldsToUpdate();
 	$keys = array_keys($fieldsToUpdate);
-	
+
 	return array_unique(array_merge(getPrimaryKeysToUpdate(), $keys));
 }
 
@@ -49,8 +49,8 @@ function getAffectedFieldsForTable($tableName) {
 /*
 This migration converts various autoincrement primary ids to guids.
 
-This change will help merge information gathered from seed data 
-into our deployments.  This is how new information collected from 
+This change will help merge information gathered from seed data
+into our deployments.  This is how new information collected from
 our import tools will end up in our public deployments.
 */
 
@@ -85,7 +85,7 @@ class Test
 			$queryTable->update(['new_'.$fieldName => DB::raw("IF(".$fieldName." is null, null, concat('00000000-0000-0000-0000-', LPAD(".$fieldName.", 12, '0')))")]);
 		}
 	}
-	
+
 	public static function reverseConvertData(string $tableName)
 	{
 		$queryTable = DB::table($tableName);
@@ -99,7 +99,7 @@ class Test
 	public function addForeignKeyConstraints($tableName)
 	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames) {
+		return function (Blueprint $table) use( &$fieldNames) {
 			foreach ($fieldNames as $fieldName) {
 				if( $fieldName !== 'id' ) {
 					$otherTableName = getForeignTableFromForeignField($fieldName);
@@ -108,11 +108,11 @@ class Test
 			}
 		};
 	}
-	
+
 	public function dropOriginalFieldsAndRename($tableName)
 	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames) {
+		return function (Blueprint $table) use( &$fieldNames) {
 			foreach ($fieldNames as $fieldName) {
 				if( $fieldName === 'id' ) {
 					$table->integer($fieldName)->unsigned()->change();
@@ -132,7 +132,7 @@ class Test
 	public function dropGuidFieldsAndRename($tableName)
 	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames) {
+		return function (Blueprint $table) use( &$fieldNames) {
 			foreach ($fieldNames as $fieldName) {
 				if( $fieldName === 'id' ) {
 					$table->string($fieldName, 36)->change();
@@ -147,11 +147,11 @@ class Test
 			}
 		};
 	}
-	
+
 	public function convertIdToIntAndDropForeignConstraints($tableName)
 	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames, &$tableName) {
+		return function (Blueprint $table) use( &$fieldNames, &$tableName) {
 			foreach ($fieldNames as $fieldName) {
 				// Drop foreign key constraints on $fieldName.
 				if ( $fieldName !== 'id' && $fieldName !== '' ) {
@@ -162,13 +162,13 @@ class Test
 		};
 	}
 
-    public function convertIdToGuidAndDropForeignConstraints($tableName)
-    {
+	public function convertIdToGuidAndDropForeignConstraints($tableName)
+	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames, &$tableName) {
+		return function (Blueprint $table) use( &$fieldNames, &$tableName) {
 			foreach ($fieldNames as $fieldName) {
 				$table->uuid('new_' . $fieldName)->nullable();
-				
+
 				// Drop foreign key constraints on $fieldName.
 				if( $fieldName !== 'id' && $fieldName !== '' ) {
 					$constraintName = $tableName.'_'.$fieldName.'_foreign';
@@ -176,12 +176,12 @@ class Test
 				}
 			}
 		};
-    }
+	}
 
 	public function addNewIntFields($tableName)
 	{
 		$fieldNames = getAffectedFieldsForTable($tableName);
-        return function (Blueprint $table) use( &$fieldNames, &$tableName) {
+		return function (Blueprint $table) use( &$fieldNames, &$tableName) {
 			// Delete data that can't be converted to int format.
 			foreach ($fieldNames as $fieldName) {
 				if( $fieldName !== 'id' ) {
@@ -204,9 +204,8 @@ class Test
 		foreach ($fieldNames as $fieldName) {
 			$newFieldNames []= 'new_' . $fieldName;
 		}
-        return function (Blueprint $table) use( &$newFieldNames) {
+		return function (Blueprint $table) use( &$newFieldNames) {
 			$table->dropColumn($newFieldNames);
-			
 		};
 	}
 }
@@ -239,9 +238,9 @@ class SwitchToGuids extends Migration
 			$table->dropUnique('user_question_question_id_user_id_unique');
 		});
 	}
-	
-    public function up()
-    {
+
+	public function up()
+	{
 		foreach (getAffectedTableNames() as $tableName) {
 			$object = new Test();
 			$function = $object->convertIdToGuidAndDropForeignConstraints($tableName);
@@ -256,10 +255,10 @@ class SwitchToGuids extends Migration
 			Schema::table($tableName, $object->addForeignKeyConstraints($tableName));
 		}
 		$this->createConstraints();
-    }
+	}
 
-    public function down()
-    {
+	public function down()
+	{
 		$this->dropConstraints();
 		foreach (getAffectedTableNames() as $tableName) {
 			$object = new Test;
@@ -288,5 +287,5 @@ class SwitchToGuids extends Migration
 		}
 
 		$this->createConstraints();
-    }
+	}
 }

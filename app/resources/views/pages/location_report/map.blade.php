@@ -2,19 +2,19 @@
 @section('head-content')
 	@if (!$turn_off_maps)
 	<script>
-		  function initMap() {
+		function initMap() {
 			var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
 			var map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 15,
-			  center: locationPoint,
-			  draggable: false,
-			  streetViewControl: false
+				zoom: 15,
+				center: locationPoint,
+				draggable: false,
+				streetViewControl: false
 			});
 			var marker = new google.maps.Marker({
-			  position: locationPoint,
-			  map: map
+				position: locationPoint,
+				map: map
 			});
-			
+
 			function centreLocation() {
 				map.setCenter(locationPoint);
 			}
@@ -23,18 +23,18 @@
 			$(window).resize(function() {
 				google.maps.event.trigger(map, "resize");
 			});
-		  }
-		  
-    </script>
+		}
+
+	</script>
 	@endif
-	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
+	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
 	<script src="/js/location_report.js"></script>
 @stop
 @section('footer-content')
 	@if (!$turn_off_maps)
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
-    </script>
+	</script>
 	@endif
 @stop
 @section('content')

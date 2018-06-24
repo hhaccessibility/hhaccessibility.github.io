@@ -16,13 +16,13 @@ class LocationSearchRadiusTest extends TestCase
 		$testCase->assertTrue($pos !== false);
 	}
 
-    /**
-	 * Tests that the set search radius API used in the location search feature works.
-     *
-     * @return void
-     */
-    public function testPost()
-    {
+	/**
+	* Tests that the set search radius API used in the location search feature works.
+	*
+	* @return void
+	*/
+	public function testPost()
+	{
 		self::useDistance($this, 0.5);
 		self::useDistance($this, 1);
 

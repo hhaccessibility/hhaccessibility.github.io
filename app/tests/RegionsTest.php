@@ -2,8 +2,8 @@
 
 class RegionsTest extends TestCase
 {
-    public function testGet()
-    {
+	public function testGet()
+	{
 		$content = $this->get('/api/regions')->seeStatusCode(200)->response->getContent();
 		$value = json_decode($content);
 		$this->assertInternalType('array', $value);
@@ -13,5 +13,5 @@ class RegionsTest extends TestCase
 			$this->assertInternalType('int', $region->country_id);
 			$this->assertInternalType('string', $region->name);
 		}
-    }
+	}
 }

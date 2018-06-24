@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\Log;
 
-class Emailer 
+class Emailer
 {
 	// Used in SignUpController
 	public static function send($to, $subject, $msg, $isUsingHTML = false)
@@ -57,7 +57,7 @@ class Emailer
 		else {
 			$mail->Body = $msg;
 			$mail->IsHTML(false);
-			$mail->ContentType = 'text/plain'; 
+			$mail->ContentType = 'text/plain';
 		}
 		//Replace the plain text body with one created manually
 		$mail->AltBody = 'This is a plain-text message body';

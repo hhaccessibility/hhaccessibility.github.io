@@ -1,9 +1,9 @@
 @extends('layouts.default')
 @section('head-content')
 	<script>
-	var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };	
+	var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };
 	</script>
-	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
+	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
 	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
 @stop
@@ -11,7 +11,7 @@
 	@if (!$turn_off_maps)
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
-    </script>
+	</script>
 	@endif
 @stop
 @section('content')
@@ -55,7 +55,7 @@
 				<div class="questions">
 					<div class="question-category">
 						<h4 class="text-center">Not Rated Yet</h4>
-						
+
 						<p><a href="/location-rating/{{ $location->id }}/6">Be the first to rate this location.</a></p>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 					</div>
 					<div class="location-name-and-comments">
 						<div class="location-name">
-							<h3 class="@if (strlen($location->name) > 30) 
+							<h3 class="@if (strlen($location->name) > 30)
 								long-name
 						@endif">{{ $location->name }}</h3>
 						</div>

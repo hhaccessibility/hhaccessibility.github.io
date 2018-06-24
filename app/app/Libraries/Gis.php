@@ -17,7 +17,7 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
 	public static function getLatitudeAndLongitudeRange($lat, $lon, $searchRadiusKm)
 	{
 		$earthRadius = 6371; // km
-		// If search radius is larger than the Earth's radius, 
+		// If search radius is larger than the Earth's radius,
 		// we can't filter down at all here.
 		if ( $searchRadiusKm >= $earthRadius * 0.99 )
 		{

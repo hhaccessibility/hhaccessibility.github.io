@@ -20,7 +20,7 @@ class QuestionExplanationController extends Controller {
 			]);
 		$question_html = $view->render();
 		return response()
-            ->json(['html' => $question_html]);
+			->json(['html' => $question_html]);
 	}
 
 	public function isUsingScreenReader() {

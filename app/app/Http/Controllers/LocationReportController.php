@@ -12,7 +12,7 @@ class LocationReportController extends Controller {
 	/*
 	Shows location rating "View" on a specific question category like 'Amenities'.
 	*/
-    public function show2(string $location_id, $question_category_id)
+	public function show2(string $location_id, $question_category_id)
 	{
 		$location = Location::find($location_id);
 		$question_categories = QuestionCategory::with('questions')->orderBy('name','ASC')->get();
@@ -24,7 +24,7 @@ class LocationReportController extends Controller {
 			->groupBy('answered_by_user_id', 'question_id')
 			->get();
 		$user_ratings = [];
-		
+
 		foreach ($question_category->questions()->get() as $question) {
 			$user_ratings[''. $question->id] = 0;
 		}
@@ -58,8 +58,8 @@ class LocationReportController extends Controller {
 	/*
 	Shows location report with map
 	*/
-    public function show(string $location_id, $rating_system = null)
-    {
+	public function show(string $location_id, $rating_system = null)
+	{
 		if ($rating_system === null && BaseUser::isSignedIn()) {
 			$rating_system = 'personal';
 		}
@@ -102,7 +102,7 @@ class LocationReportController extends Controller {
 		];
 
 		return view('pages.location_report.collapsed', $view_data);
-    }
+	}
 
 	public function showMap(string $location_id, $rating_system = null)
 	{
@@ -118,7 +118,7 @@ class LocationReportController extends Controller {
 			'google_map_api_key' => config('app.google_map_api_key'),
 			'turn_off_maps' => config('app.turn_off_maps')
 		];
-		
+
 		return view('pages.location_report.map', $view_data);
 	}
 
@@ -142,8 +142,7 @@ class LocationReportController extends Controller {
 	}
 
 	// show all the comments related to the location
-
-    public function showComments(string $location_id)
+	public function showComments(string $location_id)
 	{
 		$location = Location::find($location_id);
 
@@ -156,9 +155,7 @@ class LocationReportController extends Controller {
 			'location' => $location,
 			'comments' => $comments
 		];
-		
+
 		return view('pages.location_report.comments', $view_data);
 	}
-
-
 }

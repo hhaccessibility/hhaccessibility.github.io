@@ -13,7 +13,7 @@
 	@if ( !$turn_off_maps )
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
-    </script>
+	</script>
 	@endif
 @stop
 @section('content')
@@ -43,10 +43,10 @@
 							<option value="{{ $location_tag->id }}" @if ($location_tag->is_selected) selected @endif>{{ $location_tag->name }}</option>
 						@endforeach
 					</select>
-					<label for="location_group_id">Group/Franchise</label> 
+					<label for="location_group_id">Group/Franchise</label>
 					<select id="location_group_id" name="location_group_id">
 						<option value="none">None</option>
-					@foreach ($location_groups as $location_group) 
+					@foreach ($location_groups as $location_group)
 						<option value="{{ $location_group->id }}" @if ( $location->location_group_id === $location_group->id )
 							selected
 						@endif>{{ $location_group->name }}</option>
@@ -58,6 +58,6 @@
 			</div>
 		</div>
 	</form>
-	
+
 </div>
 @stop

@@ -28,7 +28,7 @@ class SocialAuthController extends Controller {
 				$this->createNewUserWithGoogle($profile);
 			else if($providerName === "Facebook")
 				$this->createNewUserWithFacebook($profile);
-			else 
+			else
 				throw new Exception('Unrecognized provider name '.$providerName);
 			BaseUser::signIn($profile->email);
 			BaseUser::updateEmailConfirmationDate();
@@ -41,7 +41,7 @@ class SocialAuthController extends Controller {
 		} catch (Exception $e) {
 			return view('pages.signin')->withErrors('Ooops, there is a problem(' . $e->getMessage() . ')! You can try again.')->with('email','');
 		}
-		
+
 	}
 
 	private function createNewUserWithFacebook($profile) {

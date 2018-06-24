@@ -10,27 +10,27 @@ use Illuminate\Support\Facades\Redirect;
 
 class ChangePasswordController extends Controller {
 
-    /**
-     * Either shows password change form or redirects to sign in if not signed in.
-	 *
-     * @return Response
-     */
-    public function index(Request $request)
-    {
-        if (BaseUser::isSignedIn())
-        {
-            return view('pages.profile.change_password');
-        }
-        else
-        {
-            return redirect()->intended('signin');
-        }
-    }
-	
+	/**
+	* Either shows password change form or redirects to sign in if not signed in.
+	*
+	* @return Response
+	*/
+	public function index(Request $request)
+	{
+		if (BaseUser::isSignedIn())
+		{
+			return view('pages.profile.change_password');
+		}
+		else
+		{
+			return redirect()->intended('signin');
+		}
+	}
+
 	public function post(Request $request)
 	{
-        if (BaseUser::isSignedIn())
-        {
+		if (BaseUser::isSignedIn())
+		{
 			$user = BaseUser::getDbUser();
 			$validation_rules = array(
 				'current_password'     => 'required',
@@ -49,7 +49,7 @@ class ChangePasswordController extends Controller {
 			}
 			if ($failing)
 			{
-				return Redirect::to('change-password')->withErrors($validator)->withInput();			
+				return Redirect::to('change-password')->withErrors($validator)->withInput();
 			}
 			else
 			{
@@ -57,11 +57,11 @@ class ChangePasswordController extends Controller {
 				$user->save();
 				return view('pages.profile.change_password_success');
 			}
-        }
-        else
-        {
-            return redirect()->intended('signin');
-        }
+		}
+		else
+		{
+			return redirect()->intended('signin');
+		}
 	}
 
 }

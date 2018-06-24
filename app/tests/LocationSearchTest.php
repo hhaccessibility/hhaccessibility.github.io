@@ -10,7 +10,7 @@ class LocationSearchTest extends TestCase
 			$this->assertTrue(strpos($content, $requiredSubstring) !== false);
 		}
 	}
-	
+
 	public function testSortByName()
 	{
 		$content = $this->get('/location-search?location_tag_id=1&keywords=&order_by=name')->

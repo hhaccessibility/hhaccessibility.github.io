@@ -15,9 +15,9 @@ class ProfileController extends \Illuminate\Routing\Controller {
 	public function getRegions()
 	{
 		$regions = DB::table('region')->get();
-		return $regions;	
+		return $regions;
 	}
-	
+
 	public static function getProfileView($validator = null)
 	{
 		$user = BaseUser::getDbUser();
@@ -58,8 +58,8 @@ class ProfileController extends \Illuminate\Routing\Controller {
 
 	public function save(Request $request)
 	{
-        if (!BaseUser::isSignedIn())
-            return redirect()->intended('signin');
+		if (!BaseUser::isSignedIn())
+			return redirect()->intended('signin');
 
 		$validation_rules = array(
 			'first_name'           => 'required|max:255',
@@ -71,10 +71,10 @@ class ProfileController extends \Illuminate\Routing\Controller {
 			'search_radius_km'     => 'numeric|min:0.01|max:20040'
 		);
 		$validator = Validator::make(Input::all(), $validation_rules);
-		
+
 		if ($validator->fails())
 			return ProfileController::getProfileView($validator);
-		
+
 		$user = BaseUser::getDbUser();
 		if ( $request->home_country_id === '' )
 		{
@@ -82,7 +82,7 @@ class ProfileController extends \Illuminate\Routing\Controller {
 		}
 		else
 			$user->home_country_id = intval($request->home_country_id);
-		
+
 		$user->home_region = $request->home_region;
 		$user->home_city = $request->home_city;
 		$user->first_name = $request->first_name;
@@ -97,13 +97,13 @@ class ProfileController extends \Illuminate\Routing\Controller {
 		$user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
 
 		$current_user_questions = $user->requiredQuestions()->get();
-		
+
 		// questions/accessibility needs that aren't required yet by $user.
 		$questions_to_add = [];
-		
+
 		// Existing questions/accessibility needs that are required so no update needed on.
 		$questions_matched = [];
-		
+
 		// Save the user_question data.
 		foreach (Input::all() as $name => $value)
 		{
@@ -136,7 +136,7 @@ class ProfileController extends \Illuminate\Routing\Controller {
 		if ( $questions_updated )
 		{
 			/*
-			If the accessibility needs changed, 
+			If the accessibility needs changed,
 			the personalized ratings need to be recalculated.
 			*/
 			$user->personalizedRatings()->detach();
@@ -147,21 +147,21 @@ class ProfileController extends \Illuminate\Routing\Controller {
 		return ProfileController::getProfileView();
 	}
 
-    /**
-     * Either shows profile view or redirects browser to sign in.
-	 *
-     * @return Response
-     */
-    public function index(Request $request)
-    {
-        if (BaseUser::isSignedIn())
-        {
+	/**
+	* Either shows profile view or redirects browser to sign in.
+	*
+	* @return Response
+	*/
+	public function index(Request $request)
+	{
+		if (BaseUser::isSignedIn())
+		{
 			return ProfileController::getProfileView();
-        }
-        else
-        {
-            return redirect()->intended('signin');
-        }
-    }
+		}
+		else
+		{
+			return redirect()->intended('signin');
+		}
+	}
 
 }

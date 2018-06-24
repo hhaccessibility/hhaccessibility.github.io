@@ -253,7 +253,7 @@ class LocationSearchController extends Controller {
 		if ( Input::has('address') )
 			BaseUser::setAddress(Input::get('address'));
 
-		if (BaseUser::isSignedIn()) 
+		if (BaseUser::isSignedIn())
 			$ratingSystem = 'personal';
 		else
 			$ratingSystem = 'universal';
@@ -333,8 +333,8 @@ class LocationSearchController extends Controller {
 			]);
 	}
 	/**
-	 * set search radius
-	 */
+	* set search radius
+	*/
 	public function setSearchRadius(Request $request) {
 		if (!Input::has('distance')) {
 			return Response::json([

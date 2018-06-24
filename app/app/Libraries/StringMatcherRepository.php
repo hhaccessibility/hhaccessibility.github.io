@@ -1,8 +1,8 @@
 <?php namespace App\Libraries;
 
-/* 
-	StringMatcherRepository is very similar to 
-	importers/utils/import_helpers/string_matcher_repo.py 
+/*
+	StringMatcherRepository is very similar to
+	importers/utils/import_helpers/string_matcher_repo.py
 	but written in PHP
 */
 
@@ -34,7 +34,7 @@ class StringMatcherRepository
 			{
 				$items[$item['id']] = $item;
 			}
-			
+
 			$this->items_config = $items;
 		}
 	}

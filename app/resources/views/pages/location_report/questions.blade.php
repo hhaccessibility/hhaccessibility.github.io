@@ -36,7 +36,7 @@
 						{{ $comment->getAnsweredByUser()->first_name }}
 						{{ $comment->getAnsweredByUser()->last_name }}
 						said,
-						
+
 						<span class="pull-right">
 						{{ $comment->getWhenSubmitted() }}
 						</span>

@@ -2,16 +2,16 @@
 
 class SigninApiTest extends TestCase
 {
-    /**
-     * Tests a successful authentication
-	 * 
-     * @return void
-     */
-    public function testPost()
-    {
+	/**
+	* Tests a successful authentication
+	*
+	* @return void
+	*/
+	public function testPost()
+	{
 		$data = ['email' => 'test', 'password' => 'password'];
 		$this->post('/signin', $data)->seeStatusCode(302);
-    }
+	}
 
 	private function checkProfileAfterSignin()
 	{
@@ -95,7 +95,7 @@ class SigninApiTest extends TestCase
 		$this->checkLocationGroups();
 		$this->checkUsers();
 	}
-	
+
 	private function saveProfileInformation($overrides)
 	{
 		$data = [
@@ -117,12 +117,12 @@ class SigninApiTest extends TestCase
 		$content = $this->post('/profile', $data)->seeStatusCode(200)->response->getContent();
 		return $content;
 	}
-	
+
 	private function isUsingScreenReader()
 	{
 		return json_decode($this->get('/api/is-using-screen-reader')->seeStatusCode(200)->response->getContent());
 	}
-	
+
 	private function checkScreenReader()
 	{
 		$content = $this->saveProfileInformation(['uses_screen_reader' => false]);

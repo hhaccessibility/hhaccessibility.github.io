@@ -117,7 +117,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller {
 		$view_data['locations'] = json_encode($this->getLocationsNear($view_data['location']->longitude, $view_data['location']->latitude));
 		return view('pages.location_management.add_new_location', $view_data);
 	}
-	
+
 	private static function isDuplicateLocation($location)
 	{
 		$maxRadius = 50; // 50 meters
@@ -204,7 +204,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller {
 			foreach ($view_data['location_tags'] as $location_tag) {
 				if ($location_tag->is_selected) {
 					DB::table('location_location_tag')->insert(
-						['location_id' => $location->id, 
+						['location_id' => $location->id,
 						'location_tag_id' => $location_tag->id,
 						'id' => Uuid::generate(4)->string]
 					);
@@ -287,8 +287,8 @@ class LocationManagementController extends \Illuminate\Routing\Controller {
 		return Redirect('/locations-added-by-me');
 	}
 
-    public function show(string $location_id)
-    {
+	public function show(string $location_id)
+	{
 		if ( !BaseUser::isInternal() ) {
 			throw new AuthenticationException('Must be internal user');
 		}
@@ -304,6 +304,6 @@ class LocationManagementController extends \Illuminate\Routing\Controller {
 			'data_sources' => DB::table('data_source')->orderBy('name')->get()
 		];
 		return view('pages.location_management.modify', $view_data);
-    }
+	}
 
 }

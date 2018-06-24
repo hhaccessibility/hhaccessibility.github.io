@@ -6,8 +6,8 @@ use App\Libraries\StringMatcher;
 
 class StringMatcherTest extends TestCase
 {
-    public function testSingleSpace()
-    {
+	public function testSingleSpace()
+	{
 		$tests = [
 			['in' => 'Hello World', 'out' => 'Hello World'],
 			['in' => 'Hello  World', 'out' => 'Hello World'],
@@ -22,5 +22,5 @@ class StringMatcherTest extends TestCase
 		{
 			$this->assertEquals(StringMatcher::singleSpace($singleSpaceTest['in']), $singleSpaceTest['out']);
 		}
-    }
+	}
 }

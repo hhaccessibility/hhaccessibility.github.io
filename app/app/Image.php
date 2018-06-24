@@ -6,9 +6,9 @@ use Webpatser\Uuid\Uuid;
 
 class Image extends Eloquent
 {
-    protected $fillable = [
-        'id', 'location_id', 'raw_data',
-    ];
+	protected $fillable = [
+		'id', 'location_id', 'raw_data',
+	];
 	public $incrementing = false;
 
 	protected $table = 'image';

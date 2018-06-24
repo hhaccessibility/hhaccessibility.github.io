@@ -2,7 +2,7 @@
 @section('content')
 <div class="internal-dashboard">
 	<h1>Internal Dashboard</h1>
-	
+
 	<div class="row">
 		<div class="col-sm-6 col-xs-12">
 			<div class="box">

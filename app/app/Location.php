@@ -7,21 +7,21 @@ use Webpatser\Uuid\Uuid;
 
 class Location extends Eloquent
 {
-    protected $fillable = [
-        'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
+	protected $fillable = [
+		'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
 		'data_source_id', 'universal_rating', 'creator_user_id', 'ratings_cache'
-    ];
+	];
 	public $timestamps = false;
 
 	protected $casts = [
-        'ratings_cache' => 'array'
-    ];
+		'ratings_cache' => 'array'
+	];
 	protected $table = 'location';
 	/**
-	 * Indicates if the IDs are auto-incrementing.
-	 *
-	 * @var bool
-	 */
+	* Indicates if the IDs are auto-incrementing.
+	*
+	* @var bool
+	*/
 	public $incrementing = false;
 
 	public function __construct() {
@@ -41,27 +41,27 @@ class Location extends Eloquent
 		return $result;
 	}
 
-    /**
-     * The tags that belong to this location.
-     */
-    public function tags()
-    {
-        return $this->belongsToMany('App\LocationTag');
-    }
+	/**
+	* The tags that belong to this location.
+	*/
+	public function tags()
+	{
+		return $this->belongsToMany('App\LocationTag');
+	}
 
-    public function personalizedRatings()
-    {
-        return $this->hasMany('App\UserLocation');
-    }
+	public function personalizedRatings()
+	{
+		return $this->hasMany('App\UserLocation');
+	}
 
-    public function comments()
-    {
-        return $this->hasMany('App\ReviewComment');
-    }
+	public function comments()
+	{
+		return $this->hasMany('App\ReviewComment');
+	}
 
 	public function locationGroup()
 	{
-        return $this->belongsTo('App\LocationGroup');
+		return $this->belongsTo('App\LocationGroup');
 	}
 
 	public function getName()

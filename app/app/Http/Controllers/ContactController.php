@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class ContactController extends Controller {
 
-    public function index(Request $request)
-    {
+	public function index(Request $request)
+	{
 		return view('pages.contact.form');
-    }
+	}
 
 	public function sendMessage(Request $request)
 	{
@@ -26,7 +26,7 @@ class ContactController extends Controller {
 		$validator = Validator::make(Input::all(), $validation_rules);
 		if ($validator->fails())
 		{
-			return Redirect::to('contact')->withErrors($validator)->withInput();			
+			return Redirect::to('contact')->withErrors($validator)->withInput();
 		}
 		$email = $request->input('email');
 		$message = $request->input('comment');

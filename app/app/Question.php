@@ -7,13 +7,13 @@ use App\Location;
 
 class Question extends Eloquent
 {
-    protected $fillable = [
-        'question_html',
-    ];
+	protected $fillable = [
+		'question_html',
+	];
 
 	public $timestamps = false;
 	protected $table = 'question';
-	
+
 	private static function setQuestionRatingInCache(int $question_id, $location, $new_value)
 	{
 		if ( is_string($location)) {
@@ -28,7 +28,7 @@ class Question extends Eloquent
 		$location->ratings_cache = $ratings_cache;
 		$location->save();
 	}
-	
+
 	public function getAccessibilityRating($location_id, $ratingSystem)
 	{
 		// See if the value is in the location's ratings_cache.
@@ -36,7 +36,7 @@ class Question extends Eloquent
 		if ( $location->ratings_cache && isset($location->ratings_cache[''.$this->id]) ) {
 			return $location->ratings_cache[$this->id];
 		}
-		
+
 		$answers = $this->answers()
 			->join('user_answer as a2', 'a2.answered_by_user_id', '=', 'user_answer.answered_by_user_id')
 			->where('a2.location_id', '=', $location_id)
@@ -50,7 +50,7 @@ class Question extends Eloquent
 		foreach ($answers as $answer)
 		{
 			$individualRating = intval($answer->answer_value);
-			
+
 			// count N/A the same as yes(1).
 			if ($individualRating === 2)
 				$individualRating = 1;
@@ -72,6 +72,6 @@ class Question extends Eloquent
 
 	public function answers()
 	{
-        return $this->hasMany('App\UserAnswer');		
+		return $this->hasMany('App\UserAnswer');
 	}
 }

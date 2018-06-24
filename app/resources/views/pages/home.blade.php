@@ -7,7 +7,7 @@
 	<script type="text/javascript">
 		var default_location = {
 			'latitude': {{ $default_location['latitude'] }},
-			'longitude': {{ $default_location['longitude'] }} 
+			'longitude': {{ $default_location['longitude'] }}
 		};
 	</script>
 	<script type="text/javascript" async defer

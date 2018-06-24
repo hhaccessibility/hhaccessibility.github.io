@@ -1,10 +1,10 @@
 <?php
 
 /**
- * HybridAuth
- * http://hybridauth.sourceforge.net | http://github.com/hybridauth/hybridauth
- * (c) 2009-2015, HybridAuth authors | http://hybridauth.sourceforge.net/licenses.html
- */
+* HybridAuth
+* http://hybridauth.sourceforge.net | http://github.com/hybridauth/hybridauth
+* (c) 2009-2015, HybridAuth authors | http://hybridauth.sourceforge.net/licenses.html
+*/
 // ----------------------------------------------------------------------------------------
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ array(
 			),
 		"Facebook" => array(
 			"enabled" => true,
-				"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_facebook_api_id'), 
+				"keys" => array("id" => env('FACEBOOK_APP_ID', 'your_facebook_api_id'),
 				"secret" => env('FACEBOOK_APP_SECRET', 'your_facebook_api_id')),
 				"scope" =>["email","public_profile"],
 			"trustForwarded" => false

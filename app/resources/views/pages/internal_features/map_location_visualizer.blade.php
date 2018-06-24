@@ -9,7 +9,7 @@
 @section('footer-content')
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&callback=initMap">
-    </script>
+	</script>
 @stop
 
 @section('content')

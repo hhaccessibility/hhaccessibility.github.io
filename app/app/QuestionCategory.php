@@ -5,9 +5,9 @@ use Eloquent;
 
 class QuestionCategory extends Eloquent
 {
-    protected $fillable = [
-        'id', 'name',
-    ];
+	protected $fillable = [
+		'id', 'name',
+	];
 
 	protected $table = 'question_category';
 	public $timestamps = false;
@@ -29,10 +29,10 @@ class QuestionCategory extends Eloquent
 		return round($sum / $totalCount);
 	}
 
-    public function questions()
-    {
-        return $this->hasMany('App\Question');
-    }
+	public function questions()
+	{
+		return $this->hasMany('App\Question');
+	}
 
 	public function getSortedQuestions()
 	{

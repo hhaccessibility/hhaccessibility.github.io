@@ -283,14 +283,13 @@ class AnswerRepository
 		}
 		AnswerRepository::destroyUncommittedChanges();
 	}
-	
+
 	public static function updateRatingsCache($location_id, $questions)
 	{
 		foreach ($questions as $question)
 		{
 			$question->getAccessibilityRating($location_id, 'universal');
 		}
-		
 	}
 
 	public static function clearUnratedLocations()

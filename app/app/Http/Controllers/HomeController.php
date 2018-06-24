@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller {
 
-    /**
-     * Either shows profile view or redirects browser to sign in.
-	 *
-     * @return Response
-     */
-    public function index(Request $request)
-    {
+	/**
+	* Either shows profile view or redirects browser to sign in.
+	*
+	* @return Response
+	*/
+	public function index(Request $request)
+	{
 		$address_value = BaseUser::getAddress();
 		if (trim($address_value) === trim(BaseUser::getDefaultAddress()))
 		{
@@ -31,7 +31,7 @@ class HomeController extends Controller {
 		{
 			$keywords = BaseUser::getKeywords();
 		}
-        return view('pages.home', [
+		return view('pages.home', [
 			'keywords' => $keywords,
 			'location_tags' => LocationTag::orderBy('name')->get(),
 			'is_authenticated' => BaseUser::isSignedIn(),
@@ -42,11 +42,11 @@ class HomeController extends Controller {
 			'turn_off_maps'      => config('app.turn_off_maps'),
 			'location_search_options' => $location_search_options
 			]);
-    }
+	}
 
-    /*Save the map data that was sent from the home page ajax call*/
-    public function saveUserLocation(Request $request)
-    {
+	/*Save the map data that was sent from the home page ajax call*/
+	public function saveUserLocation(Request $request)
+	{
 		$latitude = floatval(Input::get('latitude'));
 		$longitude = floatval(Input::get('longitude'));
 		$address = Input::get('address');
@@ -56,5 +56,5 @@ class HomeController extends Controller {
 		BaseUser::setLatitude($latitude);
 
 		return response()->json(['success' => true]);
-    }
+	}
 }

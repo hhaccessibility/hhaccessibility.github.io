@@ -8,14 +8,14 @@ class LocationRatingsCacheTest extends TestCase
 		$response_data = json_decode($content);
 		return $response_data;
 	}
-	
-    /**
-     * Tests a rating cache calculation
-	 * 
-     * @return void
-     */
-    public function testPost()
-    {
+
+	/**
+	* Tests a rating cache calculation
+	*
+	* @return void
+	*/
+	public function testPost()
+	{
 		$response_data = $this->processCache();
 		$this->assertTrue(is_object($response_data));
 		$this->assertTrue(isset($response_data->number_rated));
@@ -31,5 +31,5 @@ class LocationRatingsCacheTest extends TestCase
 		{
 			$this->assertTrue($number_remaining > $response_data->number_unrated);
 		}
-    }
+	}
 }

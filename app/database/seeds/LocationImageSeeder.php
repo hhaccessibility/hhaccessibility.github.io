@@ -32,7 +32,7 @@ class LocationImageSeeder extends Seeder
 		}
 		return $images;
 	}
-	
+
 	public function run()
 	{
 		DB::table('image')->delete();

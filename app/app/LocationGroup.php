@@ -5,10 +5,10 @@ use Eloquent;
 
 class LocationGroup extends Eloquent
 {
-    protected $fillable = [
-        'name',
-    ];
+	protected $fillable = [
+		'name',
+	];
 	public $timestamps = false;
-	
-	protected $table = 'location_group';	
+
+	protected $table = 'location_group';
 }

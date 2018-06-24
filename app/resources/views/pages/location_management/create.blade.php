@@ -11,6 +11,6 @@
 						'location_tags' => $location_tags
 					))
 	</form>
-	
+
 </div>
 @stop

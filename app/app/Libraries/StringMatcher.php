@@ -1,10 +1,8 @@
-<?php 
+<?php namespace App\Libraries;
 
-namespace App\Libraries;
-
-/* 
-	StringMatcher is very similar to 
-	importers/utils/import_helpers/string_matcher.py 
+/*
+	StringMatcher is very similar to
+	importers/utils/import_helpers/string_matcher.py
 	but written in PHP
 */
 
@@ -67,7 +65,7 @@ class StringMatcher
 
 		return '/'.$regex1.'/';
 	}
-		
+
 	private static function sanitizeAllRegex($regexArray1)
 	{
 		return array_map('self::sanitizeRegex', $regexArray1);
@@ -84,7 +82,7 @@ class StringMatcher
 		}
 		return $result;
 	}
-	
+
 	public function appliesToName($location_name)
 	{
 		$location_name = StringMatcher::singleSpace(strtolower(trim($location_name)));

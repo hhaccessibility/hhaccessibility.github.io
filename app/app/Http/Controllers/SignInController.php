@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 class SignInController extends \Illuminate\Routing\Controller {
-	
+
 	public function showForm(Request $request)
 	{
 		$message = '';
@@ -22,24 +22,24 @@ class SignInController extends \Illuminate\Routing\Controller {
 			$message = trim(Input::get('message'));
 		}
 		$after_signin_redirect = Input::get('after_signin_redirect');
-		
+
 		return view('pages.signin', ['email' => $email,
 		'confirmmessage' => '', 'message' => $message, 'after_signin_redirect' => $after_signin_redirect]);
 	}
 
-    /**
-     * Handle an authentication attempt.
-     *
-     * @return Response
-     */
-    public function authenticate(Request $request)
-    {
+	/**
+	* Handle an authentication attempt.
+	*
+	* @return Response
+	*/
+	public function authenticate(Request $request)
+	{
 		$validation_rules = array(
 			'email'            => 'required|email',
 			'password'         => 'required',
 		);
 		$validator = Validator::make(Input::all(), $validation_rules);
-		
+
 		if (!$validator->fails())
 		{
 			$email = $request->input('email');
@@ -58,9 +58,9 @@ class SignInController extends \Illuminate\Routing\Controller {
 				$validator->errors()->add('password', 'Invalid email and password combination');
 			}
 		}
-		
-		return Redirect::to('signin')->withErrors($validator)->withInput();	
-    }
+
+		return Redirect::to('signin')->withErrors($validator)->withInput();
+	}
 
 	public function signout(Request $request)
 	{

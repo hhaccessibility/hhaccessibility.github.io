@@ -41,15 +41,15 @@ class DuplicateLocationFinderController extends Controller
 
 		\App\Libraries\Gis::updateDistancesFromPoint($location->longitude, $location->latitude, $search_results);
 		$search_results = \App\Libraries\Gis::filterTooDistant($search_results, $radiusMeters / 1000);
-		
+
 		usort($search_results, 'App\Http\Controllers\compareByDistance');
-		
+
 		$viewData = [
 			'radius_meters' => $radiusMeters,
 			'location' => $location,
 			'search_results' => $search_results
 		];
-		
+
 		return view('pages.internal_features.duplicate_finder', $viewData);
 	}
 }

@@ -18,7 +18,7 @@ class PasswordRecoveryController extends Controller {
 	public function sendEmail(Request $request)
 	{
 		$validation_rules = array(
-			'email'                 => 'required|email',  
+			'email'                 => 'required|email',
 			'g-recaptcha-response'  => 'required|captcha'
 		);
 		$validator = Validator::make(Input::all(), $validation_rules);

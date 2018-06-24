@@ -1,6 +1,6 @@
 <?php namespace App\Libraries;
 
-class Utils 
+class Utils
 {
 	// Used by
 	// LocationSearchController and InternalFeaturesController.

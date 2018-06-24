@@ -11,13 +11,13 @@ use Illuminate\Http\Request;
 
 class SignUpController extends Controller {
 
-    public function showForm(Request $request)
-    {
+	public function showForm(Request $request)
+	{
 		return view('pages.signup.form');
-    }
+	}
 
-    public function createUser(Request $request)
-    {
+	public function createUser(Request $request)
+	{
 		$validation_rules = array(
 			'first_name'            => 'required|max:255',
 			'last_name'             => 'required|max:255',
@@ -55,7 +55,8 @@ class SignUpController extends Controller {
 				]);
 		}
 		return view('pages.signup.form');
-    }
+	}
+
 	public function confirmEmail($user_email, $email_verification_token) {
 		$email = $user_email;
 		$confirmCode = $email_verification_token;

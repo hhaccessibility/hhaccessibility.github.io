@@ -151,19 +151,19 @@ class LocationRatingController extends Controller {
 			'question_categories' => $question_categories,
 			'answer_repository' => new AnswerRepository($location_id, $question_category_id),
 			'next_question_category_id' => $next_question_category_id
-	   ]);
-   }
+		]);
+	}
 
-   public function reviewedLocations()
-   {
+	public function reviewedLocations()
+	{
 		if ( !BaseUser::isSignedIn() ) {
 			return redirect()->intended('/signin');
 		}
-	   $location_reviews = AnswerRepository::getReviewedLocations();
-	   $locations = Location::whereIn('id', $location_reviews['location_ids'])->orderBy('name')->orderBy('address')->get();
-	   return view('pages.location_rating.reviewed_locations', [
+		$location_reviews = AnswerRepository::getReviewedLocations();
+		$locations = Location::whereIn('id', $location_reviews['location_ids'])->orderBy('name')->orderBy('address')->get();
+		return view('pages.location_rating.reviewed_locations', [
 			'locations' => $locations,
 			'locations_unsubmitted' => $location_reviews['unsubmitted_ids']
-		   ]);
-   }
+			]);
+	}
 }

@@ -2,11 +2,11 @@
 @section('content')
 <div class="change-password">
 	<h1>Change Password</h1>
-	
+
 	<div class="password-change-form">
 		<form method="post" action="/change-password">
 			{!! csrf_field() !!}
-			@include('pages.validation_messages', array('errors'=>$errors))					
+			@include('pages.validation_messages', array('errors'=>$errors))
 			<div class="row">
 				<div class="col-xs-12">
 					<input class="clean" type="password" name="current_password"
