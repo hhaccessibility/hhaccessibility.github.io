@@ -45,15 +45,15 @@
 							</tr>
 						</table>
 					</a>
-						<a href="/signin">
-							<table>
-								<tr>
-									<td class="text-center sign-in-sign-up">
-										Sign up 
-									</td>
-								</tr>
-							</table>
-						</a>					
+					<a href="/signup">
+						<table>
+							<tr>
+								<td class="text-center sign-in-sign-up">
+									Sign up 
+								</td>
+							</tr>
+						</table>
+					</a>					
 				</div>
 				@endif
 				<div>
