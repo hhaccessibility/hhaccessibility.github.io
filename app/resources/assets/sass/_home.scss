@@ -90,14 +90,16 @@ html > body #main > .home-page {
 	}
 	
 	.signin-signup {
-		a {
+		display: flex;
+		justify-content: space-between;
+		a {			
 			@extend %dark-link;
 			border: 1px solid rgba($base_colour1, 0.1);
 			display: inline-block;
 			padding: 16px 20px;
 			background-color: rgba($base_colour1, 0.75);
 			height: 85px;
-			width: 49.5%;
+			width: 49%;
 
 			table {
 				width: 100%;
