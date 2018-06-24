@@ -40,11 +40,20 @@
 									<i class="fa fa-user"></i>
 								</td>
 								<td class="text-center sign-in-sign-up">
-									Sign in / Sign up
+									Sign in 
 								</td>
 							</tr>
 						</table>
 					</a>
+						<a href="/signin">
+							<table>
+								<tr>
+									<td class="text-center sign-in-sign-up">
+										Sign up 
+									</td>
+								</tr>
+							</table>
+						</a>					
 				</div>
 				@endif
 				<div>
