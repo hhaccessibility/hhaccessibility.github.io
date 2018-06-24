@@ -29,6 +29,7 @@ html > body #main > .home-page {
 		}
 	}
 	
+
 	.intro {
 		width: 410px;
 		padding-left: 78px;
@@ -59,7 +60,8 @@ html > body #main > .home-page {
 		padding-top: 30px;
 		margin-left: auto;
 		margin-right: auto;
-
+		
+		
 		.sign-in-sign-up {
 			font-weight: bold;
 		}
@@ -88,16 +90,14 @@ html > body #main > .home-page {
 	}
 	
 	.signin-signup {
-		
 		a {
 			@extend %dark-link;
-		
 			border: 1px solid rgba($base_colour1, 0.1);
 			display: inline-block;
 			padding: 16px 20px;
 			background-color: rgba($base_colour1, 0.75);
-			width: 272.5px;
 			height: 85px;
+			width: 49.5%;
 
 			table {
 				width: 100%;
