@@ -14,7 +14,7 @@ function fillArc(g, cx, cy, radius, colour, angle)
 	g.fillStyle = colour;
 	g.beginPath();
 	g.moveTo(cx, cy);
-	
+
 	g.arc(cx, cy, radius, initAngle, initAngle + angle);
 	g.fill();
 	g.closePath();
@@ -88,12 +88,12 @@ function drawNormalGraph(g, w, h, percent)
 function initGraph(divElement, componentData)
 {
 	if( typeof componentData === 'string' ) {
-		componentData = JSON.parse('{' + componentData + '}');	
+		componentData = JSON.parse('{' + componentData + '}');
 	}
 	else {
 		throw new Error('componentData must be a string.');
 	}
-	
+
 	var c = divElement.querySelectorAll('canvas')[0];
 	var g = c.getContext('2d');
 	var size = 40;
@@ -120,5 +120,5 @@ function processPieGraphs()
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    processPieGraphs();
+	processPieGraphs();
 });

@@ -2,7 +2,7 @@
 /*
 When the header menu and icon are scrolled off the top of the viewport,
 give the body element a fixed-menu class so the left menu gets fixed
-to the top of the viewport. 
+to the top of the viewport.
 */
 window.addEventListener('scroll', function(event)
 {

@@ -5,15 +5,15 @@ var submitted = false;
 
 function isProfileChanged()
 {
-   return $("#profileForm").serialize() !== defaultFormValue;
+	return $("#profileForm").serialize() !== defaultFormValue;
 }
 
 $(document).ready(function() {
-  	$("#profileForm").change(formChange).submit(function() {
+	$("#profileForm").change(formChange).submit(function() {
 		submitted = true;
 	});
-  	defaultFormValue = $("#profileForm").serialize();
-	
+	defaultFormValue = $("#profileForm").serialize();
+
 	function formChange() {
 		$("#submitButton").prop("disabled", !isProfileChanged());
 	}

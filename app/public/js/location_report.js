@@ -1,17 +1,17 @@
 /*
-location_report.js is used in the report on a single location, 
+location_report.js is used in the report on a single location,
 pages/location_report/collapsed.blade.php.
 */
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
-	  zoom: 15,
-	  center: locationPoint,
-	  draggable: false,
-	  streetViewControl: false
+		zoom: 15,
+		center: locationPoint,
+		draggable: false,
+		streetViewControl: false
 	});
 	var marker = new google.maps.Marker({
-	  position: locationPoint,
-	  map: map
+		position: locationPoint,
+		map: map
 	});
 
 	function centreLocation() {
@@ -48,7 +48,7 @@ function updateShowLocationTagIcons() {
 			location_tag_width_when_expanded += $(e).outerWidth() + gap;
 		});
 		// If the width is actually really small, we still want to treat it like it is at least 100 pixels
-		// because it looks inconsistent to have the icons used on some location 
+		// because it looks inconsistent to have the icons used on some location
 		// reports(with only 1 tag) but not others(with many like Devonshire Mall).
 		location_tag_width_when_expanded = Math.max(200, location_tag_width_when_expanded);
 	}
@@ -62,20 +62,20 @@ function updateShowLocationTagIcons() {
 }
 
 function updateHeightOfMap() {
-  var $map = $('#map');
-  var $copyright = $('#copyright');
-  var extra_height = $map.offset().top + $copyright.height();
-  var height = window.innerHeight - extra_height;
-  var viewport_width = $(window).width();
-  if (height < 250)
-	height = 250;
+	var $map = $('#map');
+	var $copyright = $('#copyright');
+	var extra_height = $map.offset().top + $copyright.height();
+	var height = window.innerHeight - extra_height;
+	var viewport_width = $(window).width();
+	if (height < 250)
+		height = 250;
 
-  if ( viewport_width > 990 ) {
-	  $map.css('height', 'calc(100vh - ' + extra_height + 'px)');
-  }
-  else {
-	  $map.css('height', '');
-  }
+	if ( viewport_width > 990 ) {
+		$map.css('height', 'calc(100vh - ' + extra_height + 'px)');
+	}
+	else {
+		$map.css('height', '');
+	}
 }
 
 function hideRatingsPopup() {
@@ -103,4 +103,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	updateShowLocationTagIcons();
 	setupToggleRatingsPopup();
 });
-

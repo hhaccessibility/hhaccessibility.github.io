@@ -36,20 +36,20 @@ function DelayedNonEmptyTimer(time_limit, getValue, updateCallback) {
 
 //To calculate the radian value of a point
 function degreesToRadians(degrees) {
-  return degrees * Math.PI / 180;
+	return degrees * Math.PI / 180;
 }
 
 // To calculate the distance between two points on a map
 function calculateDistance(pt1, pt2) {
-  var R = 6378137; // Earth's mean radius in meter
-  var dLat = degreesToRadians(pt2.lat() - pt1.lat());
-  var dLong = degreesToRadians(pt2.lng() - pt1.lng());
-  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(degreesToRadians(pt1.lat())) * Math.cos(degreesToRadians(pt2.lat())) *
-    Math.sin(dLong / 2) * Math.sin(dLong / 2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  var d = R * c;
-  return d; // returns the distance in meter
+	var R = 6378137; // Earth's mean radius in meter
+	var dLat = degreesToRadians(pt2.lat() - pt1.lat());
+	var dLong = degreesToRadians(pt2.lng() - pt1.lng());
+	var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+	Math.cos(degreesToRadians(pt1.lat())) * Math.cos(degreesToRadians(pt2.lat())) *
+	Math.sin(dLong / 2) * Math.sin(dLong / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = R * c;
+	return d; // returns the distance in meter
 }
 
 /*
@@ -119,7 +119,7 @@ function getCurrentGeolocationUsingGoogleMapsKey() {
 			function(success) {
 				var latlon = new google.maps.LatLng(success.location.lat, success.location.lng);
 				return latlon;
-		  });
+			});
 	}
 
 }
@@ -132,13 +132,13 @@ This will also indirectly retrieve the value from the GPS sensor.
 function getCurrentGeolocationUsingNavigator() {
 	var deferred = $.Deferred();
 	if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+		navigator.geolocation.getCurrentPosition(function(position) {
 			latlon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			deferred.resolve(latlon);
 		}, function(error) {
 			deferred.reject(error);
 		});
-    }
+	}
 	else {
 		deferred.reject('No geolocation in navigator.');
 	}

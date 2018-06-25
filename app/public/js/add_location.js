@@ -6,11 +6,11 @@ function initMap() {
 	var initPoint = {lat: parseFloat($('#latitude').val()), lng: parseFloat($('#longitude').val()) };
 	var mapDiv = document.getElementById('map');
 	var options = {
-	  zoom: 17,
-	  center: initPoint,
-	  draggable: false,
-	  streetViewControl: false,
-	  clickableIcons: false
+		zoom: 17,
+		center: initPoint,
+		draggable: false,
+		streetViewControl: false,
+		clickableIcons: false
 	};
 	//creating the map
 	map = new google.maps.Map(mapDiv, options);
@@ -47,7 +47,7 @@ function sanitizeExternalWebURL() {
 	var val = $element.val();
 	if ( val !== '' ) {
 		var index = val.indexOf(':/');
-		// Fix missing extra slash in protocol.  
+		// Fix missing extra slash in protocol.
 		// For example, 'http:/www.google.com' instead of 'http://www.google.com'.
 		if ( index < 8 && val.indexOf('://') !== index ) {
 			val = val.substring(0, index) + '://' + val.substring(index + 2);
@@ -87,16 +87,16 @@ function updateNearbyLocationMarkers() {
 		// filter to locations that don't yet have corresponding shapes.
 	}).forEach(function(location) {
 		var default_options = {
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.7,
-            strokeWeight: 1,
-            fillColor: '#FF0000',
-            fillOpacity: 0.25,
-            map: map,
-            center: {lat: location.latitude, lng: location.longitude},
-            radius: 5,
+			strokeColor: '#FF0000',
+			strokeOpacity: 0.7,
+			strokeWeight: 1,
+			fillColor: '#FF0000',
+			fillOpacity: 0.25,
+			map: map,
+			center: {lat: location.latitude, lng: location.longitude},
+			radius: 5,
 			title: location.name
-          };
+		};
 		location.shape = new google.maps.Circle(default_options);
 
 		// Show location name while hovering.

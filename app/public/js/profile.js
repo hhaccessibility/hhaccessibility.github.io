@@ -6,7 +6,7 @@ var regions = [];
 
 function updateButtonCaption($category_element)
 {
-	// Sanitize $category_element if it is a 
+	// Sanitize $category_element if it is a
 	// descendent element of the category.
 	if ( !$category_element.hasClass('category') )
 	{
@@ -79,16 +79,16 @@ function upload(event)
 	} else if (!validatePhoto(file)) {
 		document.getElementById("profile_error").innerText = "Photo should be jpeg or png format.";
 	} else {
-        // indicate that the uploading is starting.
-        $element = $('.photo-display .progress-element').addClass('uploading');
-        $("#photo-upload").submit();
+		// indicate that the uploading is starting.
+		$element = $('.photo-display .progress-element').addClass('uploading');
+		$("#photo-upload").submit();
 	}
 }
 
 // Opens a dialog for the user to select an image
 function selectImageFile()
 {
-    $(".hidden-uploader").click();
+	$(".hidden-uploader").click();
 }
 
 function randomizePhotoURL()
@@ -104,8 +104,9 @@ function randomizePhotoURL()
 			$element.css( 'background-image', 'url(' + src + ')' );
 			deferred.resolve();
 		} );
-		if( $img[0].width ){ $img.trigger( 'load' ); }
-		
+		if( $img[0].width ){
+			$img.trigger( 'load' );
+		}
 		// Set a new URL so cache won't interfere with refreshing newly uploaded photos.
 		$element.css({
 			'background-image': "url(\'" + src + "\')"
@@ -176,18 +177,18 @@ function showRotateFeature() {
 	var $profile_photo_rotate = $('#profile-photo-rotate');
 	$profile_photo_rotate.addClass('overlay').css('display', 'block');
 	// profile photo rotate icon will disappear in 20 secs
-    rotate_feature_timer = setTimeout(function() {
+	rotate_feature_timer = setTimeout(function() {
 		$profile_photo_rotate.removeClass('overlay');
 		rotate_feature_timer = setTimeout(function() {
 			$profile_photo_rotate.css('display', 'none');
 			rotate_feature_timer = false;
 		}, 2000);
-    }, 8000);
+	}, 8000);
 }
 
 $( function() {
 	$( "#accordion" ).accordion({
-		heightStyle: "content" 
+		heightStyle: "content"
 	});
 	initSelectAllText();
 	randomizePhotoURL();

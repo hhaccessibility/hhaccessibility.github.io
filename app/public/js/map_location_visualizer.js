@@ -1,17 +1,17 @@
 function initMap() {
 	//current user LatLng
 	var userPoint = {lat: 42.3174246, lng: -83.0374028 };
-	
+
 	//Map div
 	var mapDiv = document.getElementById('map');
-	
 
-    //Map options
+
+	//Map options
 	var options = {
-	  zoom: 14,
-	  center: userPoint,
-	  draggable: true,
-	  streetViewControl: false
+		zoom: 14,
+		center: userPoint,
+		draggable: true,
+		streetViewControl: false
 	};
 	//creating the map
 	var map = new google.maps.Map(mapDiv, options);
@@ -23,9 +23,9 @@ function initMap() {
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
 
 		var locationMarker = new google.maps.Marker({
-		  position: {lat: location.latitude, lng: location.longitude},
-		  map: map,
-		  title: location.name + '(' + location.id + ')'
+			position: {lat: location.latitude, lng: location.longitude},
+			map: map,
+			title: location.name + '(' + location.id + ')'
 		});
 
 		google.maps.event.addListener(locationMarker, 'click', function() {

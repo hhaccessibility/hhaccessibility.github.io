@@ -6,19 +6,19 @@ $(document).ready(function() {
 	function getHamburgerMenuElement() {
 		return $('.collapse-toggle-button');
 	}
-	
+
 	function getRateViewToggleElement() {
 		return $('.collapsible-menu');
 	}
-	
+
 	function showPopup() {
 		getRateViewToggleElement().addClass('show-popup');
 	}
-	
+
 	function hidePopup() {
 		getRateViewToggleElement().removeClass('show-popup');
 	}
-	
+
 	function togglePopup() {
 		getRateViewToggleElement().toggleClass('show-popup');
 		console.log('togglePopup called.  show-popup is: ' + getRateViewToggleElement().hasClass('show-popup'));
@@ -41,7 +41,7 @@ $(document).ready(function() {
 			previous_display = display;
 		}
 	}
-	
+
 	$(window).resize(viewportWidthUpdated);
 	viewportWidthUpdated();
 });

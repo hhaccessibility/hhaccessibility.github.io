@@ -8,7 +8,7 @@ function updateMapPositionAndSize(map, bounds, zoom_offset) {
 }
 
 function addCircleToMap(map, user_point) {
-    //convert kilometers to meters
+	//convert kilometers to meters
 	var circle_radius = search_radius * 1000;
 	var default_circle_stroke = '#555759';
 
@@ -56,13 +56,13 @@ function initMap() {
 	//Map div
 	var mapDiv = document.getElementById('map');
 
-    //Map options
+	//Map options
 	var options = {
-	  zoom: 19,
-	  center: user_point,
-	  draggable: false,
-	  streetViewControl: false,
-	  clickableIcons: false
+		zoom: 19,
+		center: user_point,
+		draggable: false,
+		streetViewControl: false,
+		clickableIcons: false
 	};
 	//creating the map
 	var map = new google.maps.Map(mapDiv, options);
@@ -72,9 +72,9 @@ function initMap() {
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
 
 		var locationMarker = new google.maps.Marker({
-		  position: {lat: location.latitude, lng: location.longitude},
-		  map: map,
-		  title: location.name
+			position: {lat: location.latitude, lng: location.longitude},
+			map: map,
+			title: location.name
 		});
 
 		google.maps.event.addListener(locationMarker, 'click', function() {
@@ -83,12 +83,12 @@ function initMap() {
 	});
 
 	var centreMarker = new google.maps.Marker({
-	  position: user_point,
-	  map: map,
-	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+		position: user_point,
+		map: map,
+		icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 	});
 
-    //convert kilometers to meters
+	//convert kilometers to meters
 	var circle = addCircleToMap(map, user_point);
 	var bounds = new google.maps.LatLngBounds();
 

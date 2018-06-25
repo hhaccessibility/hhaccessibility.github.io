@@ -5,7 +5,7 @@ function sendTimeZoneOffsetToServerIfNeeded()
 	{
 		return; // no need to reload.
 	}
-	
+
 	$.ajax({
 		'method': 'POST',
 		'url': '/time-zone',
