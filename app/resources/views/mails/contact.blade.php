@@ -88,8 +88,8 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
                 <tr>
                     <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
-                        <a href="http://litmus.com" target="_blank">
-                            <img alt="Logo" src="http://accesslocator.com/images/logo.svg" width="64" height="64" style="display: block; width: 64px; max-width: 64px; min-width: 64px; font-family: 'Lato', Helvetica, Arial, sans-serif; color: #ffffff; font-size: 18px;" border="0">
+                        <a href="http://accesslocator.com" target="_blank">
+                            <img alt="Logo" src="http://accesslocator.com/images/logo.png" width="64" height="64" style="display: block; width: 64px; max-width: 64px; min-width: 64px; font-family: 'Lato', Helvetica, Arial, sans-serif; color: #ffffff; font-size: 18px;" border="0">
                         </a>
                     </td>
                 </tr>
