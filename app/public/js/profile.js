@@ -110,11 +110,18 @@ function updateRegionOptions()
 	var $home_region = $('#home_region');
 	$home_region.empty();
 	//Below statement enables the default region to be empty or no region
-	$home_region.append($('<option/>').attr('selected', 'selected').text("-- Select Region --"));
+	$home_region.append($('<option/>').text("-- Select Region --"));
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
 			{
-				$home_region.append($('<option/>').val(region.name).text(region.name));
+				if($home_region.data('value') === region.name)
+				{
+					$home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
+				}
+				else
+				{
+					$home_region.append($('<option/>').val(region.name).text(region.name));
+				}
 			}
 	});
 }
@@ -137,13 +144,15 @@ function rotateImage()
 // Used for the State/Province datalist
 function downloadRegions()
 {
-	return $.ajax({
+	object = ''
+	object= $.ajax({
 		'method': 'GET',
 		'url': '/api/regions',
 		'success': function(response) {
 			regions = response;
 		}
 	});
+	return object;
 }
 
 var rotate_feature_timer = false;
