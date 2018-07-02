@@ -11,7 +11,6 @@ use DB;
 
 function compareByDistance($loc1, $loc2)
 {
-    ($loc1->distance) - ($loc2->distance);
     if ($loc1->distance < $loc2->distance) {
         return -1;
     } elseif ($loc1->distance > $loc2->distance) {
