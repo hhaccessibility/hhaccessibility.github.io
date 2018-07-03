@@ -23,11 +23,27 @@ This is where to put SCSS for the location report that shows a map.
 	}
 }
 
-.show-ratings-popup .location-report {
-	.map-and-box {
-		.questions-box {
-			display: block;
+.show-ratings-popup {
+	.modal-backdrop {
+		opacity: 0.5;
+	}
+
+	.location-report {
+		.map-and-box {
+			.questions-box {
+				display: block;
+			}
 		}
+	}
+}
+
+.suggestion-form {
+	label {
+		margin-top: 7px;
+	}
+
+	.input-group {
+		width: 100%;
 	}
 }
 
@@ -127,6 +143,10 @@ This is where to put SCSS for the location report that shows a map.
 				display: none;
 			}
 		}
+	}
+
+	.modal-dialog {
+		top: 100px;
 	}
 
 	.map-and-box {
@@ -499,6 +519,17 @@ This is where to put SCSS for the location report that shows a map.
 						font-size: 2.5vw;
 					}
 				}
+			}
+		}
+	}
+}
+
+@media screen and (max-height: 532px) {
+	body {
+		.location-report {
+			.modal-dialog {
+				top: 0;
+				margin-top: 0;
 			}
 		}
 	}

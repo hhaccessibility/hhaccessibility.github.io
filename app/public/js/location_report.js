@@ -94,6 +94,85 @@ function setupToggleRatingsPopup() {
 	$('.questions-box > .text-center').click(hideRatingsPopup);
 }
 
+function setSuggestionMessage(msg, is_warning) {
+	msg = msg.trim();
+	var msgHTML = '';
+	msg.split('\n').forEach(function(msg_line) {
+		msgHTML += msg_line + '<br>';
+	});
+	if (msgHTML !== '') {
+		// remove the trailing '<br>'.
+		msgHTML = msgHTML.substring(0, msgHTML.length - '<br>'.length);
+	}
+	var $display = $('.suggestion-form .message-display');
+	$display.html(msgHTML);
+	if (is_warning) {
+		$display.addClass('alert').addClass('alert-danger').removeClass('alert-success');
+	}
+	else {
+		$display.removeClass('alert-danger').addClass('alert').addClass('alert-success');
+	}
+}
+
+function suggestionSubmitted(r) {
+	setSuggestionMessage("Suggestion has been created.", false);
+	
+	setTimeout(function() {
+		$('#suggestionModal').modal('hide');
+	}, 3000);
+}
+
+function suggestionFailed(jqXHR, textStatus) {
+	if (jqXHR.statusCode().status === 403) {
+		location.href = '/signin?message=You+must+sign+in+to+submit+a+suggestion';
+	}
+	else if (jqXHR.statusCode().status === 422) {
+		var msgObject = jqXHR.responseJSON.message;
+		var msg = '';
+		if (typeof msgObject === 'object') {
+			for(key in msgObject) {
+				msg += msgObject[key];
+				msg += '\n';
+			}
+		}
+		else if (typeof msgObject === 'string') {
+			msg = msgObject;
+		}
+		setSuggestionMessage(msg, true);
+	}
+	else {
+		setSuggestionMessage('Internal error.  Please report this to us at <a href="/contact">contact us</a>.', true);
+		console.error(textStatus);
+	}
+}
+
+function suggestionButtonClicked() {
+	var location_id = $("#location-id").val().trim();
+	var location_name = $("#location-name").val().trim();
+	var address = $("#address").val().trim();
+	var phone_number = $("#phone-number").val().trim();
+	var url = $("#url").val().trim();
+	var token = $('[name="_token"]').val();
+	return $.ajax({
+		'method': 'POST',
+		'data': {
+			'_token': token,
+			'location-id': $("#location-id").val().trim(),
+			'location-name': location_name,
+			'phone-number': phone_number,
+			'address': address,
+			'url': url
+		},
+		'url': '/api/add-suggestion',
+		'success': suggestionSubmitted,
+		'error': suggestionFailed
+	});
+}
+
+function setupSuggestionFeature() {
+	$("#suggestionFormConfirm").click(suggestionButtonClicked);
+}
+
 $(window).resize(function() {
 	updateHeightOfMap();
 	updateShowLocationTagIcons();
@@ -102,5 +181,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	updateHeightOfMap();
 	updateShowLocationTagIcons();
 	setupToggleRatingsPopup();
+	setupSuggestionFeature();
 });
-

@@ -6,6 +6,7 @@
 	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
 	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
+	<script src="/js/bootstrap.js"></script>
 @stop
 @section('footer-content')
 	@if (!$turn_off_maps)
@@ -27,6 +28,12 @@
 		</div>
 		<div class="location-tags text-right">
 			<div class="location-tags">
+			@if ($base_user->isSignedIn())
+				<a class="location-tag" title="Update Information" href="#" data-toggle="modal" data-target="#suggestionModal">
+					<span class="name">Suggest Updates</span>
+					<span class="icon fa fa-bug"></span>
+				</a>
+			@endif
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
 				<a class="location-tag" title="{{ $location_tag->name }}" href="/location-search?location_tag_id={{ $location_tag->id }}">
 					<span class="name">{{ $location_tag->name }}</span>
@@ -110,6 +117,34 @@
 		</div>
 		<div id="map">
 		</div>
+		<div class="modal" id="suggestionModal" tabindex="-1" role="dialog" 
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" 
+							aria-hidden="true">x
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							Suggest Location Updates
+						</h4>
+					</div>
+					<div class="modal-body">
+						@include('pages.location_report.suggestion_form',
+							array(
+								'location' => $location))
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-default" 
+						data-dismiss="modal">Close
+					</button>
+					<button type="button" class="btn btn-primary" id="suggestionFormConfirm">
+						Confirm
+					</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</div>
 </div>
 
