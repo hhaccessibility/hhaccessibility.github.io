@@ -1,6 +1,9 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import os
 import lxml.html as html
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 
@@ -26,9 +29,9 @@ def get_href_without_ad_redirect(href):
 		href = href[index + len(start_token):]
 		if '&' in href:
 			index = href.index('&')
-			return urllib2.unquote(href[:index])
+			return urllib.parse.unquote(href[:index])
 		else:
-			return urllib2.unquote(href)
+			return urllib.parse.unquote(href)
 
 	return href
 
@@ -55,14 +58,14 @@ def download_location_detail_page(url):
 	name = get_location_name_from_url(url)
 	output_file_name = 'data/raw_html_'+ name +'.html'
 	if not os.path.exists(output_file_name):
-		print ('Downloading details for location: ' + name)
-		response = urllib2.urlopen(url)
+		print(('Downloading details for location: ' + name))
+		response = urllib.request.urlopen(url)
 		html = response.read() # returns all the lines in a file.
-		with open(output_file_name, 'w') as html_file:
+		with open(output_file_name, 'wb') as html_file:
 			html_file.write(html)
 			html_file.close()
 	else:
-		print ('Already have details for location: ' + name)
+		print(('Already have details for location: ' + name))
 
 	return output_file_name
 
@@ -97,8 +100,8 @@ def auto_page_download(number_of_pages, find_query, location):
 
 	for i in range(number_of_pages):
 		page_results = i * 10
-		search_yelp = (yelp_base_url + 'search?find_desc=' + urllib2.quote(find_query) + '&find_loc='
-			+ urllib2.quote(location) )
+		search_yelp = (yelp_base_url + 'search?find_desc=' + urllib.parse.quote(find_query) + '&find_loc='
+			+ urllib.parse.quote(location) )
 		if page_results > 0:
 			search_yelp = search_yelp + '&start=' + str(page_results)
 
@@ -107,13 +110,13 @@ def auto_page_download(number_of_pages, find_query, location):
 		filename = "data/page_" + filename_encode(location) + "_" +  filename_encode(find_query) + "_{}.html".format(i)
 
 		if not os.path.exists(filename):
-			page = urllib2.urlopen(search_yelp) # url specific to
+			page = urllib.request.urlopen(search_yelp) # url specific to
 			html = page.read() # returns all the lines in a file.
-			print ('Generating HTML file: ' + str(filename))
-			with open(filename, 'w') as html_file:
+			print(('Generating HTML file: ' + str(filename)))
+			with open(filename, 'wb') as html_file:
 				html_file.write(html)
 		else:
-			with open(filename, 'r') as f:
+			with open(filename, 'r', encoding='utf-8') as f:
 				html = f.read()
 				f.close()
 
