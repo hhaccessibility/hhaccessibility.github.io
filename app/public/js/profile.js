@@ -144,15 +144,13 @@ function rotateImage()
 // Used for the State/Province datalist
 function downloadRegions()
 {
-	object = ''
-	object= $.ajax({
+	return $.ajax({
 		'method': 'GET',
 		'url': '/api/regions',
 		'success': function(response) {
 			regions = response;
 		}
-	});
-	return object;
+});
 }
 
 var rotate_feature_timer = false;
