@@ -233,8 +233,9 @@ $(document).ready(bindCategoryLinksToKeywordInput);
 
 function blinkMap(map1)
 {
-	fadeOut(map1,0.5)
-	fadeIn(map1,1)
+	$(map1).fadeOut(200, function(){ $(map1).fadeIn(200); });
+	//fadeOut(map1,0.5)
+	//fadeIn(map1,1)
 }
 
 
