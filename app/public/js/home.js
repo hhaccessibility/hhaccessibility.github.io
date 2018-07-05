@@ -64,6 +64,7 @@ function initMap()
 	});
 	google.maps.event.addListener(map, 'mousedown', function(event) {
 		locationInfo(map, event.latLng);
+		blinkMap(document.getElementById('map'))
   	});
 	conditionalProcessAddress();
 	$('#address').bind('keyup change', delayedProcessAddress);
@@ -228,3 +229,37 @@ function bindCategoryLinksToKeywordInput()
 }
 
 $(document).ready(bindCategoryLinksToKeywordInput);
+
+
+function blinkMap(map1)
+{
+	fadeOut(map1,0.5)
+	fadeIn(map1,1)
+}
+
+
+function fadeOut(elem,limit)
+{
+	var opac = elem.style.opacity;
+	var timer = setInterval(function(){
+		if (opac<= limit){
+			clearInterval(timer);
+		}
+		elem.style.opacity = opac;
+        opac -= opac * 0.1;
+	}, 50);
+	
+	
+	
+}
+
+function fadeIn(elem,limit){
+	var opac = 0.5;
+	var timer = setInterval(function(){
+		if (opac>= limit){
+			clearInterval(timer);
+		}
+		elem.style.opacity = opac;
+        opac += opac * 0.1;
+	}, 50);
+}
