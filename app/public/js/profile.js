@@ -55,6 +55,7 @@ function selectAllToggle()
 			$checkboxes.removeAttr('checked');
 			$(this).text('Select All');
 		}
+		$("#profileForm").change();
 	})
 }
 
@@ -196,8 +197,9 @@ $( function() {
 	initSelectAllText();
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
-	downloadRegions().then(updateRegionOptions);
+	var promise = downloadRegions().then(updateRegionOptions);
 	initQuestionExplanationLinks();
+	promise.then(initProfileSaveButton);
 
 	if ( window.location.href.indexOf('show_rotate_feature') !== -1 ) {
 		window.history.pushState("removing_rotate_feature", "Removing Rotate Feature", "/profile");
