@@ -15,7 +15,8 @@
 			<button type="button" id="updateRadius" class="btn btn-primary">Update</button>
 	</div>
 	@if (count($locations) === 0)
-		No location found matching the specified keywords
+		<h3>No location found matching the specified keywords</h3>
+		<a class="btn btn-default" href="/locations-added-by-me">Add New Location</a>
 	@else
 		<div class="row column-titles">
 			<div class="col-xs-6 name">
