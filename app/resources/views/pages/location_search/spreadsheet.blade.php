@@ -21,7 +21,7 @@
 			@else
 				<a class="btn btn-default" href="/sign-in">Sign In</a>
 				<h4>or</h4>
-				<a class="btn btn-default" href="/add-location">Sign Up</a>
+				<a class="btn btn-default" href="/sign-up">Sign Up</a>
 				<h4>to add a new location</h4>
 			@endif
 					
