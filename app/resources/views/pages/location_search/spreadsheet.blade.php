@@ -16,7 +16,15 @@
 	</div>
 	@if (count($locations) === 0)
 		<h3>No location found matching the specified keywords</h3>
-		<a class="btn btn-default" href="/locations-added-by-me">Add New Location</a>
+			@if ($base_user->isSignedIn())
+				<a class="btn btn-default" href="/add-location">Add New Location</a>
+			@else
+				<a class="btn btn-default" href="/sign-in">Sign In</a>
+				<h4>or</h4>
+				<a class="btn btn-default" href="/add-location">Sign Up</a>
+				<h4>to add a new location</h4>
+			@endif
+					
 	@else
 		<div class="row column-titles">
 			<div class="col-xs-6 name">
