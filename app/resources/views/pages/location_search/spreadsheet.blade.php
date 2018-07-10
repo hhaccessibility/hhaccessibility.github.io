@@ -19,9 +19,9 @@
 			@if ($base_user->isSignedIn())
 				<a class="btn btn-default" href="/add-location">Add New Location</a>
 			@else
-				<a class="btn btn-default" href="/sign-in">Sign In</a>
+				<a class="btn btn-default" href="/signin">Sign In</a>
 				<h4>or</h4>
-				<a class="btn btn-default" href="/sign-up">Sign Up</a>
+				<a class="btn btn-default" href="/signup">Sign Up</a>
 				<h4>to add a new location</h4>
 			@endif
 					
