@@ -55,16 +55,35 @@ function selectAllToggle()
 			$checkboxes.removeAttr('checked');
 			$(this).text('Select All');
 		}
+		$("#profileForm").change();
 	})
 }
+
+function validatePhoto(file) {
+	var fileExtensions = ['jpeg', 'png'];
+	var isValid = false;
+	fileExtensions.forEach(function (extension) {
+		if (file.type.match('image/'+extension)) {
+			isValid = true;
+		}
+	});
+	return isValid;
+}
+
 // uploads the profile photo by submitting the image upload form
 // Called after selecting a photo and hitting "Open"
-function upload()
+function upload(event)
 {
-	// indicate that the uploading is starting.
-	$element = $('.photo-display .progress-element').addClass('uploading');
-	
-    $("#photo-upload").submit();
+	var file = event.target.files[0];
+	if (file.size > 5000 * 1024) {
+		document.getElementById("profile_error").innerText = "Photo should be smaller than 5MB.";
+	} else if (!validatePhoto(file)) {
+		document.getElementById("profile_error").innerText = "Photo should be jpeg or png format.";
+	} else {
+        // indicate that the uploading is starting.
+        $element = $('.photo-display .progress-element').addClass('uploading');
+        $("#photo-upload").submit();
+	}
 }
 
 // Opens a dialog for the user to select an image
@@ -109,15 +128,19 @@ function updateRegionOptions()
 	var country_id = parseInt(getCountryElement().val());
 	var $home_region = $('#home_region');
 	$home_region.empty();
+	//Below statement enables the default region to be empty or no region
+	$home_region.append($('<option/>').text("-- Select Region --"));
 	regions.forEach(function(region) {
 		if ( region.country_id === country_id )
-			if ($home_region.data('value') === region.name)
 			{
-				$home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
-			}
-			else
-			{
-				$home_region.append($('<option/>').val(region.name).text(region.name));
+				if($home_region.data('value') === region.name)
+				{
+					$home_region.append($('<option />').val(region.name).attr('selected', 'selected').text(region.name));
+				}
+				else
+				{
+					$home_region.append($('<option/>').val(region.name).text(region.name));
+				}
 			}
 	});
 }
@@ -146,7 +169,7 @@ function downloadRegions()
 		'success': function(response) {
 			regions = response;
 		}
-	});
+});
 }
 
 var rotate_feature_timer = false;
@@ -174,8 +197,9 @@ $( function() {
 	initSelectAllText();
 	randomizePhotoURL();
 	getCountryElement().change(updateRegionOptions);
-	downloadRegions().then(updateRegionOptions);
+	var promise = downloadRegions().then(updateRegionOptions);
 	initQuestionExplanationLinks();
+	promise.then(initProfileSaveButton);
 
 	if ( window.location.href.indexOf('show_rotate_feature') !== -1 ) {
 		window.history.pushState("removing_rotate_feature", "Removing Rotate Feature", "/profile");
