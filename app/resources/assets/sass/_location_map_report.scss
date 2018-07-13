@@ -93,6 +93,10 @@ This is where to put SCSS for the location report that shows a map.
 			&.addresses {
 				flex-grow: 8;
 				overflow-x: hidden;
+				
+				address {
+					margin-bottom: 4px;
+				}
 
 				a {
 					display: inline-block;
@@ -101,6 +105,14 @@ This is where to put SCSS for the location report that shows a map.
 					height: 1.2em;
 					white-space: nowrap;
 					max-width: 100%;
+				}
+
+				em {
+					margin-right: 5px;
+				}
+
+				p {
+					margin-bottom: 0;
 				}
 			}
 
