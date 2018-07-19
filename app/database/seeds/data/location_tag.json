@@ -9,6 +9,6 @@
 {"id": 8, "name": "Parks", "description": "Public parks, amusement parks...", "icon_selector": "fa fa-tree"},
 {"id": 9, "name": "Public service", "description": "Government building, post office, tourist information...", "icon_selector": "fa fa-university"},
 {"id": 10, "name": "Transportation", "description": "Public transit, bus, subway, train, airport, fuel station, car repair...", "icon_selector": "fa fa-car"},
-{"id": 11, "name": "Association & Organization", "description": "Not for profit organization, NGO, convention centre, religious building, rotary club...", "icon_selector": "fa fa-sitemap"},
+{"id": 11, "name": "Association & Organization", "description": "Non-profit organization, NGO, convention centre, religious building, rotary club...", "icon_selector": "fa fa-sitemap"},
 {"id": 12, "name": "Arts & Entertainment", "description": "Nightclub, theatre, cinema, art gallery...", "icon_selector": "fa fa-paint-brush"}
 ]
