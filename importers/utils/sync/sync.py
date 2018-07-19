@@ -127,8 +127,8 @@ def set_fields_on_location_tags(db):
 	location_tags_data = load_seed_data_from('location_tag')
 	cursor = db.cursor()
 	for location_tag in location_tags_data:
-		update_sql = 'update location_tag set icon_selector=%s where id=%s'
-		cursor.execute(update_sql, (location_tag['icon_selector'], location_tag['id']))
+		update_sql = 'update location_tag set description=%s, icon_selector=%s where id=%s'
+		cursor.execute(update_sql, (location_tag['description'], location_tag['icon_selector'], location_tag['id']))
 
 
 def update_coordinates_for_locations(db):
