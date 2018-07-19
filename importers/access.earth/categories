@@ -1,5 +1,5 @@
 Field,is_Sports
-Convenience Store,is_Asso,is_Shop,is_Resturant
+Convenience Store,is_Shop
 Travel,is_Trans
 Café,is_Resturant
 Residential,is_Accom
