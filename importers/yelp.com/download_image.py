@@ -5,16 +5,17 @@ import os
 import lxml.html as html
 import urllib.request, urllib.error, urllib.parse
 import re
+import time
 
-url_img = 'https://www.yelp.com/biz_photos/burma-superstar-san-francisco-2?select=UaR8ZJlXHHWO3t-47tp0jg'
+url_img = 'biz_photos/burma-superstar-san-francisco-2?select_video=7sT6xHsZQAEP8H3pgwlhlg'
 url_yelp = 'https://www.yelp.com/'
-def save_imag(url, filename):
+def save_image(url, filename):
     page = urllib.request.urlopen(url)
     img_x = page.read()
     with open(filename, 'wb') as html_file:
         html_file.write(img_x);
 
-def imag_save_url(url):
+def image_save_url(url):
     page = urllib.request.urlopen(url)
     bhtml = page.read()
     root = html.fromstring(bhtml)
@@ -24,24 +25,31 @@ def imag_save_url(url):
     filename = '/' + urllib.parse.urlparse(Imag_url).path.split('/')[2] + os.path.splitext(Imag_url)[1];
     if not os.path.exists('data/'+ folder):
         os.makedirs('data/'+ folder)
-    save_imag(Imag_url, 'data/'+ folder + filename)
+    save_image(Imag_url, 'data/'+ folder + filename)
+    
 
 def find_next_url(url):
     page = urllib.request.urlopen(url)
     bhtml = page.read()
     root = html.fromstring(bhtml)
     next_url = root.xpath("//a[contains(@class, 'js-media-nav_link--next')]/@href")
-    return next_url
+    return next_url[0]
+
 if __name__ == '__main__':
-
-    imag_save_url(url_img)
-    next_url = find_next_url(url_img)
-    while(next_url):
-        imag_save_url(url_yelp + next_url[0])
-        next_url = find_next_url(url_yelp + next_url[0])
-
-    #page = urllib.request.urlopen(url_img)
-    #bhtml = page.read()
-    #root = html.fromstring(bhtml)
-    #next_url = root.xpath("//ul[@class='breadcrumbs']/li/a/text()")
-    #print(next_url[0])
+    next_url = url_img;
+    query_dic = urllib.parse.parse_qs(urllib.parse.urlparse(next_url).query).keys()
+    while 'video' in list(query_dic)[0]:
+        next_url = find_next_url(url_yelp + next_url)
+        query_dic = urllib.parse.parse_qs(urllib.parse.urlparse(next_url).query).keys()
+    image_save_url(url_yelp+next_url)
+    next_url = find_next_url(url_yelp+next_url)
+    count = 0;
+    while(next_url and count < 9):
+        image_save_url(url_yelp + next_url)
+        next_url = find_next_url(url_yelp + next_url)
+        query_dic = urllib.parse.parse_qs(urllib.parse.urlparse(next_url).query).keys()
+        while 'video' in list(query_dic)[0]:
+            next_url = find_next_url(url_yelp + next_url)
+            query_dic = urllib.parse.parse_qs(urllib.parse.urlparse(next_url).query).keys()
+        count = count + 1
+        time.sleep(0.3)
