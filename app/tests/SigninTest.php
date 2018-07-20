@@ -48,7 +48,7 @@ class SigninApiTest extends TestCase
 
     private function checkChangePasswordFeature()
     {
-        $response = $this->get('/change-password');
+        $response = $this->get('/user/change-password');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'Change Password') !== false);
