@@ -1,0 +1,507 @@
+Field,is_Sports
+Convenience Store,is_Shop
+Travel,is_Trans
+Café,is_Resturant
+Residential,is_Accom
+Asian,is_Resturant
+Concert Hall,is_Arts
+Financial / Legal,is_Finan,is_Asso
+Gas Station,is_Trans,is_Shop,is_Resturant
+Shop,is_Shop
+Boat / Ferry,is_Trans
+Event Space,is_Arts
+Farm,is_Parks
+Hotel,is_Accom
+Office,is_Asso
+Doctor's Office,is_Healthcare
+Hockey,is_Arts
+Optical,is_Healthcare
+Building,is_Accom
+Grocery Store,is_Shop
+Electronics,is_Shop
+Automotive,is_Trans
+Other Repair,is_Asso
+Skating Rink,is_Arts
+Arts & Crafts,is_Arts
+Construction,is_Asso
+Lounge,is_Arts
+Airport Service,is_Trans
+Food Court,is_Resturant
+Playground,is_Arts,is_Parks
+Terminal,is_Trans
+Gate,is_Trans
+Veterinarians,is_Healthcare
+City,is_Public
+Hardware,is_Shop
+Chinese,is_Resturant
+Salon / Barbershop,is_Asso
+Rock Climbing,is_Arts
+Home Services,is_Asso
+Medical,is_Healthcare
+Brewery,is_Shop,is_Asso
+Laboratory,is_Asso
+Furniture / Home,is_Shop
+Business Services,is_Finan,is_Asso
+Baby Store,is_Shop
+Recycling,is_Public
+Smoke Shop,is_Shop
+Tech Startup,is_Asso
+Lawyer,is_Finan,is_Asso
+Insurance Office,is_Finan,is_Asso
+Academic Building,is_Edu
+Art Studio,is_Arts
+Italian,is_Resturant
+Apparel,is_Shop
+Food Truck,is_Resturant
+Conference room,is_Asso
+School,is_Edu
+Technology,is_Asso,is_Shop
+Pharmacy,is_Healthcare
+Government,is_Public
+Kids Store,is_Shop
+Shops,is_Shop
+Engineering,is_Asso
+Trail,is_Parks
+Police Station,is_Public
+Cafeteria,is_Resturant
+Classroom,is_Edu
+Nightclub,is_Arts
+Design,is_Asso
+Entertainment,is_Arts
+Advertising Agency,is_Asso
+Auto Dealer,is_Trans
+Parking,is_Trans
+Sports Bar,is_Arts
+Nail Salon,is_Shop
+Middle School,is_Edu
+Hot Spring,is_Public
+Meeting Room,is_Asso
+Airport,is_Trans
+Housing Development,is_Asso
+Other Outdoors,is_Parks
+Gastropub,is_Resturant
+Restaurant,is_Resturant
+Golf Course,is_Sports
+Church,is_Public
+Japanese,is_Resturant
+Bus Station,is_Trans
+Pet Store,is_Shop
+High School,is_Edu
+Stadium,is_Sports
+New American,is_Shop
+Factory,is_Asso
+Fair,is_Arts
+Fast Food,is_Resturant
+American,is_Shop
+Cemetery,is_Public
+Mobile Phones,is_Shop
+Park,is_Parks,is_Sports
+Elementary School,is_Edu
+Rental Car,is_Trans
+Video Games,is_Arts,is_Sports
+Auto Garage,is_Trans
+Distributor,is_Asso
+Movie Theater,is_Arts
+Coworking Space,is_Public
+Health & Beauty,is_Healthcare,is_Shop
+Library,is_Public
+Neighborhood,is_Accom
+Real Estate,is_Accom,is_Asso
+Pizza,is_Resturant
+Lake,is_Sports
+Cineplex,is_Arts
+Gym,is_Sports
+Food Service,is_Resturant
+Voting Booth,is_Public
+Harbor / Marina,is_Sports
+Garden Center,is_Shop
+Professional,is_Asso
+National Park,is_Parks
+Road,is_Trans
+Assisted Living,is_Healthcare
+Car Washes,is_Trans
+Breakfast,is_Resturant
+Gym / Fitness,is_Sports
+Massage Studio,is_Healthcare
+Nightlife,is_Arts
+Rental Service,is_Trans
+Pool,is_Sports
+Burgers,is_Resturant
+Travel Agency,is_Trans
+Gift Shop,is_Shop
+Beer Garden,is_Shop
+Campground,is_Parks,is_Sports
+Coffee Shop,is_Resturant
+Gourmet,is_Resturant
+Ski Area,is_Sports
+Art Gallery,is_Arts
+Spa,is_Healthcare
+Tourist Information,is_Public
+Hostel,is_Accom
+Food,is_Resturant
+Sorority House,is_Accom
+Irish,is_Resturant
+Ice Cream,is_Resturant
+Daycare,is_Asso
+Dentist's Office,is_Healthcare
+Diner,is_Resturant
+Butcher,is_Shop
+Eye Doctor,is_Healthcare
+Hospital,is_Healthcare
+Convention Center,is_Arts,is_Sports
+Photography Lab,is_Arts
+Pet Service,is_Healthcare
+Mall,is_Shop,is_Resturant
+Curling Ice,is_Sports
+Transportation Services,is_Trans
+Video Store,is_Shop,is_Arts
+North Indian,is_Resturant
+Performing Arts,is_Arts
+Education,is_Edu
+Zoo,is_Arts
+Laundry,is_Public
+Sporting Goods,is_Sports,is_Shop
+Pub,is_Resturant
+Track,is_Sports
+Storage,is_Asso
+Racetrack,is_Sports
+Deli / Bodega,is_Shop
+Hookah Bar,is_Arts
+Fire Station,is_Public
+Moving Target,is_Public
+Roof Deck,is_Asso
+Business Center,is_Asso
+Baseball Field,is_Parks,is_Sports
+Bar,is_Resturant
+Auditorium,is_Sports,is_Arts
+Spiritual,is_Sports,is_Arts
+Liquor Store,is_Shop
+Strip Club,is_Arts
+Whisky Bar,is_Resturant
+Tattoo,is_Arts
+Chiropractors,is_Healthcare
+Theater,is_Arts
+Music Store,is_Shop
+Beach,is_Parks,is_Sports
+Warehouse,is_Shop
+Preserve,is_Parks
+Music Venue,is_Arts
+Flower Shop,is_Shop
+Dance Studio,is_Sports
+Casino,is_Arts
+Rest Areas,is_Sports
+Landmark,is_Public
+Tanning Salon,is_Shop
+Student Center,is_Edu
+Post Office,is_Public
+Desserts,is_Resturant
+Trade School,is_Edu
+Bus,is_Trans
+Emergency Room,is_Healthcare
+Farmer's Market,is_Shop
+Toys & Games,is_Shop
+Vegetarian / Vegan,is_Resturant
+Office Supplies,is_Shop
+Thrift / Vintage,is_Shop
+Motel,is_Accom
+River,is_Parks,is_Sports
+Bike Shop,is_Shop,is_Sports
+Theme Park,is_Arts,is_Sports
+Cosmetics,is_Shop
+Forest,is_Parks,is_Sports
+BBQ,is_Resturant
+Scenic Lookout,is_Parks
+B & B,is_Accom
+Filipino,is_Resturant
+Lodge,is_Accom
+Radio Station,is_Arts
+Chairlift,is_Healthcare
+Non-Profit,is_Public
+Women's Store,is_Shop
+Steakhouse,is_Resturant
+Lab,is_Asso
+Village,is_Public
+Train Station,is_Public,is_Trans
+Waterfall,is_Parks
+Canal Lock,is_Parks
+Resort,is_Sports,is_Accom
+Sandwiches,is_Resturant
+Outdoor Supplies,is_Shop,is_Sports
+Community Center,is_Public
+Historic Site,is_Public
+History Museum,is_Public
+Laundromat,is_Asso
+Motorcycle Shop,is_Shop,is_Trans
+Driving School,is_Public,is_Edu
+Men's Store,is_Shop
+Antiques,is_Shop
+Food & Drink,is_Resturant
+Indian,is_Shop
+Wine Shop,is_Shop
+Embassy,is_Public
+Winery,is_Shop
+Athletics & Sports,is_Sports,is_Shop
+Mexican,is_Resturant
+Border Crossing,is_Public
+Indie Movies,is_Shop
+Stables,is_Parks
+Boutique,is_Shop
+Outdoors & Recreation,is_Sports,is_Shop
+City Hall,is_Public
+Bowling Alley,is_Sports
+Department Store,is_Shop
+Platform,is_Accom
+Mental Health,is_Healthcare
+Thai,is_Resturant
+Drop Zone,is_Sports
+Tailor,is_Shop
+IT Services,is_Shop
+Bridal,is_Shop
+Well,is_Asso
+Middle Eastern,is_Resturant
+Administrative Building,is_Asso
+Soccer Field,is_Sports
+Garden,is_Parks
+Greek,is_Resturant
+Mountain,is_Parks,is_Sports
+Vietnamese,is_Resturant
+Falafel,is_Resturant
+Bridge,is_Public
+French,is_Resturant
+Military Base,is_Public
+Accessories,is_Shop
+Cupcakes,is_Resturant
+Bookstore,is_Shop
+Lingerie,is_Shop
+Carpet Store,is_Shop
+Rock Club,is_Sports
+Jewelry,is_Shop
+Cocktail,is_Resturant
+Board Shop,is_Shop
+Funeral Home,is_Asso
+Comic Shop,is_Shop
+Billiards,is_Sports
+Medical Lab,is_Healthcare
+RV Park,is_Parks,is_Sports
+Heliport,is_Sports
+German,is_Resturant
+Health Food Store,is_Shop,is_Healthcare
+Aquarium,is_Arts
+Arcade,is_Arts,is_Sports
+Hobbies,is_Shop,is_Sports
+Bakery,is_Resturant
+Bus Stop,is_Trans
+Korean,is_Resturant
+Intersection,is_Trans
+Conference,is_Asso
+Metro,is_Shop
+Turkish,is_Resturant
+Lighting,is_Shop
+Vacation Rental,is_Trans
+Sushi,is_Resturant
+Beer Bar,is_Shop
+Vineyard,is_Arts
+Arts,is_Arts
+Baseball,is_Sports
+Mongolian,is_Resturant
+Planetarium,is_Arts
+Seafood,is_Resturant
+Hotel Bar,is_Resturant
+Snacks,is_Shop,is_Resturant
+Cruise,is_Trans
+Bistro,is_Resturant
+Credit Union,is_Finan
+Adult Boutique,is_Shop
+Flea Market,is_Shop
+Museum,is_Arts
+Tunnel,is_Trans
+Dry Cleaner,is_Asso
+Speakeasy,is_Resturant
+Market,is_Shop
+Residence Hall,is_Public
+Festival,is_Arts
+Bike,is_Sports
+Lighthouse,is_Public
+Physical Therapist,is_Healthcare
+Shoes,is_Shop
+Wine Bar,is_Resturant
+Club,is_Arts
+Yoga Studio,is_Sports
+Gluten-free,is_Resturant
+Bank,is_Finan
+Shipping Store,is_Shop
+Tapas,is_Resturant
+Tennis Court,is_Sports
+Fishing Spot,is_Sports
+Photo Studio,is_Arts
+Temple,is_Public
+Apres Ski Bar,is_Resturant
+Warehouse Store,is_Asso
+Tour Provider,is_Trans,is_Arts
+EV Charging,is_Public
+Camera Store,is_Shop
+Print Shop,is_Shop
+Film Studio,is_Arts
+Boat Rental,is_Trans
+Piers,is_Public
+Comedy Club,is_Arts
+Ski Chalet,is_Sports
+Medical Supply,is_Healthcare
+Wings,is_Resturant
+Pawn Shop,is_Shop
+Soccer,is_Sports
+Research Station,is_Asso
+Acupuncturist,is_Healthcare
+Gun Shop,is_Shop
+Tea Room,is_Resturant
+Locksmith,is_Asso
+Moroccan,is_Resturant
+Recruiting Agency,is_Asso
+Taxi,is_Trans
+Plaza,is_Shop
+Port,is_Sports
+Alternative Healer,is_Healthcare
+Dog Run,is_Sports
+Mattress Store,is_Shop
+Industrial Estate,is_Accom
+Comfort Food,is_Resturant
+Trailer Park,is_Parks
+Hockey Rink,is_Sports
+Weight Loss Center,is_Sports
+Vape Store,is_Shop
+Community College,is_Edu
+Ethiopian,is_Resturant
+Gymnastics Gym,is_Sports
+Auto Workshop,is_Trans
+Paintball Field,is_Sports
+Boxing Gym,is_Sports
+Motorsports Shop,is_Trans
+Town,is_Public
+Island,is_Public
+Martial Arts,is_Sports
+Rafting,is_Sports
+Recreation Center,is_Sports
+Art Museum,is_Arts
+Hot Dogs,is_Resturant
+Dive Bar,is_Resturant
+Beach Bar,is_Resturant
+Other Event,is_Arts
+Caribbean,is_Resturant
+Eastern European,is_Resturant
+Public Art,is_Arts
+Toll Plaza,is_Public
+Science,is_Asso
+Mediterranean,is_Resturant
+Outlet Mall,is_Shop
+Campaign,is_Public
+Supermarket,is_Shop
+University,is_Edu
+Discount Store,is_Shop
+Bathing Area,is_Sports
+Fishing Store,is_Sports,is_Shop
+Hunting Supply,is_Sports,is_Shop
+Noodles,is_Resturant
+Jazz Club,is_Arts
+Dim Sum,is_Resturant
+Candy Store,is_Shop
+Quad,is_Accom
+Music School,is_Shop,is_Arts
+Event Services,is_Arts
+Juice Bar,is_Resturant
+Capitol Building,is_Asso
+Organic Grocery,is_Shop
+Sculpture,is_Arts
+Cave,is_Sports
+Indonesian,is_Resturant
+Souvenir Shop,is_Shop
+Bath House,is_Sports
+Gay Bar,is_Resturant
+States & Municipalities,is_Public
+Preschool,is_Edu
+Mobility Store,is_Shop
+TV Station,is_Arts
+Memorial Site,is_Public
+Cultural Center,is_Public
+County,is_Public
+Tree,is_Parks
+Language School,is_Edu
+College & Education,is_Edu
+Plane,is_Trans
+Arts & Entertainment,is_Arts
+Cambodian,is_Resturant
+Football,is_Sports
+Waste Facility,is_Public
+Swim School,is_Edu,is_Sports
+Town Hall,is_Public
+Communications,is_Shop
+Social Club,is_Arts
+Music Festival,is_Arts
+Fish Market,is_Shop
+Bagels,is_Resturant
+Train,is_Trans
+African,is_Resturant
+Science Museum,is_Arts
+Tacos,is_Resturant
+Modern European,is_Resturant
+Cheese Shop,is_Shop
+Skate Park,is_Sports
+Surf Spot,is_Sports
+Internet Cafe,is_Sports,is_Arts
+ATM,is_Finan
+Fried Chicken,is_Resturant
+Molecular Gastronomy,is_Resturant
+Gaming Cafe,is_Arts,is_Sports
+Outdoor Event Space,is_Sports
+Bike Trail,is_Sports
+Urgent Care Center,is_Healthcare
+Animal Shelter,is_Healthcare
+Botanical Garden,is_Sports
+Creperie,is_Resturant
+Badminton Court,is_Sports
+Mini Golf,is_Sports
+Mosque,is_Public
+Exhibit,is_Arts
+Power Plant,is_Public
+Observatory,is_Arts
+Jewish,is_Resturant
+Southern / Soul,is_Arts
+Ski Shop,is_Shop,is_Sports
+Beer Store,is_Shop
+Courthouse,is_Public
+Newsstand,is_Shop
+Nursery School,is_Edu
+Summer Camp,is_Sports
+Zoo Exhibit,is_Arts
+Cantonese,is_Resturant
+Synagogue,is_Public
+Karaoke,is_Arts
+Check Cashing Service,is_Finan
+Knitting Supplies,is_Shop
+Basketball Court,is_Sports
+Fish & Chips,is_Resturant
+Laser Tag,is_Sports
+Tennis,is_Sports
+Entertainment Service,is_Arts
+Belgian,is_Resturant
+Outdoor Sculpture,is_Sports
+Prison,is_Public
+Waterfront,is_Sports
+Arepas,is_Resturant
+Soup,is_Resturant
+Opera House,is_Arts
+Chocolate Shop,is_Shop
+Pop-Up Shop,is_Shop
+Argentinian,is_Resturant
+Go Kart,is_Sports
+Buffet,is_Resturant
+Rec Center,is_Sports
+Currency Exchange,is_Finan
+Nutritionist,is_Healthcare
+Law School,is_Edu
+Water Park,is_Sports
+Distillery,is_Asso
+Corporate Amenity,is_Asso
+Castle,is_Public
+Stationery Store,is_Shop
+Piano Bar,is_Resturant,is_Arts
+Record Shop,is_Shop,is_Arts
