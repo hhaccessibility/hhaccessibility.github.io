@@ -1,7 +1,11 @@
 <?php
-Route::get('password-recovery', 'PasswordRecoveryController@form');
-Route::get('password-recovery/{user_email}/{password_recovery_token}', 'PasswordRecoveryController@passwordRecover');
-Route::post('password-recovery', 'PasswordRecoveryController@sendEmail');
-Route::post('password-recovery/reset-password', 'PasswordRecoveryController@resetPassword');
-Route::get('change-password', 'ChangePasswordController@index');
-Route::post('change-password', 'ChangePasswordController@post');
+Route::group(['prefix' => 'password-recovery'], function () {
+    Route::get('/', 'PasswordRecoveryController@form');
+    Route::post('/', 'PasswordRecoveryController@sendEmail');
+    Route::get('/{user_email}/{password_recovery_token}', 'PasswordRecoveryController@passwordRecover');
+    Route::post('/reset-password', 'PasswordRecoveryController@resetPassword');
+});
+Route::group(['prefix' => 'change-password'], function () {
+    Route::get('/', 'ChangePasswordController@index');
+    Route::post('/', 'ChangePasswordController@post');
+});
