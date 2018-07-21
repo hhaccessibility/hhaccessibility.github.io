@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
-class Image extends Eloquent
+class Image extends Model
 {
     protected $fillable = [
         'id', 'location_id', 'raw_data',

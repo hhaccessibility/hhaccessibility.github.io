@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Location;
 
-class Question extends Eloquent
+class Question extends Model
 {
     protected $fillable = [
         'question_html',

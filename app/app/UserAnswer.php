@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
-class UserAnswer extends Eloquent
+class UserAnswer extends Model
 {
     protected $fillable = [
         'answered_by_user_id', 'question_id', 'location_id', 'answer_value',
