@@ -2,6 +2,7 @@
 
 use App\LocationTag;
 use App\BaseUser;
+use App\LocationSearchOption;
 use DB;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class HomeController extends Controller
         if (trim($address_value) === trim(BaseUser::getDefaultAddress())) {
             $address_value = '';
         }
-        $location_search_options = DB::table('location_search_option')->get();
+        $location_search_options = LocationSearchOption::query()->get();
         if (Input::has('keywords')) {
             $keywords = trim(Input::get('keywords'));
             BaseUser::setKeywords($keywords);
