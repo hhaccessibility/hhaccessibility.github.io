@@ -114,7 +114,7 @@ function updateNearbyLocationMarkers() {
 }
 
 function addLocationsNear(longitude, latitude) {
-	var url = '/get-nearby-locations/' + longitude + '/' + latitude;
+	var url = '/location/management/nearby/' + longitude + '/' + latitude;
 	$.ajax({
 		'method': 'GET',
 		'url': url,
