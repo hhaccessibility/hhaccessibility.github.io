@@ -195,7 +195,7 @@ class URLFactory
 
     private static function getURLFromParameters($params)
     {
-        $url = '/location-search?';
+        $url = '/location/search?';
         $needs_ampersand = false;
         foreach ($params as $param_name => $param_value) {
             if ($needs_ampersand) {
