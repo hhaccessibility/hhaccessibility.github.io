@@ -12,7 +12,7 @@ class LocationSearchTest extends TestCase
     
     public function testSortByName()
     {
-        $response = $this->get('/location-search?location_tag_id=1&keywords=&order_by=name');
+        $response = $this->get('/location/search?location_tag_id=1&keywords=&order_by=name');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'spreadsheet sort-by-name') !== false);
@@ -21,7 +21,7 @@ class LocationSearchTest extends TestCase
 
     public function testSortByDistance()
     {
-        $response = $this->get('/location-search?location_tag_id=1&keywords=&order_by=distance');
+        $response = $this->get('/location/search?location_tag_id=1&keywords=&order_by=distance');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'spreadsheet sort-by-distance') !== false);
@@ -30,7 +30,7 @@ class LocationSearchTest extends TestCase
 
     public function testSortByRating()
     {
-        $response = $this->get('/location-search?location_tag_id=1&keywords=&order_by=rating');
+        $response = $this->get('/location/search?location_tag_id=1&keywords=&order_by=rating');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'spreadsheet sort-by-rating') !== false);
@@ -39,7 +39,7 @@ class LocationSearchTest extends TestCase
 
     public function testMapView()
     {
-        $response = $this->get('/location-search?keywords=&order_by=rating&location_tag_id=1&view=map');
+        $response = $this->get('/location/search?keywords=&order_by=rating&location_tag_id=1&view=map');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'Location Search Results') !== false);

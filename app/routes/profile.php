@@ -10,5 +10,5 @@ Route::group(['prefix' => 'profile-photo-upload'], function () {
 });
 
 Route::get('profile-photo', 'ProfilePhotoController@photo');
-Route::post('profile-photo-rotate', 'ProfilePhotoController@rotate');
-Route::get('profile-photo-delete', 'ProfilePhotoController@delete');
+Route::post('profile-photo/rotate', 'ProfilePhotoController@rotate');
+Route::get('profile-photo/delete', 'ProfilePhotoController@delete');

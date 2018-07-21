@@ -153,7 +153,7 @@ function rotateImage()
 		'data': {
 			'_token': token
 		},
-		'url': '/profile-photo-rotate',
+		'url': '/profile-photo/rotate',
 		'success': function() {
 			randomizePhotoURL().then(showRotateFeature);
 		}
