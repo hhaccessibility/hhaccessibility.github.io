@@ -13,7 +13,7 @@ class SuggestionTest extends TestCase
     public function testAddSuggestionAvailableOnLocationReport()
     {
         $this->signIn();
-        $response = $this->get('/location-report/00000000-0000-0000-0000-000000000001');
+        $response = $this->get('/location/report/00000000-0000-0000-0000-000000000001');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'suggestion-form') !== false);

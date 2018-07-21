@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="location-comments">
-		<h1><a href="/location-report/{{ $location->id }}">{{ $location->name }}</a></h1>
+		<h1><a href="/location/report/{{ $location->id }}">{{ $location->name }}</a></h1>
 			<div class="comments">
 				<h2>Comments</h2>
 				@if ( count($comments) === 0 )

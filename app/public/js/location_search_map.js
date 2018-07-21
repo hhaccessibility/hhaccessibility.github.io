@@ -78,7 +78,7 @@ function initMap() {
 		});
 
 		google.maps.event.addListener(locationMarker, 'click', function() {
-			window.location.href = '/location-report/' + location.id;
+			window.location.href = '/location/report/' + location.id;
 		});
 	});
 

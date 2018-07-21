@@ -22,7 +22,7 @@
 		@foreach ( $search_results as $search_result )
 		<div class="row">
 			<div class="col-xs-6">
-				<a href="/location-report/{{ $search_result->id }}">{{ $search_result->name }}</a>
+				<a href="/location/report/{{ $search_result->id }}">{{ $search_result->name }}</a>
 			</div>
 			<div class="col-xs-4">{{ $search_result->address }}</div>
 			<div class="col-xs-2">{{ round($search_result->distance * 1000) }}</div>
