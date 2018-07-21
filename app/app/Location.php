@@ -2,21 +2,23 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use DB;
 use Webpatser\Uuid\Uuid;
 
-class Location extends Eloquent
+class Location extends Model
 {
     protected $fillable = [
         'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
         'data_source_id', 'universal_rating', 'creator_user_id', 'ratings_cache'
     ];
+
     public $timestamps = false;
 
     protected $casts = [
         'ratings_cache' => 'array'
     ];
+
     protected $table = 'location';
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -57,7 +59,7 @@ class Location extends Eloquent
 
     public function comments()
     {
-        return $this->hasMany('App\ReviewComment');
+        return $this->hasMany(ReviewComment::class);
     }
 
     public function locationGroup()

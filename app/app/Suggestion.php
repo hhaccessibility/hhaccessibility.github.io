@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class Suggestion extends Eloquent
+class Suggestion extends Model
 {
     protected $table = 'suggestion';
     protected $fillable = [

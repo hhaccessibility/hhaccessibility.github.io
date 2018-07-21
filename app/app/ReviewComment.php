@@ -2,13 +2,13 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use DateTime;
 use DateTimeZone;
 use DateInterval;
 use Webpatser\Uuid\Uuid;
 
-class ReviewComment extends Eloquent
+class ReviewComment extends Model
 {
     protected $fillable = [
         'content', 'answered_by_user_id', 'question_category_id', 'location_id'

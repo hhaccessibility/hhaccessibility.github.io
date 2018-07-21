@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
-class UserRole extends Eloquent
+class UserRole extends Model
 {
     protected $fillable = [
         'user_id', 'role_id',

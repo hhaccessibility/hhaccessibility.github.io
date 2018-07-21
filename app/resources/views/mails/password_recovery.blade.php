@@ -188,7 +188,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
                 <!-- HEADLINE -->
                 <tr>
-                    <td bgcolor="#C6C2ED" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #949ea7; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
+                    <td bgcolor="#c1ceda" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #949ea7; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
                         <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more help?</h2>
                         <p style="margin: 0;"><a href="https://app.accesslocator.com/contact" target="_blank" style="color: #7c72dc;">Contact Us</a></p>
                     </td>

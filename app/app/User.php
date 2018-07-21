@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Webpatser\Uuid\Uuid;
 
-class User extends Eloquent
+class User extends Model
 {
     protected $fillable = [
         'email', 'password_hash', 'search_radius_km',

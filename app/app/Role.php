@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends Eloquent
+class Role extends Model
 {
     const GUEST = 1;
     const GENERAL_SEARCH_AND_REVIEW = 2;

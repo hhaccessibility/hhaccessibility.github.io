@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
-class ProfilePhotoUploadController extends Controller
+class ProfilePhotoController extends Controller
 {
 
     public function index(Request $request)
@@ -26,12 +26,12 @@ class ProfilePhotoUploadController extends Controller
     private static function getProfilePhotoPath()
     {
         $user = BaseUser::getDbUser();
-        return ProfilePhotoUploadController::getUploadDirectory() . 'user_' . $user->id . '.jpg';
+        return ProfilePhotoController::getUploadDirectory() . 'user_' . $user->id . '.jpg';
     }
     
     public static function hasProfilePhoto()
     {
-        return file_exists(ProfilePhotoUploadController::getProfilePhotoPath());
+        return file_exists(ProfilePhotoController::getProfilePhotoPath());
     }
     
     /**
@@ -60,7 +60,7 @@ class ProfilePhotoUploadController extends Controller
     public function photo()
     {
         if (BaseUser::isSignedIn()) {
-            $file_path = ProfilePhotoUploadController::getProfilePhotoPath();
+            $file_path = ProfilePhotoController::getProfilePhotoPath();
             return response()->file($file_path);
         } else {
             return redirect()->intended('signin');
@@ -88,7 +88,7 @@ class ProfilePhotoUploadController extends Controller
     
     public static function save($image)
     {
-        $destinationPath = ProfilePhotoUploadController::getUploadDirectory();
+        $destinationPath = ProfilePhotoController::getUploadDirectory();
 
         $user = BaseUser::getDbUser();
 
@@ -96,7 +96,7 @@ class ProfilePhotoUploadController extends Controller
 
         $width = imagesx($image);
         $height = imagesy($image);
-        $newDimensions = ProfilePhotoUploadController::getPhotoDimensionsFromUploadDimensions($width, $height);
+        $newDimensions = ProfilePhotoController::getPhotoDimensionsFromUploadDimensions($width, $height);
         
         // png images can be transparent and the transparent areas are defaulted to black.
         // We want the background to default to white.
@@ -129,7 +129,7 @@ class ProfilePhotoUploadController extends Controller
             $content = file_get_contents($temp_filename);
             $new_image = imagecreatefromstring($content);
 
-            return ProfilePhotoUploadController::save($new_image);
+            return ProfilePhotoController::save($new_image);
         } else {
             return redirect()->intended('signin');
         }
@@ -137,7 +137,7 @@ class ProfilePhotoUploadController extends Controller
 
     public function delete()
     {
-        $file = ProfilePhotoUploadController::getProfilePhotoPath();
+        $file = ProfilePhotoController::getProfilePhotoPath();
         if (!unlink($file)) {
             echo ("Error deleting $file");
         } else {
@@ -148,12 +148,12 @@ class ProfilePhotoUploadController extends Controller
     // Rotate Profile Photo
     public function rotate()
     {
-        $current_photo = ProfilePhotoUploadController::getProfilePhotoPath();
+        $current_photo = ProfilePhotoController::getProfilePhotoPath();
 
         $content = file_get_contents($current_photo);
         $image = imagecreatefromstring($content);
 
         $new_image = imagerotate($image, -90, 0);
-        return ProfilePhotoUploadController::save($new_image);
+        return ProfilePhotoController::save($new_image);
     }
 }

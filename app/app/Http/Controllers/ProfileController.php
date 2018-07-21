@@ -5,7 +5,7 @@ use App\QuestionCategory;
 use App\Country;
 use App\AnswerRepository;
 use App\Region;
-use App\Http\Controllers\ProfilePhotoUploadController;
+use App\Http\Controllers\ProfilePhotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -41,7 +41,7 @@ class ProfileController extends \Illuminate\Routing\Controller
             'address_default' => BaseUser::getDefaultAddress(),
             'countries' => $countries,
             'required_questions' => $required_questions,
-            'has_profile_photo' => ProfilePhotoUploadController::hasProfilePhoto(),
+            'has_profile_photo' => ProfilePhotoController::hasProfilePhoto(),
             'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
             'num_locations_added_by_me' => $num_locations_added_by_me,
             'is_internal_user' => BaseUser::isInternal(),

@@ -73,7 +73,7 @@ function saveSearchLocation(address, latitude, longitude)
 
 	return $.ajax({
 		type: 'post',
-		url: '/save-user-location',
+		url: '/user/location',
 		data: {
 			'_token': token,
 			'latitude' : latitude,
@@ -251,7 +251,7 @@ function showMessage(html, extra_classes) {
 			'<div class="content">'	+ html +
 			'</div>' +
 			'<div class="modal-footer">' +
-				'<button class="btn btn-primary ok">OK</button' +
+				'<button class="btn btn-primary ok">OK</button>' +
 			'</div>' +
 		'</div>';
 	var $body = $('body');
