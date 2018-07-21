@@ -33,7 +33,7 @@
 						
                         <div class="col-xs-12">
 							<div class="remember-password">
-								<a class="pull-right" href="/password-recovery"> Forgot Password? </a>
+								<a class="pull-right" href="/user/password-recovery"> Forgot Password? </a>
 							</div>
                         </div>
                                                 

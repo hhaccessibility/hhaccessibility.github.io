@@ -4,7 +4,7 @@
 	<h1>Change Password</h1>
 
 	<div class="password-change-form">
-		<form method="post" action="/password-recovery/reset-password">
+		<form method="post" action="/user/password-recovery/reset-password">
 			<input type="hidden" name="user_email" value="{{ $user_email }}">
 			<input type="hidden" name="password_recovery_token" value="{{ $password_recovery_token }}">
 			{!! csrf_field() !!}

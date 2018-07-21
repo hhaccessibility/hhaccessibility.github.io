@@ -43,7 +43,7 @@ class ChangePasswordController extends Controller
                 }
             }
             if ($failing) {
-                return Redirect::to('change-password')->withErrors($validator)->withInput();
+                return Redirect::to('/user/change-password')->withErrors($validator)->withInput();
             } else {
                 $user->password_hash = User::generateSaltedHash($request->input('new_password'));
                 $user->save();

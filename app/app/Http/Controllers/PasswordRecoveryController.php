@@ -26,7 +26,7 @@ class PasswordRecoveryController extends Controller
         );
         $validator = Validator::make(Input::all(), $validation_rules);
         if ($validator->fails()) {
-            return Redirect::to('password-recovery')->withErrors($validator)->withInput();
+            return Redirect::to('/user/password-recovery')->withErrors($validator)->withInput();
             ;
         }
         $email = trim(Input::get('email'));
@@ -38,7 +38,7 @@ class PasswordRecoveryController extends Controller
 
         //Generate Password Recovery Link
         $token = str_random(60);
-        $recoveryLink = config('app.url')."/password-recovery/".$matching_user->email."/".$token;
+        $recoveryLink = config('app.url')."/user/password-recovery/".$matching_user->email."/".$token;
         $matching_user->password_recovery_token = $token;
         $matching_user->save();
 

@@ -4,7 +4,7 @@
 	<h1>Change Password</h1>
 	
 	<div class="password-change-form">
-		<form method="post" action="/change-password">
+		<form method="post" action="/user/change-password">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))					
 			<div class="row">
