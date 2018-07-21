@@ -113,7 +113,7 @@ class LocationRatingController extends Controller
     {
         if (!BaseUser::isSignedIn()) {
             $message = "You+must+sign+in+to+rate+a+location";
-            $afterSignInRedirect = "/location-rating/$location_id";
+            $afterSignInRedirect = "/location/rating/$location_id";
             return redirect()->intended("/signin?message=$message&after_signin_redirect=$afterSignInRedirect");
         }
         $uses_screen_reader = BaseUser::getDbUser()->uses_screen_reader;

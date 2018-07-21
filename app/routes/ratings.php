@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'location-rating'], function () {
+Route::group(['prefix' => 'location/rating'], function () {
     Route::get('/{location_id}', 'LocationRatingController@show');
     Route::get('/{location_id}/{question_category_id}', 'LocationRatingController@show');
     Route::put('/answer', 'LocationRatingController@setAnswer');

@@ -22,10 +22,10 @@
 		@foreach ($locations as $location)
 			<div class="row">
 				<div class="col-xs-4">
-					<a href="/location-rating/{{ $location->id }}">{{ $location->name }}</a>
+					<a href="/location/rating/{{ $location->id }}">{{ $location->name }}</a>
 				</div>
 				<div class="col-xs-4">
-					<a href="/location-rating/{{ $location->id }}">{{ $location->address }}</a>
+					<a href="/location/rating/{{ $location->id }}">{{ $location->address }}</a>
 				</div>
 				<div class="col-xs-4">
 					<div class="pull-right">

@@ -63,7 +63,7 @@
 	>{{ $answer_repository->getComment() }}</textarea>
 	<div class="pull-right">
 		@if ( $next_question_category_id )
-		<a class="clean" href="/location-rating/{{ $location->id }}/{{ $next_question_category_id }}">Next</a>
+		<a class="clean" href="/location/rating/{{ $location->id }}/{{ $next_question_category_id }}">Next</a>
 		@else
 		@include('pages.location_rating.submit',
 					array(
