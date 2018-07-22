@@ -63,7 +63,7 @@
 					<div class="question-category">
 						<h4 class="text-center">Not Rated Yet</h4>
 						
-						<p><a href="/location-rating/{{ $location->id }}/6">Be the first to rate this location.</a></p>
+						<p><a href="/location/rating/{{ $location->id }}/6">Be the first to rate this location.</a></p>
 					</div>
 				</div>
 			@else

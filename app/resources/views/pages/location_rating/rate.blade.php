@@ -27,7 +27,7 @@
 				array(
 					'location_id' => $location->id,
 					'question_categories' => $question_categories,
-					'base_url' => '/location-rating/'
+					'base_url' => '/location/rating/'
 				))
 			<div class="submit">
 				@include('pages.location_rating.submit',
@@ -37,13 +37,13 @@
 			</div>
 		</div>
 		<div class="rate">
-			<h1><a href="/location-report/{{ $location->id }}">{{ $location->name }}</a></h1>
+			<h1><a href="/location/report/{{ $location->id }}">{{ $location->name }}</a></h1>
 				@include('includes.rate_report_toggle',
 					array(
 						'location_id' => $location->id,
 						'question_categories' => $question_categories,
 						'question_category_id' => $question_category->id,
-						'base_url' => '/location-rating/',
+						'base_url' => '/location/rating/',
 						'is_reporting' => false
 					))
 			@if ( $question_category === null )

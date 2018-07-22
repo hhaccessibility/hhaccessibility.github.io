@@ -41,7 +41,7 @@
 		<div class="data">
 		@foreach ( $locations as $key => $value )
 			<div class="location">
-				<a href="/location-report/{{ $value->id }}">
+				<a href="/location/report/{{ $value->id }}">
 					<div class="row">
 						<div class="col-xs-6">
 							{{ $value->name }}
