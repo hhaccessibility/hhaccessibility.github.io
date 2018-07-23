@@ -244,8 +244,14 @@ class LocationSearchController extends Controller
             BaseUser::setAddress(Input::get('address'));
         }
 
+        $view = 'map';
+
         if (BaseUser::isSignedIn()) {
             $ratingSystem = 'personal';
+            $user = BaseUser::getDbUser();
+            if ($user->uses_screen_reader){
+                $view = 'table';
+            }
         } else {
             $ratingSystem = 'universal';
         }
@@ -262,7 +268,6 @@ class LocationSearchController extends Controller
                 $order_by_field_name = $field_name;
             }
         }
-        $view = 'table';
 
         if (Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' )) {
             $view = Input::get('view');
