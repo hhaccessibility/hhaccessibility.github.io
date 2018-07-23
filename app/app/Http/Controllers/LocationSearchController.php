@@ -262,7 +262,7 @@ class LocationSearchController extends Controller
                 $order_by_field_name = $field_name;
             }
         }
-        $view = 'table';
+        $view = 'map';
 
         if (Input::has('view') && ( Input::get('view') === 'map' || Input::get('view') === 'table' )) {
             $view = Input::get('view');
