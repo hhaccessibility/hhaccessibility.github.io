@@ -107,8 +107,14 @@ def decompose_address(toilet_element):
 		'phone_number': phone_number
 	}
 
-def get_yelp_rating(toilet_element):
-	img_element = toilet_element.cssselect('img.yelprating')[0]
+def get_yelp_rating_on_index_page(toilet_element):
+	return get_yelp_rating(toilet_element, 'img.yelprating', 'span.reviews')
+
+def get_yelp_rating_on_details_page(container_element):
+	return get_yelp_rating(container_element, '.rating > span > img', '.review-count')
+
+def get_yelp_rating(toilet_element, image_selector, rating_count_selector):
+	img_element = toilet_element.cssselect(image_selector)[0]
 	src = img_element.get('src') # ie. ''
 	# simplify the value.
 	if '/' in src:
@@ -130,10 +136,21 @@ def get_yelp_rating(toilet_element):
 		rating = result
 
 	num_ratings = 0
-	num_ratings_text = get_text_from_css(toilet_element, 'span.reviews')
+	num_ratings_text = get_text_from_css(toilet_element, rating_count_selector)
 	if num_ratings_text:
-		index = num_ratings_text.index(' ')
-		num_ratings_text = num_ratings_text[:index].strip()
+		tokens = num_ratings_text.split(' ')
+		number_regex = re.compile('^[0-9]{1,}$')
+		found = False
+		for token in tokens:
+			if number_regex.match(token) is not None:
+				num_ratings_text = token.strip()
+				found = True
+				break
+
+		if not found:
+			print 'integer pattern not found in "' + num_ratings_text + '"'
+			quit()
+
 		num_ratings = int(num_ratings_text)
 
 	return {
@@ -160,13 +177,24 @@ def get_ableroad_rating(toilet_element):
 		'num_ratings': num_ratings
 	}
 
-def get_thumbnail_url(toilet_element):
-	img_element = toilet_element.cssselect('.media-avatar img')[0]
+def get_image_src(ancestor_element, cssselector):
+	img_element = ancestor_element.cssselect(cssselector)[0]
 	return img_element.get('src')
+
+def get_thumbnail_url_on_index_page(toilet_element):
+	return get_image_src(toilet_element, '.media-avatar img')
+
+def get_thumbnail_url_on_details_page(container_element):
+	return get_image_src(container_element, '.bigbusimage')
 
 def get_details_url(toilet_element):
 	title_element = toilet_element.cssselect('a.titlelink')[0]
 	return sanitize_chars(title_element.get('href'))
+
+def get_categories(toilet_element):
+	categories = get_text_from_css(toilet_element, '.category')
+	categories = remove_label(categories)
+	return categories
 
 def scrape_index_page_toilets(html_filename):
 	"""
@@ -191,18 +219,17 @@ def scrape_index_page_toilets(html_filename):
 				name = name[name.index('.') + 1:].strip()
 
 			address_info = decompose_address(toilet_element)
-			categories = get_text_from_css(toilet_element, '.category')
-			categories = remove_label(categories)
+			categories = get_categories(toilet_element)
 			yelp_review_start = get_text_from_css(toilet_element, '.yelpreviews').strip()
 			if yelp_review_start.endswith('- Read More'):
 				yelp_review_start = yelp_review_start[:-len('- Read More') - 1].strip()
 
 			neighbourhood = remove_label(get_text_from_css(toilet_element, '.neighborhood'))
 			distance = remove_label(get_text_from_css(toilet_element, '.itemdistance'))
-			yelp_rating = get_yelp_rating(toilet_element)
+			yelp_rating = get_yelp_rating_on_index_page(toilet_element)
 			ableroad_rating = get_ableroad_rating(toilet_element)
 			ableroad_review_text = get_text_from_css(toilet_element, '.ablereviewtext')
-			thumbnail_url = get_thumbnail_url(toilet_element)
+			thumbnail_url = get_thumbnail_url_on_index_page(toilet_element)
 			details_url = get_details_url(toilet_element)
 
 			if not address_info['neighbourhood']:
@@ -226,16 +253,62 @@ def scrape_toilet_details(html_filename):
 		content = html_file.read()
 		# parse the HTML.
 		tree = html.fromstring(content)
-		# select the toilet elements.
-		print 'can not scrape toilet details yet... work in progress'
-		return set([])
-		return set([toilet])
+		longitude = 0
+		latitude = 0
+		coordinates_regex = re.compile(r'loadDetailMap\s*\(\s*\-?\d+(\.\d+)?\s*') # [\\s]*[-]?[\\d]+[\\s]*,[\\s]*[-]?[\\d]+\\)')
+		index_result = coordinates_regex.search(content)
+		if index_result:
+			index = index_result.start() + len('loadDetailMap')
+			print 'index = ' + str(index)
+			index2 = content.index(');', index)
+			coordinates_substring = content[index : index2].strip()
+			if coordinates_substring.startswith('('):
+				coordinates_substring = coordinates_substring[1:]
+
+			print 'Got coordinates_substring: ' + coordinates_substring
+			coordinates = coordinates_substring.split(',')
+			try:
+				longitude = float(coordinates[0].strip())
+				latitude = float(coordinates[1].strip())
+			except ValueError, e:
+				print 'Error while trying to get coordinates from coordinates_substring: ' + coordinates_substring
+				print str(e)
+		else:
+			print 'Unable to find loadDetailMap in content'
+
+		container = tree.cssselect('#container')[0]
+		name = get_text_from_css(container, '#restitle > h1')
+		if name.startswith('Reviews on "'):
+			name = name[len('Reviews on "'):]
+		if name.endswith('"'):
+			name = name[:-1]
+
+		name = name.strip()
+		categories = get_categories(container)
+		address_info = decompose_address(container)
+		thumbnail_url = get_thumbnail_url_on_details_page(container)
+		yelp_rating = get_yelp_rating_on_details_page(container)
+		# FIXME: get the ableroad_rating information from container.
+		ableroad_rating = {
+			'num_ratings': 0,
+			'average_rating': 0
+		}
+		ableroad_review_text = ''
+		distance = 0
+		details_url = ''
+		yelp_review_start = get_text_from_css(container, '.yelpdetails')
+		toilet = Toilet(name, address_info['street_address'], address_info['neighbourhood'],
+				address_info['locality'], address_info['state'], address_info['zipcode'],
+				address_info['phone_number'], distance, categories, yelp_rating['average_rating'],
+				yelp_rating['num_ratings'], yelp_review_start,
+				ableroad_rating['average_rating'], ableroad_rating['num_ratings'], ableroad_review_text,
+				thumbnail_url, details_url)
+		toilet.latitude = latitude
+		toilet.longitude = longitude
+		return toilet
 
 def scrape_toilets(html_filename):
-	if 'details_' in html_filename:
-		return scrape_toilet_details(html_filename)
-	else:
-		return scrape_index_page_toilets(html_filename)
+	return scrape_index_page_toilets(html_filename)
 
 def scrape_all_index_html(print_progress):
 	"""
@@ -259,13 +332,33 @@ def scrape_all_html(print_progress):
 	"""
 	result = set([])
 	count = 0
-	# loop through all files with the .html file extension.
-	for filename in os.listdir(output_dir):
-		if filename.endswith(".html"):
-			if print_progress and (count % 10 == 0):
-				print 'Processing file ' + str(count) + ': ' + filename
-			count = count + 1
-			result |= set(scrape_toilets(output_dir + '/' + filename))
+	for filename_prefix in ['page_', 'details_']:
+		# loop through all files with the .html file extension.
+		for filename in os.listdir(output_dir):
+			if filename.endswith(".html") and filename.startswith(filename_prefix):
+				if print_progress and (count % 10 == 0):
+					print 'Processing file ' + str(count) + ': ' + filename
+				count = count + 1
+				full_filename = output_dir + '/' + filename
+				if filename_prefix == 'details_':
+					toilet = scrape_toilet_details(full_filename)
+					# find matching toilet in set.
+					matching_toilets = set([toilet]) & result
+					if matching_toilets:
+						print 'got a matching toilet for ' + toilet.name
+						matching_toilet = list(matching_toilets)[0]
+						result.remove(matching_toilet)
+						# merge the details into the set.
+						extra_properties = ['latitude', 'longitude', 'yelp_review_start']
+						for prop in extra_properties:
+							setattr(matching_toilet, prop, getattr(toilet, prop))
+					else:
+						matching_toilet = toilet
+						print 'Unable to get matching toilet for ' + toilet.name
+
+					result |= set([matching_toilet])
+				else:
+					result |= set(scrape_toilets(output_dir + '/' + filename))
 
 	return result
 
