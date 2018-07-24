@@ -37,7 +37,7 @@
 					</div>
 					<div class="col-md-6 col-xs-6">
 					@if ( $location->is_safe_to_delete )
-						<a href="/delete-my-location/{{ $location->id }}">Delete</a>
+						<a href="/location/management/delete/{{ $location->id }}">Delete</a>
 					@else
 						Unsafe
 					@endif
