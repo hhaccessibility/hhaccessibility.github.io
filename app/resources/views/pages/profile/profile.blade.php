@@ -224,7 +224,7 @@
 			<div class="box rewards">
 				<div>
 					<a class="btn btn-default" href="/reviewed-locations">My Reviews({{ $num_reviews }})</a>
-					<a class="btn btn-default" href="/locations-added-by-me">My Locations({{ $num_locations_added_by_me }})</a>
+					<a class="btn btn-default" href="/location/management/my-locations">My Locations({{ $num_locations_added_by_me }})</a>
 				</div>
 			</div>
 

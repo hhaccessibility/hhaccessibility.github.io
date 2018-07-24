@@ -76,6 +76,10 @@
 			background-image: url('../images/vertical_arrows.png');
 		}
 	}
+
+	.no-locations-found {
+		text-align: center;
+	}
 }
 
 @media screen and (max-width: 220px) {
@@ -221,6 +225,16 @@
 		.location-search {
 			.percentage {
 				display: none;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	html > body {
+		.location-search {
+			.no-locations-found {
+				margin-top: 50px;
 			}
 		}
 	}

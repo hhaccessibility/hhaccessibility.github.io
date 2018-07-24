@@ -2,11 +2,11 @@
 
 Route::get('location/search', 'LocationSearchController@search');
 Route::get('location/management/nearby/{longitude}/{latitude}', 'LocationManagementController@getLocationsNear');
-Route::get('delete-my-location/{location_id}', 'LocationManagementController@deleteMyLocation');
-Route::get('location-modify/{location_id}', 'LocationManagementController@show');
-Route::get('add-location', 'LocationManagementController@addNewLocation');
-Route::post('add-location', 'LocationManagementController@addNewLocationSave');
-Route::get('locations-added-by-me', 'LocationManagementController@showCurrentUserLocations');
+Route::get('location/management/delete/{location_id}', 'LocationManagementController@deleteMyLocation');
+Route::get('location/management/modify/{location_id}', 'LocationManagementController@show');
+Route::get('location/management/add', 'LocationManagementController@addNewLocation');
+Route::post('location/management/add', 'LocationManagementController@addNewLocationSave');
+Route::get('location/management/my-locations', 'LocationManagementController@showCurrentUserLocations');
 Route::get(
     'location-suggestions-for-name/{location_name}',
     'LocationManagementController@getLocationSuggestionsForLocationName'
@@ -24,3 +24,5 @@ Route::get(
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');
 Route::post('api/set-search-radius', 'LocationSearchController@setSearchRadius');
 Route::post('api/add-suggestion', 'SuggestionController@addSuggestion');
+Route::get('location/management/edit/{location_id}', 'LocationManagementController@editLocation');
+Route::post('location/management/edit', 'LocationManagementController@editLocationSave');

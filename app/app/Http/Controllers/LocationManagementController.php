@@ -3,6 +3,7 @@
 use App\Location;
 use App\BaseUser;
 use App\User;
+use App\Role;
 use App\Libraries\Gis;
 use App\Libraries\StringMatcher;
 use App\Libraries\StringMatcherRepository;
@@ -89,12 +90,37 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         return $matched_group;
     }
 
-    private function getLocationAddViewData()
+    private function getLocationAddViewData($location_id = '')
     {
         $user = BaseUser::getDbUser();
         $location_groups = DB::table('location_group')->orderBy('name')->get();
         $location_tags = DB::table('location_tag')->orderBy('name')->get();
-        $location = new Location();
+        if (!empty($location_id)) {
+            $location=location::find($location_id);
+            $location_tag_location_ids = DB::table('location_location_tag')
+                               ->where('location_id', '=', $location_id)
+                               ->get(array('location_tag_id'))->toArray();
+           
+            $array_location_ids = array_map(function ($item) {
+                return (array)$item;
+            }, $location_tag_location_ids);
+
+            foreach ($array_location_ids as $array_location_id) {
+                $location_location_tag_ids[] = $array_location_id['location_tag_id'];
+            }
+           
+            if (!isset($location_location_tag_ids)|| $location_location_tag_ids === null) {
+                $location_location_tag_ids = [];
+            }
+            foreach ($location_tags as $location_tag) {
+                $location_tag->is_selected = in_array($location_tag->id, $location_location_tag_ids);
+            }
+        } else {
+            $location = new Location();
+            foreach ($location_tags as $location_tag) {
+                $location_tag->is_selected = false;
+            }
+        }
         $location->latitude = $user->latitude;
         $location->longitude = $user->longitude;
         if ($location->latitude === null) {
@@ -102,9 +128,6 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         }
         if ($location->longitude === null) {
             $location->longitude = BaseUser::getLongitude();
-        }
-        foreach ($location_tags as $location_tag) {
-            $location_tag->is_selected = false;
         }
         return [
             'location' => $location,
@@ -121,9 +144,9 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         $view_data['locations'] = json_encode(
             $this->getLocationsNear($view_data['location']->longitude, $view_data['location']->latitude)
         );
-        return view('pages.location_management.add_new_location', $view_data);
+        return view('pages.location_management.add_or_edit_location', $view_data);
     }
-    
+
     private static function isDuplicateLocation($location)
     {
         $maxRadius = 50; // 50 meters
@@ -135,6 +158,16 @@ class LocationManagementController extends \Illuminate\Routing\Controller
             $locationQuery
         );
         return count($locations) !== 0;
+    }
+
+    public function editLocation($location_id)
+    {
+        $view_data = $this->getLocationAddViewData($location_id);
+        $view_data['location'] = DB::table('location')->where("id", '=', trim($location_id))->first();
+        $view_data['action'] = 'edit';
+        $view_data['locations'] = json_encode($this->
+            getLocationsNear($view_data['location']->longitude, $view_data['location']->latitude));
+        return view('pages.location_management.add_or_edit_location', $view_data);
     }
 
     public function addNewLocationSave(Request $request)
@@ -195,7 +228,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         }
         if ($custom_validation_failed) {
             $view_data['errors'] = $validator->errors();
-            return view('pages.location_management.add_new_location', $view_data);
+            return view('pages.location_management.add_or_edit_location', $view_data);
         }
 
         $location->creator_user_id = $user->id;
@@ -205,18 +238,26 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         // Delete records from child tables.
         DB::transaction(function () use ($location, $view_data) {
             $location->save();
-            foreach ($view_data['location_tags'] as $location_tag) {
-                if ($location_tag->is_selected) {
-                    DB::table('location_location_tag')->insert(
-                        ['location_id' => $location->id,
-                        'location_tag_id' => $location_tag->id,
-                        'id' => Uuid::generate(4)->string]
-                    );
-                }
-            }
+            $this->saveLocationLocationTag($location, $view_data);
         });
 
         return view('pages.location_management.location_created', $view_data);
+    }
+
+    public function saveLocationLocationTag($location, $view_data, $action = '')
+    {
+        if (!empty($action) && $action == 'edit') {
+            DB::table('location_location_tag')->where('location_id', '=', $location->id)->delete();
+        }
+        foreach ($view_data['location_tags'] as $location_tag) {
+            if ($location_tag->is_selected) {
+                DB::table('location_location_tag')->insert(
+                    ['location_id' => $location->id,
+                    'location_tag_id' => $location_tag->id,
+                    'id' => Uuid::generate(4)->string]
+                );
+            }
+        }
     }
 
     public function showCurrentUserLocations()
@@ -250,13 +291,84 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         foreach ($locations as $location) {
             $location->is_safe_to_delete = in_array($location->id, $location_ids);
         }
-
         $view_data = [
             'locations' => $locations
         ];
+
         return view('pages.location_management.locations_added_by_me', $view_data);
     }
 
+    public function editLocationSave(Request $request)
+    {
+        $user = BaseUser::getDbUser();
+        // perform some validation.
+        $validation_rules = array(
+            'location_id'           => 'required|string',
+            'name'                  => 'required|between:2,255','phone_number'          => 'max:50',
+            'address'               => 'max:255|required',
+            'external_web_url'      => 'max:255|url',
+            'location_tags'         => 'array',
+            'location_tags.*'       => 'int|required'
+            // Every array element is an integer.
+        );
+        $validator = Validator::make(Input::all(), $validation_rules);
+        $fields = ['name','address', 'phone_number',
+            'external_web_url', 'location_group_id'];
+        $input_edit_id = Input::get('location_id');
+        $view_data = $this->getLocationAddViewData($input_edit_id);
+        foreach ($fields as $fieldName) {
+            if (Input::has($fieldName)) {
+                $view_data['location']->{$fieldName} = Input::get($fieldName);
+            } else {
+                $view_data['location']->{$fieldName} = '';
+            }
+        }
+        $location_group_id = Input::get('location_group_id');
+        if (!is_numeric($location_group_id)) {
+            $location_group_id = null; // convert things like '-' to null.
+        } else {
+            $location_group_id = intval($location_group_id);
+        }
+        $location = $view_data['location'];
+        if (!$user->hasRole(Role::INTERNAL) && $user->id !== $location->creator_user_id) {
+            throw new AuthenticationException('You are not authorized to edit this location');
+        }
+        $location->location_group_id = $location_group_id;
+        $custom_validation_failed = false;
+        $selected_location_tag_ids = Input::get('location_tags');
+        if ($selected_location_tag_ids === null) {
+            $selected_location_tag_ids = [];
+        }
+
+        foreach ($view_data['location_tags'] as $location_tag) {
+            $location_tag->is_selected = in_array($location_tag->id, $selected_location_tag_ids);
+        }
+        if (!$validator->fails()) {
+            if ($location->phone_number !== '' && preg_match_all("/[0-9]/", $location->phone_number) < 9) {
+                $validator->errors()->add('phone_number', 'At least 9 digits needed in phone number');
+                $custom_validation_failed = true;
+            } elseif (strlen(trim($location->address)) < 5) {
+                $validator->errors()->add('address', 'Address must be at least 5 characters long');
+                $custom_validation_failed = true;
+            }
+        } else {
+            $custom_validation_failed = true;
+        }
+        if ($custom_validation_failed) {
+            $view_data['errors'] = $validator->errors();
+            return view('pages.location_management.add_or_edit_location', $view_data);
+        }
+
+        // Send the information to the database in a single transaction.
+        // Delete records from child tables.
+        DB::transaction(function () use ($location, $view_data) {
+            $location->save();
+            $this->saveLocationLocationTag($location, $view_data, 'edit');
+        });
+
+        return Redirect('/location/report/' . $location->id);
+    }
+   
     public function deleteMyLocation(string $location_id)
     {
         $user = BaseUser::getDbUser();
@@ -283,7 +395,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
             DB::table('location_location_tag')->where('location_id', '=', $location->id)->delete();
             DB::table('location')->where('id', '=', $location->id)->delete();
         });
-        return Redirect('/locations-added-by-me');
+        return Redirect('/location/management/add');
     }
 
     public function show(string $location_id)

@@ -29,10 +29,17 @@
 		<div class="location-tags text-right">
 			<div class="location-tags">
 			@if ($base_user->isSignedIn())
-				<a class="location-tag" title="Update Information" href="#" data-toggle="modal" data-target="#suggestionModal">
-					<span class="name">Suggest Updates</span>
-					<span class="icon fa fa-bug"></span>
-				</a>
+				@if ($base_user->getDbUser()->id === $location->creator_user_id)
+					<a class="location-tag" title="Update Information" href="/location/management/edit/{{ $location->id }}">
+						<span class="name">Update</span>
+						<span class="icon fa fa-bug"></span>
+					</a>
+				@else
+					<a class="location-tag" title="Update Information" href="#" data-toggle="modal" data-target="#suggestionModal">
+						<span class="name">Suggest Updates</span>
+						<span class="icon fa fa-bug"></span>
+					</a>
+				@endif
 			@endif
 			@foreach ( $location->tags()->orderBy('name')->get() as $location_tag )
 				<a class="location-tag" title="{{ $location_tag->name }}" href="/location/search?location_tag_id={{ $location_tag->id }}">
