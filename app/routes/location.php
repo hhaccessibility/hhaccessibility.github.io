@@ -6,7 +6,7 @@ Route::get('delete-my-location/{location_id}', 'LocationManagementController@del
 Route::get('location-modify/{location_id}', 'LocationManagementController@show');
 Route::get('add-location', 'LocationManagementController@addNewLocation');
 Route::post('add-location', 'LocationManagementController@addNewLocationSave');
-Route::get('locations-added-by-me', 'LocationManagementController@showCurrentUserLocations');
+Route::get('location/management/my-locations', 'LocationManagementController@showCurrentUserLocations');
 Route::get(
     'location-suggestions-for-name/{location_name}',
     'LocationManagementController@getLocationSuggestionsForLocationName'
