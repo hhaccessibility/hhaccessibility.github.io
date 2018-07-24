@@ -36,6 +36,7 @@ class SigninApiTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'Add New Location') !== false);
+        $this->assertTrue(strpos($content, '>Add<') !== false);
     }
 
     private function checkLocationsAddedByMe()
