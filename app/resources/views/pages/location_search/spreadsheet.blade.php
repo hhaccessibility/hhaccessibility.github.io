@@ -18,10 +18,10 @@
 		<div class="no-locations-found">
 			<h3>No location found matching the specified keywords</h3>
 			@if ($base_user->isSignedIn())
-				<a class="btn btn-default" href="/add-location">Add New Location</a>
+				<a class="btn btn-default" href="/location/management/add">Add New Location</a>
 			@else
 				<h4>Add a new location by</h4>
-				<a class="btn btn-default" href="/signin?after_signin_redirect=/add-location">Signing In</a>
+				<a class="btn btn-default" href="/signin?after_signin_redirect=%2Flocation%2Fmanagement%2Fadd">Signing In</a>
 				<h4>or</h4>
 				<a class="btn btn-default" href="/signup">Signing Up</a>
 			@endif

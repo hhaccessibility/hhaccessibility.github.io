@@ -32,7 +32,7 @@ class SigninApiTest extends TestCase
 
     private function checkAddLocationFeature()
     {
-        $response = $this->get('/add-location');
+        $response = $this->get('/location/management/add');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'Add New Location') !== false);

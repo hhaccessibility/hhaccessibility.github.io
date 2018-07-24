@@ -32,7 +32,7 @@
 	<h1>Add New Location</h1>
 	@endif
 	@include('pages.validation_messages', array('errors'=>$errors, 'show_only_first' => true))
-	<form method="post" @if(!empty($action)) action="/location/management/edit"  @else action="/add-location"  @endif >
+	<form method="post" @if(!empty($action)) action="/location/management/edit"  @else action="/location/management/add"  @endif >
 		{!! csrf_field() !!}
 		<input type="hidden" id="latitude" name="latitude" value="{{ $location->latitude }}">
 		<input type="hidden" id="longitude" name="longitude" value="{{ $location->longitude }}">

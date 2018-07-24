@@ -4,8 +4,8 @@ Route::get('location/search', 'LocationSearchController@search');
 Route::get('location/management/nearby/{longitude}/{latitude}', 'LocationManagementController@getLocationsNear');
 Route::get('delete-my-location/{location_id}', 'LocationManagementController@deleteMyLocation');
 Route::get('location-modify/{location_id}', 'LocationManagementController@show');
-Route::get('add-location', 'LocationManagementController@addNewLocation');
-Route::post('add-location', 'LocationManagementController@addNewLocationSave');
+Route::get('location/management/add', 'LocationManagementController@addNewLocation');
+Route::post('location/management/add', 'LocationManagementController@addNewLocationSave');
 Route::get('location/management/my-locations', 'LocationManagementController@showCurrentUserLocations');
 Route::get(
     'location-suggestions-for-name/{location_name}',

@@ -6,9 +6,9 @@
 	</div>
 	@if ( count($locations) === 0 )
 		<p class="text-center">No locations have been added yet.  Add a location by clicking '+' below.</p>
-		<p class="add-create"><a href="/add-location" title="Add New Location"><em class="fa fa-plus-circle"></em></a></p>
+		<p class="add-create"><a href="/location/management/add" title="Add New Location"><em class="fa fa-plus-circle"></em></a></p>
 	@else
-		<p class="add-create"><a href="/add-location" title="Add New Location"><em class="fa fa-plus-circle"></em></a></p>
+		<p class="add-create"><a href="/location/management/add" title="Add New Location"><em class="fa fa-plus-circle"></em></a></p>
 	<div class="row column-titles">
 		<div class="col-xs-4">
 			<h3>Name</h3>

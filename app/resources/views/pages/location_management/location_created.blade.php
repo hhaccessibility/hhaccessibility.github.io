@@ -17,7 +17,7 @@
 					<a href="/location/rating/{{ $location->id }}">Rate the @if(empty($action)) new @endif location</a>
 				</li>
 				<li>
-					<a href="/add-location">Add Another Location</a>
+					<a href="/location/management/add">Add Another Location</a>
 				</li>
 			</ul>
 		</nav>

@@ -395,7 +395,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
             DB::table('location_location_tag')->where('location_id', '=', $location->id)->delete();
             DB::table('location')->where('id', '=', $location->id)->delete();
         });
-        return Redirect('/locations-added-by-me');
+        return Redirect('/location/management/add');
     }
 
     public function show(string $location_id)
