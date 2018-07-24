@@ -21,8 +21,9 @@ class PasswordRecoveryController extends Controller
     public function sendEmail(Request $request)
     {
         $validation_rules = array(
-            'email'                 => 'required|email',
-            'g-recaptcha-response'  => 'required|captcha'
+            'email'                 => 'required|email'
+            //UNDO THIS LATER
+            //,'g-recaptcha-response'  => 'required|captcha'
         );
         $validator = Validator::make(Input::all(), $validation_rules);
         if ($validator->fails()) {
@@ -38,6 +39,7 @@ class PasswordRecoveryController extends Controller
 
         //Generate Password Recovery Link
         $token = str_random(60);
+        echo $token;
         $recoveryLink = config('app.url')."/user/password-recovery/".$matching_user->email."/".$token;
         $matching_user->password_recovery_token = $token;
         $matching_user->save();
@@ -83,6 +85,7 @@ class PasswordRecoveryController extends Controller
                 return Redirect::back()->withErrors($validator)->withInput();
             } else {
                 $user->password_hash = User::generateSaltedHash($request->input('new_password'));
+                $user->email_verification_time = date('Y-m-d H:i:s');
                 $user->save();
                 return Redirect::to('/signin?message=Password+Updated!');
             }
