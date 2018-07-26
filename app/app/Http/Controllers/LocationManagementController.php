@@ -291,7 +291,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         foreach ($locations as $location) {
             $location->is_safe_to_delete = in_array($location->id, $location_ids);
             $val = DB::table('suggestion')
-                                    ->where('location_id','=',$location->id)
+                                    ->where('location_id', '=', $location->id)
                                     ->get()
                                     ->count();
             $location->suggestions = $val;

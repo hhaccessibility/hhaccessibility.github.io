@@ -13,7 +13,6 @@ use App\BaseUser;
 use App\Suggestion;
 use DB;
 
-
 class SuggestionController extends Controller
 {
     public function addSuggestion(Request $request)
@@ -82,16 +81,16 @@ class SuggestionController extends Controller
 
     public function showSuggestionList(string $location_id)
     {
-        $location_name = DB::table('location')->where('id','=',$location_id)->get(['name'])[0]->name;
+        $location_name = DB::table('location')->where('id', '=', $location_id)->get(['name'])[0]->name;
         $suggestions = DB::table('suggestion')
-                        ->where('location_id','=',$location_id)
+                        ->where('location_id', '=', $location_id)
                         ->get([
                             'id',
                             'user_id',
                             'when_generated']);
-        foreach($suggestions as $suggestion){
+        foreach ($suggestions as $suggestion) {
             $name = DB::table('user')
-                                ->where('id','=',$suggestion->user_id)
+                                ->where('id', '=', $suggestion->user_id)
                                 ->get(['first_name','last_name'])[0];
             $suggestion->user_name = $name->first_name." ".$name->last_name;
         }
@@ -104,12 +103,12 @@ class SuggestionController extends Controller
 
     public function showSuggestionDetail(string $suggestion_id)
     {
-        $suggestion = DB::table('suggestion')->where('id','=',$suggestion_id)->get()[0];
+        $suggestion = DB::table('suggestion')->where('id', '=', $suggestion_id)->get()[0];
         $location = DB::table('location')
-                            ->where('id','=',$suggestion->location_id)
+                            ->where('id', '=', $suggestion->location_id)
                             ->get(['name','external_web_url','address','phone_number'])[0];
         $name = DB::table('user')
-                            ->where('id','=',$suggestion->user_id)
+                            ->where('id', '=', $suggestion->user_id)
                             ->get(['first_name','last_name'])[0];
         $user_name = $name->first_name." ".$name->last_name;
         $view_data = [
@@ -120,5 +119,4 @@ class SuggestionController extends Controller
         ];
         return view('pages.location_management.suggestion_detail', $view_data);
     }
-
 }
