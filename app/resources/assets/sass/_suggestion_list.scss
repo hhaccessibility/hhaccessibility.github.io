@@ -1,26 +1,26 @@
 @import "_placeholders.scss";
 
-.suggestion-list{
+.suggestion-list {
     @extend %page-base;
     @extend %alternative-row-data;
 
-    h1{
+    h1 {
         margin-top: 0;
     }
 
-    a{
+    a {
         text-decoration: none !important;
     }
 
-    .list-group-item{
+    .list-group-item {
         padding-right: 20px;
     }
 
-    .username{
+    .username {
         padding-left: 5px;
     }
 
-    .when_generated{
+    .when_generated {
         float: right;
     }
     
