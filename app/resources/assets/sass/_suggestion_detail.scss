@@ -1,0 +1,28 @@
+@import "_placeholders.scss";
+
+.suggestion-detail{
+    @extend %page-base;
+    @extend %alternative-row-data;
+
+    input[type="text"]{
+        margin-bottom: 10px;
+    }
+
+    .alert-hide{
+        display: none;
+    }
+
+    a{
+        text-decoration: none !important;
+    }
+
+    .row{
+        margin: 0px;
+    }
+
+    .form, .form-group{
+        padding: 10px;
+        border: 1px solid rgba($color: #000000, $alpha: 0.5);
+        border-radius: 10px;
+    }
+}
