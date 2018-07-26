@@ -2,7 +2,7 @@
 @section('content')
 <div class="suggestion-list">
 	<div class="text-center">
-		<h1><a href="/location/management/my-locations">Suggesstions for {{ $name }}</a></h1>
+		<h1><a href="/location/management/my-locations">Suggestions for {{ $name }}</a></h1>
 	</div>
 	<div class="list-group">
 		@foreach($suggestions as $suggestion)
