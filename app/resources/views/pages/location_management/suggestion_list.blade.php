@@ -4,6 +4,9 @@
 	<div class="text-center">
 		<h1><a href="/location/management/my-locations">Suggestions for {{ $name }}</a></h1>
 	</div>
+	@if ( count($suggestions) === 0 )
+		<p class="text-center">There is no suggestions about this location.</p>
+	@else
 	<div class="list-group">
 		@foreach($suggestions as $suggestion)
 		<a href="/suggestion-detail/{{ $suggestion->id }}" class="list-group-item" title="Click to check details">
@@ -12,6 +15,7 @@
 		</a>
 		@endforeach
 	</div>
+	@endif
 	
 </div>
 @stop
