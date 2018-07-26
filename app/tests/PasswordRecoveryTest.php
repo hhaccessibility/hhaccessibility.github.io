@@ -7,7 +7,7 @@ class PasswordRecoveryTest extends TestCase
         $response = $this->get('/user/password-recovery');
         $this->assertEquals(200, $response->getStatusCode());
         $content = $response->getContent();
-        $this->assertTrue(strpos($content, 'Password Recovery') !== false);
+        $this->assertTrue(strpos($content, 'Account Recovery') !== false);
     }
 
     public function testPostInvalidEmailAddress()
