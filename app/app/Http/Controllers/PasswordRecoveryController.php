@@ -83,8 +83,8 @@ class PasswordRecoveryController extends Controller
                 return Redirect::back()->withErrors($validator)->withInput();
             } else {
                 $user->password_hash = User::generateSaltedHash($request->input('new_password'));
-                if ($user->email_verification_time == null){
-                    $user->email_verification_time = date('Y-m-d H:i:s');    
+                if ($user->email_verification_time == null) {
+                    $user->email_verification_time = date('Y-m-d H:i:s');
                 }
                 $user->save();
                 return Redirect::to('/signin?message=Password+Updated!');
