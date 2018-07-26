@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('head-content')
-    <script src="/js/suggestion_detail.js"></script>
     <script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
+    <script src="/js/suggestion_detail.js"></script>
 @stop
 @section('content')
 <div class="suggestion-detail">
