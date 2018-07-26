@@ -11,6 +11,8 @@ use DateTimeZone;
 use App\Location;
 use App\BaseUser;
 use App\Suggestion;
+use DB;
+
 
 class SuggestionController extends Controller
 {
@@ -77,4 +79,46 @@ class SuggestionController extends Controller
             'success' => 1
         ], 200);
     }
+
+    public function showSuggestionList(string $location_id)
+    {
+        $location_name = DB::table('location')->where('id','=',$location_id)->get(['name'])[0]->name;
+        $suggestions = DB::table('suggestion')
+                        ->where('location_id','=',$location_id)
+                        ->get([
+                            'id',
+                            'user_id',
+                            'when_generated']);
+        foreach($suggestions as $suggestion){
+            $name = DB::table('user')
+                                ->where('id','=',$suggestion->user_id)
+                                ->get(['first_name','last_name'])[0];
+            $suggestion->user_name = $name->first_name." ".$name->last_name;
+        }
+        $view_data = [
+            'suggestions' => $suggestions,
+            'name' => $location_name
+        ];
+        return view('pages.location_management.suggestion_list', $view_data);
+    }
+
+    public function showSuggestionDetail(string $suggestion_id)
+    {
+        $suggestion = DB::table('suggestion')->where('id','=',$suggestion_id)->get()[0];
+        $location = DB::table('location')
+                            ->where('id','=',$suggestion->location_id)
+                            ->get(['name','external_web_url','address','phone_number'])[0];
+        $name = DB::table('user')
+                            ->where('id','=',$suggestion->user_id)
+                            ->get(['first_name','last_name'])[0];
+        $user_name = $name->first_name." ".$name->last_name;
+        $view_data = [
+            'suggestion' => $suggestion,
+            'user_name' => $user_name,
+            'location_name' => $location->name,
+            'original_location' => $location
+        ];
+        return view('pages.location_management.suggestion_detail', $view_data);
+    }
+
 }

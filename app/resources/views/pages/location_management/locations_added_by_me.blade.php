@@ -10,27 +10,30 @@
 	@else
 		<p class="add-create"><a href="/location/management/add" title="Add New Location"><em class="fa fa-plus-circle"></em></a></p>
 	<div class="row column-titles">
-		<div class="col-xs-4">
+		<div class="col-xs-3">
 			<h3>Name</h3>
 		</div>
-		<div class="col-md-6 col-xs-4">
+		<div class="col-md-5 col-xs-3">
 			<h3>Address</h3>
 		</div>
-		<div class="col-md-2 col-xs-4">
-			<h3>Action</h3>
+		<div class="col-md-3 col-xs-3">
+			<h3>Suggestions</h3>
 		</div>
 		
 	</div>
 	<div class="data">
 		@foreach ($locations as $location)
 			<div class="row">
-				<div class="col-xs-4">
-					<a href="/location/rating/{{ $location->id }}">{{ $location->name }}</a>
+				<div class="col-xs-3">
+					<a href="/location-rating/{{ $location->id }}">{{ $location->name }}</a>
 				</div>
-				<div class="col-md-6 col-xs-4">
-					<a href="/location/rating/{{ $location->id }}">{{ $location->address }}</a>
+				<div class="col-md-5 col-xs-3">
+					<a href="/location-rating/{{ $location->id }}">{{ $location->address }}</a>
 				</div>
-				<div class="col-md-2 col-xs-4">
+				<div class="col-md-2 col-xs-3">
+					<a href="/suggestion-list/{{ $location->id }}">{{ $location->suggestions }}</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
 
 					<div class="col-md-6 col-xs-6">
 					<a href="/location/management/edit/{{ $location->id }}">Edit</a>
