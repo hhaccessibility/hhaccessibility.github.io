@@ -11,6 +11,7 @@ use DateTimeZone;
 use App\Location;
 use App\BaseUser;
 use App\Suggestion;
+use App\User;
 use DB;
 
 class SuggestionController extends Controller
@@ -81,7 +82,7 @@ class SuggestionController extends Controller
 
     public function showSuggestionList(string $location_id)
     {
-        $location_name = DB::table('location')->where('id', '=', $location_id)->get(['name'])[0]->name;
+        $location_name = Location::find($location_id)->name;
         $suggestions = DB::table('suggestion')
                         ->where('location_id', '=', $location_id)
                         ->get([
@@ -89,10 +90,8 @@ class SuggestionController extends Controller
                             'user_id',
                             'when_generated']);
         foreach ($suggestions as $suggestion) {
-            $name = DB::table('user')
-                                ->where('id', '=', $suggestion->user_id)
-                                ->get(['first_name','last_name'])[0];
-            $suggestion->user_name = $name->first_name." ".$name->last_name;
+            $user = User::find($suggestion->user_id);
+            $suggestion->user_name = $user->first_name." ".$user->last_name;
         }
         $view_data = [
             'suggestions' => $suggestions,
@@ -103,14 +102,10 @@ class SuggestionController extends Controller
 
     public function showSuggestionDetail(string $suggestion_id)
     {
-        $suggestion = DB::table('suggestion')->where('id', '=', $suggestion_id)->get()[0];
-        $location = DB::table('location')
-                            ->where('id', '=', $suggestion->location_id)
-                            ->get(['name','external_web_url','address','phone_number'])[0];
-        $name = DB::table('user')
-                            ->where('id', '=', $suggestion->user_id)
-                            ->get(['first_name','last_name'])[0];
-        $user_name = $name->first_name." ".$name->last_name;
+        $suggestion = Suggestion::find($suggestion_id);
+        $location = Location::find($suggestion->location_id);
+        $user = User::find($suggestion->user_id);
+        $user_name = $user->first_name." ".$user->last_name;
         $view_data = [
             'suggestion' => $suggestion,
             'user_name' => $user_name,
