@@ -6,7 +6,7 @@
 @section('content')
 <div class="suggestion-detail">
 	<div class="text-center">
-		<h1>{{ $user_name }}'s <a href="/suggestion-list/{{ $suggestion->location_id }}">Suggesstion for {{ $location_name }}</a></h1>
+		<h1>{{ $user_name }}'s <a href="/suggestion-list/{{ $suggestion->location_id }}">Suggestion for {{ $location_name }}</a></h1>
 	</div>
 	<form class="form">
         {!! csrf_field() !!}
