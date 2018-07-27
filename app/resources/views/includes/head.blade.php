@@ -9,3 +9,4 @@
 		<link href="/css/app.css" rel="stylesheet" type="text/css">
 		<link href="/css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
 		<link rel="shortcut icon" href="{{{ asset('favicon.ico') }}}">
+		<link rel="manifest" href="/manifest.json">
