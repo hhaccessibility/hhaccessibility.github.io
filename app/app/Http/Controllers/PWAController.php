@@ -20,9 +20,11 @@ class PWAController extends Controller
             "related_applications" => [],
             "prefer_related_applications" => false,
             "icons" => [
-                "src" => "/images/logo-192x192.png",
-                "type" => "image/png",
-                "sizes" => "192x192"
+                [
+                    "src" => "/images/logo-192x192.png",
+                    "type" => "image/png",
+                    "sizes" => "192x192"
+                ]
             ]
         ]);
     }
