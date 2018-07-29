@@ -58,14 +58,14 @@ def download_location_detail_page(url):
 	name = get_location_name_from_url(url)
 	output_file_name = 'data/raw_html_'+ name +'.html'
 	if not os.path.exists(output_file_name):
-		print(('Downloading details for location: ' + name))
+		print('Downloading details for location: ' + name)
 		response = urllib.request.urlopen(url)
 		html = response.read() # returns all the lines in a file.
 		with open(output_file_name, 'wb') as html_file:
 			html_file.write(html)
 			html_file.close()
 	else:
-		print(('Already have details for location: ' + name))
+		print('Already have details for location: ' + name)
 
 	return output_file_name
 
@@ -101,7 +101,7 @@ def auto_page_download(number_of_pages, find_query, location):
 	for i in range(number_of_pages):
 		page_results = i * 10
 		search_yelp = (yelp_base_url + 'search?find_desc=' + urllib.parse.quote(find_query) + '&find_loc='
-			+ urllib.parse.quote(location) )
+			+ urllib.parse.quote(location))
 		if page_results > 0:
 			search_yelp = search_yelp + '&start=' + str(page_results)
 
@@ -112,7 +112,7 @@ def auto_page_download(number_of_pages, find_query, location):
 		if not os.path.exists(filename):
 			page = urllib.request.urlopen(search_yelp) # url specific to
 			html = page.read() # returns all the lines in a file.
-			print(('Generating HTML file: ' + str(filename)))
+			print('Generating HTML file: ' + str(filename))
 			with open(filename, 'wb') as html_file:
 				html_file.write(html)
 		else:
