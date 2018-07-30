@@ -212,6 +212,7 @@ class AnswerRepository
         $location_key = 'answers_'.$location_id.'_';
         $now = new DateTime('now', new DateTimeZone('UTC'));
         $user_answers = [];
+        $question_ids = [];
         $review_comments = [];
         foreach (Session::all() as $key => $obj) {
             if (strpos($key, $location_key) === 0) {
@@ -236,6 +237,7 @@ class AnswerRepository
                 } else {
                     // Answer to a question
                     $question_id = intval(substr($key, strlen($location_key)));
+                    $question_ids []= $question_id;
                     $answer_value = $obj;
                     $user_answers []= [
                         'id' => Uuid::generate(4)->string,
@@ -248,6 +250,11 @@ class AnswerRepository
             }
         }
         if (!empty($user_answers) || !empty($review_comments)) {
+            UserAnswer::where('location_id', '=', $location_id)
+                ->where('answered_by_user_id', '=', $user_id)
+                ->whereNull('deleted_at')
+                ->whereIn('question_id', $question_ids)
+                ->update(['deleted_at' => date('Y-m-d H:i:s')]);
             UserAnswer::insert($user_answers);
             ReviewComment::insert($review_comments);
             // invalidate the cache.

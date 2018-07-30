@@ -37,15 +37,12 @@ class Question extends Model
         if ($location->ratings_cache && isset($location->ratings_cache[''.$this->id])) {
             return $location->ratings_cache[$this->id];
         }
-        
+
         $answers = $this->answers()
-            ->join('user_answer as a2', 'a2.answered_by_user_id', '=', 'user_answer.answered_by_user_id')
-            ->where('a2.location_id', '=', $location_id)
-            ->whereRaw('a2.question_id = user_answer.question_id')
+            ->whereNull('deleted_at')
+            ->where('location_id', '=', $location_id)
             ->where('user_answer.location_id', '=', $location_id)
-            ->groupBy(['user_answer.answered_by_user_id', 'a2.when_submitted'])
-            ->havingRaw('max(user_answer.when_submitted) = a2.when_submitted')
-            ->get([DB::raw('avg(a2.answer_value) as answer_value')]);
+            ->get(['answer_value']);
         $sum = 0;
         $totalCount = 0;
         foreach ($answers as $answer) {
