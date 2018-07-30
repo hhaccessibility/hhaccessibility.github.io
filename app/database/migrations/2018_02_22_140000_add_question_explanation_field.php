@@ -14,7 +14,7 @@ class AddQuestionExplanationField extends Migration
     public function up()
     {
         Schema::table('question', function (Blueprint $table) {
-			$table->text('explanation')->nullable();
+            $table->text('explanation')->nullable();
         });
     }
 
