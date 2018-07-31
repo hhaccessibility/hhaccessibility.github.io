@@ -1,6 +1,9 @@
 @extends('layouts.default', ['body_class' => 'nav-profile'])
 @section('content')
-
+	<link href="/css/jquery/jquery-ui.css" rel="stylesheet" type="text/css">
+	<script src="/css/jquery/external/jquery/jquery.js"></script>
+	<script src="/css/jquery/jquery-ui.js"></script>
+	<script src="/js/password_caps.js" type="text/javascript"></script>
 <div class="sign-in">
 	<div class="text-center header">
 		<h1>Sign In</h1>
@@ -29,6 +32,8 @@
 						</div>
 						<div class="col-xs-12">
 							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
+							<div id="capsLock" class="capsLock" style="display:none;">CapsLock is on!!
+							</div>
 						</div>
 						
                         <div class="col-xs-12">
