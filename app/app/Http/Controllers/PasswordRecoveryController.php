@@ -36,6 +36,21 @@ class PasswordRecoveryController extends Controller
             return view('pages.password_recovery.unmatched_email');
         }
 
+        if( $matching_user->email_verification_time == null) {
+            $confirmationLink = BaseUser::generateConfirmationLink($matching_user);
+            Mail::send(new ConfirmationMail(
+                $matching_user->first_name,
+                $matching_user->email,
+                $confirmationLink
+            ));
+            $confirmMsg =  'A verification code has been sent to ' . $matching_user->email .
+                '. Check your email inbox or SPAM folder to confirm.';
+            return view('pages.signup.success', [
+                'email' => $matching_user->email,
+                'confirmmessage' => $confirmMsg,
+                'can_sign_in' => false
+                ]);
+        }
         //Generate Password Recovery Link
         $token = str_random(60);
         $recoveryLink = config('app.url')."/user/password-recovery/".$matching_user->email."/".$token;
