@@ -44,6 +44,8 @@ class ChangePasswordController extends Controller
             }
             if ($failing) {
                 return Redirect::to('/user/change-password')->withErrors($validator)->withInput();
+            } elseif ($request->input('current_password')==$request->input('new_password')) {
+                return Redirect::back()->withErrors(['New password must be different than old']);
             } else {
                 $user->password_hash = User::generateSaltedHash($request->input('new_password'));
                 $user->save();

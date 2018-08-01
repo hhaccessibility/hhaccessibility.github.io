@@ -79,7 +79,9 @@ class PasswordRecoveryController extends Controller
                 'password_confirm'     => 'required|same:new_password'
             );
             $validator = Validator::make(Input::all(), $validation_rules);
-            if ($validator->fails()) {
+            if (BaseUser::authenticate($user_email, $request->input('new_password'))) {
+                return Redirect::back()->withErrors(['New password must be different than old']);
+            } elseif ($validator->fails()) {
                 return Redirect::back()->withErrors($validator)->withInput();
             } else {
                 $user->password_hash = User::generateSaltedHash($request->input('new_password'));
