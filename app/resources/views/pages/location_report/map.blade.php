@@ -14,7 +14,7 @@
 			  position: locationPoint,
 			  map: map
 			});
-			
+
 			function centreLocation() {
 				map.setCenter(locationPoint);
 			}
@@ -24,10 +24,10 @@
 				google.maps.event.trigger(map, "resize");
 			});
 		  }
-		  
+
     </script>
 	@endif
-	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
+	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
 	<script src="/js/location_report.js"></script>
 @stop
 @section('footer-content')
