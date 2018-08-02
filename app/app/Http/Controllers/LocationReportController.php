@@ -4,6 +4,7 @@ use App\Location;
 use App\QuestionCategory;
 use App\BaseUser;
 use App\ReviewComment;
+use App\Helpers\ResponsiveTextHelper;
 use DB;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -50,7 +51,8 @@ class LocationReportController extends Controller
                 ->where('location_id', '=', $location_id)
                 ->orderBy('when_submitted', 'DESC')
                 ->limit(10)
-                ->get()
+                ->get(),
+            'responsive_text_helper' => new ResponsiveTextHelper()
         ];
         return view('pages.location_report.question_category_report', $view_data);
     }
@@ -98,7 +100,8 @@ class LocationReportController extends Controller
             'num_ratings' => $location->getNumberOfUsersWhoRated(),
             'is_internal_user' => BaseUser::isInternal(),
             'body_class' => 'show-ratings-popup',
-            'category_rating_counts' => $category_rating_counts
+            'category_rating_counts' => $category_rating_counts,
+            'responsive_text_helper' => new ResponsiveTextHelper()
         ];
 
         return view('pages.location_report.collapsed', $view_data);

@@ -4,9 +4,9 @@
 				<a href="{{ $location_search_path }}" title="Back to last location search results" class="fa fa-search"></a>
 			@endif
 			@if (isset($question_category_id))
-				<h1><a href="/location/report/{{ $location->id }}/{{ $rating_system }}">{{ $location->name }}</a></h1>
+				<h1 class="{{ $responsive_text_helper->getClassesFor($location->name) }}"><a href="/location/report/{{ $location->id }}/{{ $rating_system }}">{{ $location->name }}</a></h1>
 			@else
-				<h1>{{ $location->name }}</h1>
+				<h1 class="{{ $responsive_text_helper->getClassesFor($location->name) }}">{{ $location->name }}</h1>
 			@endif
 		</div>
 		<div class="universal-personal">

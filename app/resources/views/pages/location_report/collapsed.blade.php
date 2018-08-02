@@ -3,7 +3,7 @@
 	<script>
 	var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };	
 	</script>
-	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>	
+	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>
 	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
 	<script src="/js/bootstrap.js"></script>
@@ -20,7 +20,8 @@
 <div class="location-report">
 	@include('pages.location_report.top', array(
 		'rating_system' => $rating_system,
-		'location' => $location))
+		'location' => $location,
+		'responsive_text_helper' => $responsive_text_helper))
 	<div class="basic-info">
 		<div class="addresses">
 			<address>
@@ -69,7 +70,7 @@
 				@include('pages.location_report.personal_not_available', ['location_id' => $location->id])
 			@elseif ($num_ratings === 0)
 				<div class="title-bar">
-					<h3>{{ $location->name }}</h3>
+					<h3 class="{{ $responsive_text_helper->getClassesFor($location->name) }}">{{ $location->name }}</h3>
 				</div>
 				<div class="questions">
 					<div class="question-category">

@@ -269,6 +269,60 @@ body.fixed-menu {
 	}
 }
 
+@media screen and (min-width: 1200px) {
+	#main > .location-rating, #main > .location-reporting {
+		.rate h1 a, .ratings h1 a {
+			&.longer-than-60 {
+				font-size: 24px;
+
+				&.longer-than-80 {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	#main > .location-rating, #main > .location-reporting {
+		.rate h1 a, .ratings h1 a {
+			&.longer-than-60 {
+				font-size: 21px;
+				&.longer-than-80 {
+					font-size: 19px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	#main > .location-rating, #main > .location-reporting {
+		.rate h1 a, .ratings h1 a {
+			&.longer-than-60 {
+				font-size: 20px;
+				&.longer-than-80 {
+					font-size: 17px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 380px) and (max-width: 767px) {
+	#main > .location-rating, #main > .location-reporting {
+		.rate h1 a, .ratings h1 a {
+			&.longer-than-60 {
+				font-size: 3.5vw;
+				&.longer-than-80 {
+					font-size: 3vw;
+					line-height: 0;
+				}
+			}
+		}
+	}
+}
+
 @media screen and (min-width: 340px) and (max-width: 380px) {
 	body {
 		#main {
@@ -317,6 +371,15 @@ body.fixed-menu {
 @media screen and (max-width: 379px) {
 	html > body {
 		.location-reporting, .location-rating {
+			.rate h1 a, .ratings h1 a {
+				&.longer-than-60 {
+					font-size: 4.2vw;
+					&.longer-than-80 {
+						font-size: 4vw;
+					}
+				}
+			}
+
 			h2 {
 				white-space: nowrap;
 			}
