@@ -121,7 +121,7 @@ function initMap() {
 
 	map.addListener('dragend', function() {
 		saveSearchLocationWithOptionalAddress(map.getCenter());
-		location.reload();
+		circle.setCenter(map.getCenter());
 	});
 
 	var lastRight = null;
