@@ -14,7 +14,9 @@ class InternalFeaturesController extends \Illuminate\Routing\Controller
 {
     private static function isDeletableEmailAddress($emailAddress)
     {
-        $deletableEmailAddresses = ['fongue@hotmail.fr', 'bflesage@yahoo.com', 'blandinefongue@gmail.com'];
+        $deletableEmailAddresses = ['fongue@hotmail.fr', 'bflesage@yahoo.com',
+        'blandinefongue@gmail.com', 'singlaneha2205@gmail.com',
+        'singlan@uwindsor.ca', 'nsingla009@gmail.com'];
         return in_array($emailAddress, $deletableEmailAddresses);
     }
 
