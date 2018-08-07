@@ -11,6 +11,8 @@ use DateTimeZone;
 use App\Location;
 use App\BaseUser;
 use App\Suggestion;
+use App\User;
+use DB;
 
 class SuggestionController extends Controller
 {
@@ -76,5 +78,40 @@ class SuggestionController extends Controller
         return Response::json([
             'success' => 1
         ], 200);
+    }
+
+    public function showSuggestionList(string $location_id)
+    {
+        $location_name = Location::find($location_id)->name;
+        $suggestions = DB::table('suggestion')
+                        ->where('location_id', '=', $location_id)
+                        ->get([
+                            'id',
+                            'user_id',
+                            'when_generated']);
+        foreach ($suggestions as $suggestion) {
+            $user = User::find($suggestion->user_id);
+            $suggestion->user_name = $user->first_name." ".$user->last_name;
+        }
+        $view_data = [
+            'suggestions' => $suggestions,
+            'name' => $location_name
+        ];
+        return view('pages.location_management.suggestion_list', $view_data);
+    }
+
+    public function showSuggestionDetail(string $suggestion_id)
+    {
+        $suggestion = Suggestion::find($suggestion_id);
+        $location = Location::find($suggestion->location_id);
+        $user = User::find($suggestion->user_id);
+        $user_name = $user->first_name." ".$user->last_name;
+        $view_data = [
+            'suggestion' => $suggestion,
+            'user_name' => $user_name,
+            'location_name' => $location->name,
+            'original_location' => $location
+        ];
+        return view('pages.location_management.suggestion_detail', $view_data);
     }
 }
