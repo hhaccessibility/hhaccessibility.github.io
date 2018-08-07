@@ -56,8 +56,7 @@ class SignUpController extends Controller
             if (Input::has('after_signup_redirect')) {
                 $confirmationLink.='?after_signup_redirect=/add-location';
             }
-            echo($confirmationLink);
-
+            
             //Send the email to the user.
             Mail::send(new ConfirmationMail(
                 $newUser->first_name,
