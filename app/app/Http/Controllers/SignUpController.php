@@ -54,12 +54,8 @@ class SignUpController extends Controller
             $confirmationLink = BaseUser::generateConfirmationLink($newUser);
 
             if (Input::has('after_signup_redirect')) {
-                echo('Flag');
                 $confirmationLink.='?after_signup_redirect=/add-location';
-            } else{
-                echo("Nein");
             }
-
             echo($confirmationLink);
 
             //Send the email to the user.
@@ -86,7 +82,6 @@ class SignUpController extends Controller
         $confirmCode = $email_verification_token;
         if (BaseUser::confirmEmail($email, $confirmCode)) {
              if (Input::has('after_signup_redirect')) {
-                echo("flag");
                 return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
                 'can_sign_in' => true,
@@ -95,7 +90,6 @@ class SignUpController extends Controller
  
             }
             else{
-                echo("nah");
                 return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
                 'can_sign_in' => true,
