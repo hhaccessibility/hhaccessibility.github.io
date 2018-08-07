@@ -17,7 +17,7 @@ class SignUpController extends Controller
     public function showForm(Request $request)
     {
         $after_signup_redirect = Input::get('after_signup_redirect');
-        return view('pages.signup.form',['after_signup_redirect'=>$after_signup_redirect]);
+        return view('pages.signup.form', ['after_signup_redirect'=>$after_signup_redirect]);
     }
 
     public function createUser(Request $request)
@@ -81,15 +81,13 @@ class SignUpController extends Controller
         $email = $user_email;
         $confirmCode = $email_verification_token;
         if (BaseUser::confirmEmail($email, $confirmCode)) {
-             if (Input::has('after_signup_redirect')) {
+            if (Input::has('after_signup_redirect')) {
                 return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
                 'can_sign_in' => true,
                 'redirect' => '/signin?after_signin_redirect=/add-location'
                 ]);
- 
-            }
-            else{
+            } else {
                 return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
                 'can_sign_in' => true,
