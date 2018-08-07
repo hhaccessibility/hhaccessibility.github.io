@@ -36,7 +36,7 @@ class PasswordRecoveryController extends Controller
             return view('pages.password_recovery.unmatched_email');
         }
 
-        if( $matching_user->email_verification_time == null) {
+        if ($matching_user->email_verification_time == null) {
             $confirmationLink = BaseUser::generateConfirmationLink($matching_user);
             Mail::send(new ConfirmationMail(
                 $matching_user->first_name,
