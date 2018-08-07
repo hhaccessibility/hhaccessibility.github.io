@@ -5,7 +5,7 @@
 	<div class="text-center success">
 		<strong>{{ $confirmmessage }}</strong>
 		@if ( $can_sign_in )
-		<p>You can <a href="/signin?email={{ $email }}">sign in</a> with it now.</p>
+		<p>You can <a href="{{ $redirect }}">sign in</a> with it now.</p>
 		@endif
 	</div>
 </div>
