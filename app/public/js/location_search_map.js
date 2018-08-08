@@ -50,6 +50,13 @@ function addCircleToMap(map, user_point) {
 	return circle;
 }
 
+function isCTRLDown() {
+	if (event && event.ctrlKey) {
+		return true;
+	}
+	return false;
+}
+
 function initMap() {
 	//current user LatLng
 	var user_point = {lat: user_latitude, lng: user_longitude };
@@ -120,26 +127,19 @@ function initMap() {
 	});
 
 	map.addListener('dragend', function() {
-		saveSearchLocationWithOptionalAddress(map.getCenter());
-		circle.setCenter(map.getCenter());
-	});
-
-	var lastRight = null;
-	$new_search_radius = search_radius;
-	map.addListener('mouseup', function() {
-		if (event.which === 3) {
-			var newRight = event.timeStamp;
-
-			if (newRight - lastRight < 400) {
-				$new_search_radius *= 2;
-				setSearchRadius($new_search_radius);
-			}
-			lastRight=newRight;
-		}
+		saveSearchLocationWithOptionalAddress(map.getCenter()).then(function() {
+			circle.setCenter(map.getCenter());
+			location.reload();
+		});
 	});
 
 	map.addListener('dblclick', function() {
-		$new_search_radius /= 2;
-		setSearchRadius($new_search_radius);
+		if (isCTRLDown()) {
+			new_search_radius *= 2;
+		}
+		else {
+			new_search_radius /= 2;
+		}
+		setSearchRadius(new_search_radius);
 	});
 }
