@@ -13,6 +13,7 @@ class PWAController extends Controller
             "display" => "fullscreen",
             "start_url" => "/?using_pwa=1",
             "short_name" => "AccessLocator",
+            "background_color" => "#e7f3f5",
             "theme_color" => "#202767",
             "description" => "Your personalized access to the world",
             "orientation" => "portrait",
@@ -24,6 +25,11 @@ class PWAController extends Controller
                     "src" => "/images/logo-192x192.png",
                     "type" => "image/png",
                     "sizes" => "192x192"
+                ],
+                [
+                    "src" => "/images/logo-512x512.png",
+                    "type" => "image/png",
+                    "sizes" => "512x512"
                 ]
             ]
         ]);
