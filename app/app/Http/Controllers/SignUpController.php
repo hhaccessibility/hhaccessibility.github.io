@@ -16,7 +16,8 @@ class SignUpController extends Controller
 
     public function showForm(Request $request)
     {
-        return view('pages.signup.form');
+        $after_signup_redirect = Input::get('after_signup_redirect');
+        return view('pages.signup.form', ['after_signup_redirect'=>$after_signup_redirect]);
     }
 
     public function createUser(Request $request)
@@ -52,6 +53,10 @@ class SignUpController extends Controller
             // Generate Confirmation Link after saving the user.
             $confirmationLink = BaseUser::generateConfirmationLink($newUser);
 
+            if (Input::has('after_signup_redirect')) {
+                $confirmationLink.='?after_signup_redirect='.Input::get('after_signup_redirect');
+            }
+            
             //Send the email to the user.
             Mail::send(new ConfirmationMail(
                 $newUser->first_name,
@@ -71,14 +76,23 @@ class SignUpController extends Controller
 
     public function confirmEmail($user_email, $email_verification_token)
     {
+        $after_signup_redirect = Input::get('after_signup_redirect');
         $email = $user_email;
         $confirmCode = $email_verification_token;
         if (BaseUser::confirmEmail($email, $confirmCode)) {
-            return view('pages.signup.success', [
-                'email' => $email,
+            if (Input::has('after_signup_redirect')) {
+                return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
-                'can_sign_in' => true
+                'can_sign_in' => true,
+                'redirect' => '/signin?after_signin_redirect='.$after_signin_redirect
                 ]);
+            } else {
+                return view('pages.signup.success', [
+                'confirmmessage' => 'Your email has been confirmed.',
+                'can_sign_in' => true,
+                'redirect' => '/signin'
+                ]);
+            }
         }
 
         return Redirect::to('signup')

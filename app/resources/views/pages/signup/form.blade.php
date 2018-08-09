@@ -12,6 +12,7 @@
 				<form method="post" action="/signup">
 					{!! csrf_field() !!}
 					@include('pages.validation_messages', array('errors'=>$errors))
+					<input type="hidden" name="after_signup_redirect" value="{{ isset($after_signup_redirect) ? $after_signup_redirect : '' }}">
 					<div class="row">
 						<div class="col-xs-12">
 							<input class="clean" name="email" placeholder="Email" value="{{ old('email') }}">

@@ -23,7 +23,7 @@
 				<h4>Add a new location by</h4>
 				<a class="btn btn-default" href="/signin?after_signin_redirect=%2Flocation%2Fmanagement%2Fadd">Signing In</a>
 				<h4>or</h4>
-				<a class="btn btn-default" href="/signup">Signing Up</a>
+				<a class="btn btn-default" href="/signup?after_signup_redirect=/add-location">Signing Up</a>
 			@endif
 		</div>			
 	@else
