@@ -24,6 +24,11 @@ class PWAController extends Controller
                     "src" => "/images/logo-192x192.png",
                     "type" => "image/png",
                     "sizes" => "192x192"
+                ],
+                [
+                    "src" => "/images/logo-512x512.png",
+                    "type" => "image/png",
+                    "sizes" => "512x512"
                 ]
             ]
         ]);
