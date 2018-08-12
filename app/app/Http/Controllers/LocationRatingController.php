@@ -5,6 +5,7 @@ use App\Location;
 use App\QuestionCategory;
 use App\Question;
 use App\AnswerRepository;
+use App\Helpers\ResponsiveTextHelper;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -148,7 +149,8 @@ class LocationRatingController extends Controller
             'question_category' => $question_category,
             'question_categories' => $question_categories,
             'answer_repository' => new AnswerRepository($location_id, $question_category_id),
-            'next_question_category_id' => $next_question_category_id
+            'next_question_category_id' => $next_question_category_id,
+            'responsive_text_helper' => new ResponsiveTextHelper()
         ]);
     }
 
