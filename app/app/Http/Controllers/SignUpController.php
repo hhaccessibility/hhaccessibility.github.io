@@ -84,7 +84,7 @@ class SignUpController extends Controller
                 return view('pages.signup.success', [
                 'confirmmessage' => 'Your email has been confirmed.',
                 'can_sign_in' => true,
-                'redirect' => '/signin?after_signin_redirect='.$after_signin_redirect
+                'redirect' => '/signin?after_signin_redirect='.$after_signup_redirect
                 ]);
             } else {
                 return view('pages.signup.success', [
