@@ -2,6 +2,7 @@
 
 use App\BaseUser;
 use App\Mail\RecoveryPasswordMail;
+use App\Mail\ConfirmationMail;
 use App\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
