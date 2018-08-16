@@ -21,7 +21,7 @@ class LocationApiTest extends TestCase
             $this->assertTrue($location->owner_user_id === null);
             $this->assertTrue($location->name === null || is_string($location->name));
             $this->assertTrue(is_int($location->longitude) || is_float($location->longitude));
-            $this->assertTrue(is_int($location->longitude) || is_float($location->longitude));
+            $this->assertTrue(is_int($location->latitude) || is_float($location->latitude));
         }
     }
 }
