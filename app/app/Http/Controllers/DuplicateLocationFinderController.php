@@ -3,22 +3,12 @@
 use App\BaseUser;
 use App\User;
 use App\Libraries\Gis;
+use App\Location;
 use Illuminate\Routing\Controller;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
-
-function compareByDistance($loc1, $loc2)
-{
-    if ($loc1->distance < $loc2->distance) {
-        return -1;
-    } elseif ($loc1->distance > $loc2->distance) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
 
 class DuplicateLocationFinderController extends Controller
 {
@@ -29,8 +19,8 @@ class DuplicateLocationFinderController extends Controller
             $radiusMeters = intval(Input::get('radius_meters'));
         }
         $location_id = Input::get('location_id');
-        $location = DB::table('location')->find($location_id);
-        $locationQuery = DB::table('location')->where('id', '<>', $location_id);
+        $location = Location::find($location_id);
+        $locationQuery = Location::where('id', '<>', $location_id);
         $search_results = \App\Libraries\Gis::findLocationsWithinRadius(
             $location->latitude,
             $location->longitude,
@@ -46,7 +36,7 @@ class DuplicateLocationFinderController extends Controller
         \App\Libraries\Gis::updateDistancesFromPoint($location->longitude, $location->latitude, $search_results);
         $search_results = \App\Libraries\Gis::filterTooDistant($search_results, $radiusMeters / 1000);
         
-        usort($search_results, 'App\Http\Controllers\compareByDistance');
+        usort($search_results, 'App\Libraries\Gis::compareByDistance');
         
         $viewData = [
             'radius_meters' => $radiusMeters,

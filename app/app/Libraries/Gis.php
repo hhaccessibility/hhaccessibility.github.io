@@ -57,6 +57,7 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
             'minLon' => $minLon
         ];
     }
+
     public static function filterLatitudeAndLongitudeToRange($locationsQuery, array $range)
     {
         $locationsQuery = $locationsQuery->
@@ -66,6 +67,7 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
             where('longitude', '<=', $range['maxLon']);
         return $locationsQuery;
     }
+
     public static function filterTooDistant($locations, $maxDistance)
     {
         // Remove locations that are too far away.
@@ -77,11 +79,23 @@ http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
         }
         return $filtered_locations;
     }
+
     public static function findLocationsWithinRadius($latitude, $longitude, $radiusMeters, $locationQuery)
     {
         $range = self::getLatitudeAndLongitudeRange($latitude, $longitude, (0.7 + ($radiusMeters * 0.001)));
         $locationQuery = self::filterLatitudeAndLongitudeToRange($locationQuery, $range);
         $search_results = $locationQuery->get();
         return $search_results;
+    }
+
+    public static function compareByDistance($loc1, $loc2)
+    {
+        if ($loc1->distance < $loc2->distance) {
+            return -1;
+        } elseif ($loc1->distance > $loc2->distance) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
