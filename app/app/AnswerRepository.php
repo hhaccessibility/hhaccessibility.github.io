@@ -262,8 +262,6 @@ class AnswerRepository
             $location->universal_rating = null;
             $location->ratings_cache = null;
             $location->save();
-            // invalidate the personalized rating cache for this location.
-            DB::table('user_location')->where('location_id', '=', $location_id)->delete();
         }
         AnswerRepository::destroyUncommittedChanges();
     }
