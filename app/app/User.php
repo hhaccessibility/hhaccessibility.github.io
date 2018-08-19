@@ -81,18 +81,7 @@ class User extends Model
     {
         return $this->belongsToMany(Question::class, 'user_question');
     }
-    
-    /**
-    personalizedRatings reteurns an Eloquent query object that
-    can be used to get the personalized ratings for various locations.
 
-    This is used as a cache for speeding up display of many locations while signed in.
-    */
-    public function personalizedRatings()
-    {
-        return $this->belongsToMany(Location::class, 'user_location');
-    }
-    
     public static function generateSaltedHash($password)
     {
         return Hash::make($password);

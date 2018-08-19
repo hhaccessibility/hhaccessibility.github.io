@@ -52,11 +52,6 @@ class Location extends Model
         return $this->belongsToMany('App\LocationTag');
     }
 
-    public function personalizedRatings()
-    {
-        return $this->hasMany('App\UserLocation');
-    }
-
     public function comments()
     {
         return $this->hasMany(ReviewComment::class);

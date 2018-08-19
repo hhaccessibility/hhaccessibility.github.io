@@ -130,13 +130,6 @@ class ProfileController extends \Illuminate\Routing\Controller
                 $questions_updated = true;
             }
         }
-        if ($questions_updated) {
-            /*
-            If the accessibility needs changed,
-            the personalized ratings need to be recalculated.
-            */
-            $user->personalizedRatings()->detach();
-        }
 
         $user->save();
 

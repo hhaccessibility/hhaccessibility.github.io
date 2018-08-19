@@ -40,6 +40,8 @@ class InternalFeaturesController extends \Illuminate\Routing\Controller
             DB::table('review_comment')->where('answered_by_user_id', '=', $user->id)->delete();
             DB::table('location')->where('creator_user_id', '=', $user->id)->update(['creator_user_id' => null]);
             DB::table('location')->where('owner_user_id', '=', $user->id)->update(['owner_user_id' => null]);
+            DB::table('suggestion')->where('user_id', '=', $user->id)->delete();
+            DB::table('image')->where('uploader_user_id', '=', $user_id)->delete();
             DB::table('user')->where('id', '=', $user->id)->delete();
         });
         return Redirect::to('users');
