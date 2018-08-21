@@ -169,7 +169,22 @@ function suggestionButtonClicked() {
 	});
 }
 
+function highlightDiffField(id) {
+	var element = document.getElementById(id);
+	element.addEventListener("change",function(event){
+		if(element.dataset.value != element.value){
+			$(element).addClass('highlight');
+		} else {
+			$(element).removeClass('highlight');
+		}
+	})
+}
+
 function setupSuggestionFeature() {
+	highlightDiffField("location-name");
+	highlightDiffField("phone-number");
+	highlightDiffField("address");
+	highlightDiffField("url");
 	$("#suggestionFormConfirm").click(suggestionButtonClicked);
 }
 

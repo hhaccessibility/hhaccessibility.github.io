@@ -37,6 +37,10 @@ This is where to put SCSS for the location report that shows a map.
 	}
 }
 
+.highlight {
+	background-color: rgba(77, 121, 255,0.3) !important;
+}
+
 .suggestion-form {
 	label {
 		margin-top: 7px;
