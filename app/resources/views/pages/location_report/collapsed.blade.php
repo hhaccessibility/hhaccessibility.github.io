@@ -151,7 +151,7 @@
 					<button type="button" class="btn btn-default" 
 						data-dismiss="modal">Close
 					</button>
-					<button type="button" class="btn btn-primary" id="suggestionFormConfirm">
+					<button type="button" class="btn btn-primary" id="suggestionFormConfirm" disabled>
 						Confirm
 					</button>
 					</div>

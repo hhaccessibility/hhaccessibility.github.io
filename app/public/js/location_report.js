@@ -2,6 +2,7 @@
 location_report.js is used in the report on a single location, 
 pages/location_report/collapsed.blade.php.
 */
+var suggestion_counter = 0;
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 	  zoom: 15,
@@ -114,6 +115,14 @@ function setSuggestionMessage(msg, is_warning) {
 	}
 }
 
+function resetHighlight(){
+	$('#location-name').val($('#location-name').data('value'));
+	$('#address').val($('#address').data('value'));
+	$('#phone-number').val($('#phone-number').data('value'));
+	$('#url').val($('#url').data('value'));
+	$('.highlight').removeClass('highlight');
+}
+
 function suggestionSubmitted(r) {
 	setSuggestionMessage("Suggestion has been created.", false);
 	
@@ -164,12 +173,44 @@ function suggestionButtonClicked() {
 			'url': url
 		},
 		'url': '/api/add-suggestion',
+		'beforeSend': function(jqXHR,settings) {
+			$('button').prop('disabled',true);
+		},
 		'success': suggestionSubmitted,
-		'error': suggestionFailed
+		'error': suggestionFailed,
+		'complete': function(jqXHR,textStatus) {
+			$('button').prop('disabled',false);
+			resetHighlight();
+		}
 	});
 }
 
+function highlightDiffField(id) {
+	$('#' + id).bind('input', function(event){
+		//highlight modified suggestion fields
+		if($(this).data('value') != $(this).val()){
+			if(!$(this).hasClass('highlight'))
+				suggestion_counter += 1;
+			$(this).addClass('highlight');
+		} else {
+			if($(this).hasClass('highlight'))
+				suggestion_counter -= 1;
+			$(this).removeClass('highlight');
+		}
+		// disable submit button when there is no difference in the fields
+		if(suggestion_counter > 0)
+			$("#suggestionFormConfirm").prop("disabled",false);
+		else
+			$("#suggestionFormConfirm").prop("disabled",true);
+
+	})
+}
+
 function setupSuggestionFeature() {
+	highlightDiffField("location-name");
+	highlightDiffField("phone-number");
+	highlightDiffField("address");
+	highlightDiffField("url");
 	$("#suggestionFormConfirm").click(suggestionButtonClicked);
 }
 
