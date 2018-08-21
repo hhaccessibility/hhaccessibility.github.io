@@ -2,6 +2,7 @@
 location_report.js is used in the report on a single location, 
 pages/location_report/collapsed.blade.php.
 */
+var suggestion_counter = 0;
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 	  zoom: 15,
@@ -172,11 +173,22 @@ function suggestionButtonClicked() {
 function highlightDiffField(id) {
 	var element = document.getElementById(id);
 	element.addEventListener("change",function(event){
+		//highlight modified suggestion fields
 		if(element.dataset.value != element.value){
+			if(!$(element).hasClass('highlight'))
+				suggestion_counter += 1;
 			$(element).addClass('highlight');
 		} else {
+			if($(element).hasClass('highlight'))
+				suggestion_counter -= 1;
 			$(element).removeClass('highlight');
 		}
+		// disable submit button when there is no difference in the fields
+		if(suggestion_counter > 0)
+			$("#suggestionFormConfirm").prop("disabled",false);
+		else
+			$("#suggestionFormConfirm").prop("disabled",true);
+
 	})
 }
 
