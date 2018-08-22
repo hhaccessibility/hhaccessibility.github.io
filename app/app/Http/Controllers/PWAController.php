@@ -51,11 +51,12 @@ class PWAController extends Controller
         foreach ($search_results as $search_result) {
             $locations []= $search_result;
         }
-
-        if (empty($locations)) {
-            return response()->json([
+        $not_found_response = response()->json([
                 'message' => 'No location found close enough.'
             ], 404);
+
+        if (empty($locations)) {
+            return $not_found_response;
         }
         \App\Libraries\Gis::updateDistancesFromPoint($longitude, $latitude, $locations);
         $location = $locations[0];
@@ -64,6 +65,10 @@ class PWAController extends Controller
                 $location = $location_;
             }
         }
+        if ($location->getNumberOfUsersWhoRated() > 0) {
+            return $not_found_response;
+        }
+
         return response()->json([
             'name' => $location->name,
             'id' => $location->id
