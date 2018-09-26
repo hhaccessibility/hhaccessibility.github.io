@@ -14,7 +14,7 @@ class AddNameToQuestion extends Migration
     public function up()
     {
         Schema::table('question', function (Blueprint $table) {
-            $table->string('name', 255);
+            $table->unique('name');
         });
     }
 
