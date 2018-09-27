@@ -14,7 +14,7 @@ class AddNameToQuestion extends Migration
     public function up()
     {
         Schema::table('question', function (Blueprint $table) {
-            $table->unique('name');
+            $table->string('name', 255)->unique();
         });
     }
 
@@ -26,6 +26,7 @@ class AddNameToQuestion extends Migration
     public function down()
     {
         Schema::table('question', function (Blueprint $table) {
+            $table->dropUnique('question_name_unique');
             $table->dropColumn('name');
         });
     }
