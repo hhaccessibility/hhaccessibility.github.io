@@ -45,7 +45,7 @@ class AddQuestionOrderField extends Migration
     public function down()
     {
         Schema::table('question', function (Blueprint $table) {
-			$table->dropForeign('question_question_category_id_foreign');
+            $table->dropForeign('question_question_category_id_foreign');
             $table->dropUnique('question_question_category_id_order_unique');
             $table->dropColumn('order');
         });
