@@ -34,7 +34,6 @@ class ProfileController extends \Illuminate\Routing\Controller
         }
         $required_questions = $user->requiredQuestions()->get();
         $num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
-        $user->search_radius_km = BaseUser::getSearchRadius();
         $view_data = [
             'user' => $user,
             'question_categories' => $question_categories,
@@ -45,8 +44,7 @@ class ProfileController extends \Illuminate\Routing\Controller
             'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
             'num_locations_added_by_me' => $num_locations_added_by_me,
             'is_internal_user' => BaseUser::isInternal(),
-            'enabled_country_ids' => $enabled_country_ids,
-            'max_search_radius_km' => BaseUser::getMaximumSearchRadiusKM()
+            'enabled_country_ids' => $enabled_country_ids
             ];
 
         if ($validator === null) {
@@ -67,9 +65,7 @@ class ProfileController extends \Illuminate\Routing\Controller
             'last_name'            => 'required|max:255',
             'country_id'           => 'integer|exists:country,id',
             'home_city'            => 'max:255',
-            'home_region'          => 'max:255',
-            'location_search_text' => 'max:255',
-            'search_radius_km'     => 'numeric|min:0.01|max:20040'
+            'home_region'          => 'max:255'
         );
         $validator = Validator::make(Input::all(), $validation_rules);
         
@@ -88,14 +84,6 @@ class ProfileController extends \Illuminate\Routing\Controller
         $user->home_city = $request->home_city;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
-        $user->location_search_text = $request->location_search_text;
-        if (!is_numeric($request->search_radius_km)) {
-            $user->search_radius_km = null;
-        } else {
-            // Sanitize to within the valid range.
-            $range = min(floatval(trim($request->search_radius_km)), BaseUser::getMaximumSearchRadiusKM());
-            $user->search_radius_km = max(0.01, $range);
-        }
         $user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
 
         $current_user_questions = $user->requiredQuestions()->get();

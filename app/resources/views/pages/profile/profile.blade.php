@@ -137,38 +137,6 @@
 				</div>
 			</div>
 
-			<h2>Search Location</h2>
-			<div class="box">
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="location_search_text">Location</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="location_search_text" name="location_search_text"
-								value="{{ $user->location_search_text }}"
-								placeholder="{{ $address_default }}">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="distance">Distance (km)</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<!-- from 10 meters to the full radius of Earth -->
-							<input class="form-control" id="distance" name="search_radius_km"
-								type="number"
-								step="0.01"
-								min="0.01"
-								max="{{ $max_search_radius_km }}"
-								value="{{ number_format($user->search_radius_km, 2) }}">
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<h2>My Accessibility Requirements </h2>
 			<div class="box accessibility-interests">
 				<div class="checkbox">
