@@ -14,7 +14,13 @@ class AddNameToQuestion extends Migration
     public function up()
     {
         Schema::table('question', function (Blueprint $table) {
-            $table->string('name', 255)->unique();
+            $table->string('name', 255);
+        });
+        // Give unique names to every question so we can add a unique constraint.
+        DB::statement("UPDATE question SET name = CONCAT('question_', CAST(id as char(10)));");
+
+        Schema::table('question', function (Blueprint $table) {
+            $table->unique('name');
         });
     }
 
