@@ -9,6 +9,8 @@ use App\Location;
 use App\QuestionCategory;
 use App\Question;
 use App\AnswerRepository;
+use App\LocationGroup;
+use App\Helpers\RatingCacheHelper;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
@@ -30,5 +32,21 @@ class LocationRatingCacheController extends Controller
             'number_rated' => count($locations),
             'number_unrated' => $locations_unrated
         ]);
+    }
+
+    public function populateUngroupedLocationGroupRatingsCache()
+    {
+        $location_group = RatingCacheHelper::build()->updateRootRatingsCache();
+
+        return response()->json($location_group);
+    }
+
+    public function populateLocationGroupRatingsCache(Request $request)
+    {
+        $location_group_id = $request->input('location_group_id');
+        $location_group = [];
+        $location_group = RatingCacheHelper::build()->updateRatingsCacheForGroup($location_group_id);
+
+        return response()->json($location_group);
     }
 }
