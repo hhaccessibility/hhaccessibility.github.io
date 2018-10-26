@@ -144,6 +144,10 @@
 		"prefix": "ymca"
 	},
 	{
+		"id": 44,
+		"prefix": "game_cycle"
+	},
+	{
 		"id": 45,
 		"prefix": "freshii"
 	},
@@ -244,6 +248,10 @@
 		"prefix": "mandarin_restaurant"
 	},
 	{
+		"id": 81,
+		"prefix": "mazaar_lebanese_cuisine"
+	},
+	{
 		"id": 100,
 		"prefix": "petro_canada"
 	},
@@ -272,6 +280,10 @@
 		"prefix": "fit_for_life_food"
 	},
 	{
+		"id": 153,
+		"prefix": "national_sports"
+	},
+	{
 		"id": 200,
 		"prefix": "state_farm_insurance"
 	},
@@ -282,6 +294,14 @@
 	{
 		"id": 202,
 		"prefix": "hr_block"
+	},
+	{
+		"id": 245,
+		"prefix": "michaels"
+	},
+	{
+		"id": 247,
+		"prefix": "pet_valu"
 	},
 	{
 		"id": 249,
