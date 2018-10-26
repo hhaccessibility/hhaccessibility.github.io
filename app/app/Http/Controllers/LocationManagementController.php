@@ -14,6 +14,11 @@ use Illuminate\Auth\AuthenticationException;
 use DB;
 use Webpatser\Uuid\Uuid;
 
+function getLocationGroups()
+{
+    return DB::table('location_group')->where('is_automatic_group', '=', false)->orderBy('name')->get();
+}
+
 class LocationManagementController extends \Illuminate\Routing\Controller
 {
     public function getLocationsNear($longitude, $latitude)
@@ -93,7 +98,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
     private function getLocationAddViewData($location_id = '')
     {
         $user = BaseUser::getDbUser();
-        $location_groups = DB::table('location_group')->orderBy('name')->get();
+        $location_groups = getLocationGroups();
         $location_tags = DB::table('location_tag')->orderBy('name')->get();
         if (!empty($location_id)) {
             $location=location::find($location_id);
@@ -415,7 +420,7 @@ class LocationManagementController extends \Illuminate\Routing\Controller
 
         $view_data = [
             'location' => $location,
-            'location_groups' => DB::table('location_group')->orderBy('name')->get(),
+            'location_groups' => getLocationGroups(),
             'location_tags' => DB::table('location_tag')->orderBy('name')->get(),
             'associated_location_tag_ids' => $location->getLocationTagIds(),
             'data_sources' => DB::table('data_source')->orderBy('name')->get()
