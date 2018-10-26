@@ -270,6 +270,16 @@ class SwitchToGuids extends Migration
     public function down()
     {
         $this->dropConstraints();
+        DB::table('location_location_tag')
+            ->where('location_id', 'NOT LIKE', '00000000-0000-0000-0000-%')
+            ->delete();
+        DB::table('user_role')
+            ->where('user_id', 'NOT LIKE', '00000000-0000-0000-0000-%')
+            ->delete();
+        DB::table('user')
+            ->where('id', 'NOT LIKE', '00000000-0000-0000-0000-%')
+            ->delete();
+
         foreach (getAffectedTableNames() as $tableName) {
             $object = new Test;
             $function = $object->addNewIntFields($tableName);
