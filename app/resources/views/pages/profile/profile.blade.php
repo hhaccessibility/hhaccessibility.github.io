@@ -42,54 +42,10 @@
 		@if ( $is_internal_user )
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
-        <h1>{{ $user->first_name.' '.$user->last_name }}</h1>
+        <h1>{{ $user->first_name.' '.$user->last_name }}<a href="/profile/names" title="Edit first and last name"><em class="fa fa-edit"></em></a></h1>
 		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
-			<h2>Personal</h2>
-			<div class="box">
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="first_name">First Name</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="first_name" name="first_name" value="{{ $user->first_name }}">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="last_name">Last Name</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="last_name" name="last_name" value="{{ $user->last_name }}">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="email">Email</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="email" name="email" type="email" required readonly value="{{ $user->email }}">
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label>Password</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<a class="btn btn-default" href="/user/change-password">Change password</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<h2>Home</h2>
 			<div class="box">
 				<div class="form-group">
