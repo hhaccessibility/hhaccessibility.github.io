@@ -5,6 +5,8 @@ Route::group(['prefix' => 'profile'], function () {
     Route::post('/', 'ProfileController@save');
     Route::get('/names', 'UserNamesController@index');
     Route::post('/names', 'UserNamesController@save');
+    Route::get('/home-address', 'HomeAddressController@index');
+    Route::post('/home-address', 'HomeAddressController@save');
 });
 Route::group(['prefix' => 'profile-photo-upload'], function () {
     Route::get('/', 'ProfilePhotoController@index');

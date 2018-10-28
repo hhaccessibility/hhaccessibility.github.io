@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
-
     /**
      * Either shows profile view or redirects browser to sign in.
      *

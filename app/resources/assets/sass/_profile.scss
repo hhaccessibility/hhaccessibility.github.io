@@ -13,6 +13,12 @@
 			vertical-align: top;
 		}
 	}
+	
+	.home-address {
+		em {
+			margin-left: 5px;
+		}
+	}
 
 	.internal-dashboard-link {
 		font-size: 30px;
@@ -46,12 +52,6 @@
 			> div {
 				flex-grow: 1;
 			}
-		}
-	}
-
-	select {
-		option[disabled] {
-			display: none;
 		}
 	}
 
