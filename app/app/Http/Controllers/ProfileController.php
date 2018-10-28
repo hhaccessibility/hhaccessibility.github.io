@@ -61,8 +61,6 @@ class ProfileController extends \Illuminate\Routing\Controller
         }
 
         $validation_rules = array(
-            'first_name'           => 'required|max:255',
-            'last_name'            => 'required|max:255',
             'country_id'           => 'integer|exists:country,id',
             'home_city'            => 'max:255',
             'home_region'          => 'max:255'
@@ -82,8 +80,6 @@ class ProfileController extends \Illuminate\Routing\Controller
         
         $user->home_region = $request->home_region;
         $user->home_city = $request->home_city;
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
         $user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
 
         $current_user_questions = $user->requiredQuestions()->get();

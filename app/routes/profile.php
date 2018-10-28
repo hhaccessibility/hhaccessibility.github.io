@@ -3,6 +3,8 @@
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/', 'ProfileController@index');
     Route::post('/', 'ProfileController@save');
+    Route::get('/names', 'UserNamesController@index');
+    Route::post('/names', 'UserNamesController@save');
 });
 Route::group(['prefix' => 'profile-photo-upload'], function () {
     Route::get('/', 'ProfilePhotoController@index');
