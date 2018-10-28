@@ -13,38 +13,42 @@ use DB;
 
 class ProfileController extends \Illuminate\Routing\Controller
 {
-    public function getRegions()
+    private static function getHomeAddressTextFor($user)
     {
-        $regions = DB::table('region')->get();
-        return $regions;
+        $user_home_address_text = '';
+        if (!empty($user->home_city)) {
+            $user_home_address_text = trim($user->home_city);
+        }
+        if (!empty($user->home_region)) {
+            $user_home_address_text .= ', '.trim($user->home_region);
+        }
+        if ($user->home_country_id) {
+            $user_home_address_text .= ', '.$user->homeCountry()->first()->name;
+        }
+        // Remove leading ', ', if there is one.
+        if (strpos($user_home_address_text, ', ') === 0) {
+            $user_home_address_text = substr($user_home_address_text, 2);
+        }
+        return $user_home_address_text;
     }
-    
+
     public static function getProfileView($validator = null)
     {
         $user = BaseUser::getDbUser();
         $question_categories = QuestionCategory::with('questions')->orderBy('name', 'ASC')->get();
-        $countries = Country::orderBy('name')->get();
-        $enabled_countries = Country::whereIn('id', function ($query) {
-            $query->select('country_id')
-            ->from(with(new Region)->getTable());
-        })->get(['id']);
-        $enabled_country_ids = [];
-        foreach ($enabled_countries as $country_id) {
-            $enabled_country_ids []= $country_id->id;
-        }
         $required_questions = $user->requiredQuestions()->get();
         $num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
+
         $view_data = [
             'user' => $user,
             'question_categories' => $question_categories,
             'address_default' => BaseUser::getDefaultAddress(),
-            'countries' => $countries,
             'required_questions' => $required_questions,
             'has_profile_photo' => ProfilePhotoController::hasProfilePhoto(),
             'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
             'num_locations_added_by_me' => $num_locations_added_by_me,
             'is_internal_user' => BaseUser::isInternal(),
-            'enabled_country_ids' => $enabled_country_ids
+            'user_home_address_text' => ProfileController::getHomeAddressTextFor($user)
             ];
 
         if ($validator === null) {
@@ -59,27 +63,7 @@ class ProfileController extends \Illuminate\Routing\Controller
         if (!BaseUser::isSignedIn()) {
             return redirect()->intended('signin');
         }
-
-        $validation_rules = array(
-            'country_id'           => 'integer|exists:country,id',
-            'home_city'            => 'max:255',
-            'home_region'          => 'max:255'
-        );
-        $validator = Validator::make(Input::all(), $validation_rules);
-        
-        if ($validator->fails()) {
-            return ProfileController::getProfileView($validator);
-        }
-        
         $user = BaseUser::getDbUser();
-        if ($request->home_country_id === '') {
-            $user->home_country_id = null;
-        } else {
-            $user->home_country_id = intval($request->home_country_id);
-        }
-        
-        $user->home_region = $request->home_region;
-        $user->home_city = $request->home_city;
         $user->uses_screen_reader = isset($request->uses_screen_reader) ? 1 : 0;
 
         $current_user_questions = $user->requiredQuestions()->get();

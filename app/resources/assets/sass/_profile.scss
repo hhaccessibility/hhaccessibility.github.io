@@ -13,6 +13,12 @@
 			vertical-align: top;
 		}
 	}
+	
+	.home-address {
+		em {
+			margin-left: 5px;
+		}
+	}
 
 	.internal-dashboard-link {
 		font-size: 30px;
@@ -46,12 +52,6 @@
 			> div {
 				flex-grow: 1;
 			}
-		}
-	}
-
-	select {
-		option[disabled] {
-			display: none;
 		}
 	}
 
@@ -196,8 +196,14 @@
 @media only screen and (max-width: 767px) {
 	body {
 		.profile {
-			.user-icon {
-				margin-top: 0;
+			.photo-display {
+				div.user-icon {
+					margin-top: 10px;
+				}
+			
+				.remove-photo {
+					margin-top: 30px;
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 @extends('layouts.default', ['body_class' => 'nav-profile profile-names'])
 @section('content')
 <div class="profile-names-page">
-	<h1><a href="/profile">{{ $user->first_name.' '.$user->last_name }}</a></h1>
+	<h1>{{ $user->first_name.' '.$user->last_name }}</h1>
 	<form method="post" action="/profile/names">
 		{!! csrf_field() !!}
 		@include('pages.validation_messages', array('errors'=>$errors))
@@ -48,8 +48,9 @@
 			</div>
 		</div>
 
-		<div class="text-right">
-			<button type="submit" class="btn btn-lg btn-primary save-button">Save Profile</button>
+		<div class="footer text-right">
+			<a href="/profile"><button class="btn btn-lg btn-primary save-button">Cancel</button></a>
+			<button type="submit" class="btn btn-lg btn-primary save-button">Save</button>
 	   </div>
 	</form>
 </div>

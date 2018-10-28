@@ -43,55 +43,16 @@
 			<a class="internal-dashboard-link" href="/dashboard"><em class="fa fa-gears"></em></a>
 		@endif
         <h1>{{ $user->first_name.' '.$user->last_name }}<a href="/profile/names" title="Edit first and last name"><em class="fa fa-edit"></em></a></h1>
+		<p class="home-address">
+		@if ( $user_home_address_text === '' )
+			<a href="/profile/home-address">Indicate home region</a>
+		@else
+			{{ $user_home_address_text }}<a href="/profile/home-address" title="Edit home region"><em class="fa fa-edit"></em></a>
+		@endif
+		</p>
 		<form id="profileForm" method="post" action="/profile">
 			{!! csrf_field() !!}
 			@include('pages.validation_messages', array('errors'=>$errors))
-			<h2>Home</h2>
-			<div class="box">
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="home_country_id">Country</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<select class="form-control" id="home_country_id" name="home_country_id">
-								<option value="">-- Select Country --</option>
-								@foreach ($countries as $country)
-									<option value="{{ $country->id }}"
-									@if ( $user->home_country_id === $country->id )
-									selected
-									@endif
-									@if ( !in_array($country->id, $enabled_country_ids) )
-									disabled
-									@endif
-									>{{ $country->name }}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="province">State/Province</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<select class="form-control" id="home_region" name="home_region" data-value="{{ $user->home_region }}">
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-4 col-xs-5">
-							<label for="home_city">City</label>
-						</div>
-						<div class="col-sm-8 col-xs-7">
-							<input class="form-control" id="home_city" name="home_city" value="{{ $user->home_city }}">
-						</div>
-					</div>
-				</div>
-			</div>
 
 			<h2>My Accessibility Requirements </h2>
 			<div class="box accessibility-interests">

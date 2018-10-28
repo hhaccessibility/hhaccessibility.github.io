@@ -13,5 +13,5 @@
 
 Route::post('populate-ratings-cache', 'LocationRatingCacheController@populateRatingsCache');
 Route::get('question-explanation/{question_id}', 'QuestionExplanationController@getExplanation');
-Route::get('regions', 'ProfileController@getRegions');
+Route::get('regions', 'HomeAddressController@getRegions');
 Route::get('locations', 'LocationSearchController@all');

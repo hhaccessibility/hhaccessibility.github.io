@@ -1,7 +1,8 @@
 
 .nav-profile.profile-names .profile-names-page {
 	@extend %page-base;
-	
+	@extend %dialog-page;
+
 	h1 {
 		padding-top: 20px;
 		text-align: center;
@@ -17,11 +18,6 @@
 		.password {
 			margin-top: 7px;
 		}
-		
-		button[type="submit"] {
-			margin-top: 20px;
-			margin-bottom: 15px;
-		}
 	}
 }
 
@@ -34,7 +30,7 @@
 		form {
 				max-width: 500px;
 
-				button[type="submit"] {
+				.footer {
 					margin-top: 30px;
 				}
 		}
