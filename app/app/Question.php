@@ -72,7 +72,7 @@ class Question extends Model
             if ($location_group && $location_group->ratings_cache !== null) {
                 $ratings_cache = json_decode($location_group->ratings_cache, true);
                 if (isset($ratings_cache['' . $this->id]) && is_numeric($ratings_cache['' . $this->id])) {
-                    $rating_value = 100 * $ratings_cache['' . $this->id];
+                    $rating_value = $ratings_cache['' . $this->id];
                 }
             }
         }

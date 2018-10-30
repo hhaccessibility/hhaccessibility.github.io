@@ -47,9 +47,6 @@ class RatingCacheHelper
                 foreach ($locations_with_question_rated as $location) {
                     $ratings_cache = json_decode($location->ratings_cache, true);
                     $rating = $ratings_cache['' . $question->id];
-                    if ($rating > 1) {
-                        $rating = 1;
-                    }
                     $total_rating += $rating;
                 }
                 $new_ratings_cache['' . $question->id] = $total_rating * 1.0 / count($locations_with_question_rated);
@@ -93,7 +90,7 @@ class RatingCacheHelper
                     }
                     $total_rating += $rating;
                 }
-                $new_ratings_cache['' . $question->id] = $total_rating * 1.0 / count($locations_with_question_rated);
+                $new_ratings_cache['' . $question->id] = $total_rating * 100.0 / count($locations_with_question_rated);
             }
         }
         $location_group->ratings_cache = json_encode($new_ratings_cache);
