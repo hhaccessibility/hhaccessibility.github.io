@@ -6,6 +6,7 @@ This is used for deploying imported data to app.accesslocator.com or demo.access
 import MySQLdb
 from import_helpers.seed_io import load_seed_data_from
 import db_config
+import uuid
 
 
 def get_db_connection():
@@ -13,7 +14,8 @@ def get_db_connection():
 	db = MySQLdb.connect(host=connection_settings['DB_HOST'],
                      user=connection_settings['DB_USERNAME'],
                      passwd=connection_settings['DB_PASSWORD'],
-                     db=connection_settings['DB_DATABASE'])
+                     db=connection_settings['DB_DATABASE'],
+					 use_unicode=True, charset="utf8")
 	return db
 
 
@@ -219,7 +221,7 @@ def safely_remove_removed_locations(db):
 		db.commit()
 
 
-def add_locations_not_conflicting_with_user_added_locations(db):		
+def add_locations_not_conflicting_with_user_added_locations(db):
 	locations_data = load_seed_data_from('location')
 	location_location_tags = load_seed_data_from('location_location_tag')
 	json_location_ids = [loc['id'] for loc in locations_data]
@@ -235,7 +237,7 @@ def add_locations_not_conflicting_with_user_added_locations(db):
 		for field in locations_data[0].keys():
 			insert_sql += '%s,'
 		insert_sql = insert_sql[:-1] + ')'
-		location_tag_insert_sql = 'insert into location_location_tag(location_id, location_tag_id) values(%s, %s)'
+		location_tag_insert_sql = 'insert into location_location_tag(id, location_id, location_tag_id) values(%s, %s, %s)'
 		for location in locations_to_add:
 			print 'Adding location ' + str(location)
 			# find location by id.
@@ -243,7 +245,8 @@ def add_locations_not_conflicting_with_user_added_locations(db):
 			cursor.execute(insert_sql, location.values())
 			location_tags = [loct for loct in location_location_tags if loct['location_id'] == location['id']]
 			for location_tag in location_tags:
-				cursor.execute(location_tag_insert_sql, (location_tag['location_id'], location_tag['location_tag_id']))
+				new_guid = str(uuid.uuid4())
+				cursor.execute(location_tag_insert_sql, (new_guid, location_tag['location_id'], location_tag['location_tag_id']))
 		db.commit()
 
 
