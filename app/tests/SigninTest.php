@@ -56,6 +56,24 @@ class SigninApiTest extends TestCase
         $this->assertTrue(strpos($content, 'Update Password') !== false);
     }
 
+    private function checkNameChangeFeature()
+    {
+        $response = $this->get('/profile/names');
+        $this->assertEquals(200, $response->getStatusCode());
+        $content = $response->getContent();
+        $this->assertTrue(strpos($content, 'First Name') !== false);
+        $this->assertTrue(strpos($content, 'Last Name') !== false);
+    }
+
+    private function checkHomeAddressFeature()
+    {
+        $response = $this->get('/profile/home-address');
+        $this->assertEquals(200, $response->getStatusCode());
+        $content = $response->getContent();
+        $this->assertTrue(strpos($content, 'Country') !== false);
+        $this->assertTrue(strpos($content, 'City') !== false);
+    }
+
     private function checkLocationGroups()
     {
         $response = $this->get('/location-groups');
@@ -169,6 +187,8 @@ class SigninApiTest extends TestCase
         $this->checkLocationsAddedByMe();
         $this->checkAddLocationFeature();
         $this->checkChangePasswordFeature();
+        $this->checkNameChangeFeature();
+        $this->checkHomeAddressFeature();
         $this->checkInternalDashboard();
         $this->checkScreenReader();
     }
