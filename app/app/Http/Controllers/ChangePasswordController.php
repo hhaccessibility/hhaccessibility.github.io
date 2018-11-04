@@ -24,7 +24,7 @@ class ChangePasswordController extends Controller
             return redirect()->intended('signin');
         }
     }
-    
+
     public function post(Request $request)
     {
         if (BaseUser::isSignedIn()) {
@@ -34,22 +34,22 @@ class ChangePasswordController extends Controller
                 'new_password'         => 'required',
                 'password_confirm'     => 'required|same:new_password'
             );
-            $validator = Validator::make(Input::all(), $validation_rules);
+            $validator = Validator::make($request->all(), $validation_rules);
             $failing = $validator->fails();
             if (!$failing && !empty($user->password_hash)) {
                 if (!BaseUser::authenticate($user->email, $request->input('current_password'))) {
-                    $validator->errors()->add('current_password', 'Current password not matched');
-                    $failing = true;
+                    return redirect('/user/change-password')
+                        ->withErrors(['current_password' => 'Incorrect current password'])->withInput();
+                }
+                if ($request->input('current_password')===$request->input('new_password')) {
+                    return Redirect::back()->withErrors(['New password must be different than old']);
                 }
             }
             if ($failing) {
-                return Redirect::to('/user/change-password')->withErrors($validator)->withInput();
-            } elseif ($request->input('current_password')==$request->input('new_password')) {
-                return Redirect::back()->withErrors(['New password must be different than old']);
+                return redirect()->to('/user/change-password')->withErrors($validator->errors())->withInput();
             } else {
-                $user->password_hash = User::generateSaltedHash($request->input('new_password'));
-                $user->save();
-                return view('pages.profile.change_password_success');
+                $user->update(['password_hash' => User::generateSaltedHash($request->get('new_password'))]);
+                return redirect('profile')->with('message', 'Your password has been updated!');
             }
         } else {
             return redirect()->intended('signin');
