@@ -27,8 +27,7 @@ html > body #main > .home-page {
 			width: 40px;
 			flex-grow: 0;
 		}
-	}
-	
+	}	
 
 	.intro {
 		width: 410px;
@@ -358,5 +357,237 @@ html > body #main > .home-page {
 @media screen and (max-width: 767px) {
 	#hover-text-display {
 		width: 100%;
+	}
+}
+
+/* The following SCSS is mainly to prevent vertical scrolling and 
+keep all 12 location categories visible.  */
+@media screen and (min-width: 960px) and (max-height: 700px) {
+	.home-page {
+		.home-inputs {
+
+			&.signed-out {
+				padding-top: 10px;
+
+				.signin-signup {
+					a {
+						padding-top: 2px;
+						padding-bottom: 2px;
+						height: 45px;
+						
+						td {
+							font-size: 17px;
+						}
+						
+						i {
+							font-size: 1.4em;
+						}
+					}
+				}
+
+				#map {
+					margin-top: 8px;
+					height: 138px;
+				}
+
+				.search {
+					margin-top: 8px;
+				}
+
+				.location-tags {
+					margin-top: 15px;
+				
+					.location-tag > a {
+						height: 66px;
+						font-size: 17px;
+						
+						&:hover {
+							font-size: 20px;
+						}
+					}
+				}
+			}
+
+			&.signed-in {
+				padding-top: 15px;
+
+				#map {
+					margin-top: 12px;
+					height: 160px;
+				}
+
+				.location-tags {
+					margin-top: 20px;
+
+					.location-tag > a {
+						height: 70px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 960px) and (min-height: 700px) and (max-height: 800px) {
+	.home-page {
+		.home-inputs {
+			&.signed-in {
+				padding-top: 18px;
+
+				#map {
+					margin-top: 15px;
+					height: 170px;
+				}
+
+				.location-tags {
+					margin-top: 25px;
+
+					.location-tag > a {
+						height: 73px;
+					}
+				}
+			}
+			&.signed-out {
+				padding-top: 12px;
+
+				.signin-signup {
+					a {
+						padding-top: 3px;
+						padding-bottom: 3px;
+						height: 55px;
+						
+						i {
+							font-size: 1.8em;
+						}
+					}
+				}
+
+				#map {
+					margin-top: 9px;
+					height: 145px;
+				}
+
+				.search {
+					margin-top: 9px;
+				}
+
+				.location-tags {
+					margin-top: 22px;
+				
+					.location-tag > a {
+						height: 72px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 960px) and (min-height: 800px) and (max-height: 900px) {
+	.home-page {
+		.home-inputs {
+			&.signed-in {
+				padding-top: 20px;
+
+				#map {
+					height: 180px;
+				}
+
+				.location-tags {
+					margin-top: 30px;
+
+					.location-tag > a {
+						height: 85px;
+					}
+				}
+			}
+
+			&.signed-out {
+				padding-top: 15px;
+
+				.signin-signup {
+					a {
+						padding-top: 5px;
+						padding-bottom: 5px;
+						height: 60px;
+
+						i {
+							font-size: 2em;
+						}
+					}
+				}
+
+				#map {
+					margin-top: 18px;
+					height: 175px;
+				}
+
+				.search {
+					margin-top: 12px;
+				}
+
+				.location-tags {
+					margin-top: 30px;
+				
+					.location-tag > a {
+						height: 78px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 960px) and (min-height: 900px) and (max-height: 1000px) {
+	.home-page {
+		.home-inputs {
+			&.signed-in {
+				padding-top: 20px;
+
+				#map {
+					height: 190px;
+				}
+
+				.location-tags {
+					margin-top: 35px;
+
+					.location-tag > a {
+						height: 97px;
+					}
+				}
+			}
+
+			&.signed-out {
+				padding-top: 20px;
+
+				.signin-signup {
+					a {
+						padding-top: 8px;
+						padding-bottom: 8px;
+						height: 65px;
+
+						i {
+							font-size: 2.1em;
+						}
+					}
+				}
+
+				#map {
+					height: 185px;
+				}
+
+				.search {
+					margin-top: 15px;
+				}
+
+				.location-tags {
+					margin-top: 35px;
+				
+					.location-tag > a {
+						height: 95px;
+					}
+				}
+			}
+		}
 	}
 }

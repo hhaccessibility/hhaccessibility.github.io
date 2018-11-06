@@ -30,7 +30,9 @@
 			</div>
 		</div>
 		<div class="col-lg-7">
-			<div class="home-inputs">
+			<div class="home-inputs 
+				@if ($base_user->isSignedIn()) signed-in @else signed-out @endif
+				">
 				@if (!$base_user->isSignedIn())
 					<div class="signin-signup">
 						<a href="/signin">
