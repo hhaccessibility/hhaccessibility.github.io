@@ -20,7 +20,8 @@ function addCircleToMap(map, user_point) {
 		strokeWeight: 1,
 		fillColor: "#929599",
 		fillOpacity: 0.3,
-		editable: true
+		editable: true,
+		clickable: false
 	});
 
 	var bounds = new google.maps.LatLngBounds();
@@ -49,6 +50,13 @@ function addCircleToMap(map, user_point) {
 	return circle;
 }
 
+function isCTRLDown() {
+	if (event && event.ctrlKey) {
+		return true;
+	}
+	return false;
+}
+
 function initMap() {
 	//current user LatLng
 	var user_point = {lat: user_latitude, lng: user_longitude };
@@ -60,7 +68,7 @@ function initMap() {
 	var options = {
 	  zoom: 19,
 	  center: user_point,
-	  draggable: false,
+	  draggable: true,
 	  streetViewControl: false,
 	  clickableIcons: false
 	};
@@ -118,4 +126,20 @@ function initMap() {
 		updateMapPositionAndSize(map, bounds, zoom_offset);
 	});
 
+	map.addListener('dragend', function() {
+		saveSearchLocationWithOptionalAddress(map.getCenter()).then(function() {
+			circle.setCenter(map.getCenter());
+			location.reload();
+		});
+	});
+
+	map.addListener('dblclick', function() {
+		if (isCTRLDown()) {
+			new_search_radius *= 2;
+		}
+		else {
+			new_search_radius /= 2;
+		}
+		setSearchRadius(new_search_radius);
+	});
 }

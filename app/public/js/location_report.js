@@ -15,6 +15,23 @@ function initMap() {
 	  map: map
 	});
 
+	map.addListener('dblclick', function() {
+		/*
+		disableDoubleClickZoom: false did not work so we're implementing a 
+		similar feature more from scratch.
+		*/
+		var is_zooming_in = true;
+		if (event && event.ctrlKey) {
+			is_zooming_in = false;
+		}
+		if (is_zooming_in) {
+			map.setZoom(map.getZoom() + 1);
+		}
+		else {
+			map.setZoom(map.getZoom() - 1);
+		}
+	});
+
 	function centreLocation() {
 		map.setCenter(locationPoint);
 	}
