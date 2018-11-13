@@ -54,11 +54,18 @@
 <div class="location-search {{ $max_reached ? 'warned' : '' }}">
 	<input type="hidden" id="_token" value="{{ csrf_token() }}">
 	<div class="title-map-table-bar">
-		@if ( !empty($location_tag_name) )
-		<h1><span class="location-search-results-for">Location Search Results for</span> {{ $location_tag_name }}</h1>
-		@else
-		<h1><span class="location-search-results-for">Location Search Results for</span> {{ $keywords }}</h1>
-		@endif
+		<div class="title">
+			@if ( !empty($location_tag_name) )
+			<h1><span class="location-search-results-for">Location Search Results for</span> {{ $location_tag_name }}</h1>
+				@if (empty(trim($keywords)))
+					<p class="keyword-filter">Not filtered by keywords</p>
+				@else
+					<p class="keyword-filter">Also filtered by keywords: {{ $keywords }}</p>
+				@endif
+			@else
+			<h1><span class="location-search-results-for">Location Search Results for</span> {{ $keywords }}</h1>
+			@endif
+		</div>
 		<div class="text-right">
 			@if ( $view === 'table' )
 				<a class="selected" href="{{ $url_factory->createURLForView('table') }}">Table</a>

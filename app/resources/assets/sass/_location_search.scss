@@ -4,10 +4,21 @@
 	@extend %page-base;
 
 	.title-map-table-bar {
+		> div.title {
+			display: inline-block;
+			float: none;
+			padding-top: 0;
+		}
+	
 		h1 {
 			margin-top: 0;
-			display: inline-block;
+			margin-bottom: 0;
 			white-space: nowrap;
+		}
+		
+		.keyword-filter {
+			font-size: 0.9em;
+			margin-bottom: 0;
 		}
 
 		> div {
@@ -23,12 +34,12 @@
 
 	#map {
 		height: 200px;
-		height: calc(100vh - 100px);
+		height: calc(100vh - 130px);
 		background-color: #888;
 	}
 
 	&.warned .data {
-		max-height: calc(100vh - 200px);
+		max-height: calc(100vh - 230px);
 	}
 
 	.warning {
