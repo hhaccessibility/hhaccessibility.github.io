@@ -64,7 +64,11 @@ def get_id_for_location_tag(location_tags, location_tag_name):
 
 def simplify_name(name):
 	punctuation_translator = string.maketrans(string.punctuation, ' ' * len(string.punctuation))
-	name = name.translate(punctuation_translator) # replace punctuation marks with spaces.
+	name = re.sub(r'[^\x00-\x7f]', ' ', name) # remove all non-ASCII characters
+	try:
+		name = name.translate(punctuation_translator) # replace punctuation marks with spaces.
+	except:
+		print('exception caught while trying to translate')
 	name = re.sub(r'\s+', ' ', name)	# replace all double spaces with single space.
 	return name.strip().lower()
 
