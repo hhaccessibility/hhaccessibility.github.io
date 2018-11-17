@@ -8,5 +8,6 @@
 {"id": 7, "name": "AccessLocator End Users", "description": "For information entered by end users while using AccessLocator"},
 {"id": 8, "name": "Mandarin Restaurant Website", "description": "For information downloaded from https://mandarinrestaurant.com"},
 {"id": 9, "name": "Access Earth", "description": "For information downloaded from https://access.earth/"},
-{"id": 10, "name": "ableroad.com", "description": "For information downloaded from http://ableroad.com"}
+{"id": 10, "name": "ableroad.com", "description": "For information downloaded from http://ableroad.com"},
+{"id": 11, "name": "mcdonalds.com", "description": "For information downloaded from http://mcdonalds.com"}
 ]
