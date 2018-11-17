@@ -9,6 +9,7 @@ import import_helpers.guid_generator as guid_generator
 import string
 import re
 import json
+from datetime import datetime
 
 
 def get_max_id(table_data):
@@ -175,16 +176,49 @@ def find_by_id(list1, id_value):
 	return [element for element in list1 if element['id'] == id_value][0]
 
 
-def merge_location_information(import_config, location, values):
+def get_user_answers_from(import_config, location_id, values):
+	result = []
+	i = 0
+	for column in import_config['columns']:
+		if 'question_ids' in column:
+			answer_value = matches_true(values[i])
+			if answer_value:
+				answer_value = 1
+			else:
+				answer_value = 0
+			for question_id in column['question_ids']:
+				result.append({
+					'answer_value': answer_value,
+					'answered_by_user_id': import_config['import_user_id'],
+					'question_id': question_id,
+					'location_id': location_id,
+					'id': guid_generator.get_guid(),
+					'when_submitted': datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+				})
+		i += 1
+	return result
+
+
+def merge_location_information(import_config, location, user_answers, values):
 	fields_to_merge = ['location_group_id', 'address', 'phone_number', 'external_web_url']
 	for field_name in fields_to_merge:
 		val = get_location_field(import_config, field_name, values)
 		if val and not location[field_name]:
 			location[field_name] = val
 
+	# Look into merging answers into the location.
+	if 'import_user_id' in import_config:
+		matched_user_answers = [a for a in user_answers if
+			a['answered_by_user_id'] == import_config['import_user_id'] and a['location_id'] == location['id']]
+		if len(matched_user_answers) == 0:
+			new_answers = get_user_answers_from(import_config, location['id'], values)
+			print('merging answers into location ' + location['id'])
+			for new_answer in new_answers:
+				user_answers.append(new_answer)
+
 
 def merge_location(import_config, locations, location_tags,
-location_location_tags, values, location_duplicates):
+location_location_tags, user_answers, values, location_duplicates):
 	location_name = get_location_field(import_config, 'name', values)
 	if not is_location_of_interest(location_name):
 		print('location is not of interest: ' + location_name)
@@ -194,7 +228,7 @@ location_location_tags, values, location_duplicates):
 		locations, values, location_duplicates)
 	if matching_location_id is not None:
 		print('matching location found for ' + location_name + ' id ' + str(matching_location_id))
-		merge_location_information(import_config, find_by_id(locations, matching_location_id), values)
+		merge_location_information(import_config, find_by_id(locations, matching_location_id), user_answers, values)
 		return
 
 	new_location = {
@@ -205,6 +239,10 @@ location_location_tags, values, location_duplicates):
 		new_location['location_group_id'] = import_config['location_group_id']
 
 	new_location = set_every_key(locations, new_location)
+	# include any user answers that might be extractable from values.
+	new_user_answers = get_user_answers_from(import_config, new_location['id'], values)
+	for user_answer in new_user_answers:
+		user_answers.append(user_answer)
 
 	tag_ids = []
 	if 'location_tag_names' in import_config:
