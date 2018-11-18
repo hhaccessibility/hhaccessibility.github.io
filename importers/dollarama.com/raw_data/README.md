@@ -1,0 +1,1 @@
+This directory acts as a cache for downloaded Dollarama location data.
