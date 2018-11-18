@@ -10,5 +10,6 @@
 {"id": 9, "name": "Access Earth", "description": "For information downloaded from https://access.earth/"},
 {"id": 10, "name": "ableroad.com", "description": "For information downloaded from http://ableroad.com"},
 {"id": 11, "name": "mcdonalds.com", "description": "For information downloaded from http://mcdonalds.com"},
-{"id": 12, "name": "timhortons.com", "description": "For information downloaded from http://timhortons.com"}
+{"id": 12, "name": "timhortons.com", "description": "For information downloaded from http://timhortons.com"},
+{"id": 13, "name": "dollarama.com", "description": "For information downloaded from http://www.dollarama.com"}
 ]

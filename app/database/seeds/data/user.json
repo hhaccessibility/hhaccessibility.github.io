@@ -118,5 +118,15 @@
         "home_region": "Ontario",
         "id": "00000000-0000-0000-0000-000000000011",
         "last_name": "campus-Importer"
+    },
+    {
+        "email": "dollarama@fake.com",
+        "email_verification_time": "2018-11-18 00:00:00",
+        "first_name": "Dollar",
+        "home_city": "Rama",
+        "home_country_id": 39,
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-000000000012",
+        "last_name": "campus-Importer"
     }
 ]
