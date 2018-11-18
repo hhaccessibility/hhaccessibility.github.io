@@ -1,0 +1,19 @@
+{
+	"data_source_id": 13,
+	"import_user_id": "00000000-0000-0000-0000-000000000012",
+	"is_first_row_titles": true,
+	"location_group_id": 99,
+	"location_tag_names": ["Shopping"],
+	"columns": [
+		{},
+		{"location_field": "name"},
+		{"location_field": "latitude"},
+		{"location_field": "longitude"},
+		{"location_field": "address"},
+		{},
+		{},
+		{},
+		{},
+		{"location_field": "phone_number"}
+	]
+}
