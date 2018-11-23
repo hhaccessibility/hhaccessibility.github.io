@@ -7,28 +7,12 @@ import import_helpers.location_groups as location_groups
 import import_helpers.guid_generator as guid_generator
 import json
 from datetime import datetime
+from import_config_interpreter import get_location_field
 import duplicate_detection
 
 
 def get_max_id(table_data):
 	return max([row['id'] for row in table_data])
-
-
-def get_location_field(import_config, field_name, values):
-	"""
-	Returns the value of the specified field by looking it up in the specified values.
-
-	@param field_name is a string, the name of the field to look up.  For example, 'longitude'.
-	@param values is a list expected to come from a line from a CSV file
-	"""
-	i = 0
-	for column in import_config['columns']:
-		if 'location_field' in column and column['location_field'] == field_name:
-			return values[i]
-			
-		i += 1
-
-	return None
 
 
 def get_id_for_location_tag(location_tags, location_tag_name):
@@ -138,7 +122,7 @@ location_location_tags, user_answers, values, location_duplicates):
 		print('location is not of interest: ' + location_name)
 		return
 
-	matching_location_id = get_id_of_matching_location(import_config,
+	matching_location_id = duplicate_detection.get_id_of_matching_location(import_config,
 		locations, values, location_duplicates)
 	if matching_location_id is not None:
 		print('matching location found for ' + location_name + ' id ' + str(matching_location_id))

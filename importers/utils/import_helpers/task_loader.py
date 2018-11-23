@@ -87,18 +87,22 @@ def get_task_info():
 	
 	@return a dict with information on what the importer tool is supposed to do.
 	"""
-	if len(sys.argv) < 2:
-		print('Too few parameters.  CSV file must be specified')
+	if len(sys.argv) < 3:
+		print('Too few parameters.  CSV file and JSON file must be specified')
 		sys.exit(errno.EINVAL)
 
 	csv_filename = sys.argv[1]
-	validate_filename(csv_filename, '.csv')
-	import_config_filename = 'import_configs/open_street_map.json'
-	if len(sys.argv) > 2:
-		import_config_filename = sys.argv[2]
+	import_config_filename = sys.argv[2]
 
+	if '.json' in csv_filename:
+		# swap.
+		temp = csv_filename
+		csv_filename = import_config_filename
+		import_config_filename = temp
+
+	validate_filename(csv_filename, '.csv')
 	validate_filename(import_config_filename, '.json')
-		
+
 	return {
 		"csv_filename": csv_filename,
 		"import_config": get_import_config(import_config_filename)

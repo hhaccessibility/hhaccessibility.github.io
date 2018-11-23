@@ -1,7 +1,7 @@
 import re
 import string
 import unicodedata
-from merging import get_location_field
+from import_config_interpreter import get_location_field
 import math
 
 distance_threshold_km = 0.2
