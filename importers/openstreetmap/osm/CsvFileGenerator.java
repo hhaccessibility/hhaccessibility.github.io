@@ -19,7 +19,7 @@ public class CsvFileGenerator
 		new Association(), new PublicService(), new Transportation(),
 		new Accommodation(), new Shopping(), new Park(), new Financial(),
 		new Healthcare(), new WheelChairAccessible(),
-		new ToiletWheelChairAccessible(), new Wifi(), new FreeWifi()
+		new ToiletWheelChairAccessible(), new Wifi(), new FreeWifi(), new ExternalId()
 	};
 	List<String> columnTitles = new LinkedList<String>();
 	for (LocationField field: fields)

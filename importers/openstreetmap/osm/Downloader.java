@@ -44,7 +44,7 @@ public class Downloader
 					System.out.println("About to download file.");
 					downloadFromURLToFile(url, cacheFilename);
 					System.out.println("Going to sleep for a few seconds to prevent an HTTP 429 Too Many Requests response");
-					Thread.sleep(10000); // sleep for a few seconds to prevent sending too many requests.
+					Thread.sleep(25000); // sleep for a few seconds to prevent sending too many requests.
 					System.out.println("Waking up to continue downloading.");
 				}
 				else {

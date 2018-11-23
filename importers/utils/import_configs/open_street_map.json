@@ -22,8 +22,9 @@
 		{"location_tag_name": "Financial"},
 		{"location_tag_name": "Healthcare"},
 		{"question_ids": [23, 24, 25, 40, 41, 42]},
-		{"question_ids": [23, 24, 25, 40, 41, 42]},
 		{},
-		{"question_ids": [95]}
+		{},
+		{"question_ids": [95]},
+		{}
 	]
 }
