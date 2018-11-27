@@ -31,6 +31,13 @@ public class OfInterestDecider
 			"compost", "University of Toronto"};
 		if( Arrays.asList(uninterestingNames).contains(name) )
 			return false;
+		if( name.endsWith(" Island") )
+			return false;
+		// strong indicator that this is just an intersection.
+		if( (name.toLowerCase().contains(" st &") || name.toLowerCase().contains(" st and ")) &&
+		name.toLowerCase().endsWith(" st") ) {
+			return false;
+		}
 
 		// We're not interested in river, stream or lake names.
 		String natural = location.getValueFor("natural");

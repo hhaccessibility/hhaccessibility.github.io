@@ -28,6 +28,13 @@ def write_seed_data(table_name, data):
 		raise ValueError('write_seed_data data must be a list')
 
 	with open(get_seed_file_path_for_table(table_name), 'wb') as seed_file:
-		s = json.dumps(data, sort_keys=True, indent=4)
+		for encoding in ['UTF-8', 'ISO-8859-1', 'latin2', 'cp1252', 'windows-1250']:
+			try:
+				s = json.dumps(data, sort_keys=True, indent=4, encoding=encoding)
+				print('encoded using encoding: ' + encoding)
+				break
+			except:
+				print('Encoding with %s failed.' % encoding)
+
 		s = "\n".join([line.rstrip() for line in s.splitlines()])
 		seed_file.write(s)

@@ -108,7 +108,7 @@ public class WayProcessor
 				double longitude = getAttributeAverage(referencedNodes, "lon");
 				double latitude = getAttributeAverage(referencedNodes, "lat");
 
-				Location newLocation = new Location(longitude, latitude, tags);
+				Location newLocation = new Location(longitude, latitude, tags, null);
 				if ( OfInterestDecider.isLocationOfInterest(newLocation) )
 					result.add(newLocation);
 			}

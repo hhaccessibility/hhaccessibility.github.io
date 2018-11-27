@@ -25,7 +25,10 @@ public class NodeProcessor
 		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 			Element eElement = (Element) nNode;
 			NodeList tags = eElement.getElementsByTagName("tag");
-			Location newLocation = new Location(Double.parseDouble(eElement.getAttribute("lon")), Double.parseDouble(eElement.getAttribute("lat")), tags);
+			Location newLocation = new Location(
+				Double.parseDouble(eElement.getAttribute("lon")),
+				Double.parseDouble(eElement.getAttribute("lat")), tags,
+				eElement.getAttribute("id"));
 
 			if ( OfInterestDecider.isLocationOfInterest(newLocation) )
 			{
