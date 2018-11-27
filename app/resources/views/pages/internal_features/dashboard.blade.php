@@ -38,6 +38,7 @@
 			<div class="box">
 				<h2>Location Categories</h2>
 				<ul>
+					<li>Uncategorized Locations - {{ $num_untagged_locations }}</li>
 					@foreach ($location_tags as $location_tag)
 					<li>{{ $location_tag->name }} - {{ $location_tag->num_locations }}</li>
 					@endforeach
