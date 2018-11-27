@@ -12,6 +12,9 @@ public class ExternalId extends LocationField
 	@Override
 	public String getValueFor(Location location)
 	{
+		if (location.getId() == null) {
+			return "";
+		}
 		return location.getId();
 	}
 }
