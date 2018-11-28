@@ -274,10 +274,17 @@ class LocationSearchController extends Controller
         }
 
         if (Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id'))) {
-            $location_tag_id = Input::get('location_tag_id');
-            $location_tag = LocationTag::find($location_tag_id);
-            $location_tag_name = $location_tag->name;
-            $locationsQuery = $location_tag->locations();
+            $location_tag_id = intval(Input::get('location_tag_id'));
+			// 0 indicates we want locations that have no location tag.
+			// This is useful for searching for locations that have very incomplete data.
+			if ($location_tag_id === 0) {
+				$locationsQuery = Location::getLocationsWithoutTag();
+			}
+			else {
+				$location_tag = LocationTag::find($location_tag_id);
+				$location_tag_name = $location_tag->name;
+				$locationsQuery = $location_tag->locations();
+			}
         }
         if (Input::has('keywords') || isset($_GET['keywords'])) {
             $keywords = Input::get('keywords');
