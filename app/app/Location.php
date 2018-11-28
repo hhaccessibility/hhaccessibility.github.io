@@ -72,6 +72,16 @@ class Location extends Model
         }
     }
 
+    public static function getLocationsWithoutTag()
+    {
+        $ids = DB::table('location_location_tag')->distinct()->get(['location_id']);
+        $ids_new = [];
+        foreach ($ids as $id) {
+            $ids_new []= $id->location_id;
+        }
+        return Location::whereNotIn('id', $ids_new);
+    }
+
     public function getNumberOfUsersWhoRated()
     {
         return DB::table('user_answer')

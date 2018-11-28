@@ -3,6 +3,7 @@
 use App\BaseUser;
 use App\User;
 use App\Role;
+use App\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
@@ -144,12 +145,7 @@ class InternalFeaturesController extends \Illuminate\Routing\Controller
             $location_tag->num_locations = DB::table('location_location_tag')
                 ->where('location_tag_id', '=', $location_tag->id)->count();
         }
-		$ids = DB::table('location_location_tag')->distinct()->get(['location_id']);
-		$ids_new = [];
-		foreach ($ids as $id) {
-			$ids_new []= $id->location_id;
-		}
-		$num_locations_without_tag = DB::table('location')->whereNotIn('id', $ids_new)->count();
+        $num_locations_without_tag = Location::getLocationsWithoutTag()->count();
 
         $view_data = [
         'num_users' => DB::table('user')->count(),
@@ -167,7 +163,7 @@ class InternalFeaturesController extends \Illuminate\Routing\Controller
         'num_comments' => DB::table('review_comment')->count(),
         'num_data_sources' => DB::table('data_source')->count(),
         'location_tags' => $location_tags,
-		'num_untagged_locations' => $num_locations_without_tag
+        'num_untagged_locations' => $num_locations_without_tag
         ];
 
         return view('pages.internal_features.dashboard', $view_data);
