@@ -12,6 +12,8 @@ class AddRatingCacheToLocationGroup extends Migration
             $table->boolean('is_automatic_group')->default(false);
             $table->json('ratings_cache')->nullable();
         });
+        // Clear all location cache so it is forced to get recalculated.
+        DB::statement("UPDATE location SET ratings_cache = null, universal_rating=null");
     }
 
     public function down()

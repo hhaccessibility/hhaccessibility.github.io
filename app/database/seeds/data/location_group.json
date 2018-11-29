@@ -85,6 +85,7 @@
 {"id": 255, "name": "Pizza Nova", "external_web_url": "https://pizzanova.com/", "is_automatic_group": false},
 {"id": 256, "name": "Capri Pizza", "external_web_url": "http://www.capripizza.ca/", "is_automatic_group": false},
 {"id": 257, "name": "Naples Pizza", "external_web_url": "http://www.naplespizza.com/", "is_automatic_group": false},
+{"id": 260, "name": "7-Eleven", "external_web_url": "https://www.7-eleven.com/", "is_automatic_group": false},
 {"id": 300, "name": "Best Buy", "external_web_url": "https://www.bestbuy.ca/", "is_automatic_group": false},
 {"id": 301, "name": "Red Apple", "external_web_url": "http://www.redapplestores.com", "is_automatic_group": false},
 {"id": 302, "name": "Apple Store", "external_web_url": "https://www.apple.com", "is_automatic_group": false},
