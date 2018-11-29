@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
     {
 		$tables_to_seed_using_json = ['location_search_option',
 			'faq_item', 'role', 'location_location_tag', 'location_duplicate',
-			'location', 'location_group', 'location_tag', 'question',
+			'location', 'location_event', 'location_group', 'location_tag', 'question',
 			'question_category','region', 'country', 'data_source'];
 		$user_data_tables = ['user_answer', 'review_comment'];
 		

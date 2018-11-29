@@ -1,7 +1,7 @@
 from sync import sync
 
 db = sync.get_db_connection()
-sync.add_missing_data(db, ['data_source', 'location_group'])
+sync.add_missing_data(db, ['data_source', 'location_group', 'location_event'])
 sync.set_fields_on_locations(db)
 sync.clear_ratings_cache(db)
 sync.set_fields_on_location_tags(db)

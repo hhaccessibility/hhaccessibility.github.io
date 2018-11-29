@@ -40,7 +40,7 @@ def set_every_key(locations, new_location):
 		return
 
 	nullable_fields = ['owner_user_id', 'universal_rating',
-	'location_group_id', 'external_web_url']
+	'location_group_id', 'external_web_url', 'destroy_location_event_id']
 	for key in locations[0].keys():
 		if key not in new_location:
 			if key in nullable_fields:
