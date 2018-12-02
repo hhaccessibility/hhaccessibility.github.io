@@ -133,6 +133,9 @@ location_location_tags, user_answers, values, location_duplicates):
 		'id': guid_generator.get_guid(),
 		'data_source_id': import_config['data_source_id']
 	}
+	for field_name in ['latitude', 'longitude']:
+		new_location[field_name] = get_location_field(import_config, field_name, values)
+
 	if 'location_group_id' in import_config:
 		new_location['location_group_id'] = import_config['location_group_id']
 
