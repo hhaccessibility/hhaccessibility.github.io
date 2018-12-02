@@ -1,0 +1,120 @@
+@import "_placeholders.scss";
+
+.location-event {
+	@extend %page-base;
+	text-align: center;
+
+	a.report-link {
+		display: block;
+	}
+
+	h1 {
+		padding-top: 1vh;
+		margin-bottom: 2vh;
+	}
+	
+	.when {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+@media (max-height: 500px) and (max-width: 300px) {
+	.location-event {
+		a.report-link {
+			padding-top: 0.5vh;
+			em {
+				font-size: 3.5vh;
+			}
+		}
+
+		h1 {
+			padding-top: 2vh;
+			margin-bottom: 6vh;
+		}
+	
+		p {
+			margin-top: 8vh;
+		}
+	}
+}
+
+@media (min-height: 500px) and (min-width: 300px) and (max-width: 700px) {
+	.location-event {
+		a.report-link {
+			padding-top: 0.5vh;
+			em {
+				font-size: 4vh;
+			}
+		}
+
+		h1 {
+			padding-top: 2vh;
+			margin-bottom: 6vh;
+		}
+	
+		p {
+			margin-top: 10vh;
+		}
+	}
+}
+
+@media (min-height: 500px) and (min-width: 700px) {
+	.location-event {
+		a.report-link {
+			padding-top: 15px;
+			em {
+				font-size: 28px;
+			}
+		}
+
+		h1 {
+			padding-top: 30px;
+			margin-bottom: 40px;
+		}
+
+		p {
+			margin-top: 65px;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.location-event {
+		p {
+			font-size: 19px;
+		}
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+	.location-event {
+		p {
+			font-size: 1.7vw;
+		}
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+	.location-event {
+		h1 {
+			font-size: 3.6vw;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.location-event {
+		h1 {
+			font-size: 19px;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.location-event {
+		.learn-more {
+			display: block;
+		}
+	}
+}

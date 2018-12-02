@@ -1,0 +1,13 @@
+{
+	"data_source_id": 14,
+	"import_user_id": "00000000-0000-0000-0000-100000000014",
+	"is_first_row_titles": true,
+	"location_group_id": 79,
+	"location_tag_names": ["Restaurant"],
+	"columns": [
+		{"location_field": "name"},
+		{"location_field": "address"},
+		{"location_field": "phone_number"},
+		{}
+	]
+}

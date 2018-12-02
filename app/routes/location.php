@@ -13,6 +13,7 @@ Route::get(
 );
 Route::get('location/report/{location_id}', 'LocationReportController@show');
 Route::get('location/report/{location_id}/{rating_system}', 'LocationReportController@show');
+Route::get('location/event/{location_event_id}', 'LocationEventController@show');
 Route::get('location-comments/{location_id}', 'LocationReportController@showComments');
 Route::get('location-map/{location_id}', 'LocationReportController@showMap');
 Route::get('location-map/{location_id}/{rating_system}', 'LocationReportController@showMap');

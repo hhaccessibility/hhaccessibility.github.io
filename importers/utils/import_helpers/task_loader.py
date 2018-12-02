@@ -65,18 +65,19 @@ def get_import_config(import_config_filename):
 			if 'location_field_name' in column and column['location_field_name'] == 'id':
 				print(import_config_filename + ': location_field_name must not be set to id.  id must be autoincremented.')
 				sys.exit(errno.EINVAL)
-		
-		required_location_fields = ['name', 'longitude', 'latitude']
-		for required_location_field in required_location_fields:
-			found = False
-			for column in import_config['columns']:
-				if 'location_field' in column and column['location_field'] == required_location_field:
-					found = True
 
-			if not found:
-				print(import_config_filename + ': location_field_name must be set for ' + required_location_field + '.')
-				sys.exit(errno.EINVAL)
-				
+		found_fields = []
+		for column in import_config['columns']:
+			if 'location_field' in column:
+				found_fields.append(column['location_field'])
+
+		if 'name' not in found_fields:
+			print(import_config_filename + ': location_field_name must be set for name.')
+			sys.exit(errno.EINVAL)
+		if 'address' not in found_fields and ('longitude' not in found_fields or 'latitude' not in found_fields):
+			print(import_config_filename + ': location_field_name must be set for both latitude and longitude if address is not set.')
+			sys.exit(errno.EINVAL)
+
 		return import_config
 
 

@@ -17,7 +17,9 @@
 @stop
 @section('content')
 
-<div class="location-report">
+<div class="location-report			@if ($location->destroy_location_event_id)
+	location-destroyed
+@endif">
 	@include('pages.location_report.top', array(
 		'rating_system' => $rating_system,
 		'location' => $location,
@@ -25,12 +27,17 @@
 	<div class="basic-info">
 		<div class="addresses">
 			<address>
-				<em class="fa fa-map-marker"></em>
-				{{ $location->address }}<br>
+				@if ($location->address)
+					<em class="fa fa-map-marker"></em>
+					{{ $location->address }}<br>
+				@endif
 				@if($location->phone_number)<p><em class="fa fa-phone"></em>
 				<a href="tel: {{ $location->phone_number }}">{{ $location->phone_number }}</a></p>@endif
 				<a href="{{ $location->getExternalWebURL() }}">{{ $location->getExternalWebURL() }}</a>
 			</address>
+			@if ($location->destroy_location_event_id)
+				<p class="destroyed"><a href="/location/event/{{ $location->destroy_location_event_id }}">This location was destroyed.</a></p>
+			@endif
 		</div>
 		<div class="location-tags text-right">
 			<div class="location-tags">

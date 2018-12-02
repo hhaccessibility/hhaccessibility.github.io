@@ -127,6 +127,16 @@
         "home_country_id": 39,
         "home_region": "Ontario",
         "id": "00000000-0000-0000-0000-000000000012",
-        "last_name": "campus-Importer"
+        "last_name": "dollarama-Importer"
+    },
+    {
+        "email": "sugar.marmalade@fake.com",
+        "email_verification_time": "2018-12-01 00:00:00",
+        "first_name": "Sugar",
+        "home_city": "Rama",
+        "home_country_id": 39,
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-100000000014",
+        "last_name": "Marmalade-Importer"
     }
 ]

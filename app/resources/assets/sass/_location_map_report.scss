@@ -57,6 +57,18 @@ This is where to put SCSS for the location report that shows a map.
 		@extend %selectable-link;
 
 	}
+	
+	&.location-destroyed {
+		> .basic-info {
+			> div {
+				&.addresses {
+					address {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
 
 	.title {
 		display: flex;
@@ -117,6 +129,11 @@ This is where to put SCSS for the location report that shows a map.
 
 				p {
 					margin-bottom: 0;
+				}
+
+				.destroyed a {
+					color: #800;
+					font-weight: bold;
 				}
 			}
 

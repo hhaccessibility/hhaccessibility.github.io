@@ -10,7 +10,8 @@ class Location extends Model
 {
     protected $fillable = [
         'name', 'phone_number', 'longitude', 'latitude', 'owner_user_id',
-        'data_source_id', 'universal_rating', 'creator_user_id', 'ratings_cache'
+        'data_source_id', 'universal_rating', 'creator_user_id', 'ratings_cache',
+        'destroy_location_event_id'
     ];
 
     public $timestamps = false;

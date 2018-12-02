@@ -40,7 +40,7 @@ def set_every_key(locations, new_location):
 		return
 
 	nullable_fields = ['owner_user_id', 'universal_rating',
-	'location_group_id', 'external_web_url']
+	'location_group_id', 'external_web_url', 'destroy_location_event_id']
 	for key in locations[0].keys():
 		if key not in new_location:
 			if key in nullable_fields:
@@ -133,6 +133,9 @@ location_location_tags, user_answers, values, location_duplicates):
 		'id': guid_generator.get_guid(),
 		'data_source_id': import_config['data_source_id']
 	}
+	for field_name in ['latitude', 'longitude']:
+		new_location[field_name] = get_location_field(import_config, field_name, values)
+
 	if 'location_group_id' in import_config:
 		new_location['location_group_id'] = import_config['location_group_id']
 
