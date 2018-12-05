@@ -4,6 +4,7 @@ information into seed data and prevent duplication of locations if the
 same location already exists.
 """
 import import_helpers.location_groups as location_groups
+import import_helpers.location_tags
 import import_helpers.guid_generator as guid_generator
 import json
 from datetime import datetime
@@ -115,6 +116,15 @@ def merge_location_information(import_config, location, user_answers, values):
 				user_answers.append(new_answer)
 
 
+def get_appropriate_location_tags(location, location_tags):
+	"""
+	Adds appropriate location tags for the specified location based on the location's name.
+	For example, if the location's name was 'Tim Hortons', the Restaurant tag would be added.
+	"""
+	tag_ids = [tag['id'] for tag in location_tags]
+	return import_helpers.location_tags.get_all_appropriate_location_tags_for(location['name'], tag_ids)
+
+
 def merge_location(import_config, locations, location_tags,
 location_location_tags, user_answers, values, location_duplicates):
 	location_name = get_location_field(import_config, 'name', values)
@@ -165,6 +175,11 @@ location_location_tags, user_answers, values, location_duplicates):
 	if 'location_group_id' not in new_location or not new_location['location_group_id']:
 		new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	locations.append(new_location)
+
+	# If no location tags are selected yet, use the location's name to determine appropriate tags.
+	if len(tag_ids) == 0:
+		tag_ids = get_appropriate_location_tags(new_location, location_tags)
+
 	for tag_id in tag_ids:
 		location_location_tags.append({
 			'id': guid_generator.get_guid(),
