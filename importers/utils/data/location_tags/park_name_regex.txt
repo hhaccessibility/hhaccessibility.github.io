@@ -3,4 +3,6 @@ reserve
  park$
 conservation
 circus
+campground
+camp 
 amusement

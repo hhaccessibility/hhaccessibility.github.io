@@ -21,6 +21,7 @@ neck care
 medilab
 medicine
 medical
+ md$
 massage
 hospital
  hearing
@@ -35,6 +36,8 @@ eyewear
 eye doctor
 eye care
 drugs
+^dr 
+^dr\. 
  denture
 ^denture
 dentistry
