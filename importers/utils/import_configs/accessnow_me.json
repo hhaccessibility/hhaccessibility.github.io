@@ -1,0 +1,26 @@
+{
+	"data_source_id": 16,
+	"import_user_id": "00000000-0000-0000-0000-100000000016",
+	"is_first_row_titles": true,
+	"columns": [
+		{"location_field": "name"},
+		{"location_field": "longitude"},
+		{"location_field": "latitude"},
+		{"location_field": "address"},
+		{"location_field": "phone_number"},
+		{"location_field": "external_web_url"},
+		{},
+		{"question_ids": [11]},
+		{"location_tag_name": "Shopping"},
+		{"question_ids": [25]},
+		{"question_ids": [29]},
+		{"location_tag_name": "Healthcare"},
+		{"question_ids": [94]},
+		{"location_tag_name": "Accommodation"},
+		{"question_ids": [31, 37, 91, 92]},
+		{"location_tag_name": "Restaurant"},
+		{"location_tag_name": "Education"},
+		{"question_ids": [15, 39, 44, 45, 46, 151]},
+		{"question_ids": [14]}
+	]
+}

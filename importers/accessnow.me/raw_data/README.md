@@ -1,0 +1,1 @@
+This is for a cache of data downloaded from accessnow.me.
