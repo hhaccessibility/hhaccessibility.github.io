@@ -2,4 +2,5 @@
 /importers/**/*.class
 /importers/**/raw_html/*.html
 /importers/**/raw_xml/*.xml
+/importers/**/raw_data/*.json
 .DS_Store
