@@ -11,6 +11,7 @@ from datetime import datetime
 from import_config_interpreter import get_location_field
 import duplicate_detection
 from import_helpers.external_web_url_sanitizer import get_sanitized_external_web_url
+import re
 
 
 def get_max_id(table_data):
@@ -38,18 +39,18 @@ def matches_true(value):
 
 
 def set_every_key(locations, new_location):
-	if len(locations) == 0:
+	if locations.is_empty():
 		return
 
 	nullable_fields = ['owner_user_id', 'universal_rating',
 	'location_group_id', 'external_web_url', 'destroy_location_event_id']
-	for key in locations[0].keys():
+	for key in locations.get_location_keys():
 		if key not in new_location:
 			if key in nullable_fields:
 				new_location[key] = None
 			else:
 				new_location[key] = ''
-	
+
 	return new_location
 
 
@@ -60,13 +61,17 @@ def sanitize(location_field, value):
 	if isinstance(value, str):
 		if location_field in ['longitude', 'latitude']:
 			value = float(value.strip())
-	
+
 	return value
 	
 
 def is_location_of_interest(location_name):
 	location_name = location_name.strip().lower()
-	if location_name in ['windsor']:
+	if 'windsor' == location_name:
+		return False
+	if re.search('^city of \\w+$', location_name):
+		return False
+	if re.search('^\\(\\w+\\) city of$', location_name):
 		return False
 
 	return True
@@ -115,7 +120,6 @@ def merge_location_information(import_config, location, user_answers, values, lo
 			a['answered_by_user_id'] == import_config['import_user_id'] and a['location_id'] == location['id']]
 		if len(matched_user_answers) == 0:
 			new_answers = get_user_answers_from(import_config, location['id'], values)
-			print('merging answers into location ' + location['id'])
 			for new_answer in new_answers:
 				user_answers.append(new_answer)
 
@@ -128,9 +132,10 @@ def get_appropriate_location_tags(location, location_tags):
 	tag_ids = [tag['id'] for tag in location_tags]
 	return import_helpers.location_tags.get_all_appropriate_location_tags_for(location['name'], tag_ids)
 
-
+merge_counter = 0
 def merge_location(import_config, locations, location_tags,
 location_location_tags, user_answers, values, location_duplicates, _location_groups):
+	global merge_counter
 	location_name = get_location_field(import_config, 'name', values)
 	if not is_location_of_interest(location_name):
 		print('location is not of interest: ' + location_name)
@@ -139,8 +144,10 @@ location_location_tags, user_answers, values, location_duplicates, _location_gro
 	matching_location_id = duplicate_detection.get_id_of_matching_location(import_config,
 		locations, values, location_duplicates)
 	if matching_location_id is not None:
-		print('matching location found for ' + location_name + ' id ' + str(matching_location_id))
-		merge_location_information(import_config, find_by_id(locations, matching_location_id), user_answers, values, _location_groups)
+		merge_counter += 1
+		if merge_counter % 10 == 0:
+			print('matching location found for ' + location_name + ' id ' + str(matching_location_id))
+		merge_location_information(import_config, locations.get_location_by_id(matching_location_id), user_answers, values, _location_groups)
 		return
 
 	new_location = {
@@ -180,7 +187,7 @@ location_location_tags, user_answers, values, location_duplicates, _location_gro
 	if 'location_group_id' not in new_location or not new_location['location_group_id']:
 		new_location['location_group_id'] = location_groups.get_location_group_for(new_location['name'])
 	
-	locations.append(new_location)
+	locations.insert(new_location)
 
 	# If no location tags are selected yet, use the location's name to determine appropriate tags.
 	if len(tag_ids) == 0:

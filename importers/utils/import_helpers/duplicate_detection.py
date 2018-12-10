@@ -152,25 +152,30 @@ def get_id_of_matching_location(import_config, locations, values, location_dupli
 	values_latitude = float(get_location_field(import_config, 'latitude', values).strip())
 	values_name = get_location_field(import_config, 'name', values).strip().lower()
 
-	location_duplicates_with_same_name = [ld for ld in location_duplicates if ld['name'].strip().lower() == values_name]
+	location_duplicates_with_same_name = location_duplicates.get_location_duplicates_by_name(values_name)
 	if len(location_duplicates_with_same_name) != 0:
 		for location_duplicate in location_duplicates_with_same_name:
-			location = [loc for loc in locations if loc['id'] == location_duplicate['location_id']][0]
-			location['longitude'] = float(location['longitude'])
-			location['latitude'] = float(location['latitude'])
+			locations_with_same_name = [loc for loc in locations.locations_near(values_longitude, values_latitude, distance_threshold_km_for_recorded_duplicate)
+				if loc['id'] == location_duplicate['location_id']]
+			if len(locations_with_same_name) != 0:
+				location = locations_with_same_name[0]
+				location['longitude'] = float(location['longitude'])
+				location['latitude'] = float(location['latitude'])
 
-			# if not close enough, skip.
-			distance = get_direct_distance(location['latitude'], location['longitude'],
-				values_latitude, values_longitude)
-			if distance < distance_threshold_km_for_recorded_duplicate:
-				return location_duplicate['location_id']
-				# return the id of the location that this is a duplicate of
+				# if not close enough, skip.
+				distance = get_direct_distance(location['latitude'], location['longitude'],
+					values_latitude, values_longitude)
+				if distance < distance_threshold_km_for_recorded_duplicate:
+					return location_duplicate['location_id']
+					# return the id of the location that this is a duplicate of
 
 	values_location_group_id = get_location_group_id(import_config, values)
 	if not values_location_group_id:
 		values_location_group_id = location_groups.get_location_group_for(values_name)
 	likely_duplicates = []
-	for location in locations:
+	for location in locations.locations_near(
+			values_longitude, values_latitude,
+			distance_threshold_for_very_similar_information):
 		match_quality = get_match_quality(import_config, location, values, values_location_group_id)
 		if match_quality > 0.01:
 			likely_duplicates.append((location, match_quality))

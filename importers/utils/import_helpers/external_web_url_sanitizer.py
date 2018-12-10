@@ -76,11 +76,9 @@ def sanitize_google_redirect_urls(url):
 
 
 def get_sanitized_external_web_url(location, location_groups):
-	if not location['location_group_id'] or not location['external_web_url']:
-		return sanitize_google_redirect_urls(location['external_web_url'])
-	matching_groups = [g for g in location_groups if g['id'] == location['location_group_id']]
-	if len(matching_groups) == 1:
-		matching_group = matching_groups[0]
-		if soft_match(matching_group['external_web_url'], location['external_web_url']):
+	if not location['external_web_url']:
+		return location['external_web_url']
+	for group in location_groups:
+		if soft_match(group['external_web_url'], location['external_web_url']):
 			return None
 	return sanitize_google_redirect_urls(location['external_web_url'])
