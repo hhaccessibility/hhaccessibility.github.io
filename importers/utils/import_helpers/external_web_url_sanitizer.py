@@ -1,3 +1,5 @@
+import urllib
+
 
 def remove_protocol(url):
 	if '://' in url:
@@ -59,12 +61,26 @@ def soft_match(url1, url2):
 	return url1 == url2
 
 
+def sanitize_google_redirect_urls(url):
+	# If this is a google redirect,
+	# convert to a direct link.
+	if url and 'google.' in url and 'url=' in url:
+		index = url.find('url=')
+		url = url[index + 4:]
+		if '&' in url:
+			index = url.find('&')
+			url = url[:index]
+		return urllib.unquote(url).decode('utf-8')
+	else:
+		return url
+
+
 def get_sanitized_external_web_url(location, location_groups):
 	if not location['location_group_id'] or not location['external_web_url']:
-		return location['external_web_url']
+		return sanitize_google_redirect_urls(location['external_web_url'])
 	matching_groups = [g for g in location_groups if g['id'] == location['location_group_id']]
 	if len(matching_groups) == 1:
 		matching_group = matching_groups[0]
 		if soft_match(matching_group['external_web_url'], location['external_web_url']):
 			return None
-	return location['external_web_url']
+	return sanitize_google_redirect_urls(location['external_web_url'])
