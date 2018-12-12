@@ -1,0 +1,1 @@
+This directory is for storing cached data files from fiveguys.com.

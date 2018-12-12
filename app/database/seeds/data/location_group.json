@@ -60,6 +60,8 @@
 {"id": 66, "name": "Sobeys", "external_web_url": "https://www.sobeys.com/", "is_automatic_group": false},
 {"id": 67, "name": "Foodland", "external_web_url": "http://foodland.ca/", "is_automatic_group": false},
 {"id": 68, "name": "No Frills", "external_web_url": "https://www.nofrills.ca/", "is_automatic_group": false},
+{"id": 77, "name": "Dairy Queen", "external_web_url": "https://www.dairyqueen.com", "is_automatic_group": false},
+{"id": 78, "name": "Jollibee", "external_web_url": "https://www.jollibee.com.ph", "is_automatic_group": false},
 {"id": 79, "name": "Sugar Marmalade", "external_web_url": "http://www.sugarmarmalade.com", "is_automatic_group": false},
 {"id": 80, "name": "Mandarin Restaurant", "external_web_url": "https://mandarinrestaurant.com/", "is_automatic_group": false},
 {"id": 81, "name": "Mazaar", "external_web_url": "http://www.mazaar.ca", "is_automatic_group": false},
@@ -90,6 +92,7 @@
 {"id": 300, "name": "Best Buy", "external_web_url": "https://www.bestbuy.ca/", "is_automatic_group": false},
 {"id": 301, "name": "Red Apple", "external_web_url": "http://www.redapplestores.com", "is_automatic_group": false},
 {"id": 302, "name": "Apple Store", "external_web_url": "https://www.apple.com", "is_automatic_group": false},
+{"id": 303, "name": "Staples Depot", "external_web_url": "https://www.staples.com", "is_automatic_group": false},
 {"id": 350, "name": "Delta Driving School", "external_web_url": "http://deltadrivingschool.ca", "is_automatic_group": false},
 {"id": 400, "name": "Home Hardware", "external_web_url": "http://www.homehardware.ca", "is_automatic_group": false},
 {"id": 401, "name": "Ungrouped Locations", "external_web_url": "", "is_automatic_group": true}

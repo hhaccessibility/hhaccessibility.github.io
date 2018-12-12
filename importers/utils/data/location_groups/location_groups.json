@@ -244,6 +244,14 @@
 		"prefix": "no_frills"
 	},
 	{
+		"id": 77,
+		"prefix": "dairy_queen"
+	},
+	{
+		"id": 78,
+		"prefix": "jollibee"
+	},
+	{
 		"id": 79,
 		"prefix": "sugar_marmalade"
 	},
@@ -362,6 +370,10 @@
 	{
 		"id": 302,
 		"prefix": "apple_store"
+	},
+	{
+		"id": 303,
+		"prefix": "staples_depot"
 	},
 	{
 		"id": 350,

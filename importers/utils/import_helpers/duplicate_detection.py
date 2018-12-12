@@ -2,6 +2,7 @@ import re
 import string
 import unicodedata
 from import_config_interpreter import get_location_field
+import location_groups
 import math
 
 distance_threshold_km = 0.2
@@ -106,7 +107,21 @@ def is_name_at_least_vaguely_similar(name1, name2):
 	return len(lcs_substring) > 5
 
 
-def get_match_quality(import_config, location, values):
+def get_location_group_id(import_config, values):
+	if 'location_group_id' in import_config:
+		return import_config['location_group_id']
+	else:
+		result = get_location_field(import_config, 'location_group_id', values)
+		if isinstance(result, basestring):
+			result = result.strip()
+			if not result:
+				result = None
+			else:
+				result = int(result)
+		return result
+
+
+def get_match_quality(import_config, location, values, values_location_group_id):
 	values_longitude = float(get_location_field(import_config, 'longitude', values).strip())
 	values_latitude = float(get_location_field(import_config, 'latitude', values).strip())
 	location['longitude'] = float(location['longitude'])
@@ -119,7 +134,9 @@ def get_match_quality(import_config, location, values):
 	result = 0
 	if ( distance < distance_threshold_km and
 	is_name_very_similar(values_name, location['name']) ):
-		result += 0.9
+		result += 0.7
+	if ( values_location_group_id is not None and values_location_group_id == location['location_group_id'] and distance < distance_threshold_km ):
+		result += 0.2
 	if ( distance < distance_threshold_for_very_similar_information and 
 	is_very_similar_information(import_config, values, location) ):
 		result += 0.1
@@ -135,23 +152,31 @@ def get_id_of_matching_location(import_config, locations, values, location_dupli
 	values_latitude = float(get_location_field(import_config, 'latitude', values).strip())
 	values_name = get_location_field(import_config, 'name', values).strip().lower()
 
-	location_duplicates_with_same_name = [ld for ld in location_duplicates if ld['name'].strip().lower() == values_name]
+	location_duplicates_with_same_name = location_duplicates.get_location_duplicates_by_name(values_name)
 	if len(location_duplicates_with_same_name) != 0:
 		for location_duplicate in location_duplicates_with_same_name:
-			location = [loc for loc in locations if loc['id'] == location_duplicate['location_id']][0]
-			location['longitude'] = float(location['longitude'])
-			location['latitude'] = float(location['latitude'])
+			locations_with_same_name = [loc for loc in locations.locations_near(values_longitude, values_latitude, distance_threshold_km_for_recorded_duplicate)
+				if loc['id'] == location_duplicate['location_id']]
+			if len(locations_with_same_name) != 0:
+				location = locations_with_same_name[0]
+				location['longitude'] = float(location['longitude'])
+				location['latitude'] = float(location['latitude'])
 
-			# if not close enough, skip.
-			distance = get_direct_distance(location['latitude'], location['longitude'],
-				values_latitude, values_longitude)
-			if distance < distance_threshold_km_for_recorded_duplicate:
-				return location_duplicate['location_id']
-				# return the id of the location that this is a duplicate of
+				# if not close enough, skip.
+				distance = get_direct_distance(location['latitude'], location['longitude'],
+					values_latitude, values_longitude)
+				if distance < distance_threshold_km_for_recorded_duplicate:
+					return location_duplicate['location_id']
+					# return the id of the location that this is a duplicate of
 
+	values_location_group_id = get_location_group_id(import_config, values)
+	if not values_location_group_id:
+		values_location_group_id = location_groups.get_location_group_for(values_name)
 	likely_duplicates = []
-	for location in locations:
-		match_quality = get_match_quality(import_config, location, values)
+	for location in locations.locations_near(
+			values_longitude, values_latitude,
+			distance_threshold_for_very_similar_information):
+		match_quality = get_match_quality(import_config, location, values, values_location_group_id)
 		if match_quality > 0.01:
 			likely_duplicates.append((location, match_quality))
 

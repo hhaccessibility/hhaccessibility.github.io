@@ -1,4 +1,5 @@
 		<meta charset="utf-8">
+		<meta content="en-CA" name="DC.Language">
 		<meta name="theme-color" content="#202767">
 		<meta name="description" content="A service for finding places based on the visitor's personal accessibility needs">
 		<meta name="author" content="JMCC">

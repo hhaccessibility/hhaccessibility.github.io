@@ -138,5 +138,35 @@
         "home_region": "Ontario",
         "id": "00000000-0000-0000-0000-100000000014",
         "last_name": "Marmalade-Importer"
+    },
+    {
+        "email": "yellowpages@fake.com",
+        "email_verification_time": "2018-12-04 00:00:00",
+        "first_name": "Yellow",
+        "home_city": "Rama",
+        "home_country_id": 39,
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-100000000015",
+        "last_name": "Pages-Importer"
+    },
+    {
+        "email": "accessnow_me@fake.com",
+        "email_verification_time": "2018-12-06 00:00:00",
+        "first_name": "Access",
+        "home_city": "Toronto",
+        "home_country_id": 39,
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-100000000016",
+        "last_name": "Now-Importer"
+    },
+    {
+        "email": "fiveguys@fake.com",
+        "email_verification_time": "2018-12-08 00:00:00",
+        "first_name": "Five",
+        "home_city": "Toronto",
+        "home_country_id": 39,
+        "home_region": "Ontario",
+        "id": "00000000-0000-0000-0000-100000000017",
+        "last_name": "Guys-Importer"
     }
 ]

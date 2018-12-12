@@ -1,0 +1,14 @@
+{
+	"cities": [
+		"Amherstburg", "Belle River", "Colchester", "Essex", "Hamilton",
+		"Kingsville", "Lakeshore", "LaSalle", "Leamington", "London",
+		"Toronto", "Waterloo", "Windsor"
+	],
+	"search_queries": [
+		"Accessible", "bathroom", "bus", "cafe",
+		"camping", "cinema", "coffee",
+		"Handi-Transit", "Hostel", "Hotel",
+		"Motel", "park", "Restaurant",
+		"Shopping", "toilet", "Wheelchair", "wifi"
+	]
+}

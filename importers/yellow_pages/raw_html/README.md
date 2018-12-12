@@ -1,0 +1,1 @@
+This directory is for cached HTML content from scraping yellowpages.com.

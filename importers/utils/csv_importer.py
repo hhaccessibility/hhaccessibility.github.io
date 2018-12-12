@@ -17,6 +17,8 @@ import csv
 import sys, errno
 import import_helpers.seed_io as seed_io
 from import_helpers.merging import merge_location
+from import_helpers.location_container import LocationContainer
+from import_helpers.location_duplicate_container import LocationDuplicateContainer
 
 task = get_task_info()
 import_config = task['import_config']
@@ -24,8 +26,10 @@ locations = seed_io.load_seed_data_from('location')
 location_tags = seed_io.load_seed_data_from('location_tag')
 location_location_tags = seed_io.load_seed_data_from('location_location_tag')
 location_duplicates = seed_io.load_seed_data_from('location_duplicate')
+location_groups = seed_io.load_seed_data_from('location_group')
 user_answers = seed_io.load_seed_data_from('user_answer')
-print('loaded ' + str(len(location_duplicates)) + ' location duplicates')
+locations = LocationContainer(locations)
+location_duplicates = LocationDuplicateContainer(location_duplicates)
 
 with open(task['csv_filename']) as csv_file:
 
@@ -41,8 +45,8 @@ with open(task['csv_filename']) as csv_file:
 			+ ' but ' + str(len(values)) + ' found in line: ' + str(values))
 			sys.exit(errno.EINVAL)
 
-		merge_location(import_config, locations, location_tags, location_location_tags, user_answers, values, location_duplicates)
+		merge_location(import_config, locations, location_tags, location_location_tags, user_answers, values, location_duplicates, location_groups)
 	
-	seed_io.write_seed_data('location', locations)
+	seed_io.write_seed_data('location', locations.get_all_locations_for_seed_data())
 	seed_io.write_seed_data('location_location_tag', location_location_tags)
 	seed_io.write_seed_data('user_answer', user_answers)

@@ -2,11 +2,13 @@ import unittest
 from import_helpers import duplicate_detection
 from import_helpers import seed_io
 from import_helpers import merging
+from import_helpers.location_container import LocationContainer
+from import_helpers.location_duplicates import LocationDuplicates
 
 
 class TestDuplicateDetection(unittest.TestCase):
 	def setUp(self):
-		self.locations = [{
+		self.locations = LocationContainer([{
 				"address": "4115 Walker Rd Bldg 4, Windsor, ON N8W 3T6",
 				"data_source_id": 6,
 				"external_web_url": None,
@@ -32,7 +34,7 @@ class TestDuplicateDetection(unittest.TestCase):
 				"phone_number": "+1 519-967-8210",
 				"universal_rating": None
 			},
-		]
+		])
 
 	def test_get_id_of_matching_location(self):
 		import_config = {
@@ -63,7 +65,7 @@ class TestDuplicateDetection(unittest.TestCase):
 			}
 		]
 		for test_case in test_cases:
-			id = duplicate_detection.get_id_of_matching_location(import_config, self.locations, test_case['values'], [])
+			id = duplicate_detection.get_id_of_matching_location(import_config, self.locations, test_case['values'], LocationDuplicates([]))
 			self.assertEquals(id, test_case['expected_id'])
 
 	def test_lcs(self):
@@ -92,7 +94,7 @@ class TestDuplicateDetection(unittest.TestCase):
 				{"location_field": "name"},
 				{"location_field": "phone_number"}
 			]}
-		location = merging.find_by_id(self.locations, '00000000-0000-0000-0000-000000009353')
+		location = self.locations.get_location_by_id('00000000-0000-0000-0000-000000009353')
 		values = ['Dollarama', '+1 519-972-2947']
 		self.assertTrue(duplicate_detection.is_very_similar_information(import_config, values, location))
 

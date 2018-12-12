@@ -1,0 +1,18 @@
+{
+	"data_source_id": 15,
+	"import_user_id": "00000000-0000-0000-0000-100000000015",
+	"is_first_row_titles": true,
+	"columns": [
+		{"location_field": "name"},
+		{"location_field": "longitude"},
+		{"location_field": "latitude"},
+		{"location_field": "external_web_url"},
+		{"location_field": "phone_number"},
+		{"location_field": "address"},
+		{},
+		{},
+		{},
+		{},
+		{}
+	]
+}
