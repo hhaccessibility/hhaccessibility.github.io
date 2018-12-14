@@ -15,7 +15,7 @@
 		@foreach ($location_groups as $location_group)
 		<div class="row">
 			<div class="col-xs-6">{{ $location_group->name }}</div>
-			<div class="col-xs-6">{{ $location_group->num_locations }}</div>
+			<div class="col-xs-6"><a href="location/search?location_group_id={{ $location_group->id }}&amp;view=map">{{ $location_group->num_locations }}</a></div>
 		</div>
 		@endforeach
 	</div>

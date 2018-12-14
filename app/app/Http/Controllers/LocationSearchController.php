@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\LocationTag;
+use App\LocationGroup;
 use App\Location;
 use App\BaseUser;
 use App\Libraries\Gis;
@@ -261,6 +262,7 @@ class LocationSearchController extends Controller
         $keywords = '';
         $location_tag_name = '';
         $location_tag_id = '';
+		$location_group_id = '';
         $order_by_field_name = 'rating';
         if (Input::has('order_by')) {
             $field_name = Input::get('order_by');
@@ -273,7 +275,21 @@ class LocationSearchController extends Controller
             $view = Input::get('view');
         }
 
-        if (Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id'))) {
+        if (Input::has('location_group_id') && is_numeric(Input::get('location_group_id'))) {
+            $location_group_id = intval(Input::get('location_group_id'));
+			// 0 indicates we want locations that have no location group.
+			if ($location_group_id === 0) {
+				$locationsQuery = Location::getLocationsWithoutGroup();
+			}
+			else {
+				$location_group = LocationGroup::find($location_group_id);
+				if ($location_group) {
+					$location_group_name = $location_group->name;
+					$locationsQuery = $location_group->locations();
+				}
+			}
+        }
+        else if (Input::has('location_tag_id') && is_numeric(Input::get('location_tag_id'))) {
             $location_tag_id = intval(Input::get('location_tag_id'));
 			// 0 indicates we want locations that have no location tag.
 			// This is useful for searching for locations that have very incomplete data.
@@ -282,10 +298,14 @@ class LocationSearchController extends Controller
 			}
 			else {
 				$location_tag = LocationTag::find($location_tag_id);
-				$location_tag_name = $location_tag->name;
-				$locationsQuery = $location_tag->locations();
+				if ($location_tag) {
+					$location_tag_name = $location_tag->name;
+					$locationsQuery = $location_tag->locations();
+				}
 			}
         }
+		// Hide the locations that were already destroyed.
+		$locationsQuery->where('destroy_location_event_id', '=', null);
         if (Input::has('keywords') || isset($_GET['keywords'])) {
             $keywords = Input::get('keywords');
             if (!Input::has('keywords')) {
@@ -296,8 +316,9 @@ class LocationSearchController extends Controller
                 $locationsQuery->where('name', 'LIKE', '%' . $keyword . '%');
             }
             $locationsQuery = $locationsQuery->distinct();
-        } elseif (!Input::has('location_tag_id') || !is_numeric(Input::get('location_tag_id'))) {
-            \App::abort(422, 'Either keywords or location_tag_id must be specified');
+        } elseif ((!Input::has('location_tag_id') || !is_numeric(Input::get('location_tag_id'))) &&
+		(!Input::has('location_group_id') || !is_numeric(Input::get('location_group_id')))) {
+            \App::abort(422, 'Either keywords, location_tag_id, or location_group_id must be specified');
         }
         BaseUser::setLocationSearchPath('/'.$request->path().'?'.$request->getQueryString());
         BaseUser::setKeywords($keywords);
@@ -309,6 +330,7 @@ class LocationSearchController extends Controller
             'keywords' => $keywords,
             'order_by' => $order_by_field_name,
             'location_tag_id' => $location_tag_id,
+			'location_group_id' => $location_group_id,
             'view' => $view
         ]);
 

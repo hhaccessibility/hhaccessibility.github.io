@@ -10,6 +10,15 @@ class LocationSearchTest extends TestCase
         }
     }
     
+    public function testUngroupedLocations()
+    {
+        $response = $this->get('/location/search?location_group_id=0&view=table');
+        $this->assertEquals(200, $response->getStatusCode());
+        $content = $response->getContent();
+        $this->assertTrue(strpos($content, 'spreadsheet') !== false);
+        $this->checkLocationSearchTableContent($content);
+    }
+    
     public function testUntaggedLocations()
     {
         $response = $this->get('/location/search?location_tag_id=0&view=table');
