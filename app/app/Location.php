@@ -83,6 +83,11 @@ class Location extends Model
         return Location::whereNotIn('id', $ids_new);
     }
 
+    public static function getLocationsWithoutGroup()
+    {
+        return Location::where('id', '=', null);
+    }
+
     public function getNumberOfUsersWhoRated()
     {
         return DB::table('user_answer')

@@ -69,9 +69,22 @@ def is_location_of_interest(location_name):
 	location_name = location_name.strip().lower()
 	if 'windsor' == location_name:
 		return False
+
+	# We don't want people rating city names.
 	if re.search('^city of \\w+$', location_name):
 		return False
 	if re.search('^\\(\\w+\\) city of$', location_name):
+		return False
+
+	# We don't want people rating numbers.
+	if re.search('^\\d+$', location_name):
+		return False
+
+	# We don't want channels and piers marked as ratable locations.
+	# These are things like shipping docks and places for ships to move.
+	if re.search(' pier$', location_name):
+		return False
+	if re.search(' channel$', location_name):
 		return False
 
 	return True

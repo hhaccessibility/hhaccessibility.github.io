@@ -13,6 +13,11 @@ class LocationGroup extends Model
     
     protected $table = 'location_group';
 
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
     public static function getRootLocationGroup()
     {
         return LocationGroup::where('id', '=', 401)->where('is_automatic_group', '=', true)->first();
