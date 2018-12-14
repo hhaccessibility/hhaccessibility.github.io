@@ -13,6 +13,7 @@ scientology
 salvation$
 saints
 saint 
+redemption
 protestant
 presbyterian
 orthodox
@@ -48,6 +49,8 @@ catholic
 cathedral
 buddhist
 buddhism
+ basilica 
+ basilica$
 baptist
 baptism
 association

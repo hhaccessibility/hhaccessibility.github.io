@@ -4,6 +4,7 @@ vegetable
  variety
 ^variety
 tools
+toner cartridge
 supplies
 supermarket
  store
@@ -13,8 +14,16 @@ spa & salon
 ^shop
 skin care
 retail
+ printing
+ printer
 plaza 
  plaza
+pet foods$
+pet foods 
+pet food$
+pet food 
+ perfume
+^perfume
 outlet
 minimart
 mini mart
@@ -28,17 +37,21 @@ mattress
 jewlery
 home building
 hardware
+haircare
 grocery
 groceries
 gifts
 furniture warehouse
 fresh fruit
 food market
+ floral$
 farmers
 farmer's
 depot$
 depot 
+cosmetics
 convenience
 clothing
 butcher
+barber
 appliances

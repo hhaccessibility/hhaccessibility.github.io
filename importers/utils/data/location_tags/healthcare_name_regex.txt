@@ -27,6 +27,7 @@ hospital
  hearing
 ^hearing
 health
+handi-transit
 foot care
 fitness
 family practice

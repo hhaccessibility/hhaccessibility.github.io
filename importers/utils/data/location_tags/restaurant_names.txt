@@ -12,6 +12,7 @@ tim horton
 tiki sushi
 the manchester
 the keg
+the gabardine
 thai time
 thai silk
 thai palace
@@ -32,6 +33,8 @@ rita's italian ice
 reno's
 renos
 red lobster
+quiznos sub
+quesada
 pretzelmaker
 popeyes chicken & seafood
 popeyes chicken and seafood
@@ -66,6 +69,7 @@ manchester
 little caesars
 krispy kreme doughnut
 kona ice
+kfc
 kelseys
 kelsey's
 keg
@@ -76,12 +80,18 @@ hurricane grill and wings
 hurricane grill
 hurricane
 hoi sushi
+harvey's
 harveys
 great american cookies
 golden chick
+gabby's
 five guys burgers & fries
 five guys burgers and fries
 five guys
+fast eddies
+fast eddie's
+express country style
+east side mario's
 eastside marios
 eastside mario's
 dunkin' donuts
@@ -90,9 +100,12 @@ dominos pizza
 dominos
 domino's pizza
 domino's
+denny's
+davidstea
 dari delite
 dari de lite
 dairy queen
+country style
 cold stone creamery
 coffee time
 cinnabon
@@ -103,6 +116,7 @@ burger king
 buffalo wild wings
 boston pizza
 biggby coffee
+bgood
 ben & jerrys
 ben & jerry's
 basil court
@@ -113,3 +127,4 @@ armandos
 arbys
 arby's
 applebees
+a&w
