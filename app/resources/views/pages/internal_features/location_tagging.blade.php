@@ -20,7 +20,7 @@
 		<div class="navigation">
 			@if (0 > $page_size - $offset)
 				<a href="/location-tagging?page_size={{ $page_size }}&amp;offset={{ $offset - $page_size }}" title="Previous Page">&lt;</a>
-			@else if ($offset !== 0)
+			@elseif ($offset !== 0)
 				<a href="/location-tagging?page_size={{ $page_size }}" title="Previous Page">&lt;</a>
 			@endif
 			<a id="refresh-page"><em class="fa fa-refresh"></em></a>
