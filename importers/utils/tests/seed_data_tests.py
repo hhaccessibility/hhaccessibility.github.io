@@ -11,9 +11,14 @@ class TestSeedData(unittest.TestCase):
 	These tests are useful for maintaining our seed data.
 	"""
 	def check_foreign_id(self, list1, key, ids, table_name):
+		failing_ids = []
 		for element in list1:
-			if element[key] not in ids:
-				self.fail('Foreign key ' + key + ' ' + element[key] + ' in table ' + table_name + ' is unmatched.')
+			if element[key] not in ids and element[key] not in failing_ids:
+				failing_ids.append(element[key])
+
+		if len(failing_ids) != 0:
+			print('failing values: ' + str(failing_ids))
+			self.fail('Foreign key ' + key + ' in table ' + table_name + ' is unmatched.')
 
 	def test_location_references(self):
 		user_answers = seed_io.load_seed_data_from('user_answer')
