@@ -60,6 +60,7 @@ choice hotels
 choice hotel
 centerstone inns, hotels & plaza hotels
 centerstone inn
+best western plus
 best western
 baymont inn & suites
 baymont inn

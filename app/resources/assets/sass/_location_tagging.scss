@@ -1,0 +1,57 @@
+@import "_placeholders.scss";
+
+.location-tagging {
+	@extend %page-base;
+	
+	#refresh-page {
+		cursor: pointer;
+	}
+
+	.data {
+		margin-left: 10px;
+		margin-right: 10px;
+
+		.row {
+			padding-top: 3px;
+			padding-bottom: 3px;
+
+			&:hover {
+				box-shadow: #008 0 0 5px inset;
+			}
+
+			&:nth-child(odd) {
+				background-color: #eee;
+			}
+
+			button {
+				transition: background-color 0.3s;
+				transition: border-color 0.3s, box-shadow 0.3s;
+				
+				&.selected {
+					box-shadow: #00f 0 0 5px inset;
+					border-color: #00f;
+				}
+
+				&:hover {
+					border-color: #ccc;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.location-tagging {
+		.title-and-navigation {
+			display: flex;
+			width: 100%;
+
+			.navigation {
+				flex-grow: 1;
+				flex-shrink: 1;
+				text-align: right;
+				font-size: 50px;
+			}	
+		}
+	}
+}

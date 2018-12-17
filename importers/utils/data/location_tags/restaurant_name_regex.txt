@@ -37,6 +37,7 @@ shawarma
 roast
 roadhouse
 ristorante
+restorante
 restaurant
  pub$
 ^pub 
@@ -98,6 +99,8 @@ chili$
 chicken
 cheese
 candy
+caffe 
+caffe$
 cafe$
 ^cafe 
 cafeteria

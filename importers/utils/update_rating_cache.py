@@ -4,16 +4,8 @@ import requests
 import sys
 import time
 import import_helpers.rating_cache_task_loader as rating_cache_task_loader
-import MySQLdb
 import json
-
-
-def get_db_connection(connection_settings):
-	db = MySQLdb.connect(host=connection_settings['DB_HOST'],
-                     user=connection_settings['DB_USERNAME'],
-                     passwd=connection_settings['DB_PASSWORD'],
-                     db=connection_settings['DB_DATABASE'])
-	return db
+import import_helpers.db_io
 
 
 def run_query(db, sql):
@@ -23,8 +15,8 @@ def run_query(db, sql):
 	return db_data
 
 
-def clear_cache(connection_info):
-	connection = get_db_connection(connection_info)
+def clear_cache():
+	connection = get_db_connection()
 	run_query(connection, 'update location set ratings_cache=null, universal_rating=null')
 
 
@@ -90,7 +82,7 @@ if __name__ == '__main__':
 	task_info = rating_cache_task_loader.get_task_info()
 	print('Task info = ' + json.dumps(task_info, sort_keys=True, indent=4))
 	if task_info['is_resetting_cache']:
-		clear_cache(task_info)
+		clear_cache()
 	populate_ratings_cache(task_info['site_url'])
 	populate_location_groups_ratings_cache(task_info)
 	sys.exit(0)

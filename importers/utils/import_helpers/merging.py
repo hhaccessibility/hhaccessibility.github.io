@@ -6,6 +6,7 @@ same location already exists.
 import import_helpers.location_groups as location_groups
 import import_helpers.location_tags
 import import_helpers.guid_generator as guid_generator
+import import_helpers.location_name_sanitizer as location_name_sanitizer
 import json
 from datetime import datetime
 from import_config_interpreter import get_location_field
@@ -34,7 +35,7 @@ def matches_true(value):
 	"""
 	if isinstance(value, str):
 		value = value.strip().lower()
-	
+
 	return value in ['true', '1', 'yes', 'y']
 
 
@@ -61,6 +62,8 @@ def sanitize(location_field, value):
 	if isinstance(value, str):
 		if location_field in ['longitude', 'latitude']:
 			value = float(value.strip())
+		if location_field == 'name':
+			value = location_name_sanitizer.sanitize_name(value)
 
 	return value
 	

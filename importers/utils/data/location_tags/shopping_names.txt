@@ -31,6 +31,7 @@ pro hockey life
 price choppers
 price chopper
 pc outfitters
+outdoor containers inc
 old navy
 no frills
 multifood
@@ -47,10 +48,12 @@ macy's
 leons
 leon's
 lcbo
+joe fresh
 home hardware
 home depot
 home building centres
 home building centre
+greenhouse juice co
 giant tiger
 g mobility
 gap
@@ -63,7 +66,10 @@ foodland ontario
 foodland
 food basics
 first choice haircutters
+fairweather
+factory direct
 dollarama
+dollar/thrifty
 dollar tree
 costco
 convenience
@@ -71,13 +77,21 @@ chapters
 canadian tire
 buck or two plus
 buck or two
+brimz
 blinds 2 go
 blinds to go
+body blitz
 best buy
 beauty salon
+bcbgmaxazria
+bbbuggy
+banana republic
 babies r us
+ardene
 apple store
+american eagle outfitters
 ali baba's
+addition elle
 a&p
 a & p
 7-eleven

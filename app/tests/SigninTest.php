@@ -118,6 +118,16 @@ class SigninApiTest extends TestCase
         $this->checkUserReport($user_id);
     }
 
+    private function checkLocationTaggingFeature()
+    {
+        $response = $this->get('/location-tagging');
+        $this->assertEquals(200, $response->getStatusCode());
+        $content = $response->getContent();
+        $this->assertTrue(strpos($content, 'Location Tagging') !== false);
+        $this->assertTrue(strpos($content, 'Name') !== false);
+        $this->assertTrue(strpos($content, 'Tags') !== false);
+    }
+
     private function checkInternalDashboard()
     {
         $response = $this->get('/dashboard');
@@ -129,6 +139,7 @@ class SigninApiTest extends TestCase
         // Check other internal features.
         $this->checkLocationGroups();
         $this->checkUsers();
+        $this->checkLocationTaggingFeature();
     }
     
     private function saveProfileInformation($overrides)

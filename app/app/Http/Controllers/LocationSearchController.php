@@ -199,11 +199,13 @@ class URLFactory
         $url = '/location/search?';
         $needs_ampersand = false;
         foreach ($params as $param_name => $param_value) {
-            if ($needs_ampersand) {
-                $url .= '&amp;';
+            if( $param_value !== '' ) {
+                if ($needs_ampersand) {
+                    $url .= '&amp;';
+                }
+                $url .= $param_name . '=' . rawurlencode($param_value);
+                $needs_ampersand = true;
             }
-            $url .= $param_name . '=' . rawurlencode($param_value);
-            $needs_ampersand = true;
         }
         return $url;
     }

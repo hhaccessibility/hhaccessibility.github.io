@@ -3,6 +3,9 @@ wheel$
 wheel alignment
 used cars
 uber
+^ttc [.]+ station$
+ trucking$
+trucking 
 tricycl
 transportation
 ^transit 
@@ -33,6 +36,8 @@ motorcycl
 mercadez
 landing strip
 jeep
+handi-transit
+ go station$
 gasoline
  ford
 ^ford

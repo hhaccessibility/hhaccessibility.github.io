@@ -244,6 +244,10 @@
 		"prefix": "no_frills"
 	},
 	{
+		"id": 70,
+		"prefix": "united_church"
+	},
+	{
 		"id": 77,
 		"prefix": "dairy_queen"
 	},
@@ -262,6 +266,14 @@
 	{
 		"id": 81,
 		"prefix": "mazaar_lebanese_cuisine"
+	},
+	{
+		"id": 82,
+		"prefix": "bgood"
+	},
+	{
+		"id": 83,
+		"prefix": "a_and_w"
 	},
 	{
 		"id": 99,
@@ -298,6 +310,14 @@
 	{
 		"id": 153,
 		"prefix": "national_sports"
+	},
+	{
+		"id": 160,
+		"prefix": "shoppers_drugmart"
+	},
+	{
+		"id": 161,
+		"prefix": "rexall"
 	},
 	{
 		"id": 200,

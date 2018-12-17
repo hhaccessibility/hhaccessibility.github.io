@@ -10,6 +10,7 @@ class LocationLocationTag extends Model
     protected $fillable = [
         'location_id', 'location_tag_id',
     ];
+    public $timestamps = false;
     /**
      * Indicates if the IDs are auto-incrementing.
      *
