@@ -47,6 +47,9 @@
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
     </script>
+	<script
+		src="/js/marker_clusterer.js">
+    </script>
 	@endif
 @stop
 @section('content')
