@@ -164,8 +164,11 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name, $ratin
     $locations = $loc_array;
     updateDistances($locations);
     $locations = \App\Libraries\Gis::filterTooDistant($locations, BaseUser::getSearchRadius());
-
-    $locationsResult = filterLocationsToMax($locations, 50);
+	$maxLocations = 60;
+	if ($view === 'map') {
+		$maxLocations = 5000;
+	}
+	$locationsResult = filterLocationsToMax($locations, $maxLocations);
     $locations = $locationsResult['locations'];
 
     if ($view === 'table') {

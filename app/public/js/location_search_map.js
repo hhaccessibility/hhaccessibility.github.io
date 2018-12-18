@@ -30,16 +30,16 @@ function addCircleToMap(map, user_point) {
 	map.fitBounds(bounds);
 	circle.setMap(map);
 
-	google.maps.event.addListener(circle,'mouseover',function() {
+	google.maps.event.addListener(circle, 'mouseover', function() {
 		circle.setOptions({'strokeColor': '#000'});
 	});
-	google.maps.event.addListener(circle,'mouseout',function() {
+	google.maps.event.addListener(circle, 'mouseout', function() {
 		circle.setOptions({'strokeColor': default_circle_stroke});
 	});
 
 	// when circle is dragged, we calculate search_radius based on new circleRadius
 	google.maps.event.addListener(circle, 'radius_changed', function() {
-		search_radius = circle.getRadius()/1000;
+		search_radius = circle.getRadius() / 1000;
 		setSearchRadius(search_radius);
 	});
 	google.maps.event.addListener(circle, 'center_changed', function() {
@@ -74,7 +74,7 @@ function initMap() {
 	};
 	//creating the map
 	var map = new google.maps.Map(mapDiv, options);
-
+	var markers = [];
 	locations.forEach(function(location) {
 
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
@@ -88,7 +88,10 @@ function initMap() {
 		google.maps.event.addListener(locationMarker, 'click', function() {
 			window.location.href = '/location/report/' + location.id;
 		});
+		markers.push(locationMarker);
 	});
+	var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
 	var centreMarker = new google.maps.Marker({
 	  position: user_point,
@@ -114,7 +117,14 @@ function initMap() {
 		zoomLevel = map.getZoom();
 		if( user_zoom_detection_active ) {
 			zoom_offset += zoomLevel - prev_zoom_level;
-			updateMapPositionAndSize(map, bounds, zoom_offset);
+			if (zoom_offset < 0) {
+				search_radius *= 1.8;
+			}
+			else {
+				search_radius /= 1.8;
+			}
+			setSearchRadius(search_radius);
+			//updateMapPositionAndSize(map, bounds, zoom_offset);
 		}
 		prev_zoom_level = zoomLevel;
 	});
