@@ -7,11 +7,14 @@ townhouses
  senior home
  retirement living
  retirement home
+ retirement community
  resort 
  resort$
  resorts 
  resorts$
+ residence
 motel
+ manor$
  inn$
 inn 
  house 

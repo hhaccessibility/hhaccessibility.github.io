@@ -57,6 +57,7 @@ pancake
 ^mexicana 
  lounge
 ^lounge
+ kitchen$
 kebab 
 kebab$
 hungry
@@ -72,6 +73,8 @@ gyros$
 greek pita
 frozen yogurt
 freshii
+ foodie
+^foodie
  food 
  food$
 ^food 
@@ -98,6 +101,8 @@ chili
 chili$
 chicken
 cheese
+ catering
+$catering 
 candy
 caffe 
 caffe$
@@ -112,6 +117,7 @@ buffet
 brunch
  briyani
 ^briyani
+ brewing$
 breakfast
 bites
 ^bistro 

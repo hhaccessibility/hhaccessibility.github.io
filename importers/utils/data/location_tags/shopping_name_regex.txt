@@ -53,5 +53,6 @@ cosmetics
 convenience
 clothing
 butcher
+ boutique
 barber
 appliances
