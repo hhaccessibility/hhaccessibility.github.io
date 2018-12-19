@@ -91,12 +91,14 @@ function initMap() {
 		markers.push(locationMarker);
 	});
 	var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            {imagePath: '/images/maps/cluster_'});
 
+	var centreImage = new google.maps.MarkerImage('/images/maps/cross.png',
+		new google.maps.Size(49, 49), new google.maps.Point(0, 0), new google.maps.Point(25, 24));
 	var centreMarker = new google.maps.Marker({
 	  position: user_point,
 	  map: map,
-	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+	  icon: centreImage
 	});
 
     //convert kilometers to meters
