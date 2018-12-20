@@ -5,6 +5,7 @@ This is used for deploying imported data to app.accesslocator.com or demo.access
 """
 import MySQLdb
 from import_helpers.seed_io import load_seed_data_from
+import import_helpers.utils as utils
 import db_config
 import uuid
 
@@ -101,6 +102,7 @@ def add_missing_data(db, table_names):
 		json_data = load_seed_data_from(table_name)
 		db_data = run_query(db, 'select id from ' + table_name)
 		db_data = [row['id'] for row in db_data]
+		db_data = set(db_data) # The "in" operator works more efficiently on sets.
 		new_data = [new_row for new_row in json_data if new_row['id'] not in db_data]
 		for new_row in new_data:
 			insert(cursor, table_name, new_row)
@@ -170,10 +172,14 @@ def set_fields_on_locations(db):
 	cur = db.cursor(MySQLdb.cursors.DictCursor)
 	cur.execute(location_query)
 	db_data = [row for row in cur.fetchall()]
+
+	locations_data = utils.list_to_dict(locations_data)
 	print 'May update up to ' + str(len(db_data)) + ' records'
 	cursor = db.cursor()
 	for db_location in db_data:
-		location = find_match('location', locations_data, db_location)
+		location = None
+		if db_location['id'] in locations_data:
+			location = locations_data[db_location['id']]
 		if location:
 			fields_to_set = []
 			field_values = []
@@ -201,6 +207,10 @@ def safely_remove_removed_locations(db):
 		'select distinct location_id from user_answer union distinct select distinct location_id from review_comment')
 	locations_with_answers = [loc['location_id'] for loc in locations_with_answers]
 	locations_in_db = run_query(db, 'select id from location where creator_user_id is null')
+	
+	# Convert list to set for more efficiency.
+	locations_with_answers = set(locations_with_answers) 
+	json_location_ids = set(json_location_ids)
 	locations_safe_to_delete = [loc['id'] for loc in locations_in_db if loc['id'] not in locations_with_answers]
 	locations_to_delete = [id for id in locations_safe_to_delete if id not in json_location_ids]
 	if len(locations_to_delete) > 0:
@@ -227,6 +237,8 @@ def add_locations_not_conflicting_with_user_added_locations(db):
 	json_location_ids = [loc['id'] for loc in locations_data]
 	locations_in_db = run_query(db, 'select id from location')
 	locations_in_db = [loc['id'] for loc in locations_in_db]
+	# Convert list to set for more efficiency.
+	locations_in_db = set(locations_in_db)
 	locations_to_add = [id for id in json_location_ids if id not in locations_in_db]
 	if len(locations_to_add) > 0:
 		cursor = db.cursor()
@@ -248,6 +260,11 @@ def add_locations_not_conflicting_with_user_added_locations(db):
 				new_guid = str(uuid.uuid4())
 				cursor.execute(location_tag_insert_sql, (new_guid, location_tag['location_id'], location_tag['location_tag_id']))
 		db.commit()
+
+
+def add_missing_users(db):
+	add_missing_data(db, ['user'])
+	# May want to include user_role eventually.
 
 
 if __name__ == 'main':

@@ -37,6 +37,7 @@ shawarma
 roast
 roadhouse
 ristorante
+rice noodle
 restorante
 restaurant
  pub$
