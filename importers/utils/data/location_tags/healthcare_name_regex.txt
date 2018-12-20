@@ -49,5 +49,6 @@ cronic care
 clinic
 chiropractor
 chiropractic
+biomechanical
 back pain
 acupuncture

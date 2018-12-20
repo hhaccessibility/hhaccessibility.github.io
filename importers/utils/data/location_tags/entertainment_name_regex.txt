@@ -2,6 +2,8 @@ theater
 theatre
 stadium
 recording studio
+ playworld$
+ playworld 
 nightclub
 night club
 karaoke

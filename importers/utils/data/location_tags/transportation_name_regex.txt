@@ -39,13 +39,18 @@ jeep
 handi-transit
  go station$
 gasoline
+ freight 
+ freight$
  ford
 ^ford
 ferry service
 fairy
 engine repair
 driving test
-driver test
+ driver
+^driver 
+ drive 
+^drive 
 dodge
 diesel
  cycling
@@ -62,6 +67,8 @@ car mechanic
 car doctor
 car dealers
 cadillac
+ cab$
+^cab 
 bus terminal$
 bus station$
 ^bus 

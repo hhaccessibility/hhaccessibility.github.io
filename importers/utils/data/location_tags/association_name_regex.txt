@@ -1,6 +1,7 @@
 yaht club
 worship
 temple
+synagogue
  st 
 ^st. 
 ^st 
