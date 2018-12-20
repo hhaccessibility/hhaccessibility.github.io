@@ -6,8 +6,12 @@ uber
 ^ttc [.]+ station$
  trucking$
 trucking 
+truck rental
 tricycl
 transportation
+ transport 
+ transport$
+^transport 
 ^transit 
  transit 
  transit$
@@ -21,6 +25,8 @@ trail$
  tire$
 taxi
 subway station
+ scooter 
+^scooter 
 rent a car
 railway
 raceway
@@ -30,6 +36,9 @@ pre-owned car
  pathway
  paths
 ^path
+^parking 
+ parking$
+ parking 
 oil change
 new cars
 motorcycl
@@ -81,6 +90,7 @@ boat launch
 boat dock
 bmw 
 ^bmw 
+ bike 
 bicycling
 bicycle
 auto$

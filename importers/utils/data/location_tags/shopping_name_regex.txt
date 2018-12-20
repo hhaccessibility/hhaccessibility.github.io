@@ -45,6 +45,7 @@ furniture warehouse
 fresh fruit
 food market
  floral$
+ fashion
 farmers
 farmer's
 depot$

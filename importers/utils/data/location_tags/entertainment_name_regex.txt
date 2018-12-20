@@ -8,6 +8,8 @@ nightclub
 night club
 karaoke
 gambling
+ fine art$
+^fine art$
 film
 famous players
 dancing

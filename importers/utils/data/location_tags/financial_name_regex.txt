@@ -19,6 +19,8 @@ income tax
 financial
 debt consolidation
 debt collect
+^currency exchange
+ currency exchange
  credit 
  credit$
 ^credit 

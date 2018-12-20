@@ -19,6 +19,7 @@ museum
 monument$
 monument 
 mathematics
+literacy
 library
 junior high
 historical
