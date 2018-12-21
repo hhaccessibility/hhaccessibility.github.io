@@ -101,6 +101,35 @@
 		</div>
 	</div>
 
+	<h2>The rights of Users</h2>
+	<p>Users may exercise certain rights regarding their Data processed by the Owner.</p>
+
+	<p>In particular, Users have the right to do the following:</p>
+	<ul>
+		<li><strong>Withdraw their consent at any time.</strong> Users have the right to withdraw consent where they have previously 
+		given their consent to the processing of their Personal Data.</li>
+		<li><strong>Object to processing of their Data.</strong> Users have the right to object to the processing of their Data if 
+		the processing is carried out on a legal basis other than consent. Further details are provided in the dedicated section below.</li>
+		<li><strong>Access their Data.</strong> Users have the right to learn if Data is being processed by the Owner, obtain disclosure regarding 
+certain aspects of the processing and obtain a copy of the Data undergoing processing.</li>
+		<li><strong>Verify and seek rectification.</strong> Users have the right to verify the accuracy of their Data and ask for it to be updated or corrected.</li>
+		<li><strong>Restrict the processing of their Data.</strong> Users have the right, under certain circumstances, to restrict the processing of their Data. 
+In this case, the Owner will not process their Data for any purpose other than storing it.</li>
+		<li><strong>Have their Personal Data deleted or otherwise removed.</strong> Users have the right, under certain circumstances, to obtain 
+the erasure of their Data from the Owner.</li>
+		<li><strong>Receive their Data and have it transferred to another controller.</strong> Users have the right to receive their Data in a structured, 
+commonly used and machine readable format and, if technically feasible, to have it transmitted to another controller without any hindrance. This provision is applicable provided that the Data is processed by automated means and that the processing is based on the User's consent, on a contract which the User is part of or on pre-contractual obligations thereof.
+		<li><strong>Lodge a complaint.</strong> Users have the right to bring a claim before their competent data protection authority.</li>
+	</ul>
+	<h3>Details about the right to object to processing</h3>
+	<p>Where Personal Data is processed for a public interest, in the exercise of an official authority vested in the Owner or for the purposes of the 
+legitimate interests pursued by the Owner, 
+Users may object to such processing by providing a ground related to their particular situation to justify the objection.</p>
+
+<h3>How to exercise these rights</h3>
+<p>Any requests to exercise User rights can be directed to the Owner through the contact details provided in this document. 
+These requests can be exercised free of charge and will be addressed by the Owner as early as possible and always within one month.</p>
+
 	<h2>Additional information about Data collection and processing</h2>
 	<h3>Legal action</h3>
 	<p>The User's Personal Data may be used for legal purposes by the Owner in Court or in the stages leading to possible legal action arising from improper use of AccessLocator or the related Services.</p>
@@ -150,6 +179,8 @@
 		<p>This privacy statement has been prepared based on provisions of multiple legislations, including Art. 13/14 of Regulation (EU) 2016/679 (General Data Protection Regulation).
 	This privacy policy relates solely to AccessLocator, if not stated otherwise within this document.</p>
 	</div>
+	
+	<p>Latest update: December 21, 2018</p>
 </div>
 
 @stop
