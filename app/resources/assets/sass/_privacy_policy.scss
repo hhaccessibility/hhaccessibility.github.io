@@ -1,0 +1,142 @@
+@import "_placeholders.scss";
+
+.privacy-policy {
+	@extend %page-base;
+	padding-bottom: 20px;
+
+	.policy-box {
+		border: 1px solid #888;
+		border-radius: 5px;
+	}
+}
+
+@media (min-width: 800px) {
+	.privacy-policy {
+		h2 {
+			font-size: 24px;
+		}
+		
+		h3 {
+			font-size: 18px;
+		}
+		
+		.detailed-personal-data {
+			.policy-box {
+				margin-bottom: 10px;
+			}
+		}
+
+		.policy-box {
+			padding-left: 10px;
+			padding-right: 10px;
+			
+			> h3:first-child {
+				margin-top: 8px;
+				margin-bottom: 15px;
+			}
+		}
+		
+		.legal-definitions {
+			h2 {
+				margin-top: 5px;
+				margin-bottom: 15px;
+			}
+
+			dt {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+@media (min-width: 300px) and (max-width: 800px) {
+	.privacy-policy {
+		h1 {
+			font-size: 24px;
+		}
+
+		h2 {
+			font-size: 18px;
+		}
+
+		h3 {
+			font-size: 16px;
+		}
+		
+		p, li, dd {
+			font-size: 13px;
+		}
+		
+		ul {
+			padding-left: 15px;
+			margin-left: 0;
+		}
+		
+		.detailed-personal-data {
+			.policy-box {
+				margin-bottom: 5px;
+			}
+		}
+
+		.policy-box {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		
+		.legal-definitions {
+			h2 {
+				margin-top: 8px;
+			}
+
+			dt {
+				margin-top: 5px;
+			}
+		}
+	}
+}
+
+@media (max-width: 300px) {
+	.privacy-policy {
+		h1 {
+			font-size: 20px;
+		}
+
+		h2 {
+			font-size: 16px;
+		}
+
+		h3 {
+			font-size: 14px;
+		}
+		
+		p, li, dd {
+			font-size: 11px;
+		}
+		
+		ul {
+			padding-left: 12px;
+			margin-left: 0;
+		}
+		
+		.detailed-personal-data {
+			.policy-box {
+				margin-bottom: 3px;
+			}
+		}
+
+		.policy-box {
+			padding-left: 3px;
+			padding-right: 3px;
+		}
+		
+		.legal-definitions {
+			h2 {
+				margin-top: 5px;
+			}
+
+			dt {
+				margin-top: 3px;
+			}
+		}
+	}
+}
