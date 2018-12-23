@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class PasswordRecoveryController extends Controller
 {
-
     public function form(Request $request)
     {
         return view('pages.password_recovery.form');
@@ -64,7 +63,7 @@ class PasswordRecoveryController extends Controller
         Mail::send(new RecoveryPasswordMail(
             $matching_user->email,
             $recoveryLink,
-            'passioninfinite1795@gmail.com'
+            'josh.greig@gmail.com'
         ));
 
         return view('pages.password_recovery.email_sent');
