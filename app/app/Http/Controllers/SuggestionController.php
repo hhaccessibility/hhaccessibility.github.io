@@ -33,7 +33,6 @@ class SuggestionController extends Controller
             'phone-number'          => 'max:50',
             'url'                   => 'max:255|url',
             'address'               => 'max:255'
-
         );
         $validator = Validator::make(Input::all(), $validation_rules);
         if ($validator->fails()) {

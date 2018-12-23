@@ -2,16 +2,32 @@
 @section('content')
 <div class="suggestion-list">
 	<div class="text-center">
-		<h1><a href="/location/management/my-locations">Suggestions for {{ $name }}</a></h1>
+		<h1>
+		@if ($name)
+		<a href="/location/management/my-locations">Suggestions for {{ $name }}</a>
+		@else
+		Suggestions
+		@endif
+		</h1>
 	</div>
 	@if ( count($suggestions) === 0 )
-		<p class="text-center">There is no suggestions about this location.</p>
+		<p class="text-center">There are no suggestions
+		@if ($name)
+			about this location
+		@endif</p>
 	@else
 	<div class="list-group">
 		@foreach($suggestions as $suggestion)
 		<a href="/suggestion-detail/{{ $suggestion->id }}" class="list-group-item" title="Click to check details">
-			<span class="username">Submitted by: {{ $suggestion->user_name }}</span>
-			<span class="when_generated">{{ $suggestion->when_generated }}</span>
+			<span class="username"><span class="submitted-by">Submitted by:</span> {{ $suggestion->user_name }}</span>
+			<span class="location-name">
+			@if ($name)
+				{{ $name }}
+			@else
+				{{ $suggestion->location_name }}
+			@endif
+			</span>
+			<span class="when-generated">{{ $suggestion->when_generated }}</span>
 		</a>
 		@endforeach
 	</div>
