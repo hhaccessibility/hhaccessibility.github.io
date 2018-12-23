@@ -79,22 +79,46 @@ class SuggestionController extends Controller
         ], 200);
     }
 
-    public function showSuggestionList(string $location_id)
+    private function getSuggestionsFor($location_id)
     {
-        $location_name = Location::find($location_id)->name;
-        $suggestions = DB::table('suggestion')
-                        ->where('location_id', '=', $location_id)
-                        ->get([
-                            'id',
-                            'user_id',
-                            'when_generated']);
-        foreach ($suggestions as $suggestion) {
-            $user = User::find($suggestion->user_id);
-            $suggestion->user_name = $user->first_name." ".$user->last_name;
+        if (!$location_id && BaseUser::isSignedIn()) {
+            if (!BaseUser::isInternal()) {
+                $db_user = BaseUser::getDbUser();
+                $location_ids = Location::where('creator_user_id', '=', $db_user->id)->get();
+                if (count($location_ids) === 1) {
+                    $location_id = $location_ids[0];
+                } elseif (count($location_ids) === 0) {
+                    return ['suggestions' => [], 'name' => ''];
+                }
+            }
+        } else {
+            $location_ids = [$location_id];
         }
+        $columns = ['suggestion.id', 'suggestion.user_id', 'suggestion.when_generated',
+            DB::raw('concat(user.first_name, \' \', user.last_name) as user_name')];
+        $suggestions = Suggestion::join('user', 'user.id', '=', 'suggestion.user_id');
+        if ($location_id === null) {
+            $location_name = '';
+            $suggestions = $suggestions->join('location', 'location.id', '=', 'suggestion.location_id');
+        } else {
+            $location_name = Location::find($location_id)->name;
+        }
+        if (isset($location_ids)) {
+            $suggestions = $suggestions->whereIn('location_id', $location_ids);
+        }
+        if (!$location_name) {
+            $columns []= DB::raw('location.name as location_name');
+        }
+        $suggestions = $suggestions->get($columns);
+        return ['suggestions' => $suggestions, 'name' => $location_name];
+    }
+
+    public function showSuggestionList($location_id = null)
+    {
+        $suggestionsInfo = $this->getSuggestionsFor($location_id);
         $view_data = [
-            'suggestions' => $suggestions,
-            'name' => $location_name
+            'suggestions' => $suggestionsInfo['suggestions'],
+            'name' => $suggestionsInfo['name']
         ];
         return view('pages.location_management.suggestion_list', $view_data);
     }

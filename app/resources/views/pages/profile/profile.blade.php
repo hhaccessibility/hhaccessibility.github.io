@@ -110,6 +110,7 @@
 				<div>
 					<a class="btn btn-default" href="/reviewed-locations">My Reviews({{ $num_reviews }})</a>
 					<a class="btn btn-default" href="/location/management/my-locations">My Locations({{ $num_locations_added_by_me }})</a>
+					<a class="btn btn-default" href="/suggestion-list">Suggestions({{ $num_suggestions_to_review }})</a>
 				</div>
 			</div>
 

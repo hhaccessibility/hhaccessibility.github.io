@@ -22,6 +22,7 @@ class SigninApiTest extends TestCase
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'My Reviews') !== false);
         $this->assertTrue(strpos($content, 'Sign out') !== false);
+        $this->assertTrue(strpos($content, 'Suggestions') !== false);
     }
 
     private function checkLocationSearchRadius()
@@ -54,6 +55,14 @@ class SigninApiTest extends TestCase
         $content = $response->getContent();
         $this->assertTrue(strpos($content, 'Change Password') !== false);
         $this->assertTrue(strpos($content, 'Update Password') !== false);
+    }
+
+    private function checkSuggestions()
+    {
+        $response = $this->get('/suggestion-list');
+        $this->assertEquals(200, $response->getStatusCode());
+        $content = $response->getContent();
+        $this->assertTrue(strpos($content, 'Suggestions') !== false);
     }
 
     private function checkNameChangeFeature()
@@ -202,6 +211,7 @@ class SigninApiTest extends TestCase
         $this->checkHomeAddressFeature();
         $this->checkInternalDashboard();
         $this->checkScreenReader();
+        $this->checkSuggestions();
     }
 
     public function testSignout()
