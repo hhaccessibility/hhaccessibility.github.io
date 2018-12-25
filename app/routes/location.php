@@ -28,5 +28,7 @@ Route::post('api/add-suggestion', 'SuggestionController@addSuggestion');
 Route::get('suggestion-list', 'SuggestionController@showSuggestionList');
 Route::get('suggestion-list/{location_id}', 'SuggestionController@showSuggestionList');
 Route::get('suggestion-detail/{suggestion_id}', 'SuggestionController@showSuggestionDetail');
+Route::put('api/suggestion/merge/{suggestion_id}/{fieldname}', 'SuggestionController@accept');
+Route::delete('api/suggestion/{suggestion_id}', 'SuggestionController@markSuggestionAsResolved');
 Route::get('location/management/edit/{location_id}', 'LocationManagementController@editLocation');
 Route::post('location/management/edit', 'LocationManagementController@editLocationSave');

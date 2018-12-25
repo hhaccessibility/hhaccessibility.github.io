@@ -41,10 +41,11 @@ class ProfileController extends \Illuminate\Routing\Controller
         $question_categories = QuestionCategory::with('questions')->orderBy('name', 'ASC')->get();
         $required_questions = $user->requiredQuestions()->get();
         $num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
+        $suggestions = Suggestion::where('deleted_at', '=', null);
         if ($user->hasRole(Role::INTERNAL)) {
-            $num_suggestions = Suggestion::count();
+            $num_suggestions = $suggestions->count();
         } else {
-            $num_suggestions = Suggestion::whereIn(
+            $num_suggestions = $suggestions->whereIn(
                 'location_id',
                 Location::select('id')->where('creator_user_id', '=', $user->id)->get()
             )->count();
