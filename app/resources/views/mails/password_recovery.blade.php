@@ -71,11 +71,6 @@
 </head>
 <body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
 
-<!-- HIDDEN PREHEADER TEXT -->
-<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-    Looks like you tried signing in a few too many times. Let's see if we can get you back into your account.
-</div>
-
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- LOGO -->
     <tr>
@@ -214,7 +209,7 @@
                 <!-- PERMISSION REMINDER -->
                 <tr>
                     <td bgcolor="#f4f4f4" align="left" style="padding: 30px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
-                        <p style="margin: 0;">You received this email because you request to reset your account password.</p>
+                        <p style="margin: 0;">You received this email because you requested to reset your account password.</p>
                     </td>
                 </tr>
             </table>
