@@ -22,7 +22,7 @@ class UnregisteredUserEmail extends Mailable
      * @param $recoveryLink
      * @param null $fromEmail
      */
-    public function __construct($toEmail,  $fromEmail = 'hari@sarct.in')
+    public function __construct($toEmail,  $fromEmail = null)
     {
         $this->toEmail = $toEmail;
         $this->fromEmail = $fromEmail;
