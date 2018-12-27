@@ -35,7 +35,7 @@ class PasswordRecoveryController extends Controller
         // find user with matching email address.
         $matching_user = User::where('email', '=', $email)->first();
         if (!$matching_user) {
-			Mail::send(new UnregisteredUserEmail($request->email));
+            Mail::send(new UnregisteredUserEmail($request->email));
             return view('pages.password_recovery.unmatched_email');
         }
 
