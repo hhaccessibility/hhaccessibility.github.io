@@ -3,6 +3,7 @@
 use App\BaseUser;
 use App\Mail\RecoveryPasswordMail;
 use App\Mail\ConfirmationMail;
+use App\Mail\UnregisteredUserEmail;
 use App\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class PasswordRecoveryController extends Controller
         // find user with matching email address.
         $matching_user = User::where('email', '=', $email)->first();
         if (!$matching_user) {
+			Mail::send(new UnregisteredUserEmail($request->email));
             return view('pages.password_recovery.unmatched_email');
         }
 
