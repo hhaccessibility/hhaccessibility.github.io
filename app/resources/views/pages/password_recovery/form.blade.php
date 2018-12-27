@@ -3,7 +3,6 @@
 
 <div class="password-recovery">
 	<h1>Account Recovery</h1>
-	<p>Under development</p>
 	
 	<div class="form-box">
 		<form method="post" action="/user/password-recovery">

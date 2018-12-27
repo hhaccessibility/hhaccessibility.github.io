@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class PasswordRecoveryController extends Controller
 {
-
     public function form(Request $request)
     {
         return view('pages.password_recovery.form');
@@ -35,7 +34,7 @@ class PasswordRecoveryController extends Controller
         // find user with matching email address.
         $matching_user = User::where('email', '=', $email)->first();
         if (!$matching_user) {
-			Mail::send(new UnregisteredUserEmail($request->email));
+            Mail::send(new UnregisteredUserEmail($request->email));
             return view('pages.password_recovery.unmatched_email');
         }
 
@@ -64,7 +63,7 @@ class PasswordRecoveryController extends Controller
         Mail::send(new RecoveryPasswordMail(
             $matching_user->email,
             $recoveryLink,
-            'passioninfinite1795@gmail.com'
+            'josh.greig@gmail.com'
         ));
 
         return view('pages.password_recovery.email_sent');
