@@ -314,7 +314,8 @@ class LocationManagementController extends \Illuminate\Routing\Controller
         // perform some validation.
         $validation_rules = array(
             'location_id'           => 'required|string',
-            'name'                  => 'required|between:2,255','phone_number'          => 'max:50',
+            'name'                  => 'required|between:2,255',
+            'phone_number'          => 'max:50',
             'address'               => 'max:255|required',
             'external_web_url'      => 'max:255|url',
             'location_tags'         => 'array',

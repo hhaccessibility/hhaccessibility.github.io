@@ -5,6 +5,9 @@ use App\QuestionCategory;
 use App\Country;
 use App\AnswerRepository;
 use App\Region;
+use App\Suggestion;
+use App\Role;
+use App\Location;
 use App\Http\Controllers\ProfilePhotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +41,15 @@ class ProfileController extends \Illuminate\Routing\Controller
         $question_categories = QuestionCategory::with('questions')->orderBy('name', 'ASC')->get();
         $required_questions = $user->requiredQuestions()->get();
         $num_locations_added_by_me = DB::table('location')->where('creator_user_id', '=', $user->id)->count();
+        $suggestions = Suggestion::where('deleted_at', '=', null);
+        if ($user->hasRole(Role::INTERNAL)) {
+            $num_suggestions = $suggestions->count();
+        } else {
+            $num_suggestions = $suggestions->whereIn(
+                'location_id',
+                Location::select('id')->where('creator_user_id', '=', $user->id)->get()
+            )->count();
+        }
 
         $view_data = [
             'user' => $user,
@@ -46,6 +58,7 @@ class ProfileController extends \Illuminate\Routing\Controller
             'required_questions' => $required_questions,
             'has_profile_photo' => ProfilePhotoController::hasProfilePhoto(),
             'num_reviews' => count(AnswerRepository::getReviewedLocations()['location_ids']),
+            'num_suggestions_to_review' => $num_suggestions,
             'num_locations_added_by_me' => $num_locations_added_by_me,
             'is_internal_user' => BaseUser::isInternal(),
             'user_home_address_text' => ProfileController::getHomeAddressTextFor($user)

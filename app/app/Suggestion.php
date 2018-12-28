@@ -15,8 +15,10 @@ class Suggestion extends Model
      *
      * @var bool
      */
-    public $incrementing = false;
+    public $incrementing = true;
     public $timestamps = false;
+    protected $softDelete = true;
+    protected $dates = ['deleted_at'];
 
     public function belongsToLocation()
     {

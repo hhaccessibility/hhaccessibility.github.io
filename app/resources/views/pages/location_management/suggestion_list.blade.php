@@ -4,9 +4,9 @@
 	<div class="text-center">
 		<h1>
 		@if ($name)
-		<a href="/location/management/my-locations">Suggestions for {{ $name }}</a>
+		<a href="/location/management/my-locations">{{ count($suggestions) }} Suggestions for {{ $name }}</a>
 		@else
-		Suggestions
+		Suggestions ({{ count($suggestions) }})
 		@endif
 		</h1>
 	</div>

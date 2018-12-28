@@ -12,6 +12,7 @@ use App\Location;
 use App\BaseUser;
 use App\Suggestion;
 use App\User;
+use App\Role;
 use DB;
 
 class SuggestionController extends Controller
@@ -75,26 +76,51 @@ class SuggestionController extends Controller
         $suggestion->save();
 
         return Response::json([
-            'success' => 1
+            'success' => 1,
+            'id' => $suggestion->id
         ], 200);
     }
 
-    public function showSuggestionList(string $location_id)
+    private function getSuggestionsFor($location_id)
     {
-        $location_name = Location::find($location_id)->name;
-        $suggestions = DB::table('suggestion')
-                        ->where('location_id', '=', $location_id)
-                        ->get([
-                            'id',
-                            'user_id',
-                            'when_generated']);
-        foreach ($suggestions as $suggestion) {
-            $user = User::find($suggestion->user_id);
-            $suggestion->user_name = $user->first_name." ".$user->last_name;
+        if (!$location_id && BaseUser::isSignedIn()) {
+            if (!BaseUser::isInternal()) {
+                $db_user = BaseUser::getDbUser();
+                $location_ids = Location::where('creator_user_id', '=', $db_user->id)->get();
+                if (count($location_ids) === 1) {
+                    $location_id = $location_ids[0];
+                } elseif (count($location_ids) === 0) {
+                    return ['suggestions' => [], 'name' => ''];
+                }
+            }
+        } else {
+            $location_ids = [$location_id];
         }
+        $columns = ['suggestion.id', 'suggestion.user_id', 'suggestion.when_generated',
+            DB::raw('concat(user.first_name, \' \', user.last_name) as user_name')];
+        $suggestions = Suggestion::join('user', 'user.id', '=', 'suggestion.user_id')->where('deleted_at', '=', null);
+        if ($location_id === null) {
+            $location_name = '';
+            $suggestions = $suggestions->join('location', 'location.id', '=', 'suggestion.location_id');
+        } else {
+            $location_name = Location::find($location_id)->name;
+        }
+        if (isset($location_ids)) {
+            $suggestions = $suggestions->whereIn('location_id', $location_ids);
+        }
+        if (!$location_name) {
+            $columns []= DB::raw('location.name as location_name');
+        }
+        $suggestions = $suggestions->get($columns);
+        return ['suggestions' => $suggestions, 'name' => $location_name];
+    }
+
+    public function showSuggestionList($location_id = null)
+    {
+        $suggestionsInfo = $this->getSuggestionsFor($location_id);
         $view_data = [
-            'suggestions' => $suggestions,
-            'name' => $location_name
+            'suggestions' => $suggestionsInfo['suggestions'],
+            'name' => $suggestionsInfo['name']
         ];
         return view('pages.location_management.suggestion_list', $view_data);
     }
@@ -112,5 +138,84 @@ class SuggestionController extends Controller
             'original_location' => $location
         ];
         return view('pages.location_management.suggestion_detail', $view_data);
+    }
+
+    public function accept(string $suggestion_id, string $fieldname)
+    {
+        $result = $this->validateSuggestionAndUser($suggestion_id);
+        if ($result instanceof Suggestion) {
+            $suggestion = $result;
+        } elseif ($result) {
+            return $result;
+        }
+        $location = Location::find($suggestion->location_id);
+        $all_fields = ['phone_number', 'address', 'name', 'external_web_url'];
+        $fields = [];
+        if ($fieldname === 'all') {
+            $fields = $all_fields;
+        } elseif (in_array($fieldname, $all_fields)) {
+            $fields = [$fieldname];
+        } else {
+            return  Response::json([
+                'success' => false,
+                'message' => "Invalid field name"
+            ], 403);
+        }
+        foreach ($fields as $field) {
+            $location->{$field} = $suggestion->{'location_' . $field};
+        }
+        $location->save();
+    }
+
+    private function validateSuggestionAndUser(string $suggestion_id)
+    {
+        if (!BaseUser::isSignedIn()) {
+            return Response::json([
+                'success' => false,
+                'message' => "Not signed in."
+            ], 403);
+        }
+        $user = BaseUser::getDbUser();
+        $suggestion = Suggestion::find($suggestion_id);
+        if (!$suggestion) {
+            return Response::json([
+                'success' => false,
+                'message' => "Suggestion not found matching specified suggestion id."
+            ], 404);
+        }
+        if ($suggestion->deleted_at) {
+            return Response::json([
+                'success' => false,
+                'message' => "Suggestion already marked as resolved."
+            ], 422);
+        }
+        if (!$user->hasRole(Role::INTERNAL)) {
+            $location = Location::
+                where('creator_user_id', '=', $user->id)->
+                where('id', '=', $suggestion->location_id)->
+                get(['id']);
+            if (!$location) {
+                return Response::json([
+                    'success' => false,
+                    'message' =>
+                      'Not allowed to update location because you did not create it.'
+                ], 403);
+            }
+        }
+        return $suggestion;
+    }
+
+    public function markSuggestionAsResolved(string $suggestion_id)
+    {
+        $result = $this->validateSuggestionAndUser($suggestion_id);
+        if ($result instanceof Suggestion) {
+            $suggestion = $result;
+        } elseif ($result) {
+            return $result;
+        }
+        $suggestion->delete();
+        return Response::json([
+            'success' => true
+        ]);
     }
 }
