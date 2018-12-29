@@ -126,7 +126,6 @@ function initMap() {
 				search_radius /= 1.8;
 			}
 			setSearchRadius(search_radius);
-			//updateMapPositionAndSize(map, bounds, zoom_offset);
 		}
 		prev_zoom_level = zoomLevel;
 	});
