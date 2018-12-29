@@ -96,16 +96,49 @@ def replace_all_data(db, table_names):
 	db.commit()
 
 
+def get_hash_string(values):
+	result = ''
+	for val in values:
+		result += str(val) + '-'
+	if result != '':
+		result = result[:-1]
+	return result
+
+
+def filter_keys(dict1, keys):
+	result = {}
+	for key in keys:
+		result[key] = dict1[key]
+	return result
+
+
+def add_missing_data_with_composite_keys(db, cursor, table_name, composite_keys):
+	json_data = load_seed_data_from(table_name)
+	sql = 'select '
+	for key in composite_keys:
+		sql += '`' + key + '`,'
+	sql = sql[:-1] + ' from `' + table_name + '`'
+	db_data = run_query(db, sql)
+	db_data = [get_hash_string(row.values()) for row in db_data]
+	db_data = set(db_data) # The "in" operator works more efficiently on sets.
+	new_data = [new_row for new_row in json_data if get_hash_string(filter_keys(new_row, composite_keys).values()) not in db_data]
+	for new_row in new_data:
+		insert(cursor, table_name, new_row)
+
+
 def add_missing_data(db, table_names):
 	cursor = db.cursor()
 	for table_name in table_names:
-		json_data = load_seed_data_from(table_name)
-		db_data = run_query(db, 'select id from ' + table_name)
-		db_data = [row['id'] for row in db_data]
-		db_data = set(db_data) # The "in" operator works more efficiently on sets.
-		new_data = [new_row for new_row in json_data if new_row['id'] not in db_data]
-		for new_row in new_data:
-			insert(cursor, table_name, new_row)
+		if isinstance(table_name, dict):
+			add_missing_data_with_composite_keys(db, cursor, table_name['name'], table_name['composite_keys'])
+		else:
+			json_data = load_seed_data_from(table_name)
+			db_data = run_query(db, 'select id from ' + table_name)
+			db_data = [row['id'] for row in db_data]
+			db_data = set(db_data) # The "in" operator works more efficiently on sets.
+			new_data = [new_row for new_row in json_data if new_row['id'] not in db_data]
+			for new_row in new_data:
+				insert(cursor, table_name, new_row)
 	db.commit()
 
 

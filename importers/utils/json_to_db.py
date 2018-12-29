@@ -3,7 +3,10 @@ from sync import sync
 db = sync.get_db_connection()
 sync.add_missing_data(db, ['data_source', 'location_group', 'location_event'])
 sync.set_fields_on_locations(db)
-sync.add_missing_data(db, ['location_location_tag'])
+sync.add_missing_data(db, [{
+		'name': 'location_location_tag',
+		'composite_keys': ['location_id', 'location_tag_id']
+	}])
 sync.clear_ratings_cache(db)
 sync.set_fields_on_location_tags(db)
 sync.update_coordinates_for_locations(db)

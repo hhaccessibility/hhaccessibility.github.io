@@ -134,8 +134,11 @@ function setMarker(location)
 	//place the marker on that location
 	if ( marker === undefined )
 	{
+		var centreImage = new google.maps.MarkerImage('/images/maps/cross.png',
+			new google.maps.Size(49, 49), new google.maps.Point(0, 0), new google.maps.Point(25, 24));
 		marker = new google.maps.Marker({
-			map: map
+		  map: map,
+		  icon: centreImage
 		});
 	}
 	marker.setPosition(location);
