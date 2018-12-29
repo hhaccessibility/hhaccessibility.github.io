@@ -17,7 +17,7 @@
 
 	<h2>Owner and Data Controller</h2>
 	<p>Josh Greig - 1440 Howard Avenue, Windsor, ON, Canada N8X 3T3</p>
-	<p><strong>Owner contact email:</strong> josh.greig@gmail.com</p>
+	<p><strong>Owner contact email:</strong> {{env('SEND_EMAIL_ID')}}</p>
 
 	<h2>Mode and place of processing the Data</h2>
 

@@ -63,7 +63,7 @@ class PasswordRecoveryController extends Controller
         Mail::send(new RecoveryPasswordMail(
             $matching_user->email,
             $recoveryLink,
-            'josh.greig@gmail.com'
+            env('SEND_EMAIL_ID')
         ));
 
         return view('pages.password_recovery.email_sent');
