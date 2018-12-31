@@ -170,9 +170,9 @@ function getSortedLocations($locationsQuery, $view, $order_by_field_name, $ratin
 	}
 	$locationsResult = filterLocationsToMax($locations, $maxLocations);
     $locations = $locationsResult['locations'];
+    AnswerRepository::updateRatings($locations, $ratingSystem);
 
     if ($view === 'table') {
-        AnswerRepository::updateRatings($locations, $ratingSystem);
         if ($order_by_field_name === 'name') {
             usort($locations, array("App\Libraries\Utils", "compareByName"));
         } elseif ($order_by_field_name === 'distance') {
@@ -340,6 +340,21 @@ class LocationSearchController extends Controller
         ]);
 
         $search_radius = BaseUser::getSearchRadius();
+        $unused_keys = ['ratings_cache', 'pivot', 'creator_user_id',
+        'external_web_url', 'owner_user_id', 'address', 'universal_rating',
+        'destroy_location_event_id', 'data_source_id', 'location_group_id',
+        'phone_number'];
+        if ($view === 'map') {
+            $unused_keys []= 'distance';
+        }
+
+        // clean up unused properties from the locations array so they don't waste
+        // bandwidth and wasted time for the browser to parse.
+        foreach ($locationsResult['locations'] as $location) {
+            foreach ($unused_keys as $key) {
+                unset($location->{$key});
+            }
+        }
 
         return view(
             'pages.location_search.search',
