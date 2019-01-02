@@ -78,11 +78,22 @@ function initMap() {
 	locations.forEach(function(location) {
 
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
-
+		var markerIcon = '/images/maps/less_recommend.png'; // default for less than 40 rating
+		
+		if (location.rating>39) {
+			if (location.rating >65) {
+				markerIcon = '/images/maps/more_recommend.png';
+			}
+			else {
+				markerIcon = '/images/maps/may_be_recommend.png';
+			}
+		}
+		
 		var locationMarker = new google.maps.Marker({
 		  position: {lat: location.latitude, lng: location.longitude},
 		  map: map,
-		  title: location.name
+		  title: location.name,
+		  icon: markerIcon
 		});
 
 		google.maps.event.addListener(locationMarker, 'click', function() {
