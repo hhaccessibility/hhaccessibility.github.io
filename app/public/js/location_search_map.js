@@ -80,12 +80,12 @@ function initMap() {
 		var myLatLng = new google.maps.LatLng(location.latitude,location.longitude);
 		var markerIcon = '/images/maps/less_recommend.png'; // default for less than 40 rating
 		
-		if(location.rating>39){
+		if (location.rating>39) {
 			if (location.rating >65) {
 				markerIcon = '/images/maps/more_recommend.png';
 			}
 			else {
-				var markerIcon = '/images/maps/may_be_recommend.png';
+				markerIcon = '/images/maps/may_be_recommend.png';
 			}
 		}
 		
