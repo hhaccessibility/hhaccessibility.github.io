@@ -4,6 +4,7 @@ use App\Location;
 use App\QuestionCategory;
 use App\BaseUser;
 use App\ReviewComment;
+use App\Image;
 use App\Helpers\ResponsiveTextHelper;
 use DB;
 use Illuminate\Routing\Controller;
@@ -73,6 +74,7 @@ class LocationReportController extends Controller
             abort(404, 'Specified location not found');
         }
         $question_categories = QuestionCategory::with('questions')->orderBy('name', 'ASC')->get();
+        $has_images = Image::where('location_id', '=', $location->id)->first();
         $category_rating_counts = [];
         foreach ($question_categories as $category) {
             $db_question_ids = DB::table('question')
@@ -101,7 +103,8 @@ class LocationReportController extends Controller
             'is_internal_user' => BaseUser::isInternal(),
             'body_class' => 'show-ratings-popup',
             'category_rating_counts' => $category_rating_counts,
-            'responsive_text_helper' => new ResponsiveTextHelper()
+            'responsive_text_helper' => new ResponsiveTextHelper(),
+            'has_images' => !!$has_images
         ];
 
         return view('pages.location_report.collapsed', $view_data);

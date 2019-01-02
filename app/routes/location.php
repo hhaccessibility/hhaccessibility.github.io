@@ -24,7 +24,7 @@ Route::get(
 );
 Route::get('location-reporting/{location_id}/{question_category_id}', 'LocationReportController@show2');
 Route::get('api/location/image/{location_id}', 'LocationImageController@getImagesFor');
-Route::get('location/image/{location_id}', 'LocationImageController@getImage');
+Route::get('location/image/{image_id}', 'LocationImageController@getImage');
 Route::post('api/set-search-radius', 'LocationSearchController@setSearchRadius');
 Route::post('api/add-suggestion', 'SuggestionController@addSuggestion');
 Route::get('suggestion-list', 'SuggestionController@showSuggestionList');

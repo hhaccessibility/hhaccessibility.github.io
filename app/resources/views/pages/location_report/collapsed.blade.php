@@ -7,6 +7,9 @@
 	<script src="/js/location_report.js"></script>
 	<script language="JavaScript" src="/js/pie_graph.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	@if ($has_images)
+	<script src="/js/location_image_slideshow.js"></script>
+	@endif
 @stop
 @section('footer-content')
 	@if (!$turn_off_maps)
@@ -38,6 +41,11 @@
 			@if ($location->destroy_location_event_id)
 				<p class="destroyed"><a href="/location/event/{{ $location->destroy_location_event_id }}">This location was destroyed.</a></p>
 			@endif
+		</div>
+		<div class="images-button">
+			<a title="See images from {{ $location->name }}">
+				<span class="fa fa-image"></span>
+			</a>
 		</div>
 		<div class="location-tags text-right">
 			<div class="location-tags">

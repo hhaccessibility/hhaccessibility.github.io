@@ -142,6 +142,31 @@ This is where to put SCSS for the location report that shows a map.
 			}
 		}
 	}
+	
+	.images-button {
+		display: none;
+		&.has-images {
+			display: block;
+			a {
+				@extend %dark-link;
+
+				cursor: pointer;
+				display: inline-block;
+				margin-bottom: 1px;
+				border: 1px solid rgba($base_colour1, 0.3);
+				padding: 6px 13px;
+				background-color: rgba($base_colour1, 0.75);
+				
+				&:hover {
+					background-color: rgba($base_colour1, 1.0);
+				}
+
+				span {
+					font-size: 1.5em;
+				}
+			}
+		}
+	}
 
 	.location-tags {
 		padding: 0;
