@@ -8,6 +8,7 @@ from import_helpers.seed_io import load_seed_data_from
 import import_helpers.utils as utils
 import db_config
 import uuid
+import json
 
 
 def get_db_connection():
@@ -183,6 +184,40 @@ def clear_ratings_cache(db):
 	cur = db.cursor(MySQLdb.cursors.DictCursor)
 	clear_cache_statement = 'update location set ratings_cache=null, universal_rating=null'
 	cur.execute(clear_cache_statement)
+
+
+def nullify_ratings_cache_when_missing_questions(db):
+	"""
+	Sets ratings_cache to null when not all questions are specified in the ratings_cache value.
+	This is a little sanitization of the database.
+	
+	Aspects of the rating calculation in the web application assume that if ratings_cache is not null,
+	it must set values for every question.
+	"""
+	questions = load_seed_data_from('question')
+	questions = [q['id'] for q in questions]
+	locations_with_ratings_cache = run_query(db, 'select id, ratings_cache from location where ratings_cache is not null')
+	location_ids_to_clear = []
+	for location in locations_with_ratings_cache:
+		ratings = json.loads(location['ratings_cache'])
+		for question_id in questions:
+			if question_id not in ratings:
+				location_ids_to_clear.append(location['id'])
+				break
+	if len(location_ids_to_clear) > 0:
+		print('Clearing ratings_cache for %d locations.' % len(location_ids_to_clear))
+		group_size = 100
+		cursor = db.cursor()
+		# Loop through groups.
+		# We don't want to delete all at once because there may be a limit to the SQL query size.
+		while (len(location_ids_to_clear) > 0):
+			group_ids = location_ids_to_clear[0 : group_size]
+			s = str(group_ids).replace('[', '(').replace(']', ')').replace('u', '')
+			s = 'update location set ratings_cache=NULL where id in ' + s
+			run_query(db, s)
+			# Remove the elements that were already updated.
+			location_ids_to_clear = location_ids_to_clear[len(group_ids):]
+		db.commit()
 
 
 def set_fields_on_locations(db):
