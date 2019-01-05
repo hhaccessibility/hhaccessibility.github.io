@@ -33,6 +33,9 @@
 	var user_longitude = {{ $base_user->getLongitude() }};
 	var user_latitude  = {{ $base_user->getLatitude() }};
   </script>
+  <script
+		src="/js/marker_clusterer.js">
+  </script>
   <script src="/js/location_search_map.js">
   </script>
   @endif
@@ -46,9 +49,6 @@
 	@if ( $view === 'map' && !$turn_off_maps )
 	<script async defer
 		src="//maps.googleapis.com/maps/api/js?key={{ $google_map_api_key }}&amp;callback=initMap">
-    </script>
-	<script
-		src="/js/marker_clusterer.js">
     </script>
 	@endif
 @stop
