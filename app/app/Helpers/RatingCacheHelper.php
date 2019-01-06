@@ -5,6 +5,7 @@ namespace App\Helpers;
 use App\LocationGroup;
 use App\Question;
 use DB;
+use Exception;
 
 class RatingCacheHelper
 {
@@ -84,6 +85,10 @@ class RatingCacheHelper
             } else {
                 foreach ($locations_with_question_rated as $location) {
                     $ratings_cache = json_decode($location->ratings_cache, true);
+                    if (!isset($ratings_cache['' . $question->id])) {
+                        throw new Exception('question ' . $question->id .
+                            ' is not set in ratings_cache for location id: '.$location->id);
+                    }
                     $rating = $ratings_cache['' . $question->id];
                     if ($rating > 1) {
                         $rating = 1;
