@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('head-content')
 	<script>
+	var csrfToken = '{{ csrf_token() }}';
 	var locationPoint = {lat: {{ $location->latitude }}, lng: {{ $location->longitude }} };	
 	</script>
 	<script language="JavaScript" src="/js/jquery-3.1.1.js"></script>

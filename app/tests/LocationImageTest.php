@@ -20,6 +20,7 @@ class LocationImageTest extends TestCase
             $this->assertTrue(isset($image->id));
             $this->assertTrue(isset($image->created_at));
             $this->assertTrue(isset($image->uploader_name));
+            $this->assertTrue(isset($image->can_be_deleted));
         }
     }
 
