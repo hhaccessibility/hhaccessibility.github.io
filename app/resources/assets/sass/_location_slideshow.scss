@@ -7,6 +7,26 @@
 	right: 0;
 	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 2;
+
+	.delete {
+		display: none;
+	}
+
+	&.can-be-deleted {
+		.delete {
+			display: block;
+
+			em {
+				color: #444;
+			}
+
+			&:hover {
+				em {
+					color: #000;
+				}
+			}
+		}
+	}
 	
 	.slideshow-dialog {
 		position: absolute;
@@ -17,13 +37,16 @@
 		text-align: center;
 		z-index: 2;
 		box-shadow: 0 0 15px #000;
+		
+		.next, .previous, .delete {
+			position: absolute;
+			bottom: 0;
+		}
 
 		.next, .previous {
 			background-repeat: no-repeat;
 			background-position: center center;
-			position: absolute;
 			top: 0;
-			bottom: 0;
 			width: 50%;
 			transition: opacity 0.3s;
 			cursor: pointer;
@@ -52,6 +75,11 @@
 			background-position: center left;
 		}
 
+		.delete {
+			left: 0;
+			right: 0;
+		}
+
 		.image {
 			background-size: contain;
 			background-position: center;
@@ -68,8 +96,8 @@
 			margin-left: -35vw;
 			height: 60vh;
 			width: 70vw;
-			padding-top: 30px;
-			padding-bottom: 30px;
+			padding-top: 40px;
+			padding-bottom: 40px;
 			padding-left: 20px;
 			padding-right: 20px;
 			
@@ -85,6 +113,10 @@
 			.next {
 				background-position: right 20px center;
 			}
+
+			.delete {
+				font-size: 32px;
+			}
 		}
 	}
 }
@@ -96,8 +128,8 @@
 			margin-left: -35vw;
 			height: 70vh;
 			width: 70vw;
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding-top: 30px;
+			padding-bottom: 30px;
 			padding-left: 10px;
 			padding-right: 10px;
 
@@ -115,6 +147,10 @@
 			.next {
 				background-position: right 10px center;
 			}
+
+			.delete {
+				font-size: 22px;
+			}
 		}
 	}
 }
@@ -127,8 +163,8 @@
 			border-radius: 0;
 			margin-top: -40vh;
 			height: 80vh;
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: 15px;
+			padding-bottom: 25px;
 
 			.next, .previous {
 				background-size: 40px auto;
@@ -136,13 +172,18 @@
 				padding-left: 2px;
 				border-radius: 3px;
 			}
-			
+
 			.previous {
 				background-position: 5px center;
 			}
 
 			.next {
 				background-position: right 5px center;
+			}
+
+			.delete {
+				padding-top: 20px;
+				font-size: 18px;
 			}
 		}
 	}
