@@ -11,6 +11,10 @@ use Illuminate\Auth\AuthenticationException;
 
 class BaseUser
 {
+    /* A cache of the db user used to prevent repeated SQL queries
+    to look up the database user. */
+    private static $dbUser = null;
+
     public static function getMaximumSearchRadiusKM()
     {
         return 500;
@@ -68,12 +72,14 @@ class BaseUser
     */
     public static function getDbUser()
     {
+        if (BaseUser::$dbUser) {
+            return BaseUser::$dbUser;
+        }
         if (!BaseUser::isSignedIn()) {
             throw new AuthenticationException(
                 'Unable to get database user because you are not signed in'
             );
         }
-
         $email = Session::get('email');
         $user = User::where('email', $email) -> first();
         if (!$user) {
@@ -82,7 +88,7 @@ class BaseUser
                 'Signed in but not able to get user from database'
             );
         }
-
+        BaseUser::$dbUser = $user;
         return $user;
     }
 
@@ -266,6 +272,7 @@ class BaseUser
     public static function signout()
     {
         Session::forget(['email']);
+        BaseUser::$dbUser = null;
     }
 
     public static function setTimeZoneOffset(int $timeZoneOffset)
