@@ -7,67 +7,45 @@
 		<h1>Sign In</h1>
 		<p>New to AccessLocator? <a href="/signup">Sign Up</a></p>
 	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="signin-form">
-				@if ( isset($message) && $message )
-				<div class="message text-center alert alert-info">
-					{{$message}}
+	<div class="signin-form">
+		@if ( isset($message) && $message )
+		<div class="message text-center alert alert-info">
+			{{$message}}
+		</div>
+		@endif
+		@if ( isset($confirmmessage) && $confirmmessage )
+		<strong>{{ $confirmmessage }}</strong>
+		@else
+		<form method="post" action="/signin">
+			{!! csrf_field() !!}
+			@include('pages.validation_messages', array('errors'=>$errors))
+			<input type="hidden" name="after_signin_redirect" value="{{ isset($after_signin_redirect) ? $after_signin_redirect : '' }}">
+			<div class="row">
+				<div class="col-xs-12">
+					<input type="email"
+						class="clean" name="email"
+						placeholder="Email" value="{{ old('email', $email) }}">
 				</div>
-				@endif
-				@if ( isset($confirmmessage) && $confirmmessage )
-				<strong>{{ $confirmmessage }}</strong>
-				@else
-				<form method="post" action="/signin">
-					{!! csrf_field() !!}
-					@include('pages.validation_messages', array('errors'=>$errors))
-					<input type="hidden" name="after_signin_redirect" value="{{ isset($after_signin_redirect) ? $after_signin_redirect : '' }}">
-					<div class="row">
-						<div class="col-xs-12">
-							<input type="email"
-								class="clean" name="email"
-								placeholder="Email" value="{{ old('email', $email) }}">
-						</div>
-						<div class="col-xs-12">
-							<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
-							<div id="capsLock" class="capsLock text-right alert alert-warning">CapsLock is on!
-								<span class="fa fa-exclamation-circle"></span>
-							</div>
-						</div>
-						
-                        <div class="col-xs-12">
-							<div class="remember-password">
-								<a class="pull-right" href="/user/password-recovery"> Account Recovery </a>
-							</div>
-                        </div>
-                                                
+				<div class="col-xs-12">
+					<input class="clean" name="password" type="password" placeholder="Password" value="{{ old('password') }}">
+					<div id="capsLock" class="capsLock text-right alert alert-warning">CapsLock is on!
+						<span class="fa fa-exclamation-circle"></span>
 					</div>
-					<div>
-						<input class="clean" type="submit" value="Sign in">
-					</div>
-				</form>
-				@endif
-			</div> 
-		</div>
-		<div class="col-md-6">
-			<div class="social-media-signins">
-				Or sign in using your social media account
+				</div>
 				
-				<a rel="nofollow" class="facebook" href="/socialauth/auth/Facebook{{
-					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
-				}}">
-					<i class="fa-lg fa fa-facebook"></i>
-					<div class="pull-right">Sign in with facebook</div>
-				</a>
-				<a rel="nofollow" class="google-plus" href="/socialauth/auth/Google{{
-					isset($after_signin_redirect) && $after_signin_redirect ? htmlentities('?after_signin_redirect='.urlencode($after_signin_redirect)) : ''
-				}}">
-					<i class="fa-lg fa fa-google-plus"></i>
-					<div class="pull-right">Sign in with Google</div>
-				</a>
+				<div class="col-xs-12">
+					<div class="remember-password">
+						<a class="pull-right" href="/user/password-recovery"> Account Recovery </a>
+					</div>
+				</div>
+										
 			</div>
-		</div>
-	</div>
+			<div>
+				<input class="clean" type="submit" value="Sign in">
+			</div>
+		</form>
+		@endif
+	</div> 
 </div>
 
 @stop
