@@ -35,7 +35,7 @@
 				
 				<div class="col-xs-12">
 					<div class="remember-password">
-						<a class="pull-right" href="/user/password-recovery"> Account Recovery </a>
+						<a class="pull-right" href="/user/password-recovery"> Forgotten Password </a>
 					</div>
 				</div>
 										
